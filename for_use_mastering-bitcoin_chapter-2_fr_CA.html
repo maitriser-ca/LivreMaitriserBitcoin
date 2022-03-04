@@ -595,7 +595,7 @@ Une description du paiement : &amp;quot;Acheter au Bob&amp;#39;s Cafe&amp;quot;
 </div>
 <div id="transaction-double-entry" class="imageblock data-line-105">
 <div class="content">
-<img src="images/mbc2_0203.png" alt="Transaction Double-Entry">
+<img src="images/mbc2_0203.png" alt="&quot;Transaction en double saisie&quot;">
 </div>
 <div class="title">Figure 3. Transaction comptable en double parties</div>
 </div>
@@ -631,7 +631,7 @@ Une description du paiement : &amp;quot;Acheter au Bob&amp;#39;s Cafe&amp;quot;
 </div>
 <div id="transaction-common" class="imageblock data-line-129">
 <div class="content">
-<img src="images/mbc2_0205.png" alt="Common Transaction">
+<img src="images/mbc2_0205.png" alt="&quot;Transaction commune&quot;">
 </div>
 <div class="title">Figure 5. Transaction la plus courante</div>
 </div>
@@ -649,7 +649,7 @@ Une description du paiement : &amp;quot;Acheter au Bob&amp;#39;s Cafe&amp;quot;
 </div>
 <div id="transaction-distributing" class="imageblock data-line-141">
 <div class="content">
-<img src="images/mbc2_0207.png" alt="&quot;Transaction de distribution&quot;">
+<img src="images/mbc2_0207.png" alt="Distributing Transaction">
 </div>
 <div class="title">Figure 7. Transaction distribuant des fonds</div>
 </div>
@@ -856,11 +856,11 @@ Une description du paiement : &amp;quot;Acheter au Bob&amp;#39;s Cafe&amp;quot;
 <p> Environ 20 minutes plus tard, un nouveau bloc, #277317, est miné par un autre mineur. Parce que ce nouveau bloc est construit au-dessus du bloc #277316 qui contenait la transaction d&#39;Alice, il a ajouté encore plus de calculs à la chaîne de blocs, renforçant ainsi la confiance dans ces transactions. Chaque bloc miné en plus de celui contenant la transaction compte comme une confirmation supplémentaire pour la transaction d&#39;Alice. Au fur et à mesure que les blocs s&#39;empilent les uns sur les autres, il devient exponentiellement plus difficile d&#39;inverser la transaction, ce qui la rend de plus en plus fiable par le réseau.</p>
 </div>
 <div class="paragraph data-line-270">
-<p>Dans le diagramme en <a href="#block-alice1">[block-alice1]</a>, nous pouvons voir le bloc #277316, qui contient la transaction d&#39;Alice. En dessous se trouvent 277 316 blocs (y compris le bloc #0), liés les uns aux autres dans une chaîne de blocs (blockchain) jusqu&#39;au bloc #0, connu sous le nom de <em>bloc d&#8217;origine</em>. Au fil du temps, à mesure que la &quot;hauteur&quot; des blocs augmente, la difficulté de calcul de chaque bloc et de la chaîne dans son ensemble augmente également. Les blocs extraits après celui qui contient la transaction d&#39;Alice agissent comme une assurance supplémentaire, car ils accumulent plus de calculs dans une chaîne de plus en plus longue. Par convention, tout bloc avec plus de six confirmations est considéré comme irrévocable, car il faudrait une immense quantité de calculs pour invalider et recalculer six blocs. Nous examinerons plus en détail le processus d&#39;exploitation minière et la manière dont il renforce la confiance dans <a href="#mining">[mining]</a>.</p>
+<p>Dans le diagramme en <a href="#block-alice1">Transaction d&#39;Alice incluse dans le bloc #277316</a>, nous pouvons voir le bloc #277316, qui contient la transaction d&#39;Alice. En dessous se trouvent 277 316 blocs (y compris le bloc #0), liés les uns aux autres dans une chaîne de blocs (blockchain) jusqu&#39;au bloc #0, connu sous le nom de <em>bloc d&#8217;origine</em>. Au fil du temps, à mesure que la &quot;hauteur&quot; des blocs augmente, la difficulté de calcul de chaque bloc et de la chaîne dans son ensemble augmente également. Les blocs extraits après celui qui contient la transaction d&#39;Alice agissent comme une assurance supplémentaire, car ils accumulent plus de calculs dans une chaîne de plus en plus longue. Par convention, tout bloc avec plus de six confirmations est considéré comme irrévocable, car il faudrait une immense quantité de calculs pour invalider et recalculer six blocs. Nous examinerons plus en détail le processus d&#39;exploitation minière et la manière dont il renforce la confiance dans <a href="#mining">[mining]</a>.</p>
 </div>
-<div id="bloc-alice1" class="imageblock data-line-274">
+<div id="block-alice1" class="imageblock data-line-274">
 <div class="content">
-<img src="images/mbc2_0209.png" alt="&quot;Transaction d&#39;Alice incluse dans un bloc&quot;">
+<img src="images/mbc2_0209.png" alt="Alice&#8217;s transaction included in a block">
 </div>
 <div class="title">Figure 9. Transaction d&#39;Alice incluse dans le bloc #277316</div>
 </div>
@@ -874,11 +874,11 @@ Une description du paiement : &amp;quot;Acheter au Bob&amp;#39;s Cafe&amp;quot;
 <p>Bob peut maintenant dépenser le résultat de cette transaction et d&#39;autres transactions. Par exemple, Bob peut payer un entrepreneur ou un fournisseur en transférant la valeur du paiement de la tasse de café d&#39;Alice à ces nouveaux propriétaires. Très probablement, le logiciel Bitcoin de Bob regroupera de nombreux petits paiements en un paiement plus important, concentrant peut-être tous les revenus Bitcoin de la journée en une seule transaction. Cela regrouperait les différents paiements en un seul résultat (et une seule adresse). Pour un diagramme d&#39;une transaction d&#39;agrégation, voir <a href="#transaction-aggregating">Transaction agrégeant des fonds</a>.</p>
 </div>
 <div class="paragraph data-line-282">
-<p>Au fur et à mesure que Bob dépense les paiements reçus d&#39;Alice et d&#39;autres clients, il étend la chaîne des transactions. Supposons que Bob paie son concepteur Web Gopesh à Bangalore pour une nouvelle page Web. Maintenant, la chaîne de transactions ressemblera à <a href="#block-alice2">[block-alice2]</a>.</p>
+<p>Au fur et à mesure que Bob dépense les paiements reçus d&#39;Alice et d&#39;autres clients, il étend la chaîne des transactions. Supposons que Bob paie son concepteur Web Gopesh à Bangalore pour une nouvelle page Web. Maintenant, la chaîne de transactions ressemblera à <a href="#block-alice2">La transaction d&#39;Alice dans le cadre d&#39;une chaîne de transactions de Joe à Gopesh, où la sortie d&#39;une transaction est utilisée comme entrée de la transaction suivante</a>.</p>
 </div>
-<div id="bloc-alice2" class="imageblock data-line-286">
+<div id="block-alice2" class="imageblock data-line-286">
 <div class="content">
-<img src="images/mbc2_0210.png" alt="&quot;La transaction d&#39;Alice dans le cadre d&#39;une chaîne de transaction&quot;">
+<img src="images/mbc2_0210.png" alt="Alice&#8217;s transaction as part of a transaction chain">
 </div>
 <div class="title">Figure 10. La transaction d&#39;Alice dans le cadre d&#39;une chaîne de transactions de Joe à Gopesh, où la sortie d&#39;une transaction est utilisée comme entrée de la transaction suivante</div>
 </div>
@@ -891,7 +891,7 @@ Une description du paiement : &amp;quot;Acheter au Bob&amp;#39;s Cafe&amp;quot;
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-02 10:13:38 -0500
+Last updated 2022-03-03 19:48:21 -0500
 </div>
 </div>
 </body>

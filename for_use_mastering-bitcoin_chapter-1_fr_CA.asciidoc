@@ -63,7 +63,7 @@ Satoshi Nakamoto s&#39;est retiré du public en avril 2011, laissant la responsa
 ****
 
 
-[[Histoires d&#39;utilisateurs]]
+[[user-stories]]
 === Utilisations, utilisateurs et histoires de Bitcoin
 
 (((&quot;bitcoin&quot;, &quot;cas d&#39;utilisation&quot;, id=&quot;GSuses01&quot;)))Bitcoin est une innovation dans l&#39;ancienne technologie de l&#39;argent. À la base, l&#39;argent facilite simplement l&#39;échange de valeur entre les personnes. Par conséquent, afin de bien comprendre Bitcoin et ses utilisations, nous l&#39;examinerons du point de vue des personnes qui l&#39;utilisent. Chacune des personnes et de leurs histoires, telles qu&#39;énumérées ici, illustre un ou plusieurs cas d&#39;utilisation spécifiques. Nous les verrons tout au long du livre :
@@ -151,7 +151,7 @@ N&#39;essayez jamais un système de sécurité &quot;bricolage&quot; qui s&#39;�
 ****
 [[bluewallet-welcome]]
 .Alice utilise l&#39;écran de réception sur son portefeuille Bitcoin mobile Bluewallet et affiche son adresse à Bob au format de code QR
-image:: images/mbc2_0101.png[&quot;BluewalletBienvenue&quot;]
+image::images/mbc2_0101.png["BluewalletWelcome"]
 
 (((&quot;adresses&quot;, &quot;exemple de démarrage rapide du portefeuille bitcoin&quot;)))(((&quot;codes QR&quot;, &quot;exemple de démarrage rapide du portefeuille bitcoin&quot;)))(((&quot;adresses&quot;, see=&quot;aussi clés et adresses&quot; ))) La vue principale du portefeuille affiche le montant en bitcoins, l&#39;historique des transactions et les boutons _Receive_ et _Send_. En outre, de nombreux portefeuilles offrent la possibilité d&#39;acheter des Bitcoins directement via un échange ou un service similaire où vous pouvez offrir de l&#39;argent fiduciaire en échange de cryptomonnaie, ce qui est fait par &lt;<bitcoin_price>&gt; et vendre à l&#39;utilisateur du portefeuille à ce prix ou au-dessus. Le bouton _Buy Bitcoin_ permettrait à Alice d&#39;acheter des Bitcoins de cette manière.
 
@@ -185,7 +185,7 @@ Toutes ces méthodes présentent des degrés de difficulté variables et nombre 
 
 Alice a été initiée au bitcoin par un ami, elle a donc un moyen facile d&#39;acquérir son premier bitcoin. Ensuite, nous verrons comment elle achète des bitcoins à son ami Joe et comment Joe envoie les bitcoins dans son portefeuille.
 
-[[prix_bitcoin]]
+[[bitcoin_price]]
 ==== Trouver le prix actuel du Bitcoin
 
 (((&quot;commencer&quot;, &quot;taux de change&quot;)))(((&quot;taux de change&quot;, &quot;déterminer&quot;)))Avant qu&#39;Alice puisse acheter du bitcoin à Joe, ils doivent s&#39;entendre sur le _taux de change_ entre le bitcoin et le dollar américain . Cela soulève une question courante pour ceux qui découvrent le bitcoin : &quot;Qui fixe le prix du bitcoin ?&quot; La réponse courte est que le prix est fixé par les marchés.

@@ -1,0 +1,304 @@
+# Préface
+
+# Écrire le livre Bitcoin
+
+<span class="indexterm"></span> <span class="indexterm"></span> <span
+class="indexterm"></span><span class="indexterm"></span> <span
+class="indexterm"></span>Je suis tombé sur bitcoin pour la première fois
+à la mi-2011. Ma réaction immédiate a été plus ou moins "Pfft ! Nerd
+money !" et je l'ai ignoré pendant encore six mois, n'en saisissant pas
+l'importance. C'est une réaction que j'ai vue se répéter chez bon nombre
+des personnes les plus intelligentes que je connaisse, ce qui me
+réconforte un peu. La deuxième fois que je suis tombé sur bitcoin, lors
+d'une discussion sur une liste de diffusion, j'ai décidé de lire le
+livre blanc écrit par Satoshi Nakamoto pour étudier la source faisant
+autorité et voir de quoi il s'agissait. <span class="indexterm"></span>
+<span class="indexterm"></span>Je me souviens encore du moment où j'ai
+fini de lire ces neuf pages, quand j'ai réalisé que le bitcoin n'était
+pas simplement une monnaie numérique, mais un réseau de confiance qui
+pouvait aussi fournir la base de bien plus que de simples devises. La
+prise de conscience que "ce n'est pas de l'argent, c'est un réseau de
+confiance décentralisé", m'a lancé dans un voyage de quatre mois pour
+dévorer toutes les informations sur le bitcoin que j'ai pu trouver. Je
+suis devenu obsédé et captivé, passant 12 heures ou plus par jour collé
+à un écran, lisant, écrivant, codant et apprenant autant que possible.
+Je suis sorti de cet état de fugue, plus de 20 livres en moins à cause
+du manque de repas réguliers, déterminé à me consacrer au travail sur le
+bitcoin.
+
+Deux ans plus tard, après avoir créé un certain nombre de petites
+start-ups pour explorer divers services et produits liés au bitcoin,
+j'ai décidé qu'il était temps d'écrire mon premier livre. Bitcoin était
+le sujet qui m'avait poussé dans une frénésie de créativité et consommé
+mes pensées; c'était la technologie la plus excitante que j'avais
+rencontrée depuis Internet. Il était maintenant temps de partager ma
+passion pour cette technologie incroyable avec un public plus large.
+
+# Public visé
+
+<span class="indexterm"></span>Ce livre est principalement destiné aux
+codeurs. Si vous pouvez utiliser un langage de programmation, ce livre
+vous apprendra comment fonctionnent les monnaies cryptographiques,
+comment les utiliser et comment développer des logiciels qui
+fonctionnent avec elles. Les premiers chapitres conviennent également
+comme une introduction approfondie au bitcoin pour les non-codeurs, tel
+ceux qui veulent comprendre le fonctionnement interne du bitcoin et des
+crypto-monnaies.
+
+# Les conventions utilisées dans ce livre
+
+<span class="indexterm"></span>Les conventions typographiques suivantes
+sont utilisées dans ce livre :
+
+*Italique*  
+Indique de nouveaux termes, URL, adresses e-mail, noms de fichiers et
+extensions de fichiers.
+
+`Largeur constante`  
+Utilisé pour les listes de programmes, ainsi que dans les paragraphes
+pour faire référence à des éléments de programme tels que des noms de
+variables ou de fonctions, des bases de données, des types de données,
+des variables d'environnement, des instructions et des mots-clés.
+
+**`Largeur constante en gras`**  
+Affiche les commandes ou tout autre texte qui doit être saisi
+littéralement par l'utilisateur.
+
+*`Largeur constante en italique`* : Affiche le texte qui doit être
+remplacé par des valeurs fournies par l'utilisateur ou par des valeurs
+déterminées par le contexte.
+
+Cette icône signifie un conseil ou une suggestion.
+
+Cette icône signifie une note générale.
+
+Cette icône indique un avertissement ou une mise en garde.
+
+# Exemples de codes
+
+<span class="indexterm"></span> <span class="indexterm"></span> <span
+class="indexterm"></span>Les exemples sont illustrés en Python, C++, et
+en utilisant la ligne de commande d'un système d'exploitation de type
+Unix tel que Linux ou macOS. Tous les extraits de code sont disponibles
+dans le référentiel GitHub
+(<https://github.com/bitcoinbook/bitcoinbook>) dans le sous-répertoire
+*code* du référentiel principal. Fourchez le code du livre, essayez les
+exemples de code ou soumettez des corrections via GitHub.
+
+Tous les extraits de code peuvent être répliqués sur la plupart des
+systèmes d'exploitation avec une installation minimale de compilateurs
+et d'interpréteurs pour les langages correspondants. Si nécessaire, nous
+fournissons des instructions d'installation de base et des exemples
+étape par étape de la sortie de ces instructions.
+
+Certains des extraits de code et des sorties de code ont été reformatés
+pour l'impression. Dans tous ces cas, les lignes ont été séparées par un
+caractère barre oblique inverse (\\), suivi d'un caractère de saut de
+ligne. Lors de la transcription des exemples, supprimez ces deux
+caractères et rejoignez les lignes à nouveau et vous devriez voir des
+résultats identiques comme indiqué dans l'exemple.
+
+Tous les extraits de code utilisent des valeurs réelles et des calculs
+dans la mesure du possible, afin que vous puissiez construire d'exemple
+en exemple et voir les mêmes résultats dans n'importe quel code que vous
+écrivez pour calculer les mêmes valeurs. Par exemple, les clés privées
+et les clés et adresses publiques correspondantes sont toutes réelles.
+Les exemples de transactions, de blocs et de références de chaîne de
+blocs ont tous été introduits dans la chaîne de blocs bitcoin réelle et
+font partie du grand livre public, vous pouvez donc les consulter sur
+n'importe quel système bitcoin.
+
+# Adresses et transactions Bitcoin dans ce livre
+
+<span class="indexterm"></span> <span class="indexterm"></span><span
+class="indexterm"></span> <span class="indexterm"></span><span
+class="indexterm"></span> <span class="indexterm"></span><span
+class="indexterm"></span> <span class="indexterm"></span><span
+class="indexterm"></span> <span class="indexterm"></span><span
+class="indexterm"></span> <span class="indexterm"></span>Les adresses
+bitcoin, les transactions, les clés, les codes QR et les données de
+chaîne de blocs utilisées dans ce livre sont, pour la plupart, réelles.
+Cela signifie que vous pouvez parcourir la chaîne de blocs, regarder les
+transactions proposées en exemple, les récupérer avec vos propres
+scripts ou programmes, etc.
+
+Cependant, notez que les clés privées utilisées pour construire les
+adresses sont soit imprimées dans ce livre, soit ont été "radiées". Cela
+signifie que si vous envoyez de l'argent à l'une de ces adresses,
+l'argent sera perdu pour toujours ou, dans certains cas, tous ceux qui
+peuvent lire ce livre peuvent le prendre en utilisant les clés privées
+imprimées dans celui-ci.
+
+N'ENVOYEZ PAS D'ARGENT AUX ADRESSES DANS CE LIVRE. Votre argent sera
+pris par un autre lecteur, ou perdu à jamais.<span
+class="indexterm"></span> <span class="indexterm"></span>
+
+# Publication par O'Reilly Media
+
+Ce livre est dérivé sous licence du livre "Mastering Bitcoin 2nd
+Edition", par O'Reilly Media.
+
+# Droit d'auteur et licence de livre
+
+Copyright (c) 2014 Andreas M. Antonopoulos LLC
+
+Ce travail est sous licence Creative Commons Attribution-ShareAlike 4.0
+International License. Pour voir une copie de cette licence, visitez
+
+<http://creativecommons.org/licenses/by-sa/4.0/>.
+
+Pour fournir une attribution, veuillez créer un lien vers le référentiel
+du livre :
+
+<https://github.com/bitcoinbook/bitcoinbook>
+
+et inclure cette licence ou une licence ouverte équivalente, pour
+satisfaire aux exigences ShareAlike.
+
+Cette licence conforme à la "Culture libre" a été approuvée par mon
+éditeur O'Reilly Media (<http://oreilly.com>), qui comprend la valeur du
+mouvement de source ouverte. O'Reilly Media n'est pas seulement le
+meilleur éditeur de livres techniques au monde, mais aussi un fervent
+partisan d'une culture ouverte et du partage des connaissances.
+
+Merci O'Reilly !
+
+# Contacter l'auteur
+
+Vous pouvez me contacter, Andreas M. Antonopoulos, sur mon site
+personnel : <https://aantonop.com/>
+
+Des informations sur *Maîtriser Bitcoin (Mastering Bitcoin en anglais)*
+ainsi que l'Édition Ouverte et les traductions sont disponibles sur :
+<https://bitcoinbook.info/>
+
+Suivez-moi sur Twitter: <https://twitter.com/aantonop>
+
+Retrouvez plus de 500 vidéos pédagogiques sur ma chaîne YouTube :
+<https://youtube.com/aantonop>
+
+Un grand merci à tous mes mécènes qui soutiennent mon travail par des
+dons mensuels. Vous pouvez suivre ma page Patreon ici :
+<https://patreon.com/aantonop>
+
+# Remerciements
+
+<span class="indexterm"></span> <span class="indexterm"></span>Ce livre
+représente les efforts et les contributions de nombreuses personnes. Je
+suis reconnaissant pour toute l'aide que j'ai reçue d'amis, de collègues
+et même de parfaits inconnus, qui m'ont rejoint dans cet effort pour
+écrire le livre technique définitif sur les crypto-monnaies et le
+bitcoin.
+
+Il est impossible de faire une distinction entre la technologie bitcoin
+et la communauté bitcoin, et ce livre est autant un produit de cette
+communauté qu'un livre sur la technologie. Mon travail sur ce livre a
+été encouragé, applaudi, soutenu et récompensé par toute la communauté
+bitcoin du tout début jusqu'à la toute fin. Plus que tout, ce livre m'a
+permis de faire partie d'une merveilleuse communauté pendant deux ans et
+je ne vous remercierai jamais assez de m'avoir accepté dans cette
+communauté. Il y a beaucoup trop de personnes à mentionner par leur
+nom - des personnes que j'ai rencontrées lors de conférences,
+d'événements, de séminaires, de rencontres, de pizzas et de petits
+rassemblements privés, ainsi que beaucoup qui ont communiqué avec moi
+par Twitter, sur reddit, sur bitcointalk. org, et sur GitHub qui ont eu
+un impact sur ce livre. Chaque idée, analogie, question, réponse et
+explication que vous trouverez dans ce livre a été à un moment donné
+inspirée, testée ou améliorée grâce à mes interactions avec la
+communauté. Merci à tous pour votre soutien; sans vous ce livre n'aurait
+pas vu le jour. Je suis éternellement reconnaissant.
+
+Le voyage pour devenir auteur commence bien avant le premier livre, bien
+sûr. Ma première langue (et ma scolarité) était le grec, j'ai donc dû
+suivre un cours de rattrapage en anglais écrit lors de ma première année
+d'université. Je dois remercier Diana Kordas, mon professeur d'écriture
+d'anglais, qui m'a aidé à développer ma confiance et mes compétences
+cette année-là. Plus tard, en tant que professionnel, j'ai développé mes
+compétences en rédaction technique sur le thème des centres de données,
+en écrivant pour le magazine *Network World*. Je dois remercier John Dix
+et John Gallant, qui m'ont donné mon premier travail d'écriture en tant
+que chroniqueur à *Network World* et à mon éditeur Michael Cooney et mon
+collègue Johna Till Johnson qui ont édité mes chroniques et les ont
+rendues aptes à la publication. Écrire 500 mots par semaine pendant
+quatre ans m'a donné suffisamment d'expérience pour éventuellement
+envisager de devenir auteur.
+
+Merci également à ceux qui m'ont soutenu lorsque j'ai soumis ma
+proposition de livre à O'Reilly, en fournissant des références et en
+examinant la proposition. Plus précisément, merci à John Gallant,
+Gregory Ness, Richard Stiennon, Joel Snyder, Adam B. Levine, Sandra
+Gittlen, John Dix, Johna Till Johnson, Roger Ver et Jon Matonis.
+Remerciements particuliers à Richard Kagan et Tymon Mattoszko, qui ont
+révisé les premières versions de la proposition et à Matthew Taylor, qui
+a révisé la proposition.
+
+Merci à Cricket Liu, auteur du titre O'Reilly *DNS et BIND*, qui m'a
+présenté O'Reilly. Merci également à Michael Loukides et Allyson
+MacDonald de O'Reilly, qui ont travaillé pendant des mois pour aider à
+la réalisation de ce livre. Allyson a été particulièrement patiente
+lorsque les délais ont été manqués et les livrables retardés alors que
+la vie intervenait dans notre échéancier. Pour la deuxième édition, je
+remercie Timothy McGovern d'avoir guidé le processus, Kim Cofer d'avoir
+patiemment édité et Rebecca Panzer d'avoir illustré de nombreux nouveaux
+diagrammes.
+
+Les premières ébauches des premiers chapitres ont été les plus
+difficiles, car le bitcoin est un sujet difficile à démêler. Chaque fois
+que je tirais sur un fil de la technologie bitcoin, je devais tirer sur
+le tout. Je me suis retrouvé coincé à plusieurs reprises et un peu
+découragé alors que je luttais pour rendre le sujet facile à comprendre
+et créer un récit autour d'un sujet technique aussi dense. Finalement,
+j'ai décidé de raconter l'histoire du bitcoin à travers les histoires
+des personnes utilisant le bitcoin et tout le livre est devenu beaucoup
+plus facile à écrire. Je dois remercier mon ami et mentor, Richard
+Kagan, qui m'a aidé à démêler l'histoire et à surmonter les moments de
+blocage de l'écrivain. Je remercie Pamela Morgan, qui a révisé les
+premières ébauches de chaque chapitre de la première et de la deuxième
+édition du livre, et a posé les questions difficiles pour les améliorer.
+Merci également aux développeurs du groupe San Francisco Bitcoin
+Developers Meetup ainsi qu'à Taariq Lewis et Denise Terry pour avoir
+aidé à tester le premier matériel. Merci également à Andrew Naugler pour
+la conception infographique.
+
+Pendant le développement du livre, j'ai rendu les premières ébauches
+disponibles sur GitHub et j'ai invité les commentaires du public. Plus
+d'une centaine de commentaires, suggestions, corrections et
+contributions ont été soumis en réponse. Ces contributions sont
+explicitement reconnues, avec mes remerciements, dans
+&lt;&lt;github\_contrib&gt; &gt;. Surtout, mes sincères remerciements à
+mes éditeurs bénévoles de GitHub, Ming T. Nguyen (1ère édition) et Will
+Binns (2e édition), qui ont travaillé sans relâche pour organiser, gérer
+et résoudre les demandes d'extraction, publier des rapports et effectuer
+des corrections de bogues sur GitHub.
+
+Une fois le livre rédigé, il est passé par plusieurs séries d'examens
+techniques. Merci à Cricket Liu et Lorne Lantz pour leur examen
+approfondi, leurs commentaires et leur soutien.
+
+Plusieurs développeurs de bitcoins ont fourni des échantillons de code,
+des critiques, des commentaires et des encouragements. Merci à Amir
+Taaki et Eric Voskuil pour les extraits de code par exemple et de
+nombreux excellents commentaires ; Chris Kleeschulte pour sa
+contribution à l'annexe Bitcore ; Vitalik Buterin et Richard Kiss pour
+leur aide avec les mathématiques des courbes elliptiques et leurs
+contributions au code ; Gavin Andresen pour les corrections, les
+commentaires et les encouragements ; Michalis Kargakis pour les
+commentaires, les contributions et la rédaction de btcd ; et Robin Inge
+pour les soumissions d'errata améliorant la deuxième impression. Dans la
+deuxième édition, j'ai de nouveau reçu beaucoup d'aide de la part de
+nombreux développeurs de Bitcoin Core, dont Eric Lombrozo qui a
+démystifié le Témoin Séparé, Luke Dashjr qui a aidé à améliorer le
+chapitre sur les transactions, Johnson Lau qui a revu le Témoin Séparé
+et d'autres chapitres, et bien d'autres. Je dois remercier Joseph Poon,
+Tadge Dryja et Olaoluwa Osuntokun qui ont expliqué le Lightning Network,
+revu mes écrits et répondu aux questions lorsque je suis resté bloqué.
+
+Je dois mon amour des mots et des livres à ma mère, Theresa, qui m'a
+élevé dans une maison avec des livres tapissant tous les murs. Ma mère
+m'a également acheté mon premier ordinateur en 1982, bien qu'elle se
+décrive comme une technophobe. Mon père, Menelaos, un ingénieur civil
+qui vient de publier son premier livre à 80 ans, est celui qui m'a
+enseigné la pensée logique et analytique et l'amour de la science et de
+l'ingénierie.
+
+Merci à tous de m'avoir soutenu tout au long de ce parcours.

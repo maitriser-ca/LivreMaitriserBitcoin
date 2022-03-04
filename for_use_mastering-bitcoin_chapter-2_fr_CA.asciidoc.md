@@ -102,7 +102,7 @@ La transaction contient également une preuve de propriété pour chaque montant
 
 [[transaction-double-entry]]
 .Transaction comptable en double parties
-image::images/mbc2_0203.png[&quot;Transaction en double saisie&quot;]
+image::images/mbc2_0203.png["Transaction Double-Entry"]
 
 ==== Chaînes de transaction
 
@@ -126,7 +126,7 @@ La forme de transaction la plus courante est un simple paiement d&#39;une adress
 
 [[transaction-common]]
 .Transaction la plus courante
-image::images/mbc2_0205.png[&quot;Transaction commune&quot;]
+image::images/mbc2_0205.png["Common Transaction"]
 
 Une autre forme courante de transaction est celle qui agrège plusieurs entrées en une seule sortie (voir &lt;<transaction-aggregating> &gt;). Cela représente l&#39;équivalent réel de l&#39;échange d&#39;une pile de pièces et de billets de banque contre un seul billet plus gros. Des transactions comme celles-ci sont parfois générées par des applications de portefeuille pour nettoyer de nombreux petits montants reçus en monnaie de paiement.
 
@@ -138,7 +138,7 @@ Enfin, une autre forme de transaction que l&#39;on voit souvent sur le grand liv
 
 [[transaction-distributing]]
 .Transaction distribuant des fonds
-image::images/mbc2_0207.png["Distributing Transaction"]
+image::images/mbc2_0207.png[&quot;Transaction de distribution&quot;]
 
 === Construction d&#39;une transaction
 
@@ -269,9 +269,9 @@ Vous pouvez voir le bloc qui inclut https://www.blockchain.com/btc/block/277316[
 
 (((&quot;bloc d'origine&quot;)))(((&quot;blocs&quot;, &quot;bloc de d'origine&quot;)))(((&quot;chaîne de blocs (la)&quot;, &quot;bloc d'origine&quot;)))Dans le diagramme en &lt;<block-alice1>&gt;, nous pouvons voir le bloc #277316, qui contient la transaction d&#39;Alice. En dessous se trouvent 277 316 blocs (y compris le bloc #0), liés les uns aux autres dans une chaîne de blocs (blockchain) jusqu&#39;au bloc #0, connu sous le nom de _bloc d'origine_. Au fil du temps, à mesure que la &quot;hauteur&quot; des blocs augmente, la difficulté de calcul de chaque bloc et de la chaîne dans son ensemble augmente également. Les blocs extraits après celui qui contient la transaction d&#39;Alice agissent comme une assurance supplémentaire, car ils accumulent plus de calculs dans une chaîne de plus en plus longue. Par convention, tout bloc avec plus de six confirmations est considéré comme irrévocable, car il faudrait une immense quantité de calculs pour invalider et recalculer six blocs. Nous examinerons plus en détail le processus d&#39;exploitation minière et la manière dont il renforce la confiance dans &lt;<mining>&gt;.(((&quot;&quot;, startref=&quot;BToverview02&quot;)))(((&quot;&quot;, startref=&quot;MACover02&quot;)))
 
-[[block-alice1]]
+[[bloc-alice1]]
 .Transaction d&#39;Alice incluse dans le bloc #277316
-image::images/mbc2_0209.png["Alice's transaction included in a block"]
+image::images/mbc2_0209.png[&quot;Transaction d&#39;Alice incluse dans un bloc&quot;]
 
 === Dépenser la transaction
 
@@ -281,8 +281,8 @@ Bob peut maintenant dépenser le résultat de cette transaction et d&#39;autres 
 
 Au fur et à mesure que Bob dépense les paiements reçus d&#39;Alice et d&#39;autres clients, il étend la chaîne des transactions. Supposons que Bob paie son concepteur Web Gopesh(((&quot;cas d&#39;utilisation&quot;, &quot;services contractuels extraterritorial&quot;))) à Bangalore pour une nouvelle page Web. Maintenant, la chaîne de transactions ressemblera à &lt;<block-alice2>&gt;.
 
-[[block-alice2]]
+[[bloc-alice2]]
 .La transaction d&#39;Alice dans le cadre d&#39;une chaîne de transactions de Joe à Gopesh, où la sortie d&#39;une transaction est utilisée comme entrée de la transaction suivante
-image::images/mbc2_0210.png["Alice's transaction as part of a transaction chain"]
+image::images/mbc2_0210.png[&quot;La transaction d&#39;Alice dans le cadre d&#39;une chaîne de transaction&quot;]
 
 Dans ce chapitre, nous avons vu comment les transactions construisent une chaîne qui déplace la valeur d&#39;un propriétaire à l&#39;autre. Nous avons également suivi la transaction d&#39;Alice, à partir du moment où elle a été créée dans son portefeuille, via le réseau Bitcoin et jusqu&#39;aux mineurs qui l&#39;ont enregistrée sur la chaîne de blocs. Dans le reste de ce livre, nous examinerons les technologies spécifiques derrière les portefeuilles, les adresses, les signatures, les transactions, le réseau et enfin le minage.(((&quot;&quot;, startref=&quot;BCover02&quot;)))(((&quot;&quot;, startref =&quot;DCSover02&quot;))) (((&quot;&quot;, startref=&quot;UCcoffee02&quot;)))
