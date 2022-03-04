@@ -1,0 +1,1478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 10.1.4" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overridden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="appdxbitcoinimpproposals">Appendix A: Bitcoin Improvement Proposals (ou Propositions d&#8217;améliorations du Bitcoin)</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Les Bitcoin Improvement Proposals (ou Propositions d&#8217;améliorations du Bitcoin) sont des documents de conception fournissant des informations à la communauté bitcoin ou décrivant une nouvelle fonctionnalité pour bitcoin ou ses processus ou son environnement.</p></div>
+<div class="paragraph"><p>Conformément à BIP-01 <em>BIP Purpose and Guidelines</em>, il existe trois types de BIP :</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<em>Standard</em> BIP
+</dt>
+<dd>
+<p>
+Décrit tout changement qui affecte la plupart ou toutes les implémentations de bitcoin, comme un changement du protocole réseau, un changement des règles de validité de bloc ou de transaction, ou tout changement ou ajout qui affecte l&#39;interopérabilité des applications utilisant bitcoin.
+</p>
+</dd>
+<dt class="hdlist1">
+<em>Informational</em> BIP
+</dt>
+<dd>
+<p>
+Décrit un problème de conception de bitcoin, ou fournit des directives générales ou des informations à la communauté bitcoin, mais ne propose pas de nouvelle fonctionnalité. Les BIP informationnels ne représentent pas nécessairement un consensus ou une recommandation de la communauté bitcoin, de sorte que les utilisateurs et les implémenteurs peuvent ignorer les BIP informationnels ou suivre leurs conseils.
+</p>
+</dd>
+<dt class="hdlist1">
+<em>Process</em> BIP 
+</dt>
+<dd>
+<p>
+Décrit un processus bitcoin ou propose une modification (ou un événement dans) un processus. Les BIP de processus ressemblent aux BIP standard mais s&#39;appliquent à des domaines autres que le protocole Bitcoin lui-même. Ils pourraient proposer une implémentation, mais pas à la base de code de Bitcoin ; elles nécessitent souvent un consensus communautaire ; et contrairement aux BIP informatifs, ils sont plus que des recommandations, et les utilisateurs ne sont généralement pas libres de les ignorer. Les exemples incluent les procédures, les directives, les modifications du processus de prise de décision et les modifications des outils ou de l&#39;environnement utilisés dans le développement de Bitcoin. Tout méta-BIP est également considéré comme un processus BIP.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>Les BIP sont enregistrés dans un référentiel versionné sur GitHub : <a href="https://github.com/bitcoin/bips">https://github.com/bitcoin/bips</a> . <a href="#table_d-1">[table_d-1]</a> montre un instantané des BIP en avril 2017. Consultez le référentiel faisant autorité pour obtenir des informations à jour sur les BIP existants et leur contenu.(((&quot;propositions de progressions Bitcoin&quot;, &quot;copie de&quot;, id=&quot;BIPsnap15&quot;)) )</p></div>
+<div class="tableblock" id="table_d-1">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 1. Liste des BIPs</caption>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<thead>
+<tr>
+<th align="left" valign="top">BIP# </th>
+<th align="left" valign="top"> Titre </th>
+<th align="left" valign="top">Propriétaire </th>
+<th align="left" valign="top">Type </th>
+<th align="left" valign="top">Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-1"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0001.mediawiki">BIP-1</a></p></td>
+<td align="left" valign="top"><p class="table">BIP Purpose and Guidelines</p></td>
+<td align="left" valign="top"><p class="table">Amir Taaki</p></td>
+<td align="left" valign="top"><p class="table">Process</p></td>
+<td align="left" valign="top"><p class="table">Replaced</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-2"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0002.mediawiki">BIP-2</a></p></td>
+<td align="left" valign="top"><p class="table">BIP process, revised</p></td>
+<td align="left" valign="top"><p class="table">Luke Dashjr</p></td>
+<td align="left" valign="top"><p class="table">Process</p></td>
+<td align="left" valign="top"><p class="table">Active</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-8"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0008.mediawiki">BIP-8</a></p></td>
+<td align="left" valign="top"><p class="table">Version bits with guaranteed lock-in</p></td>
+<td align="left" valign="top"><p class="table">Shaolin Fry</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-9"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0009.mediawiki">BIP-9</a></p></td>
+<td align="left" valign="top"><p class="table">Version bits with timeout and delay</p></td>
+<td align="left" valign="top"><p class="table">Pieter Wuille, Peter Todd, Greg Maxwell, Rusty Russell</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-10"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0010.mediawiki">BIP-10</a></p></td>
+<td align="left" valign="top"><p class="table">Multi-Sig Transaction Distribution</p></td>
+<td align="left" valign="top"><p class="table">Alan Reiner</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Withdrawn</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-11"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0011.mediawiki">BIP-11</a></p></td>
+<td align="left" valign="top"><p class="table">M-of-N Standard Transactions</p></td>
+<td align="left" valign="top"><p class="table">Gavin Andresen</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-12"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0012.mediawiki">BIP-12</a></p></td>
+<td align="left" valign="top"><p class="table">OP_EVAL</p></td>
+<td align="left" valign="top"><p class="table">Gavin Andresen</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Withdrawn</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-13"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0013.mediawiki">BIP-13</a></p></td>
+<td align="left" valign="top"><p class="table">Address Format for pay-to-script-hash</p></td>
+<td align="left" valign="top"><p class="table">Gavin Andresen</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-14"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0014.mediawiki">BIP-14</a></p></td>
+<td align="left" valign="top"><p class="table">Protocol Version and User Agent</p></td>
+<td align="left" valign="top"><p class="table">Amir Taaki, Patrick Strateman</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-15"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0015.mediawiki">BIP-15</a></p></td>
+<td align="left" valign="top"><p class="table">Aliases</p></td>
+<td align="left" valign="top"><p class="table">Amir Taaki</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Deferred</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-16"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki">BIP-16</a></p></td>
+<td align="left" valign="top"><p class="table">Pay to Script Hash</p></td>
+<td align="left" valign="top"><p class="table">Gavin Andresen</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-17"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0017.mediawiki">BIP-17</a></p></td>
+<td align="left" valign="top"><p class="table">OP_CHECKHASHVERIFY (CHV)</p></td>
+<td align="left" valign="top"><p class="table">Luke Dashjr</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Withdrawn</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-18"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0018.mediawiki">BIP-18</a></p></td>
+<td align="left" valign="top"><p class="table">hashScriptCheck</p></td>
+<td align="left" valign="top"><p class="table">Luke Dashjr</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Proposed</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-19"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0019.mediawiki">BIP-19</a></p></td>
+<td align="left" valign="top"><p class="table">M-of-N Standard Transactions (Low SigOp)</p></td>
+<td align="left" valign="top"><p class="table">Luke Dashjr</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-20"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0020.mediawiki">BIP-20</a></p></td>
+<td align="left" valign="top"><p class="table">URI Scheme</p></td>
+<td align="left" valign="top"><p class="table">Luke Dashjr</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Replaced</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-21"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki">BIP-21</a></p></td>
+<td align="left" valign="top"><p class="table">URI Scheme</p></td>
+<td align="left" valign="top"><p class="table">Nils Schneider, Matt Corallo</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-22"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0022.mediawiki">BIP-22</a></p></td>
+<td align="left" valign="top"><p class="table">getblocktemplate - Fundamentals</p></td>
+<td align="left" valign="top"><p class="table">Luke Dashjr</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-23"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0023.mediawiki">BIP-23</a></p></td>
+<td align="left" valign="top"><p class="table">getblocktemplate - Pooled Mining</p></td>
+<td align="left" valign="top"><p class="table">Luke Dashjr</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-30"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0030.mediawiki">BIP-30</a></p></td>
+<td align="left" valign="top"><p class="table">Duplicate transactions</p></td>
+<td align="left" valign="top"><p class="table">Pieter Wuille</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-31"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0031.mediawiki">BIP-31</a></p></td>
+<td align="left" valign="top"><p class="table">Pong message</p></td>
+<td align="left" valign="top"><p class="table">Mike Hearn</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-32"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP-32</a></p></td>
+<td align="left" valign="top"><p class="table">Hierarchical Deterministic Wallets</p></td>
+<td align="left" valign="top"><p class="table">Pieter Wuille</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-33"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0033.mediawiki">BIP-33</a></p></td>
+<td align="left" valign="top"><p class="table">Stratized Nodes</p></td>
+<td align="left" valign="top"><p class="table">Amir Taaki</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-34"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0034.mediawiki">BIP-34</a></p></td>
+<td align="left" valign="top"><p class="table">Block v2, Height in Coinbase</p></td>
+<td align="left" valign="top"><p class="table">Gavin Andresen</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-35"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0035.mediawiki">BIP-35</a></p></td>
+<td align="left" valign="top"><p class="table">mempool message</p></td>
+<td align="left" valign="top"><p class="table">Jeff Garzik</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-36"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0036.mediawiki">BIP-36</a></p></td>
+<td align="left" valign="top"><p class="table">Custom Services</p></td>
+<td align="left" valign="top"><p class="table">Stefan Thomas</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-37"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki">BIP-37</a></p></td>
+<td align="left" valign="top"><p class="table">Connection Bloom filtering</p></td>
+<td align="left" valign="top"><p class="table">Mike Hearn, Matt Corallo</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-39"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP-39</a></p></td>
+<td align="left" valign="top"><p class="table">Mnemonic code for generating deterministic keys</p></td>
+<td align="left" valign="top"><p class="table">Marek Palatinus, Pavol Rusnak, Aaron Voisine, Sean Bowe</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Proposed</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-40"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0040.mediawiki">BIP-40</a></p></td>
+<td align="left" valign="top"><p class="table">Stratum wire protocol</p></td>
+<td align="left" valign="top"><p class="table">Marek Palatinus</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">BIP number allocated</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-41"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0041.mediawiki">BIP-41</a></p></td>
+<td align="left" valign="top"><p class="table">Stratum mining protocol</p></td>
+<td align="left" valign="top"><p class="table">Marek Palatinus</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">BIP number allocated</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-42"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0042.mediawiki">BIP-42</a></p></td>
+<td align="left" valign="top"><p class="table">A finite monetary supply for Bitcoin</p></td>
+<td align="left" valign="top"><p class="table">Pieter Wuille</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-43"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0043.mediawiki">BIP-43</a></p></td>
+<td align="left" valign="top"><p class="table">Purpose Field for Deterministic Wallets</p></td>
+<td align="left" valign="top"><p class="table">Marek Palatinus, Pavol Rusnak</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-44"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP-44</a></p></td>
+<td align="left" valign="top"><p class="table">Multi-Account Hierarchy for Deterministic Wallets</p></td>
+<td align="left" valign="top"><p class="table">Marek Palatinus, Pavol Rusnak</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Proposed</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-45"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0045.mediawiki">BIP-45</a></p></td>
+<td align="left" valign="top"><p class="table">Structure for Deterministic P2SH Multisignature Wallets</p></td>
+<td align="left" valign="top"><p class="table">Manuel Araoz, Ryan X. Charles, Matias Alejo Garcia</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Proposed</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-47"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0047.mediawiki">BIP-47</a></p></td>
+<td align="left" valign="top"><p class="table">Reusable Payment Codes for Hierarchical Deterministic Wallets</p></td>
+<td align="left" valign="top"><p class="table">Justus Ranvier</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-49"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki">BIP-49</a></p></td>
+<td align="left" valign="top"><p class="table">Derivation scheme for P2WPKH-nested-in-P2SH based accounts</p></td>
+<td align="left" valign="top"><p class="table">Daniel Weigl</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-50"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0050.mediawiki">BIP-50</a></p></td>
+<td align="left" valign="top"><p class="table">March 2013 Chain Fork Post-Mortem</p></td>
+<td align="left" valign="top"><p class="table">Gavin Andresen</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-60"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0060.mediawiki">BIP-60</a></p></td>
+<td align="left" valign="top"><p class="table">Fixed Length "version" Message (Relay-Transactions Field)</p></td>
+<td align="left" valign="top"><p class="table">Amir Taaki</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-61"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0061.mediawiki">BIP-61</a></p></td>
+<td align="left" valign="top"><p class="table">Reject P2P message</p></td>
+<td align="left" valign="top"><p class="table">Gavin Andresen</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-62"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0062.mediawiki">BIP-62</a></p></td>
+<td align="left" valign="top"><p class="table">Dealing with malleability</p></td>
+<td align="left" valign="top"><p class="table">Pieter Wuille</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Withdrawn</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-63"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0063.mediawiki">BIP-63</a></p></td>
+<td align="left" valign="top"><p class="table">Stealth Addresses</p></td>
+<td align="left" valign="top"><p class="table">Peter Todd</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">BIP number allocated</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-64"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0064.mediawiki">BIP-64</a></p></td>
+<td align="left" valign="top"><p class="table">getutxo message</p></td>
+<td align="left" valign="top"><p class="table">Mike Hearn</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-65"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki">BIP-65</a></p></td>
+<td align="left" valign="top"><p class="table">OP_CHECKLOCKTIMEVERIFY</p></td>
+<td align="left" valign="top"><p class="table">Peter Todd</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-66"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki">BIP-66</a></p></td>
+<td align="left" valign="top"><p class="table">Strict DER signatures</p></td>
+<td align="left" valign="top"><p class="table">Pieter Wuille</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-67"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0067.mediawiki">BIP-67</a></p></td>
+<td align="left" valign="top"><p class="table">Deterministic Pay-to-script-hash multi-signature addresses through public key sorting</p></td>
+<td align="left" valign="top"><p class="table">Thomas Kerin, Jean-Pierre Rupp, Ruben de Vries</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Proposed</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-68"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki">BIP-68</a></p></td>
+<td align="left" valign="top"><p class="table">Relative lock-time using consensus-enforced sequence numbers</p></td>
+<td align="left" valign="top"><p class="table">Mark Friedenbach, BtcDrak, Nicolas Dorier, kinoshitajona</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-69"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0069.mediawiki">BIP-69</a></p></td>
+<td align="left" valign="top"><p class="table">Lexicographical Indexing of Transaction Inputs and Outputs</p></td>
+<td align="left" valign="top"><p class="table">Kristov Atlas</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Proposed</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-70"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki">BIP-70</a></p></td>
+<td align="left" valign="top"><p class="table">Payment Protocol</p></td>
+<td align="left" valign="top"><p class="table">Gavin Andresen, Mike Hearn</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-71"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0071.mediawiki">BIP-71</a></p></td>
+<td align="left" valign="top"><p class="table">Payment Protocol MIME types</p></td>
+<td align="left" valign="top"><p class="table">Gavin Andresen</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-72"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0072.mediawiki">BIP-72</a></p></td>
+<td align="left" valign="top"><p class="table">bitcoin: uri extensions for Payment Protocol</p></td>
+<td align="left" valign="top"><p class="table">Gavin Andresen</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-73"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0073.mediawiki">BIP-73</a></p></td>
+<td align="left" valign="top"><p class="table">Use "Accept" header for response type negotiation with Payment Request URLs</p></td>
+<td align="left" valign="top"><p class="table">Stephen Pair</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-74"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0074.mediawiki">BIP-74</a></p></td>
+<td align="left" valign="top"><p class="table">Allow zero value OP_RETURN in Payment Protocol</p></td>
+<td align="left" valign="top"><p class="table">Toby Padilla</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-75"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0075.mediawiki">BIP-75</a></p></td>
+<td align="left" valign="top"><p class="table">Out of Band Address Exchange using Payment Protocol Encryption</p></td>
+<td align="left" valign="top"><p class="table">Justin Newton, Matt David, Aaron Voisine, James MacWhyte</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-80"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0080.mediawiki">BIP-80</a></p></td>
+<td align="left" valign="top"><p class="table">Hierarchy for Non-Colored Voting Pool Deterministic Multisig Wallets</p></td>
+<td align="left" valign="top"><p class="table">Justus Ranvier, Jimmy Song</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Deferred</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-81"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0081.mediawiki">BIP-81</a></p></td>
+<td align="left" valign="top"><p class="table">Hierarchy for Colored Voting Pool Deterministic Multisig Wallets</p></td>
+<td align="left" valign="top"><p class="table">Justus Ranvier, Jimmy Song</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Deferred</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-83"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0083.mediawiki">BIP-83</a></p></td>
+<td align="left" valign="top"><p class="table">Dynamic Hierarchical Deterministic Key Trees</p></td>
+<td align="left" valign="top"><p class="table">Eric Lombrozo</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-90"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0090.mediawiki">BIP-90</a></p></td>
+<td align="left" valign="top"><p class="table">Buried Deployments</p></td>
+<td align="left" valign="top"><p class="table">Suhas Daftuar</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-99"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0099.mediawiki">BIP-99</a></p></td>
+<td align="left" valign="top"><p class="table">Motivation and deployment of consensus rule changes ([soft/hard]forks)</p></td>
+<td align="left" valign="top"><p class="table">Jorge Timón</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-101"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0101.mediawiki">BIP-101</a></p></td>
+<td align="left" valign="top"><p class="table">Increase maximum block size</p></td>
+<td align="left" valign="top"><p class="table">Gavin Andresen</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Withdrawn</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-102"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0102.mediawiki">BIP-102</a></p></td>
+<td align="left" valign="top"><p class="table">Block size increase to 2MB</p></td>
+<td align="left" valign="top"><p class="table">Jeff Garzik</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-103"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0103.mediawiki">BIP-103</a></p></td>
+<td align="left" valign="top"><p class="table">Block size following technological growth</p></td>
+<td align="left" valign="top"><p class="table">Pieter Wuille</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-104"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0104.mediawiki">BIP-104</a></p></td>
+<td align="left" valign="top"><p class="table"><em>Block75</em> - Max block size like difficulty</p></td>
+<td align="left" valign="top"><p class="table">t.khan</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-105"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0105.mediawiki">BIP-105</a></p></td>
+<td align="left" valign="top"><p class="table">Consensus based block size retargeting algorithm</p></td>
+<td align="left" valign="top"><p class="table">BtcDrak</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-106"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0106.mediawiki">BIP-106</a></p></td>
+<td align="left" valign="top"><p class="table">Dynamically Controlled Bitcoin Block Size Max Cap</p></td>
+<td align="left" valign="top"><p class="table">Upal Chakraborty</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-107"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0107.mediawiki">BIP-107</a></p></td>
+<td align="left" valign="top"><p class="table">Dynamic limit on the block size</p></td>
+<td align="left" valign="top"><p class="table">Washington Y. Sanchez</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-109"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0109.mediawiki">BIP-109</a></p></td>
+<td align="left" valign="top"><p class="table">Two million byte size limit with sigop and sighash limits</p></td>
+<td align="left" valign="top"><p class="table">Gavin Andresen</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Rejected</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-111"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0111.mediawiki">BIP-111</a></p></td>
+<td align="left" valign="top"><p class="table">NODE_BLOOM service bit</p></td>
+<td align="left" valign="top"><p class="table">Matt Corallo, Peter Todd</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Proposed</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-112"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki">BIP-112</a></p></td>
+<td align="left" valign="top"><p class="table">CHECKSEQUENCEVERIFY</p></td>
+<td align="left" valign="top"><p class="table">BtcDrak, Mark Friedenbach, Eric Lombrozo</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-113"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki">BIP-113</a></p></td>
+<td align="left" valign="top"><p class="table">Median time-past as endpoint for lock-time calculations</p></td>
+<td align="left" valign="top"><p class="table">Thomas Kerin, Mark Friedenbach</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Final</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-114"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0114.mediawiki">BIP-114</a></p></td>
+<td align="left" valign="top"><p class="table">Merkelized Abstract Syntax Tree</p></td>
+<td align="left" valign="top"><p class="table">Johnson Lau</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-120"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0120.mediawiki">BIP-120</a></p></td>
+<td align="left" valign="top"><p class="table">Proof of Payment</p></td>
+<td align="left" valign="top"><p class="table">Kalle Rosenbaum</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-121"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0121.mediawiki">BIP-121</a></p></td>
+<td align="left" valign="top"><p class="table">Proof of Payment URI scheme</p></td>
+<td align="left" valign="top"><p class="table">Kalle Rosenbaum</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-122"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0122.mediawiki">BIP-122</a></p></td>
+<td align="left" valign="top"><p class="table">URI scheme for Blockchain references / exploration</p></td>
+<td align="left" valign="top"><p class="table">Marco Pontello</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-123"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0123.mediawiki">BIP-123</a></p></td>
+<td align="left" valign="top"><p class="table">BIP Classification</p></td>
+<td align="left" valign="top"><p class="table">Eric Lombrozo</p></td>
+<td align="left" valign="top"><p class="table">Process</p></td>
+<td align="left" valign="top"><p class="table">Active</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-124"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0124.mediawiki">BIP-124</a></p></td>
+<td align="left" valign="top"><p class="table">Hierarchical Deterministic Script Templates</p></td>
+<td align="left" valign="top"><p class="table">Eric Lombrozo, William Swanson</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-125"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0125.mediawiki">BIP-125</a></p></td>
+<td align="left" valign="top"><p class="table">Opt-in Full Replace-by-Fee Signaling</p></td>
+<td align="left" valign="top"><p class="table">David A. Harding, Peter Todd</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Proposed</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-126"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0126.mediawiki">BIP-126</a></p></td>
+<td align="left" valign="top"><p class="table">Best Practices for Heterogeneous Input Script Transactions</p></td>
+<td align="left" valign="top"><p class="table">Kristov Atlas</p></td>
+<td align="left" valign="top"><p class="table">Informational</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-130"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0130.mediawiki">BIP-130</a></p></td>
+<td align="left" valign="top"><p class="table">sendheaders message</p></td>
+<td align="left" valign="top"><p class="table">Suhas Daftuar</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Proposed</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-131"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0131.mediawiki">BIP-131</a></p></td>
+<td align="left" valign="top"><p class="table">"Coalescing Transaction" Specification (wildcard inputs)</p></td>
+<td align="left" valign="top"><p class="table">Chris Priest</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-132"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0132.mediawiki">BIP-132</a></p></td>
+<td align="left" valign="top"><p class="table">Committee-based BIP Acceptance Process</p></td>
+<td align="left" valign="top"><p class="table">Andy Chase</p></td>
+<td align="left" valign="top"><p class="table">Process</p></td>
+<td align="left" valign="top"><p class="table">Withdrawn</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-133"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0133.mediawiki">BIP-133</a></p></td>
+<td align="left" valign="top"><p class="table">feefilter message</p></td>
+<td align="left" valign="top"><p class="table">Alex Morcos</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-134"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0134.mediawiki">BIP-134</a></p></td>
+<td align="left" valign="top"><p class="table">Flexible Transactions</p></td>
+<td align="left" valign="top"><p class="table">Tom Zander</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-140"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0140.mediawiki">BIP-140</a></p></td>
+<td align="left" valign="top"><p class="table">Normalized TXID</p></td>
+<td align="left" valign="top"><p class="table">Christian Decker</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-141"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki">BIP-141</a></p></td>
+<td align="left" valign="top"><p class="table">Segregated Witness (Consensus layer)</p></td>
+<td align="left" valign="top"><p class="table">Eric Lombrozo, Johnson Lau, Pieter Wuille</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-142"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0142.mediawiki">BIP-142</a></p></td>
+<td align="left" valign="top"><p class="table">Address Format for Segregated Witness</p></td>
+<td align="left" valign="top"><p class="table">Johnson Lau</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Deferred</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-143"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0143.mediawiki">BIP-143</a></p></td>
+<td align="left" valign="top"><p class="table">Transaction Signature Verification for Version 0 Witness Program</p></td>
+<td align="left" valign="top"><p class="table">Johnson Lau, Pieter Wuille</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-144"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0144.mediawiki">BIP-144</a></p></td>
+<td align="left" valign="top"><p class="table">Segregated Witness (Peer Services)</p></td>
+<td align="left" valign="top"><p class="table">Eric Lombrozo, Pieter Wuille</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-145"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0145.mediawiki">BIP-145</a></p></td>
+<td align="left" valign="top"><p class="table">getblocktemplate Updates for Segregated Witness</p></td>
+<td align="left" valign="top"><p class="table">Luke Dashjr</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-146"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0146.mediawiki">BIP-146</a></p></td>
+<td align="left" valign="top"><p class="table">Dealing with signature encoding malleability</p></td>
+<td align="left" valign="top"><p class="table">Johnson Lau, Pieter Wuille</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-147"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki">BIP-147</a></p></td>
+<td align="left" valign="top"><p class="table">Dealing with dummy stack element malleability</p></td>
+<td align="left" valign="top"><p class="table">Johnson Lau</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-148"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0148.mediawiki">BIP-148</a></p></td>
+<td align="left" valign="top"><p class="table">Mandatory activation of segwit deployment</p></td>
+<td align="left" valign="top"><p class="table">Shaolin Fry</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-150"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0150.mediawiki">BIP-150</a></p></td>
+<td align="left" valign="top"><p class="table">Peer Authentication</p></td>
+<td align="left" valign="top"><p class="table">Jonas Schnelli</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-151"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0151.mediawiki">BIP-151</a></p></td>
+<td align="left" valign="top"><p class="table">Peer-to-Peer Communication Encryption</p></td>
+<td align="left" valign="top"><p class="table">Jonas Schnelli</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-152"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0152.mediawiki">BIP-152</a></p></td>
+<td align="left" valign="top"><p class="table">Compact Block Relay</p></td>
+<td align="left" valign="top"><p class="table">Matt Corallo</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-171"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0171.mediawiki">BIP-171</a></p></td>
+<td align="left" valign="top"><p class="table">Currency/exchange rate information API</p></td>
+<td align="left" valign="top"><p class="table">Luke Dashjr</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-180"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0180.mediawiki">BIP-180</a></p></td>
+<td align="left" valign="top"><p class="table">Block size/weight fraud proof</p></td>
+<td align="left" valign="top"><p class="table">Luke Dashjr</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a id="bip-199"></a><a href="https://github.com/bitcoin/bips/blob/master/bip-0199.mediawiki">BIP-199</a></p></td>
+<td align="left" valign="top"><p class="table">Hashed Time-Locked Contract transactions</p></td>
+<td align="left" valign="top"><p class="table">Sean Bowe, Daira Hopwood</p></td>
+<td align="left" valign="top"><p class="table">Standard</p></td>
+<td align="left" valign="top"><p class="table">Draft</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2022-03-04 00:29:57 EST
+</div>
+</div>
+</body>
+</html>

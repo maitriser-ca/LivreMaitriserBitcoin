@@ -1,0 +1,1749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 10.1.4" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overridden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="transactions">Transactions</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="ch06_intro">Introduction</h3>
+<div class="paragraph"><p>Transactions are the most important part of the Bitcoin system. Everything else in bitcoin is designed to ensure that transactions can be created, propagated on the network, validated, and finally added to the global ledger of transactions (the blockchain). Transactions are data structures that encode the transfer of value between participants in the Bitcoin system. Each transaction is a public entry in bitcoin&#8217;s blockchain, the global double-entry bookkeeping ledger.</p></div>
+<div class="paragraph"><p>In this chapter we will examine all the various forms of transactions, what they contain, how to create them, how they are verified, and how they become part of the permanent record of all transactions. When we use the term "wallet" in this chapter, we are referring to the software that constructs transactions, not just the database of keys.</p></div>
+</div>
+<div class="sect2">
+<h3 id="tx_structure">Transactions in Detail</h3>
+<div class="paragraph"><p>In <a href="#ch02_bitcoin_overview">[ch02_bitcoin_overview]</a>, we looked at the transaction Alice used to pay for coffee at Bob&#8217;s coffee shop using a block explorer (<a href="#alices_transactions_to_bobs_cafe">[alices_transactions_to_bobs_cafe]</a>).</p></div>
+<div class="paragraph"><p>The block explorer application shows a transaction from Alice&#8217;s "address" to Bob&#8217;s "address." This is a much simplified view of what is contained in a transaction. In fact, as we will see in this chapter, much of the information shown is constructed by the block explorer and is not actually in the transaction.</p></div>
+<div class="imageblock" id="alices_transactions_to_bobs_cafe">
+<div class="content">
+<img src="images/mbc2_0208.png" alt="&quot;Transaction Café Alice&quot;" />
+</div>
+<div class="title">Figure 1. Alice&#8217;s transaction to Bob&#8217;s Cafe</div>
+</div>
+<div class="sect3">
+<h4 id="transactions_behind_the_scenes">Transactions&#x2014;Behind the Scenes</h4>
+<div class="paragraph"><p>Behind the scenes, an actual transaction looks very different from a transaction provided by a typical block explorer. In fact, most of the high-level constructs we see in the various bitcoin application user interfaces <em>do not actually exist</em> in the Bitcoin system.</p></div>
+<div class="paragraph"><p>We can use Bitcoin Core&#8217;s command-line interface (<code>getrawtransaction</code> and <code>decoderawtransaction</code>) to retrieve Alice&#8217;s "raw" transaction, decode it, and see what it contains. The result looks like this:</p></div>
+<div class="listingblock">
+<a id="alice_tx"></a>
+<div class="title">Alice&#8217;s transaction decoded</div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #990000">{</span>
+  "version": <span style="color: #993399">1</span><span style="color: #990000">,</span>
+  "locktime": <span style="color: #993399">0</span><span style="color: #990000">,</span>
+  "vin": <span style="color: #990000">[</span>
+    <span style="color: #990000">{</span>
+      "txid": "<span style="color: #FF0000">7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18</span>"<span style="color: #990000">,</span>
+      "vout": <span style="color: #993399">0</span><span style="color: #990000">,</span>
+      "scriptSig" : "<span style="color: #FF0000">3045022100884d142d86652a3f47ba4746ec719bbfbd040a570b1deccbb6498c75c4ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813[ALL] 0484ecc0d46f1918b30928fa0e4ed99f16a0fb4fde0735e7ade8416ab9fe423cc5412336376789d172787ec3457eee41c04f4938de5cc17b4a10fa336a8d752adf</span>"<span style="color: #990000">,</span>
+      "sequence": <span style="color: #993399">4294967295</span>
+    <span style="color: #990000">}</span>
+  <span style="color: #990000">],</span>
+  "vout": <span style="color: #990000">[</span>
+    <span style="color: #990000">{</span>
+      "value": <span style="color: #993399">0.01500000</span><span style="color: #990000">,</span>
+      "scriptPubKey": "<span style="color: #FF0000">OP_DUP OP_HASH160 ab68025513c3dbd2f7b92a94e0581f5d50f654e7 OP_EQUALVERIFY OP_CHECKSIG</span>"
+    <span style="color: #990000">},</span>
+    <span style="color: #990000">{</span>
+      "value": <span style="color: #993399">0.08450000</span><span style="color: #990000">,</span>
+      "scriptPubKey": "<span style="color: #FF0000">OP_DUP OP_HASH160 7f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8 OP_EQUALVERIFY OP_CHECKSIG</span>"<span style="color: #990000">,</span>
+    <span style="color: #990000">}</span>
+  <span style="color: #990000">]</span>
+<span style="color: #990000">}</span></tt></pre></div></div>
+<div class="paragraph"><p>You may notice a few things about this transaction, mostly the things that are missing! Where is Alice&#8217;s address? Where is Bob&#8217;s address? Where is the 0.1 input "sent" by Alice? In bitcoin, there are no coins, no senders, no recipients, no balances, no accounts, and no addresses. All those things are constructed at a higher level for the benefit of the user, to make things easier to understand.</p></div>
+<div class="paragraph"><p>You may also notice a lot of strange and indecipherable fields and hexadecimal strings. Don&#8217;t worry, we will explain each field shown here in detail in this chapter.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tx_inputs_outputs">Transaction Outputs and Inputs</h3>
+<div class="paragraph"><p>The fundamental building block of a bitcoin transaction is a  <em>transaction output</em>. Transaction outputs are indivisible chunks of bitcoin currency, recorded on the blockchain, and recognized as valid by the entire network. Bitcoin full nodes track all available and spendable outputs, known as <em>unspent transaction outputs</em>, or <em>UTXO</em>. The collection of all UTXO is known as the <em>UTXO set</em> and currently numbers in the millions of UTXO. The UTXO set grows as new UTXO is created and shrinks when UTXO is consumed. Every transaction represents a change (state transition) in the UTXO set.</p></div>
+<div class="paragraph"><p>When we say that a user&#8217;s wallet has "received" bitcoin, what we mean is that the wallet has detected on the blockchain an UTXO that can be spent with one of the keys controlled by that wallet. Thus, a user&#8217;s bitcoin "balance" is the sum of all UTXO that user&#8217;s wallet can spend and which may be scattered among hundreds of transactions and hundreds of blocks. The concept of a balance is created by the wallet application. The wallet calculates the user&#8217;s balance by scanning the blockchain and aggregating the value of any UTXO the wallet can spend with the keys it controls. Most wallets maintain a database or use a database service to store a quick reference set of all the UTXO they can spend with the keys they control.</p></div>
+<div class="paragraph"><p><a href="#utxo-stxo">[utxo-stxo]</a> displays the blockchain in three different moments, as the transaction chain from Joe to Gopesh is being built. Notice how each transaction spends an UTXO that was created in a previous transaction, turning it into a <em>spent transaction output</em>, or <em>STXO</em>. Since transaction #1 (from Joe to Alice) spends a single UTXO (from Joe) and creates a single UTXO (to Alice), it doesn&#8217;t modify the UTXO set size. On the other hand, transactions #2 and #3 both create change outputs to the sender, spending a single UTXO and creating two UTXO (the payment and the change output). Therefore, each of them increases the UTXO set size by 1.</p></div>
+<div class="imageblock" id="utxo-stxo">
+<div class="content">
+<img src="images/mbc2_0609.png" alt="Transaction chain from Joe to Gopesh being built on the blockchain" />
+</div>
+<div class="title">Figure 2. Transaction chain from Joe to Gopesh being built on the blockchain</div>
+</div>
+<div class="paragraph"><p>A transaction output can have an arbitrary (integer) value denominated as a multiple of satoshis.  Just as dollars can be divided down to two decimal places as cents, bitcoin can be divided down to eight decimal places as satoshis. Although an output can have any arbitrary value, once created it is indivisible. This is an important characteristic of outputs that needs to be emphasized: outputs are <em>discrete</em> and <em>indivisible</em> units of value, denominated in integer satoshis. An unspent output can only be consumed in its entirety by a transaction.</p></div>
+<div class="paragraph"><p>If an UTXO is larger than the desired value of a transaction, it must still be consumed in its entirety and change must be generated in the transaction. In other words, if you have an UTXO worth 20 bitcoin and want to pay only 1 bitcoin, your transaction must consume the entire 20-bitcoin UTXO and produce two outputs: one paying 1 bitcoin to your desired recipient and another paying 19 bitcoin in change back to your wallet. As a result of the indivisible nature of transaction outputs, most bitcoin transactions will have to generate change.</p></div>
+<div class="paragraph"><p>Imagine a shopper buying a $1.50 beverage, reaching into her wallet and trying to find a combination of coins and bank notes to cover the $1.50 cost. The shopper will choose exact change if available e.g. a dollar bill and two quarters (a quarter is $0.25), or a combination of smaller denominations (six quarters), or if necessary, a larger unit such as a $5 note. If she hands too much money, say $5, to the shop owner, she will expect $3.50 change, which she will return to her wallet and have available for future transactions.</p></div>
+<div class="paragraph"><p>Similarly, a bitcoin transaction must be created from a user&#8217;s UTXO in whatever denominations that user has available. Users cannot cut an UTXO in half any more than they can cut a dollar bill in half and use it as currency. The user&#8217;s wallet application will typically select from the user&#8217;s available UTXO to compose an amount greater than or equal to the desired transaction amount.</p></div>
+<div class="paragraph"><p>As with real life, the bitcoin application can use several strategies to satisfy the purchase amount: combining several smaller units, finding exact change, or using a single unit larger than the transaction value and making change. All of this complex assembly of spendable UTXO is done by the user&#8217;s wallet automatically and is invisible to users. It is only relevant if you are programmatically constructing raw transactions from UTXO.</p></div>
+<div class="paragraph"><p>A transaction consumes previously recorded unspent transaction outputs and creates new transaction outputs that can be consumed by a future transaction. This way, chunks of bitcoin value move forward from owner to owner in a chain of transactions consuming and creating UTXO.</p></div>
+<div class="paragraph"><p>The exception to the output and input chain is a special type of transaction called the <em>coinbase</em> transaction, which is the first transaction in each block. This transaction is placed there by the "winning" miner and creates brand-new bitcoin payable to that miner as a reward for mining. This special coinbase transaction does not consume UTXO; instead, it has a special type of input called the "coinbase." This is how bitcoin&#8217;s money supply is created during the mining process, as we will see in <a href="#mining">[mining]</a>.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>What comes first? Inputs or outputs, the chicken or the egg? Strictly speaking, outputs come first because coinbase transactions, which generate new bitcoin, have no inputs and create outputs from nothing.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="sect3">
+<h4 id="tx_outs">Transaction Outputs</h4>
+<div class="paragraph"><p>Every bitcoin transaction creates outputs, which are recorded on the bitcoin ledger. Almost all of these outputs, with one exception (see <a href="#op_return">[op_return]</a>) create spendable chunks of bitcoin called UTXO, which are then recognized by the whole network and available for the owner to spend in a future transaction.</p></div>
+<div class="paragraph"><p>UTXO are tracked by every full-node Bitcoin client in the UTXO set. New transactions consume (spend) one or more of these outputs from the UTXO set.</p></div>
+<div class="paragraph"><p>Transaction outputs consist of two parts:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+An amount of bitcoin, denominated in <em>satoshis</em>, the smallest bitcoin unit
+</p>
+</li>
+<li>
+<p>
+A cryptographic puzzle that determines the conditions required to spend the output
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The cryptographic puzzle is also known as a  <em>locking script</em>, a <em>witness script</em>, or a <code>scriptPubKey</code>.</p></div>
+<div class="paragraph"><p>The transaction scripting language, used in the locking script mentioned previously, is discussed in detail in <a href="#tx_script">[tx_script]</a>.</p></div>
+<div class="paragraph"><p>Now, let&#8217;s look at Alice&#8217;s transaction (shown previously in <a href="#transactions_behind_the_scenes">[transactions_behind_the_scenes]</a>) and see if we can identify the outputs. In the JSON encoding, the outputs are in an array (list) named <code>vout</code>:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>"vout": <span style="color: #990000">[</span>
+  <span style="color: #990000">{</span>
+    "value": <span style="color: #993399">0.01500000</span><span style="color: #990000">,</span>
+    "scriptPubKey": "OP_DUP OP_HASH160 ab68025513c3dbd2f7b92a94e0581f5d50f654e7 OP_EQUALVERIFY
+    OP_CHECKSIG"
+  <span style="color: #990000">},</span>
+  <span style="color: #990000">{</span>
+    "value": <span style="color: #993399">0.08450000</span><span style="color: #990000">,</span>
+    "scriptPubKey": "<span style="color: #FF0000">OP_DUP OP_HASH160 7f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8 OP_EQUALVERIFY OP_CHECKSIG</span>"<span style="color: #990000">,</span>
+  <span style="color: #990000">}</span>
+<span style="color: #990000">]</span></tt></pre></div></div>
+<div class="paragraph"><p>As you can see, the transaction contains two outputs. Each output is defined by a value and a cryptographic puzzle. In the encoding shown by Bitcoin Core, the value is shown in bitcoin, but in the transaction itself it is recorded as an integer denominated in satoshis. The second part of each output is the cryptographic puzzle that sets the conditions for spending. Bitcoin Core shows this as <code>scriptPubKey</code> and shows us a human-readable representation of the script.</p></div>
+<div class="paragraph"><p>The topic of locking and unlocking UTXO will be discussed later, in <a href="#tx_lock_unlock">[tx_lock_unlock]</a>. The scripting language that is used for the script in <code>scriptPubKey</code> is discussed in <a href="#tx_script">[tx_script]</a>. But before we delve into those topics, we need to understand the overall structure of transaction inputs and outputs.</p></div>
+<div class="sect4">
+<h5 id="_transaction_serialization_x2014_outputs">Transaction serialization&#x2014;outputs</h5>
+<div class="paragraph"><p>When transactions are transmitted over the network or exchanged between applications, they are <em>serialized</em>. Serialization is the process of converting the internal representation of a data structure into a format that can be transmitted one byte at a time, also known as a byte stream. Serialization is most commonly used for encoding data structures for transmission over a network or for storage in a file. The serialization format of a transaction output is shown in <a href="#tx_out_structure">[tx_out_structure]</a>.</p></div>
+<div class="tableblock" id="tx_out_structure">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 1. Transaction output serialization</caption>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">Size</th>
+<th align="left" valign="top"> Field </th>
+<th align="left" valign="top"> Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">8 bytes (little-endian)</p></td>
+<td align="left" valign="top"><p class="table">Amount</p></td>
+<td align="left" valign="top"><p class="table">Bitcoin value in satoshis (10<sup>-8</sup> bitcoin)</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">1&#x2013;9 bytes (VarInt)</p></td>
+<td align="left" valign="top"><p class="table">Locking-Script Size</p></td>
+<td align="left" valign="top"><p class="table">Locking-Script length in bytes, to follow</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Variable</p></td>
+<td align="left" valign="top"><p class="table">Locking-Script</p></td>
+<td align="left" valign="top"><p class="table">A script defining the conditions needed to spend the output</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>Most bitcoin libraries and frameworks do not store transactions internally as byte-streams, as that would require complex parsing every time you needed to access a single field. For convenience and readability, bitcoin libraries store transactions internally in data structures (usually object-oriented structures).</p></div>
+<div class="paragraph"><p>The process of converting from the byte-stream representation of a transaction to a library&#8217;s internal representation data structure is called <em>deserialization</em> or <em>transaction parsing</em>. The process of converting back to a byte-stream for transmission over the network, for hashing, or for storage on disk is called <em>serialization</em>.  Most bitcoin libraries have built-in functions for transaction serialization and deserialization.</p></div>
+<div class="paragraph"><p>See if you can manually decode Alice&#8217;s transaction from the serialized hexadecimal form, finding some of the elements we saw previously. The section containing the two outputs is highlighted in <a href="#example_6_1">[example_6_1]</a> to help you:</p></div>
+<div class="exampleblock" id="example_6_1">
+<div class="title">Example 1. Alice&#8217;s transaction, serialized and presented in hexadecimal notation</div>
+<div class="content">
+<div class="paragraph"><p><code>0100000001186f9f998a5aa6f048e51dd8419a14d8a0f1a8a2836dd73</code>
+<code>4d2804fe65fa35779000000008b483045022100884d142d86652a3f47</code>
+<code>ba4746ec719bbfbd040a570b1deccbb6498c75c4ae24cb02204b9f039</code>
+<code>ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813</code>
+<code>01410484ecc0d46f1918b30928fa0e4ed99f16a0fb4fde0735e7ade84</code>
+<code>16ab9fe423cc5412336376789d172787ec3457eee41c04f4938de5cc1</code>
+<code>7b4a10fa336a8d752adfffffffff02</code><strong><code>60e31600000000001976a914ab6</code></strong>
+<strong><code>8025513c3dbd2f7b92a94e0581f5d50f654e788acd0ef800000000000</code></strong>
+<strong><code>1976a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a888ac</code></strong>
+<code>00000000</code></p></div>
+</div></div>
+<div class="paragraph"><p>Here are some hints:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+There are two outputs in the highlighted section, each serialized as shown in <a href="#tx_out_structure">[tx_out_structure]</a>.
+</p>
+</li>
+<li>
+<p>
+The value of 0.015 bitcoin is 1,500,000 satoshis. That&#8217;s <code>16 e3 60</code> in hexadecimal.
+</p>
+</li>
+<li>
+<p>
+In the serialized transaction, the value <code>16 e3 60</code> is encoded in little-endian (least-significant-byte-first) byte order, so it looks like <code>60 e3 16</code>.
+</p>
+</li>
+<li>
+<p>
+The <code>scriptPubKey</code> length is 25 bytes, which is <code>19</code> in hexadecimal.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="tx_inputs">Transaction Inputs</h4>
+<div class="paragraph"><p>Transaction inputs identify (by reference) which UTXO will be consumed and provide proof of ownership through an unlocking script.</p></div>
+<div class="paragraph"><p>To build a transaction, a wallet selects from the UTXO it controls, UTXO with enough value to make the requested payment. Sometimes one UTXO is enough, other times more than one is needed. For each UTXO that will be consumed to make this payment, the wallet creates one input pointing to the UTXO and unlocks it with an unlocking script.</p></div>
+<div class="paragraph"><p>Let&#8217;s look at the components of an input in greater detail. The first part of an input is a pointer to an UTXO by reference to the transaction hash and an output index, which identifies the specific UTXO in that transaction. The second part is an unlocking script, which the wallet constructs in order to satisfy the spending conditions set in the UTXO. Most often, the unlocking script is a digital signature and public key proving ownership of the bitcoin. However, not all unlocking scripts contain signatures. The third part is a sequence number, which will be discussed later.</p></div>
+<div class="paragraph"><p>Consider our example in <a href="#transactions_behind_the_scenes">[transactions_behind_the_scenes]</a>. The transaction inputs are an array (list) called <code>vin</code>:</p></div>
+<div class="listingblock">
+<a id="vin"></a>
+<div class="title">The transaction inputs in Alice&#8217;s transaction</div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>"vin": <span style="color: #990000">[</span>
+  <span style="color: #990000">{</span>
+    "txid": "<span style="color: #FF0000">7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18</span>"<span style="color: #990000">,</span>
+    "vout": <span style="color: #993399">0</span><span style="color: #990000">,</span>
+    "scriptSig" : "<span style="color: #FF0000">3045022100884d142d86652a3f47ba4746ec719bbfbd040a570b1deccbb6498c75c4ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813[ALL] 0484ecc0d46f1918b30928fa0e4ed99f16a0fb4fde0735e7ade8416ab9fe423cc5412336376789d172787ec3457eee41c04f4938de5cc17b4a10fa336a8d752adf</span>"<span style="color: #990000">,</span>
+    "sequence": <span style="color: #993399">4294967295</span>
+  <span style="color: #990000">}</span>
+<span style="color: #990000">]</span></tt></pre></div></div>
+<div class="paragraph"><p>As you can see, there is only one input in the list (because one UTXO contained sufficient value to make this payment). The input contains four elements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+A transaction ID, referencing the transaction that contains the UTXO being spent
+</p>
+</li>
+<li>
+<p>
+An output index (<code>vout</code>), identifying which UTXO from that transaction is referenced (first one is zero)
+</p>
+</li>
+<li>
+<p>
+A <code>scriptSig</code>, which satisfies the conditions placed on the UTXO, unlocking it for spending
+</p>
+</li>
+<li>
+<p>
+A sequence number (to be discussed later)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>In Alice&#8217;s transaction, the input points to the transaction ID:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18</code></pre>
+</div></div>
+<div class="paragraph"><p>and output index <code>0</code> (i.e., the first UTXO created by that transaction). The unlocking script is constructed by Alice&#8217;s wallet by first retrieving the referenced UTXO, examining its locking script, and then using it to build the necessary unlocking script to satisfy it.</p></div>
+<div class="paragraph"><p>Looking just at the input you may have noticed that we don&#8217;t know anything about this UTXO, other than a reference to the parent transaction containing it. We don&#8217;t know its value (amount in satoshi), and we don&#8217;t know the locking script that sets the conditions for spending it. To find this information, we must retrieve the referenced UTXO by retrieving the parent transaction that contains it. Notice that because the value of the input is not explicitly stated, we must also use the referenced UTXO in order to calculate the fees that will be paid in this transaction (see <a href="#tx_fees">[tx_fees]</a>).</p></div>
+<div class="paragraph"><p>It&#8217;s not just Alice&#8217;s wallet that needs to retrieve UTXO referenced in the inputs. Once this transaction is broadcast to the network, every validating node will also need to retrieve the UTXO referenced in the transaction inputs in order to validate the transaction.</p></div>
+<div class="paragraph"><p>Transactions on their own seem incomplete because they lack context. They reference UTXO in their inputs but without retrieving that UTXO we cannot know the value of the inputs or their locking conditions. When writing bitcoin software, anytime you decode a transaction with the intent of validating it or counting the fees or checking the unlocking script, your code will first have to retrieve the referenced UTXO from the blockchain in order to build the context implied but not present in the UTXO references of the inputs. For example, to calculate the amount paid in fees, you must know the sum of the values of inputs and outputs. But without retrieving the UTXO referenced in the inputs, you do not know their value. So a seemingly simple operation like counting fees in a single transaction in fact involves multiple steps and data from multiple transactions.</p></div>
+<div class="paragraph"><p>We can use the same sequence of commands with Bitcoin Core as we used when retrieving Alice&#8217;s transaction (<code>getrawtransaction</code> and <code>decoderawtransaction</code>). With that we can get the UTXO referenced in the input from Alice&#8217;s transaction and take a look:</p></div>
+<div class="listingblock">
+<a id="alice_input_tx"></a>
+<div class="title">UTXO from the previous transaction, referenced in the input from Alice&#8217;s transaction</div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>"vout": <span style="color: #990000">[</span>
+   <span style="color: #990000">{</span>
+     "value": <span style="color: #993399">0.10000000</span><span style="color: #990000">,</span>
+     "scriptPubKey": "<span style="color: #FF0000">OP_DUP OP_HASH160 7f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8 OP_EQUALVERIFY OP_CHECKSIG</span>"
+   <span style="color: #990000">}</span>
+ <span style="color: #990000">]</span></tt></pre></div></div>
+<div class="paragraph"><p>We see that this UTXO has a value of 0.1 BTC and that it has a locking script (<code>scriptPubKey</code>) that contains "OP_DUP OP_HASH160&#8230;".</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>To fully understand Alice&#8217;s transaction we had to retrieve the previous transaction referenced as input. A function that retrieves previous transactions and unspent transaction outputs is very common and exists in almost every bitcoin library and API.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="sect4">
+<h5 id="_transaction_serialization_x2014_inputs">Transaction serialization&#x2014;inputs</h5>
+<div class="paragraph"><p>When transactions are serialized for transmission on the network, their inputs are encoded into a byte stream as shown in <a href="#tx_in_structure">[tx_in_structure]</a>.</p></div>
+<div class="tableblock" id="tx_in_structure">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 2. Transaction input serialization</caption>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">Size</th>
+<th align="left" valign="top"> Field </th>
+<th align="left" valign="top"> Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">32 bytes</p></td>
+<td align="left" valign="top"><p class="table">Transaction Hash</p></td>
+<td align="left" valign="top"><p class="table">Pointer to the transaction containing the UTXO to be spent</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">4 bytes</p></td>
+<td align="left" valign="top"><p class="table">Output Index</p></td>
+<td align="left" valign="top"><p class="table">The index number of the UTXO to be spent; first one is 0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">1&#x2013;9 bytes (VarInt)</p></td>
+<td align="left" valign="top"><p class="table">Unlocking-Script Size</p></td>
+<td align="left" valign="top"><p class="table">Unlocking-Script length in bytes, to follow</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Variable</p></td>
+<td align="left" valign="top"><p class="table">Unlocking-Script</p></td>
+<td align="left" valign="top"><p class="table">A script that fulfills the conditions of the UTXO locking script</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">4 bytes</p></td>
+<td align="left" valign="top"><p class="table">Sequence Number</p></td>
+<td align="left" valign="top"><p class="table">Used for locktime or disabled (0xFFFFFFFF)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>As with the outputs, let&#8217;s see if we can find the inputs from Alice&#8217;s transaction in the serialized format. First, the inputs decoded:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>"vin": <span style="color: #990000">[</span>
+  <span style="color: #990000">{</span>
+    "txid": "<span style="color: #FF0000">7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18</span>"<span style="color: #990000">,</span>
+    "vout": <span style="color: #993399">0</span><span style="color: #990000">,</span>
+    "scriptSig" : "<span style="color: #FF0000">3045022100884d142d86652a3f47ba4746ec719bbfbd040a570b1deccbb6498c75c4ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813[ALL] 0484ecc0d46f1918b30928fa0e4ed99f16a0fb4fde0735e7ade8416ab9fe423cc5412336376789d172787ec3457eee41c04f4938de5cc17b4a10fa336a8d752adf</span>"<span style="color: #990000">,</span>
+    "sequence": <span style="color: #993399">4294967295</span>
+  <span style="color: #990000">}</span>
+<span style="color: #990000">],</span></tt></pre></div></div>
+<div class="paragraph"><p>Now, let&#8217;s see if we can identify these fields in the serialized hex encoding in <a href="#example_6_2">[example_6_2]</a>:</p></div>
+<div class="exampleblock" id="example_6_2">
+<div class="title">Example 2. Alice&#8217;s transaction, serialized and presented in hexadecimal notation</div>
+<div class="content">
+<div class="paragraph"><p><code>0100000001</code><strong><code>186f9f998a5aa6f048e51dd8419a14d8a0f1a8a2836dd73</code></strong>
+<strong><code>4d2804fe65fa35779000000008b483045022100884d142d86652a3f47</code></strong>
+<strong><code>ba4746ec719bbfbd040a570b1deccbb6498c75c4ae24cb02204b9f039</code></strong>
+<strong><code>ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813</code></strong>
+<strong><code>01410484ecc0d46f1918b30928fa0e4ed99f16a0fb4fde0735e7ade84</code></strong>
+<strong><code>16ab9fe423cc5412336376789d172787ec3457eee41c04f4938de5cc1</code></strong>
+<strong><code>7b4a10fa336a8d752adfffffffff</code></strong><code>0260e31600000000001976a914ab6</code>
+<code>8025513c3dbd2f7b92a94e0581f5d50f654e788acd0ef800000000000</code>
+<code>1976a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a888ac00000</code>
+<code>000</code></p></div>
+</div></div>
+<div class="paragraph"><p>Hints:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+The transaction ID is serialized in reversed byte order, so it starts with (hex) <code>18</code> and ends with <code>79</code>
+</p>
+</li>
+<li>
+<p>
+The output index is a 4-byte group of zeros, easy to identify
+</p>
+</li>
+<li>
+<p>
+The length of the <code>scriptSig</code> is 139 bytes, or <code>8b</code> in hex
+</p>
+</li>
+<li>
+<p>
+The sequence number is set to <code>FFFFFFFF</code>, again easy to identify
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>ScriptSig is a specific type of unlocking script that when serialized for transmission on the network, inputs are encoded into a byte stream as shown in <a href="#scriptsig_in_structure">[scriptsig_in_structure]</a>. The serialization of the signature field is detailed in <a href="#seralization_of_signatures_der">[seralization_of_signatures_der]</a>. The signature field also includes a Signature Hash Type (SIGHASH), which is detailed in <a href="#sighash_types">[sighash_types]</a>.</p></div>
+<div class="tableblock" id="scriptsig_in_structure">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 3. ScriptSig input serialization</caption>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">Size</th>
+<th align="left" valign="top"> Field </th>
+<th align="left" valign="top"> Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">1&#x2013;9 bytes (VarInt)</p></td>
+<td align="left" valign="top"><p class="table">Signature Size</p></td>
+<td align="left" valign="top"><p class="table">Signature length in bytes, to follow</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Variable</p></td>
+<td align="left" valign="top"><p class="table">Signature</p></td>
+<td align="left" valign="top"><p class="table">A signature that is produced by the user’s wallet from his or her private key, which includes a SIGHASH</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">1&#x2013;9 bytes (VarInt)</p></td>
+<td align="left" valign="top"><p class="table">Public Key Size</p></td>
+<td align="left" valign="top"><p class="table">Public key length in bytes, to follow</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Variable</p></td>
+<td align="left" valign="top"><p class="table">Public Key</p></td>
+<td align="left" valign="top"><p class="table">The public key, unhashed</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="tx_fees">Transaction Fees</h4>
+<div class="paragraph"><p>Most transactions include transaction fees, which compensate the bitcoin miners for securing the network. Fees also serve as a security mechanism themselves, by making it economically infeasible for attackers to flood the network with transactions. Mining and the fees and rewards collected by miners are discussed in more detail in <a href="#mining">[mining]</a>.</p></div>
+<div class="paragraph"><p>This section examines how transaction fees are included in a typical transaction. Most wallets calculate and include transaction fees automatically. However, if you are constructing transactions programmatically, or using a command-line interface, you must manually account for and include these fees.</p></div>
+<div class="paragraph"><p>Transaction fees serve as an incentive to include (mine) a transaction into the next block and also as a disincentive against abuse of the system by imposing a small cost on every transaction. Transaction fees are collected by the miner who mines the block that records the transaction on the blockchain.</p></div>
+<div class="paragraph"><p>Transaction fees are calculated based on the size of the transaction in kilobytes, not the value of the transaction in bitcoin. Overall, transaction fees are set based on market forces within the Bitcoin network. Miners prioritize transactions based on many different criteria, including fees, and might even process transactions for free under certain circumstances. Transaction fees affect the processing priority, meaning that a transaction with sufficient fees is likely to be included in the next block mined, whereas a transaction with insufficient or no fees might be delayed, processed on a best-effort basis after a few blocks, or not processed at all. Transaction fees are not mandatory, and transactions without fees might be processed eventually; however, including transaction fees encourages priority processing.</p></div>
+<div class="paragraph"><p>Over time, the way transaction fees are calculated and the effect they have on transaction prioritization has evolved. At first, transaction fees were fixed and constant across the network. Gradually, the fee structure relaxed and may be influenced by market forces, based on network capacity and transaction volume. Since at least the beginning of 2016, capacity limits in bitcoin have created competition between transactions, resulting in higher fees and effectively making free transactions a thing of the past. Zero fee or very low fee transactions rarely get mined and sometimes will not even be propagated across the network.</p></div>
+<div class="paragraph"><p>In Bitcoin Core, fee relay policies are set by the <code>minrelaytxfee</code> option. The current default <code>minrelaytxfee</code> is 0.00001 bitcoin or a hundredth of a millibitcoin per kilobyte. Therefore, by default, transactions with a fee less than 0.00001 bitcoin are treated as free and are only relayed if there is space in the mempool; otherwise, they are dropped. Bitcoin nodes can override the default fee relay policy by adjusting the value of <code>minrelaytxfee</code>.</p></div>
+<div class="paragraph"><p>Any bitcoin service that creates transactions, including wallets, exchanges, retail applications, etc., <em>must</em> implement dynamic fees. Dynamic fees can be implemented through a third-party fee estimation service or with a built-in fee estimation algorithm. If you&#8217;re unsure, begin with a third-party service and as you gain experience design and implement your own algorithm if you wish to remove the third-party dependency.</p></div>
+<div class="paragraph"><p>Fee estimation algorithms calculate the appropriate fee, based on capacity and the fees offered by "competing" transactions. These algorithms range from simplistic (average or median fee in the last block) to sophisticated (statistical analysis). They estimate the necessary fee (in satoshis per byte) that will give a transaction a high probability of being selected and included within a certain number of blocks. Most services offer users the option of choosing high, medium, or low priority fees. High priority means users pay higher fees but the transaction is likely to be included in the next block. Medium and low priority means users pay lower transaction fees but the transactions may take much longer to confirm.</p></div>
+<div class="paragraph"><p>Many wallet applications use third-party services for fee calculations. One popular service is <a href="https://bitcoinfees.earn.com/"><em>https://bitcoinfees.earn.com/</em></a>, which provides an API and a visual chart showing the fee in satoshi/byte for different priorities.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>Static fees are no longer viable on the Bitcoin network. Wallets that set static fees will produce a poor user experience as transactions will often get "stuck" and remain unconfirmed. Users who don&#8217;t understand bitcoin transactions and fees are dismayed by "stuck" transactions because they think they&#8217;ve lost their money.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>The chart in <a href="#bitcoinfeesearncom">[bitcoinfeesearncom]</a> shows the real-time estimate of fees in 10 satoshi/byte increments and the expected confirmation time (in minutes and number of blocks) for transactions with fees in each range. For each fee range (e.g., 61&#x2013;70 satoshi/byte), two horizontal bars show the number of unconfirmed transactions (1405) and total number of transactions in the past 24 hours (102,975), with fees in that range. Based on the graph, the recommended high-priority fee at this time was 80 satoshi/byte, a fee likely to result in the transaction being mined in the very next block (zero block delay). For perspective, the median transaction size is 226 bytes, so the recommended fee for this transaction size would be 18,080 satoshis (0.00018080 BTC).</p></div>
+<div class="paragraph"><p>The fee estimation data can be retrieved via a simple HTTP REST API, at <a href="https://bitcoinfees.earn.com/api/v1/fees/recommended">https://bitcoinfees.earn.com/api/v1/fees/recommended</a>. For example, on the command line using the <code>curl</code> command:</p></div>
+<div class="listingblock">
+<div class="title">Using the fee estimation API</div>
+<div class="content">
+<pre><code>$ curl https://bitcoinfees.earn.com/api/v1/fees/recommended
+
+{"fastestFee":80,"halfHourFee":80,"hourFee":60}</code></pre>
+</div></div>
+<div class="paragraph"><p>The API returns a JSON object with the current fee estimate for fastest confirmation (<code>fastestFee</code>), confirmation within three blocks (<code>halfHourFee</code>) and six blocks (<code>hourFee</code>), in satoshi per byte.</p></div>
+<div class="imageblock" id="bitcoinfeesearncom">
+<div class="content">
+<img src="images/mbc2_0602.png" alt="Fee Estimation Service bitcoinfees.earn.com" />
+</div>
+<div class="title">Figure 3. Fee estimation service bitcoinfees.earn.com</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_adding_fees_to_transactions">Adding Fees to Transactions</h4>
+<div class="paragraph"><p>The data structure of transactions does not have a field for fees. Instead, fees are implied as the difference between the sum of inputs and the sum of outputs. Any excess amount that remains after all outputs have been deducted from all inputs is the fee that is collected by the miners:</p></div>
+<div class="listingblock" id="tx_fee_equation">
+<div class="title">Transaction fees are implied, as the excess of inputs minus outputs:</div>
+<div class="content">
+<pre><code>Fees = Sum(Inputs) – Sum(Outputs)</code></pre>
+</div></div>
+<div class="paragraph"><p>This is a somewhat confusing element of transactions and an important point to understand, because if you are constructing your own transactions you must ensure you do not inadvertently include a very large fee by underspending the inputs. That means that you must account for all inputs, if necessary by creating change, or you will end up giving the miners a very big tip!</p></div>
+<div class="paragraph"><p>For example, if you consume a 20-bitcoin UTXO to make a 1-bitcoin payment, you must include a 19-bitcoin change output back to your wallet. Otherwise, the 19-bitcoin "leftover" will be counted as a transaction fee and will be collected by the miner who mines your transaction in a block. Although you will receive priority processing and make a miner very happy, this is probably not what you intended.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>If you forget to add a change output in a manually constructed transaction, you will be paying the change as a transaction fee. Saying "Keep the change!" to the miner might not be what you really intended.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Let&#8217;s see how this works in practice, by looking at Alice&#8217;s coffee purchase again. Alice wants to spend 0.015 bitcoin to pay for coffee. To ensure this transaction is processed promptly, she will want to include a transaction fee, say 0.0005. That will mean that the total cost of the transaction will be 0.0155. Her wallet must therefore source a set of UTXO that adds up to 0.0155 bitcoin or more and, if necessary, create change. Let&#8217;s say her wallet has a 0.1-bitcoin UTXO available. It will therefore need to consume this UTXO, create one output to Bob&#8217;s Cafe for 0.015, and a second output with 0.0845 bitcoin in change back to her own wallet, leaving 0.0005 bitcoin unallocated, as an implicit fee for the transaction.</p></div>
+<div class="paragraph"><p>Now let&#8217;s look at a different scenario. Eugenia, our children&#8217;s charity director in the Philippines, has completed a fundraiser to purchase schoolbooks for the children. She received several thousand small donations from people all around the world, totaling 50 bitcoin, so her wallet is full of very small payments (UTXO). Now she wants to purchase hundreds of schoolbooks from a local publisher, paying in bitcoin.</p></div>
+<div class="paragraph"><p>As Eugenia&#8217;s wallet application tries to construct a single larger payment transaction, it must source from the available UTXO set, which is composed of many smaller amounts. That means that the resulting transaction will source from more than a hundred small-value UTXO as inputs and only one output, paying the book publisher. A transaction with that many inputs will be larger than one kilobyte, perhaps several kilobytes in size. As a result, it will require a much higher fee than the median-sized transaction.</p></div>
+<div class="paragraph"><p>Eugenia&#8217;s wallet application will calculate the appropriate fee by measuring the size of the transaction and multiplying that by the per-kilobyte fee. Many wallets will overpay fees for larger transactions to ensure the transaction is processed promptly. The higher fee is not because Eugenia is spending more money, but because her transaction is more complex and larger in size&#8212;the fee is independent of the transaction&#8217;s bitcoin value.</p></div>
+</div>
+</div>
+<div class="sect2 pagebreak-before less_space_h1">
+<h3 id="tx_script">Transaction Scripts and Script Language</h3>
+<div class="paragraph"><p>The bitcoin transaction script language, called <em>Script</em>, is a Forth-like reverse-polish notation stack-based execution language. If that sounds like gibberish, you probably haven&#8217;t studied 1960s programming languages, but that&#8217;s ok&#x2014;we will explain it all in this chapter. Both the locking script placed on an UTXO and the unlocking script are written in this scripting language. When a transaction is validated, the unlocking script in each input is executed alongside the corresponding locking script to see if it satisfies the spending condition.</p></div>
+<div class="paragraph"><p>Script is a very simple language that was designed to be limited in scope and executable on a range of hardware, perhaps as simple as an embedded device. It requires minimal processing and cannot do many of the fancy things modern programming languages can do. For its use in validating programmable money, this is a deliberate security feature.</p></div>
+<div class="paragraph"><p>Today, most transactions processed through the Bitcoin network have the form "Payment to Bob&#8217;s Bitcoin address" and are based on a script called a Pay-to-Public-Key-Hash script.  However, bitcoin transactions are not limited to the "Payment to Bob&#8217;s Bitcoin address" script. In fact, locking scripts can be written to express a vast variety of complex conditions. In order to understand these more complex scripts, we must first understand the basics of transaction scripts and script language.</p></div>
+<div class="paragraph"><p>In this section, we will demonstrate the basic components of the bitcoin transaction scripting language and show how it can be used to express simple conditions for spending and how those conditions can be satisfied by unlocking scripts.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>Bitcoin transaction validation is not based on a static pattern, but instead is achieved through the execution of a scripting language. This language allows for a nearly infinite variety of conditions to be expressed. This is how bitcoin gets the power of "programmable money".</p></div>
+</td>
+</tr></table>
+</div>
+<div class="sect3">
+<h4 id="_turing_incompleteness">Turing Incompleteness</h4>
+<div class="paragraph"><p>The bitcoin transaction script language contains many operators, but is deliberately limited in one important way&#8212;there are no loops or complex flow control capabilities other than conditional flow control. This ensures that the language is not <em>Turing Complete</em>, meaning that scripts have limited complexity and predictable execution times. Script is not a general-purpose language. These limitations ensure that the language cannot be used to create an infinite loop or other form of "logic bomb" that could be embedded in a transaction in a way that causes a denial-of-service attack against the Bitcoin network. Remember, every transaction is validated by every full node on the Bitcoin network. A limited language prevents the transaction validation mechanism from being used as a vulnerability.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_stateless_verification">Stateless Verification</h4>
+<div class="paragraph"><p>The bitcoin transaction script language is stateless, in that there is no state prior to execution of the script, or state saved after execution of the script. Therefore, all the information needed to execute a script is contained within the script. A script will predictably execute the same way on any system. If your system verifies a script, you can be sure that every other system in the Bitcoin network will also verify the script, meaning that a valid transaction is valid for everyone and everyone knows this. This predictability of outcomes is an essential benefit of the Bitcoin system.</p></div>
+</div>
+<div class="sect3">
+<h4 id="tx_lock_unlock">Script Construction (Lock + Unlock)</h4>
+<div class="paragraph"><p>Bitcoin&#8217;s transaction validation engine relies on two types of scripts to validate transactions: a locking script and an unlocking script.</p></div>
+<div class="paragraph"><p>A locking script is a spending condition placed on an output: it specifies the conditions that must be met to spend the output in the future. Historically, the locking script was called a <em>scriptPubKey</em>, because it usually contained a public key or Bitcoin address (public key hash). In this book we refer to it as a "locking script" to acknowledge the much broader range of possibilities of this scripting technology. In most bitcoin applications, what we refer to as a locking script will appear in the source code as <code>scriptPubKey</code>. You will also see the locking script referred to as a <em>witness script</em> (see <a href="#segwit">[segwit]</a>) or more generally as a <em>cryptographic puzzle</em>. These terms all mean the same thing, at different levels of abstraction.</p></div>
+<div class="paragraph"><p>An unlocking script is a script that "solves," or satisfies, the conditions placed on an output by a locking script and allows the output to be spent. Unlocking scripts are part of every transaction input. Most of the time they contain a digital signature produced by the user&#8217;s wallet from his or her private key. Historically, the unlocking script was called <em>scriptSig</em>, because it usually contained a digital signature. In most bitcoin applications, the source code refers to the unlocking script as <code>scriptSig</code>. You will also see the unlocking script referred to as a <em>witness</em> (see <a href="#segwit">[segwit]</a>). In this book, we refer to it as an "unlocking script" to acknowledge the much broader range of locking script requirements, because not all unlocking scripts must contain signatures.</p></div>
+<div class="paragraph"><p>Every bitcoin validating node will validate transactions by executing the locking and unlocking scripts together. Each input contains an unlocking script and refers to a previously existing UTXO. The validation software will copy the unlocking script, retrieve the UTXO referenced by the input, and copy the locking script from that UTXO. The unlocking and locking script are then executed in sequence. The input is valid if the unlocking script satisfies the locking script conditions (see <a href="#script_exec">[script_exec]</a>). All the inputs are validated independently, as part of the overall validation of the transaction.</p></div>
+<div class="paragraph"><p>Note that the UTXO is permanently recorded in the blockchain, and therefore is invariable and is unaffected by failed attempts to spend it by reference in a new transaction. Only a valid transaction that correctly satisfies the conditions of the output results in the output being considered as "spent" and removed from the set of unspent transaction outputs (UTXO set).</p></div>
+<div class="paragraph"><p><a href="#scriptSig_and_scriptPubKey">[scriptSig_and_scriptPubKey]</a> is an example of the unlocking and locking scripts for the most common type of bitcoin transaction (a payment to a public key hash), showing the combined script resulting from the concatenation of the unlocking and locking scripts prior to script validation.</p></div>
+<div class="imageblock" id="scriptSig_and_scriptPubKey">
+<div class="content">
+<img src="images/mbc2_0603.png" alt="scriptSig_and_scriptPubKey" />
+</div>
+<div class="title">Figure 4. Combining scriptSig and scriptPubKey to evaluate a transaction script</div>
+</div>
+<div class="sect4">
+<h5 id="_the_script_execution_stack">The script execution stack</h5>
+<div class="paragraph"><p>Bitcoin&#8217;s scripting language is called a stack-based language because it uses a data structure called a <em>stack</em>. A stack is a very simple data structure that can be visualized as a stack of cards. A stack allows two operations: push and pop. Push adds an item on top of the stack. Pop removes the top item from the stack. Operations on a stack can only act on the topmost item on the stack. A stack data structure is also called a Last-In-First-Out, or "LIFO" queue.</p></div>
+<div class="paragraph"><p>The scripting language executes the script by processing each item from left to right. Numbers (data constants) are pushed onto the stack. Operators push or pop one or more parameters from the stack, act on them, and might push a result onto the stack. For example, <code>OP_ADD</code> will pop two items from the stack, add them, and push the resulting sum onto the stack.</p></div>
+<div class="paragraph"><p>Conditional operators evaluate a condition, producing a boolean result of TRUE or FALSE. For example, <code>OP_EQUAL</code> pops two items from the stack and pushes TRUE (TRUE is represented by the number 1) if they are equal or FALSE (represented by zero) if they are not equal. Bitcoin transaction scripts usually contain a conditional operator, so that they can produce the TRUE result that signifies a valid transaction.</p></div>
+</div>
+<div class="sect4">
+<h5 id="_a_simple_script">A simple script</h5>
+<div class="paragraph"><p>Now let&#8217;s apply what we&#8217;ve learned about scripts and stacks to some simple examples.</p></div>
+<div class="paragraph"><p>In <a href="#simplemath_script">[simplemath_script]</a>, the script <code>2 3 OP_ADD 5 OP_EQUAL</code> demonstrates the arithmetic addition operator <code>OP_ADD</code>, adding two numbers and putting the result on the stack, followed by the conditional operator <code>OP_EQUAL</code>, which checks that the resulting sum is equal to <code>5</code>. For brevity, the <code>OP_</code> prefix is omitted in the step-by-step example. For more details on the available script operators and functions, see <a href="#tx_script_ops">[tx_script_ops]</a>.</p></div>
+<div class="paragraph"><p>Although most locking scripts refer to a public key hash (essentially, a Bitcoin address), thereby requiring proof of ownership to spend the funds, the script does not have to be that complex. Any combination of locking and unlocking scripts that results in a TRUE value is valid. The simple arithmetic we used as an example of the scripting language is also a valid locking script that can be used to lock a transaction output.</p></div>
+<div class="paragraph"><p>Use part of the arithmetic example script as the locking script:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>3 OP_ADD 5 OP_EQUAL</code></pre>
+</div></div>
+<div class="paragraph"><p>which can be satisfied by a transaction containing an input with the unlocking script:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>2</code></pre>
+</div></div>
+<div class="paragraph"><p>The validation software combines the locking and unlocking scripts and the resulting script is:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>2 3 OP_ADD 5 OP_EQUAL</code></pre>
+</div></div>
+<div class="paragraph"><p>As we saw in the step-by-step example in <a href="#simplemath_script">[simplemath_script]</a>, when this script is executed, the result is <code>OP_TRUE</code>, making the transaction valid. Not only is this a valid transaction output locking script, but the resulting UTXO could be spent by anyone with the arithmetic skills to know that the number 2 satisfies the script.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>Transactions are valid if the top result on the stack is <code>TRUE</code> (noted as <code>&#x7b;0x01&#x7d;</code>), any other nonzero value, not <code>OP_0</code>, or if the stack is empty after script execution. Transactions are invalid if the top value on the stack is <code>FALSE</code> (a zero-length empty value, noted as <code>&#x7b;&#x7d;</code>) or if script execution is halted explicitly by an operator, such as <code>OP_VERIFY</code>, <code>OP_RETURN</code>, or a conditional terminator such as <code>OP_ENDIF</code>. See <a href="#tx_script_ops">[tx_script_ops]</a> for details.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="imageblock" id="simplemath_script">
+<div class="content">
+<img src="images/mbc2_0604.png" alt="TxScriptSimpleMathExample" />
+</div>
+<div class="title">Figure 5. Bitcoin&#8217;s script validation doing simple math</div>
+</div>
+<div class="paragraph pagebreak-before"><p>The following is a slightly more complex script, which calculates <code>2 + 7 - 3 + 1</code>. Notice that when the script contains several operators in a row, the stack allows the results of one operator to be acted upon by the next operator:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>2 7 OP_ADD 3 OP_SUB 1 OP_ADD 7 OP_EQUAL</code></pre>
+</div></div>
+<div class="paragraph"><p>Try validating the preceding script yourself using pencil and paper. When the script execution ends, you should be left with the value <code>TRUE</code> on the stack.</p></div>
+</div>
+<div class="sect4">
+<h5 id="script_exec">Separate execution of unlocking and locking scripts</h5>
+<div class="paragraph"><p>In the original Bitcoin client, the unlocking and locking scripts were concatenated and executed in sequence. For security reasons, this was changed in 2010, because of a vulnerability that allowed a malformed unlocking script to push data onto the stack and corrupt the locking script. In the current implementation, the scripts are executed separately with the stack transferred between the two executions, as described next.</p></div>
+<div class="paragraph"><p>First, the unlocking script is executed, using the stack execution engine. If the unlocking script is executed without errors (e.g., it has no "dangling" pointers left over), the main stack is copied and the locking script is executed. If the result of executing the locking script with the stack data copied from the unlocking script is "TRUE," the unlocking script has succeeded in resolving the conditions imposed by the locking script and, therefore, the input is a valid authorization to spend the UTXO. If any result other than "TRUE" remains after execution of the combined script, the input is invalid because it has failed to satisfy the spending conditions placed on the UTXO.</p></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="p2pkh">Pay-to-Public-Key-Hash (P2PKH)</h4>
+<div class="paragraph"><p>The vast majority of transactions processed on the Bitcoin network spend outputs locked with a Pay-to-Public-Key-Hash or "P2PKH" script. These outputs contain a locking script that locks the output to a public key hash, more commonly known as a Bitcoin address. An output locked by a P2PKH script can be unlocked (spent) by presenting a public key and a digital signature created by the corresponding private key (see <a href="#digital_sigs">[digital_sigs]</a>).</p></div>
+<div class="paragraph"><p>For example, let&#8217;s look at Alice&#8217;s payment to Bob&#8217;s Cafe again. Alice made a payment of 0.015 bitcoin to the cafe&#8217;s Bitcoin address. That transaction output would have a locking script of the form:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>OP_DUP OP_HASH160 &lt;Cafe Public Key Hash&gt; OP_EQUALVERIFY OP_CHECKSIG</code></pre>
+</div></div>
+<div class="paragraph"><p>The <code>Cafe Public Key Hash</code> is equivalent to the Bitcoin address of the cafe, without the Base58Check encoding. Most applications would show the <em>public key hash</em> in hexadecimal encoding and not the familiar Bitcoin address Base58Check format that begins with a "1."</p></div>
+<div class="paragraph"><p>The preceding locking script can be satisfied with an unlocking script of the form:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;Cafe Signature&gt; &lt;Cafe Public Key&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>The two scripts together would form the following combined validation script:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;Cafe Signature&gt; &lt;Cafe Public Key&gt; OP_DUP OP_HASH160
+&lt;Cafe Public Key Hash&gt; OP_EQUALVERIFY OP_CHECKSIG</code></pre>
+</div></div>
+<div class="paragraph"><p>When executed, this combined script will evaluate to TRUE if, and only if, the unlocking script matches the conditions set by the locking script. In other words, the result will be TRUE if the unlocking script has a valid signature from the cafe&#8217;s private key that corresponds to the public key hash set as an encumbrance.</p></div>
+<div class="paragraph"><p>Figures <a data-type="xref" href="#P2PubKHash1" data-xrefstyle="select: labelnumber">#P2PubKHash1</a> and <a data-type="xref" href="#P2PubKHash2" data-xrefstyle="select: labelnumber">#P2PubKHash2</a> show (in two parts) a step-by-step execution of the combined script, which will prove this is a valid transaction.</p></div>
+<div class="imageblock" id="P2PubKHash1">
+<div class="content">
+<img src="images/mbc2_0605.png" alt="Tx_Script_P2PubKeyHash_1" />
+</div>
+<div class="title">Figure 6. Evaluating a script for a P2PKH transaction (part 1 of 2)</div>
+</div>
+<div class="imageblock" id="P2PubKHash2">
+<div class="content">
+<img src="images/mbc2_0606.png" alt="Tx_Script_P2PubKeyHash_2" />
+</div>
+<div class="title">Figure 7. Evaluating a script for a P2PKH transaction (part 2 of 2)</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="digital_sigs">Digital Signatures (ECDSA)</h3>
+<div class="paragraph"><p>So far, we have not delved into any detail about "digital signatures." In this section we look at how digital signatures work and how they can present proof of ownership of a private key without revealing that private key.</p></div>
+<div class="paragraph"><p>The digital signature algorithm used in bitcoin is the <em>Elliptic Curve Digital Signature Algorithm</em>, or <em>ECDSA</em>. ECDSA is the algorithm used for digital signatures based on elliptic curve private/public key pairs, as described in <a href="#elliptic_curve">[elliptic_curve]</a>. ECDSA is used by the script functions <code>OP_CHECKSIG</code>, <code>OP_CHECKSIGVERIFY</code>, <code>OP_CHECKMULTISIG</code>, and <code>OP_CHECKMULTISIGVERIFY</code>. Any time you see those in a locking script, the unlocking script must contain an ECDSA signature.</p></div>
+<div class="paragraph"><p>A digital signature serves three purposes in bitcoin. First, the signature proves that the owner of the private key, who is by implication the owner of the funds, has <em>authorized</em> the spending of those funds. Secondly, the proof of authorization is <em>undeniable</em> (nonrepudiation). Thirdly, the signature proves that the transaction (or specific parts of the transaction) have not and <em>cannot be modified</em> by anyone after it has been signed.</p></div>
+<div class="paragraph"><p>Note that each transaction input is signed independently. This is critical, as neither the signatures nor the inputs have to belong to or be applied by the same "owners." In fact, a specific transaction scheme called "CoinJoin" uses this fact to create multi-party transactions for privacy.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>Each transaction input and any signature it may contain is <em>completely</em> independent of any other input or signature. Multiple parties can collaborate to construct transactions and sign only one input each.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="sidebarblock" id="digital_signature_definition">
+<div class="content">
+<div class="title">Wikipedia&#8217;s Definition of a "Digital Signature"</div>
+<div class="paragraph"><p>A digital signature is a mathematical scheme for demonstrating the authenticity of a digital message or documents. A valid digital signature gives a recipient reason to believe that the message was created by a known sender (authentication), that the sender cannot deny having sent the message (nonrepudiation), and that the message was not altered in transit (integrity).</p></div>
+<div class="paragraph"><p><em>Source: <a href="https://en.wikipedia.org/wiki/Digital_signature">https://en.wikipedia.org/wiki/Digital_signature</a></em></p></div>
+</div></div>
+<div class="sect3">
+<h4 id="_how_digital_signatures_work">How Digital Signatures Work</h4>
+<div class="paragraph"><p>A digital signature is a <em>mathematical scheme</em> that consists of two parts. The first part is an algorithm for creating a signature, using a private key (the signing key), from a message (the transaction). The second part is an algorithm that allows anyone to verify the signature, given also the message and a public key.</p></div>
+<div class="sect4">
+<h5 id="_creating_a_digital_signature">Creating a digital signature</h5>
+<div class="paragraph"><p>In bitcoin&#8217;s implementation of the ECDSA algorithm, the "message" being signed is the transaction, or more accurately a hash of a specific subset of the data in the transaction (see <a href="#sighash_types">[sighash_types]</a>). The signing key is the user&#8217;s private key. The result is the signature:</p></div>
+<div class="paragraph"><p>$\(Sig = F_{sig}(F_{hash}(m), dA)\)$</p></div>
+<div class="paragraph"><p>where:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<em>dA</em> is the signing private key
+</p>
+</li>
+<li>
+<p>
+<em>m</em> is the transaction (or parts of it)
+</p>
+</li>
+<li>
+<p>
+<em>F</em><sub><em>hash</em></sub> is the hashing function
+</p>
+</li>
+<li>
+<p>
+<em>F</em><sub><em>sig</em></sub> is the signing algorithm
+</p>
+</li>
+<li>
+<p>
+<em>Sig</em> is the resulting signature
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>More details on the mathematics of ECDSA can be found in <a href="#ecdsa_math">[ecdsa_math]</a>.</p></div>
+<div class="paragraph"><p>The function <em>F</em><sub><em>sig</em></sub> produces a signature <code>Sig</code> that is composed of two values, commonly referred to as <code>R</code> and <code>S</code>:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Sig = (R, S)</code></pre>
+</div></div>
+<div class="paragraph"><p>Now that the two values <code>R</code> and <code>S</code> have been calculated, they are serialized into a byte-stream using an international standard encoding scheme called the <em>Distinguished Encoding Rules</em>, or <em>DER</em>.</p></div>
+</div>
+<div class="sect4">
+<h5 id="seralization_of_signatures_der">Serialization of signatures (DER)</h5>
+<div class="paragraph"><p>Let&#8217;s look at the transaction Alice created again. In the transaction input there is an unlocking script that contains the following DER-encoded signature from Alice&#8217;s wallet:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>3045022100884d142d86652a3f47ba4746ec719bbfbd040a570b1deccbb6498c75c4ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e381301</code></pre>
+</div></div>
+<div class="paragraph"><p>That signature is a serialized byte-stream of the <code>R</code> and <code>S</code> values produced by Alice&#8217;s wallet to prove she owns the private key authorized to spend that output. The serialization format consists of nine elements as follows:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>0x30</code>&#x2014;indicating the start of a DER sequence
+</p>
+</li>
+<li>
+<p>
+<code>0x45</code>&#x2014;the length of the sequence (69 bytes)
+</p>
+</li>
+<li>
+<p>
+<code>0x02</code>&#x2014;an integer value follows
+</p>
+</li>
+<li>
+<p>
+<code>0x21</code>&#x2014;the length of the integer (33 bytes)
+</p>
+</li>
+<li>
+<p>
+<code>R</code>&#x2014;<code>00884d142d86652a3f47ba4746ec719bbfbd040a570b1deccbb6498c75c4ae24cb</code>
+</p>
+</li>
+<li>
+<p>
+<code>0x02</code>&#x2014;another integer follows
+</p>
+</li>
+<li>
+<p>
+<code>0x20</code>&#x2014;the length of the integer (32 bytes)
+</p>
+</li>
+<li>
+<p>
+<code>S</code>&#x2014;<code>4b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813</code>
+</p>
+</li>
+<li>
+<p>
+A suffix (<code>0x01</code>) indicating the type of hash used (<code>SIGHASH_ALL</code>)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>See if you can decode Alice&#8217;s serialized (DER-encoded) signature using this list. The important numbers are <code>R</code> and <code>S</code>; the rest of the data is part of the DER encoding scheme.</p></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_verifying_the_signature">Verifying the Signature</h4>
+<div class="paragraph"><p>To verify the signature, one must have the signature (<code>R</code> and <code>S</code>), the serialized transaction, and the public key (that corresponds to the private key used to create the signature). Essentially, verification of a signature means "Only the owner of the private key that generated this public key could have produced this signature on this transaction."</p></div>
+<div class="paragraph"><p>The signature verification algorithm takes the message (a hash of the transaction or parts of it), the signer&#8217;s public key and the signature (<code>R</code> and <code>S</code> values), and returns TRUE if the signature is valid for this message and public key.</p></div>
+</div>
+<div class="sect3">
+<h4 id="sighash_types">Signature Hash Types (SIGHASH)</h4>
+<div class="paragraph"><p>Digital signatures are applied to messages, which in the case of bitcoin, are the transactions themselves. The signature implies a <em>commitment</em> by the signer to specific transaction data. In the simplest form, the signature applies to the entire transaction, thereby committing all the inputs, outputs, and other transaction fields. However, a signature can commit to only a subset of the data in a transaction, which is useful for a number of scenarios as we will see in this section.</p></div>
+<div class="paragraph"><p>Bitcoin signatures have a way of indicating which part of a transaction&#8217;s data is included in the hash signed by the private key using a <code>SIGHASH</code> flag. The <code>SIGHASH</code> flag is a single byte that is appended to the signature. Every signature has a <code>SIGHASH</code> flag and the flag can be different from input to input. A transaction with three signed inputs may have three signatures with different <code>SIGHASH</code> flags, each signature signing (committing) different parts of the transaction.</p></div>
+<div class="paragraph"><p>Remember, each input may contain a signature in its unlocking script. As a result, a transaction that contains several inputs may have signatures with different <code>SIGHASH</code> flags that commit different parts of the transaction in each of the inputs. Note also that bitcoin transactions may contain inputs from different "owners," who may sign only one input in a partially constructed (and invalid) transaction, collaborating with others to gather all the necessary signatures to make a valid transaction. Many of the <code>SIGHASH</code> flag types only make sense if you think of multiple participants collaborating outside the Bitcoin network and updating a partially signed transaction.</p></div>
+<div class="paragraph pagebreak-before"><p>There are three <code>SIGHASH</code> flags: <code>ALL</code>, <code>NONE</code>, and <code>SINGLE</code>, as shown in <a href="#sighash_types_and_their">[sighash_types_and_their]</a>.</p></div>
+<div class="tableblock" id="sighash_types_and_their">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 4. SIGHASH types and their meanings</caption>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top"><code>SIGHASH</code> flag</th>
+<th align="left" valign="top"> Value </th>
+<th align="left" valign="top"> Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table"><code>ALL</code></p></td>
+<td align="left" valign="top"><p class="table">0x01</p></td>
+<td align="left" valign="top"><p class="table">Signature applies to all inputs and outputs</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>NONE</code></p></td>
+<td align="left" valign="top"><p class="table">0x02</p></td>
+<td align="left" valign="top"><p class="table">Signature applies to all inputs, none of the outputs</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>SINGLE</code></p></td>
+<td align="left" valign="top"><p class="table">0x03</p></td>
+<td align="left" valign="top"><p class="table">Signature applies to all inputs but only the one output with the same index number as the signed input</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>In addition, there is a modifier flag <code>SIGHASH_ANYONECANPAY</code>, which can be combined with each of the preceding flags. When <code>ANYONECANPAY</code> is set, only one input is signed, leaving the rest (and their sequence numbers) open for modification. The <code>ANYONECANPAY</code> has the value <code>0x80</code> and is applied by bitwise OR, resulting in the combined flags as shown in <a href="#sighash_types_with_modifiers">[sighash_types_with_modifiers]</a>.</p></div>
+<div class="tableblock" id="sighash_types_with_modifiers">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 5. SIGHASH types with modifiers and their meanings</caption>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">SIGHASH flag</th>
+<th align="left" valign="top"> Value </th>
+<th align="left" valign="top"> Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">ALL|ANYONECANPAY</p></td>
+<td align="left" valign="top"><p class="table">0x81</p></td>
+<td align="left" valign="top"><p class="table">Signature applies to one input and all outputs</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">NONE|ANYONECANPAY</p></td>
+<td align="left" valign="top"><p class="table">0x82</p></td>
+<td align="left" valign="top"><p class="table">Signature applies to one input, none of the outputs</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">SINGLE|ANYONECANPAY</p></td>
+<td align="left" valign="top"><p class="table">0x83</p></td>
+<td align="left" valign="top"><p class="table">Signature applies to one input and the output with the same index number</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>These flag combinations are summarized in <a href="#sighash_combinations">[sighash_combinations]</a>.</p></div>
+<div class="imageblock" id="sighash_combinations">
+<div class="content">
+<img src="images/sighash_combinations.png" alt="Summary of different SIGHASH flag combinations" />
+</div>
+<div class="title">Figure 8. Summary of different sighash combinations</div>
+</div>
+<div class="paragraph"><p>The way <code>SIGHASH</code> flags are applied during signing and verification is that a copy of the transaction is made and certain fields within are truncated (set to zero length and emptied). The resulting transaction is serialized. The <code>SIGHASH</code> flag is added to the end of the serialized transaction and the result is hashed. The hash itself is the "message" that is signed. Depending on which <code>SIGHASH</code> flag is used, different parts of the transaction are truncated. The resulting hash depends on different subsets of the data in the transaction. By including the <code>SIGHASH</code> as the last step before hashing, the signature commits the <code>SIGHASH</code> type as well, so it can&#8217;t be changed (e.g., by a miner).</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>All <code>SIGHASH</code> types sign the transaction <code>nLocktime</code> field (see <a href="#transaction_locktime_nlocktime">[transaction_locktime_nlocktime]</a>). In addition, the <code>SIGHASH</code> type itself is appended to the transaction before it is signed, so that it can&#8217;t be modified once signed.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>In the example of Alice&#8217;s transaction (see the list in <a href="#seralization_of_signatures_der">[seralization_of_signatures_der]</a>), we saw that the last part of the DER-encoded signature was <code>01</code>, which is the <code>SIGHASH_ALL</code> flag. This locks the transaction data, so Alice&#8217;s signature is committing the state of all inputs and outputs. This is the most common signature form.</p></div>
+<div class="paragraph"><p>Let&#8217;s look at some of the other <code>SIGHASH</code> types and how they can be used in practice:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<code>ALL|ANYONECANPAY</code> 
+</dt>
+<dd>
+<p>
+This construction can be used to make a "crowdfunding&#x201d;-style transaction. Someone attempting to raise funds can construct a transaction with a single output. The single output pays the "goal" amount to the fundraiser. Such a transaction is obviously not valid, as it has no inputs. However, others can now amend it by adding an input of their own, as a donation. They sign their own input with <code>ALL|ANYONECANPAY</code>. Unless enough inputs are gathered to reach the value of the output, the transaction is invalid. Each donation is a "pledge," which cannot be collected by the fundraiser until the entire goal amount is raised.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>NONE</code> 
+</dt>
+<dd>
+<p>
+This construction can be used to create a "bearer check" or "blank check" of a specific amount. It commits to the input, but allows the output locking script to be changed. Anyone can write their own Bitcoin address into the output locking script and redeem the transaction. However, the output value itself is locked by the signature.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>NONE|ANYONECANPAY</code> 
+</dt>
+<dd>
+<p>
+This construction can be used to build a "dust collector." Users who have tiny UTXO in their wallets can&#8217;t spend these because the cost in fees exceeds the value of the dust. With this type of signature, the dust UTXO can be donated for anyone to aggregate and spend whenever they want.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>There are some proposals to modify or expand the <code>SIGHASH</code> system. One such proposal is <em>Bitmask Sighash Modes</em> by Blockstream&#8217;s Glenn Willen, as part of the Elements project. This aims to create a flexible replacement for <code>SIGHASH</code> types that allows "arbitrary, miner-rewritable bitmasks of inputs and outputs" that can express "more complex contractual precommitment schemes, such as signed offers with change in a distributed asset exchange."</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>You will not see <code>SIGHASH</code> flags presented as an option in a user&#8217;s wallet application. With few exceptions, wallets construct P2PKH scripts and sign with <code>SIGHASH_ALL</code> flags. To use a different <code>SIGHASH</code> flag, you would have to write software to construct and sign transactions. More importantly, <code>SIGHASH</code> flags can be used by special-purpose bitcoin applications that enable novel uses.</p></div>
+</td>
+</tr></table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ecdsa_math">ECDSA Math</h4>
+<div class="paragraph"><p>As mentioned previously, signatures are created by a mathematical function <em>F</em><sub><em>sig</em></sub> that produces a signature composed of two values <em>R</em> and <em>S</em>. In this section we look at the function <em>F</em><sub><em>sig</em></sub> in more detail.</p></div>
+<div class="paragraph"><p>The signature algorithm first generates an <em>ephemeral</em> (temporary) private public key pair. This temporary key pair is used in the calculation of the <em>R</em> and <em>S</em> values, after a transformation involving the signing private key and the transaction hash.</p></div>
+<div class="paragraph"><p>The temporary key pair is based on a random number <em>k</em>, which is used as the temporary private key. From <em>k</em>, we generate the corresponding temporary public key <em>P</em> (calculated as <em>P = k*G</em>, in the same way bitcoin public keys are derived; see <a href="#pubkey">[pubkey]</a>). The <em>R</em> value of the digital signature is then the x coordinate of the ephemeral public key <em>P</em>.</p></div>
+<div class="paragraph"><p>From there, the algorithm calculates the <em>S</em> value of the signature, such that:</p></div>
+<div class="paragraph"><p><em>S</em> = <em>k</em><sup>-1</sup> (<em>Hash</em>(<em>m</em>) + <em>dA</em> * <em>R</em>) <em>mod n</em></p></div>
+<div class="paragraph"><p>where:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<em>k</em> is the ephemeral private key
+</p>
+</li>
+<li>
+<p>
+<em>R</em> is the x coordinate of the ephemeral public key
+</p>
+</li>
+<li>
+<p>
+<em>dA</em> is the signing private key
+</p>
+</li>
+<li>
+<p>
+<em>m</em> is the transaction data
+</p>
+</li>
+<li>
+<p>
+<em>n</em> is the prime order of the elliptic curve
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Verification is the inverse of the signature generation function, using the <em>R</em>, <em>S</em> values and the public key to calculate a value <em>P</em>, which is a point on the elliptic curve (the ephemeral public key used in signature creation):</p></div>
+<div class="paragraph"><p><em>P</em> = <em>S</em><sup>-1</sup> * <em>Hash</em>(<em>m</em>) * <em>G</em> + <em>S</em><sup>-1</sup> * <em>R</em> * <em>Qa</em></p></div>
+<div class="paragraph"><p>where:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<em>R</em> and <em>S</em> are the signature values
+</p>
+</li>
+<li>
+<p>
+<em>Qa</em> is Alice&#8217;s public key
+</p>
+</li>
+<li>
+<p>
+<em>m</em> is the transaction data that was signed
+</p>
+</li>
+<li>
+<p>
+<em>G</em> is the elliptic curve generator point
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>If the x coordinate of the calculated point <em>P</em> is equal to <em>R</em>, then the verifier can conclude that the signature is valid.</p></div>
+<div class="paragraph"><p>Note that in verifying the signature, the private key is neither known nor revealed.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>ECDSA is necessarily a fairly complicated piece of math; a full explanation is beyond the scope of this book. A number of great guides online take you through it step by step: search for "ECDSA explained" or try this one: <a href="https://bit.ly/2r0HhGB">https://bit.ly/2r0HhGB</a>.</p></div>
+</td>
+</tr></table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_importance_of_randomness_in_signatures">The Importance of Randomness in Signatures</h4>
+<div class="paragraph"><p>As we saw in <a href="#ecdsa_math">[ecdsa_math]</a>, the signature generation algorithm uses a random key <em>k</em>, as the basis for an ephemeral private/public key pair. The value of <em>k</em> is not important, <em>as long as it is random</em>. If the same value <em>k</em> is used to produce two signatures on different messages (transactions), then the signing <em>private key</em> can be calculated by anyone. Reuse of the same value for <em>k</em> in a signature algorithm leads to exposure of the private key!</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>If the same value <em>k</em> is used in the signing algorithm on two different transactions, the private key can be calculated and exposed to the world!</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>This is not just a theoretical possibility. We have seen this issue lead to exposure of private keys in a few different implementations of transaction-signing algorithms in bitcoin. People have had funds stolen because of inadvertent reuse of a <em>k</em> value. The most common reason for reuse of a <em>k</em> value is an improperly initialized random-number generator.</p></div>
+<div class="paragraph"><p>To avoid this vulnerability, the industry best practice is to not generate <em>k</em> with a random-number generator seeded with entropy, but instead to use a deterministic-random process seeded with the transaction data itself. This ensures that each transaction produces a different <em>k</em>. The industry-standard algorithm for deterministic initialization of <em>k</em> is defined in <a href="https://tools.ietf.org/html/rfc6979">RFC 6979</a>, published by the Internet Engineering Task Force.</p></div>
+<div class="paragraph"><p>If you are implementing an algorithm to sign transactions in bitcoin, you <em>must</em> use RFC 6979 or a similarly deterministic-random algorithm to ensure you generate a different <em>k</em> for each transaction.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bitcoin_addresses_balances_and_other_abstractions">Bitcoin Addresses, Balances, and Other Abstractions</h3>
+<div class="paragraph"><p>We began this chapter with the discovery that transactions look very different "behind the scenes" than how they are presented in wallets, blockchain explorers, and other user-facing applications. Many of the simplistic and familiar concepts from the earlier chapters, such as Bitcoin addresses and balances, seem to be absent from the transaction structure. We saw that transactions don&#8217;t contain Bitcoin addresses, per se, but instead operate through scripts that lock and unlock discrete values of bitcoin. Balances are not present anywhere in this system and yet every wallet application prominently displays the balance of the user&#8217;s wallet.</p></div>
+<div class="paragraph"><p>Now that we have explored what is actually included in a bitcoin transaction, we can examine how the higher-level abstractions are derived from the seemingly primitive components of the transaction.</p></div>
+<div class="paragraph"><p>Let&#8217;s look again at how Alice&#8217;s transaction was presented on a popular block explorer (<a href="#alice_transaction_to_bobs_cafe">[alice_transaction_to_bobs_cafe]</a>).</p></div>
+<div class="imageblock" id="alice_transaction_to_bobs_cafe">
+<div class="content">
+<img src="images/mbc2_0208.png" alt="&quot;Transaction Café Alice&quot;" />
+</div>
+<div class="title">Figure 9. Alice&#8217;s transaction to Bob&#8217;s Cafe</div>
+</div>
+<div class="paragraph"><p>On the left side of the transaction, the blockchain explorer shows Alice&#8217;s Bitcoin address as the "sender." In fact, this information is not in the transaction itself. When the blockchain explorer references the transaction it also references the previous transaction associated with the input and extracts the first output from that older transaction. Within that output is a locking script that locks the UTXO to Alice&#8217;s public key hash (a P2PKH script). The blockchain explorer extracted the public key hash and encoded it using Base58Check encoding to produce and display the Bitcoin address that represents that public key.</p></div>
+<div class="paragraph"><p>Similarly, on the right side, the blockchain explorer shows the two outputs; the first to Bob&#8217;s Bitcoin address and the second to Alice&#8217;s Bitcoin address (as change). Once again, to create these Bitcoin addresses, the blockchain explorer extracted the locking script from each output, recognized it as a P2PKH script, and extracted the public-key-hash from within. Finally, the blockchain explorer reencoded each public key hash with Base58Check to produce and display the Bitcoin addresses.</p></div>
+<div class="paragraph"><p>If you were to click on Bob&#8217;s Bitcoin address, the blockchain explorer would show you the view in <a href="#the_balance_of_bobs_bitcoin_address">[the_balance_of_bobs_bitcoin_address]</a>.</p></div>
+<div class="imageblock" id="the_balance_of_bobs_bitcoin_address">
+<div class="content">
+<img src="images/mbc2_0608.png" alt="The balance of Bob's Bitcoin address" />
+</div>
+<div class="title">Figure 10. The balance of Bob&#8217;s Bitcoin address</div>
+</div>
+<div class="paragraph"><p>The blockchain explorer displays the balance of Bob&#8217;s Bitcoin address. But nowhere in the Bitcoin system is there a concept of a "balance." Rather, the values displayed here are constructed by the blockchain explorer as follows.</p></div>
+<div class="paragraph"><p>To construct the "Total Received" amount, the blockchain explorer first will decode the Base58Check encoding of the Bitcoin address to retrieve the 160-bit hash of Bob&#8217;s public key that is encoded within the address. Then, the blockchain explorer will search through the database of transactions, looking for outputs with P2PKH locking scripts that contain Bob&#8217;s public key hash. By summing up the value of all the outputs, the blockchain explorer can produce the total value received.</p></div>
+<div class="paragraph"><p>Constructing the current balance (displayed as "Final Balance") requires a bit more work. The blockchain explorer keeps a separate database of the outputs that are currently unspent, the UTXO set. To maintain this database, the blockchain explorer must monitor the Bitcoin network, add newly created UTXO, and remove spent UTXO, in real time, as they appear in unconfirmed transactions. This is a complicated process that depends on keeping track of transactions as they propagate, as well as maintaining consensus with the Bitcoin network to ensure that the correct chain is followed. Sometimes, the blockchain explorer goes out of sync and its perspective of the UTXO set is incomplete or incorrect.</p></div>
+<div class="paragraph"><p>From the UTXO set, the blockchain explorer sums up the value of all unspent outputs referencing Bob&#8217;s public key hash and produces the "Final Balance" number shown to the user.</p></div>
+<div class="paragraph"><p>In order to produce this one image, with these two "balances," the blockchain explorer has to index and search through dozens, hundreds, or even hundreds of thousands of transactions.</p></div>
+<div class="paragraph"><p>In summary, the information presented to users through wallet applications, blockchain explorers, and other bitcoin user interfaces is often composed of higher-level abstractions that are derived by searching many different transactions, inspecting their content, and manipulating the data contained within them. By presenting this simplistic view of bitcoin transactions that resemble bank checks from one sender to one recipient, these applications have to abstract a lot of underlying details. They mostly focus on the common types of transactions: P2PKH with SIGHASH_ALL signatures on every input. Thus, while bitcoin applications can present more than 80% of all transactions in an easy-to-read manner, they are sometimes stumped by transactions that deviate from the norm. Transactions that contain more complex locking scripts, or different SIGHASH flags, or many inputs and outputs, demonstrate the simplicity and weakness of these abstractions.</p></div>
+<div class="paragraph"><p>Every day, hundreds of transactions that do not contain P2PKH outputs are confirmed on the blockchain. The blockchain explorers often present these with red warning messages saying they cannot decode an address.</p></div>
+<div class="paragraph"><p>As we will see in the next chapter, these are not necessarily strange transactions. They are transactions that contain more complex locking scripts than the common P2PKH. We will learn how to decode and understand more complex scripts and the applications they support next.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2022-03-04 00:25:01 EST
+</div>
+</div>
+</body>
+</html>
