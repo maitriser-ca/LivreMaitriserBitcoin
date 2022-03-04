@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+
+<article lang="en">
+<articleinfo>
+    <date>2022-03-04</date>
+</articleinfo>
+<section id="ch05_wallets">
+<title>Wallets</title>
+<simpara><indexterm>
+  <primary>wallets</primary><secondary>defined</secondary>
+</indexterm>
+<indexterm>
+  <primary>defined</primary>
+</indexterm>The word "wallet" is used to describe a few different things in bitcoin.</simpara>
+<simpara>At a high level, a wallet is an application that serves as the primary user interface. The wallet controls access to a user&#8217;s money, managing keys and addresses, tracking the balance, and creating and signing transactions.</simpara>
+<simpara>More narrowly, from a programmer&#8217;s perspective, the word "wallet" refers to the data structure used to store and manage a user&#8217;s keys.</simpara>
+<simpara>In this chapter we will look at the second meaning, where wallets are containers for private keys, usually implemented as structured files or simple databases.</simpara>
+<section id="_wallet_technology_overview">
+<title>Wallet Technology Overview</title>
+<simpara>In this section we summarize the various technologies used to construct user-friendly, secure, and flexible bitcoin wallets.</simpara>
+<simpara><indexterm>
+  <primary>wallets</primary><secondary>contents of</secondary>
+</indexterm>
+<indexterm>
+  <primary>contents of</primary>
+</indexterm>A common misconception about bitcoin is that bitcoin wallets contain bitcoin. In fact, the wallet contains only keys. The "coins" are recorded in the blockchain on the Bitcoin network. Users control the coins on the network by signing transactions with the keys in their wallets. <indexterm>
+  <primary>keychains</primary>
+</indexterm>In a sense, a bitcoin wallet is a <emphasis>keychain</emphasis>.</simpara>
+<tip>
+<simpara>Bitcoin wallets contain keys, not coins. Each user has a wallet containing keys. Wallets are really keychains containing pairs of private/public keys (see <xref linkend="private_public_keys"/>). Users sign transactions with the keys, thereby proving they own the transaction outputs (their coins). The coins are stored on the blockchain in the form of transaction outputs (often noted as vout or txout).</simpara>
+</tip>
+<simpara><indexterm>
+  <primary>wallets</primary><secondary>types of</secondary><tertiary>primary distinctions</tertiary>
+</indexterm>
+<indexterm>
+  <primary>types of</primary><secondary>primary distinctions</secondary>
+</indexterm>
+<indexterm>
+  <primary>primary distinctions</primary>
+</indexterm>There are two primary types of wallets, distinguished by whether the keys they contain are related to each other or not.</simpara>
+<simpara><indexterm>
+  <primary>JBOK wallets</primary>
+</indexterm><indexterm>
+  <primary>wallets</primary><secondary>types of</secondary><tertiary>JBOK wallets</tertiary>
+</indexterm>
+<indexterm>
+  <primary>types of</primary><secondary>JBOK wallets</secondary>
+</indexterm>
+<indexterm>
+  <primary>JBOK wallets</primary>
+</indexterm><indexterm>
+  <primary>nondeterministic wallets</primary>
+</indexterm>The first type is a <emphasis>nondeterministic wallet</emphasis>, where each key is independently generated from a random number. The keys are not related to each other. This type of wallet is also known as a JBOK wallet from the phrase "Just a Bunch Of Keys."</simpara>
+<simpara><indexterm>
+  <primary>deterministic wallets</primary>
+</indexterm>The second type of wallet is a <emphasis>deterministic wallet</emphasis>, where all the keys are derived from a single master key, known as the <emphasis>seed</emphasis>. All the keys in this type of wallet are related to each other and can be generated again if one has the original seed. <indexterm>
+  <primary>key derivation methods</primary>
+</indexterm>There are a number of different <emphasis>key derivation</emphasis> methods used in deterministic wallets. <indexterm>
+  <primary>hierarchical deterministic (HD) wallets</primary>
+</indexterm>The most commonly used derivation method uses a tree-like structure and is known as a <emphasis>hierarchical deterministic</emphasis> or <emphasis>HD</emphasis> wallet.</simpara>
+<simpara><indexterm>
+  <primary>mnemonic code words</primary>
+</indexterm>Deterministic wallets are initialized from a random sequence (entropy). To make these easier to use, random sequences are encoded as English words, also known as <emphasis>mnemonic code words</emphasis>.</simpara>
+<simpara>The next few sections introduce each of these technologies at a high level.</simpara>
+<section id="random_wallet">
+<title>Nondeterministic (Random) Wallets</title>
+<simpara><indexterm>
+  <primary>wallets</primary><secondary>types of</secondary><tertiary>nondeterministic (random) wallets</tertiary>
+</indexterm>
+<indexterm>
+  <primary>types of</primary><secondary>nondeterministic (random) wallets</secondary>
+</indexterm>
+<indexterm>
+  <primary>nondeterministic (random) wallets</primary>
+</indexterm>In the first bitcoin wallet (now called Bitcoin Core), wallets were collections of randomly generated private keys. For example, the original Bitcoin Core client pregenerates 100 random private keys when first started and generates more keys as needed, using each key only once.  Such wallets are being replaced with deterministic wallets because they are cumbersome to manage, back up, and import. The disadvantage of random keys is that if you generate many of them you must keep copies of all of them, meaning that the wallet must be backed up frequently. Each key must be backed up, or the funds it controls are irrevocably lost if the wallet becomes inaccessible. This conflicts directly with the principle of avoiding address reuse, by using each Bitcoin address for only one transaction. Address reuse reduces privacy by associating multiple transactions and addresses with each other. A Type-0 nondeterministic wallet is a poor choice of wallet, especially if you want to avoid address reuse because it means managing many keys, which creates the need for frequent backups. Although the Bitcoin Core client includes a Type-0 wallet, using this wallet is discouraged by developers of Bitcoin Core. <xref linkend="Type0_wallet"/> shows a nondeterministic wallet, containing a loose collection of random keys.</simpara>
+<tip>
+<simpara>The use of nondeterministic wallets is discouraged for anything other than simple tests. They are simply too cumbersome to back up and use. Instead, use an industry-standard&#x2013;based <emphasis>HD wallet</emphasis> with a <emphasis>mnemonic</emphasis> random sequence (entropy, or "initial seed") for backup.</simpara>
+</tip>
+<figure id="Type0_wallet" role="smallersixty"><title>Type-0 nondeterministic (random) wallet: a collection of randomly generated keys</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/mbc2_0501.png"/>
+  </imageobject>
+  <textobject><phrase>Non-Deterministic Wallet</phrase></textobject>
+</mediaobject>
+</figure>
+</section>
+<section id="_deterministic_seeded_wallets">
+<title>Deterministic (Seeded) Wallets</title>
+<simpara><indexterm>
+  <primary>wallets</primary><secondary>types of</secondary><tertiary>deterministic (seeded) wallets</tertiary>
+</indexterm>
+<indexterm>
+  <primary>types of</primary><secondary>deterministic (seeded) wallets</secondary>
+</indexterm>
+<indexterm>
+  <primary>deterministic (seeded) wallets</primary>
+</indexterm>Deterministic, or "seeded," wallets are wallets that contain private keys that are all derived from a common seed, through the use of a one-way hash function. The seed is a randomly generated number that is combined with other data, such as an index number or "chain code" (see <xref linkend="hd_wallets"/>) to derive the private keys. In a deterministic wallet, the seed is sufficient to recover all the derived keys, and therefore a single backup at creation time is sufficient. The seed is also sufficient for a wallet export or import, allowing for easy migration of all the user&#8217;s keys between different wallet implementations. <xref linkend="Type1_wallet"/> shows a logical diagram of a deterministic wallet.</simpara>
+<figure id="Type1_wallet" role="smallersixty"><title>Type-1 deterministic (seeded) wallet: a deterministic sequence of keys derived from a seed</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/mbc2_0502.png"/>
+  </imageobject>
+  <textobject><phrase>Deterministic Wallet</phrase></textobject>
+</mediaobject>
+</figure>
+</section>
+<section id="hd_wallets">
+<title>HD Wallets (BIP-32/BIP-44)</title>
+<simpara><indexterm>
+  <primary>wallets</primary><secondary>types of</secondary><tertiary>hierarchical deterministic (HD) wallets</tertiary>
+</indexterm>
+<indexterm>
+  <primary>types of</primary><secondary>hierarchical deterministic (HD) wallets</secondary>
+</indexterm>
+<indexterm>
+  <primary>hierarchical deterministic (HD) wallets</primary>
+</indexterm><indexterm>
+  <primary>hierarchical deterministic (HD) wallets</primary>
+</indexterm><indexterm>
+  <primary>bitcoin improvement proposals</primary><secondary>Hierarchical Deterministic Wallets (BIP-32/BIP-44)</secondary>
+</indexterm>
+<indexterm>
+  <primary>Hierarchical Deterministic Wallets (BIP-32/BIP-44)</primary>
+</indexterm>Deterministic wallets were developed to make it easy to derive many keys from a single "seed". The most advanced form of deterministic wallets is the HD wallet defined by the BIP-32 standard. HD wallets contain keys derived in a tree structure, such that a parent key can derive a sequence of children keys, each of which can derive a sequence of grandchildren keys, and so on, to an infinite depth. This tree structure is illustrated in <xref linkend="Type2_wallet"/>.</simpara>
+<figure id="Type2_wallet"><title>Type-2 HD wallet: a tree of keys generated from a single seed</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/mbc2_0503.png"/>
+  </imageobject>
+  <textobject><phrase>HD wallet</phrase></textobject>
+</mediaobject>
+</figure>
+<simpara>HD wallets offer two major advantages over random (nondeterministic) keys. First, the tree structure can be used to express additional organizational meaning, such as when a specific branch of subkeys is used to receive incoming payments and a different branch is used to receive change from outgoing payments. Branches of keys can also be used in corporate settings, allocating different branches to departments, subsidiaries, specific functions, or accounting categories.</simpara>
+<simpara>The second advantage of HD wallets is that users can create a sequence of public keys without having access to the corresponding private keys. This allows HD wallets to be used on an insecure server or in a receive-only capacity, issuing a different public key for each transaction. The public keys do not need to be preloaded or derived in advance, yet the server doesn&#8217;t have the private keys that can spend the funds.</simpara>
+</section>
+<section id="_seeds_and_mnemonic_codes_bip_39">
+<title>Seeds and Mnemonic Codes (BIP-39)</title>
+<simpara><indexterm>
+  <primary>wallets</primary><secondary>technology of</secondary><tertiary>seeds and mnemonic codes</tertiary>
+</indexterm>
+<indexterm>
+  <primary>technology of</primary><secondary>seeds and mnemonic codes</secondary>
+</indexterm>
+<indexterm>
+  <primary>seeds and mnemonic codes</primary>
+</indexterm><indexterm>
+  <primary>mnemonic code words</primary>
+</indexterm><indexterm>
+  <primary>bitcoin improvement proposals</primary><secondary>Mnemonic Code Words (BIP-39)</secondary>
+</indexterm>
+<indexterm>
+  <primary>Mnemonic Code Words (BIP-39)</primary>
+</indexterm>HD wallets are a very powerful mechanism for managing many keys and addresses. They are even more useful if they are combined with a standardized way of creating seeds from a sequence of English words that are easy to transcribe, export, and import across wallets. This is known as a <emphasis>mnemonic</emphasis> and the standard is defined by BIP-39. Today, most bitcoin wallets (as well as wallets for other cryptocurrencies) use this standard and can import and export seeds for backup and recovery using interoperable mnemonics.</simpara>
+<simpara>Let&#8217;s look at this from a practical perspective. Which of the following seeds is easier to transcribe, record on paper, read without error, export, and import into another wallet?</simpara>
+<formalpara><title>A seed for a deterministic wallet, in hex</title><para>
+<screen>0C1E24E5917779D297E14D45F14E1A1A</screen>
+</para></formalpara>
+<formalpara><title>A seed for a deterministic wallet, from a 12-word mnemonic</title><para>
+<screen>army van defense carry jealous true
+garbage claim echo media make crunch</screen>
+</para></formalpara>
+</section>
+<section id="_wallet_best_practices">
+<title>Wallet Best Practices</title>
+<simpara><indexterm>
+  <primary>wallets</primary><secondary>best practices for</secondary>
+</indexterm>
+<indexterm>
+  <primary>best practices for</primary>
+</indexterm><indexterm>
+  <primary>bitcoin improvement proposals</primary><secondary>Multipurpose HD Wallet Structure (BIP-43)</secondary>
+</indexterm>
+<indexterm>
+  <primary>Multipurpose HD Wallet Structure (BIP-43)</primary>
+</indexterm>As bitcoin wallet technology has matured, certain common industry standards have emerged that make bitcoin wallets broadly interoperable, easy to use, secure, and flexible. These common standards are:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Mnemonic code words, based on BIP-39
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+HD wallets, based on BIP-32
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Multipurpose HD wallet structure, based on BIP-43
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Multicurrency and multiaccount wallets, based on BIP-44
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>These standards may change or may become obsolete by future developments, but for now they form a set of interlocking technologies that have become the de facto wallet standard for bitcoin.</simpara>
+<simpara>The standards have been adopted by a broad range of software and hardware bitcoin wallets, making all these wallets interoperable. A user can export a mnemonic generated on one of these wallets and import it in another wallet, recovering all transactions, keys, and addresses.</simpara>
+<simpara><indexterm>
+  <primary>hardware wallets</primary>
+</indexterm><indexterm>
+  <primary>hardware wallets</primary>
+</indexterm>Some example of software wallets supporting these standards include (listed alphabetically) Bluewallet, Breadwallet, Copay, and Multibit HD. Examples of hardware wallets supporting these standards include (listed alphabetically) KeepKey, Ledger, and Trezor.</simpara>
+<simpara>The following sections examine each of these technologies in detail.</simpara>
+<tip>
+<simpara>If you are implementing a bitcoin wallet, it should be built as a HD wallet, with a seed derived from, and encoded as, a mnemonic code for backup, following the BIP-32, BIP-39, BIP-43, and BIP-44 standards, as described in the following sections.</simpara>
+</tip>
+</section>
+<section id="_using_a_bitcoin_wallet">
+<title>Using a Bitcoin Wallet</title>
+<simpara><indexterm>
+  <primary>wallets</primary><secondary>using bitcoin wallets</secondary>
+</indexterm>
+<indexterm>
+  <primary>using bitcoin wallets</primary>
+</indexterm>In <xref linkend="user-stories"/> we introduced Gabriel, <indexterm>
+  <primary>use cases</primary><secondary>web store</secondary>
+</indexterm>
+<indexterm>
+  <primary>web store</primary>
+</indexterm>an enterprising young teenager in Rio de Janeiro, who is running a simple web store that sells bitcoin-branded t-shirts, coffee mugs, and stickers.</simpara>
+<simpara><indexterm>
+  <primary>wallets</primary><secondary>types of</secondary><tertiary>hardware wallets</tertiary>
+</indexterm>
+<indexterm>
+  <primary>types of</primary><secondary>hardware wallets</secondary>
+</indexterm>
+<indexterm>
+  <primary>hardware wallets</primary>
+</indexterm>Gabriel uses a Trezor bitcoin hardware wallet (<xref linkend="a_trezor_device"/>) to securely manage his bitcoin. The Trezor is a simple USB device with two buttons that stores keys (in the form of an HD wallet) and signs transactions. Trezor wallets implement all the industry standards discussed in this chapter, so Gabriel is not reliant on any proprietary technology or single vendor solution.</simpara>
+<figure id="a_trezor_device"><title>A Trezor device: a bitcoin HD wallet in hardware</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/mbc2_0504.png"/>
+  </imageobject>
+  <textobject><phrase>alt</phrase></textobject>
+</mediaobject>
+</figure>
+<simpara>When Gabriel used the Trezor for the first time, the device generated a random sequence (entropy), the associated mnemonic and derived a seed from a built-in hardware random number generator. During this initialization phase, the wallet displayed a numbered sequence of words, one by one, on the screen (see <xref linkend="trezor_mnemonic_display"/>).</simpara>
+<figure id="trezor_mnemonic_display"><title>Trezor displaying one of the mnemonic words</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/mbc2_0505.png"/>
+  </imageobject>
+  <textobject><phrase>Trezor wallet display of mnemonic word</phrase></textobject>
+</mediaobject>
+</figure>
+<simpara>By writing down this mnemonic, Gabriel created a backup (see <xref linkend="mnemonic_paper_backup"/>) that can be used for recovery in the case of loss or damage to the Trezor device. This mnemonic can be used for recovery in a new Trezor or in any one of the many compatible software or hardware wallets. Note that the sequence of words is important, so mnemonic paper backups have numbered spaces for each word. Gabriel had to carefully record each word in the numbered space to preserve the correct sequence.</simpara>
+<table id="mnemonic_paper_backup"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>Gabriel&#8217;s paper backup of the mnemonic</title>
+<?dbhtml table-width="80%"?>
+<?dbfo table-width="80%"?>
+<?dblatex table-width="80%"?>
+<tgroup cols="4">
+<colspec colname="col_1" colwidth="3*"/>
+<colspec colname="col_2" colwidth="167*"/>
+<colspec colname="col_3" colwidth="3*"/>
+<colspec colname="col_4" colwidth="167*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong">1.</emphasis></simpara></entry>
+<entry align="center" valign="top"><simpara><emphasis>army</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><emphasis role="strong">7.</emphasis></simpara></entry>
+<entry align="center" valign="top"><simpara><emphasis>garbage</emphasis></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong">2.</emphasis></simpara></entry>
+<entry align="center" valign="top"><simpara><emphasis>van</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><emphasis role="strong">8.</emphasis></simpara></entry>
+<entry align="center" valign="top"><simpara><emphasis>claim</emphasis></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong">3.</emphasis></simpara></entry>
+<entry align="center" valign="top"><simpara><emphasis>defense</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><emphasis role="strong">9.</emphasis></simpara></entry>
+<entry align="center" valign="top"><simpara><emphasis>echo</emphasis></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong">4.</emphasis></simpara></entry>
+<entry align="center" valign="top"><simpara><emphasis>carry</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><emphasis role="strong">10.</emphasis></simpara></entry>
+<entry align="center" valign="top"><simpara><emphasis>media</emphasis></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong">5.</emphasis></simpara></entry>
+<entry align="center" valign="top"><simpara><emphasis>jealous</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><emphasis role="strong">11.</emphasis></simpara></entry>
+<entry align="center" valign="top"><simpara><emphasis>make</emphasis></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong">6.</emphasis></simpara></entry>
+<entry align="center" valign="top"><simpara><emphasis>true</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><emphasis role="strong">12.</emphasis></simpara></entry>
+<entry align="center" valign="top"><simpara><emphasis>crunch</emphasis></simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<note>
+<simpara>A 12-word mnemonic is shown in <xref linkend="mnemonic_paper_backup"/>, for simplicity. In fact, most hardware wallets generate a more secure 24-word mnemonic. The mnemonic is used in exactly the same way, regardless of length.</simpara>
+</note>
+<simpara>For the first implementation of his web store, Gabriel uses a single Bitcoin address, generated on his Trezor device. This single address is used by all customers for all orders. As we will see, this approach has some drawbacks and can be improved upon with an HD wallet.<indexterm>
+  <primary></primary>
+</indexterm></simpara>
+</section>
+</section>
+<section id="_wallet_technology_details">
+<title>Wallet Technology Details</title>
+<simpara>Let&#8217;s now examine each of the important industry standards that are used by many bitcoin wallets in detail.</simpara>
+<section id="mnemonic_code_words">
+<title>Mnemonic Code Words (BIP-39)</title>
+<simpara><indexterm>
+  <primary>wallets</primary><secondary>technology of</secondary><tertiary>mnemonic code words</tertiary>
+</indexterm>
+<indexterm>
+  <primary>technology of</primary><secondary>mnemonic code words</secondary>
+</indexterm>
+<indexterm>
+  <primary>mnemonic code words</primary>
+</indexterm><indexterm>
+  <primary>mnemonic code words</primary>
+</indexterm><indexterm>
+  <primary>bitcoin improvement proposals</primary><secondary>Mnemonic Code Words (BIP-39)</secondary>
+</indexterm>
+<indexterm>
+  <primary>Mnemonic Code Words (BIP-39)</primary>
+</indexterm>Mnemonic code words are word sequences that represent (encode) a random number used as a seed to derive a deterministic wallet. The sequence of words is sufficient to re-create the seed and from there re-create the wallet and all the derived keys. A wallet application that implements deterministic wallets with mnemonic words will show the user a sequence of 12 to 24 words when first creating a wallet. That sequence of words is the wallet backup and can be used to recover and re-create all the keys in the same or any compatible wallet application. Mnemonic words make it easier for users to back up wallets because they are easy to read and correctly transcribe, as compared to a random sequence of numbers.</simpara>
+<tip>
+<simpara><indexterm>
+  <primary>brainwallets</primary>
+</indexterm>Mnemonic words are often confused with "brainwallets." They are not the same. The primary difference is that a brainwallet consists of words chosen by the user, whereas mnemonic words are created randomly by the wallet and presented to the user. This important difference makes mnemonic words much more secure, because humans are very poor sources of randomness.</simpara>
+</tip>
+<simpara>Mnemonic codes are defined in BIP-39 (see <xref linkend="appdxbitcoinimpproposals"/>). Note that BIP-39 is one implementation of a mnemonic code standard. <indexterm>
+  <primary>Electrum wallet</primary>
+</indexterm>There is a different standard, with a different set of words, used by the Electrum wallet and predating BIP-39. BIP-39 was proposed by the company behind the Trezor hardware wallet and is incompatible with Electrum&#8217;s implementation. However, BIP-39 has now achieved broad industry support across dozens of interoperable implementations and should be considered the de facto industry standard.</simpara>
+<simpara>BIP-39 defines the creation of a mnemonic code and seed, which we describe here in nine steps. For clarity, the process is split into two parts: steps 1 through 6 are shown in <xref linkend="generating_mnemonic_words"/> and steps 7 through 9 are shown in <xref linkend="mnemonic_to_seed"/>.</simpara>
+<section id="generating_mnemonic_words">
+<title>Generating mnemonic words</title>
+<simpara>Mnemonic words are generated automatically by the wallet using the standardized process defined in BIP-39. The wallet starts from a source of entropy, adds a checksum, and then maps the entropy to a word list:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Create a random sequence (entropy) of 128 to 256 bits.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Create a checksum of the random sequence by taking the first (entropy-length/32) bits of its SHA256 hash.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Add the checksum to the end of the random sequence.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Split the result into 11-bit length segments.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Map each 11-bit value to a word from the predefined dictionary of 2048 words.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+The mnemonic code is the sequence of words.
+</simpara>
+</listitem>
+</orderedlist>
+<simpara><xref linkend="generating_entropy_and_encoding"/> shows how entropy is used to generate mnemonic words.</simpara>
+<figure id="generating_entropy_and_encoding" role="smallerseventy"><title>Generating entropy and encoding as mnemonic words</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/mbc2_0506.png"/>
+  </imageobject>
+  <textobject><phrase>Generating entropy and encoding as mnemonic words</phrase></textobject>
+</mediaobject>
+</figure>
+<simpara><xref linkend="table_4-5"/> shows the relationship between the size of the entropy data and the length of mnemonic codes in words.</simpara>
+<table id="table_4-5"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>Mnemonic codes: entropy and word length</title>
+<tgroup cols="4">
+<colspec colname="col_1" colwidth="25*"/>
+<colspec colname="col_2" colwidth="25*"/>
+<colspec colname="col_3" colwidth="25*"/>
+<colspec colname="col_4" colwidth="25*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Entropy (bits) </entry>
+<entry align="left" valign="top"> Checksum (bits) </entry>
+<entry align="left" valign="top"> Entropy <emphasis role="strong">+</emphasis> checksum (bits) </entry>
+<entry align="left" valign="top"> Mnemonic length (words)</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>128</simpara></entry>
+<entry align="left" valign="top"><simpara>4</simpara></entry>
+<entry align="left" valign="top"><simpara>132</simpara></entry>
+<entry align="left" valign="top"><simpara>12</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>160</simpara></entry>
+<entry align="left" valign="top"><simpara>5</simpara></entry>
+<entry align="left" valign="top"><simpara>165</simpara></entry>
+<entry align="left" valign="top"><simpara>15</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>192</simpara></entry>
+<entry align="left" valign="top"><simpara>6</simpara></entry>
+<entry align="left" valign="top"><simpara>198</simpara></entry>
+<entry align="left" valign="top"><simpara>18</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>224</simpara></entry>
+<entry align="left" valign="top"><simpara>7</simpara></entry>
+<entry align="left" valign="top"><simpara>231</simpara></entry>
+<entry align="left" valign="top"><simpara>21</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>256</simpara></entry>
+<entry align="left" valign="top"><simpara>8</simpara></entry>
+<entry align="left" valign="top"><simpara>264</simpara></entry>
+<entry align="left" valign="top"><simpara>24</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+<section id="mnemonic_to_seed">
+<title>From mnemonic to seed</title>
+<simpara><indexterm>
+  <primary>key-stretching function</primary>
+</indexterm><indexterm>
+  <primary>PBKDF2 function</primary>
+</indexterm>The mnemonic words represent entropy with a length of 128 to 256 bits. The entropy is then used to derive a longer (512-bit) seed through the use of the key-stretching function PBKDF2. The seed produced is then used to build a deterministic wallet and derive its keys.</simpara>
+<simpara><indexterm>
+  <primary>salts</primary>
+</indexterm><indexterm>
+  <primary>passphrases</primary>
+</indexterm>The key-stretching function takes two parameters: the mnemonic and a <emphasis>salt</emphasis>. The purpose of a salt in a key-stretching function is to make it difficult to build a lookup table enabling a brute-force attack. In the BIP-39 standard, the salt has another purpose&#x2014;it allows the introduction of a passphrase that serves as an additional security factor protecting the seed, as we will describe in more detail in <xref linkend="mnemonic_passphrase"/>.</simpara>
+<simpara>The process described in steps 7 through 9 continues from the process described previously in <xref linkend="generating_mnemonic_words"/>:</simpara>
+<ol start="7">
+        <li>The first parameter to the PBKDF2 key-stretching function is the <em>mnemonic</em> produced from step 6.</li>
+        <li>The second parameter to the PBKDF2 key-stretching function is a <em>salt</em>. The salt is composed of the string constant "<code>mnemonic</code>" concatenated with an optional user-supplied passphrase string.</li>
+        <li>PBKDF2 stretches the mnemonic and salt parameters using 2048 rounds of hashing with the HMAC-SHA512 algorithm, producing a 512-bit value as its final output. That 512-bit value is the seed.</li>
+</ol>
+<simpara><xref linkend="fig_5_7"/> shows how a mnemonic is used to generate a seed.</simpara>
+<figure id="fig_5_7"><title>From mnemonic to seed</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/mbc2_0507.png"/>
+  </imageobject>
+  <textobject><phrase>From mnemonic to seed</phrase></textobject>
+</mediaobject>
+</figure>
+<tip>
+<simpara>The key-stretching function, with its 2048 rounds of hashing, is a very effective protection against brute-force attacks against the mnemonic or the passphrase. It makes it extremely costly (in computation) to try more than a few thousand passphrase and mnemonic combinations, while the number of possible derived seeds is vast (2<superscript>512</superscript>).</simpara>
+</tip>
+<simpara>Tables <a data-type="xref" href="#mnemonic_128_no_pass" data-xrefstyle="select: labelnumber">#mnemonic_128_no_pass</a>, <a data-type="xref" href="#mnemonic_128_w_pass" data-xrefstyle="select: labelnumber">#mnemonic_128_w_pass</a>, and <a data-type="xref" href="#mnemonic_256_no_pass" data-xrefstyle="select: labelnumber">#mnemonic_256_no_pass</a> show some examples of mnemonic codes and the seeds they produce (either with or without a passphrase).</simpara>
+<table id="mnemonic_128_no_pass"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>128-bit entropy mnemonic code, no passphrase, resulting seed</title>
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="50*"/>
+<colspec colname="col_2" colwidth="50*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong"><emphasis role="strong">Entropy input (128 bits)</emphasis></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><literal>0c1e24e5917779d297e14d45f14e1a1a</literal></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong"><emphasis role="strong">Mnemonic (12 words)</emphasis></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><literal>army van defense carry jealous true garbage claim echo media make crunch</literal></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong"><emphasis role="strong">Passphrase</emphasis></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>(none)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong"><emphasis role="strong">Seed  (512 bits)</emphasis></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><literal>5b56c417303faa3fcba7e57400e120a0ca83ec5a4fc9ffba757fbe63fbd77a89a1a3be4c67196f57c39</literal>
+<literal>a88b76373733891bfaba16ed27a813ceed498804c0570</literal></simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table id="mnemonic_128_w_pass"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>128-bit entropy mnemonic code, with passphrase, resulting seed</title>
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="50*"/>
+<colspec colname="col_2" colwidth="50*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong"><emphasis role="strong">Entropy input (128 bits)</emphasis></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><literal>0c1e24e5917779d297e14d45f14e1a1a</literal></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong"><emphasis role="strong">Mnemonic (12 words)</emphasis></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><literal>army van defense carry jealous true garbage claim echo media make crunch</literal></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong"><emphasis role="strong">Passphrase</emphasis></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>SuperDuperSecret</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong"><emphasis role="strong">Seed  (512 bits)</emphasis></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><literal>3b5df16df2157104cfdd22830162a5e170c0161653e3afe6c88defeefb0818c793dbb28ab3ab091897d0</literal>
+<literal>715861dc8a18358f80b79d49acf64142ae57037d1d54</literal></simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table id="mnemonic_256_no_pass"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>256-bit entropy mnemonic code, no passphrase, resulting seed</title>
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="50*"/>
+<colspec colname="col_2" colwidth="50*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong"><emphasis role="strong">Entropy input (256 bits)</emphasis></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><literal>2041546864449caff939d32d574753fe684d3c947c3346713dd8423e74abcf8c</literal></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong"><emphasis role="strong">Mnemonic (24 words)</emphasis></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><literal>cake apple borrow silk endorse fitness top denial coil riot stay wolf
+luggage oxygen faint major edit measure invite love trap field dilemma oblige</literal></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong"><emphasis role="strong">Passphrase</emphasis></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>(none)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong"><emphasis role="strong">Seed (512 bits)</emphasis></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><literal>3269bce2674acbd188d4f120072b13b088a0ecf87c6e4cae41657a0bb78f5315b33b3a04356e53d062e5</literal>
+<literal>5f1e0deaa082df8d487381379df848a6ad7e98798404</literal></simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<tip>
+<simpara>Many wallets do not allow for the creation of wallets with more than a 12 word mnemonic phrase. You will notice from the tables above that despite the unique lengths of entropy input, the seed size remains the same (512 bits). From a security perspective, the amount of entropy actually used for the production of HD wallets is roughly 128 bits, which equals 12 words.  Providing more than 12 words produces additional entropy which is unnecessary, and this <emphasis>unused</emphasis> entropy is not used for the derivation of the seed in the way that one might initially suspect. From a usability perspective, 12 words is also easier to write down, back up, and store.</simpara>
+</tip>
+</section>
+<section id="mnemonic_passphrase">
+<title>Optional passphrase in BIP-39</title>
+<simpara><indexterm>
+  <primary>passphrases</primary>
+</indexterm>The BIP-39 standard allows the use of an optional passphrase in the derivation of the seed. If no passphrase is used, the mnemonic is stretched with a salt consisting of the constant string <literal>"mnemonic"</literal>, producing a specific 512-bit seed from any given mnemonic. If a passphrase is used, the stretching function produces a <emphasis>different</emphasis> seed from that same mnemonic. In fact, given a single mnemonic, every possible passphrase leads to a different seed. Essentially, there is no "wrong" passphrase. All passphrases are valid and they all lead to different seeds, forming a vast set of possible uninitialized wallets. The set of possible wallets is so large (2<superscript>512</superscript>) that there is no practical possibility of brute-forcing or accidentally guessing one that is in use.</simpara>
+<tip>
+<simpara>There are no "wrong" passphrases in BIP-39. Every passphrase leads to some wallet, which unless previously used will be empty.</simpara>
+</tip>
+<simpara>The optional passphrase creates two important features:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+A second factor (something memorized) that makes a mnemonic useless on its own, protecting mnemonic backups from compromise by a thief.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+A form of plausible deniability or "duress wallet," where a chosen passphrase leads to a wallet with a small amount of funds used to distract an attacker from the "real" wallet that contains the majority of funds.
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>However, it is important to note that the use of a passphrase also introduces the risk of loss:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+If the wallet owner is incapacitated or dead and no one else knows the passphrase, the mnemonic code is useless and all the funds stored in the wallet are lost forever.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Conversely, if the owner backs up the passphrase in the same place as the mnemonic code, it defeats the purpose of a second factor.
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>While passphrases are very useful, they should only be used in combination with a carefully planned process for backup and recovery, considering the possibility of surviving the owner and allowing his or her family to recover the cryptocurrency estate.</simpara>
+</section>
+<section id="_working_with_mnemonic_codes">
+<title>Working with mnemonic codes</title>
+<simpara>BIP-39 is implemented as a library in many different programming languages:</simpara>
+<variablelist>
+<varlistentry>
+<term>
+<ulink url="https://github.com/trezor/python-mnemonic">python-mnemonic</ulink>
+</term>
+<listitem>
+<simpara>
+The reference implementation of the standard by the SatoshiLabs team that proposed BIP-39, in Python
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<ulink url="https://github.com/bitcoinjs/bip39">bitcoinjs/bip39</ulink>
+</term>
+<listitem>
+<simpara>
+An implementation of BIP-39, as part of the popular bitcoinJS framework, in JavaScript
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<ulink url="https://github.com/libbitcoin/libbitcoin/blob/master/src/wallet/mnemonic.cpp">libbitcoin/mnemonic</ulink>
+</term>
+<listitem>
+<simpara>
+An implementation of BIP-39, as part of the popular Libbitcoin framework, in <span class="keep-together">C++</span>
+</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+</section>
+</section>
+<section id="_creating_an_hd_wallet_from_the_seed">
+<title>Creating an HD Wallet from the Seed</title>
+<simpara><indexterm>
+  <primary>wallets</primary><secondary>technology of</secondary><tertiary>creating HD wallets from root seed</tertiary>
+</indexterm>
+<indexterm>
+  <primary>technology of</primary><secondary>creating HD wallets from root seed</secondary>
+</indexterm>
+<indexterm>
+  <primary>creating HD wallets from root seed</primary>
+</indexterm><indexterm>
+  <primary>root seeds</primary>
+</indexterm><indexterm>
+  <primary>hierarchical deterministic (HD) wallets</primary>
+</indexterm>HD wallets are created from a single <emphasis>root seed</emphasis>, which is a 128-, 256-, or 512-bit random number. Most commonly, this seed is generated from a <emphasis>mnemonic</emphasis> as detailed in the previous section.</simpara>
+<simpara>Every key in the HD wallet is deterministically derived from this root seed, which makes it possible to re-create the entire HD wallet from that seed in any compatible HD wallet. This makes it easy to back up, restore, export, and import HD wallets containing thousands or even millions of keys by simply transferring only the mnemonic that the root seed is derived from.</simpara>
+<simpara>The process of creating the master keys and master chain code for an HD wallet is shown in <xref linkend="HDWalletFromSeed"/>.</simpara>
+<figure id="HDWalletFromSeed"><title>Creating master keys and chain code from a root seed</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/mbc2_0509.png"/>
+  </imageobject>
+  <textobject><phrase>HDWalletFromRootSeed</phrase></textobject>
+</mediaobject>
+</figure>
+<simpara>The root seed is input into the HMAC-SHA512 algorithm and the resulting hash is used to create a <emphasis>master private key</emphasis> (m) and a <emphasis>master chain code</emphasis> (c).</simpara>
+<simpara>The master private key (m) then generates a corresponding master public key (M) using the normal elliptic curve multiplication process <literal>m * G</literal> that we saw in <xref linkend="pubkey"/>.</simpara>
+<simpara>The chain code (c) is used to introduce entropy in the function that creates child keys from parent keys, as we will see in the next section.</simpara>
+<section id="_private_child_key_derivation">
+<title>Private child key derivation</title>
+<simpara><indexterm>
+  <primary>child key derivation (CKD)</primary>
+</indexterm><indexterm>
+  <primary>public and private keys</primary><secondary>child key derivation (CKD)</secondary>
+</indexterm>
+<indexterm>
+  <primary>child key derivation (CKD)</primary>
+</indexterm>HD wallets use a <emphasis>child key derivation</emphasis> (CKD) function to derive child keys from parent keys.</simpara>
+<simpara>The child key derivation functions are based on a one-way hash function that combines:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+A parent private or public key (ECDSA compressed key)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+A seed called a chain code (256 bits)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+An index number (32 bits)
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>The chain code is used to introduce deterministic random data to the process, so that knowing the index and a child key is not sufficient to derive other child keys. Knowing a child key does not make it possible to find its siblings, unless you also have the chain code. The initial chain code seed (at the root of the tree) is made from the seed, while subsequent child chain codes are derived from each parent chain code.</simpara>
+<simpara>These three items (parent key, chain code, and index) are combined and hashed to generate children keys, as follows.</simpara>
+<simpara>The parent public key, chain code, and the index number are combined and hashed with the HMAC-SHA512 algorithm to produce a 512-bit hash. This 512-bit hash is split into two 256-bit halves. The right-half 256 bits of the hash output become the chain code for the child. The left-half 256 bits of the hash are added to the parent key to produce the child private key. In <xref linkend="CKDpriv"/>, we see this illustrated with the index set to 0 to produce the "zero" (first by index) child of the parent.</simpara>
+<figure id="CKDpriv"><title>Extending a parent private key to create a child private key</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/mbc2_0510.png"/>
+  </imageobject>
+  <textobject><phrase>ChildPrivateDerivation</phrase></textobject>
+</mediaobject>
+</figure>
+<simpara>Changing the index allows us to extend the parent and create the other children in the sequence, e.g., Child 0, Child 1, Child 2, etc. Each parent key can have 2,147,483,647 (2<superscript>31</superscript>) children (2<superscript>31</superscript> is half of the entire 2<superscript>32</superscript> range available because the other half is reserved for a special type of derivation we will talk about later in this chapter).</simpara>
+<simpara>Repeating the process one level down the tree, each child can in turn become a parent and create its own children, in an infinite number of generations.</simpara>
+</section>
+<section id="_using_derived_child_keys">
+<title>Using derived child keys</title>
+<simpara>Child private keys are indistinguishable from nondeterministic (random) keys. Because the derivation function is a one-way function, the child key cannot be used to find the parent key. The child key also cannot be used to find any siblings. If you have the n<subscript>th</subscript> child, you cannot find its siblings, such as the n&#x2013;1 child or the n+1 child, or any other children that are part of the sequence. Only the parent key and chain code can derive all the children. Without the child chain code, the child key cannot be used to derive any grandchildren either. You need both the child private key and the child chain code to start a new branch and derive grandchildren.</simpara>
+<simpara>So what can the child private key be used for on its own? It can be used to make a public key and a Bitcoin address. Then, it can be used to sign transactions to spend anything paid to that address.</simpara>
+<tip>
+<simpara>A child private key, the corresponding public key, and the Bitcoin address are all indistinguishable from keys and addresses created randomly. The fact that they are part of a sequence is not visible outside of the HD wallet function that created them. Once created, they operate exactly as "normal" keys.</simpara>
+</tip>
+</section>
+<section id="_extended_keys">
+<title>Extended keys</title>
+<simpara><indexterm>
+  <primary>public and private keys</primary><secondary>extended keys</secondary>
+</indexterm>
+<indexterm>
+  <primary>extended keys</primary>
+</indexterm><indexterm>
+  <primary>extended keys</primary>
+</indexterm>As we saw earlier, the key derivation function can be used to create children at any level of the tree, based on the three inputs: a key, a chain code, and the index of the desired child. The two essential ingredients are the key and chain code, and combined these are called an <emphasis>extended key</emphasis>. The term "extended key" could also be thought of as "extensible key" because such a key can be used to derive children.</simpara>
+<simpara>Extended keys are stored and represented simply as the concatenation of the 256-bit key and 256-bit chain code into a 512-bit sequence. There are two types of extended keys. An extended private key is the combination of a private key and chain code and can be used to derive child private keys (and from them, child public keys). An extended public key is a public key and chain code, which can be used to create child public keys (<emphasis>public only</emphasis>), as described in <xref linkend="public_key_derivation"/>.</simpara>
+<simpara>Think of an extended key as the root of a branch in the tree structure of the HD wallet. With the root of the branch, you can derive the rest of the branch. The extended private key can create a complete branch, whereas the extended public key can <emphasis>only</emphasis> create a branch of public keys.</simpara>
+<tip>
+<simpara>An extended key consists of a private or public key and chain code. An extended key can create children, generating its own branch in the tree structure. Sharing an extended key gives access to the entire branch.</simpara>
+</tip>
+<simpara>Extended keys are encoded using Base58Check, to easily export and import between different BIP-32&#x2013;compatible wallets. The Base58Check coding for extended keys uses a special version number that results in the prefix "xprv" and "xpub" when encoded in Base58 characters to make them easily recognizable. Because the extended key is 512 or 513 bits, it is also much longer than other Base58Check-encoded strings we have seen previously.</simpara>
+<simpara>Here&#8217;s an example of an extended <emphasis>private</emphasis> key, encoded in Base58Check:</simpara>
+<screen>xprv9tyUQV64JT5qs3RSTJkXCWKMyUgoQp7F3hA1xzG6ZGu6u6Q9VMNjGr67Lctvy5P8oyaYAL9CAWrUE9i6GoNMKUga5biW6Hx4tws2six3b9c</screen>
+<simpara>Here&#8217;s the corresponding extended <emphasis>public</emphasis> key, encoded in Base58Check:</simpara>
+<screen>xpub67xpozcx8pe95XVuZLHXZeG6XWXHpGq6Qv5cmNfi7cS5mtjJ2tgypeQbBs2UAR6KECeeMVKZBPLrtJunSDMstweyLXhRgPxdp14sk9tJPW9</screen>
+</section>
+<section id="public__child_key_derivation">
+<title>Public child key derivation</title>
+<simpara><indexterm>
+  <primary>public and private keys</primary><secondary>public child key derivation</secondary>
+</indexterm>
+<indexterm>
+  <primary>public child key derivation</primary>
+</indexterm>As mentioned  previously, a very useful characteristic of HD wallets is the ability to derive public child keys from public parent keys, <emphasis>without</emphasis> having the private keys. This gives us two ways to derive a child public key: either from the child private key, or directly from the parent public key.</simpara>
+<simpara>An extended public key can be used, therefore, to derive all of the <emphasis>public</emphasis> keys (and only the public keys) in that branch of the HD wallet structure.</simpara>
+<simpara>This shortcut can be used to create very secure public key&#x2013;only deployments where a server or application has a copy of an extended public key and no private keys whatsoever. That kind of deployment can produce an infinite number of public keys and Bitcoin addresses, but cannot spend any of the money sent to those addresses. Meanwhile, on another, more secure server, the extended private key can derive all the corresponding private keys to sign transactions and spend the money.</simpara>
+<simpara>One common application of this solution is to install an extended public key on a web server that serves an ecommerce application. The web server can use the public key derivation function to create a new Bitcoin address for every transaction (e.g., for a customer shopping cart). The web server will not have any private keys that would be vulnerable to theft. Without HD wallets, the only way to do this is to generate thousands of Bitcoin addresses on a separate secure server and then preload them on the ecommerce server. That approach is cumbersome and requires constant maintenance to ensure that the ecommerce server doesn&#8217;t "run out" of addresses.</simpara>
+<simpara><indexterm>
+  <primary>cold storage</primary>
+</indexterm><indexterm>
+  <primary>storage</primary><secondary>cold storage</secondary>
+</indexterm>
+<indexterm>
+  <primary>cold storage</primary>
+</indexterm><indexterm>
+  <primary>hardware wallets</primary>
+</indexterm>Another common application of this solution is for cold-storage or hardware wallets. In that scenario, the extended private key can be stored on a paper wallet or hardware device (such as a Trezor hardware wallet), while the extended public key can be kept online. The user can create "receive" addresses at will, while the private keys are safely stored offline. To spend the funds, the user can use the extended private key on an offline signing Bitcoin client or sign transactions on the hardware wallet device (e.g., Trezor). <xref linkend="CKDpub"/> illustrates the mechanism for extending a parent public key to derive child public keys.</simpara>
+<figure id="CKDpub"><title>Extending a parent public key to create a child public key</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/mbc2_0511.png"/>
+  </imageobject>
+  <textobject><phrase>ChildPublicDerivation</phrase></textobject>
+</mediaobject>
+</figure>
+</section>
+<section id="_hardened_child_key_derivation">
+<title>Hardened child key derivation</title>
+<simpara><indexterm>
+  <primary>public and private keys</primary><secondary>hardened child key derivation</secondary>
+</indexterm>
+<indexterm>
+  <primary>hardened child key derivation</primary>
+</indexterm><indexterm>
+  <primary>hardened derivation</primary>
+</indexterm>The ability to derive a branch of public keys from an xpub is very useful, but it comes with a potential risk. Access to an xpub does not give access to child private keys. However, because the xpub contains the chain code, if a child private key is known, or somehow leaked, it can be used with the chain code to derive all the other child private keys. A single leaked child private key, together with a parent chain code, reveals all the private keys of all the children. Worse, the child private key together with a parent chain code can be used to deduce the parent private key.</simpara>
+<simpara>To counter this risk, HD wallets use an alternative derivation function called <emphasis>hardened derivation</emphasis>, which "breaks" the relationship between parent public key and child chain code. The hardened derivation function uses the parent private key to derive the child chain code, instead of the parent public key. This creates a "firewall" in the parent/child sequence, with a chain code that cannot be used to compromise a parent or sibling private key. The hardened derivation function looks almost identical to the normal child private key derivation, except that the parent private key is used as input to the hash function, instead of the parent public key, as shown in the diagram in <xref linkend="CKDprime"/>.</simpara>
+<figure id="CKDprime"><title>Hardened derivation of a child key; omits the parent public key</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/mbc2_0513.png"/>
+  </imageobject>
+  <textobject><phrase>ChildHardPrivateDerivation</phrase></textobject>
+</mediaobject>
+</figure>
+<simpara role="pagebreak-before">When the hardened private derivation function is used, the resulting child private key and chain code are completely different from what would result from the normal derivation function. The resulting "branch" of keys can be used to produce extended public keys that are not vulnerable, because the chain code they contain cannot be exploited to reveal any private keys. Hardened derivation is therefore used to create a "gap" in the tree above the level where extended public keys are used.</simpara>
+<simpara>In simple terms, if you want to use the convenience of an xpub to derive branches of public keys, without exposing yourself to the risk of a leaked chain code, you should derive it from a hardened parent key, rather than a normal (non-hardened) parent key. As a best practice, the level-1 children of the master keys are always derived through the hardened derivation, to prevent compromise of the master keys.</simpara>
+</section>
+<section id="_index_numbers_for_normal_and_hardened_derivation">
+<title>Index numbers for normal and hardened derivation</title>
+<simpara>The index number used in the derivation function is a 32-bit integer. To easily distinguish between keys derived through the normal derivation function versus keys derived through hardened derivation, this index number is split into two ranges. Index numbers between 0 and 2<superscript>31</superscript>&#x2013;1 (0x0 to 0x7FFFFFFF) are used <emphasis>only</emphasis> for normal derivation. Index numbers between 2<superscript>31</superscript> and 2<superscript>32</superscript>&#x2013;1 (0x80000000 to 0xFFFFFFFF) are used <emphasis>only</emphasis> for hardened derivation. Therefore, if the index number is less than 2<superscript>31</superscript>, the child is normal, whereas if the index number is equal or above 2<superscript>31</superscript>, the child is hardened.</simpara>
+<simpara>To make the index number easier to read and display, the index number for hardened children is displayed starting from zero, but with a prime symbol. The first normal child key is therefore displayed as 0, whereas the first hardened child (index 0x80000000) is displayed as 0<literal>&#x27;</literal>. In sequence then, the second hardened key would have index 0x80000001 and would be displayed as 1<literal>&#x27;</literal>, and so on. When you see an HD wallet index i<literal>&#x27;</literal>, that means 2<superscript>31</superscript>+i.</simpara>
+</section>
+<section id="_hd_wallet_key_identifier_path">
+<title>HD wallet key identifier (path)</title>
+<simpara><indexterm>
+  <primary>hierarchical deterministic (HD) wallets</primary>
+</indexterm>Keys in an HD wallet are identified using a "path" naming convention, with each level of the tree separated by a slash (/) character (see <xref linkend="table_4-8"/>). Private keys derived from the master private key start with "m." Public keys derived from the master public key start with "M." Therefore, the first child private key of the master private key is m/0. The first child public key is M/0. The second grandchild of the first child is m/0/1, and so on.</simpara>
+<simpara>The "ancestry" of a key is read from right to left, until you reach the master key from which it was derived. For example, identifier m/x/y/z describes the private key that is the z-th child of the parent private key m/x/y, which is the y-th child of the parent private key m/x, which is the x-th child of the parent master private key m.</simpara>
+<table id="table_4-8"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>HD wallet path examples</title>
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="50*"/>
+<colspec colname="col_2" colwidth="50*"/>
+<thead>
+<row>
+<entry align="left" valign="top">HD path </entry>
+<entry align="left" valign="top"> Key described</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>m/0</simpara></entry>
+<entry align="left" valign="top"><simpara>The first (0) child private key from the master private key (m)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>m/0/0</simpara></entry>
+<entry align="left" valign="top"><simpara>The first (0) child private key from the first child (m/0)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>m/0'/0</simpara></entry>
+<entry align="left" valign="top"><simpara>The first (0) normal child from the first <emphasis>hardened</emphasis> child (m/0')</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>m/1/0</simpara></entry>
+<entry align="left" valign="top"><simpara>The first (0) child private key from the second child (m/1)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>M/23/17/0/0</simpara></entry>
+<entry align="left" valign="top"><simpara>The first (0) child public key from the first child (M/23/17/0) from the 18th child (M/23/17) from the 24th child (M/23)</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+<section id="_navigating_the_hd_wallet_tree_structure">
+<title>Navigating the HD wallet tree structure</title>
+<simpara>The HD wallet tree structure offers tremendous flexibility. Each parent extended key can have 4 billion children: 2 billion normal children and 2 billion hardened children. Each of those children can have another 4 billion children, and so on. The tree can be as deep as you want, with an infinite number of generations. With all that flexibility, however, it becomes quite difficult to navigate this infinite tree. It is especially difficult to transfer HD wallets between implementations, because the possibilities for internal organization into branches and subbranches are endless.</simpara>
+<simpara>Two BIPs offer a solution to this complexity by creating some proposed standards for the structure of HD wallet trees. BIP-43 proposes the use of the first hardened child index as a special identifier that signifies the "purpose" of the tree structure. Based on BIP-43, an HD wallet should use only one level-1 branch of the tree, with the index number identifying the structure and namespace of the rest of the tree by defining its purpose. For example, an HD wallet using only branch m/i<literal>&#x27;</literal>/ is intended to signify a specific purpose and that purpose is identified by index number "i."</simpara>
+<simpara>Extending that specification, BIP-44 proposes a multiaccount structure as "purpose" number <literal>44'</literal> under BIP-43. All HD wallets following the BIP-44 structure are identified by the fact that they only used one branch of the tree: m/44'/.</simpara>
+<simpara>BIP-44 specifies the structure as consisting of five predefined tree levels:</simpara>
+<screen>m / purpose' / coin_type' / account' / change / address_index</screen>
+<simpara>The first-level "purpose" is always set to <literal>44'</literal>. The second-level "coin_type" specifies the type of cryptocurrency coin, allowing for multicurrency HD wallets where each currency has its own subtree under the second level. There are three currencies defined for now: Bitcoin is m/44'/0', Bitcoin Testnet is m/44<literal>&#x27;</literal>/1<literal>&#x27;</literal>, and Litecoin is m/44<literal>&#x27;</literal>/2<literal>&#x27;</literal>.</simpara>
+<simpara>The third level of the tree is "account," which allows users to subdivide their wallets into separate logical subaccounts, for accounting or organizational purposes. For example, an HD wallet might contain two bitcoin "accounts": m/44<literal>&#x27;</literal>/0<literal>&#x27;</literal>/0<literal>&#x27;</literal> and m/44<literal>&#x27;</literal>/0<literal>&#x27;</literal>/1<literal>&#x27;</literal>. Each account is the root of its own subtree.</simpara>
+<simpara><indexterm>
+  <primary>keys and addresses</primary>
+</indexterm>On the fourth level, "change," an HD wallet has two subtrees, one for creating receiving addresses and one for creating change addresses. Note that whereas the previous levels used hardened derivation, this level uses normal derivation. This is to allow this level of the tree to export extended public keys for use in a nonsecured environment. Usable addresses are derived by the HD wallet as children of the fourth level, making the fifth level of the tree the "address_index." For example, the third receiving address for bitcoin payments in the primary account would be M/44<literal>&#x27;</literal>/0<literal>&#x27;</literal>/0<literal>&#x27;</literal>/0/2. <xref linkend="table_4-9"/> shows a few more examples.</simpara>
+<table id="table_4-9"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>BIP-44 HD wallet structure examples</title>
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="50*"/>
+<colspec colname="col_2" colwidth="50*"/>
+<thead>
+<row>
+<entry align="left" valign="top">HD path </entry>
+<entry align="left" valign="top"> Key described</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>M/44<literal>&#x27;</literal>/0<literal>&#x27;</literal>/0<literal>&#x27;</literal>/0/2</simpara></entry>
+<entry align="left" valign="top"><simpara>The third receiving public key for the primary bitcoin account</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>M/44<literal>&#x27;</literal>/0<literal>&#x27;</literal>/3<literal>&#x27;</literal>/1/14</simpara></entry>
+<entry align="left" valign="top"><simpara>The fifteenth change-address public key for the fourth bitcoin account</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>m/44<literal>&#x27;</literal>/2<literal>&#x27;</literal>/0<literal>&#x27;</literal>/0/1</simpara></entry>
+<entry align="left" valign="top"><simpara>The second private key in the Litecoin main account, for signing transactions</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</section>
+</section>
+<section id="_using_an_extended_public_key_on_a_web_store">
+<title>Using an Extended Public Key on a Web Store</title>
+<simpara><indexterm>
+  <primary>wallets</primary><secondary>technology of</secondary><tertiary>using extended public keys on web stores</tertiary>
+</indexterm>
+<indexterm>
+  <primary>technology of</primary><secondary>using extended public keys on web stores</secondary>
+</indexterm>
+<indexterm>
+  <primary>using extended public keys on web stores</primary>
+</indexterm>Let&#8217;s see how HD wallets are used by continuing our story with Gabriel&#8217;s web store.<indexterm>
+  <primary>use cases</primary><secondary>web store</secondary>
+</indexterm>
+<indexterm>
+  <primary>web store</primary>
+</indexterm></simpara>
+<simpara>Gabriel first set up his web store as a hobby, based on a simple hosted Wordpress page. His store was quite basic with only a few pages and an order form with a single Bitcoin address.</simpara>
+<simpara>Gabriel used the first Bitcoin address generated by his Trezor device as the main Bitcoin address for his store. This way, all incoming payments would be paid to an address controlled by his Trezor hardware wallet.</simpara>
+<simpara>Customers would submit an order using the form and send payment to Gabriel&#8217;s published Bitcoin address, triggering an email with the order details for Gabriel to process. With just a few orders each week, this system worked well enough.</simpara>
+<simpara>However, the little web store became quite successful and attracted many orders from the local community. Soon, Gabriel was overwhelmed. With all the orders paying the same address, it became difficult to correctly match orders and transactions, especially when multiple orders for the same amount came in close together.</simpara>
+<simpara>Gabriel&#8217;s HD wallet offers a much better solution through the ability to derive public child keys without knowing the private keys. Gabriel can load an extended public key (xpub) on his website, which can be used to derive a unique address for every customer order. Gabriel can spend the funds from his Trezor, but the xpub loaded on the website can only generate addresses and receive funds. This feature of HD wallets is a great security feature. Gabriel&#8217;s website does not contain any private keys and therefore does not need high levels of security.</simpara>
+<simpara>To export the xpub, Gabriel uses the Trezor Suite desktop app in conjunction with the Trezor hardware wallet. The Trezor device must be plugged in for the public keys to be exported. Note that hardware wallets will never export private keys&#x2014;those always remain on the device. <xref linkend="export_xpub"/> shows what Gabriel sees in Trezor Suite when exporting the xpub.</simpara>
+<figure id="export_xpub"><title>Exporting an xpub from a Trezor hardware wallet</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/mbc2_0512.png"/>
+  </imageobject>
+  <textobject><phrase>Exporting the xpub from the Trezor</phrase></textobject>
+</mediaobject>
+</figure>
+<simpara>Gabriel copies the xpub to his web store&#8217;s bitcoin shop software. He uses <emphasis>BTCPay Server</emphasis>, which is an open source web-store for a variety of web hosting and content platforms. BTCPay Server uses the xpub to generate a unique address for every purchase. <indexterm>
+  <primary></primary>
+</indexterm></simpara>
+<section id="_account_discovery_and_management">
+<title>Account Discovery and Management</title>
+<simpara>Gabriel&#8217;s business is flourishing. He has provided his extended public key (xpub) to <emphasis>BTCPay Server</emphasis>, which is generating unique addresses for customers to his website. Every time a customer to Gabriel&#8217;s website clicks on the "Checkout" button with a specified payment modality (in this case, bitcoin), <emphasis>BTCPay Server</emphasis> generates a new address for that customer.  More specifically, <emphasis>BTCPay Server</emphasis> iterates on the <emphasis>address_index</emphasis> tree to create a new address to display to the customer, as defined by BIP-44. If the customer decides to switch payment methods or abandon the transaction entirely, this Bitcoin address goes unused and will not be used for another customer right away.</simpara>
+<simpara>At a single moment in time, Gabriel&#8217;s website may have a large volume of outstanding addresses for customers making purchases, some of which may go unused and eventually expire. Once these addresses expire, <emphasis>BTCPay Server</emphasis> will go back to reuse these addresses to fill the gap in <emphasis>address_index</emphasis>, but it becomes clear how there can be gaps between the <emphasis>address_index</emphasis> leaves of the hierarchical deterministic tree where the money is actually located.</simpara>
+<simpara>Let&#8217;s say that Gabriel is interested in viewing his total amount of bitcoin earned on a watch-only wallet (one that allows you to view transaction history, but not spend funds) that is separate from BTCPay Server but also conforms to the BIP-44 standard. How should this separate wallet go about searching for funds in this vast hierarchical tree, and when should it stop looking? Most wallets will typically follow an iterative process that utilizes a predefined limit, known as the <emphasis>gap limit</emphasis>. If, while searching for used addresses, the wallet doesn&#8217;t find used addresses in a row beyond this limit number, it will stop searching the address chain. The default gap limit is typically set to 20. This is detailed in <anchor id="bip-44" xreflabel="[bip-44]"/><ulink url="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP-44</ulink>.</simpara>
+<tip>
+<simpara>Gap limits explain the phenomenon whereby the importing of a wallet may show an incorrect or zero balance. The funds are not lost, but rather, the wallet importing function has not traversed enough leaves to fully detect funds. Many wallets allow this default gap limit to be changed, and Gabriel may need to increase this limit to allow his wallet to fully import his transaction history.</simpara>
+</tip>
+</section>
+</section>
+</section>
+</section>
+</article>

@@ -1,0 +1,305 @@
+# Version préliminaire (contributions GitHub)
+
+De nombreux contributeurs ont proposé des commentaires, des corrections
+et des ajouts à la première version préliminaire sur GitHub. Merci à
+tous pour vos contributions à ce livre.
+
+Voici une liste des contributeurs notables de GitHub :
+
+-   Abdussamad Abdurrazzaq (AbdussamadA)
+
+-   Adán SDPC (aesedepece)
+
+-   Akira Chiku (achiku)
+
+-   Alex Waters (alexwaters)
+
+-   Andrew Donald Kennedy (grkvlt)
+
+-   Andrey Esaulov (andremaha)
+
+-   Arthur O’Dwyer (Quuxplusone)
+
+-   bargitta
+
+-   bisqfan
+
+-   bitcoinctf
+
+-   blip151
+
+-   Bryan Gmyrek (physicsdude)
+
+-   Casey Flynn (cflynn07)
+
+-   cclauss
+
+-   Chapman Shoop (belovachap)
+
+-   Christie D’Anna (avocadobreath)
+
+-   Cihat Imamoglu (cihati)
+
+-   Cody Scott (Siecje)
+
+-   coinradar
+
+-   Cragin Godley (cgodley)
+
+-   Craig Dodd (cdodd)
+
+-   dallyshalla
+
+-   Dan Nolan (Dan-Nolan)
+
+-   Dan Raviv (danra)
+
+-   Darius Kramer (dkrmr)
+
+-   Darko Janković (trulex)
+
+-   David Huie (DavidHuie)
+
+-   didongke
+
+-   Diego Viola (diegoviola)
+
+-   Dimitris Tsapakidis (dimitris-t)
+
+-   Dirk Jäckel (biafra23)
+
+-   Dmitry Marakasov (AMDmi3)
+
+-   drstrangeM
+
+-   Ed Eykholt (edeykholt)
+
+-   Ed Leafe (EdLeafe)
+
+-   Edward Posnak (edposnak)
+
+-   Elias Rodrigues (elias19r)
+
+-   Eric Voskuil (evoskuil)
+
+-   Eric Winchell (winchell)
+
+-   Erik Wahlström (erikwam)
+
+-   effectsToCause (vericoin)
+
+-   Esteban Ordano (eordano)
+
+-   ethers
+
+-   Evlix
+
+-   fabienhinault
+
+-   Fan (whiteath)
+
+-   Francis Ballares (fballares)
+
+-   François Wirion (wirion)
+
+-   Frank Höger (francyi)
+
+-   Gabriel Montes (gabmontes)
+
+-   Gaurav Rana (bitcoinsSG)
+
+-   genjix
+
+-   Geremia
+
+-   Gerry Smith (Hermetic)
+
+-   gmr81
+
+-   Gregory Trubetskoy (grisha)
+
+-   Gus (netpoe)
+
+-   halseth
+
+-   harelw
+
+-   Harry Moreno (morenoh149)
+
+-   Holger Schinzel (schinzelh)
+
+-   Ioannis Cherouvim (cherouvim)
+
+-   Ish Ot Jr. (ishotjr)
+
+-   ivangreene
+
+-   James Addison (jayaddison)
+
+-   Jameson Lopp (jlopp)
+
+-   Jason Bisterfeldt (jbisterfeldt)
+
+-   Javier Rojas (fjrojasgarcia)
+
+-   Jordan Baczuk (JBaczuk)
+
+-   Jeremy Bokobza (bokobza)
+
+-   JerJohn15
+
+-   Jimmy DeSilva (jimmydesilva)
+
+-   Jo Wo (jowo-io)
+
+-   Joe Bauers (joebauers)
+
+-   joflynn
+
+-   Johnson Lau (jl2012)
+
+-   Jonathan Cross (jonathancross)
+
+-   Jorgeminator
+
+-   jwbats
+
+-   Kai Bakker (kaibakker)
+
+-   kollokollo
+
+-   lightningnetworkstores
+
+-   lilianrambu
+
+-   Liu Yue (lyhistory)
+
+-   Lucas Betschart (lclc)
+
+-   Magomed Aliev (30mb1)
+
+-   Mai-Hsuan Chia (mhchia)
+
+-   Marco Falke (MarcoFalke)
+
+-   María Martín (mmartinbar)
+
+-   Mark Pors (pors)
+
+-   Martin Harrigan (harrigan)
+
+-   Martin Vseticka (MartyIX)
+
+-   Marzig (marzig76)
+
+-   Matt McGivney (mattmcgiv)
+
+-   Maximilian Reichel (phramz)
+
+-   Michalis Kargakis (kargakis)
+
+-   Michael C. Ippolito (michaelcippolito)
+
+-   Michael Galero (mikong)
+
+-   Michael Newman (michaelbnewman)
+
+-   Mihail Russu (MihailRussu)
+
+-   Minh T. Nguyen (enderminh)
+
+-   montvid
+
+-   Morfies (morfies)
+
+-   Nagaraj Hubli (nagarajhubli)
+
+-   Nekomata (nekomata-3)
+
+-   nekonenene
+
+-   Nhan Vu (jobnomade)
+
+-   Nicholas Chen (nickycutesc)
+
+-   Omar Boukli-Hacene (oboukli)
+
+-   Parzival (Parz-val)
+
+-   Philipp Gille (philippgille)
+
+-   ratijas
+
+-   Reproducibility Matters (TheCharlatan)
+
+-   Reuben Thomas (rrthomas)
+
+-   Robert Furse (Rfurse)
+
+-   Roberto Mannai (robermann)
+
+-   Richard Kiss (richardkiss)
+
+-   rszheng
+
+-   Ruben Alexander (hizzvizz)
+
+-   Sam Ritchie (sritchie)
+
+-   Sanjay Sanathanan (sanjays95)
+
+-   Sebastian Falbesoner (theStack)
+
+-   Sergej Kotliar (ziggamon)
+
+-   Seiichi Uchida (topecongiro)
+
+-   shaysw
+
+-   Simon de la Rouviere (simondlr)
+
+-   Stacie (staciewaleyko)
+
+-   Stephan Oeste (Emzy)
+
+-   Stéphane Roche (Janaka-Steph)
+
+-   takaya-imai
+
+-   Thiago Arrais (thiagoarrais)
+
+-   Thomas Kerin (afk11)
+
+-   Tochi Obudulu (tochicool)
+
+-   venzen
+
+-   Vlad Stan (motorina0)
+
+-   Vijay Chavda (VijayChavda)
+
+-   Vincent Déniel (vincentdnl)
+
+-   weinim
+
+-   wenzhenxiang
+
+-   Will Binns (wbnns)
+
+-   wintercooled
+
+-   wjx
+
+-   Wojciech Langiewicz (wlk)
+
+-   Yancy Ribbens (yancyribbens)
+
+-   yjjnls
+
+-   Yoshimasa Tanabe (emag)
+
+-   yuntai
+
+-   yurigeorgiev4
+
+-   Zheng Jia (zhengjia)
