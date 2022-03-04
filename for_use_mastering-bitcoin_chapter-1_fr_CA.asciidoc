@@ -148,9 +148,12 @@ Une fois qu&#39;Alice a enregistré la phrase mnémotechnique, elle doit prévoi
 ====
 N&#39;essayez jamais un système de sécurité &quot;bricolage&quot; qui s&#39;écarte de quelque manière que ce soit de la recommandation des meilleures pratiques dans &lt;<mnemonic-storage> &gt;. Ne coupez pas votre mnémonique en deux, ne faites pas de captures d&#39;écran, ne stockez pas sur des clés USB, des e-mails ou des lecteurs cloud, ne le cryptez pas ou n&#39;essayez aucune autre méthode non standard. Vous ferez pencher la balance de manière à risquer une perte permanente ou un vol. De nombreuses personnes ont perdu de l&#39;argent, non pas à cause d&#39;un vol, mais parce qu&#39;elles ont essayé une solution non standard sans avoir l&#39;expertise pour équilibrer les risques encourus. La recommandation des meilleures pratiques est soigneusement équilibrée par des experts et adaptée à la grande majorité des utilisateurs.
 ====
-****
+
+
+
 [[bluewallet-welcome]]
 .Alice utilise l&#39;écran de réception sur son portefeuille Bitcoin mobile Bluewallet et affiche son adresse à Bob au format de code QR
+
 image::images/mbc2_0101.png["BluewalletWelcome"]
 
 (((&quot;adresses&quot;, &quot;exemple de démarrage rapide du portefeuille bitcoin&quot;)))(((&quot;codes QR&quot;, &quot;exemple de démarrage rapide du portefeuille bitcoin&quot;)))(((&quot;adresses&quot;, see=&quot;aussi clés et adresses&quot; ))) La vue principale du portefeuille affiche le montant en bitcoins, l&#39;historique des transactions et les boutons _Receive_ et _Send_. En outre, de nombreux portefeuilles offrent la possibilité d&#39;acheter des Bitcoins directement via un échange ou un service similaire où vous pouvez offrir de l&#39;argent fiduciaire en échange de cryptomonnaie, ce qui est fait par &lt;<bitcoin_price>&gt; et vendre à l&#39;utilisateur du portefeuille à ce prix ou au-dessus. Le bouton _Buy Bitcoin_ permettrait à Alice d&#39;acheter des Bitcoins de cette manière.
@@ -166,6 +169,7 @@ Alice utilise le bouton _Receive_, qui affiche un code QR avec une adresse Bitco
 
 
 [[getting_first_bitcoin]]
+
 ==== Obtenir son premier Bitcoin
 
 Il existe plusieurs façons pour Alice d&#39;acquérir des bitcoins :
@@ -241,6 +245,6 @@ Chaque bitcoin peut être subdivisé en 100 millions d&#39;unités, chacune appe
 
 [[confirmations]]
 .Confirmations
-(((&quot;comment démarrer&quot;, &quot;confirmations&quot;)))(((&quot;confirmations&quot;, &quot;exemple de démarrage rapide du portefeuille bitcoin&quot;)))(((&quot;confirmations&quot;, voir=&quot;aussi minage et consensus; transactions&quot;)) )(((&quot;liquidation&quot;, seealso=&quot;confirmations&quot;)))Au début, le portefeuille d&#39;Alice affichera la transaction de Joe comme &quot;Non confirmée&quot;. Cela signifie que la transaction a été propagée au réseau mais n&#39;a pas encore été enregistrée dans le registre des transactions bitcoin, connu sous le nom de blockchain ou la chaîne de blocs. Pour être confirmée, une transaction doit être incluse dans un bloc et ajoutée à la chaîne de blocs, ce qui se produit toutes les 10 minutes en moyenne. En termes financiers traditionnels, cela s&#39;appelle _liquidation (ou clearing)_. Ce livre couvrira en détail la propagation, la validation et la liquidation (ou la confirmation) des transactions bitcoin.
+(((&quot;comment démarrer&quot;, &quot;confirmations&quot;)))(((&quot;confirmations&quot;, &quot;exemple de démarrage rapide du portefeuille bitcoin&quot;)))(((&quot;confirmations&quot;, voir=&quot;aussi minage et consensus; transactions&quot;)))(((&quot;liquidation&quot;, seealso=&quot;confirmations&quot;)))Au début, le portefeuille d&#39;Alice affichera la transaction de Joe comme &quot;Non confirmée&quot;. Cela signifie que la transaction a été propagée au réseau mais n&#39;a pas encore été enregistrée dans le registre des transactions bitcoin, connu sous le nom de blockchain ou la chaîne de blocs. Pour être confirmée, une transaction doit être incluse dans un bloc et ajoutée à la chaîne de blocs, ce qui se produit toutes les 10 minutes en moyenne. En termes financiers traditionnels, cela s&#39;appelle _liquidation (ou clearing)_. Ce livre couvrira en détail la propagation, la validation et la liquidation (ou la confirmation) des transactions bitcoin.
 
 Alice est maintenant l&#39;heureuse propriétaire de 0,10 BTC qu&#39;elle peut dépenser. Dans le chapitre suivant, nous examinerons son premier achat avec Bitcoin et examinerons plus en détail les technologies sous-jacentes de transaction et de propagation.(((&quot;&quot;, startref=&quot;BCbasic01&quot;)))(((&quot;use cases&quot;, &quot;buying café&quot;, startref=&quot;aliceone&quot;)))
