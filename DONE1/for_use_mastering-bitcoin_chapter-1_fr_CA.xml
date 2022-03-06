@@ -449,7 +449,6 @@ Client API tiers
 <warning>
 <simpara>N&#39;essayez jamais un système de sécurité &quot;bricolage&quot; qui s&#39;écarte de quelque manière que ce soit de la recommandation des meilleures pratiques dans &lt;&lt;mnemonic-storage&gt; &gt;. Ne coupez pas votre mnémonique en deux, ne faites pas de captures d&#39;écran, ne stockez pas sur des clés USB, des e-mails ou des lecteurs cloud, ne le cryptez pas ou n&#39;essayez aucune autre méthode non standard. Vous ferez pencher la balance de manière à risquer une perte permanente ou un vol. De nombreuses personnes ont perdu de l&#39;argent, non pas à cause d&#39;un vol, mais parce qu&#39;elles ont essayé une solution non standard sans avoir l&#39;expertise pour équilibrer les risques encourus. La recommandation des meilleures pratiques est soigneusement équilibrée par des experts et adaptée à la grande majorité des utilisateurs.</simpara>
 </warning>
-<sidebar>
 <figure id="bluewallet-welcome"><title>Alice utilise l&#39;écran de réception sur son portefeuille Bitcoin mobile Bluewallet et affiche son adresse à Bob au format de code QR</title>
 <mediaobject>
   <imageobject>
@@ -499,7 +498,10 @@ Client API tiers
   <primary>&quot;adresses Bitcoin&quot;</primary>
 </indexterm>Les adresses Bitcoin commencent par 1, 3 ou bc1. Comme les adresses e-mail, elles peuvent être partagées avec d&#39;autres utilisateurs de bitcoins qui peuvent les utiliser pour envoyer des bitcoins directement dans votre portefeuille. Il n&#39;y a rien de sensible, du point de vue de la sécurité, à propos de l&#39;adresse Bitcoin. Il peut être affiché n&#39;importe où sans risquer la sécurité du compte. Contrairement aux adresses e-mail, vous pouvez créer de nouvelles adresses aussi souvent que vous le souhaitez, qui dirigeront toutes les fonds vers votre portefeuille. En fait, de nombreux portefeuilles modernes créent automatiquement une nouvelle adresse pour chaque transaction afin de maximiser la confidentialité. Un portefeuille est simplement une collection d&#39;adresses et les clés qui débloquent les fonds à l&#39;intérieur.</simpara>
 </tip>
-<simpara id="getting_first_bitcoin">Il existe plusieurs façons pour Alice d&#39;acquérir des bitcoins :</simpara>
+</section>
+<section id="getting_first_bitcoin">
+<title>Obtenir son premier Bitcoin</title>
+<simpara>Il existe plusieurs façons pour Alice d&#39;acquérir des bitcoins :</simpara>
 <itemizedlist>
 <listitem>
 <simpara>
@@ -559,7 +561,10 @@ Elle peut demander à son employeur ou à ses clients de la payer en bitcoin
 </indexterm>L&#39;un des avantages du bitcoin par rapport aux autres systèmes de paiement est que, lorsqu&#39;il est utilisé correctement, il offre aux utilisateurs beaucoup plus d&#39;intimité. Acquérir, détenir et dépenser des bitcoins ne vous oblige pas à divulguer des informations sensibles et personnellement identifiables à des tiers. Cependant, lorsque le bitcoin touche les systèmes traditionnels, tels que les échanges de devises, les réglementations nationales et internationales s&#39;appliquent souvent. Afin d&#39;échanger des bitcoins contre votre monnaie nationale, il vous sera souvent demandé de fournir une preuve d&#39;identité et des informations bancaires. Les utilisateurs doivent savoir qu&#39;une fois qu&#39;une adresse Bitcoin est associée à une identité, toutes les transactions Bitcoin associées sont également faciles à identifier et à suivre. C&#39;est l&#39;une des raisons pour lesquelles de nombreux utilisateurs choisissent de maintenir des comptes d&#39;échange dédiés non liés à leurs portefeuilles.</simpara>
 </tip>
 <simpara>Alice a été initiée au bitcoin par un ami, elle a donc un moyen facile d&#39;acquérir son premier bitcoin. Ensuite, nous verrons comment elle achète des bitcoins à son ami Joe et comment Joe envoie les bitcoins dans son portefeuille.</simpara>
-<simpara id="bitcoin_price"><indexterm>
+</section>
+<section id="bitcoin_price">
+<title>Trouver le prix actuel du Bitcoin</title>
+<simpara><indexterm>
   <primary>&quot;commencer&quot;</primary><secondary>&quot;taux de change&quot;</secondary>
 </indexterm>
 <indexterm>
@@ -614,7 +619,10 @@ Un taux de référence qui peut être utilisé comme référence institutionnell
 </varlistentry>
 </variablelist>
 <simpara>En plus de ces différents sites et applications, la plupart des portefeuilles bitcoin convertiront automatiquement les montants entre le bitcoin et d&#39;autres devises. Joe utilisera son portefeuille pour convertir automatiquement le prix avant d&#39;envoyer des bitcoins à Alice.</simpara>
-<simpara id="sending_receiving"><indexterm>
+</section>
+<section id="sending_receiving">
+<title>Envoi et réception de Bitcoin</title>
+<simpara><indexterm>
   <primary>&quot;commencer&quot;</primary><secondary>&quot;envoyer et recevoir des bitcoins&quot;</secondary><tertiary>id=&quot;GSsend01&quot;</tertiary>
 </indexterm>
 <indexterm>
@@ -687,10 +695,12 @@ Des frais de transaction
 <indexterm>
   <primary>&quot;exemple de démarrage rapide du portefeuille bitcoin&quot;</primary>
 </indexterm><indexterm>
-  <primary>&quot;confirmations&quot;</primary><secondary>voir=&quot;aussi minage et consensus; transactions&quot;)) )(((&quot;liquidation&quot;</secondary><tertiary>seealso=&quot;confirmations&quot;</tertiary>
+  <primary>&quot;confirmations&quot;</primary><secondary>voir=&quot;aussi minage et consensus; transactions&quot;</secondary>
 </indexterm>
 <indexterm>
-  <primary>voir=&quot;aussi minage et consensus; transactions&quot;)) )(((&quot;liquidation&quot;</primary><secondary>seealso=&quot;confirmations&quot;</secondary>
+  <primary>voir=&quot;aussi minage et consensus; transactions&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;liquidation&quot;</primary><secondary>seealso=&quot;confirmations&quot;</secondary>
 </indexterm>
 <indexterm>
   <primary>seealso=&quot;confirmations&quot;</primary>
@@ -709,7 +719,6 @@ Des frais de transaction
 <indexterm>
   <primary>startref=&quot;aliceone&quot;</primary>
 </indexterm></simpara>
-</sidebar>
 </section>
 </section>
 </section>

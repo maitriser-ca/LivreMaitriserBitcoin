@@ -534,9 +534,9 @@ des transactions et les boutons *Receive* et *Send*. En outre, de
 nombreux portefeuilles offrent la possibilité d'acheter des Bitcoins
 directement via un échange ou un service similaire où vous pouvez offrir
 de l'argent fiduciaire en échange de cryptomonnaie, ce qui est fait par
-[simpara\_title](#bitcoin_price) et vendre à l'utilisateur du
-portefeuille à ce prix ou au-dessus. Le bouton *Buy Bitcoin* permettrait
-à Alice d'acheter des Bitcoins de cette manière.
+[Trouver le prix actuel du Bitcoin](#bitcoin_price) et vendre à
+l'utilisateur du portefeuille à ce prix ou au-dessus. Le bouton *Buy
+Bitcoin* permettrait à Alice d'acheter des Bitcoins de cette manière.
 
 Alice est maintenant prête à commencer à utiliser son nouveau
 portefeuille Bitcoin. <span class="indexterm"></span> <span
@@ -587,6 +587,8 @@ nombreux portefeuilles modernes créent automatiquement une nouvelle
 adresse pour chaque transaction afin de maximiser la confidentialité. Un
 portefeuille est simplement une collection d'adresses et les clés qui
 débloquent les fonds à l'intérieur.
+
+### Obtenir son premier Bitcoin
 
 Il existe plusieurs façons pour Alice d'acquérir des bitcoins :
 
@@ -640,6 +642,8 @@ d'acquérir son premier bitcoin. Ensuite, nous verrons comment elle
 achète des bitcoins à son ami Joe et comment Joe envoie les bitcoins
 dans son portefeuille.
 
+### Trouver le prix actuel du Bitcoin
+
 <span class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span> <span class="indexterm"></span>Avant qu'Alice
 puisse acheter du bitcoin à Joe, ils doivent s'entendre sur le *taux de
@@ -682,6 +686,8 @@ En plus de ces différents sites et applications, la plupart des
 portefeuilles bitcoin convertiront automatiquement les montants entre le
 bitcoin et d'autres devises. Joe utilisera son portefeuille pour
 convertir automatiquement le prix avant d'envoyer des bitcoins à Alice.
+
+### Envoi et réception de Bitcoin
 
 <span class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
@@ -777,17 +783,18 @@ bitcoin, équivalente à 0,00000001 BTC.
 
 <span class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span> <span class="indexterm"></span><span
-class="indexterm"></span> <span class="indexterm"></span> <span
-class="indexterm"></span>Au début, le portefeuille d'Alice affichera la
-transaction de Joe comme "Non confirmée". Cela signifie que la
-transaction a été propagée au réseau mais n'a pas encore été enregistrée
-dans le registre des transactions bitcoin, connu sous le nom de
-blockchain ou la chaîne de blocs. Pour être confirmée, une transaction
-doit être incluse dans un bloc et ajoutée à la chaîne de blocs, ce qui
-se produit toutes les 10 minutes en moyenne. En termes financiers
-traditionnels, cela s'appelle *liquidation (ou clearing)*. Ce livre
-couvrira en détail la propagation, la validation et la liquidation (ou
-la confirmation) des transactions bitcoin.
+class="indexterm"></span> <span class="indexterm"></span><span
+class="indexterm"></span> <span class="indexterm"></span>Au début, le
+portefeuille d'Alice affichera la transaction de Joe comme "Non
+confirmée". Cela signifie que la transaction a été propagée au réseau
+mais n'a pas encore été enregistrée dans le registre des transactions
+bitcoin, connu sous le nom de blockchain ou la chaîne de blocs. Pour
+être confirmée, une transaction doit être incluse dans un bloc et
+ajoutée à la chaîne de blocs, ce qui se produit toutes les 10 minutes en
+moyenne. En termes financiers traditionnels, cela s'appelle *liquidation
+(ou clearing)*. Ce livre couvrira en détail la propagation, la
+validation et la liquidation (ou la confirmation) des transactions
+bitcoin.
 
 Alice est maintenant l'heureuse propriétaire de 0,10 BTC qu'elle peut
 dépenser. Dans le chapitre suivant, nous examinerons son premier achat

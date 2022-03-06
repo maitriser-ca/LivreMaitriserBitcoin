@@ -1,0 +1,1972 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 10.1.4" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overridden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="ch04_keys_addresses">Clés, Adresses</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Vous avez peut-être entendu dire que le bitcoin est basé sur la <em>cryptographie</em>, qui est une branche des mathématiques largement utilisée en sécurité informatique. La cryptographie signifie &quot;écriture secrète&quot; en grec, mais la science de la cryptographie englobe plus que la simple écriture secrète, appelée cryptage. La cryptographie peut également être utilisée pour prouver la connaissance d&#39;un secret sans révéler ce secret (signature numérique), ou prouver l&#39;authenticité des données (empreinte numérique). Ces types de preuves cryptographiques sont les outils mathématiques essentiels au bitcoin et largement utilisés dans les applications bitcoin. Ironiquement, le cryptage n&#39;est pas une partie importante du bitcoin, car ses communications et ses données de transaction ne sont pas cryptées et ne doivent être chiffrés pour protéger les fonds. Dans ce chapitre, nous présenterons une partie de la cryptographie utilisée dans le bitcoin pour contrôler la propriété des fonds, sous la forme de clés, d&#39;adresses et de portefeuilles.</p></div>
+<div class="sect2">
+<h3 id="_présentation">Présentation</h3>
+<div class="paragraph"><p> La propriété du bitcoin est établie par le biais de <em>clés numériques</em>, <em>adresses Bitcoin</em> et <em>signatures numériques</em>. Les clés numériques ne sont pas réellement stockées dans le réseau, mais sont plutôt créées et stockées par les utilisateurs dans un fichier, ou une simple base de données, appelée <em>wallet</em>. Les clés numériques du portefeuille d&#39;un utilisateur sont totalement indépendantes du protocole Bitcoin et peuvent être générées et gérées par le logiciel du portefeuille de l&#39;utilisateur sans référence à la chaîne de blocs ni accès à Internet. Les clés permettent de nombreuses propriétés intéressantes du bitcoin, notamment la confiance et le contrôle décentralisés, l&#39;attestation de propriété et le modèle de sécurité à l&#39;épreuve de la cryptographie.</p></div>
+<div class="paragraph"><p>La plupart des transactions bitcoin nécessitent une signature numérique valide à inclure dans la chaîne de blocs, qui ne peut être générée qu&#39;avec une clé secrète ; par conséquent, toute personne possédant une copie de cette clé a le contrôle du bitcoin.  La signature numérique utilisée pour dépenser des fonds est également appelée <em>témoin</em>, un terme utilisé en cryptographie. Les données témoins dans une transaction bitcoin témoignent de la véritable propriété des fonds dépensés.</p></div>
+<div class="paragraph"><p>Les clés sont fournies par paires constituées d&#39;une clé privée (secrète) et une clé publique. Considérez la clé publique comme similaire à un numéro de compte bancaire et la clé privée comme similaire au code PIN secret, ou à la signature d&#39;un chèque, qui permet de contrôler le compte. Ces clés numériques sont très rarement vues par les utilisateurs de bitcoin. Pour la plupart, ils sont stockés dans le fichier du portefeuille et gérés par le logiciel du portefeuille bitcoin.</p></div>
+<div class="paragraph"><p>Dans la partie paiement d&#39;une transaction bitcoin, la clé publique du destinataire est représentée par son empreinte numérique, appelée <em>adresse Bitcoin</em>, qui est utilisée de la même manière que le nom du bénéficiaire sur un chèque (c&#39;est-à-dire &quot;Payer à l&#39;ordre de&quot;) . Dans la plupart des cas, une adresse Bitcoin correspond et est générée à partir d&#8217;une clé publique. Cependant, toutes les adresses Bitcoin ne représentent pas des clés publiques ; ils peuvent également représenter d&#39;autres bénéficiaires tels que des scripts, comme nous le verrons plus loin dans ce chapitre. De cette manière, les adresses Bitcoin font abstraction du destinataire des fonds, ce qui rend les destinations de transaction flexibles, similaires aux chèques papier : un instrument de paiement unique qui peut être utilisé pour payer les comptes des personnes, payer les comptes de l&#39;entreprise, payer des factures ou payer en espèces. L&#39;adresse Bitcoin est la seule représentation des clés que les utilisateurs verront régulièrement, car c&#39;est la partie qu&#39;ils doivent partager avec le monde.</p></div>
+<div class="paragraph"><p>Tout d&#39;abord, nous présenterons la cryptographie et expliquerons les mathématiques utilisées dans le bitcoin. Ensuite, nous verrons comment les clés sont générées, stockées et gérées. Nous passerons en revue les différents formats de codage utilisés pour représenter les clés privées et publiques, les adresses et les adresses de script. Enfin, nous nous pencherons sur l&#39;utilisation avancée des clés et des adresses : adresses personnalisées, multisignatures, scripts et portefeuilles papier.</p></div>
+<div class="sect3">
+<h4 id="_cryptographie_à_clé_publique_et_cryptomonnaie">Cryptographie à clé publique et cryptomonnaie</h4>
+<div class="paragraph"><p>La cryptographie à clé publique a été inventée dans les années 1970 et constitue une base mathématique pour informatique et sécurité de l&#39;information.</p></div>
+<div class="paragraph"><p>Depuis l&#39;invention de la cryptographie à clé publique, plusieurs fonctions mathématiques appropriées, telles que l&#39;exponentiation des nombres premiers et la multiplication des courbes elliptiques, ont été découvertes. Ces fonctions mathématiques sont pratiquement irréversibles, ce qui signifie qu&#39;elles sont faciles à calculer dans un sens et impossibles à calculer dans le sens opposé. Sur la base de ces fonctions mathématiques, la cryptographie permet la création de secrets numériques et de signatures numériques infalsifiables. Bitcoin utilise la multiplication de courbes elliptiques comme base de sa cryptographie.</p></div>
+<div class="paragraph"><p>En bitcoin, nous utilisons la cryptographie à clé publique pour créer une paire de clés qui contrôle l&#39;accès au bitcoin. La paire de clés se compose d&#39;une clé privée et - dérivée de celle-ci - d&#39;une clé publique unique. La clé publique est utilisée pour recevoir des fonds et la clé privée est utilisée pour signer des transactions afin de dépenser les fonds.</p></div>
+<div class="paragraph"><p>Il existe une relation mathématique entre la clé publique et la clé privée qui permet d&#39;utiliser la clé privée pour générer des signatures sur les messages. Ces signatures peuvent être validées par rapport à la clé publique sans révéler la clé privée.</p></div>
+<div class="paragraph"><p>Lorsqu&#39;il dépense des bitcoins, le propriétaire actuel de bitcoins présente sa clé publique et une signature (différente à chaque fois, mais créée à partir de la même clé privée) dans une transaction pour dépenser ces bitcoins. Grâce à la présentation de la clé publique et de la signature, tous les membres du réseau Bitcoin peuvent vérifier et accepter la transaction comme valide, confirmant que la personne transférant le bitcoin en était propriétaire au moment du transfert.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p> Dans la plupart des implémentations de portefeuille, les clés privées et publiques sont stockées ensemble sous la forme d&#39;une <em>paire de clés</em> pour plus de commodité. Cependant, la clé publique peut être calculée à partir de la clé privée, de sorte qu&#39;il est également possible de ne stocker que la clé privée.</p></div>
+</td>
+</tr></table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="private_public_keys">Clés privées et publiques</h4>
+<div class="paragraph"><p> Un portefeuille bitcoin contient une collection de paires de clés, chacune composée d&#39;une clé privée et d&#39;une clé publique. La clé privée (k) est un nombre, généralement choisi au hasard. A partir de la clé privée, nous utilisons la multiplication par courbe elliptique, une fonction cryptographique à sens unique, pour générer une clé publique (K). A partir de la clé publique (K), nous utilisons une fonction de hachage cryptographique unidirectionnelle pour générer une adresse Bitcoin (A). Dans cette section, nous commencerons par générer la clé privée, examinerons les mathématiques de la courbe elliptique utilisées pour la transformer en clé publique, et enfin, générerons une adresse Bitcoin à partir de la clé publique. La relation entre la clé privée, la clé publique et l&#39;adresse Bitcoin est indiquée dans <a href="#k_to_K_to_A">[k_to_K_to_A]</a>.</p></div>
+<div class="imageblock" id="k_to_K_to_A">
+<div class="content">
+<img src="images/mbc2_0401.png" alt="privk_to_pubK_to_addressA" />
+</div>
+<div class="title">Figure 1. Clé privée, clé publique et adresse Bitcoin</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Pourquoi utiliser la cryptographie asymétrique (clés publiques/privées) ?</div>
+<div class="paragraph"><p>Pourquoi la cryptographie asymétrique est-elle utilisée dans le bitcoin ? Elle n&#39;est pas utilisée pour &quot;crypter&quot; (rendre secrètes) les transactions. Au contraire, la propriété utile de la cryptographie asymétrique est la capacité à générer des <em>signatures numériques</em>. Une clé privée peut être appliquée à l&#39;empreinte numérique d&#39;une transaction pour produire une signature numérique. Cette signature ne peut être produite que par une personne connaissant la clé privée. Cependant, toute personne ayant accès à la clé publique et à l&#39;empreinte digitale de la transaction peut les utiliser pour <em>vérifier</em> la signature. Cette propriété utile de la cryptographie asymétrique permet à quiconque de vérifier chaque signature sur chaque transaction, tout en garantissant que seuls les propriétaires de clés privées peuvent produire des signatures valides.</p></div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="private_keys">Clés privées</h4>
+<div class="paragraph"><p>Une clé privée est simplement un nombre, choisi au hasard . La propriété et le contrôle de la clé privée sont à la base du contrôle de l&#39;utilisateur sur tous les fonds associés à l&#39;adresse Bitcoin correspondante. La clé privée est utilisée pour créer des signatures nécessaires pour dépenser des bitcoins en prouvant la propriété des fonds utilisés dans une transaction. La clé privée doit rester secrète à tout moment, car la révéler à des tiers équivaut à leur donner le contrôle sur le bitcoin sécurisé par cette clé. La clé privée doit également être sauvegardée et protégée contre toute perte accidentelle, car si elle est perdue, elle ne peut pas être récupérée et les fonds qu&#39;elle garantit sont également perdus à jamais.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>La clé privée bitcoin n&#39;est qu&#39;un nombre. Vous pouvez choisir vos clés privées au hasard en utilisant simplement une pièce de monnaie, un crayon et du papier : lancez une pièce 256 fois et vous avez les chiffres binaires d&#39;une clé privée aléatoire que vous pouvez utiliser dans un portefeuille bitcoin. La clé publique peut alors être générée à partir de la clé privée.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="sect4">
+<h5 id="_générer_une_clé_privée_à_partir_d_39_un_nombre_aléatoire">Générer une clé privée à partir d&#39;un nombre aléatoire</h5>
+<div class="paragraph"><p>La première et la plus importante étape de la génération de clés consiste à trouver une source sécurisée d&#39;entropie ou de caractère aléatoire. La création d&#39;une clé bitcoin est essentiellement la même que &quot;Choisissez un nombre entre 1 et 2 <sup> 256 </sup>&quot;. La méthode exacte que vous utilisez pour choisir ce nombre n&#39;a pas d&#39;importance tant qu&#39;elle n&#39;est pas prévisible ou reproductible. Le logiciel Bitcoin utilise les générateurs de nombres aléatoires du système d&#39;exploitation sous-jacent pour produire 256 bits d&#39;entropie (aléatoire). Habituellement, le générateur de nombres aléatoires du système d&#39;exploitation est initialisé par une source humaine d&#39;aléatoire, c&#39;est pourquoi il peut vous être demandé de remuer votre souris pendant quelques secondes.</p></div>
+<div class="paragraph"><p>Plus précisément, la clé privée peut être n&#39;importe quel nombre compris entre <code>0</code> et <code>n - 1</code> inclus, où n est une constante (n = 1,1578 * 10<sup>77</sup>, légèrement inférieure à 2<sup>256</sup>) définie comme l&#39;ordre de la courbe elliptique utilisée dans le bitcoin (voir <a href="#elliptic_curve">[elliptic_curve]</a>). Pour créer une telle clé, nous choisissons au hasard un nombre de 256 bits et vérifions qu&#39;il est inférieur à <code>n</code>. En termes de programmation, cela est généralement réalisé en alimentant une plus grande chaîne de bits aléatoires, collectés à partir d&#39;une source aléatoire sécurisée par cryptographie, dans l&#39;algorithme de hachage SHA256, qui produira commodément un nombre de 256 bits. Si le résultat est inférieur à <code>n</code>, nous avons une clé privée appropriée. Sinon, nous réessayons simplement avec un autre nombre aléatoire.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>N&#39;écrivez pas votre propre code pour créer un nombre aléatoire ou n&#8217;utilisez pas un nombre aléatoire &quot;simple&quot; généré par votre langage de programmation. Utilisez un générateur de nombres pseudo-aléatoires cryptographiquement sécurisé (CSPRNG) avec une valeur d&#8217;amorçage provenant d&#39;une source d&#39;entropie suffisante. Étudiez la documentation de la bibliothèque de générateurs de nombres aléatoires que vous choisissez pour vous assurer qu&#39;elle est cryptographiquement sécurisée. La mise en œuvre correcte du CSPRNG est essentielle à la sécurité des clés.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Ce qui suit est une clé privée générée aléatoirement (k) affichée au format hexadécimal (256 bits affichés sous la forme de 64 chiffres hexadécimaux, chacun de 4 bits) :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD</code></pre>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>La taille de l&#39;espace de clé privée de bitcoin, (2 <sup> 256</sup>) est un nombre insondable. Il est d&#39;environ 10<sup>77</sup> en décimal. À titre de comparaison, on estime que l&#39;univers visible contient 10<sup>80</sup> atomes.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Pour générer une nouvelle clé avec le client Bitcoin Core (voir <a href="#ch03_bitcoin_client">[ch03_bitcoin_client]</a>), utilisez la commande <code>getnewaddress</code>. Pour des raisons de sécurité, il affiche uniquement l&#39;adresse, pas la clé privée. Pour demander à <code>bitcoind</code> d&#39;exposer la clé privée, utilisez la commande <code>dumpprivkey</code>. La commande <code>dumpprivkey</code> affiche la clé privée dans un format de somme de contrôle Base58 appelé <em>Wallet Import Format</em> (WIF ou format d&#8217;importation de portefeuille), que nous examinerons plus en détail dans <a href="#priv_formats">[priv_formats]</a>. Voici un exemple de génération et d&#39;affichage d&#39;une clé privée à l&#39;aide de ces deux commandes :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ bitcoin-cli getnewaddress
+1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy
+$ bitcoin-cli dumpprivkey 1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy
+KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ</code></pre>
+</div></div>
+<div class="paragraph"><p>La commande <code>dumpprivkey</code> ouvre le portefeuille et extrait la clé privée qui a été générée par la commande <code>getnewaddress</code>. Il n&#39;est pas possible pour <code>bitcoind</code> de connaître la clé privée à partir de l&#39;adresse à moins qu&#39;elles ne soient toutes deux stockées dans le portefeuille.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>La commande <code>dumpprivkey</code> ne génère pas de clé privée à partir d&#39;une adresse, car cela est impossible. La commande révèle simplement la clé privée qui est déjà connue du portefeuille et qui a été générée par la commande <code>getnewaddress</code>.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph pagebreak-before"><p>Vous pouvez également utiliser l&#39;outil de ligne de commande Bitcoin Explorer (voir <a href="#appdx_bx">[appdx_bx]</a>) pour générer et afficher des clés privées avec les commandes <code>seed</code>, <code>ec-new</code> et <code>ec-to-wif</code> :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ bx seed | bx ec-new | bx ec-to-wif
+5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="pubkey">Clés publiques</h4>
+<div class="paragraph"><p>La clé publique est calculée à partir de la clé privée en utilisant la multiplication par courbe elliptique, qui est irréversible : <em>K</em> = <em>k</em> * <em>G</em>, où <em>k</em> est la clé privée, <em>G</em> est un point constant appelé <em>point générateur</em> et <em>K</em> est la clé publique résultante. L&#39;opération inverse, connue sous le nom de &quot;trouver le logarithme discret&quot; - calculer <em>k</em> si vous connaissez <em>K</em> - est aussi difficile que d&#39;essayer toutes les valeurs possibles de <em>k</em>, c&#39;est-à-dire par une recherche par force brute. Avant de montrer comment générer une clé publique à partir d&#39;une clé privée, examinons un peu plus en détail la cryptographie à courbe elliptique.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>La multiplication de courbe elliptique est un type de fonction que les cryptographes appellent une fonction « à sens unique » : elle est facile à faire dans un sens (multiplication) et impossible à faire dans le sens inverse (« division », ou trouver le logarithme discret). Le propriétaire de la clé privée peut facilement créer la clé publique, puis la partager avec le monde entier, sachant que personne ne peut inverser la fonction et calculer la clé privée à partir de la clé publique. Cette astuce mathématique devient la base de signatures numériques infalsifiables et sécurisées qui prouvent la propriété des fonds bitcoin.</p></div>
+</td>
+</tr></table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="elliptic_curve">La cryptographie à courbe elliptique expliquée</h4>
+<div class="paragraph"><p> La cryptographie à courbe elliptique est un type de cryptographie asymétrique ou à clé publique basée sur le problème du logarithme discret exprimé par addition et multiplication sur les points d&#39;une courbe elliptique.</p></div>
+<div class="paragraph"><p><a href="#ecc-curve">[ecc-curve]</a> est un exemple de courbe elliptique, similaire à celle utilisée par le bitcoin.</p></div>
+<div class="imageblock smallerthirty" id="ecc-curve">
+<div class="content">
+<img src="images/mbc2_0402.png" alt="ecc-curve" />
+</div>
+<div class="title">Figure 2. Une courbe elliptique</div>
+</div>
+<div class="paragraph"><p>Bitcoin utilise une courbe elliptique spécifique et un ensemble de constantes mathématiques, telles que définies dans une norme appelée <code>secp256k1</code>, établie par le National Institute of Standards and Technology (NIST). La courbe <code>secp256k1</code> est définie par la fonction suivante, qui produit une courbe elliptique :</p></div>
+<div class="mathblock">
+<div class="content">
+\[\begin{equation}
+{y^2 = (x^3 + 7)}~\text{over}~(\mathbb{F}_p)
+\end{equation}\]
+</div></div>
+<div class="paragraph"><p>ou</p></div>
+<div class="mathblock">
+<div class="content">
+\[\begin{equation}
+{y^2 \mod p = (x^3 + 7) \mod p}
+\end{equation}\]
+</div></div>
+<div class="paragraph"><p></p></div>
+<div class="paragraph"><p>Parce que cette courbe est définie sur un champ fini d&#39;ordre premier au lieu de sur les nombres réels, elle ressemble à un motif de points dispersés en deux dimensions, ce qui la rend difficile à visualiser. Cependant, le calcul est identique à celui d&#39;une courbe elliptique sur des nombres réels. A titre d&#39;exemple, <a href="#ecc-over-F17-math">[ecc-over-F17-math]</a> montre la même courbe elliptique sur un champ fini beaucoup plus petit d&#39;ordre premier 17, montrant un motif de points sur une grille. La courbe elliptique du bitcoin <code>secp256k1</code> peut être considérée comme un motif beaucoup plus complexe de points sur une grille insondable.</p></div>
+<div class="imageblock smallersixty" id="ecc-over-F17-math">
+<div class="content">
+<img src="images/mbc2_0403.png" alt="ecc-over-F17-math" />
+</div>
+<div class="title">Figure 3. Cryptographie sur courbe elliptique : visualisation d&#39;une courbe elliptique sur F(p), avec p=17</div>
+</div>
+<div class="paragraph"><p>Ainsi, par exemple, ce qui suit est un point P de coordonnées (x,y) qui est un point sur la courbe <code>secp256k1</code> :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>P = (55066263022277343669578718895168534326250603453777594175500187360389116729240, 32670510020758816978083085130507043184471273380659243275938904335757337482424)</code></pre>
+</div></div>
+<div class="paragraph"><p><a href="#example_4_1">[example_4_1]</a> montre comment vous pouvez vérifier cela vous-même en utilisant Python :</p></div>
+<div class="exampleblock" id="example_4_1">
+<div class="title">Example 1. Utiliser Python pour confirmer que ce point est sur la courbe elliptique</div>
+<div class="content">
+<div class="listingblock">
+<div class="content"></div></div>
+</div></div>
+<div class="paragraph"><p>Dans les mathématiques des courbes elliptiques, il existe un point appelé le &quot;point à l&#39;infini&quot;, qui correspond à peu près au rôle de zéro. Sur les ordinateurs, il est parfois représenté par x = y = 0 (ce qui ne satisfait pas l&#39;équation de la courbe elliptique, mais c&#39;est un cas séparé facile qui peut être vérifié).</p></div>
+<div class="paragraph"><p>Il existe également un opérateur +, appelé &quot;addition&quot;, qui possède certaines propriétés similaires à l&#39;addition traditionnelle de nombres réels apprise par les élèves du primaire. Étant donné deux points P<sub>1</sub> et P<sub>2</sub> sur la courbe elliptique, il existe un troisième point P<sub>3</sub> = P<sub>1</sub> + P<sub>2</sub>, également sur la courbe elliptique.</p></div>
+<div class="paragraph"><p>Géométriquement, ce troisième point P<sub>3</sub> est calculé en traçant une ligne entre P<sub>1</sub> et P<sub>2</sub>. Cette ligne coupera la courbe elliptique exactement à un endroit supplémentaire. Appelons ce point P<sub>3</sub> = (x, y). Renvoyé ensuite sur l&#39;axe des x pour obtenir P<sub>3</sub> = (x, –y).</p></div>
+<div class="paragraph"><p>Il y a quelques cas particuliers qui expliquent la nécessité du &quot;point à l&#39;infini&quot;.</p></div>
+<div class="paragraph"><p>Si P<sub>1</sub> et P<sub>2</sub> sont le même point, la ligne &quot;entre&quot; P<sub>1</sub> et P<sub>2</sub> doit s&#39;étendre pour être la tangente sur la courbe en ce point P<sub>1</sub>. Cette tangente coupera la courbe en exactement un nouveau point. Vous pouvez utiliser des techniques de calcul pour déterminer la pente de la ligne tangente. Ces techniques fonctionnent curieusement, même si nous restreignons notre intérêt aux points de la courbe à deux coordonnées entières !</p></div>
+<div class="paragraph"><p>Dans certains cas (par exemple, si P<sub>1</sub> et P<sub>2</sub> ont les mêmes valeurs x mais des valeurs y différentes), la ligne entre P<sub>1</sub> et P<sub>2</sub> sera exactement verticale, auquel cas P<sub>3 </sub> = &quot;point à l&#39;infini.&quot;</p></div>
+<div class="paragraph"><p>Si P<sub>1</sub> est le &quot;point à l&#39;infini&quot;, alors P<sub>1</sub> + P<sub>2</sub> = P<sub>2</sub>. De même, si P<sub>2</sub> est le point à l&#39;infini, alors P<sub>1</sub> + P<sub>2</sub> = P<sub>1</sub>. Cela montre comment le point à l&#39;infini joue le rôle de zéro.</p></div>
+<div class="paragraph"><p>Il s&#39;avère que + est associatif, ce qui signifie que (A + B) + C = A + (B + C). Cela signifie que nous pouvons écrire A + B + C sans parenthèses et sans ambiguïté.</p></div>
+<div class="paragraph"><p>Maintenant que nous avons défini l&#39;addition, nous pouvons définir la multiplication de la manière standard qui extensionne l&#39;addition. Pour un point P sur la courbe elliptique, si k est un nombre entier, alors kP = P + P + P + &#8230; + P (k fois). Notez que k est parfois appelé un &quot;exposant&quot; dans ce cas.</p></div>
+</div>
+<div class="sect3">
+<h4 id="public_key_derivation">Génération d&#39;une clé publique</h4>
+<div class="paragraph"><p>En partant d&#39;une clé privée sous la forme d&#39;un nombre généré aléatoirement <em>k</em>, nous la multiplions par un point prédéterminé sur la courbe appelé <em>point générateur</em> <em>G</em> pour produire un autre point ailleurs sur la courbe, qui est la clé publique correspondante <em>K</em>. Le point générateur est spécifié dans le cadre de la norme <code>secp256k1</code> et est toujours le même pour toutes les clés en bitcoin :</p></div>
+<div class="mathblock">
+<div class="content">
+\[\begin{equation}
+{K = k * G}
+\end{equation}\]
+</div></div>
+<div class="paragraph"><p>où <em>k</em> est la clé privée, <em>G</em> est le point générateur et <em>K</em> est la clé publique résultante, un point sur la courbe. Comme le point générateur est toujours le même pour tous les utilisateurs de bitcoins, une clé privée <em>k</em> multipliée par <em>G</em> donnera toujours la même clé publique <em>K</em>. La relation entre <em>k</em> et <em>K</em> est fixe, mais ne peut être calculée que dans un sens, de <em>k</em> vers <em>K</em>. C&#39;est pourquoi une adresse Bitcoin (dérivée de <em>K</em>) peut être partagée avec n&#39;importe qui et ne révèle pas la clé privée de l&#39;utilisateur (<em>k</em>).</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>Une clé privée peut être convertie en clé publique, mais une clé publique ne peut pas être reconvertie en clé privée car le calcul ne fonctionne que dans un sens.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>En implémentant la multiplication par courbe elliptique, nous prenons la clé privée <em>k</em> générée précédemment et la multiplions avec le point générateur G pour trouver la clé publique <em>K</em> :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>K = 1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD * G</code></pre>
+</div></div>
+<div class="paragraph"><p>La clé publique <em>K</em> est définie comme un point <code>K = (x,y)</code> :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>K = (x, y)
+
+où,
+
+x = F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A
+y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</code></pre>
+</div></div>
+<div class="paragraph"><p>Pour visualiser la multiplication d&#39;un point avec un nombre entier, nous utiliserons la courbe elliptique plus simple sur des nombres réels - rappelez-vous, le calcul est le même. Notre objectif est de trouver le multiple <em>kG</em> du point générateur <em>G</em>, ce qui revient à ajouter <em>G</em> à lui-même, <em>k</em> fois de suite. Dans les courbes elliptiques, l&#39;ajout d&#39;un point à lui-même équivaut à tracer une ligne tangente sur le point et à trouver à nouveau l&#39;endroit où il coupe la courbe, puis à refléter ce point sur l&#39;axe des x.</p></div>
+<div class="paragraph"><p><a href="#ecc_illustrated">[ecc_illustrated]</a> montre le processus de dérivation de <em>G</em>, <em>2G</em>, <em>4G</em> et <em>8G</em> en tant qu&#39;opération géométrique sur la courbe.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>Bitcoin utilise la <a href="https://github.com/bitcoin-core/secp256k1">bibliothèque C optimisée secp256k1</a> pour effectuer les calculs de la courbe elliptique.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="imageblock" id="ecc_illustrated">
+<div class="content">
+<img src="images/mbc2_0404.png" alt="ecc_illustrated" />
+</div>
+<div class="title">Figure 4. Cryptographie sur courbe elliptique : visualisation de la multiplication d&#39;un point G par un entier k sur une courbe elliptique</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_adresses_bitcoin">Adresses Bitcoin</h3>
+<div class="paragraph"><p>Une adresse Bitcoin est une chaîne de chiffres et de caractères qui peut être partagée avec toute personne souhaitant vous envoyer de l&#39;argent. Les adresses produites à partir de clés publiques consistent en une chaîne de chiffres et de lettres commençant par le chiffre &quot;1&quot;. Voici un exemple d&#39;adresse Bitcoin :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy</code></pre>
+</div></div>
+<div class="paragraph"><p>L&#39;adresse Bitcoin est ce qui apparaît le plus souvent dans une transaction en tant que &quot;destinataire&quot; des fonds. Si nous comparons une transaction bitcoin à un chèque papier, l&#39;adresse Bitcoin est le bénéficiaire, c&#39;est ce que nous écrivons sur la ligne après &quot;Payer à l&#39;ordre de&quot;. Sur un chèque papier, ce bénéficiaire peut parfois être le nom d&#39;un titulaire de compte bancaire, mais peut également inclure des sociétés, des institutions ou même des espèces. Étant donné que les chèques papier n&#39;ont pas besoin de spécifier un compte, mais utilisent plutôt un nom abstrait en tant que destinataire des fonds, ce sont des instruments de paiement très flexibles. Les transactions Bitcoin utilisent une abstraction similaire, l&#39;adresse Bitcoin, pour les rendre très flexibles. Une adresse Bitcoin peut représenter le propriétaire d&#39;une paire de clés privée/publique, ou elle peut représenter autre chose, comme un script de paiement, comme nous le verrons dans <a href="#p2sh">[p2sh]</a>. Pour l&#39;instant, examinons le cas simple; une adresse Bitcoin qui représente et est dérivée d&#39;une clé publique.</p></div>
+<div class="paragraph"><p>L&#39;adresse Bitcoin est dérivée de la clé publique grâce à l&#39;utilisation d&#39;un hachage cryptographique unidirectionnel. Un &quot;algorithme de hachage&quot; ou simplement &quot;algorithme de hachage&quot; est une fonction à sens unique qui produit une empreinte digitale ou un &quot;hachage&quot; (ou un &quot;résultat de hachage&quot;) d&#39;une entrée de taille arbitraire. Les fonctions de hachage cryptographiques sont largement utilisées dans le bitcoin : dans les adresses Bitcoin, dans les adresses de script et dans l&#39;algorithme de minage de preuve de travail. Les algorithmes utilisés pour créer une adresse Bitcoin à partir d&#39;une clé publique sont le Secure Hash Algorithm (SHA) et le RACE Integrity Primitives Evaluation Message Digest (RIPEMD), ou plus précisément SHA256 et RIPEMD160.</p></div>
+<div class="paragraph"><p>En commençant par la clé publique <em>K</em>, nous calculons le hachage SHA256, puis calculons le hachage RIPEMD160 du résultat, produisant un nombre de 160 bits (20 octets) :</p></div>
+<div class="mathblock">
+<div class="content">
+\[\begin{equation}
+{A = RIPEMD160(SHA256(K))}
+\end{equation}\]
+</div></div>
+<div class="paragraph"><p>où <em>K</em> est la clé publique et <em>A</em> est l&#39;adresse Bitcoin résultante.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>Une adresse Bitcoin n&#39;est <em>pas</em> la même chose qu&#39;une clé publique. Les adresses Bitcoin sont dérivées d&#39;une clé publique à l&#39;aide d&#39;une fonction unidirectionnelle.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Les adresses Bitcoin sont presque toujours encodées en &quot;Base58Check&quot; (voir <a href="#base58">[base58]</a>), qui utilise 58 caractères (un système de numérotation Base58) et une somme de contrôle pour faciliter la lisibilité humaine, éviter toute ambiguïté et protéger contre les erreurs de transcription et de saisie d&#39;adresse. Base58Check est également utilisé de nombreuses autres manières dans Bitcoin, par exemple lorsque chaque fois qu&#39;un utilisateur a besoin de lire et de transcrire correctement un numéro, tel qu&#39;une adresse Bitcoin, une clé privée, une clé cryptée ou un hachage de script. Dans la section suivante, nous examinerons les mécanismes d&#39;encodage et de décodage Base58Check et les représentations qui en résultent. <a href="#pubkey_to_address">[pubkey_to_address]</a> illustre la conversion d&#39;une clé publique en une adresse Bitcoin.</p></div>
+<div class="imageblock" id="pubkey_to_address">
+<div class="content">
+<img src="images/mbc2_0405.png" alt="pubkey_to_address" />
+</div>
+<div class="title">Figure 5. Clé publique vers adresse Bitcoin : conversion d&#39;une clé publique en adresse Bitcoin</div>
+</div>
+<div class="sect3">
+<h4 id="base58">Encodage Base58 et Base58Check</h4>
+<div class="paragraph"><p> Afin de représenter les nombres longs de manière compacte, en utilisant moins de symboles, de nombreux systèmes informatiques utilisent des représentations alphanumériques mixtes avec une base supérieure à 10. Par exemple, alors que le système décimal traditionnel utilise les 10 chiffres de 0 à 9, le système hexadécimal utilise 16, avec les lettres A à F comme six symboles supplémentaires. Un nombre représenté au format hexadécimal est plus court que la représentation décimale équivalente. Encore plus compacte, la représentation Base64 utilise 26 lettres minuscules, 26 lettres majuscules, 10 chiffres et 2 caractères supplémentaires tels que &quot;<code>+</code>&quot; et &quot;/&quot; pour transmettre des données binaires sur des supports textuels tels que le courrier électronique. Base64 est le plus couramment utilisé pour ajouter des pièces jointes binaires aux e-mails. Base58 est un format de codage binaire basé sur du texte développé pour être utilisé dans le bitcoin et utilisé dans de nombreuses autres cryptomonnaies. Il offre un équilibre entre représentation compacte, lisibilité et détection et prévention des erreurs. Base58 est un sous-ensemble de Base64, utilisant des lettres et des chiffres majuscules et minuscules, mais omettant certains caractères qui sont fréquemment confondus et qui peuvent apparaître identiques lorsqu&#39;ils sont affichés dans certaines polices. Plus précisément, Base58 est Base64 sans le 0 (chiffre zéro), O (o majuscule), l (L inférieur), I (i majuscule) et les symboles &quot;<code>+</code>&quot; et &quot;/&quot;. Ou, plus simplement, c&#39;est un ensemble de lettres minuscules et majuscules et de chiffres sans les quatre (0, O, l, I) que nous venons de mentionner. <a href="#base58alphabet">[base58alphabet]</a> affiche l&#39;alphabet Base58 complet.</p></div>
+<div class="paragraph" id="base58alphabet"><p>Alphabet Base58 de .Bitcoin</p></div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre><code>123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz</code></pre>
+</div></div>
+</div></div>
+<div class="paragraph"><p>Pour ajouter une sécurité supplémentaire contre les fautes de frappe ou les erreurs de transcription, Base58Check est un format d&#39;encodage Base58, fréquemment utilisé dans le bitcoin, qui possède un code de vérification des erreurs intégré. La somme de contrôle est constituée de quatre octets supplémentaires ajoutés à la fin des données en cours de codage. La somme de contrôle est dérivée du hachage des données codées et peut donc être utilisée pour détecter et prévenir les erreurs de transcription et de frappe. Lorsqu&#39;il est présenté avec le code Base58Check, le logiciel de décodage calcule la somme de contrôle des données et la compare à la somme de contrôle incluse dans le code. Si les deux ne correspondent pas, une erreur a été introduite et les données Base58Check ne sont pas valides. Cela empêche qu&#39;une adresse Bitcoin mal saisie soit acceptée par le logiciel du portefeuille comme destination valide, une erreur qui entraînerait autrement une perte de fonds.</p></div>
+<div class="paragraph"><p>Pour convertir des données (un nombre) dans un format Base58Check, nous ajoutons d&#39;abord un préfixe aux données, appelé &quot;octet de version&quot;, qui sert à identifier facilement le type de données encodées. Par exemple, dans le cas d&#39;une adresse Bitcoin, le préfixe est zéro (0x00 en hexadécimal), alors que le préfixe utilisé lors de l&#39;encodage d&#39;une clé privée est 128 (0x80 en hexadécimal). Une liste des préfixes de version courants est affichée dans <a href="#base58check_versions">[base58check_versions]</a>.</p></div>
+<div class="paragraph"><p>Ensuite, nous calculons la somme de contrôle &quot;double-SHA&quot;, ce qui signifie que nous appliquons l&#39;algorithme de hachage SHA256 deux fois sur le résultat précédent (préfixe et données):</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>somme de contrôle (checksum) = SHA256(SHA256(préfixe+données))</code></pre>
+</div></div>
+<div class="paragraph"><p>À partir du hachage de 32 octets résultant (hachag-d&#8217;un-hachage), nous ne prenons que les quatre premiers octets. Ces quatre octets servent de code de contrôle d&#39;erreur ou de somme de contrôle (checksum). La somme de contrôle est concaténée (ajoutée) à la fin.</p></div>
+<div class="paragraph"><p>Le résultat est composé de trois éléments : un préfixe, les données et une somme de contrôle. Ce résultat est encodé en utilisant l&#39;alphabet Base58 décrit précédemment. <a href="#base58check_encoding">[base58check_encoding]</a> illustre le processus d&#39;encodage Base58Check.</p></div>
+<div class="paragraph" id="base58check_encoding"><p>Encodage .Base58Check : un format Base58, versionné et à somme de contrôle pour encoder sans ambiguïté les données bitcoin
+<span class="image">
+<img src=":images/mbc2_0406.png" alt="Base58CheckEncoding" />
+</span></p></div>
+<div class="paragraph"><p>En bitcoin, la plupart des données présentées à l&#39;utilisateur sont encodées en Base58Check pour les rendre compactes, faciles à lire et faciles à détecter les erreurs. Le préfixe de version dans l&#39;encodage Base58Check est utilisé pour créer des formats faciles à distinguer qui, lorsqu&#39;ils sont encodés en Base58, contiennent des caractères spécifiques au début de la charge utile encodée en Base58Check. Ces caractères permettent aux humains d&#39;identifier facilement le type de données codées et comment les utiliser. C&#39;est ce qui différencie, par exemple, une adresse Bitcoin encodée en Base58Check qui commence par un 1 d&#39;une clé privée WIF encodée en Base58Check qui commence par un 5. Quelques exemples de préfixes de version et les caractères Base58 résultants sont affichés dans <a href="#base58check_versions">[base58check_versions]</a>.</p></div>
+<div class="tableblock" id="base58check_versions">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 1. Base58Check préfixe de version et exemples de résultats encodés</caption>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top"> Préfixe de version (hex)</th>
+<th align="left" valign="top"> Préfixe de résultat Base58</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Adresse Bitcoin</p></td>
+<td align="left" valign="top"><p class="table">0x00</p></td>
+<td align="left" valign="top"><p class="table">1</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Adresse de hachage Pay-to-Script</p></td>
+<td align="left" valign="top"><p class="table">0x05</p></td>
+<td align="left" valign="top"><p class="table">3</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Adresse de test Bitcoin</p></td>
+<td align="left" valign="top"><p class="table">0x6F</p></td>
+<td align="left" valign="top"><p class="table">m ou n</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Clé privée WIF</p></td>
+<td align="left" valign="top"><p class="table">0x80</p></td>
+<td align="left" valign="top"><p class="table">5, K ou L</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Clé privée cryptée BIP-38</p></td>
+<td align="left" valign="top"><p class="table">0x0142</p></td>
+<td align="left" valign="top"><p class="table">6P</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Clé publique étendue BIP-32</p></td>
+<td align="left" valign="top"><p class="table">0x0488B21E</p></td>
+<td align="left" valign="top"><p class="table">xpub</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_formats_de_clé">Formats de clé</h4>
+<div class="paragraph"><p> Les clés privées et publiques peuvent être représentées dans un certain nombre de formats différents. Ces représentations codent tous le même nombre, même si elles semblent différentes. Ces formats sont principalement utilisés pour faciliter la lecture et la transcription des clés sans introduire d&#39;erreurs.</p></div>
+<div class="sect4">
+<h5 id="priv_formats">Formats de clé privée</h5>
+<div class="paragraph"><p> La clé privée peut être représentée dans un certain nombre de formats différents, qui correspondent tous au même nombre de 256 bits. <a href="#table_4-2">[table_4-2]</a> montre trois formats courants utilisés pour représenter les clés privées. Différents formats sont utilisés dans différentes circonstances. Les formats binaires hexadécimaux et bruts sont utilisés en interne dans les logiciels et rarement montrés aux utilisateurs. Le WIF est utilisé pour l&#39;importation/exportation de clés entre portefeuilles et souvent utilisé dans les représentations de code QR (code-barres) des clés privées.</p></div>
+<div class="tableblock" id="table_4-2">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 2. Représentations de clés privées (formats d&#39;encodage)</caption>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Préfixe</th>
+<th align="left" valign="top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Brut</p></td>
+<td align="left" valign="top"><p class="table">Aucun</p></td>
+<td align="left" valign="top"><p class="table">32 octets</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Hex</p></td>
+<td align="left" valign="top"><p class="table">Aucun</p></td>
+<td align="left" valign="top"><p class="table">64 chiffres hexadécimaux</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">WIF</p></td>
+<td align="left" valign="top"><p class="table">5</p></td>
+<td align="left" valign="top"><p class="table">Encodage Base58Check : Base58 avec préfixe de version 0x80 et somme de contrôle de 4 octets</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">WIF compressé</p></td>
+<td align="left" valign="top"><p class="table">K ou L</p></td>
+<td align="left" valign="top"><p class="table">Comme ci-dessus, avec le suffixe ajouté 0x01 avant l&#39;encodage</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p><a href="#table_4-3">[table_4-3]</a> affiche la clé privée générée dans ces trois formats.</p></div>
+<div class="tableblock" id="table_4-3">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 3. Exemple : même clé, différents formats</caption>
+<col width="50%" />
+<col width="50%" />
+<thead>
+<tr>
+<th align="left" valign="top">Format </th>
+<th align="left" valign="top"> Clé privée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Hex</p></td>
+<td align="left" valign="top"><p class="table">1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">WIF</p></td>
+<td align="left" valign="top"><p class="table">5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">WIF compressé</p></td>
+<td align="left" valign="top"><p class="table">KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>Toutes ces représentations sont des manières différentes de montrer le même numéro, la même clé privée. Ils semblent différents, mais n&#39;importe quel format peut facilement être converti en n&#39;importe quel autre format. Notez que le &quot;binaire brut&quot; n&#39;est pas affiché dans <a href="#table_4-3">[table_4-3]</a> car tout encodage à afficher ici ne serait, par définition, pas une donnée binaire brute.</p></div>
+<div class="paragraph"><p>Nous utilisons la commande <code>wif-to-ec</code> de Bitcoin Explorer (voir <a href="#appdx_bx">[appdx_bx]</a>) pour montrer que les deux clés WIF représentent la même clé privée :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ bx wif-to-ec 5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn
+1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd
+
+$ bx wif-to-ec KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ
+1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd</code></pre>
+</div></div>
+</div>
+<div class="sect4">
+<h5 id="_décoder_à_partir_de_base58check">Décoder à partir de Base58Check</h5>
+<div class="paragraph"><p>Les commandes de Bitcoin Explorer (voir <a href="#appdx_bx">[appdx_bx]</a>) facilitent l&#39;écriture de scripts interface système (ou shell) à l&#8217;aide d'&quot;opérateurs de transfert de données&quot; en ligne de commande (ou &quot;command-line pipes&quot;) qui manipulent les clés, les adresses et les transactions bitcoin. Vous pouvez utiliser Bitcoin Explorer pour décoder le format Base58Check sur la ligne de commande.</p></div>
+<div class="paragraph"><p>Nous utilisons la commande <code>base58check-decode</code> pour décoder la clé non compressée :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ bx base58check-decode 5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn
+wrapper
+{
+    checksum 4286807748
+    payload 1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd
+    version 128
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Le résultat contient la clé comme charge utile (payload), le préfixe de version WIF 128 et une somme de contrôle (checksum).</p></div>
+<div class="paragraph"><p>Notez que la &quot;charge utile&quot; (ou &quot;payload&quot;) de la clé compressée est ajoutée avec le suffixe <code>01</code>, signalant que la clé publique dérivée doit être compressée :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ bx base58check-decode KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ
+wrapper
+{
+    checksum 2339607926
+    payload 1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd01
+    version 128
+}</code></pre>
+</div></div>
+</div>
+<div class="sect4">
+<h5 id="_encoder_de_l_39_hex_vers_base58check">Encoder de l&#39;hex vers Base58Check</h5>
+<div class="paragraph"><p>Pour encoder en Base58Check (l&#39;inverse de la commande précédente), nous utilisons la commande <code>base58check-encode</code> de Bitcoin Explorer (voir <a href="#appdx_bx">[appdx_bx]</a>) et indiquez la clé privée hexadécimale, suivie du préfixe de version WIF 128 :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>bx base58check-encode 1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd --version 128
+5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn</code></pre>
+</div></div>
+</div>
+<div class="sect4">
+<h5 id="_encoder_de_l_39_hex_clé_compressée_à_base58check">Encoder de l&#39;hex (clé compressée) à Base58Check</h5>
+<div class="paragraph"><p>Pour encoder dans Base58Check comme une clé privée &quot;compressée&quot; (voir <a href="#comp_priv">[comp_priv]</a>), nous ajoutons le suffixe <code>01</code> à la clé hexadécimale puis encodons comme dans la section précédente :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ bx base58check-encode 1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd01 --version 128
+KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ</code></pre>
+</div></div>
+<div class="paragraph"><p>Le format compressé WIF résultant commence par un &quot;K&quot;. Cela indique que la clé privée à l&#39;intérieur a un suffixe de &quot;01&quot; et sera utilisée pour produire des clés publiques compressées uniquement (voir <a href="#comp_pub">[comp_pub]</a>).</p></div>
+</div>
+<div class="sect4">
+<h5 id="_formats_de_clé_publique">Formats de clé publique</h5>
+<div class="paragraph"><p>Les clés publiques sont également présentées de différentes manières, généralement sous forme de clés publiques <em>compressées</em> ou <em>non compressées</em>.</p></div>
+<div class="paragraph"><p>Comme nous l&#39;avons vu précédemment, la clé publique est un point de la courbe elliptique constitué d&#39;un couple de coordonnées <code>(x,y)</code>. Il est généralement présenté avec le préfixe <code>04</code> suivi de deux nombres de 256 bits : un pour la coordonnée <em>x</em> du point, l&#39;autre pour la coordonnée <em>y</em>. Le préfixe <code>04</code> est utilisé pour distinguer les clés publiques non compressées des clés publiques compressées qui commencent par un <code>02</code> ou un <code>03</code>.</p></div>
+<div class="paragraph"><p>Voici la clé publique générée par la clé privée que nous avons créée précédemment, indiquée par les coordonnées <code>x</code> et <code>y</code> :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>x = F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A
+y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</code></pre>
+</div></div>
+<div class="paragraph"><p>Voici la même clé publique affichée sous la forme d&#39;un nombre de 520 bits (130 chiffres hexadécimaux) avec le préfixe <code>04</code> suivi de <code>x</code> puis des coordonnées <code>y</code>, sous la forme <code>04 x y</code> :</p></div>
+<pre data-type="programlisting">
+K = 04F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A&#x21b5;
+07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB
+</pre>
+</div>
+<div class="sect4">
+<h5 id="comp_pub">Clés publiques compressées</h5>
+<div class="paragraph"><p>Des clés publiques compressées ont été introduites dans le bitcoin pour réduire la taille des transactions et économiser de l&#39;espace disque sur les nœuds qui stockent la base de données de la blockchain Bitcoin. La plupart des transactions incluent la clé publique, qui est nécessaire pour valider les informations d&#39;identification du propriétaire et dépenser le bitcoin. Chaque clé publique nécessite 520 bits (préfixe + x + y), ce qui, multiplié par plusieurs centaines de transactions par bloc, soit des dizaines de milliers de transactions par jour, ajoute une quantité importante de données à la chaîne de blocs.</p></div>
+<div class="paragraph"><p>Comme nous l&#39;avons vu dans la section <a href="#pubkey">[pubkey]</a>, une clé publique est un point (x,y) sur une courbe elliptique. Parce que la courbe exprime une fonction mathématique, un point sur la courbe représente une solution à l&#39;équation et, par conséquent, si nous connaissons la coordonnée <em>x</em>, nous pouvons calculer la coordonnée <em>y</em> en résolvant l&#39;équation y <sup> 2 </sup> mod p = (x <sup> 3 </sup> + 7) mod p. Cela nous permet de stocker uniquement la coordonnée <em>x</em> du point de clé publique, en omettant la coordonnée <em>y</em> et en réduisant la taille de la clé et l&#39;espace requis pour la stocker de 256 bits. Une réduction de près de 50 % de la taille de chaque transaction représente une grande quantité de données enregistrées au fil du temps !</p></div>
+<div class="paragraph"><p>Alors que les clés publiques non compressées ont un préfixe de <code>04</code>, les clés publiques compressées commencent par un préfixe <code>02</code> ou <code>03</code>. Regardons pourquoi il y a deux préfixes possibles : parce que le côté gauche de l&#39;équation est <em>y</em><sup>2</sup>, la solution pour <em>y</em> est une racine carrée, qui peut avoir une valeur positive ou négative. Visuellement, cela signifie que la coordonnée <em>y</em> résultante peut être au-dessus ou au-dessous de l&#39;axe des x. Comme vous pouvez le voir sur le graphique de la courbe elliptique en <a href="#ecc-curve">[ecc-curve]</a>, la courbe est symétrique, c&#39;est-à-dire qu&#39;elle est réfléchie comme par un miroir à l&#39;axe des abscisses. Ainsi, bien que nous puissions omettre la coordonnée <em>y</em>, nous devons stocker le <em>signe</em> de <em>y</em> (positif ou négatif) ; ou en d&#39;autres termes, nous devons nous rappeler si c&#39;était au-dessus ou au-dessous de l&#39;axe des x parce que chacune de ces options représente un point différent et une clé publique différente. Lors du calcul de la courbe elliptique en arithmétique binaire sur le corps fini d&#39;ordre premier p, la coordonnée <em>y</em> est paire ou impaire, ce qui correspond au signe positif/négatif comme expliqué précédemment. Ainsi, pour distinguer les deux valeurs possibles de <em>y</em>, on stocke une clé publique compressée avec le préfixe <code>02</code> si le <em>y</em> est pair, et <code>03</code> s&#39;il est impair, permettant au logiciel de déduire correctement la coordonnée <em>y</em> de la coordonnée <em>x</em> et de décompresser la clé publique aux coordonnées complètes du point. La compression de clé publique est illustrée dans <a href="#pubkey_compression">[pubkey_compression]</a>.</p></div>
+<div class="paragraph"><p>Voici la même clé publique générée précédemment, présentée sous la forme d&#39;une clé publique compressée stockée sur 264 bits (66 chiffres hexadécimaux) avec le préfixe <code>03</code> indiquant que la coordonnée <em>y</em> est impaire :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>K = 03F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A</code></pre>
+</div></div>
+<div class="paragraph"><p>Cette clé publique compressée correspond à la même clé privée, c&#39;est-à-dire qu&#39;elle est générée à partir de la même clé privée. Cependant, il semble différent de la clé publique non compressée. Plus important encore, si nous convertissons cette clé publique compressée en une adresse Bitcoin à l&#39;aide de la fonction de double hachage (<code>RIPEMD160(SHA256(K))</code>), cela produira une adresse Bitcoin <em>différente</em>. Cela peut prêter à confusion, car cela signifie qu&#39;une seule clé privée peut produire une clé publique exprimée dans deux formats différents (compressé et non compressé) qui produisent deux adresses Bitcoin différentes. Cependant, la clé privée est identique pour les deux adresses Bitcoin.</p></div>
+<div class="imageblock smallerseventy" id="pubkey_compression">
+<div class="content">
+<img src="images/mbc2_0407.png" alt="pubkey_compression" />
+</div>
+<div class="title">Figure 6. Compression de clé publique</div>
+</div>
+<div class="paragraph"><p>Les clés publiques compressées deviennent progressivement la valeur par défaut pour les clients Bitcoin, ce qui a un impact significatif sur la réduction de la taille des transactions et donc de la chaîne de blocs. Cependant, tous les clients ne prennent pas encore en charge les clés publiques compressées. Les clients plus récents qui prennent en charge les clés publiques compressées doivent comptabiliser les transactions des clients plus anciens qui ne prennent pas en charge les clés publiques compressées. Ceci est particulièrement important lorsqu&#39;une application de portefeuille importe des clés privées à partir d&#39;une autre application de portefeuille bitcoin, car le nouveau portefeuille doit analyser la chaîne de blocs pour trouver les transactions correspondant à ces clés importées. Quelles adresses Bitcoin le portefeuille Bitcoin doit-il rechercher ? Les adresses Bitcoin produites par des clés publiques non compressées, ou les adresses Bitcoin produites par des clés publiques compressées ? Les deux sont des adresses Bitcoin valides et peuvent être signées par la clé privée, mais ce sont des adresses différentes !</p></div>
+<div class="paragraph"><p>Pour résoudre ce problème, lorsque des clés privées sont exportées depuis un portefeuille, le WIF utilisé pour les représenter est implémenté différemment dans les nouveaux portefeuilles Bitcoin, pour indiquer que ces clés privées ont été utilisées pour produire des clés publiques <em>compressées</em> et donc des adresses Bitcoin <em>compressées</em>. Cela permet au portefeuille importateur de faire la distinction entre les clés privées provenant de portefeuilles plus anciens ou plus récents et de rechercher dans la chaîne de blocs des transactions avec des adresses Bitcoin correspondant respectivement aux clés publiques non compressées ou compressées. Voyons comment cela fonctionne plus en détail, dans la section suivante.</p></div>
+</div>
+<div class="sect4">
+<h5 id="comp_priv">Clés privées compressées</h5>
+<div class="paragraph"><p>Ironiquement, le terme &quot;clé privée compressée&quot; est un abus de langage, car lorsqu&#39;une clé privée est exportée au format WIF compressé, elle est en fait un octet <em>plus long</em> qu&#39;une clé privée &quot;non compressée&quot;. C&#39;est parce que la clé privée a un suffixe d&#39;un octet ajouté (affiché comme 01 en hexadécimal dans <a href="#table_4-4">[table_4-4]</a>), ce qui signifie que la clé privée provient d&#39;un portefeuille plus récent et ne doit être utilisée que pour produire des clés publiques compressées. Les clés privées ne sont pas elles-mêmes compressées et ne peuvent pas être compressées. Le terme &quot;clé privée compressée&quot; signifie en réalité &quot;clé privée à partir de laquelle seules les clés publiques compressées doivent être dérivées&quot;, tandis que &quot;clé privée non compressée&quot; signifie en réalité &quot;clé privée à partir de laquelle seules les clés publiques non compressées doivent être dérivées&quot;. Vous devez uniquement faire référence au format d&#39;exportation en tant que &quot;WIF-compressé&quot; ou &quot;WIF&quot; et ne pas faire référence à la clé privée elle-même en tant que &quot;compressée&quot; pour éviter toute confusion supplémentaire.</p></div>
+<div class="paragraph"><p><a href="#table_4-4">[table_4-4]</a> affiche la même clé, encodée aux formats WIF et WIF compressé.</p></div>
+<div class="tableblock" id="table_4-4">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 4. Exemple : même clé, différents formats</caption>
+<col width="50%" />
+<col width="50%" />
+<thead>
+<tr>
+<th align="left" valign="top">Format </th>
+<th align="left" valign="top"> Clé privée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Hex</p></td>
+<td align="left" valign="top"><p class="table">1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">WIF</p></td>
+<td align="left" valign="top"><p class="table">5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Hex-compressé</p></td>
+<td align="left" valign="top"><p class="table">1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD01</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">WIF compressé</p></td>
+<td align="left" valign="top"><p class="table">KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>Notez que le format de clé privée compressée en hexadécimal a un octet supplémentaire à la fin (01 en hexadécimal). Bien que le préfixe de version Base58Check soit le même (0x80) pour les formats WIF et WIF compressés, l&#39;ajout d&#39;un octet à la fin du numéro fait passer le premier caractère de l&#39;encodage Base58 de 5 à <em>K</em> ou <em>L</em> . Considérez cela comme l&#39;équivalent Base58 de la différence de codage décimal entre le nombre 100 et le nombre 99. Alors que 100 est un chiffre plus long que 99, il a également un préfixe de 1 au lieu d&#39;un préfixe de 9. Lorsque la longueur change, il affecte le préfixe. En Base58, le préfixe 5 se transforme en <em>K</em> ou <em>L</em> lorsque la longueur du nombre augmente d&#39;un octet.</p></div>
+<div class="paragraph"><p>N&#39;oubliez pas que ces formats ne sont <em>pas</em> utilisés de manière interchangeable. Dans un portefeuille plus récent qui implémente des clés publiques compressées, les clés privées ne seront exportées qu&#39;au format WIF compressé (avec un préfixe <em>K</em> ou <em>L</em>). Si le portefeuille est une implémentation plus ancienne et n&#39;utilise pas de clés publiques compressées, les clés privées ne seront exportées qu&#39;au format WIF (avec un préfixe 5). Le but ici est de signaler au portefeuille qui importe ces clés privées s&#39;il doit rechercher dans la blockchain des clés et des adresses publiques compressées ou non.</p></div>
+<div class="paragraph"><p>Si un portefeuille bitcoin est capable d&#39;implémenter des clés publiques compressées, il les utilisera dans toutes les transactions. Les clés privées du portefeuille seront utilisées pour dériver les points de clé publique sur la courbe, qui seront compressés. Les clés publiques compressées seront utilisées pour produire des adresses Bitcoin et celles-ci seront utilisées dans les transactions. Lors de l&#39;exportation de clés privées à partir d&#39;un nouveau portefeuille qui implémente des clés publiques compressées, le WIF est modifié, avec l&#39;ajout d&#39;un suffixe d&#39;un octet <code>01</code> à la clé privée. La clé privée encodée en Base58Check qui en résulte est appelée &quot;WIF compressé&quot; et commence par la lettre <em>K</em> ou <em>L</em>, au lieu de commencer par &quot;5&quot; comme c&#39;est le cas avec les clés encodées en WIF (non compressées) des portefeuilles plus anciens.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>&quot;Clés privées compressées&quot; est un terme impropre ! Ils ne sont pas compressés ; au lieu de cela, WIF-compressé signifie que les clés ne doivent être utilisées que pour dériver des clés publiques compressées et leurs adresses Bitcoin correspondantes. Ironiquement, une clé privée codée &quot;compressée en WIF&quot; est plus longue d&#39;un octet car elle a le suffixe <code>01</code> ajouté pour la distinguer d&#39;une clé &quot;non compressée&quot;.</p></div>
+</td>
+</tr></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implémentation_des_clés_et_des_adresses_dans_c">Implémentation des clés et des adresses dans C++</h3>
+<div class="paragraph"><p>Regardons le processus complet de création d&#39;une adresse Bitcoin, d&#39;une clé privée, à une clé publique (un point sur la courbe elliptique), à une adresse à hachage double, et enfin, l&#39;encodage Base58Check. Le code C++ dans <a href="#addr_example">[addr_example]</a> montre le processus complet étape par étape, de la clé privée à l&#39;adresse Bitcoin encodée en Base58Check. L&#39;exemple de code utilise la bibliothèque libbitcoin introduite dans <a href="#alt_libraries">[alt_libraries]</a> pour certaines fonctions d&#39;assistance.</p></div>
+<div class="exampleblock" id="addr_example">
+<div class="title">Example 2. Création d&#39;une adresse Bitcoin encodée en Base58Check à partir d&#39;une clé privée</div>
+<div class="content">
+<div class="listingblock c_less_space">
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #000080">#include</span></span> <span style="color: #FF0000">&lt;bitcoin/bitcoin.hpp&gt;</span>
+
+<span style="color: #009900">int</span> <span style="font-weight: bold"><span style="color: #000000">main</span></span><span style="color: #990000">()</span>
+<span style="color: #FF0000">{</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Private secret key string as base16</span></span>
+    bc<span style="color: #990000">::</span><span style="color: #008080">ec_secret</span> decoded<span style="color: #990000">;</span>
+    bc<span style="color: #990000">::</span><span style="font-weight: bold"><span style="color: #000000">decode_base16</span></span><span style="color: #990000">(</span>decoded<span style="color: #990000">,</span>
+        <span style="color: #FF0000">"038109007313a5807b2eccc082c8c3fbb988a973cacf1a7df9ce725c31b14776"</span><span style="color: #990000">);</span>
+
+    bc<span style="color: #990000">::</span>wallet<span style="color: #990000">::</span><span style="color: #008080">ec_private</span> <span style="font-weight: bold"><span style="color: #000000">secret</span></span><span style="color: #990000">(</span>
+        decoded<span style="color: #990000">,</span> bc<span style="color: #990000">::</span>wallet<span style="color: #990000">::</span>ec_private<span style="color: #990000">::</span>mainnet_p2kh<span style="color: #990000">);</span>
+
+    <span style="font-style: italic"><span style="color: #9A1900">// Get public key.</span></span>
+    bc<span style="color: #990000">::</span>wallet<span style="color: #990000">::</span><span style="color: #008080">ec_public</span> <span style="font-weight: bold"><span style="color: #000000">public_key</span></span><span style="color: #990000">(</span>secret<span style="color: #990000">);</span>
+    std<span style="color: #990000">::</span>cout <span style="color: #990000">&lt;&lt;</span> <span style="color: #FF0000">"Public key: "</span> <span style="color: #990000">&lt;&lt;</span> public_key<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">encoded</span></span><span style="color: #990000">()</span> <span style="color: #990000">&lt;&lt;</span> std<span style="color: #990000">::</span>endl<span style="color: #990000">;</span>
+
+    <span style="font-style: italic"><span style="color: #9A1900">// Create Bitcoin address.</span></span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Normally you can use:</span></span>
+    <span style="font-style: italic"><span style="color: #9A1900">//    bc::wallet::payment_address payaddr =</span></span>
+    <span style="font-style: italic"><span style="color: #9A1900">//        public_key.to_payment_address(</span></span>
+    <span style="font-style: italic"><span style="color: #9A1900">//            bc::wallet::ec_public::mainnet_p2kh);</span></span>
+    <span style="font-style: italic"><span style="color: #9A1900">//  const std::string address = payaddr.encoded();</span></span>
+
+    <span style="font-style: italic"><span style="color: #9A1900">// Compute hash of public key for P2PKH address.</span></span>
+    bc<span style="color: #990000">::</span><span style="color: #008080">data_chunk</span> public_key_data<span style="color: #990000">;</span>
+    public_key<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">to_data</span></span><span style="color: #990000">(</span>public_key_data<span style="color: #990000">);</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">const</span></span> <span style="font-weight: bold"><span style="color: #0000FF">auto</span></span> hash <span style="color: #990000">=</span> bc<span style="color: #990000">::</span><span style="font-weight: bold"><span style="color: #000000">bitcoin_short_hash</span></span><span style="color: #990000">(</span>public_key_data<span style="color: #990000">);</span>
+
+    bc<span style="color: #990000">::</span><span style="color: #008080">data_chunk</span> unencoded_address<span style="color: #990000">;</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Reserve 25 bytes</span></span>
+    <span style="font-style: italic"><span style="color: #9A1900">//   [ version:1  ]</span></span>
+    <span style="font-style: italic"><span style="color: #9A1900">//   [ hash:20    ]</span></span>
+    <span style="font-style: italic"><span style="color: #9A1900">//   [ checksum:4 ]</span></span>
+    unencoded_address<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">reserve</span></span><span style="color: #990000">(</span><span style="color: #993399">25</span><span style="color: #990000">);</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Version byte, 0 is normal BTC address (P2PKH).</span></span>
+    unencoded_address<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">push_back</span></span><span style="color: #990000">(</span><span style="color: #993399">0</span><span style="color: #990000">);</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Hash data</span></span>
+    bc<span style="color: #990000">::</span><span style="font-weight: bold"><span style="color: #000000">extend_data</span></span><span style="color: #990000">(</span>unencoded_address<span style="color: #990000">,</span> hash<span style="color: #990000">);</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Checksum is computed by hashing data, and adding 4 bytes from hash.</span></span>
+    bc<span style="color: #990000">::</span><span style="font-weight: bold"><span style="color: #000000">append_checksum</span></span><span style="color: #990000">(</span>unencoded_address<span style="color: #990000">);</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Finally we must encode the result in Bitcoin's base58 encoding.</span></span>
+    <span style="font-weight: bold"><span style="color: #000000">assert</span></span><span style="color: #990000">(</span>unencoded_address<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">size</span></span><span style="color: #990000">()</span> <span style="color: #990000">==</span> <span style="color: #993399">25</span><span style="color: #990000">);</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">const</span></span> std<span style="color: #990000">::</span><span style="color: #008080">string</span> address <span style="color: #990000">=</span> bc<span style="color: #990000">::</span><span style="font-weight: bold"><span style="color: #000000">encode_base58</span></span><span style="color: #990000">(</span>unencoded_address<span style="color: #990000">);</span>
+
+    std<span style="color: #990000">::</span>cout <span style="color: #990000">&lt;&lt;</span> <span style="color: #FF0000">"Address: "</span> <span style="color: #990000">&lt;&lt;</span> address <span style="color: #990000">&lt;&lt;</span> std<span style="color: #990000">::</span>endl<span style="color: #990000">;</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> <span style="color: #993399">0</span><span style="color: #990000">;</span>
+<span style="color: #FF0000">}</span>
+</tt></pre></div></div>
+</div></div>
+<div class="paragraph"><p>Le code utilise une clé privée prédéfinie pour produire la même adresse Bitcoin à chaque exécution, comme indiqué dans <a href="#addr_example_run">[addr_example_run]</a>.</p></div>
+<div class="exampleblock" id="addr_example_run">
+<div class="title">Example 3. Compilation et exécution du code addr</div>
+<div class="content">
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-style: italic"><span style="color: #9A1900"># Compiler le code addr.cpp</span></span>
+$ g<span style="color: #990000">++</span> -o addr addr<span style="color: #990000">.</span>cpp -std<span style="color: #990000">=</span>c<span style="color: #990000">++</span><span style="color: #993399">11</span> <span style="color: #009900">$(</span>pkg-config --cflags --libs libbitcoin<span style="color: #990000">)</span>
+<span style="font-style: italic"><span style="color: #9A1900"># Lancer l&amp;#39;exécutable addr</span></span>
+$ <span style="color: #990000">.</span>/addr
+Public key<span style="color: #990000">:</span> 0202a406624211f2abbdc68da3df929f938c3399dd79fac1b51b0e4ad1d26a47aa
+Address<span style="color: #990000">:</span> 1PRTTaJesdNovgne6Ehcdu1fpEdX7913CK</tt></pre></div></div>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>Le code dans <a href="#addr_example_run">[addr_example_run]</a> produit une adresse Bitcoin (<code>1PRTT&#8230;</code>) à partir d&#39;une clé publique <em>compressée</em> (voir <a href="#comp_pub">[comp_pub]</a>). Si vous utilisiez la clé publique non compressée à la place, cela produirait une adresse Bitcoin différente (<code>14K1y&#8230;</code>).</p></div>
+</td>
+</tr></table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implémenter_des_clés_et_des_adresses_en_python">Implémenter des clés et des adresses en Python</h3>
+<div class="paragraph"><p> La bibliothèque bitcoin la plus complète en Python est <a href="https://github.com/vbuterin/pybitcointools">pybitcointools</a> par Vitalik Buterin. Dans <a href="#key-to-address_script">[key-to-address_script]</a>, nous utilisons la bibliothèque pybitcointools (importée en tant que &quot;bitcoin&quot;) pour générer et afficher des clés et des adresses dans différents formats.</p></div>
+<div class="exampleblock" id="key-to-address_script">
+<div class="title">Example 4. Génération et formatage de clés et d&#39;adresses avec la bibliothèque pybitcointools</div>
+<div class="content">
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #000080">import</span></span> bitcoin
+
+<span style="font-style: italic"><span style="color: #9A1900"># Generate a random private key</span></span>
+valid_private_key <span style="color: #990000">=</span> False
+<span style="font-weight: bold"><span style="color: #0000FF">while</span></span> <span style="font-weight: bold"><span style="color: #0000FF">not</span></span> valid_private_key<span style="color: #990000">:</span>
+    private_key <span style="color: #990000">=</span> bitcoin<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">random_key</span></span><span style="color: #990000">()</span>
+    decoded_private_key <span style="color: #990000">=</span> bitcoin<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">decode_privkey</span></span><span style="color: #990000">(</span>private_key<span style="color: #990000">,</span> <span style="color: #FF0000">'hex'</span><span style="color: #990000">)</span>
+    valid_private_key <span style="color: #990000">=</span>  <span style="color: #993399">0</span> <span style="color: #990000">&lt;</span> decoded_private_key <span style="color: #990000">&lt;</span> bitcoin<span style="color: #990000">.</span>N
+
+<span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Private Key (hex) is: "</span><span style="color: #990000">,</span> private_key
+<span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Private Key (decimal) is: "</span><span style="color: #990000">,</span> decoded_private_key
+
+<span style="font-style: italic"><span style="color: #9A1900"># Convert private key to WIF format</span></span>
+wif_encoded_private_key <span style="color: #990000">=</span> bitcoin<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">encode_privkey</span></span><span style="color: #990000">(</span>decoded_private_key<span style="color: #990000">,</span> <span style="color: #FF0000">'wif'</span><span style="color: #990000">)</span>
+<span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Private Key (WIF) is: "</span><span style="color: #990000">,</span> wif_encoded_private_key
+
+<span style="font-style: italic"><span style="color: #9A1900"># Add suffix "01" to indicate a compressed private key</span></span>
+compressed_private_key <span style="color: #990000">=</span> private_key <span style="color: #990000">+</span> <span style="color: #FF0000">'01'</span>
+<span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Private Key Compressed (hex) is: "</span><span style="color: #990000">,</span> compressed_private_key
+
+<span style="font-style: italic"><span style="color: #9A1900"># Generate a WIF format from the compressed private key (WIF-compressed)</span></span>
+wif_compressed_private_key <span style="color: #990000">=</span> bitcoin<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">encode_privkey</span></span><span style="color: #990000">(</span>
+    bitcoin<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">decode_privkey</span></span><span style="color: #990000">(</span>compressed_private_key<span style="color: #990000">,</span> <span style="color: #FF0000">'hex'</span><span style="color: #990000">),</span> <span style="color: #FF0000">'wif'</span><span style="color: #990000">)</span>
+<span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Private Key (WIF-Compressed) is: "</span><span style="color: #990000">,</span> wif_compressed_private_key
+
+<span style="font-style: italic"><span style="color: #9A1900"># Multiply the EC generator point G with the private key to get a public key point</span></span>
+public_key <span style="color: #990000">=</span> bitcoin<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">fast_multiply</span></span><span style="color: #990000">(</span>bitcoin<span style="color: #990000">.</span>G<span style="color: #990000">,</span> decoded_private_key<span style="color: #990000">)</span>
+<span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Public Key (x,y) coordinates is:"</span><span style="color: #990000">,</span> public_key
+
+<span style="font-style: italic"><span style="color: #9A1900"># Encode as hex, prefix 04</span></span>
+hex_encoded_public_key <span style="color: #990000">=</span> bitcoin<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">encode_pubkey</span></span><span style="color: #990000">(</span>public_key<span style="color: #990000">,</span><span style="color: #FF0000">'hex'</span><span style="color: #990000">)</span>
+<span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Public Key (hex) is:"</span><span style="color: #990000">,</span> hex_encoded_public_key
+
+<span style="font-style: italic"><span style="color: #9A1900"># Compress public key, adjust prefix depending on whether y is even or odd</span></span>
+<span style="color: #990000">(</span>public_key_x<span style="color: #990000">,</span> public_key_y<span style="color: #990000">)</span> <span style="color: #990000">=</span> public_key
+<span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span>public_key_y <span style="color: #990000">%</span> <span style="color: #993399">2</span><span style="color: #990000">)</span> <span style="color: #990000">==</span> <span style="color: #993399">0</span><span style="color: #990000">:</span>
+    compressed_prefix <span style="color: #990000">=</span> <span style="color: #FF0000">'02'</span>
+<span style="font-weight: bold"><span style="color: #0000FF">else</span></span><span style="color: #990000">:</span>
+    compressed_prefix <span style="color: #990000">=</span> <span style="color: #FF0000">'03'</span>
+hex_compressed_public_key <span style="color: #990000">=</span> compressed_prefix <span style="color: #990000">+</span> bitcoin<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">encode</span></span><span style="color: #990000">(</span>public_key_x<span style="color: #990000">,</span> <span style="color: #993399">16</span><span style="color: #990000">)</span>
+<span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Compressed Public Key (hex) is:"</span><span style="color: #990000">,</span> hex_compressed_public_key
+
+<span style="font-style: italic"><span style="color: #9A1900"># Generate bitcoin address from public key</span></span>
+<span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Bitcoin Address (b58check) is:"</span><span style="color: #990000">,</span> bitcoin<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">pubkey_to_address</span></span><span style="color: #990000">(</span>public_key<span style="color: #990000">)</span>
+
+<span style="font-style: italic"><span style="color: #9A1900"># Generate compressed bitcoin address from compressed public key</span></span>
+<span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Compressed Bitcoin Address (b58check) is:"</span><span style="color: #990000">,</span> <span style="color: #990000">\</span>
+    bitcoin<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">pubkey_to_address</span></span><span style="color: #990000">(</span>hex_compressed_public_key<span style="color: #990000">)</span>
+</tt></pre></div></div>
+</div></div>
+<div class="paragraph"><p><a href="#key-to-address_script_run">[key-to-address_script_run]</a> affiche la sortie de l&#39;exécution de ce code.</p></div>
+<div class="exampleblock" id="key-to-address_script_run">
+<div class="title">Example 5. Exécution de key-to-address-ecc-example.py</div>
+<div class="content">
+<pre data-type="programlisting">
+$ python key-to-address-ecc-example.py
+Private Key (hex) is:
+ 3aba4162c7251c891207b747840551a71939b0de081f85c4e44cf7c13e41daa6
+Private Key (decimal) is:
+ 26563230048437957592232553826663696440606756685920117476832299673293013768870
+Private Key (WIF) is:
+ 5JG9hT3beGTJuUAmCQEmNaxAuMacCTfXuw1R3FCXig23RQHMr4K
+Private Key Compressed (hex) is:
+ 3aba4162c7251c891207b747840551a71939b0de081f85c4e44cf7c13e41daa601
+Private Key (WIF-Compressed) is:
+ KyBsPXxTuVD82av65KZkrGrWi5qLMah5SdNq6uftawDbgKa2wv6S
+Public Key (x,y) coordinates is:
+ (41637322786646325214887832269588396900663353932545912953362782457239403430124L,
+ 16388935128781238405526710466724741593761085120864331449066658622400339362166L)
+Public Key (hex) is:
+ 045c0de3b9c8ab18dd04e3511243ec2952002dbfadc864b9628910169d9b9b00ec&#x21b5;
+243bcefdd4347074d44bd7356d6a53c495737dd96295e2a9374bf5f02ebfc176
+Compressed Public Key (hex) is:
+ 025c0de3b9c8ab18dd04e3511243ec2952002dbfadc864b9628910169d9b9b00ec
+Bitcoin Address (b58check) is:
+ 1thMirt546nngXqyPEz532S8fLwbozud8
+Compressed Bitcoin Address (b58check) is:
+ 14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
+</pre>
+</div></div>
+<div class="paragraph"><p><a href="#ec_math">[ec_math]</a> est un autre exemple, utilisant la bibliothèque Python ECDSA pour les mathématiques de la courbe elliptique et sans utiliser de bibliothèques bitcoin spécialisées.</p></div>
+<div class="exampleblock" id="ec_math">
+<div class="title">Example 6. Un script démontrant les mathématiques de la courbe elliptique utilisées pour les clés bitcoin</div>
+<div class="content">
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #000080">import</span></span> ecdsa
+<span style="font-weight: bold"><span style="color: #000080">import</span></span> os
+<span style="font-weight: bold"><span style="color: #000080">from</span></span> ecdsa<span style="color: #990000">.</span>util <span style="font-weight: bold"><span style="color: #000080">import</span></span> string_to_number<span style="color: #990000">,</span> number_to_string
+
+<span style="font-style: italic"><span style="color: #9A1900"># secp256k1, http://www.oid-info.com/get/1.3.132.0.10</span></span>
+_p <span style="color: #990000">=</span> <span style="color: #993399">0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2FL</span>
+_r <span style="color: #990000">=</span> <span style="color: #993399">0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141L</span>
+_b <span style="color: #990000">=</span> <span style="color: #993399">0x0000000000000000000000000000000000000000000000000000000000000007L</span>
+_a <span style="color: #990000">=</span> <span style="color: #993399">0x0000000000000000000000000000000000000000000000000000000000000000L</span>
+_Gx <span style="color: #990000">=</span> <span style="color: #993399">0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798L</span>
+_Gy <span style="color: #990000">=</span> <span style="color: #993399">0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8L</span>
+curve_secp256k1 <span style="color: #990000">=</span> ecdsa<span style="color: #990000">.</span>ellipticcurve<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">CurveFp</span></span><span style="color: #990000">(</span>_p<span style="color: #990000">,</span> _a<span style="color: #990000">,</span> _b<span style="color: #990000">)</span>
+generator_secp256k1 <span style="color: #990000">=</span> ecdsa<span style="color: #990000">.</span>ellipticcurve<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">Point</span></span><span style="color: #990000">(</span>curve_secp256k1<span style="color: #990000">,</span> _Gx<span style="color: #990000">,</span> _Gy<span style="color: #990000">,</span> _r<span style="color: #990000">)</span>
+oid_secp256k1 <span style="color: #990000">=</span> <span style="color: #990000">(</span><span style="color: #993399">1</span><span style="color: #990000">,</span> <span style="color: #993399">3</span><span style="color: #990000">,</span> <span style="color: #993399">132</span><span style="color: #990000">,</span> <span style="color: #993399">0</span><span style="color: #990000">,</span> <span style="color: #993399">10</span><span style="color: #990000">)</span>
+SECP256k1 <span style="color: #990000">=</span> ecdsa<span style="color: #990000">.</span>curves<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">Curve</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"SECP256k1"</span><span style="color: #990000">,</span> curve_secp256k1<span style="color: #990000">,</span> generator_secp256k1<span style="color: #990000">,</span> oid_secp256k1<span style="color: #990000">)</span>
+ec_order <span style="color: #990000">=</span> _r
+
+curve <span style="color: #990000">=</span> curve_secp256k1
+generator <span style="color: #990000">=</span> generator_secp256k1
+
+<span style="font-weight: bold"><span style="color: #0000FF">def</span></span> <span style="font-weight: bold"><span style="color: #000000">random_secret</span></span><span style="color: #990000">():</span>
+    convert_to_int <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">lambda</span></span> array<span style="color: #990000">:</span> <span style="font-weight: bold"><span style="color: #000000">int</span></span><span style="color: #990000">(</span><span style="color: #FF0000">""</span><span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">join</span></span><span style="color: #990000">(</span>array<span style="color: #990000">).</span><span style="font-weight: bold"><span style="color: #000000">encode</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"hex"</span><span style="color: #990000">),</span> <span style="color: #993399">16</span><span style="color: #990000">)</span>
+
+    <span style="font-style: italic"><span style="color: #9A1900"># Collect 256 bits of random data from the OS's cryptographically secure random generator</span></span>
+    byte_array <span style="color: #990000">=</span> os<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">urandom</span></span><span style="color: #990000">(</span><span style="color: #993399">32</span><span style="color: #990000">)</span>
+
+    <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> <span style="font-weight: bold"><span style="color: #000000">convert_to_int</span></span><span style="color: #990000">(</span>byte_array<span style="color: #990000">)</span>
+
+<span style="font-weight: bold"><span style="color: #0000FF">def</span></span> <span style="font-weight: bold"><span style="color: #000000">get_point_pubkey</span></span><span style="color: #990000">(</span>point<span style="color: #990000">):</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> point<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">y</span></span><span style="color: #990000">()</span> <span style="color: #990000">&amp;</span> <span style="color: #993399">1</span><span style="color: #990000">:</span>
+        key <span style="color: #990000">=</span> <span style="color: #FF0000">'03'</span> <span style="color: #990000">+</span> <span style="color: #FF0000">'%064x'</span> <span style="color: #990000">%</span> point<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">x</span></span><span style="color: #990000">()</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">else</span></span><span style="color: #990000">:</span>
+        key <span style="color: #990000">=</span> <span style="color: #FF0000">'02'</span> <span style="color: #990000">+</span> <span style="color: #FF0000">'%064x'</span> <span style="color: #990000">%</span> point<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">x</span></span><span style="color: #990000">()</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> key<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">decode</span></span><span style="color: #990000">(</span><span style="color: #FF0000">'hex'</span><span style="color: #990000">)</span>
+
+<span style="font-weight: bold"><span style="color: #0000FF">def</span></span> <span style="font-weight: bold"><span style="color: #000000">get_point_pubkey_uncompressed</span></span><span style="color: #990000">(</span>point<span style="color: #990000">):</span>
+    key <span style="color: #990000">=</span> <span style="color: #FF0000">'04'</span> <span style="color: #990000">+</span> <span style="color: #990000">\</span>
+          <span style="color: #FF0000">'%064x'</span> <span style="color: #990000">%</span> point<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">x</span></span><span style="color: #990000">()</span> <span style="color: #990000">+</span> <span style="color: #990000">\</span>
+          <span style="color: #FF0000">'%064x'</span> <span style="color: #990000">%</span> point<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">y</span></span><span style="color: #990000">()</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> key<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">decode</span></span><span style="color: #990000">(</span><span style="color: #FF0000">'hex'</span><span style="color: #990000">)</span>
+
+
+<span style="font-style: italic"><span style="color: #9A1900"># Generate a new private key.</span></span>
+secret <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #000000">random_secret</span></span><span style="color: #990000">()</span>
+<span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"Secret: "</span><span style="color: #990000">,</span> secret
+
+<span style="font-style: italic"><span style="color: #9A1900"># Get the public key point.</span></span>
+point <span style="color: #990000">=</span> secret <span style="color: #990000">*</span> generator
+<span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"EC point:"</span><span style="color: #990000">,</span> point
+
+<span style="font-weight: bold"><span style="color: #0000FF">print</span></span> <span style="color: #FF0000">"BTC public key:"</span><span style="color: #990000">,</span> <span style="font-weight: bold"><span style="color: #000000">get_point_pubkey</span></span><span style="color: #990000">(</span>point<span style="color: #990000">).</span><span style="font-weight: bold"><span style="color: #000000">encode</span></span><span style="color: #990000">(</span><span style="color: #FF0000">"hex"</span><span style="color: #990000">)</span>
+
+<span style="font-style: italic"><span style="color: #9A1900"># Given the point (x, y) we can create the object using:</span></span>
+point1 <span style="color: #990000">=</span> ecdsa<span style="color: #990000">.</span>ellipticcurve<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">Point</span></span><span style="color: #990000">(</span>curve<span style="color: #990000">,</span> point<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">x</span></span><span style="color: #990000">(),</span> point<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">y</span></span><span style="color: #990000">(),</span> ec_order<span style="color: #990000">)</span>
+<span style="font-weight: bold"><span style="color: #0000FF">assert</span></span> point1 <span style="color: #990000">==</span> point
+</tt></pre></div></div>
+</div></div>
+<div class="paragraph"><p><a href="#ec_math_run">[ec_math_run]</a> affiche la sortie produite en exécutant ce script.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph"><p><a href="#ec_math">[ec_math]</a> utilise <code>os.urandom</code>, qui reflète un générateur de nombres aléatoires cryptographiquement sécurisé (CSRNG) fourni par le système d&#39;exploitation sous-jacent. Attention : Selon le système d&#39;exploitation, <code>os.urandom</code> peut <em>ne pas</em> être implémenté avec une sécurité suffisante ou correctement amorcé et peut <em>ne pas</em> être approprié pour générer des clés bitcoin de qualité production.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="exampleblock" id="ec_math_run">
+<div class="title">Example 7. Installation de la bibliothèque Python ECDSA et exécution du script ec_math.py</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre><code># Installer le gestionnaire de packages Python PIP
+$ sudo apt-get install python-pip
+# Installer la bibliothèque Python ECDSA
+$ sudo pip install ecdsa
+# Exécuter le script
+$ python ec-math.py
+Secret:  38090835015954358862481132628887443905906204995912378278060168703580660294000
+EC point: (70048853531867179489857750497606966272382583471322935454624595540007269312627, 105262206478686743191060800263479589329920209527285803935736021686045542353380)
+BTC public key: 029ade3effb0a67d5c8609850d797366af428f4a0d5194cb221d807770a1522873</code></pre>
+</div></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_clés_et_adresses_avancées">Clés et adresses avancées</h3>
+<div class="paragraph"><p>Dans les sections suivantes, nous examinerons les formes avancées de clés et d&#39;adresses, telles que les clés privées cryptées, les adresses de script et des multisignatures, les adresses personnalisées, et les portefeuilles en papier.</p></div>
+<div class="sect3">
+<h4 id="p2sh_addresses">Pay-to-Script Hash (P2SH) et adresses multisig</h4>
+<div class="paragraph"><p>Comme nous le savons, les adresses Bitcoin traditionnelles commencent par le chiffre &quot;1&quot; et sont dérivées de la clé publique, qui est dérivé de la clé privée. Bien que n&#39;importe qui puisse envoyer des bitcoins à une adresse &quot;1&quot;, ce bitcoin ne peut être dépensé qu&#39;en présentant la signature de la clé privée et la clé publique correspondantes.</p></div>
+<div class="paragraph"><p>Les adresses Bitcoin qui commencent par le chiffre &quot;3&quot; sont des adresses Pay-to-Script Hash (P2SH ou hachage de paiement-à-script), parfois appelées à tort adresses multisig ou adresses multisignatures. Ils désignent le bénéficiaire d&#39;une transaction bitcoin comme le hachage d&#39;un script, au lieu du propriétaire d&#39;une clé publique. La fonctionnalité a été introduite en janvier 2012 avec BIP-16 (voir <a href="#appdxbitcoinimpproposals">[appdxbitcoinimpproposals]</a>), et est largement adopté car il offre la possibilité d&#39;ajouter des fonctionnalités à l&#39;adresse elle-même. Contrairement aux transactions qui &quot;envoient&quot; des fonds aux adresses Bitcoin traditionnelles &quot;1&quot;, également connues sous le nom de hachage de clé publique (P2PKH), les fonds envoyés aux adresses &quot;3&quot; nécessitent quelque chose de plus que la présentation d&#39;une clé publique et une signature de clé privée comme preuve de propriété. Les exigences sont désignées au moment de la création de l&#39;adresse, dans le script, et toutes les entrées de cette adresse seront encombrées des mêmes exigences.</p></div>
+<div class="paragraph"><p>Une adresse P2SH est créée à partir d&#39;un script de transaction, qui définit qui peut dépenser une sortie de transaction (pour plus de détails, voir <a href="#p2sh">[p2sh]</a>). L&#39;encodage d&#39;une adresse P2SH consiste à utiliser la même fonction de double hachage que celle utilisée lors de la création d&#39;une adresse Bitcoin, appliquée uniquement sur le script à la place de la clé publique :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>hachage de script = RIPEMD160(SHA256(script))</code></pre>
+</div></div>
+<div class="paragraph"><p>Le &quot;hachage de script&quot; résultant est encodé avec Base58Check avec un préfixe de version de 5, ce qui donne une adresse encodée commençant par un <code>3</code>. Un exemple d&#39;adresse P2SH est <code>3F6i6kwkevjR7AsAd4te2YB2zZyASEm1HM</code>, qui peut être dérivée à l&#39;aide des commandes Bitcoin Explorer <code>script-encode</code>, <code>sha256</code>, <code>ripemd160</code> et <code>base58check-encode</code> (voir <a href="#appdx_bx">[appdx_bx]</a>) comme suit :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ echo \
+'DUP HASH160 [89abcdefabbaabbaabbaabbaabbaabbaabbaabba] EQUALVERIFY CHECKSIG' &gt; script
+$ bx script-encode &lt; script | bx sha256 | bx ripemd160 \
+| bx base58check-encode --version 5
+3F6i6kwkevjR7AsAd4te2YB2zZyASEm1HM</code></pre>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>P2SH n&#39;est pas nécessairement la même chose qu&#39;une transaction standard multisignature. Une adresse P2SH représente <em>le plus souvent</em> un script multi-signatures, mais elle peut également représenter un script codant d&#39;autres types de transactions.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="sect4">
+<h5 id="_adresses_multisignatures_et_p2sh">Adresses multisignatures et P2SH</h5>
+<div class="paragraph"><p>Actuellement, l&#39;implémentation la plus courante de la fonction P2SH est le script d&#39;adresse multisignature. Comme son nom l&#39;indique, le script sous-jacent nécessite un nombre minimum de signatures pour prouver la propriété et donc dépenser des fonds. La fonctionnalité de multisignature bitcoin est conçue pour exiger M signatures (également appelées «seuil») à partir d&#39;un total de N clés, appelées multisig M-de-N, où M est égal ou inférieur à N. Par exemple , Bob le propriétaire du café de <a href="#ch01_intro_what_is_bitcoin">[ch01_intro_what_is_bitcoin]</a> pourrait utiliser une adresse multisignature nécessitant 1 sur 2 signatures d&#39;une clé lui appartenant et d&#39;une clé appartenant à son ou sa conjointe, garantissant que l&#39;un ou l&#39;autre pourrait signer pour passer une sortie de transaction verrouillée à cette adresse. Cela ressemblerait à un «compte conjoint» tel qu&#39;il est mis en œuvre dans les banques traditionnelles où l&#39;un ou l&#39;autre des conjoints peut dépenser avec une seule signature. Gopesh, le concepteur Web payé par Bob pour créer un site Web, pourrait avoir une adresse multisignature 2 sur 3 pour son entreprise qui garantit qu&#39;aucun fonds ne peut être dépensé à moins qu&#39;au moins deux des partenaires commerciaux ne signent une transaction.</p></div>
+<div class="paragraph"><p>Nous explorerons comment créer des transactions qui dépensent des fonds à partir d&#39;adresses P2SH (et multisignatures) dans <a href="#transactions">[transactions]</a>.</p></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_adresses_personnalisées">Adresses personnalisées</h4>
+<div class="paragraph"><p>Les adresses personnalisées sont des adresses Bitcoin valides qui contiennent des messages lisibles par l&#39;homme. Par exemple, <code>1LoveBPzzD72PUXLzCkYAtGFYmK5vYNR33</code> est une adresse valide qui contient les lettres formant le mot &quot;Love&quot; comme les quatre premières lettres Base58. Les adresses personnalisées nécessitent de générer et de tester des milliards de clés privées candidates, jusqu&#39;à ce qu&#39;une adresse Bitcoin avec le modèle souhaité soit trouvée. Bien qu&#39;il y ait quelques optimisations dans l&#39;algorithme de génération de vanité, le processus consiste essentiellement à choisir une clé privée au hasard, à dériver la clé publique, à dériver l&#39;adresse Bitcoin et à vérifier si elle correspond au modèle de vanité souhaité, en répétant des milliards de fois jusqu&#39;à ce qu&#39;un correspondance est trouvée.</p></div>
+<div class="paragraph"><p>Une fois qu&#39;une adresse personnalisée correspondant au modèle souhaité est trouvée, la clé privée dont elle est dérivée peut être utilisée par le propriétaire pour dépenser des bitcoins exactement de la même manière que n&#39;importe quelle autre adresse. Les adresses personnalisées ne sont ni moins ni plus sécurisées que toute autre adresse. Ils dépendent de la même cryptographie à courbe elliptique (ECC) et SHA que toute autre adresse. Vous ne pouvez pas plus facilement trouver la clé privée d&#39;une adresse commençant par un modèle de vanité que vous ne le pouvez de n&#39;importe quelle autre adresse.</p></div>
+<div class="paragraph"><p>Dans <a href="#ch01_intro_what_is_bitcoin">[ch01_intro_what_is_bitcoin]</a>, nous avons présenté Eugenia, directrice d&#39;une association caritative pour enfants opérant aux Philippines. Disons qu&#39;Eugenia organise une collecte de fonds en bitcoins et souhaite utiliser une adresse personnalisée Bitcoin pour faire connaître la collecte de fonds. Eugenia créera une adresse de vanité qui commence par &quot;1Kids&quot; pour promouvoir la collecte de fonds caritative pour les enfants. Voyons comment cette adresse personnalisée sera créée et ce que cela signifie pour la sécurité de l&#39;association caritative d&#39;Eugenia.</p></div>
+<div class="sect4">
+<h5 id="_génération_d_39_adresses_personnalisées">Génération d&#39;adresses personnalisées</h5>
+<div class="paragraph"><p>Il est important de réaliser qu&#39;une adresse Bitcoin est simplement un nombre représenté par des symboles dans l&#39;alphabet Base58. La recherche d&#39;un modèle comme &quot;1Kids&quot; peut être considérée comme la recherche d&#39;une adresse comprise entre <code>1Kids1111111111111111111111111111</code> et <code>1Kidszzzzzzzzzzzzzzzzzzzzzzzzzz</code>. Il y a environ 58 <sup> 29 </sup> (environ 1,4 * 10 <sup> 51 </sup>) adresses dans cette plage, toutes commençant par &quot;1Kids&quot;. <a href="#table_4-11">[table_4-11]</a> affiche la plage d&#39;adresses qui ont le préfixe 1Kids.</p></div>
+<div class="tableblock" id="table_4-11">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 5. La plage d&#39;adresses personnalisées (ou de vanités) commençant par &quot;1Kids&quot;</caption>
+<col width="50%" />
+<col width="50%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table"><strong>De</strong></p></td>
+<td align="left" valign="top"><p class="table"><code>1Kids11111111111111111111111111111</code></p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"><code>1Kids11111111111111111111111111112</code></p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"><code>1Kids11111111111111111111111111113</code></p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"><code>&#8230;</code></p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><strong>À</strong></p></td>
+<td align="left" valign="top"><p class="table"><code>1Kidszzzzzzzzzzzzzzzzzzzzzzzzzzzzz</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>Regardons le modèle &quot;1Kids&quot; comme un nombre et voyons à quelle fréquence nous pourrions trouver ce modèle dans une adresse Bitcoin (voir <a href="#table_4-12">[table_4-12]</a>). Un ordinateur de bureau moyen, sans aucun matériel spécialisé, peut rechercher environ 100 000 clés par seconde.</p></div>
+<div class="tableblock" id="table_4-12">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 6. La fréquence d&#39;un modèle de vanité (1KidsCharity) et le temps de recherche moyen sur un PC de bureau</caption>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<thead>
+<tr>
+<th align="left" valign="top"> Longueur </th>
+<th align="left" valign="top"> Motif </th>
+<th align="left" valign="top"> Fréquence </th>
+<th align="left" valign="top"> Temps de recherche moyen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">1</p></td>
+<td align="left" valign="top"><p class="table">1K</p></td>
+<td align="left" valign="top"><p class="table">1 sur 58 touches</p></td>
+<td align="left" valign="top"><p class="table">&lt; 1 millisecondes</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">2</p></td>
+<td align="left" valign="top"><p class="table">1Ki</p></td>
+<td align="left" valign="top"><p class="table">1 sur 3 364</p></td>
+<td align="left" valign="top"><p class="table">50 millisecondes</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">3</p></td>
+<td align="left" valign="top"><p class="table">1Kid</p></td>
+<td align="left" valign="top"><p class="table">1 sur 195 000</p></td>
+<td align="left" valign="top"><p class="table">&lt; 2 secondes</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">4</p></td>
+<td align="left" valign="top"><p class="table">1Kids</p></td>
+<td align="left" valign="top"><p class="table">1 sur 11 millions</p></td>
+<td align="left" valign="top"><p class="table">1 minute</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">5</p></td>
+<td align="left" valign="top"><p class="table">1KidsC</p></td>
+<td align="left" valign="top"><p class="table">1 sur 656 millions</p></td>
+<td align="left" valign="top"><p class="table">1 heure</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">6</p></td>
+<td align="left" valign="top"><p class="table">1KidsCh</p></td>
+<td align="left" valign="top"><p class="table">1 sur 38 milliards</p></td>
+<td align="left" valign="top"><p class="table">2 jours</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">7</p></td>
+<td align="left" valign="top"><p class="table">1KidsCha</p></td>
+<td align="left" valign="top"><p class="table">1 sur 2,2 trillions</p></td>
+<td align="left" valign="top"><p class="table">3–4 mois</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">8</p></td>
+<td align="left" valign="top"><p class="table">1KidsChar</p></td>
+<td align="left" valign="top"><p class="table">1 sur 128 billions</p></td>
+<td align="left" valign="top"><p class="table">13–18 ans</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">9</p></td>
+<td align="left" valign="top"><p class="table">1KidsChari</p></td>
+<td align="left" valign="top"><p class="table">1 sur 7 quadrillions</p></td>
+<td align="left" valign="top"><p class="table">800 ans</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">10</p></td>
+<td align="left" valign="top"><p class="table">1KidsCharit</p></td>
+<td align="left" valign="top"><p class="table">1 sur 400 quadrillions</p></td>
+<td align="left" valign="top"><p class="table">46 000 ans</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">11</p></td>
+<td align="left" valign="top"><p class="table">1KidsCharity</p></td>
+<td align="left" valign="top"><p class="table">1 sur 23 quintillions</p></td>
+<td align="left" valign="top"><p class="table">2,5 millions d&#39;années</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>Comme vous pouvez le voir, Eugenia ne créera pas de sitôt l&#39;adresse personnalisée &quot;1KidsCharity&quot;, même si elle avait accès à plusieurs milliers d&#39;ordinateurs. Chaque caractère supplémentaire augmente la difficulté d&#39;un facteur de 58. Les modèles de plus de sept caractères sont généralement trouvés par du matériel spécialisé, tel que des ordinateurs de bureau personnalisés avec plusieurs GPU. Ce sont souvent des &quot;plates-formes&quot; de minage de bitcoin réutilisées qui ne sont plus rentables pour le minage de bitcoin mais peuvent être utilisées pour trouver des adresses personnalisées. Les recherches d&#8217;adresse personnalisées (ou de vanités) sur les systèmes GPU sont de plusieurs ordres de grandeur plus rapides que sur un processeur à usage général.</p></div>
+<div class="paragraph"><p>Une autre façon de trouver une adresse de vanité consiste à sous-traiter le travail à un groupe ou bassin de mineurs de vanité, comme le groupe sur <a href="https://vanitypool.appspot.com">Vanity Pool</a>. Un groupe ou bassin de ce type est un service qui permet à ceux qui disposent de matériel GPU de gagner des bitcoins en recherchant des adresses personnalisées pour les autres. Pour un petit paiement (0,01 bitcoin ou environ 5 $ au moment d&#39;écrire ces lignes), Eugenia peut externaliser la recherche d&#39;une adresse personnalisée à sept caractères et obtenir des résultats en quelques heures au lieu d&#39;avoir à exécuter une recherche de CPU pendant des mois.</p></div>
+<div class="paragraph"><p>Générer une adresse personnalisée est un exercice de force brute : essayez une clé aléatoire, vérifiez l&#39;adresse résultante pour voir si elle correspond au modèle souhaité, et répétez jusqu&#39;à ce que vous réussissiez. <a href="#vanity_miner_code">[vanity_miner_code]</a> montre un exemple de &quot;mineur de vanité&quot;, un programme conçu pour trouver des adresses personnalisées, écrit en C++. L&#39;exemple utilise la bibliothèque libbitcoin, que nous avons introduite dans <a href="#alt_libraries">[alt_libraries]</a>.</p></div>
+<div class="exampleblock" id="vanity_miner_code">
+<div class="title">Example 8. Mineur d&#39;adresse personnalisées (ou de vanité)</div>
+<div class="content">
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #000080">#include</span></span> <span style="color: #FF0000">&lt;random&gt;</span>
+<span style="font-weight: bold"><span style="color: #000080">#include</span></span> <span style="color: #FF0000">&lt;bitcoin/bitcoin.hpp&gt;</span>
+
+<span style="font-style: italic"><span style="color: #9A1900">// The string we are searching for</span></span>
+<span style="font-weight: bold"><span style="color: #0000FF">const</span></span> std<span style="color: #990000">::</span><span style="color: #008080">string</span> search <span style="color: #990000">=</span> <span style="color: #FF0000">"1kid"</span><span style="color: #990000">;</span>
+
+<span style="font-style: italic"><span style="color: #9A1900">// Generate a random secret key. A random 32 bytes.</span></span>
+bc<span style="color: #990000">::</span><span style="color: #008080">ec_secret</span> <span style="font-weight: bold"><span style="color: #000000">random_secret</span></span><span style="color: #990000">(</span>std<span style="color: #990000">::</span>default_random_engine<span style="color: #990000">&amp;</span> engine<span style="color: #990000">);</span>
+<span style="font-style: italic"><span style="color: #9A1900">// Extract the Bitcoin address from an EC secret.</span></span>
+std<span style="color: #990000">::</span><span style="color: #008080">string</span> <span style="font-weight: bold"><span style="color: #000000">bitcoin_address</span></span><span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">const</span></span> bc<span style="color: #990000">::</span>ec_secret<span style="color: #990000">&amp;</span> secret<span style="color: #990000">);</span>
+<span style="font-style: italic"><span style="color: #9A1900">// Case insensitive comparison with the search string.</span></span>
+<span style="color: #009900">bool</span> <span style="font-weight: bold"><span style="color: #000000">match_found</span></span><span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">const</span></span> std<span style="color: #990000">::</span>string<span style="color: #990000">&amp;</span> address<span style="color: #990000">);</span>
+
+<span style="color: #009900">int</span> <span style="font-weight: bold"><span style="color: #000000">main</span></span><span style="color: #990000">()</span>
+<span style="color: #FF0000">{</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// random_device on Linux uses "/dev/urandom"</span></span>
+    <span style="font-style: italic"><span style="color: #9A1900">// CAUTION: Depending on implementation this RNG may not be secure enough!</span></span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Do not use vanity keys generated by this example in production</span></span>
+    std<span style="color: #990000">::</span><span style="color: #008080">random_device</span> random<span style="color: #990000">;</span>
+    std<span style="color: #990000">::</span><span style="color: #008080">default_random_engine</span> <span style="font-weight: bold"><span style="color: #000000">engine</span></span><span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #000000">random</span></span><span style="color: #990000">());</span>
+
+    <span style="font-style: italic"><span style="color: #9A1900">// Loop continuously...</span></span>
+    <span style="font-weight: bold"><span style="color: #0000FF">while</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">true</span></span><span style="color: #990000">)</span>
+    <span style="color: #FF0000">{</span>
+        <span style="font-style: italic"><span style="color: #9A1900">// Generate a random secret.</span></span>
+        bc<span style="color: #990000">::</span><span style="color: #008080">ec_secret</span> secret <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #000000">random_secret</span></span><span style="color: #990000">(</span>engine<span style="color: #990000">);</span>
+        <span style="font-style: italic"><span style="color: #9A1900">// Get the address.</span></span>
+        std<span style="color: #990000">::</span><span style="color: #008080">string</span> address <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #000000">bitcoin_address</span></span><span style="color: #990000">(</span>secret<span style="color: #990000">);</span>
+        <span style="font-style: italic"><span style="color: #9A1900">// Does it match our search string? (1kid)</span></span>
+        <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #000000">match_found</span></span><span style="color: #990000">(</span>address<span style="color: #990000">))</span>
+        <span style="color: #FF0000">{</span>
+            <span style="font-style: italic"><span style="color: #9A1900">// Success!</span></span>
+            std<span style="color: #990000">::</span>cout <span style="color: #990000">&lt;&lt;</span> <span style="color: #FF0000">"Found vanity address! "</span> <span style="color: #990000">&lt;&lt;</span> address <span style="color: #990000">&lt;&lt;</span> std<span style="color: #990000">::</span>endl<span style="color: #990000">;</span>
+            std<span style="color: #990000">::</span>cout <span style="color: #990000">&lt;&lt;</span> <span style="color: #FF0000">"Secret: "</span> <span style="color: #990000">&lt;&lt;</span> bc<span style="color: #990000">::</span><span style="font-weight: bold"><span style="color: #000000">encode_base16</span></span><span style="color: #990000">(</span>secret<span style="color: #990000">)</span> <span style="color: #990000">&lt;&lt;</span> std<span style="color: #990000">::</span>endl<span style="color: #990000">;</span>
+            <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> <span style="color: #993399">0</span><span style="color: #990000">;</span>
+        <span style="color: #FF0000">}</span>
+    <span style="color: #FF0000">}</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Should never reach here!</span></span>
+    <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> <span style="color: #993399">0</span><span style="color: #990000">;</span>
+<span style="color: #FF0000">}</span>
+
+bc<span style="color: #990000">::</span><span style="color: #008080">ec_secret</span> <span style="font-weight: bold"><span style="color: #000000">random_secret</span></span><span style="color: #990000">(</span>std<span style="color: #990000">::</span>default_random_engine<span style="color: #990000">&amp;</span> engine<span style="color: #990000">)</span>
+<span style="color: #FF0000">{</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Create new secret...</span></span>
+    bc<span style="color: #990000">::</span><span style="color: #008080">ec_secret</span> secret<span style="color: #990000">;</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Iterate through every byte setting a random value...</span></span>
+    <span style="font-weight: bold"><span style="color: #0000FF">for</span></span> <span style="color: #990000">(</span>uint8_t<span style="color: #990000">&amp;</span> byte<span style="color: #990000">:</span> secret<span style="color: #990000">)</span>
+        byte <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #000000">engine</span></span><span style="color: #990000">()</span> <span style="color: #990000">%</span> std<span style="color: #990000">::</span>numeric_limits<span style="color: #990000">&lt;</span>uint8_t<span style="color: #990000">&gt;::</span><span style="font-weight: bold"><span style="color: #000000">max</span></span><span style="color: #990000">();</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Return result.</span></span>
+    <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> secret<span style="color: #990000">;</span>
+<span style="color: #FF0000">}</span>
+
+std<span style="color: #990000">::</span><span style="color: #008080">string</span> <span style="font-weight: bold"><span style="color: #000000">bitcoin_address</span></span><span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">const</span></span> bc<span style="color: #990000">::</span>ec_secret<span style="color: #990000">&amp;</span> secret<span style="color: #990000">)</span>
+<span style="color: #FF0000">{</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Convert secret to payment address</span></span>
+    bc<span style="color: #990000">::</span>wallet<span style="color: #990000">::</span><span style="color: #008080">ec_private</span> <span style="font-weight: bold"><span style="color: #000000">private_key</span></span><span style="color: #990000">(</span>secret<span style="color: #990000">);</span>
+    bc<span style="color: #990000">::</span>wallet<span style="color: #990000">::</span><span style="color: #008080">payment_address</span> <span style="font-weight: bold"><span style="color: #000000">payaddr</span></span><span style="color: #990000">(</span>private_key<span style="color: #990000">);</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Return encoded form.</span></span>
+    <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> payaddr<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">encoded</span></span><span style="color: #990000">();</span>
+<span style="color: #FF0000">}</span>
+
+<span style="color: #009900">bool</span> <span style="font-weight: bold"><span style="color: #000000">match_found</span></span><span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">const</span></span> std<span style="color: #990000">::</span>string<span style="color: #990000">&amp;</span> address<span style="color: #990000">)</span>
+<span style="color: #FF0000">{</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">auto</span></span> addr_it <span style="color: #990000">=</span> address<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">begin</span></span><span style="color: #990000">();</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Loop through the search string comparing it to the lower case</span></span>
+    <span style="font-style: italic"><span style="color: #9A1900">// character of the supplied address.</span></span>
+    <span style="font-weight: bold"><span style="color: #0000FF">for</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">auto</span></span> it <span style="color: #990000">=</span> search<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">begin</span></span><span style="color: #990000">();</span> it <span style="color: #990000">!=</span> search<span style="color: #990000">.</span><span style="font-weight: bold"><span style="color: #000000">end</span></span><span style="color: #990000">();</span> <span style="color: #990000">++</span>it<span style="color: #990000">,</span> <span style="color: #990000">++</span>addr_it<span style="color: #990000">)</span>
+        <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(*</span>it <span style="color: #990000">!=</span> std<span style="color: #990000">::</span><span style="font-weight: bold"><span style="color: #000000">tolower</span></span><span style="color: #990000">(*</span>addr_it<span style="color: #990000">))</span>
+            <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> <span style="font-weight: bold"><span style="color: #0000FF">false</span></span><span style="color: #990000">;</span>
+    <span style="font-style: italic"><span style="color: #9A1900">// Reached end of search string, so address matches.</span></span>
+    <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> <span style="font-weight: bold"><span style="color: #0000FF">true</span></span><span style="color: #990000">;</span>
+<span style="color: #FF0000">}</span>
+</tt></pre></div></div>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph"><p><a href="#vanity_miner_code">[vanity_miner_code]</a> utilise <code>std::random_device</code>. Selon l&#39;implémentation, cela peut refléter un CSRNG fourni par le système d&#39;exploitation sous-jacent. Dans le cas d&#39;un système d&#39;exploitation de type Unix tel que Linux, il tire de <code>/dev/urandom</code>. Le générateur de nombres aléatoires utilisé ici est à des fins de démonstration n&#39;est <em>pas</em> approprié pour générer des clés bitcoin de qualité production car il n&#39;est pas implémenté avec une sécurité suffisante.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>L&#39;exemple de code doit être compilé à l&#39;aide d&#39;un compilateur C++ et lié à la bibliothèque libbitcoin (qui doit d&#39;abord être installée sur ce système). Pour exécuter l&#39;exemple, lancez l&#39;exécutable <code>vanity-miner</code> sans paramètres (voir <a href="#vanity_miner_run">[vanity_miner_run]</a>) et il tentera de trouver une adresse personnalisée commençant par &quot;1kid&quot;.</p></div>
+<div class="exampleblock" id="vanity_miner_run">
+<div class="title">Example 9. Compilation et exécution de l&#39;exemple vanity-miner</div>
+<div class="content">
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-style: italic"><span style="color: #9A1900"># Compiler le code avec g++</span></span>
+$ g<span style="color: #990000">++</span> -o vanity-miner vanity-miner<span style="color: #990000">.</span>cpp <span style="color: #009900">$(</span>pkg-config --cflags --libs libbitcoin<span style="color: #990000">)</span>
+<span style="font-style: italic"><span style="color: #9A1900"># Exécutez l&amp;#39;exemple</span></span>
+$ <span style="color: #990000">.</span>/vanity-miner
+Found vanity address<span style="color: #990000">!</span> 1KiDzkG4MxmovZryZRj8tK81oQRhbZ46YT
+Secret<span style="color: #990000">:</span> 57cc268a05f83a23ac9d930bc8565bac4e277055f4794cbd1a39e5e71c038f3f
+<span style="font-style: italic"><span style="color: #9A1900"># Exécutez-le à nouveau pour un résultat différent</span></span>
+$ <span style="color: #990000">.</span>/vanity-miner
+Found vanity address<span style="color: #990000">!</span> 1Kidxr3wsmMzzouwXibKfwTYs5Pau8TUFn
+Secret<span style="color: #990000">:</span> 7f65bbbbe6d8caae74a0c6a0d2d7b5c6663d71b60337299a1a2cf34c04b2a623
+<span style="font-style: italic"><span style="color: #9A1900"># Utilisez &amp;quot;time&amp;quot; pour voir combien de temps il faut pour trouver un résultat</span></span>
+$ time <span style="color: #990000">.</span>/vanity-miner
+Found vanity address<span style="color: #990000">!</span> 1KidPWhKgGRQWD5PP5TAnGfDyfWp5yceXM
+Secret<span style="color: #990000">:</span> 2a802e7a53d8aa237cd059377b616d2bfcfa4b0140bc85fa008f2d3d4b225349
+
+real    0m8<span style="color: #990000">.</span>868s
+user    0m8<span style="color: #990000">.</span>828s
+sys     0m0<span style="color: #990000">.</span>035s</tt></pre></div></div>
+</div></div>
+<div class="paragraph"><p>L&#39;exemple de code prendra quelques secondes pour trouver une correspondance pour le modèle à trois caractères &quot;kid&quot;, comme nous pouvons le voir lorsque nous utilisons la commande Unix <code>time</code> pour mesurer le temps d&#39;exécution. Modifiez le modèle <code>search</code> dans le code source et voyez combien de temps cela prend pour les modèles à quatre ou cinq caractères !</p></div>
+</div>
+<div class="sect4">
+<h5 id="_sécurité_de_l_39_adresse_personnalisée">Sécurité de l&#39;adresse personnalisée</h5>
+<div class="paragraph"><p>Les adresses personnalisées peuvent être utilisées pour améliorer <em>et</em> pour contourner les mesures de sécurité ; ils sont vraiment une épée à double tranchant. Utilisée pour améliorer la sécurité, une adresse distinctive rend plus difficile pour les adversaires de substituer leur propre adresse et de tromper vos clients en les payant à votre place. Malheureusement, les adresses personnalisées permettent également à quiconque de créer une adresse qui <em>ressemble</em> à n&#39;importe quelle adresse aléatoire, ou même à une autre adresse personnalisée, trompant ainsi vos clients.</p></div>
+<div class="paragraph"><p>Eugenia pourrait annoncer une adresse générée aléatoirement (par exemple, <code>1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy</code>) à laquelle les gens peuvent envoyer leurs dons. Ou, elle pourrait générer une adresse de vanité qui commence par 1Kids, pour la rendre plus distinctive.</p></div>
+<div class="paragraph"><p>Dans les deux cas, l&#39;un des risques d&#39;utiliser une seule adresse fixe (plutôt qu&#39;une adresse dynamique distincte par donateur) est qu&#39;un voleur puisse s&#39;infiltrer dans votre site Web et le remplacer par sa propre adresse, détournant ainsi les dons vers lui. Si vous avez annoncé votre adresse de don à plusieurs endroits différents, vos utilisateurs peuvent inspecter visuellement l&#39;adresse avant d&#39;effectuer un paiement pour s&#39;assurer qu&#39;il s&#39;agit de la même adresse qu&#39;ils ont vue sur votre site Web, sur votre e-mail et sur votre dépliant. Dans le cas d&#39;une adresse aléatoire comme <code>1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy</code>, l&#39;utilisateur moyen inspectera peut-être les premiers caractères &quot;1J7mdg&quot; et sera satisfait que l&#39;adresse corresponde. À l&#39;aide d&#39;un générateur d&#39;adresses personnalisées, une personne ayant l&#39;intention de voler en substituant une adresse d&#39;apparence similaire peut rapidement générer des adresses qui correspondent aux premiers caractères, comme indiqué dans <a href="#table_4-13">[table_4-13]</a>.</p></div>
+<div class="tableblock" id="table_4-13">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 7. Génération d&#39;adresses personnalisées pour correspondre à une adresse aléatoire</caption>
+<col width="50%" />
+<col width="50%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table"><strong>Adresse aléatoire originale</strong></p></td>
+<td align="left" valign="top"><p class="table">1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><strong>Vanité (correspondance à 4 caractères)</strong></p></td>
+<td align="left" valign="top"><p class="table">1J7md1QqU4LpctBetHS2ZoyLV5d6dShhEy</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><strong>Vanité (correspondance à 5 caractères)</strong></p></td>
+<td align="left" valign="top"><p class="table">1J7mdgYqyNd4ya3UEcq31Q7sqRMXw2XZ6n</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><strong>Vanité (correspondance à 6 caractères)</strong></p></td>
+<td align="left" valign="top"><p class="table">1J7mdg5WxGENmwyJP9xuGhG5KRzu99BBCX</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>Alors, une adresse personnalisée augmente-t-elle la sécurité ? Si Eugenia génère l&#39;adresse personnalisée <code>1Kids33q44erFfpeXrmDSz7zEqG2FesZEN</code>, les utilisateurs sont susceptibles de regarder le mot de modèle personnalisé <em>et quelques caractères au-delà</em>, par exemple en remarquant la partie &quot;1Kids33&quot; de l&#39;adresse. Cela obligerait un attaquant à générer une adresse de vanité correspondant à au moins six caractères (deux de plus), en déployant un effort 3 364 fois (58 × 58) supérieur à l&#39;effort qu&#39;Eugenia a dépensé pour sa vanité à 4 caractères. Essentiellement, l&#39;effort qu&#39;Eugenia déploie (ou paie une vanité pour) &quot;pousse&quot; l&#39;attaquant à devoir produire une vanité de modèle plus longue. Si Eugenia paie un pool pour générer une adresse de vanité à 8 caractères, l&#39;attaquant serait poussé dans le domaine de 10 caractères, ce qui est irréalisable sur un ordinateur personnel et coûteux même avec une plate-forme d&#39;extraction de vanité personnalisée ou un pool de vanité. Ce qui est abordable pour Eugenia devient inabordable pour l&#39;attaquant, surtout si la récompense potentielle de la fraude n&#39;est pas assez élevée pour couvrir le coût de la génération d&#39;adresse personnalisée.</p></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="paper_wallets">Portefeuilles en papier</h4>
+<div class="paragraph"><p> Les paper wallets, ou les portefeuilles en papier, sont des clés privées bitcoin imprimées sur papier. Souvent, le portefeuille papier comprend également l&#39;adresse Bitcoin correspondante pour plus de commodité, mais ce n&#39;est pas nécessaire car elle peut être dérivée de la clé privée.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>Les portefeuilles en papier sont une technologie OBSOLÈTE et sont dangereux pour la plupart des utilisateurs. Il existe de nombreux pièges subtils impliqués dans leur génération, notamment la possibilité que le code de génération soit compromis par une &quot;porte dérobée&quot;. Des centaines de bitcoins ont été volés de cette façon. Les portefeuilles en papier sont présentés ici à titre informatif uniquement et ne doivent pas être utilisés pour stocker des bitcoins. Utilisez une phrase mnémonique BIP-39 pour sauvegarder vos clés. Utilisez un portefeuille matériel pour stocker des clés et signer des transactions. N&#39;UTILISEZ PAS DE PORTEFEUILLES EN PAPIER.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Les portefeuilles en papier se présentent sous de nombreuses formes, tailles et conceptions, mais à un niveau très basique, il ne s&#39;agit que d&#39;une clé et d&#39;une adresse imprimées sur papier. <a href="#table_4-14">[table_4-14]</a> montre la forme la plus simple d&#39;un portefeuille en papier.</p></div>
+<div class="tableblock" id="table_4-14">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 8. La forme la plus simple d&#39;un portefeuille papier - une impression de l&#39;adresse Bitcoin et de la clé privée</caption>
+<col width="50%" />
+<col width="50%" />
+<thead>
+<tr>
+<th align="left" valign="top">Adresse publique</th>
+<th align="left" valign="top">Clé privée (WIF)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">1424C2F4bC9JidNjjTUZCbUxv6Sa1Mt62x</p></td>
+<td align="left" valign="top"><p class="table">5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>Les portefeuilles en papier sont disponibles dans de nombreux modèles et tailles, avec de nombreuses fonctionnalités différentes. <a href="#paper_wallet_simple">[paper_wallet_simple]</a> montre un exemple de portefeuille en papier.</p></div>
+<div class="imageblock" id="paper_wallet_simple">
+<div class="content">
+<img src="images/mbc2_0408.png" alt="images/mbc2_0408.png" />
+</div>
+<div class="title">Figure 7. Un exemple de portefeuille en papier simple</div>
+</div>
+<div class="paragraph"><p>Certains sont destinés à être offerts en cadeau et ont des thèmes saisonniers, tels que les thèmes de Noël et du Nouvel An. D&#39;autres sont conçus pour être stockés dans un coffre-fort de banque ou un coffre-fort avec la clé privée cachée d&#39;une manière ou d&#39;une autre, soit avec des autocollants opaques à gratter, soit pliés et scellés avec une feuille adhésive inviolable.</p></div>
+<div class="paragraph"><p>D&#39;autres conceptions comportent des copies supplémentaires de la clé et de l&#39;adresse, sous la forme de talons détachables similaires aux talons de ticket, vous permettant de stocker plusieurs copies pour vous protéger contre les incendies, les inondations ou d&#39;autres catastrophes naturelles.</p></div>
+<div class="imageblock" id="paper_wallet_spw">
+<div class="content">
+<img src="images/mbc2_0412.png" alt="images/mbc2_0412.png" />
+</div>
+<div class="title">Figure 8. Un exemple de portefeuille papier avec des copies supplémentaires des clés sur un &quot;talon&quot; de sauvegarde</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2022-03-06 09:40:51 EST
+</div>
+</div>
+</body>
+</html>
