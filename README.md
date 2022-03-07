@@ -14,7 +14,7 @@
 12. Chapitre 10
 13. Chapitre 11
 14. Chapitre 12
-15. Annexe A - BIPs
+15. [Annexe A - BIPs](DONE1/html/for_use_mastering-bitcoin_appendix-bips_fr_CA.html)
 16. Annexe B - BX
 17. Annexe C - PyCoin
 18. Annexe D - Script OPs
