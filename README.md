@@ -2,11 +2,11 @@
 
 ## Programmer sur la chaîne de blocs ouverte
 
-Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs ouverte** (_**Mastering Bitcoin: Programming the Open Blockchain**_ par O'Reilly Media) tel qu'écrit originalement en anglais par _Andreas M. Antonopoulos_ et traduit en français par _Google Translate API_ et _Serafim Dos Santos_
+Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs ouverte** (_**Mastering Bitcoin: Programming the Open Blockchain**_ par O'Reilly Media) tel qu'écrit originalement en anglais par _Andreas M. Antonopoulos_, traduit en français (Canada) par _Google Translate API_ et réviser _Serafim Dos Santos_
 
-* Auteur : _Andreas M. Antonopoulos_
-* Traducteur : Google Translate API
-* Réviseur : Serafim Dos Santos
+* Auteur : **Andreas M. Antonopoulos**
+* Traducteur : **Google Translate API**
+* Réviseur : **Serafim Dos Santos**
 
 ![Maîtriser Bitcoin: Programmer la chaîne de blocs ouverte](DONE1/images/MB2EO-MY-BANNER_GITHUB.png)
 
@@ -17,10 +17,7 @@ Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs ouverte** (_**Mas
   - [ ] Phase de révision (DONE2) : en attente...
   - [ ] Phase de conclusion (DONEF) : en attente...
 * Révision
-  - [ ] Phase de révision externe
-* Publication
-  - [ ] Déploiement Amazon Kindle
-  - [ ] Déploiement Apple Bookstore
+  - [ ] Phase de révision externe
 
 ---
 1. [Preface](DONE1/html/for_use_mastering-bitcoin_preface-open_fr_CA.html)
