@@ -21,6 +21,7 @@ Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs ouverte** (_**Mas
 * Publication
   - [ ] Déploiement Amazon Kindle
   - [ ] Déploiement Apple Bookstore
+
 ---
 1. [Preface](DONE1/html/for_use_mastering-bitcoin_preface-open_fr_CA.html)
 2. [Glossaire](DONE1/html/for_use_mastering-bitcoin_glossary-1_fr_CA.html)
