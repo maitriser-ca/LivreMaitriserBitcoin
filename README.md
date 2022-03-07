@@ -37,8 +37,8 @@ Le livre **Maîtriser Bitcoin** (_**Mastering Bitcoin**_ par O'Reilly Media) tel
 20. Le livre blanc de Satoshi Nakamoto
 
 ## Translations
-If you are interested in translating this book, please join a team of volunteers at https://www.transifex.com/bitcoinbook/mastering-bitcoin/
-Free copies of "Mastering Bitcoin Open Edition", translated in many languages, can be downloaded from https://bitcoinbook.info
+If you are interested in translating this book, please join a team of volunteers at [www.transifex.com/bitcoinbook/mastering-bitcoin/](https://www.transifex.com/bitcoinbook/mastering-bitcoin/)
+Free copies of "Mastering Bitcoin Open Edition", translated in many languages, can be downloaded from [bitcoinbook.info](https://bitcoinbook.info)
 
 ---
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Cette œuvre est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licence Creative Commons Attribution -  Partage dans les Mêmes Conditions 4.0 International</a>.
