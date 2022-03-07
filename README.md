@@ -8,6 +8,8 @@ Le livre **Maîtriser Bitcoin** (_**Mastering Bitcoin**_ par O'Reilly Media) tel
 * Traduction : Google Translate API
 * Reviseur : Serafim Dos Santos
 
+![Maîtriser Bitcoin: Programmer la chaîne de blocs ouverte](DONE1/images/MB2EO-MY-BANNER_GITHUB.png)
+
 ## Feuille de route
 
 - [ ] Phase de traduction (DONE1) : en cours...
