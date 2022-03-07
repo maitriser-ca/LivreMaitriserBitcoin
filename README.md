@@ -2,7 +2,7 @@
 
 ## Programmer sur la chaîne de blocs ouverte
 
-Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs ouverte** (_**Mastering Bitcoin: Programming the Open Blockchain**_ par O'Reilly Media) tel qu'écrit originalement en anglais par _Andreas M. Antonopoulos_, traduit en français (Canada) par _Google Translate API_ et réviser _Serafim Dos Santos_
+Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs ouverte** (_**Mastering Bitcoin: Programming the Open Blockchain**_ par O'Reilly Media) tel qu'écrit originalement en anglais par _Andreas M. Antonopoulos_, traduit en français (Canada) par _Google Translate API_ et révisé _Serafim Dos Santos_
 
 * Auteur : **Andreas M. Antonopoulos**
 * Traducteur : **Google Translate API**
