@@ -13,8 +13,8 @@ Le livre **Maîtriser Bitcoin** (_**Mastering Bitcoin**_ par O'Reilly Media) tel
 ## Feuille de route
 
 - [ ] Phase de traduction (DONE1) : en cours...
-- [ ] Phase révision (DONE2) : en attente...
-- [ ] Phase conclusion (DONEF) : en attente...
+- [ ] Phase de révision (DONE2) : en attente...
+- [ ] Phase de conclusion (DONEF) : en attente...
 
 ---
 1. [Preface](DONE1/html/for_use_mastering-bitcoin_preface-open_fr_CA.html)
@@ -45,7 +45,7 @@ Free copies of "Mastering Bitcoin Open Edition", translated in many languages, c
 ## Mastering Bitcoin - Second Edition
 La source originale de ces textes est tiré du livre à édition ouverte _Mastering Bitcoin_ par Andreas M. Antonopoulos accessible sur GitHub
 
-:point_right: [github.com/bitcoinbook/bitcoinbook](https://github.com/bitcoinbook/bitcoinbook)
+👉 [github.com/bitcoinbook/bitcoinbook](https://github.com/bitcoinbook/bitcoinbook)
 
 ---
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Cette œuvre est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licence Creative Commons Attribution -  Partage dans les Mêmes Conditions 4.0 International</a>.
