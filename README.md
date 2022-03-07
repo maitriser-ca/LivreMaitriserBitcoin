@@ -1,4 +1,13 @@
-# Le livre **Maîtriser Bitcoin** ou _**Mastering Bitcoin**_ tel qu'écrit à la base par _Andreas M. Antonopoulos_ et ouvert en source publique, traduit en français par _Serafim Dos Santos_
+# Le livre **Maîtriser Bitcoin** ou _**Mastering Bitcoin**_ tel qu'écrit originalement en anglais par _Andreas M. Antonopoulos_ et traduit en français par _Serafim Dos Santos_
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Cette œuvre est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licence Creative Commons Attribution -  Partage dans les Mêmes Conditions 4.0 International</a>.
+
+# Maîtriser Bitcoin
+
+* Auteur : _Andreas M. Antonopoulos_
+* Traduction : Google Translate API
+* Reviseur : Serafim Dos Santos
+
 
 1. [Preface](DONE1/html/for_use_mastering-bitcoin_preface-open_fr_CA.html)
 2. [Glossaire](DONE1/html/for_use_mastering-bitcoin_glossary-1_fr_CA.html)
