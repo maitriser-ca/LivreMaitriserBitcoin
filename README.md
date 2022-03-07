@@ -8,7 +8,7 @@
 6. [Chapitre 4](DONE1/html/for_use_mastering-bitcoin_chapter-4_fr_CA.html)
 7. [Chapitre 5](DONE1/html/for_use_mastering-bitcoin_chapter-5_fr_CA.html)
 8. [Chapitre 6](DONE1/html/for_use_mastering-bitcoin_chapter-6_fr_CA.html)
-9. Chapitre 7
+9. [Chapitre 7](DONE1/html/for_use_mastering-bitcoin_chapter-7_fr_CA.html)
 10. Chapitre 8
 11. Chapitre 9
 12. Chapitre 10
