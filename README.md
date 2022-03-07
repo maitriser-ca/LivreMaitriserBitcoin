@@ -1,11 +1,19 @@
 # Maîtriser Bitcoin, 2ième Édition Ouverte
 
-Le livre **Maîtriser Bitcoin** ou _**Mastering Bitcoin**_ tel qu'écrit originalement en anglais par _Andreas M. Antonopoulos_ et traduit en français par _Serafim Dos Santos_
+## Programmer sur la chaîne de blocs ouverte
+
+Le livre **Maîtriser Bitcoin** (_**Mastering Bitcoin**_ par O'Reilly Media) tel qu'écrit originalement en anglais par _Andreas M. Antonopoulos_ et traduit en français par _Serafim Dos Santos_
+
+
 
 * Auteur : _Andreas M. Antonopoulos_
 * Traduction : Google Translate API
 * Reviseur : Serafim Dos Santos
 
+## Feuille de route
+* Phase de traduction (DONE1) : en cours
+* Phase révision (DONE2) : en attente
+* Phase conclusion (DONEF) : en attente
 
 1. [Preface](DONE1/html/for_use_mastering-bitcoin_preface-open_fr_CA.html)
 2. [Glossaire](DONE1/html/for_use_mastering-bitcoin_glossary-1_fr_CA.html)
