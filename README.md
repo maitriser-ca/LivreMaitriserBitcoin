@@ -24,7 +24,6 @@ La source originale de ces textes est tiré du livre à édition ouverte <strong
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!   CE PROJET EST EN DÉVELOPPEMENT   !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 </pre>
 </center>
 
