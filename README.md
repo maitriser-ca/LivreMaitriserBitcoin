@@ -25,7 +25,7 @@ Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs ouverte** (_**Mas
 3. [Chapitre 1 - Introduction](DONE1/html/for_use_mastering-bitcoin_chapter-1_fr_CA.html)
 4. [Chapitre 2 - Comment fonctionne Bitcoin](DONE1/html/for_use_mastering-bitcoin_chapter-2_fr_CA.html)
 5. [Chapitre 3 - Bitcoin Core: La référence d'implémentation](DONE1/html/for_use_mastering-bitcoin_chapter-3_fr_CA.html)
-6. [Chapitre 4 - Clés, adresses](DONE1/html/for_use_mastering-bitcoin_chapter-4_fr_CA.html)
+6. [Chapitre 4 - Clés et adresses](DONE1/html/for_use_mastering-bitcoin_chapter-4_fr_CA.html)
 7. [Chapitre 5 - Portefeuilles](DONE1/html/for_use_mastering-bitcoin_chapter-5_fr_CA.html)
 8. [Chapitre 6 - Opérations](DONE1/html/for_use_mastering-bitcoin_chapter-6_fr_CA.html)
 9. [Chapitre 7 - Transactions et scripts avancés](DONE1/html/for_use_mastering-bitcoin_chapter-7_fr_CA.html)
@@ -34,12 +34,12 @@ Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs ouverte** (_**Mas
 12. Chapitre 10
 13. Chapitre 11
 14. Chapitre 12
-15. [Annexe A - BIPs](DONE1/html/for_use_mastering-bitcoin_appendix-bips_fr_CA.html)
-16. Annexe B - BX
-17. Annexe C - PyCoin
-18. Annexe D - Script OPs
-19. Annexe E - BitCore
-20. Le livre blanc de Satoshi Nakamoto
+15. Annexe A - Le livre blanc du Bitcoin de Satoshi Nakamoto
+16. Annexe B - Script OPs
+17. [Annexe C - BIPs](DONE1/html/for_use_mastering-bitcoin_appendix-bips_fr_CA.html)
+18. Annexe D - PyCoin
+19. Annexe E - BX
+20. Annexe F - BitCore
 
 ## Translations
 If you are interested in translating this book, please join a team of volunteers at [www.transifex.com/bitcoinbook/mastering-bitcoin/](https://www.transifex.com/bitcoinbook/mastering-bitcoin/)
