@@ -20,9 +20,8 @@ La source originale de ces textes est tiré du livre à édition ouverte <strong
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 </pre>
 <hr>
+<img src="DONE1/images/MB2EO-MY-BANNER_GITHUB.png" alt="Maîtriser Bitcoin: Programmer la chaîne de blocs ouverte"/>
 </center>
-
-![Maîtriser Bitcoin: Programmer la chaîne de blocs ouverte](DONE1/images/MB2EO-MY-BANNER_GITHUB.png)
 
 * Auteur : **Andreas M. Antonopoulos**
 * Traducteur : **Google Translate API**
