@@ -2425,16 +2425,16 @@ plusieurs dizaines d'autres à temps partiel. Tout le monde peut
 contribuer au code, y compris vous !
 
 <span class="indexterm"></span><span class="indexterm"></span><span
-class="indexterm"></span> <span class="indexterm"></span>((("Bitcoin
-Core", "implémentation de référence") ))Lorsque bitcoin a été créé par
-Satoshi Nakamoto, le logiciel était en fait terminé avant le livre blanc
-reproduit dans [???](#satoshi_whitepaper). Satoshi voulait s'assurer que
-cela fonctionnait avant d'écrire à ce sujet. Cette première
-implémentation, alors simplement connue sous le nom de "Bitcoin" ou
-"client Satoshi", a été fortement modifiée et améliorée. Il a évolué
-vers ce qu'on appelle *Bitcoin Core*, pour le différencier des autres
-implémentations compatibles. Bitcoin Core est la *mise en œuvre de
-référence* du système Bitcoin, ce qui signifie qu'il s'agit de la
+class="indexterm"></span> <span class="indexterm"></span><span
+class="indexterm"></span> <span class="indexterm"></span>Lorsque bitcoin
+a été créé par Satoshi Nakamoto, le logiciel était en fait terminé avant
+le livre blanc reproduit dans [???](#satoshi_whitepaper). Satoshi
+voulait s'assurer que cela fonctionnait avant d'écrire à ce sujet. Cette
+première implémentation, alors simplement connue sous le nom de
+"Bitcoin" ou "client Satoshi", a été fortement modifiée et améliorée. Il
+a évolué vers ce qu'on appelle *Bitcoin Core*, pour le différencier des
+autres implémentations compatibles. Bitcoin Core est la *mise en œuvre
+de référence* du système Bitcoin, ce qui signifie qu'il s'agit de la
 référence faisant autorité sur la manière dont chaque partie de la
 technologie doit être mise en œuvre. Bitcoin Core implémente tous les
 aspects du bitcoin, y compris les portefeuilles, un moteur de validation
@@ -2443,22 +2443,26 @@ réseau Bitcoin pair à pair.
 
 <span class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span> <span class="indexterm"></span><span
-class="indexterm"></span> <span class="indexterm"></span> Même si
-Bitcoin Core inclut une implémentation de référence d'un portefeuille,
-celui-ci n'est pas destiné à être utilisé comme portefeuille de
-production pour les utilisateurs ou pour les applications. Il est
-conseillé aux développeurs d'applications de créer des portefeuilles en
-utilisant des normes modernes telles que BIP-39 et BIP-32 (voir [Mots de
-code mnémonique (BIP-39)](#mnemonic_code_words) et [Portefeuilles HD
+class="indexterm"></span> <span class="indexterm"></span>Même si Bitcoin
+Core inclut une implémentation de référence d'un portefeuille, celui-ci
+n'est pas destiné à être utilisé comme portefeuille de production pour
+les utilisateurs ou pour les applications. Il est conseillé aux
+développeurs d'applications de créer des portefeuilles en utilisant des
+normes modernes telles que BIP-39 et BIP-32 (voir [Mots de code
+mnémonique (BIP-39)](#mnemonic_code_words) et [Portefeuilles HD
 (BIP-32/BIP-44)](#hd_wallets)). BIP signifie *Bitcoin Improvement
 Proposal*.
 
-[variablelist\_title](#bitcoin_core_architecture) montre l'architecture
-de Bitcoin Core.<span class="indexterm"></span> <span
+[figure\_title](#bitcoin_core_architecture) montre l'architecture de
+Bitcoin Core.<span class="indexterm"></span> <span
 class="indexterm"></span>
 
-image  
-images/mbc2\_0301.png\["Architecture de base Bitcoin"\]
+<figure>
+<img src="images/mbc2_0301.png" id="bitcoin_core_architecture"
+alt="Architecture Bitcoin Core (Source : Eric Lombrozo)" />
+<figcaption aria-hidden="true">Architecture Bitcoin Core (Source : Eric
+Lombrozo)</figcaption>
+</figure>
 
 # Environnement de développement Bitcoin
 
@@ -7165,7 +7169,7 @@ class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span>Chaque transaction bitcoin crée des sorties,
 qui sont enregistrées sur le grand livre bitcoin. Presque toutes ces
 sorties, à une exception près (voir [Sortie d'enregistrement de données
-(RETOUR)](#op_return)) créent des morceaux de bitcoin utilisables
+(RETURN)](#op_return)) créent des morceaux de bitcoin utilisables
 appelés UTXO, qui sont ensuite reconnus par l'ensemble du réseau et
 disponibles pour que le propriétaire les dépense lors d'une future
 transaction.
@@ -8776,9 +8780,10 @@ Tout d'abord, nous examinerons les scripts *multisignature*. Ensuite,
 nous examinerons le deuxième script de transaction le plus courant,
 *Pay-to-Script-Hash*, qui ouvre tout un monde de scripts complexes.
 Ensuite, nous examinerons de nouveaux opérateurs de script qui ajoutent
-une dimension temporelle au bitcoin, via *timelocks*. Enfin, nous
-examinerons *Segregated Witness*, une modification architecturale de la
-structure des transactions.
+une dimension temporelle au bitcoin, via les *timelocks* (verrouillage
+horaire). Enfin, nous examinerons les *Segregated Witness* (témoins
+séparés), une modification architecturale de la structure des
+transactions.
 
 # Multisignature
 
@@ -8799,22 +8804,23 @@ valide afin de dépenser les fonds.
 
 À l'heure actuelle, les scripts multisignatures *standard* sont limités
 à un maximum de 3 clés publiques répertoriées, ce qui signifie que vous
-pouvez faire n'importe quoi d'une multisignature 1 sur 1 à 3 sur 3 ou
-toute combinaison dans cette plage. La limitation à 3 clés répertoriées
-pourrait être levée au moment de la publication de ce livre, alors
-vérifiez la fonction `IsStandard()` pour voir ce qui est actuellement
-accepté par le réseau. Notez que la limite de 3 clés s'applique
-uniquement aux scripts multisignatures standard (également appelés
-"nus"), et non aux scripts multisignatures enveloppés dans un script
-Pay-to-Script-Hash (P2SH). Les scripts multisignatures P2SH sont limités
-à 15 clés, permettant jusqu'à 15 multisignatures sur 15. Cette
-limitation est également imposée par la fonction `IsStandard()`. Nous en
-apprendrons davantage sur P2SH dans &lt;&lt;p2sh&gt; &gt;.
+pouvez faire n'importe quoi d'une multisignature 1 sur 1 jusqu’à 3 sur 3
+ou toute combinaison dans cette plage. La limitation à 3 clés
+répertoriées pourrait être levée au moment de la publication de ce
+livre, alors vérifiez la fonction `IsStandard()` pour voir ce qui est
+actuellement accepté par le réseau. Notez que la limite de 3 clés
+s'applique uniquement aux scripts multisignatures standard (également
+appelés "nus (bare en anglais)"), et non aux scripts multisignatures
+enveloppés dans un script Pay-to-Script-Hash (P2SH). Les scripts
+multisignatures P2SH sont limités à 15 clés, permettant jusqu'à 15
+multisignatures sur 15. Cette limitation est également imposée par la
+fonction `IsStandard()`. Nous en apprendrons davantage sur P2SH dans
+[Pay-to-Script-Hash (P2SH)](#p2sh).
 
 La forme générale d'un script de verrouillage définissant une condition
 multisignature M-de-N est :
 
-    M<Public Key 1><Public Key 2> ...<Public Key N> N CHECKMULTISIG
+    M <Public Key 1> <Public Key 2> ... <Public Key N> N CHECKMULTISIG
 
 où N est le nombre total de clés publiques répertoriées et M est le
 seuil de signatures requises pour dépenser la sortie.
@@ -8822,7 +8828,7 @@ seuil de signatures requises pour dépenser la sortie.
 Un script de verrouillage définissant une condition multisignature 2 sur
 3 ressemble à ceci :
 
-    2<Public Key A><Public Key B><Public Key C> 3 CONTRÔLE MULTISIG
+    2 <Public Key A> <Public Key B> <Public Key C> 3 CHECKMULTISIG
 
 Le script de verrouillage précédent peut se contenter d'un script de
 déverrouillage contenant n'importe quelle combinaison de deux signatures
@@ -8832,7 +8838,7 @@ issues des clés privées correspondant aux trois clés publiques listées :
 
 Les deux scripts ensemble formeraient le script de validation combiné :
 
-    <Signature B><Signature C>2<Public Key A><Public Key B><Public Key C> 3 CONTRÔLE MULTISIG
+    <Signature B> <Signature C> 2 <Public Key A> <Public Key B> <Public Key C> 3 CHECKMULTISIG
 
 Lorsqu'il est exécuté, ce script combiné sera évalué à TRUE si, et
 seulement si, le script de déverrouillage correspond aux conditions
@@ -8854,13 +8860,13 @@ valeur de plus que prévu.
 Examinons cela plus en détail à l'aide de l'exemple de validation
 précédent :
 
-    <Signature B><Signature C>2<Public Key A><Public Key B><Public Key C> 3 CONTRÔLE MULTISIG
+    <Signature B> <Signature C> 2 <Public Key A> <Public Key B> <Public Key C> 3 CHECKMULTISIG
 
 Tout d'abord, `CHECKMULTISIG` affiche l'élément supérieur, qui est `N`
 (dans cet exemple "3"). Ensuite, il affiche `N` éléments, qui sont les
 clés publiques pouvant signer. Dans cet exemple, les clés publiques A, B
-et C. Ensuite, un élément apparaît, qui est + M
-`, le quorum (combien de signatures sont nécessaires). Ici M = 2. À ce stade, +CHECKMULTISIG`
+et C. Ensuite, un élément apparaît, qui est `M`, le quorum (combien de
+signatures sont nécessaires). Ici M = 2. À ce stade, `CHECKMULTISIG`
 devrait faire apparaître les éléments finaux `M`, qui sont les
 signatures, et voir s'ils sont valides. Cependant, malheureusement, un
 bogue dans l'implémentation fait que `CHECKMULTISIG` affiche un élément
@@ -8878,7 +8884,7 @@ Parce que ce bogue est devenu une partie des règles de consensus, il
 doit maintenant être répliqué pour toujours. Par conséquent, la
 validation correcte du script ressemblerait à ceci :
 
-    0<Signature B><Signature C> 2<Public Key A><Public Key B><Public Key C> 3 CONTRÔLE MULTISIG
+    0 <Signature B> <Signature C> 2 <Public Key A> <Public Key B> <Public Key C> 3 CHECKMULTISIG
 
 Ainsi le script de déverrouillage réellement utilisé en multisig n'est
 pas :
@@ -8887,7 +8893,7 @@ pas :
 
 mais à la place c'est :
 
-    0<Signature B><Signature C>
+    0 <Signature B> <Signature C>
 
 À partir de maintenant, si vous voyez un script de déverrouillage
 multisig, vous devriez vous attendre à voir un `0` supplémentaire au
@@ -8908,8 +8914,8 @@ regardons un exemple pratique.
 <span class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span> <span class="indexterm"></span>((
-("Pay-to-Script-Hash (P2SH)", "exemple d'import/export")))In
-&lt;&lt;ch01\_intro\_what\_is\_bitcoin&gt; &gt; nous avons présenté
+("Pay-to-Script-Hash (P2SH)", "exemple d'import/export")))Dans
+[Introduction](#ch01_intro_what_is_bitcoin) nous avons présenté
 Mohammed, un importateur d'électronique basé à Dubaï. La société de
 Mohammed utilise largement la fonction multisignature de Bitcoin pour
 ses comptes d'entreprise. Les scripts multisignatures sont l'une des
@@ -8917,8 +8923,8 @@ utilisations les plus courantes des capacités de script avancées de
 Bitcoin et constituent une fonctionnalité très puissante. <span
 class="indexterm"></span>La société de Mohammed utilise un script
 multisignature pour tous les paiements des clients, connu en termes
-comptables sous le nom de "comptes débiteurs" ou AR. Avec le schéma
-multisignature, tous les paiements effectués par les clients sont
+comptables sous le nom de "comptes débiteurs ou recevables". Avec le
+schéma multisignature, tous les paiements effectués par les clients sont
 verrouillés de telle manière qu'ils nécessitent au moins deux signatures
 pour être libérés, de Mohammed et de l'un de ses partenaires ou de son
 avocat qui dispose d'une clé de secours. Un système multisignature comme
@@ -8927,7 +8933,7 @@ contre le vol, le détournement de fonds ou la perte.
 
 Le script résultant est assez long et ressemble à ceci :
 
-    2 <Mohammed's Public Key><Partner1 Public Key><Partner2 Public Key><Partner3 Public Key><Attorney Public Key> 5 CONTRÔLE MULTISIG
+    2 <Clé publique de Mohammed> <Partner1 Public Key> <Partner2 Public Key> <Partner3 Public Key> <Attorney Public Key> 5 CHECKMULTISIG
 
 Bien que les scripts multisignatures soient une fonctionnalité
 puissante, ils sont lourds à utiliser. Compte tenu du script précédent,
@@ -8958,10 +8964,10 @@ sera présenté plus tard lorsque cette sortie sera dépensée".
 <span class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span>Dans les transactions P2SH, le script de
 verrouillage qui est remplacé par un hachage est appelé *redeem script*
-car il est présenté au système au moment du rachat plutôt que comme un
-script de verrouillage. &lt;&lt;without\_p2sh&gt; &gt; affiche le script
-sans P2SH et &lt;&lt;with\_p2sh&gt; &gt; montre le même script encodé
-avec P2SH.
+ou *script de rachat* car il est présenté au système au moment du rachat
+plutôt que comme un script de verrouillage.
+[table\_title](#without_p2sh) affiche le script sans P2SH et
+[table\_title](#with_p2sh) montre le même script encodé avec P2SH.
 
 <table>
 <caption>Script complexe sans P2SH</caption>
@@ -8992,18 +8998,18 @@ Script complexe sans P2SH
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><p>Utiliser le script</p></td>
+<td style="text-align: left;"><p>Script de rachat</p></td>
 <td style="text-align: left;"><p>2 PubKey1 PubKey2 PubKey3 PubKey4
 PubKey5 5 CHECKMULTISIG</p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><p>Script de verrouillage</p></td>
-<td style="text-align: left;"><p>HASH160 &lt;hachage de 20 octets du
-script de rachat&gt; EQUAL</p></td>
+<td style="text-align: left;"><p>HASH160 &lt;20-byte hash of redeem
+script&gt; EQUAL</p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><p>Script de déverrouillage</p></td>
-<td style="text-align: left;"><p>0 Sig1 Sig2&lt;redeem
+<td style="text-align: left;"><p>0 Sig1 Sig2 &lt;redeem
 script&gt;</p></td>
 </tr>
 </tbody>
@@ -9027,14 +9033,14 @@ les scripts P2SH qui en résultent.
 Tout d'abord, le script multisignature que la société de Mohammed
 utilise pour tous les paiements entrants des clients :
 
-    2 <Mohammed's Public Key><Partner1 Public Key><Partner2 Public Key><Partner3 Public Key><Attorney Public Key> 5 CONTRÔLE MULTISIG
+    2 <Clé publique de Mohammed> <Partner1 Public Key> <Partner2 Public Key> <Partner3 Public Key> <Attorney Public Key> 5 CHECKMULTISIG
 
 Si les espaces réservés sont remplacés par des clés publiques réelles
 (affichées ici sous forme de nombres de 520 bits commençant par 04),
 vous pouvez voir que ce script devient très long :
 
     2
-    5 CONTRÔLE MULTISIG
+    04C16B8698A9ABF84250A7C3EA7EEDEF9897D1C8C6ADF47F06CF73370D74DCCA01CDCA79DCC5C395D7EEC6984D83F1F50C900A24DD47F569FD4193AF5DE762C58704A2192968D8655D6A935BEAF2CA23E3FB87A3495E7AF308EDF08DAC3C1FCBFC2C75B4B0F4D0B1B70CD2423657738C0C2B1D5CE65C97D78D0E34224858008E8B49047E63248B75DB7379BE9CDA8CE5751D16485F431E46117B9D0C1837C9D5737812F393DA7D4420D7E1A9162F0279CFC10F1E8E8F3020DECDBC3C0DD389D99779650421D65CBD7149B255382ED7F78E946580657EE6FDA162A187543A9D85BAAA93A4AB3A8F044DADA618D087227440645ABE8A35DA8C5B73997AD343BE5C2AFD94A5043752580AFA1ECED3C68D446BCAB69AC0BA7DF50D56231BE0AABF1FDEEC78A6A45E394BA29A1EDF518C022DD618DA774D207D137AAB59E0B000EB7ED238F4D800 5 CHECKMULTISIG
 
 Ce script entier peut à la place être représenté par un hachage
 cryptographique de 20 octets, en appliquant d'abord l'algorithme de
@@ -9044,15 +9050,15 @@ résultat.
 Nous utilisons `libbitcoin-explorer` (`bx`) sur la ligne de commande
 pour produire le hachage du script, comme suit :
 
-    écho \
+    echo \
     2 \
-    \
-    \
-    \
-    \
-    \
-    5 CONTRÔLE MULTISIG \
-    | bx script-encoder | bx sha256 | bx mûrmd160
+    [04C16B8698A9ABF84250A7C3EA7EEDEF9897D1C8C6ADF47F06CF73370D74DCCA01CDCA79DCC5C395D7EEC6984D83F1F50C900A24DD47F569FD4193AF5DE762C587] \
+    [04A2192968D8655D6A935BEAF2CA23E3FB87A3495E7AF308EDF08DAC3C1FCBFC2C75B4B0F4D0B1B70CD2423657738C0C2B1D5CE65C97D78D0E34224858008E8B49] \
+    [047E63248B75DB7379BE9CDA8CE5751D16485F431E46117B9D0C1837C9D5737812F393DA7D4420D7E1A9162F0279CFC10F1E8E8F3020DECDBC3C0DD389D9977965] \
+    [0421D65CBD7149B255382ED7F78E946580657EE6FDA162A187543A9D85BAAA93A4AB3A8F044DADA618D087227440645ABE8A35DA8C5B73997AD343BE5C2AFD94A5] \
+    [043752580AFA1ECED3C68D446BCAB69AC0BA7DF50D56231BE0AABF1FDEEC78A6A45E394BA29A1EDF518C022DD618DA774D207D137AAB59E0B000EB7ED238F4D800] \
+    5 CHECKMULTISIG \
+    | bx script-encode | bx sha256 | bx ripemd160
     54c557e07dde5bb6cb791c7a540e0a4796f5e97e
 
 La série de commandes ci-dessus encode d'abord le script de rachat
@@ -9068,7 +9074,7 @@ Le hachage de 20 octets du script de rachat de Mohammed est :
 Une transaction P2SH verrouille la sortie sur ce hachage au lieu du
 script de rachat plus long, en utilisant le script de verrouillage :
 
-    HASH160 54c557e07dde5bb6cb791c7a540e0a4796f5e97e ÉGAL
+    HASH160 54c557e07dde5bb6cb791c7a540e0a4796f5e97e EQUAL
 
 qui, comme vous pouvez le voir, est beaucoup plus courte. Au lieu de
 "payer à ce script multisignature à 5 clés", la transaction équivalente
@@ -9079,19 +9085,19 @@ ses partenaires veulent dépenser cet UTXO, ils doivent présenter le
 script de rachat original (celui dont le hachage a verrouillé l'UTXO) et
 les signatures nécessaires pour le déverrouiller, comme ceci :
 
-    <Sig1><Sig2>&lt;2 PK1 PK2 PK3 PK4 PK5 5 CHECKMULTISIG&gt;
+    <Sig1> <Sig2> <2 PK1 PK2 PK3 PK4 PK5 5 CHECKMULTISIG>
 
 Les deux scripts sont combinés en deux étapes. Tout d'abord, le script
 de rachat est vérifié par rapport au script de verrouillage pour
 s'assurer que le hachage correspond :
 
-    &lt;2 PK1 PK2 PK3 PK4 PK5 5 CHECKMULTISIG&gt; HASH160<redeem scriptHash> ÉGAL
+    <2 PK1 PK2 PK3 PK4 PK5 5 CHECKMULTISIG> HASH160 <redeem scriptHash> EQUAL
 
 Si le hachage du script de rachat correspond, le script de
 déverrouillage est exécuté de lui-même pour déverrouiller le script de
 rachat :
 
-    <Sig1><Sig2>2 PK1 PK2 PK3 PK4 PK5 5 CHECKMULTISIG
+    <Sig1> <Sig2> 2 PK1 PK2 PK3 PK4 PK5 5 CHECKMULTISIG
 
 Presque tous les scripts décrits dans ce chapitre ne peuvent être
 implémentés qu'en tant que scripts P2SH. Par exemple, un script de
@@ -9104,8 +9110,8 @@ transaction qui comprend alors un script de déverrouillage P2SH peut
 contient pas plus de 15 clés publiques. <span class="indexterm"></span>
 <span class="indexterm"></span>
 
-N'oubliez pas qu'en raison de la politique définie par la fonction +
-IsStandard () + au moment de la rédaction de cet article, les scripts
+N'oubliez pas qu'en raison de la politique définie par la fonction
+`IsStandard()` au moment de la rédaction de cet article, les scripts
 multisignatures standard sont limités à 3 clés publiques répertoriées au
 maximum, tandis que les scripts P2SH sont limités à 15 clés publiques
 répertoriées au maximum. Les scripts multisignatures standard peuvent
@@ -9123,7 +9129,7 @@ transaction.
 <span class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
-class="indexterm"></span> Une autre partie importante de la
+class="indexterm"></span>Une autre partie importante de la
 fonctionnalité P2SH est la possibilité d'encoder un hachage de script en
 tant qu'adresse, comme défini dans BIP-13. Les adresses P2SH sont des
 encodages Base58Check du hachage de 20 octets d'un script, tout comme
@@ -9137,8 +9143,8 @@ Base58Check comme une adresse P2SH, devient
 `39RF6JqABiHdYHkfChV6USGMe6Nsr66Gzw`. Nous pouvons le confirmer avec la
 commande `bx` :
 
-    écho \
-    &#39;54c557e07dde5bb6cb791c7a540e0a4796f5e97e&#39;\
+    echo \
+    '54c557e07dde5bb6cb791c7a540e0a4796f5e97e'\
      | bx address-encode -v 5
     39RF6JqABiHdYHkfChV6USGMe6Nsr66Gzw
 
@@ -9173,9 +9179,9 @@ verrouillage des sorties :
     destinataire, pas à l'expéditeur.
 
 -   P2SH déplace la charge de stockage des données pour le script long
-    de la sortie (qui en plus d'être stockée sur la blockchain est dans
-    l'ensemble UTXO) vers l'entrée (uniquement stockée sur la
-    blockchain).
+    de la sortie (qui en plus d'être stockée sur la chaîne de blocs est
+    dans l'ensemble UTXO) vers l'entrée (uniquement stockée sur la
+    chaîne de blocs).
 
 -   P2SH déplace la charge de stockage des données pour le script long
     du moment présent (paiement) à un moment futur (lorsqu'il est
@@ -9192,7 +9198,7 @@ class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span>Avant la version
 0.9.2 du client Bitcoin Core, Pay-to-Script-Hash était limité aux types
 standard de scripts de transaction bitcoin, par la fonction
-`EstStandard()`. Cela signifie que le script d'échange présenté dans la
+`IsStandard()`. Cela signifie que le script d'échange présenté dans la
 transaction de dépenses ne peut être que l'un des types standard : P2PK,
 P2PKH ou multisig.
 
@@ -9201,13 +9207,13 @@ peuvent contenir n'importe quel script valide, ce qui rend la norme P2SH
 beaucoup plus flexible et permet d'expérimenter de nombreux types de
 transactions nouveaux et complexes.
 
-Vous ne pouvez pas mettre un P2SH dans un script de remboursement P2SH,
-car la spécification P2SH n'est pas récursive. Aussi, bien qu'il soit
-techniquement possible d'inclure `RETURN` (voir &lt;&lt;op\_return&gt;
-&gt;) dans un script de rachat, comme rien dans les règles ne vous
-empêche de le faire, cela n'a aucune utilité pratique car l'exécution de
-`RETURN` lors de la validation entraînera le marquage de la transaction
-comme invalide.
+Vous ne pouvez pas mettre un P2SH dans un script de rachat P2SH, car la
+spécification P2SH n'est pas récursive. Aussi, bien qu'il soit
+techniquement possible d'inclure `RETURN` (voir [Sortie d'enregistrement
+de données (RETURN)](#op_return)) dans un script de rachat, comme rien
+dans les règles ne vous empêche de le faire, cela n'a aucune utilité
+pratique car l'exécution de `RETURN` lors de la validation entraînera le
+marquage de la transaction comme invalide.
 
 Notez que, comme le script de rachat n'est pas présenté au réseau tant
 que vous n'essayez pas de dépenser une sortie P2SH, si vous verrouillez
@@ -9229,7 +9235,7 @@ lui-même. La transaction P2SH sera considérée comme valide et acceptée
 même si le script de rachat est invalide. Vous pourriez accidentellement
 verrouiller le bitcoin de telle sorte qu'il ne puisse plus être dépensé.
 
-# Sortie d'enregistrement de données (RETOUR)
+# Sortie d'enregistrement de données (RETURN)
 
 <span class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
@@ -9237,30 +9243,30 @@ class="indexterm"></span><span class="indexterm"></span><span
 class="indexterm"></span><span class="indexterm"></span><span
 class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span>Les bitcoins sont distribués et Le grand livre
-horodaté, la blockchain, a des utilisations potentielles bien au-delà
-des paiements. De nombreux développeurs ont essayé d'utiliser le langage
-de script de transaction pour tirer parti de la sécurité et de la
-résilience du système pour des applications telles que les services de
-notaire numérique, les certificats d'actions et les contrats
+horodaté, la chaîne de blocs, a des utilisations potentielles bien
+au-delà des paiements. De nombreux développeurs ont essayé d'utiliser le
+langage de script de transaction pour tirer parti de la sécurité et de
+la résilience du système pour des applications telles que les services
+de notaire numérique, les certificats d'actions et les contrats
 intelligents. Les premières tentatives d'utilisation du langage de
 script de bitcoin à ces fins impliquaient la création de sorties de
-transaction qui enregistraient des données sur la blockchain ; par
+transaction qui enregistraient des données sur la chaîne de blocs; par
 exemple, pour enregistrer une empreinte digitale d'un fichier de manière
 à ce que n'importe qui puisse établir la preuve de l'existence de ce
 fichier à une date précise par référence à cette transaction.
 
 <span class="indexterm"></span><span class="indexterm"></span><span
 class="indexterm"></span><span class="indexterm"></span>L'utilisation de
-la blockchain de bitcoin pour stocker les données non liées aux
+la chaîne de blocs de Bitcoin pour stocker les données non liées aux
 paiements en bitcoins sont un sujet controversé. De nombreux
 développeurs considèrent cette utilisation abusive et veulent la
 décourager. D'autres y voient une démonstration des puissantes capacités
-de la technologie blockchain et souhaitent encourager une telle
+de la technologie chaîne de blocs et souhaitent encourager une telle
 expérimentation. Ceux qui s'opposent à l'inclusion de données de
-non-paiement soutiennent que cela provoque un "gonflement de la
-blockchain", ce qui impose à ceux qui exécutent des nœuds Bitcoin
-complets de supporter le coût du stockage sur disque pour les données
-que la blockchain n'était pas destinée à transporter. De plus, de telles
+non-paiement soutiennent que cela provoque un "gonflement de la chaîne
+de blocs", ce qui impose à ceux qui exécutent des nœuds Bitcoin complets
+de supporter le coût du stockage sur disque pour les données que la
+chaîne de blocs n'était pas destinée à transporter. De plus, de telles
 transactions créent des UTXO qui ne peuvent pas être dépensés, en
 utilisant l'adresse Bitcoin de destination comme un champ libre de 20
 octets. Parce que l'adresse est utilisée pour les données, elle ne
@@ -9268,23 +9274,23 @@ correspond pas à une clé privée et l'UTXO résultant ne peut *jamais*
 être dépensé ; c'est un faux paiement. Ces transactions qui ne peuvent
 jamais être dépensées ne sont donc jamais supprimées de l'ensemble UTXO
 et entraînent une augmentation permanente de la taille de la base de
-données UTXO, ou "gonflement".
+données UTXO, ou un "gonflement".
 
 Dans la version 0.9 du client Bitcoin Core, un compromis a été trouvé
 avec l'introduction de l'opérateur `RETURN`. `RETURN` permet aux
 développeurs d'ajouter 80 octets de données de non-paiement à une sortie
 de transaction. Cependant, contrairement à l'utilisation de "faux" UTXO,
-l'opérateur `RETURN` crée une sortie explicitement *provably
-unspendable*, qui n'a pas besoin d'être stockée dans l'ensemble UTXO.
-Les sorties `RETURN` sont enregistrées sur la blockchain, elles
+l'opérateur `RETURN` crée une sortie explicitement et *manifestement
+indépensable*, qui n'a pas besoin d'être stockée dans l'ensemble UTXO.
+Les sorties `RETURN` sont enregistrées sur la chaîne de blocs, elles
 consomment donc de l'espace disque et contribuent à l'augmentation de la
-taille de la blockchain, mais elles ne sont pas stockées dans l'ensemble
-UTXO et ne gonflent donc pas le pool de mémoire UTXO et ne surchargent
-pas les nœuds complets avec le coût de RAM plus chère.
+taille de la chaîne de blocs, mais elles ne sont pas stockées dans
+l'ensemble UTXO et ne gonflent donc pas le bassin de mémoire UTXO et ne
+surchargent pas les nœuds complets avec plus de dépenses en RAM.
 
 Les scripts `RETURN` ressemblent à ceci :
 
-    RETOURNER<data>
+    RETURN <data>
 
 <span class="indexterm"></span><span class="indexterm"></span>La portion
 de données est limitée à 80 octets et représente le plus souvent un
@@ -9300,7 +9306,7 @@ correspondant à `RETURN` qui pourrait éventuellement être utilisé pour
 "passer" une sortie `RETURN`. L'intérêt de `RETURN` est que vous ne
 pouvez pas dépenser l'argent bloqué dans cette sortie, et donc il n'a
 pas besoin d'être conservé dans l'ensemble UTXO comme potentiellement
-dépensable - `RETURN` est *provably unspendable*. `RETURN` est
+dépensable - `RETURN` est *manifestement indépensable*. `RETURN` est
 généralement une sortie avec un montant de zéro bitcoin, car tout
 bitcoin attribué à une telle sortie est effectivement perdu à jamais. Si
 un `RETURN` est référencé comme entrée dans une transaction, le moteur
@@ -9318,11 +9324,11 @@ des sorties de tout autre type.
 Deux nouvelles options de ligne de commande ont été ajoutées dans
 Bitcoin Core à partir de la version 0.10. L'option `datacarrier`
 contrôle le relais et l'exploration des transactions `RETURN`, avec la
-valeur par défaut définie sur "1" pour les autoriser. L'option
+valeur par défaut définie à "1" pour les autoriser. L'option
 `datacarriersize` prend un argument numérique spécifiant la taille
 maximale en octets du script `RETURN`, 83 octets par défaut, ce qui
 permet un maximum de 80 octets de données `RETURN` plus un octet
-d'opcode `RETURN` et deux octets de + Opcode PUSHDATA+.
+d'opcode `RETURN` et deux octets de `Opcode PUSHDATA`.
 
 `RETURN` a été initialement proposé avec une limite de 80 octets, mais
 la limite a été réduite à 40 octets lorsque la fonctionnalité a été
@@ -9338,47 +9344,47 @@ class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span> <span class="indexterm"></span><span
-class="indexterm"></span> <span class="indexterm"></span>Les timelocks
-sont des restrictions sur les transactions ou les sorties qui ne
-permettent de dépenser qu'après un certain temps. Bitcoin a eu une
-fonction de verrouillage du temps au niveau de la transaction depuis le
-début. Il est implémenté par le champ `nLocktime` dans une transaction.
-Deux nouvelles fonctionnalités de timelock ont été introduites fin 2015
-et mi-2016 qui offrent des timelocks de niveau UTXO. Ce sont
-`CHECKLOCKTIMEVERIFY` et `CHECKSEQUENCEVERIFY`.
+class="indexterm"></span> <span class="indexterm"></span>Les verrous
+horaires (ou timelocks) sont des restrictions sur les transactions ou
+les sorties qui ne permettent de dépenser qu'après un certain temps.
+Bitcoin a eu une fonction de verrouillage du temps au niveau de la
+transaction depuis le début. Il est implémenté par le champ `nLocktime`
+dans une transaction. Deux nouvelles fonctionnalités de verrou horaire
+ont été introduites fin 2015 et mi-2016 qui offrent des verrous horaires
+de niveau UTXO. Ce sont `CHECKLOCKTIMEVERIFY` et `CHECKSEQUENCEVERIFY`.
 
-Les blocages horaires sont utiles pour postdater les transactions et
+Les verrous horaires sont utiles pour postdater les transactions et
 verrouiller les fonds à une date future. Plus important encore, les
-timelocks étendent les scripts bitcoin dans la dimension du temps,
-ouvrant la porte à des contrats intelligents complexes en plusieurs
-étapes.
+verrous horaires étendent les scripts bitcoin dans la dimension du
+temps, ouvrant la porte à des contrats intelligents complexes en
+plusieurs étapes.
 
 ## Temps de verrouillage des transactions (nLocktime)
 
 <span class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
-class="indexterm"></span>Depuis le début, bitcoin a eu une fonction de
+class="indexterm"></span>Depuis le début, Bitcoin a eu une fonction de
 timelock au niveau de la transaction. L'heure de verrouillage de la
 transaction est un paramètre au niveau de la transaction (un champ dans
 la structure des données de la transaction) qui définit la première
 heure à laquelle une transaction est valide et peut être relayée sur le
-réseau ou ajoutée à la blockchain. Locktime est également connu sous le
-nom de `nLocktime` à partir du nom de variable utilisé dans la base de
-code Bitcoin Core. Il est défini sur zéro dans la plupart des
-transactions pour indiquer une propagation et une exécution immédiates.
-Si `nLocktime` est différent de zéro et inférieur à 500 millions, il est
-interprété comme une hauteur de bloc, ce qui signifie que la transaction
-n'est pas valide et n'est pas relayée ou incluse dans la blockchain
-avant la hauteur de bloc spécifiée. S'il est supérieur ou égal à 500
-millions, il est interprété comme un horodatage Unix Epoch (secondes
-depuis le 1er janvier 1970) et la transaction n'est pas valide avant
-l'heure spécifiée. Les transactions avec `nLocktime` spécifiant un bloc
-ou une heure future doivent être conservées par le système d'origine et
-transmises au réseau Bitcoin uniquement après leur validité. Si une
-transaction est transmise au réseau avant le `nLocktime` spécifié, la
-transaction sera rejetée par le premier nœud comme invalide et ne sera
-pas relayée vers les autres nœuds. L'utilisation de `nLocktime` équivaut
-à postdater un chèque papier.
+réseau ou ajoutée à la chaîne de blocs. Le verrou horaire est également
+connu sous le nom de `nLocktime` à partir du nom de variable utilisé
+dans la base de code Bitcoin Core. Il est défini sur zéro dans la
+plupart des transactions pour indiquer une propagation et une exécution
+immédiates. Si `nLocktime` est différent de zéro et inférieur à 500
+millions, il est interprété comme une hauteur de bloc, ce qui signifie
+que la transaction n'est pas valide et n'est pas relayée ou incluse dans
+la blockchain avant la hauteur de bloc spécifiée. S'il est supérieur ou
+égal à 500 millions, il est interprété comme un horodatage Unix Epoch
+(secondes depuis le 1er janvier 1970) et la transaction n'est pas valide
+avant l'heure spécifiée. Les transactions avec `nLocktime` spécifiant un
+bloc ou une heure future doivent être conservées par le système
+d'origine et transmises au réseau Bitcoin uniquement après leur
+validité. Si une transaction est transmise au réseau avant le
+`nLocktime` spécifié, la transaction sera rejetée par le premier nœud
+comme invalide et ne sera pas relayée vers les autres nœuds.
+L'utilisation de `nLocktime` équivaut à postdater un chèque papier.
 
 ### Limitations du temps de verrouillage des transactions
 
@@ -9420,13 +9426,14 @@ Verify.
 class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
-class="indexterm"></span>En décembre 2015, une nouvelle forme de
-timelock a été introduite dans le bitcoin en tant que soft fork
-améliorer. Basé sur une spécification dans BIP-65, un nouvel opérateur
-de script appelé *CHECKLOCKTIMEVERIFY* (*CLTV*) a été ajouté au langage
-de script. `CLTV` est un timelock par sortie, plutôt qu'un timelock par
-transaction comme c'est le cas avec `nLocktime`. Cela permet une plus
-grande flexibilité dans la manière dont les timelocks sont appliqués.
+class="indexterm"></span>En décembre 2015, une nouvelle forme de verrou
+horaire a été introduite dans le bitcoin en tant qu’embranchement
+convergent (soft fork) amélioré. Basé sur une spécification dans BIP-65,
+le nouvel opérateur de script appelé *CHECKLOCKTIMEVERIFY* (*CLTV*) a
+été ajouté au langage de script. `CLTV` et est un verrou horaire par
+sortie, plutôt qu'un verrou horaire par transaction comme c'est le cas
+avec `nLocktime`. Cela permet une plus grande flexibilité dans la
+manière dont les verrous horaires sont appliqués.
 
 En termes simples, en ajoutant l'opcode `CLTV` dans le script de rachat
 d'une sortie, cela restreint la sortie, de sorte qu'elle ne peut être
@@ -9450,7 +9457,7 @@ de rachat de la sortie dans la transaction qui crée la sortie. Par
 exemple, si Alice paie l'adresse de Bob, la sortie contiendra
 normalement un script P2PKH comme celui-ci :
 
-    DUP HASH160<Bob's Public Key Hash> EQUALVERIFIER CHECKSIG
+    DUP HASH160 &lt;Hachage clé publique de Bob&gt; EQUALVERIFY CHECKSIG
 
 Pour le verrouiller à un moment, disons dans 3 mois, la transaction
 serait une transaction P2SH avec un script de rachat comme celui-ci :
@@ -9482,16 +9489,17 @@ marquant la transaction invalide si (source : BIP-65) :
 
 2.  l'élément du haut de la pile est inférieur à 0 ; ou
 
-3.  le type de timelock (hauteur versus horodatage) de l'élément de la
-    pile supérieure et le champ `nLocktime` ne sont pas les mêmes ; ou
+3.  le type de verrou horaire (hauteur versus horodatage) de l'élément
+    de la pile supérieure et le champ `nLocktime` ne sont pas les
+    mêmes ; ou
 
 4.  l'élément supérieur de la pile est supérieur au champ `nLocktime` de
     la transaction ; ou
 
 5.  le champ `nSequence` de l'entrée est 0xffffffff.
 
-`CLTV` et `nLocktime` utilisent le même format pour décrire les
-timelocks, soit une hauteur de bloc, soit le temps écoulé en secondes
+`CLTV` et `nLocktime` utilisent le même format pour décrire les verrous
+horaires, soit une hauteur de bloc, soit le temps écoulé en secondes
 depuis l'époque Unix. De manière critique, lorsqu'ils sont utilisés
 ensemble, le format de `nLocktime` doit correspondre à celui de `CLTV`
 dans les sorties - ils doivent tous deux référencer soit la hauteur de
@@ -9504,9 +9512,10 @@ suivants. Vous verrez souvent `CHECKLOCKTIMEVERIFY` suivi de `DROP` dans
 les scripts pour cette raison.
 
 En utilisant `nLocktime` conjointement avec `CLTV`, le scénario décrit
-dans &lt;&lt;locktime\_limitations&gt; &gt; changements. Alice ne peut
-plus dépenser l'argent (car il est verrouillé avec la clé de Bob) et Bob
-ne peut pas le dépenser avant l'expiration du temps de verrouillage de 3
+dans [Limitations du temps de verrouillage des
+transactions](#locktime_limitations) changements. Alice ne peut plus
+dépenser l'argent (car il est verrouillé avec la clé de Bob) et Bob ne
+peut pas le dépenser avant l'expiration du temps de verrouillage de 3
 mois.<span class="indexterm"></span> <span class="indexterm"></span>
 
 En introduisant la fonctionnalité timelock directement dans le langage
@@ -9517,40 +9526,41 @@ class="indexterm"></span>
 La norme est définie dans [BIP-65
 (CHECKLOCKTIMEVERIFY)](https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki).
 
-## Timelocks relatifs
+## Verrous horaires relatifs
 
 `nLocktime` et `CLTV` sont <span class="indexterm"></span> <span
 class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
-class="indexterm"></span> les deux *timelocks absolus* en ce sens qu'ils
-spécifient un point absolu dans le temps. Les deux prochaines
-fonctionnalités de timelock que nous examinerons sont des *relative
-timelocks* en ce sens qu'elles spécifient, comme condition de dépense
-d'une sortie, un temps écoulé depuis la confirmation de la sortie dans
-la blockchain.
+class="indexterm"></span>les deux *verrous horaires absolus* en ce sens
+qu'ils spécifient un point absolu dans le temps. Les deux prochaines
+fonctionnalités de verrou horaire que nous examinerons sont des *verrous
+horaires relatifs* en ce sens qu'elles spécifient, comme condition de
+dépense d'une sortie, un temps écoulé depuis la confirmation de la
+sortie dans la chaîne de blocs.
 
 Les verrous temporels relatifs sont utiles car ils permettent de bloquer
 une chaîne de deux transactions interdépendantes ou plus, tout en
 imposant une contrainte de temps sur une transaction qui dépend du temps
 écoulé depuis la confirmation d'une transaction précédente. En d'autres
 termes, l'horloge ne commence pas à compter tant que l'UTXO n'est pas
-enregistré sur la blockchain. Cette fonctionnalité est particulièrement
-utile dans les canaux d'état bidirectionnels et les réseaux Lightning,
-comme nous le verrons dans &lt;&lt;state\_channels&gt; &gt;.
+enregistré sur la chaîne de blocs. Cette fonctionnalité est
+particulièrement utile dans les canaux d'état bidirectionnels et les
+réseaux Lightning, comme nous le verrons dans [???](#state_channels).
 
-Les timelocks relatifs, comme les timelocks absolus, sont implémentés à
-la fois avec une fonctionnalité au niveau de la transaction et un opcode
-au niveau du script. Le verrouillage temporel relatif au niveau de la
-transaction est implémenté comme une règle de consensus sur la valeur de
-`nSequence`, un champ de transaction qui est défini dans chaque entrée
-de transaction. Les timelocks relatifs au niveau du script sont
-implémentés avec l'opcode `CHECKSEQUENCEVERIFY` (CSV).
+Les verrous horaires relatifs, comme les verrous horaires absolus, sont
+implémentés à la fois avec une fonctionnalité au niveau de la
+transaction et un opcode au niveau du script. Le verrouillage temporel
+relatif au niveau de la transaction est implémenté comme une règle de
+consensus sur la valeur de `nSequence`, un champ de transaction qui est
+défini dans chaque entrée de transaction. Les verrous horaires relatifs
+au niveau du script sont implémentés avec l'opcode `CHECKSEQUENCEVERIFY`
+(CSV).
 
 <span class="indexterm"></span> <span class="indexterm"></span><span
-class="indexterm"></span> <span class="indexterm"></span>Relative les
-timelocks sont implémentés conformément aux spécifications de [BIP-68,
-Relative lock-time using consensus-enforced sequence
+class="indexterm"></span> <span class="indexterm"></span>Les verrous
+horaires relatifs sont implémentés conformément aux spécifications de
+[BIP-68, Relative lock-time using consensus-enforced sequence
 numbers](https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki)
 et https://
 github.com/bitcoin/bips/blob/master/bip-0112.mediawiki\[BIP-112,
@@ -9559,12 +9569,13 @@ CHECKSEQUENCEVERIFY\].
 BIP-68 et BIP-112 ont été activés en mai 2016 en tant que mise à niveau
 soft fork des règles de consensus.
 
-## Timelocks relatifs avec nSequence
+## Verrous horaires relatifs avec nSequence
 
 <span class="indexterm"></span><span class="indexterm"></span> <span
-class="indexterm"></span> <span class="indexterm"></span>Des timelocks
-relatifs peuvent être définis sur chaque entrée d'une transaction, en
-définissant le champ `nSequence` dans chaque contribution.
+class="indexterm"></span> <span class="indexterm"></span>Des verrous
+horaires relatifs peuvent être définis sur chaque entrée d'une
+transaction, en définissant le champ `nSequence` dans chaque
+contribution.
 
 ### Signification originale de nSequence
 
@@ -9581,12 +9592,13 @@ serait considérée comme "finalisée" et minée.
 
 La signification originale de `nSequence` n'a jamais été correctement
 implémentée et la valeur de `nSequence` est habituellement définie sur
-0xFFFFFFFF dans les transactions qui n'utilisent pas de timelocks. Pour
-les transactions avec `nLocktime` ou `CHECKLOCKTIMEVERIFY`, la valeur
-`nSequence` doit être inférieure à 2<sup>31</sup> pour que les gardes de
-verrouillage temporel aient un effet, comme expliqué ci-dessous.
+0xFFFFFFFF dans les transactions qui n'utilisent pas de verrous
+horaires. Pour les transactions avec `nLocktime` ou
+`CHECKLOCKTIMEVERIFY`, la valeur `nSequence` doit être inférieure à
+2<sup>31</sup> pour que les gardes de verrou horaire aient un effet,
+comme expliqué ci-dessous.
 
-### nSequence comme un timelock relatif imposé par consensus
+### nSequence comme un verrou horaire relatif imposé par consensus
 
 Depuis l'activation de BIP-68, de nouvelles règles de consensus
 s'appliquent pour toute transaction contenant une entrée dont la valeur
@@ -9599,11 +9611,11 @@ telles que l'activation de `CHECKLOCKTIMEVERIFY`, `nLocktime`,
 Opt-In-Replace-By-Fee et d'autres développements futurs.
 
 Les entrées de transaction avec des valeurs `nSequence` inférieures à
-2<sup>31</sup> sont interprétées comme ayant un timelock relatif. Une
-telle transaction n'est valide qu'une fois que l'entrée a vieilli du
-montant relatif du timelock. Par exemple, une transaction avec une
-entrée avec un timelock relatif `nSequence` de 30 blocs n'est valide que
-lorsqu'au moins 30 blocs se sont écoulés depuis le moment où l'UTXO
+2<sup>31</sup> sont interprétées comme ayant un verrou horaire relatif.
+Une telle transaction n'est valide qu'une fois que l'entrée a vieilli du
+montant relatif du verrou horaire. Par exemple, une transaction avec une
+entrée et un verrou horaire relatif `nSequence` de 30 blocs n'est valide
+que lorsqu'au moins 30 blocs se sont écoulés depuis le moment où l'UTXO
 référencé dans l'entrée a été extrait. Étant donné que `nSequence` est
 un champ par entrée, une transaction peut contenir n'importe quel nombre
 d'entrées verrouillées dans le temps, qui doivent toutes avoir
@@ -9628,7 +9640,7 @@ les drapeaux (bits 32 et 23) sont évalués, la valeur `nSequence` est
 généralement "masquée" avec un masque de 16 bits (par exemple,
 `nSequence` & 0x0000FFFF).
 
-&lt;&lt;bip\_68\_def\_of\_nseq&gt; &gt; montre la disposition binaire de
+[simpara\_title](#bip_68_def_of_nseq) montre la disposition binaire de
 la valeur `nSequence`, telle que définie par BIP-68.
 
 Définition .BIP-68 du codage nSequence (Source : BIP-68) !["Définition
@@ -9641,11 +9653,11 @@ La norme est définie dans [BIP-68, Relative lock-time using
 consensus-enforced sequence
 numbers](https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki).
 
-## Timelocks relatifs avec CSV
+## Verrous horaires relatifs avec CSV
 
 <span class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span>Tout comme CLTV
-et `nLocktime`, il existe un opcode de script pour les timelocks
+et `nLocktime`, il existe un opcode de script pour les verrous temporels
 relatifs qui exploite le Valeur `nSequence` dans les scripts. Cet opcode
 est `CHECKSEQUENCEVERIFY`, communément appelé `CSV` en abrégé.
 
@@ -9667,10 +9679,9 @@ propagées, lorsqu'elles sont conservées "hors chaîne". Une transaction
 enfant ne peut pas être utilisée tant que la transaction parent n'a pas
 été propagée, extraite et vieillie au moment spécifié dans le timelock
 relatif. Une application de ce cas d'utilisation peut être vue dans
-&lt;&lt;state\_channels&gt; &gt; et &lt;&lt;lightning\_network&gt;
-&gt;.<span class="indexterm"></span> <span
-class="indexterm"></span><span class="indexterm"></span> <span
-class="indexterm"></span>
+[???](#state_channels) et [???](#lightning_network).<span
+class="indexterm"></span> <span class="indexterm"></span><span
+class="indexterm"></span> <span class="indexterm"></span>
 
 `CSV` est défini en détail dans [BIP-112,
 CHECKSEQUENCEVERIFY](https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki).
@@ -9678,19 +9689,19 @@ CHECKSEQUENCEVERIFY](https://github.com/bitcoin/bips/blob/master/bip-0112.mediaw
 ## Temps médian passé
 
 <span class="indexterm"></span> <span class="indexterm"></span> <span
-class="indexterm"></span><span class="indexterm"></span>((("timelocks",
-"Median-Tme-Past")) ) Dans le cadre de l'activation des timelocks
-relatifs, il y a également eu un changement dans la façon dont le
-"temps" est calculé pour les timelocks (à la fois absolus et relatifs).
-Dans le bitcoin, il existe une différence subtile, mais très
-significative, entre le temps du mur et le temps du consensus. Bitcoin
-est un réseau décentralisé, ce qui signifie que chaque participant a sa
-propre vision du temps. Les événements sur le réseau ne se produisent
-pas instantanément partout. La latence du réseau doit être prise en
-compte dans la perspective de chaque nœud. Finalement, tout est
-synchronisé pour créer un grand livre commun. Bitcoin atteint un
-consensus toutes les 10 minutes sur l'état du grand livre tel qu'il
-existait dans le passé.
+class="indexterm"></span><span class="indexterm"></span><span
+class="indexterm"></span> <span class="indexterm"></span>Dans le cadre
+de l'activation des verrous temporels relatifs, il y a également eu un
+changement dans la façon dont le "temps" est calculé pour les verrous
+temporels (à la fois absolus et relatifs). Dans le bitcoin, il existe
+une différence subtile, mais très significative, entre le temps du mur
+et le temps du consensus. Bitcoin est un réseau décentralisé, ce qui
+signifie que chaque participant a sa propre vision du temps. Les
+événements sur le réseau ne se produisent pas instantanément partout. La
+latence du réseau doit être prise en compte dans la perspective de
+chaque nœud. Finalement, tout est synchronisé pour créer un grand livre
+commun. Bitcoin atteint un consensus toutes les 10 minutes sur l'état du
+grand livre tel qu'il existait dans le passé.
 
 Les horodatages définis dans les en-têtes de bloc sont définis par les
 mineurs. Il existe un certain degré de latitude autorisé par les règles
@@ -9702,39 +9713,40 @@ verrouillées dans le temps qui ne sont pas encore matures. Voir la
 section suivante pour plus d'informations.
 
 Pour supprimer l'incitation au mensonge et renforcer la sécurité des
-timelocks, un BIP a été proposé et activé en même temps que les BIP des
-timelocks relatifs. Il s'agit de BIP-113, qui définit une nouvelle
-mesure consensuelle du temps appelée *Median-Time-Past*.
+verrous temporels, un BIP a été proposé et activé en même temps que les
+BIP des verrous temporels relatifs. Il s'agit de BIP-113, qui définit
+une nouvelle mesure consensuelle du temps appelée *Median-Time-Past*
+(temps-médian-passé).
 
-Median-Time-Past est calculé en prenant les horodatages des 11 derniers
-blocs et en trouvant la médiane. Ce temps médian devient alors le temps
-de consensus et est utilisé pour tous les calculs de timelock. En
-prenant le point médian d'environ deux heures dans le passé, l'influence
-de l'horodatage de n'importe quel bloc est réduite. En incorporant 11
-blocs, aucun mineur ne peut influencer les horodatages afin de gagner
-des frais sur les transactions avec un timelock qui n'est pas encore
-arrivé à échéance.
+Le Median-Time-Past est calculé en prenant les horodatages des 11
+derniers blocs et en trouvant la médiane. Ce temps médian devient alors
+le temps de consensus et est utilisé pour tous les calculs de verrou
+temporel. En prenant le point médian d'environ deux heures dans le
+passé, l'influence de l'horodatage de n'importe quel bloc est réduite.
+En incorporant 11 blocs, aucun mineur ne peut influencer les horodatages
+afin de gagner des frais sur les transactions avec un verrou temporel
+qui n'est pas encore arrivé à échéance.
 
 Median-Time-Past modifie l'implémentation des calculs de temps pour
 `nLocktime`, `CLTV`, `nSequence` et `CSV`. L'heure de consensus calculée
 par Median-Time-Past est toujours d'environ une heure en retard sur
-l'heure de l'horloge murale. Si vous créez des transactions timelock,
-vous devez en tenir compte lors de l'estimation de la valeur souhaitée à
-encoder dans `nLocktime`, `nSequence`, `CLTV` et `CSV`.
+l'heure de l'horloge murale. Si vous créez des transactions avec verrou
+temporel, vous devez en tenir compte lors de l'estimation de la valeur
+souhaitée à encoder dans `nLocktime`, `nSequence`, `CLTV` et `CSV`.
 
 Median-Time-Past est spécifié dans
 [BIP-113](https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki).
 
-## Défense Timelock contre le sniping
+## Défense contre le "sniping" avec un verrou temporel
 
 <span class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span> <span class="indexterm"></span><span
-class="indexterm"></span>Le sniping est un scénario d'attaque théorique,
-où les mineurs tentant de réécrire des blocs passés "snipe" des frais
-plus élevés transactions des futurs blocs pour maximiser leur
-rentabilité.
+class="indexterm"></span>Le "sniping" ou le "ciblage" est un scénario
+d'attaque théorique, où les mineurs tentant de réécrire des blocs passés
+"snipe" ou "en ciblant" des frais plus élevés transactions des futurs
+blocs pour maximiser leur rentabilité.
 
 Par exemple, disons que le bloc le plus élevé existant est le bloc \#100
 000. Si au lieu d'essayer d'exploiter le bloc \#100 001 pour étendre la
@@ -9755,22 +9767,22 @@ moment donné dans le futur, les frais de transaction représenteront la
 majorité de la récompense minière (ou même l'intégralité de la
 récompense minière). A ce moment-là, ce scénario devient inévitable.
 
-Pour éviter le "fee sniping", lorsque Bitcoin Core crée des
+Pour éviter le "ciblage de frais", lorsque Bitcoin Core crée des
 transactions, il utilise `nLocktime` pour les limiter au "bloc suivant",
 par défaut. Dans notre scénario, Bitcoin Core définirait `nLocktime` sur
 100 001 sur toute transaction créée. Dans des circonstances normales, ce
 `nLocktime` n'a aucun effet - les transactions ne peuvent être incluses
 que dans le bloc \#100 001 de toute façon ; c'est le bloc suivant.
 
-Mais dans le cadre d'une attaque blockchain/double dépense, les mineurs
-ne seraient pas en mesure d'extraire des transactions à frais élevés du
-mempool, car toutes ces transactions seraient bloquées dans le temps
-pour bloquer \#100 001. Ils ne peuvent reminer que \#100 000 avec les
-transactions valides à ce moment-là, ne gagnant essentiellement aucun
-nouveau frais.
+Mais dans le cadre d'une attaque enfourchement de la chaîne de
+blocs/double dépense, les mineurs ne seraient pas en mesure d'extraire
+des transactions à frais élevés du mempool, car toutes ces transactions
+seraient bloquées dans le temps pour bloquer \#100 001. Ils ne peuvent
+reminer que \#100 000 avec les transactions valides à ce moment-là, ne
+gagnant essentiellement aucun nouveau frais.
 
 Pour ce faire, Bitcoin Core définit le `nLocktime` sur toutes les
-nouvelles transactions à&lt;current block \# + 1&gt; et définit la
+nouvelles transactions à &lt;current block \# + 1&gt; et définit la
 `nSequence` sur toutes les entrées à 0xFFFFFFFE pour activer
 `nLocktime`.<span class="indexterm"></span> <span
 class="indexterm"></span>
@@ -9811,9 +9823,9 @@ peuvent contenir des opérateurs booléens tels que `BOOLAND`, `BOOLOR` et
 
 À première vue, vous pouvez trouver les scripts de contrôle de flux du
 bitcoin déroutants. En effet, Bitcoin Script est un langage de pile. De
-la même manière que `1 + 1` semble "en arrière" lorsqu'il est exprimé
-comme `1 1 ADD`, les clauses de contrôle de flux dans bitcoin regardent
-également "en arrière".
+la même manière que `1 + 1` semble "renversé" lorsqu'il est exprimé
+comme `1 1 ADD`, les clauses de contrôle de flux dans bitcoin semblent
+également "renversés".
 
 Dans la plupart des langages de programmation traditionnels
 (procéduraux), le contrôle de flux ressemble à ceci :
@@ -9821,7 +9833,7 @@ Dans la plupart des langages de programmation traditionnels
 **Pseudocode de contrôle de flux dans la plupart des langages de
 programmation**
 
-    si (état):
+    si (condition):
       code à exécuter lorsque la condition est vraie
     autre:
       code à exécuter lorsque la condition est fausse
@@ -9831,14 +9843,14 @@ Dans un langage basé sur la pile comme Bitcoin Script, la condition
 logique vient avant le `IF`, ce qui le fait apparaître "en arrière",
 comme ceci :
 
-Contrôle de flux .Bitcoin Script
+**Contrôle de flux Bitcoin Script**
 
-    état
-    SI
+    condition
+    IF
       code à exécuter lorsque la condition est vraie
-    AUTRE
+    ELSE
       code à exécuter lorsque la condition est fausse
-    FIN SI
+    ENDIF
     code à exécuter dans les deux cas
 
 Lors de la lecture du script Bitcoin, rappelez-vous que la condition
@@ -9864,7 +9876,7 @@ conditions doivent être remplies pour le déverrouiller :
 
 **Un script de rachat avec une clause de garde `EQUALVERIFY`.**
 
-    HASH160<expected hash> EQUALVERIFIER<Bob's Pubkey> CHECKSIG
+    HASH160 <expected hash> EQUALVERIFY <Bob's Pubkey> CHECKSIG
 
 Pour racheter cela, Bob doit construire un script de déverrouillage qui
 présente une pré-image valide et une signature :
@@ -9881,10 +9893,10 @@ Ce script peut être écrit avec un `IF` à la place :
 
 **Un script de rachat avec une clause de garde `IF`**
 
-    HASH160<expected hash> ÉGAL
-    SI
-       <Bob's Pubkey>CHECKSIG
-    FIN SI
+    HASH160 <expected hash> EQUAL
+    IF
+       <Bob's Pubkey> CHECKSIG
+    ENDIF
 
 Le script de déverrouillage de Bob est identique :
 
@@ -9925,11 +9937,11 @@ ou l'autre est en mesure de racheter. Avec multisig, cela serait exprimé
 sous la forme d'un script multisig 1 sur 2. Pour des raisons de
 démonstration, nous ferons la même chose avec une clause `IF` :
 
-    SI
-     <Alice's Pubkey>CHECKSIG
-    AUTRE
-     <Bob's Pubkey>CHECKSIG
-    FIN SI
+    IF
+     <Alice's Pubkey> CHECKSIG
+    ELSE
+     <Bob's Pubkey> CHECKSIG
+    ENDIF
 
 En regardant ce script de rachat, vous vous demandez peut-être : "Où est
 la condition ? Il n'y a rien qui précède la clause `IF` !"
@@ -9940,7 +9952,7 @@ Alice et Bob de "choisir" le chemin d'exécution qu'ils souhaitent.
 
 Alice rachète cela avec le script de déverrouillage :
 
-    <Alice's Sig>1
+    <Alice's Sig> 1
 
 Le `1` à la fin sert de condition (`TRUE`) qui fera que la clause `IF`
 exécutera le premier chemin de rachat pour lequel Alice a une signature.
@@ -9948,7 +9960,7 @@ exécutera le premier chemin de rachat pour lequel Alice a une signature.
 Pour que Bob puisse racheter cela, il devrait choisir le deuxième chemin
 d'exécution en donnant une valeur `FALSE` à la clause `IF` :
 
-    <Bob's Sig>0
+    <Bob's Sig> 0
 
 Le script de déverrouillage de Bob place un `0` sur la pile, ce qui
 oblige la clause `IF` à exécuter le deuxième script (`ELSE`), qui
@@ -9959,15 +9971,15 @@ Puisque les clauses `IF` peuvent être imbriquées, nous pouvons créer un
 fournir une "carte" sélectionnant le chemin d'exécution réellement
 exécuté :
 
-    SI
-      scénario A
-    AUTRE
-      SI
-        scénario B
-      AUTRE
-        scénario C
-      FIN SI
-    FIN SI
+    IF
+      script A
+    ELSE
+      IF
+        script B
+      ELSE
+        script C
+      ENDIF
+    ENDIF
 
 Dans ce scénario, il existe trois chemins d'exécution (`script A`,
 `script B` et `script C`). Le script de déverrouillage fournit un chemin
@@ -10006,36 +10018,36 @@ d'import/export.
 <span class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span> <span class="indexterm"></span><span
-class="indexterm"></span>Dans Dans cet exemple, Mohammed souhaite
-construire un compte de capital d'entreprise avec des règles flexibles.
-Le schéma qu'il crée nécessite différents niveaux d'autorisation en
-fonction des timelocks. Les participants au programme multisig sont
-Mohammed, ses deux partenaires Saeed et Zaira, et leur avocat Abdul. Les
-trois partenaires prennent des décisions basées sur une règle de
-majorité, donc deux des trois doivent être d'accord. Cependant, en cas
-de problème avec leurs clés, ils souhaitent que leur avocat puisse
-récupérer les fonds avec l'une des trois signatures d'associés. Enfin,
-si tous les associés sont indisponibles ou inaptes pendant un certain
-temps, ils souhaitent que l'avocat puisse gérer directement le compte.
+class="indexterm"></span>Dans cet exemple, Mohammed souhaite construire
+un compte de capital d'entreprise avec des règles flexibles. Le schéma
+qu'il crée nécessite différents niveaux d'autorisation en fonction des
+verrous temporels. Les participants au programme multisig sont Mohammed,
+ses deux partenaires Saeed et Zaira, et leur avocat Abdul. Les trois
+partenaires prennent des décisions basées sur une règle de majorité,
+donc deux des trois doivent être d'accord. Cependant, en cas de problème
+avec leurs clés, ils souhaitent que leur avocat puisse récupérer les
+fonds avec l'une des trois signatures d'associés. Enfin, si tous les
+associés sont indisponibles ou inaptes pendant un certain temps, ils
+souhaitent que l'avocat puisse gérer directement le compte.
 
 Voici le script de rachat que Mohammed conçoit pour y parvenir (préfixe
 de numéro de ligne en tant que XX) :
 
-**Variable Multi-Signature avec Timelock**
+**Variable Multi-Signature avec verrou temporel**
 
-    01 SI
-    02 SI
-    03 2
-    04 AUTREMENT
-    05 &lt;30 jours&gt; CHECKSEQUENCEVERIFY DROP
-    06<Abdul the Lawyer's Pubkey> VÉRIFIER VÉRIFIER
-    07 1
-    08 ENDIF
-    09<Mohammed's Pubkey><Saeed's Pubkey><Zaira's Pubkey> 3 CONTRÔLE MULTISIG
-    10 AUTREMENT
-    11 &lt;90 jours&gt; VÉRIFIER LA SÉQUENCE VÉRIFIER LA CHUTE
-    12<Abdul the Lawyer's Pubkey> CHECKSIG
-    13 ENDIF
+    01  IF
+    02    IF
+    03      2
+    04    ELSE
+    05      <30 days> CHECKSEQUENCEVERIFY DROP
+    06      <Abdul the Lawyer's Pubkey> CHECKSIGVERIFY
+    07      1
+    08    ENDIF
+    09    <Mohammed's Pubkey> <Saeed's Pubkey> <Zaira's Pubkey> 3 CHECKMULTISIG
+    10  ELSE
+    11    <90 days> CHECKSEQUENCEVERIFY DROP
+    12    <Abdul the Lawyer's Pubkey> CHECKSIG
+    13  ENDIF
 
 Le script de Mohammed implémente trois chemins d'exécution à l'aide de
 clauses de contrôle de flux imbriquées `IF…ELSE`.
@@ -10043,20 +10055,20 @@ clauses de contrôle de flux imbriquées `IF…ELSE`.
 Dans le premier chemin d'exécution, ce script fonctionne comme un simple
 multisig 2 sur 3 avec les trois partenaires. Ce chemin d'exécution se
 compose des lignes 3 et 9. La ligne 3 définit le quorum du multisig à
-`2` (2-of-3). Ce chemin d'exécution peut être sélectionné en mettant
+`2` (2-de-3). Ce chemin d'exécution peut être sélectionné en mettant
 `TRUE TRUE` à la fin du script de déverrouillage :
 
-**Script de déverrouillage pour le premier chemin d'exécution (2-of-3
+**Script de déverrouillage pour le premier chemin d'exécution (2-de-3
 multisig)**
 
-    0<Mohammed's Sig><Zaira's Sig> VRAI VRAI
+    0 <Mohammed's Sig> <Zaira's Sig> TRUE TRUE
 
 Le `0` au début de ce script de déverrouillage est dû à un bogue dans
 `CHECKMULTISIG` qui extrait une valeur supplémentaire de la pile. La
 valeur supplémentaire est ignorée par le `CHECKMULTISIG`, mais elle doit
 être présente ou le script échoue. Pousser `0` (habituellement) est une
-solution de contournement au bogue, comme décrit dans
-&lt;&lt;multisig\_bug&gt; &gt;.
+solution de contournement au bogue, comme décrit dans [Un bogue dans
+l'exécution de CHECKMULTISIG](#multisig_bug).
 
 Le deuxième chemin d'exécution ne peut être utilisé qu'après 30 jours à
 compter de la création de l'UTXO. À ce moment-là, il faut la signature
@@ -10068,11 +10080,11 @@ déverrouillage se terminerait par `FALSE TRUE` :
 **Script de déverrouillage pour le deuxième chemin d'exécution (Avocat +
 1 sur 3)**
 
-    0<Abdul the Lawyer's Sig><Saeed's Sig> FAUX VRAI
+    0 <Abdul the Lawyer's Sig> <Saeed's Sig> FALSE TRUE
 
 Pourquoi `FAUX VRAI` ? N'est-ce pas à l'envers ? Parce que les deux
 valeurs sont poussées sur la pile, avec `FALSE` poussé en premier, puis
-`TRUE` poussé en second. `TRUE` est donc dépilé *first* par le premier
+`TRUE` poussé en second. `TRUE` est donc dépilé *premier* par le premier
 opcode `IF`.
 
 Enfin, la troisième voie d'exécution permet à Abdul l'avocat de dépenser
@@ -10083,7 +10095,7 @@ chemin d'exécution, le script de déverrouillage doit se terminer par
 **Script de déverrouillage pour le troisième chemin d'exécution (avocat
 uniquement)**
 
-    <Abdul the Lawyer's Sig>FAUX
+    <Abdul the Lawyer's Sig> FALSE
 
 Essayez d'exécuter le script sur papier pour voir comment il se comporte
 sur la pile.
@@ -10111,11 +10123,11 @@ de cet exemple. Voyez si vous pouvez trouver les réponses :
 
 # Témoin séparé
 
-<span class="indexterm"></span> <span
-class="indexterm"></span>Segregated Witness (segwit) est une mise à
-niveau des règles de consensus bitcoin et du protocole réseau, proposée
-et mise en œuvre en tant que soft-fork BIP-9 qui a été activé sur le
-réseau principal de bitcoin le 1er août 2017.
+<span class="indexterm"></span> <span class="indexterm"></span>Le
+Segregated Witness (segwit) ou le "témoin séparé" est une mise à niveau
+des règles de consensus bitcoin et du protocole réseau, proposée et mise
+en œuvre en tant que embranchement convergent BIP-9 qui a été activé sur
+le réseau principal de bitcoin le 1er août 2017.
 
 En cryptographie, le terme « témoin » est utilisé pour décrire une
 solution à un puzzle cryptographique. En termes de bitcoin, le témoin
@@ -10136,18 +10148,17 @@ séparer la signature ou le script de déverrouillage d'une sortie
 spécifique. Pensez "scriptSig séparé" ou "signature séparée" dans sa
 forme la plus simple.
 
-Segregated Witness est donc une modification architecturale du bitcoin
-qui vise à déplacer les données témoins du champ `scriptSig` (script de
-déverrouillage) d'une transaction vers une structure de données
-*witness* distincte qui accompagne une transaction. Les clients peuvent
-demander des données de transaction avec ou sans les données de témoin
-qui les accompagnent.
+Le témoin séparé (Segregated Witness) est donc une modification
+architecturale du bitcoin qui vise à déplacer les données témoins du
+champ `scriptSig` (script de déverrouillage) d'une transaction vers une
+structure de données *témoin* distincte qui accompagne une transaction.
+Les clients peuvent demander des données de transaction avec ou sans les
+données de témoin qui les accompagnent.
 
-Dans cette section, nous examinerons certains des avantages de
-Segregated Witness, décrirons le mécanisme utilisé pour déployer et
-mettre en œuvre ce changement d'architecture et démontrerons
-l'utilisation de Segregated Witness dans les transactions et les
-adresses.
+Dans cette section, nous examinerons certains des avantages du témoin
+séparé, décrirons le mécanisme utilisé pour déployer et mettre en œuvre
+ce changement d'architecture et démontrerons l'utilisation du témoin
+séparé dans les transactions et les adresses.
 
 Le témoin séparé est défini par les BIP suivants :
 
@@ -10159,28 +10170,29 @@ Vérification de la signature des transactions pour le programme témoin
 de la version 0
 
 [BIP-144](https://github.com/bitcoin/bips/blob/master/bip-0144.mediawiki)  
-Peer Services—Nouveaux messages réseau et formats de sérialisation
+Services à pair; Nouveaux messages réseau et formats de sérialisation
 
 [BIP-145](https://github.com/bitcoin/bips/blob/master/bip-0145.mediawiki)  
-getblocktemplate Updates for Segregated Witness (for mining)
+Mises à jour de getblocktemplate pour le témoin séparé Segregated
+Witness (pour minage)
 
 [BIP-173](https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki)  
 Format d'adresse Base32 pour les sorties témoins natives v0-16
 
 ## Pourquoi un témoin séparé ?
 
-Segregated Witness est un changement architectural qui a plusieurs
-effets sur l'évolutivité, la sécurité, les incitations économiques et
-les performances du bitcoin :
+Le témoin séparé est un changement architectural qui a plusieurs effets
+sur l'évolutivité, la sécurité, les incitations économiques et les
+performances du bitcoin :
 
 Malléabilité de transaction  
 En déplaçant le témoin en dehors des données de transaction, le hachage
 de transaction utilisé comme identifiant n'inclut plus les données de
 témoin. Étant donné que les données témoins sont la seule partie de la
-transaction qui peut être modifiée par un tiers (voir
-&lt;&lt;segwit\_txid&gt; &gt;), sa suppression supprime également la
-possibilité d'attaques de malléabilité des transactions. Avec Segregated
-Witness, les hachages de transaction deviennent immuables par toute
+transaction qui peut être modifiée par un tiers (voir [Identifiants de
+transaction](#segwit_txid)), sa suppression supprime également la
+possibilité d'attaques de malléabilité des transactions. Avec le témoin
+séparé, les hachages de transaction deviennent immuables par toute
 personne autre que le créateur de la transaction, ce qui améliore
 considérablement la mise en œuvre de nombreux autres protocoles qui
 reposent sur la construction avancée de transactions bitcoin, tels que
@@ -10188,15 +10200,16 @@ les canaux de paiement, les transactions chaînées et les réseaux
 Lightning.
 
 Gestion des versions de script  
-Avec l'introduction des scripts Segregated Witness, chaque script de
-verrouillage est précédé d'un numéro de *version de script*, similaire à
-la façon dont les transactions et les blocs ont des numéros de version.
-L'ajout d'un numéro de version de script permet au langage de script
-d'être mis à niveau de manière rétrocompatible (c'est-à-dire en
-utilisant des mises à niveau de soft fork) pour introduire de nouveaux
-opérandes de script, syntaxe ou sémantique. La possibilité de mettre à
-niveau le langage de script de manière non perturbatrice accélérera
-considérablement le taux d'innovation dans le bitcoin.
+Avec l'introduction des scripts Segregated Witness (témoin séparé),
+chaque script de verrouillage est précédé d'un numéro de *version de
+script*, similaire à la façon dont les transactions et les blocs ont des
+numéros de version. L'ajout d'un numéro de version de script permet au
+langage de script d'être mis à niveau de manière rétrocompatible
+(c'est-à-dire en utilisant des mises à niveau d’embranchement
+convergent) pour introduire de nouvelles opérandes de script, syntaxe ou
+sémantique. La possibilité de mettre à niveau le langage de script de
+manière non perturbatrice accélérera considérablement le taux
+d'innovation dans le bitcoin.
 
 Mise à l'échelle du réseau et du stockage  
 Les données témoins contribuent souvent de manière importante à la
@@ -10204,15 +10217,15 @@ taille totale d'une transaction. Les scripts plus complexes tels que
 ceux utilisés pour les canaux multisig ou de paiement sont très
 volumineux. Dans certains cas, ces scripts représentent la majorité
 (plus de 75 %) des données d'une transaction. En déplaçant les données
-témoins en dehors des données de transaction, Segregated Witness
-améliore l'évolutivité de Bitcoin. Les nœuds peuvent élaguer les données
-témoins après avoir validé les signatures, ou les ignorer complètement
-lors de la vérification simplifiée des paiements. Les données témoins
-n'ont pas besoin d'être transmises à tous les nœuds et n'ont pas besoin
-d'être stockées sur disque par tous les nœuds.
+témoins en dehors des données de transaction, le témoin séparé améliore
+l'évolutivité de Bitcoin. Les nœuds peuvent élaguer les données témoins
+après avoir validé les signatures, ou les ignorer complètement lors de
+la vérification simplifiée des paiements. Les données témoins n'ont pas
+besoin d'être transmises à tous les nœuds et n'ont pas besoin d'être
+stockées sur disque par tous les nœuds.
 
 Optimisation de la vérification de signature  
-Segregated Witness met à niveau les fonctions de signature (`CHECKSIG`,
+Le témoin séparé met à niveau les fonctions de signature (`CHECKSIG`,
 `CHECKMULTISIG`, etc.) pour réduire la complexité de calcul de
 l'algorithme. Avant segwit, l'algorithme utilisé pour produire une
 signature nécessitait un nombre d'opérations de hachage proportionnel à
@@ -10223,7 +10236,7 @@ nœuds vérifiant la signature. Avec segwit, l'algorithme est modifié pour
 réduire la complexité à O(n).
 
 Amélioration de la signature hors ligne  
-Les signatures de témoins séparés incorporent la valeur (montant)
+Les signatures des témoins séparés incorporent la valeur (montant)
 référencée par chaque entrée dans le hachage qui est signé. Auparavant,
 un dispositif de signature hors ligne, tel qu'un portefeuille matériel,
 devait vérifier le montant de chaque entrée avant de signer une
@@ -10237,10 +10250,10 @@ invalide.
 
 ## Comment fonctionne le témoignage séparé
 
-À première vue, Segregated Witness semble être un changement dans la
+À première vue, le témoignage séparé semble être un changement dans la
 façon dont les transactions sont construites et donc une fonctionnalité
 au niveau de la transaction, mais ce n'est pas le cas. Au lieu de cela,
-Segregated Witness est un changement dans la façon dont les UTXO
+le témoin séparé est un changement dans la façon dont les UTXO
 individuels sont dépensés et est donc une fonctionnalité par sortie.
 
 Une transaction peut dépenser des sorties de témoin séparé ou des
@@ -10252,22 +10265,22 @@ séparés".
 
 Lorsqu'une transaction passe un UTXO, elle doit fournir un témoin. Dans
 un UTXO traditionnel, le script de verrouillage nécessite que les
-données témoins soient fournies *inline* dans la partie d'entrée de la
+données témoins soient fournies *en ligne* dans la partie d'entrée de la
 transaction qui dépense l'UTXO. Un UTXO de témoin séparé, cependant,
 spécifie un script de verrouillage qui peut être satisfait avec des
 données de témoin en dehors de l'entrée (séparées).
 
-## Soft Fork (rétrocompatibilité)
+## Embranchement convergent (rétrocompatibilité)
 
 Le témoin séparé est un changement significatif dans la manière dont les
 sorties et les transactions sont architecturées. Un tel changement
 nécessiterait normalement un changement simultané de chaque nœud et
 portefeuille Bitcoin pour modifier les règles de consensus, ce que l'on
-appelle un hard fork. Au lieu de cela, un témoin séparé est introduit
-avec un changement beaucoup moins perturbateur, qui est rétrocompatible,
-connu sous le nom de soft fork. Ce type de mise à niveau permet aux
-logiciels non mis à niveau d'ignorer les modifications et de continuer à
-fonctionner sans aucune interruption.
+appelle une fourche dure. Au lieu de cela, un témoin séparé est
+introduit avec un changement beaucoup moins perturbateur, qui est
+rétrocompatible, connu sous le nom d’embranchement convergent. Ce type
+de mise à niveau permet aux logiciels non mis à niveau d'ignorer les
+modifications et de continuer à fonctionner sans aucune interruption.
 
 Les sorties de témoins séparés sont construites de manière à ce que les
 systèmes plus anciens qui ne sont pas sensibles au segwit puissent
@@ -10283,44 +10296,45 @@ dans les données de témoin de la transaction.
 ==== Exemples de témoins séparés et exemples de transactions
 
 Examinons quelques-uns de nos exemples de transactions et voyons comment
-ils changeraient avec Segregated Witness. Nous verrons d'abord comment
-un paiement Pay-to-Public-Key-Hash (P2PKH) est transformé avec le
-programme Segregated Witness. Ensuite, nous examinerons l'équivalent de
-Segregated Witness pour les scripts Pay-to-Script-Hash (P2SH). Enfin,
-nous verrons comment les deux programmes Segregated Witness précédents
-peuvent être intégrés dans un script P2SH.
+ils changeraient avec le témoin séparé. Nous verrons d'abord comment un
+paiement Pay-to-Public-Key-Hash (P2PKH) est transformé avec le programme
+de témoignage séparé. Ensuite, nous examinerons l'équivalent des témoins
+séparés pour les scripts Pay-to-Script-Hash (P2SH). Enfin, nous verrons
+comment les deux programmes de témoignage séparé précédents peuvent être
+intégrés dans un script P2SH.
 
 ### Pay-to-Witness-Public-Key-Hash (P2WPKH)
 
-Dans &lt;&lt;cup\_of\_coffee&gt; &gt;, <span class="indexterm"></span>
-<span class="indexterm"></span> <span class="indexterm"></span>Alice a
-créé une transaction pour payer Bob pour une tasse de café. Cette
-transaction a créé une sortie P2PKH d'une valeur de 0,015 BTC pouvant
-être dépensée par Bob. Le script de sortie ressemble à ceci :
+Dans [Acheter une tasse de café](#cup_of_coffee), <span
+class="indexterm"></span> <span class="indexterm"></span> <span
+class="indexterm"></span>Alice a créé une transaction pour payer Bob
+pour une tasse de café. Cette transaction a créé une sortie P2PKH d'une
+valeur de 0,015 BTC pouvant être dépensée par Bob. Le script de sortie
+ressemble à ceci :
 
 **Exemple de script de sortie P2PKH**
 
     DUP HASH160 ab68025513c3dbd2f7b92a94e0581f5d50f654e7 EQUALVERIFY CHECKSIG
 
-Avec Segregated Witness, Alice créerait un script
+Avec le témoin séparé, Alice créerait un script
 Pay-to-Witness-Public-Key-Hash (P2WPKH), qui ressemble à ceci :
 
 **Exemple de script de sortie P2WPKH**
 
     0 ab68025513c3dbd2f7b92a94e0581f5d50f654e7
 
-Comme vous pouvez le voir, le script de verrouillage d'une sortie
-Segregated Witness est beaucoup plus simple qu'une sortie
-traditionnelle. Il se compose de deux valeurs qui sont transmises à la
-pile d'évaluation du script. Pour un ancien client Bitcoin (non
-conscient de la technologie), les deux poussées ressembleraient à une
-sortie que n'importe qui peut dépenser et ne nécessite pas de signature
-(ou plutôt, peut être dépensée avec une signature vide). Pour un client
-segwit plus récent, le premier chiffre (0) est interprété comme un
-numéro de version (la *version témoin*) et la seconde partie (20 octets)
-est l'équivalent d'un script de verrouillage connu sous le nom de
-*programme témoin*. Le programme témoin de 20 octets est simplement le
-hachage de la clé publique, comme dans un script P2PKH.
+Comme vous pouvez le voir, le script de verrouillage d'une sortie de
+témoin séparé est beaucoup plus simple qu'une sortie traditionnelle. Il
+se compose de deux valeurs qui sont transmises à la pile d'évaluation du
+script. Pour un ancien client Bitcoin (non conscient de la technologie),
+les deux poussées ressembleraient à une sortie que n'importe qui peut
+dépenser et ne nécessite pas de signature (ou plutôt, peut être dépensée
+avec une signature vide). Pour un client segwit plus récent, le premier
+chiffre (0) est interprété comme un numéro de version (la *version
+témoin*) et la seconde partie (20 octets) est l'équivalent d'un script
+de verrouillage connu sous le nom de *programme témoin*. Le programme
+témoin de 20 octets est simplement le hachage de la clé publique, comme
+dans un script P2PKH.
 
 Examinons maintenant la transaction correspondante que Bob utilise pour
 dépenser cette sortie. Pour le script d'origine (nonsegwit), la
@@ -10331,14 +10345,14 @@ transaction :
 signature**
 
     [...]
-    « Vin » : [
-    &quot;txid&quot;: &quot;0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2&quot;,
-    &quot;vout&quot;: 0,
-             &quot;scriptSig&quot;: &quot;<Bob’s scriptSig> ”,
+    “Vin” : [
+    "txid": "0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2",
+    "vout": 0,
+             "scriptSig": “<Bob’s scriptSig>”,
     ]
     [...]
 
-Cependant, pour passer la sortie Segregated Witness, la transaction n'a
+Cependant, pour passer la sortie du témoin séparé, la transaction n'a
 pas de signature dans la partie d'entrée. Au lieu de cela, la
 transaction de Bob a un `scriptSig` vide dans les données de transaction
 (la première partie d'une transaction, qui inclut la partie d'entrée) et
@@ -10349,13 +10363,13 @@ transaction, qui est séparée des données de transaction ):
 données témoins séparées**
 
     [...]
-    « Vin » : [
-    &quot;txid&quot;: &quot;0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2&quot;,
-    &quot;vout&quot;: 0,
-             &quot;scriptSig&quot;: &quot;&quot;,
+    “Vin” : [
+    "txid": "0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2",
+    "vout": 0,
+             "scriptSig": “”,
     ]
     [...]
-    &quot;témoin&quot;: &quot;<Bob’s witness data> ”
+    “witness”: “<Bob’s witness data>”
     [...]
 
 ### Construction de portefeuille de P2WPKH
@@ -10370,11 +10384,11 @@ dépenser les sorties P2WPKH.
 De plus, les sorties P2WPKH doivent être construites à partir du hachage
 d'une clé publique *compressée*. Les clés publiques non compressées ne
 sont pas standard dans segwit et peuvent être explicitement désactivées
-par un futur soft fork. Si le hachage utilisé dans le P2WPKH provient
-d'une clé publique non compressée, il peut être inutilisable et vous
-risquez de perdre des fonds. Les sorties P2WPKH doivent être créées par
-le portefeuille du bénéficiaire en dérivant une clé publique compressée
-à partir de sa clé privée.
+par un futur embranchement convergent. Si le hachage utilisé dans le
+P2WPKH provient d'une clé publique non compressée, il peut être
+inutilisable et vous risquez de perdre des fonds. Les sorties P2WPKH
+doivent être créées par le portefeuille du bénéficiaire en dérivant une
+clé publique compressée à partir de sa clé privée.
 
 P2WPKH doit être construit par le bénéficiaire (destinataire) en
 convertissant une clé publique compressée en un hachage P2WPKH. Vous ne
@@ -10386,14 +10400,14 @@ publique non compressée en un script témoin P2WPKH.
 Le <span class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span>deuxième type de programme témoin correspond à
 un script Pay-to-Script-Hash (P2SH). Nous avons vu ce type de script
-dans &lt;&lt;p2sh&gt; &gt;. Dans cet exemple, P2SH a été utilisé par la
-société de Mohammed pour exprimer un script multisignature. Les
-paiements à l'entreprise de Mohammed étaient encodés avec un script de
-verrouillage comme celui-ci :
+dans [Pay-to-Script-Hash (P2SH)](#p2sh). Dans cet exemple, P2SH a été
+utilisé par la société de Mohammed pour exprimer un script
+multisignature. Les paiements à l'entreprise de Mohammed étaient encodés
+avec un script de verrouillage comme celui-ci :
 
 **Exemple de script de sortie P2SH**
 
-    HASH160 54c557e07dde5bb6cb791c7a540e0a4796f5e97e ÉGAL
+    HASH160 54c557e07dde5bb6cb791c7a540e0a4796f5e97e EQUAL
 
 Ce script P2SH fait référence au hachage d'un *script d'échange* qui
 définit une exigence multisignature 2 sur 5 pour dépenser des fonds.
@@ -10405,10 +10419,10 @@ de rachat, le tout dans l'entrée de transaction :
 **Transaction décodée montrant qu'une sortie P2SH est dépensée**
 
     [...]
-    « Vin » : [
-    &quot;txid&quot;: &quot;abcdef12345...&quot;,
-    &quot;vout&quot;: 0,
-             &quot;scriptSig&quot;: &quot;<SigA><SigB> &lt;2 PubA PubB PubC PubD PubE 5 CHECKMULTISIG&gt; »,
+    “Vin” : [
+    "txid": "abcdef12345...",
+    "vout": 0,
+             "scriptSig": “<SigA> <SigB> <2 PubA PubB PubC PubD PubE 5 CHECKMULTISIG>”,
     ]
 
 Maintenant, regardons comment cet exemple entier serait mis à niveau
@@ -10423,7 +10437,7 @@ Pay-to-Witness-Script-Hash (P2WSH) qui ressemblerait à ceci :
 Encore une fois, comme dans l'exemple de P2WPKH, vous pouvez voir que le
 script équivalent Segregated Witness est beaucoup plus simple et omet
 les différents opérandes de script que vous voyez dans les scripts P2SH.
-Au lieu de cela, le programme Segregated Witness se compose de deux
+Au lieu de cela, le programme de témoignage séparé se compose de deux
 valeurs poussées vers la pile : une version témoin (0) et le hachage
 SHA256 de 32 octets du script de rachat.
 
@@ -10432,20 +10446,20 @@ bon script de rachat et suffisamment de signatures pour le satisfaire.
 Le script de rachat et les signatures seraient séparés *en dehors* des
 données de transaction de dépenses dans le cadre des données de témoin.
 Dans l'entrée de transaction, le portefeuille de Mohammed <span
-class="indexterm"></span> <span class="indexterm"></span>portefeuille
-mettrait un `scriptSig` vide :
+class="indexterm"></span> <span class="indexterm"></span>mettrait un
+`scriptSig` vide :
 
 **Transaction décodée montrant une sortie P2WSH dépensée avec des
 données témoins séparées**
 
     [...]
-    « Vin » : [
-    &quot;txid&quot;: &quot;abcdef12345...&quot;,
-    &quot;vout&quot;: 0,
-             &quot;scriptSig&quot;: &quot;&quot;,
+    “Vin” : [
+    "txid": "abcdef12345...",
+    "vout": 0,
+             "scriptSig": “”,
     ]
     [...]
-    &quot;témoin&quot;: &quot;<SigA><SigB> &lt;2 PubA PubB PubC PubD PubE 5 CHECKMULTISIG&gt; »
+    “witness”: “<SigA> <SigB> <2 PubA PubB PubC PubD PubE 5 CHECKMULTISIG>”
     [...]
 
 Alors que P2SH utilise le hachage `RIPEMD160(SHA256(script))` de 20
@@ -10459,13 +10473,14 @@ et P2WSH) en utilisant la longueur du hachage (voir ci-dessous).
 ### Différenciation entre P2WPKH et P2WSH
 
 Dans les deux sections précédentes, nous avons présenté deux types de
-programmes de témoins : &lt;&lt;p2wpkh&gt; &gt; et &lt;&lt;p2wsh&gt;
-&gt;. Les deux types de programmes témoins se composent d'un numéro de
-version à un seul octet suivi d'un hachage plus long. Ils se ressemblent
-beaucoup, mais sont interprétés très différemment : l'un est interprété
-comme un hachage de clé publique, qui est satisfait par une signature et
-l'autre comme un hachage de script, qui est satisfait par un script de
-rachat. La différence critique entre eux est la longueur du hachage :
+programmes de témoins : [Pay-to-Witness-Public-Key-Hash
+(P2WPKH)](#p2wpkh) et [Pay-to-Witness-Script-Hash (P2WSH)](#p2wsh). Les
+deux types de programmes témoins se composent d'un numéro de version à
+un seul octet suivi d'un hachage plus long. Ils se ressemblent beaucoup,
+mais sont interprétés très différemment : l'un est interprété comme un
+hachage de clé publique, qui est satisfait par une signature et l'autre
+comme un hachage de script, qui est satisfait par un script de rachat.
+La différence critique entre eux est la longueur du hachage :
 
 -   Le hachage de clé publique dans P2WPKH est de 20 octets
 
@@ -10479,13 +10494,13 @@ témoin il s'agit, P2WPKH ou P2WSH.
 ## Mise à niveau vers un témoin séparé
 
 Comme nous pouvons le voir dans les exemples précédents, la mise à
-niveau vers Segregated Witness est un processus en deux étapes. Tout
+niveau vers les témoins séparés est un processus en deux étapes. Tout
 d'abord, les portefeuilles doivent créer des sorties spéciales de type
 segwit. Ensuite, ces sorties peuvent être dépensées par des
 portefeuilles qui savent comment construire des transactions de témoin
 séparé. Dans les exemples, le portefeuille d'Alice était sensible au
-segwit et capable de créer des sorties spéciales avec des scripts
-Segregated Witness. Le portefeuille de Bob est également sensible au
+segwit et capable de créer des sorties spéciales avec des scripts de
+témoignage séparés. Le portefeuille de Bob est également sensible au
 segwit et capable de dépenser ces sorties. Ce qui n'est peut-être pas
 évident à partir de l'exemple, c'est qu'en pratique, le portefeuille
 d'Alice doit *savoir* que Bob utilise un portefeuille sensible au segwit
@@ -10549,12 +10564,12 @@ Le portefeuille de Bob construit un programme témoin P2WPKH avec la clé
 publique de Bob. Ce programme témoin est ensuite haché et le hachage
 résultant est encodé sous la forme d'un script P2SH. Le script P2SH est
 converti en une adresse Bitcoin, celle qui commence par un "3", comme
-nous l'avons vu dans le &lt;&lt;p2sh&gt; &gt; rubrique.
+nous l'avons vu dans le [Pay-to-Script-Hash (P2SH)](#p2sh) rubrique.
 
 Le portefeuille de Bob commence par le programme témoin P2WPKH que nous
 avons vu plus tôt :
 
-Programme de témoins P2WPKH de .Bob
+**Programme de témoins P2WPKH de Bob**
 
     0 ab68025513c3dbd2f7b92a94e0581f5d50f654e7
 
@@ -10569,18 +10584,18 @@ Utilisons `bx` sur la ligne de commande pour répliquer cela :
 
 **HASH160 du programme témoin P2WPKH**
 
-    écho \
-    &#39;0 [ab68025513c3dbd2f7b92a94e0581f5d50f654e7]&#39;\
-     | bx script-encoder | bx sha256 | bx mûrmd160
+    echo \
+    '0 [ab68025513c3dbd2f7b92a94e0581f5d50f654e7]'\
+     | bx script-encode | bx sha256 | bx ripemd160
     3e0547268b3b19288b3adef9719ec8659f4b2b0b
 
 Ensuite, le hachage du script de rachat est converti en une adresse
 Bitcoin. Utilisons à nouveau `bx` sur la ligne de commande :
 
-Adresse .P2SH
+**Adresse P2SH**
 
-    écho \
-    &#39;3e0547268b3b19288b3adef9719ec8659f4b2b0b&#39; \
+    echo \
+    '3e0547268b3b19288b3adef9719ec8659f4b2b0b' \
     | bx address-encode -v 5
     37Lx99uaGn5avKBxiW26HjedQE3LrDCZru
 
@@ -10592,7 +10607,7 @@ quelle autre adresse Bitcoin.
 Pour payer Bob, le portefeuille d'Alice verrouillerait la sortie avec un
 script P2SH :
 
-    HASH160 3e0547268b3b19288b3adef9719ec8659f4b2b0b ÉGAL
+    HASH160 3e0547268b3b19288b3adef9719ec8659f4b2b0b EQUAL
 
 Même si le portefeuille d'Alice ne prend pas en charge segwit, le
 paiement qu'il crée peut être dépensé par Bob avec une transaction
@@ -10605,28 +10620,28 @@ script compliqué peut être intégré dans un script et une adresse P2SH,
 permettant à n'importe quel portefeuille d'effectuer des paiements
 compatibles avec segwit.
 
-Comme nous l'avons vu dans &lt;&lt;p2wsh&gt; &gt;, la société de
-Mohammed <span class="indexterm"></span> <span class="indexterm"></span>
-utilise des paiements de témoins séparés avec des scripts
-multisignatures. Pour permettre à tout client de payer son entreprise,
-que ses portefeuilles soient ou non mis à niveau pour segwit, le
-portefeuille de Mohammed peut intégrer le programme témoin P2WSH dans un
-script P2SH.
+Comme nous l'avons vu dans [Pay-to-Witness-Script-Hash (P2WSH)](#p2wsh),
+la société de Mohammed <span class="indexterm"></span> <span
+class="indexterm"></span> utilise des paiements de témoins séparés avec
+des scripts multisignatures. Pour permettre à tout client de payer son
+entreprise, que ses portefeuilles soient ou non mis à niveau pour
+segwit, le portefeuille de Mohammed peut intégrer le programme témoin
+P2WSH dans un script P2SH.
 
 Tout d'abord, le portefeuille de Mohammed hache le script de rachat avec
 SHA256 (une seule fois). Utilisons `bx` pour faire cela sur la ligne de
 commande :
 
-Le portefeuille de .Mohammed crée un programme témoin P2WSH
+**Le portefeuille de Mohammed crée un programme témoin P2WSH**
 
-    écho \
+    echo \
     2 \ [04C16B8698A9ABF84250A7C3EA7EEDEF9897D1C8C6ADF47F06CF73370D74DCCA01CDCA79DCC5C395D7EEC6984D83F1F50C900A24DD47F569FD4193AF5DE762C587] \
-    \
-    \
-    \
-    \
-    5 CONTRÔLE MULTISIG \
-    | bx script-encoder | bx sha256
+    [04A2192968D8655D6A935BEAF2CA23E3FB87A3495E7AF308EDF08DAC3C1FCBFC2C75B4B0F4D0B1B70CD2423657738C0C2B1D5CE65C97D78D0E34224858008E8B49] \
+    [047E63248B75DB7379BE9CDA8CE5751D16485F431E46117B9D0C1837C9D5737812F393DA7D4420D7E1A9162F0279CFC10F1E8E8F3020DECDBC3C0DD389D9977965] \
+    [0421D65CBD7149B255382ED7F78E946580657EE6FDA162A187543A9D85BAAA93A4AB3A8F044DADA618D087227440645ABE8A35DA8C5B73997AD343BE5C2AFD94A5] \
+    [043752580AFA1ECED3C68D446BCAB69AC0BA7DF50D56231BE0AABF1FDEEC78A6A45E394BA29A1EDF518C022DD618DA774D207D137AAB59E0B000EB7ED238F4D800] \
+    5 CHECKMULTISIG \
+    | bx script-encode | bx sha256
     9592d601848d04b172905e0ddb0adde59f1590f1e553ffc81ddc4b0ed927dd73
 
 Ensuite, le script de rachat haché est transformé en un programme témoin
@@ -10641,9 +10656,9 @@ faire cela :
 
 **Le HASH160 du programme témoin P2WSH**
 
-     écho \
-    &#39;0 [9592d601848d04b172905e0ddb0adde59f1590f1e553ffc81ddc4b0ed927dd73]&#39;\
-     | bx script-encoder | bx sha256 | bx mûrmd160
+     echo \
+    '0 [9592d601848d04b172905e0ddb0adde59f1590f1e553ffc81ddc4b0ed927dd73]'\
+     | bx script-encode | bx sha256 | bx ripemd160
     86762607e8fe87c0c37740cddee880988b9455b2
 
 Ensuite, le portefeuille construit une adresse Bitcoin P2SH à partir de
@@ -10652,8 +10667,8 @@ ligne de commande :
 
 **P2SH Adresse bitcoin**
 
-    écho \
-    &#39;86762607e8fe87c0c37740cddee880988b9455b2&#39;\
+    echo \
+    '86762607e8fe87c0c37740cddee880988b9455b2'\
      | bx address-encode -v 5
     3Dwz1MXhM6EfFoJChHCxh1jWHb8GQqRenG
 
@@ -10662,10 +10677,10 @@ cette adresse sans avoir besoin de prendre en charge segwit. Pour
 envoyer un paiement à Mohammed, un portefeuille verrouillerait la sortie
 avec le script P2SH suivant :
 
-Script .P2SH utilisé pour verrouiller les paiements sur le multisig de
-Mohammed
+**Script P2SH utilisé pour verrouiller les paiements sur le multisig de
+Mohammed**
 
-    HASH160 86762607e8fe87c0c37740cddee880988b9455b2 ÉGAL
+    HASH160 86762607e8fe87c0c37740cddee880988b9455b2 EQUAL
 
 La société de Mohammed peut alors construire des transactions segwit
 pour dépenser ces paiements, en tirant parti des fonctionnalités segwit,
@@ -10713,13 +10728,13 @@ une erreur.
 
 De la spécification BIP-173, voici quelques exemples d'adresses bech32 :
 
-Réseau principal P2WPKH  
+Mainnet P2WPKH  
 bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4
 
 Testnet P2WPKH  
 tb1qw508d6qejxtdg4y5r3zarvary0c5xw7kxpjzsx
 
-Réseau principal P2WSH  
+Mainnet P2WSH  
 bc1qrp33g0q5c5txsp9arysrx4k6zdkfs4nce4xj0gdcccefvpysxf3qccfmv3
 
 Testnet P2WSH  
@@ -10743,7 +10758,7 @@ somme de contrôle
 des adresses segwit bech32 natives, mais à mesure que l'adoption de
 segwit augmente, vous les verrez de plus en plus souvent.
 
-&lt;&lt;segwit\_addresses&gt; &gt; affiche les adresses bitcoin
+[table\_title](#segwit_addresses) affiche les adresses bitcoin
 non-segwit (héritées) et segwit.
 
 <table>
@@ -10792,23 +10807,23 @@ non-segwit (héritées) et segwit.
 <td style="text-align: left;"><p>3</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><p>Adresse natif Segwit P2WPKH</p></td>
+<td style="text-align: left;"><p>Adresse native Segwit P2WPKH</p></td>
 <td style="text-align: left;"><p>Bech32</p></td>
 <td style="text-align: left;"><p>bc1</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><p>Adresse natif Segwit Testnet
+<td style="text-align: left;"><p>Adresse native Segwit Testnet
 P2WPKH</p></td>
 <td style="text-align: left;"><p>Bech32</p></td>
 <td style="text-align: left;"><p>tb1</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><p>Adresse natif Segwit P2WSH</p></td>
+<td style="text-align: left;"><p>Adresse native Segwit P2WSH</p></td>
 <td style="text-align: left;"><p>Bech32</p></td>
 <td style="text-align: left;"><p>bc1</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><p>Adresse natif Segwit Testnet
+<td style="text-align: left;"><p>Adresse native Segwit Testnet
 P2WSH</p></td>
 <td style="text-align: left;"><p>Bech32</p></td>
 <td style="text-align: left;"><p>tb1</p></td>
@@ -10820,9 +10835,8 @@ Bitcoin non-segwit (hérité) et adresses segwit
 
 ### Identifiants de transaction
 
-<span class="indexterm"></span>L'un des plus grands avantages de
-Segregated Witness est qu'il élimine la malléabilité des transactions
-tierces.
+<span class="indexterm"></span>L'un des plus grands avantages des témoin
+séparés est qu'il élimine la malléabilité des transactions tierces.
 
 Avant segwit, les transactions pouvaient voir leurs signatures
 subtilement modifiées par des tiers, changeant leur ID de transaction
@@ -10832,12 +10846,12 @@ ainsi que des attaques contre des logiciels de portefeuille mal écrits
 qui supposaient que les hachages de transaction non confirmés étaient
 immuables.
 
-Avec l'introduction de Segregated Witness, les transactions ont deux
-identifiants, `txid` et `wtxid`. L'ID de transaction traditionnel `txid`
-est le hachage double SHA256 de la transaction sérialisée, sans les
-données témoins. Une transaction `wtxid` est le hachage double SHA256 du
-nouveau format de sérialisation de la transaction avec des données
-témoins.
+Avec l'introduction des témoins séparés, les transactions ont deux
+identifiants, `txid` et `wtxid`. L'identifiant de transaction
+traditionnel `txid` est le hachage double SHA256 de la transaction
+sérialisée, sans les données témoins. Une transaction `wtxid` est le
+hachage double SHA256 du nouveau format de sérialisation de la
+transaction avec des données témoins.
 
 Le `txid` traditionnel est calculé exactement de la même manière qu'avec
 une transaction non segwit. Cependant, étant donné qu'une transaction
@@ -10847,14 +10861,14 @@ transaction ne peut être modifiée par un tiers. Par conséquent, dans une
 transaction segwit pure, le `txid` est immuable par un tiers, même
 lorsque la transaction n'est pas confirmée.
 
-Le `wtxid` est comme un ID "étendu", en ce que le hachage incorpore
-également les données du témoin. Si une transaction est transmise sans
-données témoins, alors le `wtxid` et le `txid` sont identiques. Notez
-que puisque le `wtxid` inclut des données témoins (signatures) et que
-les données témoins peuvent être malléables, le `wtxid` doit être
-considéré comme malléable jusqu'à ce que la transaction soit confirmée.
-Seul le `txid` d'une pure transaction segwit peut être considéré comme
-immuable par des tiers.
+Le `wtxid` est comme un identifiant "étendu", en ce que le hachage
+incorpore également les données du témoin. Si une transaction est
+transmise sans données témoins, alors le `wtxid` et le `txid` sont
+identiques. Notez que puisque le `wtxid` inclut des données témoins
+(signatures) et que les données témoins peuvent être malléables, le
+`wtxid` doit être considéré comme malléable jusqu'à ce que la
+transaction soit confirmée. Seul le `txid` d'une pure transaction segwit
+peut être considéré comme immuable par des tiers.
 
 Les transactions de témoin séparé ont deux identifiants : `txid` et
 `wtxid`. Le `txid` est le hachage de la transaction sans les données
@@ -10865,7 +10879,7 @@ malléabilité des transactions tierces.
 
 ## Nouvel algorithme de signature des témoins séparés
 
-Segregated Witness modifie la sémantique des quatre fonctions de
+Le témoin séparé modifie la sémantique des quatre fonctions de
 vérification de signature (`CHECKSIG`, `CHECKSIGVERIFY`, `CHECKMULTISIG`
 et `CHECKMULTISIGVERIFY`), changeant la façon dont un hachage
 d'engagement de transaction est calculé.
@@ -10915,7 +10929,7 @@ avant de signer l'entrée.
 
 Les nœuds miniers Bitcoin et les nœuds complets entraînent des coûts
 pour les ressources utilisées pour prendre en charge le réseau Bitcoin
-et la blockchain. À mesure que le volume de transactions bitcoin
+et la chaîne de blocs. À mesure que le volume de transactions bitcoin
 augmente, le coût des ressources (CPU, bande passante réseau, espace
 disque, mémoire) augmente également. Les mineurs sont indemnisés pour
 ces coûts par des frais proportionnels à la taille (en octets) de chaque
@@ -10938,10 +10952,10 @@ transaction ajoutée au réseau Bitcoin affecte la consommation de quatre
 ressources sur les nœuds :
 
 Espace disque  
-Chaque transaction est stockée dans la blockchain, ajoutant à la taille
-totale de la blockchain. La blockchain est stockée sur disque, mais le
-stockage peut être optimisé en « élaguant » (supprimant) les anciennes
-transactions.
+Chaque transaction est stockée dans la chaîne de blocs, ajoutant à la
+taille totale de la chaîne de blocs. La chaîne de blocs est stockée sur
+disque, mais le stockage peut être optimisé en « élaguant » (supprimant)
+les anciennes transactions.
 
 CPU  
 Chaque transaction doit être validée, ce qui nécessite du temps CPU.
@@ -10988,7 +11002,7 @@ possible dans les transactions, cela peut conduire à la sélection d'UTXO
 et à la modification des stratégies d'adresse qui gonflent par
 inadvertance l'ensemble UTXO.
 
-Les transactions consomment UTXO dans leurs entrées et créent de
+Les transactions consomment les UTXO dans leurs entrées et créent de
 nouveaux UTXO avec leurs sorties. Par conséquent, une transaction qui a
 plus d'entrées que de sorties entraînera une diminution de l'ensemble
 UTXO, tandis qu'une transaction qui a plus de sorties que d'entrées
@@ -11030,13 +11044,13 @@ Frais de transaction B : 10 425 satoshi
 
 Les deux transactions sont moins coûteuses lorsque le témoin séparé est
 mis en œuvre. En comparant les coûts entre les deux transactions, nous
-voyons qu'avant Segregated Witness, la transaction avec le Net-new-UTXO
-positif permet de réaliser d'importantes économies. Avec Segregated
-Witness, la différence de coût diminue considérablement en termes
-absolus et relatifs. Bien qu'il faudrait que les intrants deviennent
-moins chers que les extrants pour inciter à la consolidation de
-l'ensemble UTXO, cette remise réduit l'incitation à créer de nouveaux
-UTXO afin d'éviter d'utiliser plus d'intrants.
+voyons qu'avant le témoin séparé, la transaction avec le Net-new-UTXO
+positif permet de réaliser d'importantes économies. Avec le témoin
+séparé, la différence de coût diminue considérablement en termes absolus
+et relatifs. Bien qu'il faudrait que les intrants deviennent moins chers
+que les extrants pour inciter à la consolidation de l'ensemble UTXO,
+cette remise réduit l'incitation à créer de nouveaux UTXO afin d'éviter
+d'utiliser plus d'intrants.
 
 Segregated Witness a donc deux effets principaux sur les frais payés par
 les utilisateurs de bitcoin. Premièrement, segwit réduit le coût global
