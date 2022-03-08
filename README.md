@@ -3,8 +3,13 @@
 Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs ouverte** (_**Mastering Bitcoin: Programming the Open Blockchain**_ par O'Reilly Media) tel qu'écrit originalement en anglais par _Andreas M. Antonopoulos_, traduit en français (Canada) par _Google Translate API_ et révisé par _Serafim Dos Santos_ avec les termes du [Grand dictionnaire terminologique (GDT)](https://gdt.oqlf.gouv.qc.ca/) de l'[Office qu&eacute;b&eacute;cois de la langue fran&ccedil;aise](https://www.oqlf.gouv.qc.ca/).
 
 ---
+<center>
+<img src="DONE1/images/MB2EO-MY-BANNER_GITHUB.png" alt="Maîtriser Bitcoin: Programmer la chaîne de blocs ouverte" width="96%"/>
+</center>
+
+---
 <center style="font-size:16px;">
-<h2>Mastering Bitcoin - Second Edition</h2>
+<h2><em>Mastering Bitcoin - Second Edition</em></h2>
 <blockquote><br><p>
 La source originale de ces textes est tiré du livre à édition ouverte <strong>Mastering Bitcoin</strong> par <em>Andreas M. Antonopoulos</em> accessible sur GitHub
 </p>
@@ -13,7 +18,7 @@ La source originale de ces textes est tiré du livre à édition ouverte <strong
 </p>
 <p>Ευχαριστώ Ανδρέα!</p><br>
 </blockquote>
-<br>
+<hr>
 <pre>
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!   CE PROJET EST EN DÉVELOPPEMENT   !!!
@@ -21,12 +26,23 @@ La source originale de ces textes est tiré du livre à édition ouverte <strong
 </pre>
 </center>
 
----
-![Maîtriser Bitcoin: Programmer la chaîne de blocs ouverte](DONE1/images/MB2EO-MY-BANNER_GITHUB.png)
+## Feuille de route
+* Traduction
+  - [ ] Phase de traduction (DONE1) : en cours...
+  - [ ] Phase de révision (DONE2) : en attente...
+  - [ ] Phase de conclusion (DONEF) : en attente...
+* Révision
+  - [ ] Phase de révision externe
 
-* Auteur : **Andreas M. Antonopoulos**
-* Traducteur : **Google Translate API**
-* Réviseur : **Serafim Dos Santos**
+<center>
+<hr />
+<h1>Ma&icirc;triser Bitcoin</h1>
+<h2>Programmer la cha&icirc;ne de blocs ouverte</h2>
+<hr />
+<p>Auteur : <b>Andreas M. Antonopoulos</b><br />
+Traducteur : <b>Google Translate API</b><br />
+Réviseur : <b>Serafim Dos Santos</b></p>
+</center>
 
 ---
 1. [Preface](DONE1/html/for_use_mastering-bitcoin_preface-open_fr_CA.html)
@@ -49,15 +65,6 @@ La source originale de ces textes est tiré du livre à édition ouverte <strong
 18. Annexe D - PyCoin
 19. Annexe E - BX
 20. Annexe F - BitCore
-
----
-## Feuille de route
-* Traduction
-  - [ ] Phase de traduction (DONE1) : en cours...
-  - [ ] Phase de révision (DONE2) : en attente...
-  - [ ] Phase de conclusion (DONEF) : en attente...
-* Révision
-  - [ ] Phase de révision externe
 
 ---
 ## Translations
