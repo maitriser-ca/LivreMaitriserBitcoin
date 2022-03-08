@@ -1,23 +1,32 @@
-# Maîtriser Bitcoin, 2ième Édition Ouverte
+# Maîtriser Bitcoin : Programmer la cha&icirc;ne de blocs ouverte, 2ième Édition Ouverte
 
-## Programmer sur la chaîne de blocs ouverte
+Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs ouverte** (_**Mastering Bitcoin: Programming the Open Blockchain**_ par O'Reilly Media) tel qu'écrit originalement en anglais par _Andreas M. Antonopoulos_, traduit en français (Canada) par _Google Translate API_ et révisé par _Serafim Dos Santos_ avec les termes du [Grand dictionnaire terminologique (GDT)](https://gdt.oqlf.gouv.qc.ca/) de l'[Office qu&eacute;b&eacute;cois de la langue fran&ccedil;aise](https://www.oqlf.gouv.qc.ca/).
 
-Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs ouverte** (_**Mastering Bitcoin: Programming the Open Blockchain**_ par O'Reilly Media) tel qu'écrit originalement en anglais par _Andreas M. Antonopoulos_, traduit en français (Canada) par _Google Translate API_ et révisé _Serafim Dos Santos_
+---
+<center style="font-size:16px;">
+<h2>Mastering Bitcoin - Second Edition</h2>
+<blockquote><br><p>
+La source originale de ces textes est tiré du livre à édition ouverte <strong>Mastering Bitcoin</strong> par <em>Andreas M. Antonopoulos</em> accessible sur GitHub
+</p>
+<p>
+👉 <a href="https://github.com/bitcoinbook/bitcoinbook">github.com/bitcoinbook/bitcoinbook</a> 👈
+</p>
+<p>Ευχαριστώ Ανδρέα!</p><br>
+</blockquote>
+<br>
+<pre>
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!   CE PROJET EST EN DÉVELOPPEMENT   !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+</pre>
+</center>
+
+---
+![Maîtriser Bitcoin: Programmer la chaîne de blocs ouverte](DONE1/images/MB2EO-MY-BANNER_GITHUB.png)
 
 * Auteur : **Andreas M. Antonopoulos**
 * Traducteur : **Google Translate API**
 * Réviseur : **Serafim Dos Santos**
-
-![Maîtriser Bitcoin: Programmer la chaîne de blocs ouverte](DONE1/images/MB2EO-MY-BANNER_GITHUB.png)
-
-## Feuille de route
-
-* Traduction
-  - [ ] Phase de traduction (DONE1) : en cours...
-  - [ ] Phase de révision (DONE2) : en attente...
-  - [ ] Phase de conclusion (DONEF) : en attente...
-* Révision
-  - [ ] Phase de révision externe
 
 ---
 1. [Preface](DONE1/html/for_use_mastering-bitcoin_preface-open_fr_CA.html)
@@ -41,14 +50,19 @@ Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs ouverte** (_**Mas
 19. Annexe E - BX
 20. Annexe F - BitCore
 
+---
+## Feuille de route
+* Traduction
+  - [ ] Phase de traduction (DONE1) : en cours...
+  - [ ] Phase de révision (DONE2) : en attente...
+  - [ ] Phase de conclusion (DONEF) : en attente...
+* Révision
+  - [ ] Phase de révision externe
+
+---
 ## Translations
 If you are interested in translating this book, please join a team of volunteers at [www.transifex.com/bitcoinbook/mastering-bitcoin/](https://www.transifex.com/bitcoinbook/mastering-bitcoin/)
 Free copies of "Mastering Bitcoin Open Edition", translated in many languages, can be downloaded from [bitcoinbook.info](https://bitcoinbook.info)
-
-## Mastering Bitcoin - Second Edition
-La source originale de ces textes est tiré du livre à édition ouverte _Mastering Bitcoin_ par Andreas M. Antonopoulos accessible sur GitHub
-
-👉 [github.com/bitcoinbook/bitcoinbook](https://github.com/bitcoinbook/bitcoinbook)
 
 ---
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Cette œuvre est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licence Creative Commons Attribution -  Partage dans les Mêmes Conditions 4.0 International</a>.
