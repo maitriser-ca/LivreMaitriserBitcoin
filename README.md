@@ -36,7 +36,7 @@ Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs ouverte** (_**Mas
 14. Chapitre 12
 15. Annexe A - Le livre blanc du Bitcoin de Satoshi Nakamoto
 16. Annexe B - Script OPs
-17. [Annexe C - BIPs](DONE1/html/for_use_mastering-bitcoin_appendix-bips_fr_CA.html)
+17. [Annexe C - Bitcoin Improvement Proposals (BIPs ou Propositions d’améliorations du Bitcoin)](DONE1/html/for_use_mastering-bitcoin_appendix-bips_fr_CA.html)
 18. Annexe D - PyCoin
 19. Annexe E - BX
 20. Annexe F - BitCore
