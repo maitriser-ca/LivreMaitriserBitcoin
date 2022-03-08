@@ -8,7 +8,7 @@ Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs ouverte** (_**Mas
 </center>
 
 ---
-<center style="font-size:16px;">
+<center style="font-size:1.2em;">
 <h2><em>Mastering Bitcoin - Second Edition</em></h2>
 <blockquote><br><p>
 La source originale de ces textes est tiré du livre à édition ouverte <strong>Mastering Bitcoin</strong> par <em>Andreas M. Antonopoulos</em> accessible sur GitHub
