@@ -30,7 +30,7 @@ include::for_translation_mastering-bitcoin_ch11_fr_CA.asciidoc[]
 
 include::for_translation_mastering-bitcoin_ch12_fr_CA.asciidoc[]
 
-include::for_translation_mastering-bitcoin_appdx-bitcoinwhitepape.asciidoc[]_fr_CA.txt
+include::for_translation_mastering-bitcoin_appdx-bitcoinwhitepape.asciidoc[]
 
 include::for_translation_mastering-bitcoin_appendix-script-ops_fr_CA.asciidoc[]
 
