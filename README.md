@@ -41,7 +41,7 @@ La source originale de ces textes est tiré du livre à édition ouverte <strong
 <h1>Ma&icirc;triser Bitcoin</h1>
 <h2>Programmer la cha&icirc;ne de blocs publique</h2>
 <p>Auteur : <strong>Andreas M. Antonopoulos</strong><br />
-Traducteur : <strong>Google Translate API</strong><br />
+Assistance IA : <strong>Google Translate API</strong><br />
 Réviseur : <strong>Serafim Dos Santos</strong></p>
 </center>
 
@@ -55,12 +55,12 @@ Réviseur : <strong>Serafim Dos Santos</strong></p>
 7. [Chapitre 5 - Portefeuilles](DONE1/html/for_use_mastering-bitcoin_chapter-5_fr_CA.html)
 8. [Chapitre 6 - Opérations](DONE1/html/for_use_mastering-bitcoin_chapter-6_fr_CA.html)
 9. [Chapitre 7 - Transactions et scripts avancés](DONE1/html/for_use_mastering-bitcoin_chapter-7_fr_CA.html)
-10. Chapitre 8
+10. [Chapitre 8 - Le réseau Bitcoin](DONE1/html/for_use_mastering-bitcoin_chapter-8_fr_CA.html)
 11. Chapitre 9
 12. Chapitre 10
 13. Chapitre 11
 14. Chapitre 12
-15. Annexe A - Le livre blanc du Bitcoin de Satoshi Nakamoto
+15. Annexe A - Le livre blanc de Bitcoin de Satoshi Nakamoto
 16. Annexe B - Script OPs
 17. [Annexe C - Bitcoin Improvement Proposals (BIPs ou Propositions d’améliorations du Bitcoin)](DONE1/html/for_use_mastering-bitcoin_appendix-bips_fr_CA.html)
 18. Annexe D - PyCoin
