@@ -57,7 +57,7 @@ Assistance IA : <strong>Google Translate API</strong></p>
 9. [Chapitre 7 - Transactions et scripts avancés](DONE1/html/for_use_mastering-bitcoin_chapter-7_fr_CA.html)
 10. [Chapitre 8 - Le réseau Bitcoin](DONE1/html/for_use_mastering-bitcoin_chapter-8_fr_CA.html)
 11. [Chapitre 9 - La cha&icirc;ne de blocs](DONE1/html/for_use_mastering-bitcoin_chapter-9_fr_CA.html)
-12. [Chapitre 10 - L'exploitation minière](DONE1/html/for_use_mastering-bitcoin_chapter-10_fr_CA.html)
+12. [Chapitre 10 - Minage et Consensus](DONE1/html/for_use_mastering-bitcoin_chapter-10_fr_CA.html)
 13. Chapitre 11
 14. Chapitre 12
 15. Annexe A - Le livre blanc de Bitcoin de Satoshi Nakamoto
