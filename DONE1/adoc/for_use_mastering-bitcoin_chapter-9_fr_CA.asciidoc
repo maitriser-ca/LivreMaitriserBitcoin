@@ -1,5 +1,5 @@
-[[chaîne de blocs]]
-== La Blockchain
+[[blockchain]]
+== La cha&icirc;ne de blocs]
 
 === Présentation
 
