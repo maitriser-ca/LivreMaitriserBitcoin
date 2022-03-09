@@ -41,8 +41,8 @@ La source originale de ces textes est tiré du livre à édition ouverte <strong
 <h1>Ma&icirc;triser Bitcoin</h1>
 <h2>Programmer la cha&icirc;ne de blocs publique</h2>
 <p>Auteur : <strong>Andreas M. Antonopoulos</strong><br />
-Assistance IA : <strong>Google Translate API</strong><br />
-Traducteur : <strong>Serafim Dos Santos</strong></p>
+Traducteur : <strong>Serafim Dos Santos</strong><br />
+Assistance IA : <strong>Google Translate API</strong></p>
 </center>
 
 ---
@@ -56,7 +56,7 @@ Traducteur : <strong>Serafim Dos Santos</strong></p>
 8. [Chapitre 6 - Opérations](DONE1/html/for_use_mastering-bitcoin_chapter-6_fr_CA.html)
 9. [Chapitre 7 - Transactions et scripts avancés](DONE1/html/for_use_mastering-bitcoin_chapter-7_fr_CA.html)
 10. [Chapitre 8 - Le réseau Bitcoin](DONE1/html/for_use_mastering-bitcoin_chapter-8_fr_CA.html)
-11. Chapitre 9
+11. [Chapitre 9 - La cha&icirc;ne de blocs](DONE1/html/for_use_mastering-bitcoin_chapter-9_fr_CA.html)
 12. Chapitre 10
 13. Chapitre 11
 14. Chapitre 12
