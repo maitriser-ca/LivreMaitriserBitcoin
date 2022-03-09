@@ -45,7 +45,7 @@ Traducteur : <strong>Serafim Dos Santos</strong></p>
 </center>
 
 ---
-1. [Preface](DONE1/html/for_use_mastering-bitcoin_preface-open_fr_CA.html)
+1. [Préface](DONE1/html/for_use_mastering-bitcoin_preface-open_fr_CA.html)
 2. [Glossaire](DONE1/html/for_use_mastering-bitcoin_glossary-1_fr_CA.html)
 3. [Chapitre 1 - Introduction](DONE1/html/for_use_mastering-bitcoin_chapter-1_fr_CA.html)
 4. [Chapitre 2 - Comment fonctionne Bitcoin](DONE1/html/for_use_mastering-bitcoin_chapter-2_fr_CA.html)
