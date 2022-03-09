@@ -1,0 +1,392 @@
+[[chaîne de blocs]]
+== La Blockchain
+
+=== Présentation
+
+(((&quot;blockchain (the)&quot;, &quot;overview of&quot;))) La structure de données de la blockchain est une liste ordonnée et reliée en retour de blocs de transactions. La blockchain peut être stockée sous forme de fichier plat ou dans une simple base de données. Le client Bitcoin Core stocke les métadonnées de la blockchain à l&#39;aide de la base de données LevelDB de Google. Les blocs sont liés &quot;en arrière&quot;, chacun se référant au bloc précédent dans la chaîne. (((&quot;blocks&quot;, &quot;block height&quot;)))La blockchain est souvent visualisée comme une pile verticale, avec des blocs superposés les uns sur les autres et le premier bloc servant de base à la pile. La visualisation de blocs empilés les uns sur les autres entraîne l&#39;utilisation de termes tels que &quot;hauteur&quot; pour désigner la distance par rapport au premier bloc, et &quot;haut&quot; ou &quot;pointe&quot; pour désigner le bloc le plus récemment ajouté.
+
+(((&quot;blocs&quot;, &quot;hachage de bloc&quot;)))(((&quot;blocs&quot;, &quot;bloc de genèse&quot;)))(((&quot;blocs&quot;, &quot;blocs parents&quot;)))(((&quot;bloc de genèse&quot;) ))(((&quot;blocs parents&quot;)))Chaque bloc de la blockchain est identifié par un hachage, généré à l&#39;aide de l&#39;algorithme de hachage cryptographique SHA256 sur l&#39;en-tête du bloc. Chaque bloc fait également référence à un bloc précédent, connu sous le nom de bloc _parent_, via le champ &quot;hachage de bloc précédent&quot; dans l&#39;en-tête de bloc. En d&#39;autres termes, chaque bloc contient le hachage de son parent dans son propre en-tête. La séquence de hachages reliant chaque bloc à son parent crée une chaîne remontant jusqu&#39;au premier bloc jamais créé, connu sous le nom de _genesis block_.
+
+Bien qu&#39;un bloc n&#39;ait qu&#39;un seul parent, il peut temporairement avoir plusieurs enfants. Chacun des enfants fait référence au même bloc que son parent et contient le même hachage (parent) dans le champ &quot;hachage du bloc précédent&quot;. Plusieurs enfants apparaissent lors d&#39;un &quot;fork&quot; de blockchain, une situation temporaire qui se produit lorsque différents blocs sont découverts presque simultanément par différents mineurs (voir &lt;<forks> &gt;). Finalement, un seul bloc enfant devient une partie de la blockchain et le &quot;fork&quot; est résolu. Même si un bloc peut avoir plusieurs enfants, chaque bloc ne peut avoir qu&#39;un seul parent. En effet, un bloc a un seul champ &quot;hachage de bloc précédent&quot; faisant référence à son parent unique.
+
+Le champ &quot;hachage du bloc précédent&quot; se trouve à l&#39;intérieur de l&#39;en-tête du bloc et affecte ainsi le hachage du bloc _current_. La propre identité de l&#39;enfant change si l&#39;identité du parent change. Lorsque le parent est modifié de quelque manière que ce soit, le hachage du parent change. Le hachage modifié du parent nécessite une modification du pointeur &quot;hachage de bloc précédent&quot; de l&#39;enfant. Cela entraîne à son tour la modification du hachage de l&#39;enfant, ce qui nécessite une modification du pointeur du petit-enfant, qui à son tour modifie le petit-enfant, et ainsi de suite. Cet effet de cascade garantit qu&#39;une fois qu&#39;un bloc est suivi de plusieurs générations, il ne peut pas être modifié sans forcer un recalcul de tous les blocs suivants. Parce qu&#39;un tel recalcul nécessiterait un calcul énorme (et donc une consommation d&#39;énergie), l&#39;existence d&#39;une longue chaîne de blocs rend immuable l&#39;historique profond de la blockchain, ce qui est une caractéristique clé de la sécurité du bitcoin.
+
+Une façon de penser à la blockchain est comme des couches dans une formation géologique ou un échantillon de carotte de glacier. Les couches de surface peuvent changer avec les saisons, voire être soufflées avant d&#39;avoir le temps de s&#39;installer. Mais dès que l&#39;on descend à quelques centimètres de profondeur, les couches géologiques deviennent de plus en plus stables. Au moment où vous regardez quelques centaines de mètres plus bas, vous regardez un instantané du passé qui est resté intact pendant des millions d&#39;années. Dans la blockchain, les quelques blocs les plus récents peuvent être révisés s&#39;il y a un recalcul en chaîne dû à un fork. Les six premiers blocs sont comme quelques centimètres de terre arable. Mais une fois que vous allez plus profondément dans la blockchain, au-delà de six blocs, les blocs sont de moins en moins susceptibles de changer. (((&quot;transactions&quot;, &quot;coinbase transactions&quot;)))(((&quot;coinbase transactions&quot;)))Après 100 blocs de retour, il y a tellement de stabilité que la transaction coinbase - la transaction contenant le bitcoin nouvellement extrait - peut être dépensée. Quelques milliers de blocs en arrière (un mois) et la blockchain est une histoire établie, à toutes fins pratiques. Alors que le protocole permet toujours à une chaîne d&#39;être annulée par une chaîne plus longue et alors que la possibilité qu&#39;un bloc soit inversé existe toujours, la probabilité d&#39;un tel événement diminue au fil du temps jusqu&#39;à ce qu&#39;elle devienne infinitésimale.
+
+=== Structure d&#39;un bloc
+
+(((&quot;blocs&quot;, &quot;structure de&quot;)))(((&quot;blockchain (la)&quot;, &quot;structure de bloc&quot;))) Un bloc est une structure de données de conteneur qui agrège les transactions pour les inclure dans le grand livre public, la blockchain . Le bloc est composé d&#39;un en-tête, contenant des métadonnées, suivi d&#39;une longue liste de transactions qui constituent l&#39;essentiel de sa taille. L&#39;en-tête de bloc est de 80 octets, alors que la transaction moyenne est d&#39;au moins 400 octets et que le bloc moyen contient plus de 1900 transactions. Un bloc complet, avec toutes les transactions, est donc 10 000 fois plus grand que l&#39;en-tête du bloc. &lt;<block_structure1> &gt; décrit la structure d&#39;un bloc.
+
+[[block_structure1]]
+[role=&quot;pagebreak-before&quot;]
+.La structure d&#39;un bloc
+[options=&quot;en-tête&quot;]
+|=======
+|Taille| Champ | La description
+| 4 octets | Taille de bloc | La taille du bloc, en octets, suivant ce champ
+| 80 octets | En-tête de bloc | Plusieurs champs forment l&#39;en-tête du bloc
+| 1–9 octets (VarInt) | Compteur de transactions | Combien de transactions suivent
+| variables | Transactions | Les transactions enregistrées dans ce bloc
+|=======
+
+[[block_header]]
+=== En-tête de bloc
+
+(((&quot;blocks&quot;, &quot;headers&quot;)))(((&quot;blockchain (the)&quot;, &quot;block headers&quot;)))(((&quot;headers&quot;)))L&#39;en-tête de bloc se compose de trois ensembles de métadonnées de bloc. Tout d&#39;abord, il y a une référence à un hachage de bloc précédent, qui connecte ce bloc au bloc précédent dans la blockchain. Le deuxième ensemble de métadonnées, à savoir _difficulty_, _timestamp_ et _nonce_, concerne la concurrence minière, comme détaillé dans &lt;<mining> &gt;. La troisième métadonnée est la racine de l&#39;arbre merkle, une structure de données utilisée pour résumer efficacement toutes les transactions du bloc. &lt;<block_header_structure_ch09> &gt; décrit la structure d&#39;un en-tête de bloc.
+
+
+[[block_header_structure_ch09]]
+.La structure de l&#39;entête du bloc
+[options=&quot;en-tête&quot;]
+|=======
+|Taille| Champ | La description
+| 4 octets | Version | Un numéro de version pour suivre les mises à niveau du logiciel/protocole
+| 32 octets | Hachage de bloc précédent | Une référence au hachage du bloc précédent (parent) dans la chaîne
+| 32 octets | Racine de Merkel | Un hachage de la racine de l&#39;arbre Merkle des transactions de ce bloc
+| 4 octets | Horodatage | Le temps de création approximatif de ce bloc (en secondes écoulées depuis Unix Epoch)
+| 4 octets | Cible de difficulté | La cible de difficulté de l&#39;algorithme Proof-of-Work pour ce bloc
+| 4 octets | Nonce | Un compteur utilisé pour l&#39;algorithme Proof-of-Work
+|=======
+
+Le nonce, la cible de difficulté et l&#39;horodatage sont utilisés dans le processus d&#39;extraction et seront discutés plus en détail dans &lt;<mining> &gt;.
+
+[[block_hash]]
+=== Identificateurs de bloc : hachage d&#39;en-tête de bloc et hauteur de bloc
+
+(((&quot;blockchain (the)&quot;, &quot;block identifiers&quot;)))(((&quot;blocks&quot;, &quot;block height&quot;)))(((&quot;blocks&quot;, &quot;block hash&quot;)))L&#39;identifiant primaire d&#39;un block est son hachage cryptographique, une empreinte digitale, réalisée en hachant deux fois l&#39;en-tête du bloc via l&#39;algorithme SHA256. Le hachage de 32 octets résultant est appelé _hachage de bloc_ mais est plus précisément le _hachage d&#39;en-tête de bloc_, passez :[ <span role="keep-together">car seul l&#39;en-tête de bloc est utilisé pour le calculer. Par exemple,</span> ] +000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f+ est le hachage de bloc du premier bloc bitcoin jamais créé. Le hachage de bloc identifie un bloc de manière unique et sans ambiguïté et peut être dérivé indépendamment par n&#39;importe quel nœud en double hachant simplement l&#39;en-tête de bloc avec l&#39;algorithme SHA256.
+
+Notez que le hachage de bloc n&#39;est pas réellement inclus dans la structure de données du bloc, ni lorsque le bloc est transmis sur le réseau, ni lorsqu&#39;il est stocké sur le stockage de persistance d&#39;un nœud dans le cadre de la blockchain. Au lieu de cela, le hachage du bloc est calculé par chaque nœud lorsque le bloc est reçu du réseau. Le hachage de bloc peut être stocké dans une table de base de données distincte dans le cadre des métadonnées du bloc, pour faciliter l&#39;indexation et une récupération plus rapide des blocs à partir du disque.
+
+Une deuxième façon d&#39;identifier un bloc est par sa position dans la blockchain, appelée le pass:[ <span role="keep-together"><em>block height</em> . Le premier bloc jamais créé est à la hauteur de bloc 0 (zéro) et est le</span> ] pass:[ <span role="keep-together">même bloc qui était précédemment référencé par le hachage de bloc suivant</span> ] +000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f+. Un bloc peut ainsi être identifié de deux manières : en référençant le hachage du bloc ou en référençant la hauteur du bloc. Chaque bloc suivant ajouté &quot;au-dessus&quot; de ce premier bloc est une position &quot;plus élevée&quot; dans la blockchain, comme des boîtes empilées les unes sur les autres.
+
+De plus, le terme _hauteur de bloc actuelle_ indique la taille de la blockchain en blocs à un moment donné. Par exemple, la hauteur actuelle du bloc au 1er mars 2021 était d&#39;environ 672 722, ce qui signifie qu&#39;il y avait 672 722 blocs empilés au-dessus du premier bloc créé en janvier 2009.
+
+Contrairement au hachage de bloc, la hauteur de bloc n&#39;est pas un identifiant unique. Bien qu&#39;un seul bloc ait toujours une hauteur de bloc spécifique et invariante, l&#39;inverse n&#39;est pas vrai : la hauteur de bloc n&#39;identifie pas toujours un seul bloc. Deux ou plusieurs blocs peuvent avoir la même hauteur de bloc, en concurrence pour la même position dans la blockchain. Ce scénario est décrit en détail dans la section &lt;<forks> &gt;. La hauteur de bloc ne fait pas non plus partie de la structure de données du bloc ; il n&#39;est pas stocké dans le bloc. Chaque nœud identifie dynamiquement la position (hauteur) d&#39;un bloc dans la blockchain lorsqu&#39;il est reçu du réseau Bitcoin. La hauteur de bloc peut également être stockée sous forme de métadonnées dans une table de base de données indexée pour une récupération plus rapide.
+
+[POINTE]
+====
+Le _hachage de bloc_ d&#39;un bloc identifie toujours un seul bloc de manière unique. Un bloc a également toujours une _hauteur de bloc_ spécifique. Cependant, il n&#39;est pas toujours vrai qu&#39;une hauteur de bloc spécifique puisse identifier un seul bloc. Au contraire, deux blocs ou plus pourraient se disputer une seule position dans la blockchain.
+====
+
+=== Le bloc Genesis
+
+(((&quot;blocks&quot;, &quot;genesis block&quot;)))(((&quot;blockchain (the)&quot;, &quot;genesis block&quot;))) Le premier bloc de la blockchain est appelé le bloc genesis et a été créé en 2009. Il est l&#39;ancêtre commun de tous les blocs de la blockchain, ce qui signifie que si vous commencez à n&#39;importe quel bloc et suivez la chaîne en arrière dans le temps, vous finirez par arriver au bloc de genèse.
+
+Chaque nœud commence toujours par une blockchain d&#39;au moins un bloc car le bloc de genèse est encodé de manière statique dans le logiciel client Bitcoin, de sorte qu&#39;il ne peut pas être modifié. Chaque nœud &quot;connaît&quot; toujours le hachage et la structure du bloc de genèse, l&#39;heure fixe à laquelle il a été créé et même la transaction unique qu&#39;il contient. Ainsi, chaque nœud a le point de départ de la blockchain, une &quot;racine&quot; sécurisée à partir de laquelle construire une blockchain de confiance.
+
+Voir le bloc de genèse encodé statiquement à l&#39;intérieur du client Bitcoin Core, dans https://bit.ly/1x6rcwP[_chainparams.cpp_].
+
+Le hachage d&#39;identifiant suivant appartient au bloc genesis :
+
+----
+000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
+----
+
+Vous pouvez rechercher ce hachage de bloc sur n&#39;importe quel site Web d&#39;explorateur de blocs, tel que _Blockchain.com_, et vous trouverez une page décrivant le contenu de ce bloc, avec une URL contenant ce hachage :
+
+https://www.blockchain.com/btc/block/000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
+
+Utilisation du client de référence Bitcoin Core sur la ligne de commande :
+
+----
+$ bitcoin-cli getblock 000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
+----
+[source,json]
+----
+{
+    &quot;hachage&quot; : &quot;000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f&quot;,
+    &quot;confirmations&quot; : 308321,
+    &quot;taille&quot; : 285,
+    &quot;hauteur&quot; : 0,
+    &quot;version 1,
+    &quot;merkleroot&quot; : &quot;4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b&quot;,
+    &quot;tx&quot; : [
+        &quot;4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b&quot;
+    ],
+    &quot;heure&quot; : 1231006505,
+    &quot;nonce&quot; : 2083236893,
+    &quot;bits&quot; : &quot;1d00ffff&quot;,
+    &quot;difficulté&quot; : 1.00000000,
+    &quot;nextblockhash&quot; : &quot;00000000839a8e6886ab5951d76f411475428afc90947ee320161bbf18eb6048&quot;
+}
+----
+
+Le bloc de genèse contient un message caché en son sein. L&#39;entrée de transaction coinbase contient le texte &quot;Le chancelier du Times 03/Jan/2009 au bord d&#39;un deuxième plan de sauvetage pour les banques&quot;. Ce message était destiné à offrir une preuve de la date la plus ancienne de création de ce bloc, en faisant référence au titre du journal britannique _The Times_. Il sert également de rappel ironique de l&#39;importance d&#39;un système monétaire indépendant, le lancement du bitcoin se produisant en même temps qu&#39;une crise monétaire mondiale sans précédent. Le message a été intégré dans le premier bloc par Satoshi Nakamoto, le créateur de Bitcoin.
+
+=== Relier les blocs dans la Blockchain
+
+(((&quot;blocs&quot;, &quot;blocs de liaison dans la blockchain&quot;)))(((&quot;blockchain (la)&quot;, &quot;blocs de liaison dans la blockchain&quot;)))Les nœuds complets Bitcoin conservent une copie locale de la blockchain, à partir de le bloc de genèse. La copie locale de la blockchain est constamment mise à jour au fur et à mesure que de nouveaux blocs sont trouvés et utilisés pour étendre la chaîne. Lorsqu&#39;un nœud reçoit des blocs entrants du réseau, il validera ces blocs, puis les reliera à la blockchain existante. Pour établir un lien, un nœud examinera l&#39;en-tête de bloc entrant et recherchera le &quot;hachage de bloc précédent&quot;.
+
+Supposons, par exemple, qu&#39;un nœud ait 277 314 blocs dans la copie locale de la blockchain. Le dernier bloc dont le nœud a connaissance est le bloc 277 314, avec un hachage d&#39;en-tête de bloc :
+
+----
+00000000000000027e7ba6fe7bad39faf3b5a83daed765f05f7d1b71a1632249
+----
+
+Le nœud Bitcoin reçoit alors un nouveau bloc du réseau, qu&#39;il parse comme suit :
+
+[source,json]
+----
+{
+    &quot;taille&quot; : 43560,
+    &quot;version 2,
+    &quot;précédentblockhash&quot; :
+        &quot;00000000000000027e7ba6fe7bad39faf3b5a83daed765f05f7d1b71a1632249&quot;,
+    &quot;merkleroot&quot; :
+        &quot;5e049f4030e0ab2debb92378f53c0a6e09548aea083f3ab25e1d94ea1155e29d&quot;,
+    &quot;heure&quot; : 1388185038,
+    &quot;difficulté&quot; : 1180923195.25802612,
+    &quot;nonce&quot; : 4215469401,
+    &quot;tx&quot; : [
+        &quot;257e7497fb8bc68421eb2c7b699dbab234831600e7352f0d9e6522c7cf3f6c77&quot;,
+
+ #[... beaucoup plus de transactions omises ...]
+
+        &quot;05cfd38f6ae6aa83674cc99e4d75a1458c165b7ab84725eda41d018a09176634&quot;
+    ]
+}
+----
+
+En regardant ce nouveau bloc, le nœud trouve le champ +previousblockhash+, qui contient le hachage de son bloc parent. Il s&#39;agit d&#39;un hachage connu du nœud, celui du dernier bloc de la chaîne à la hauteur 277,314. Par conséquent, ce nouveau bloc est un enfant du dernier bloc de la chaîne et étend la blockchain existante. Le nœud ajoute ce nouveau bloc à la fin de la chaîne, rendant la blockchain plus longue avec une nouvelle hauteur de 277 315. &lt;<chain_of_blocks> &gt; montre la chaîne de trois blocs, liés par des références dans le champ +previousblockhash+.
+
+
+[[merkle_trees]]
+=== Arbres Merkel
+
+(((&quot;merkle trees&quot;, id=&quot;merkle09&quot;)))(((&quot;blockchain (the)&quot;, &quot;merkle trees&quot;, id=&quot;BCTmerkle09&quot;)))Chaque bloc de la blockchain Bitcoin contient un résumé de tous les transactions dans le bloc à l&#39;aide d&#39;un _merkle tree_.
+
+(((&quot;arbres de hachage binaires&quot;, voir=&quot;arbres merkle&quot;)))Un _arbre merkle_, également appelé _arbre de hachage binaire_, est une structure de données utilisée pour résumer et vérifier efficacement l&#39;intégrité de grands ensembles de données. Les arbres Merkle sont des arbres binaires contenant des hachages cryptographiques. Le terme &quot;arbre&quot; est utilisé en informatique pour décrire une structure de données ramifiée, mais ces arbres sont généralement affichés à l&#39;envers avec la &quot;racine&quot; en haut et les &quot;feuilles&quot; en bas d&#39;un diagramme, comme vous le verrez dans les exemples qui suivent.
+
+[[chaîne_de_blocs]]
+[rôle=&quot;smallerfourtyfive&quot;]
+.Blocs liés dans une chaîne par référence au hachage d&#39;en-tête de bloc précédent
+image::images/mbc2_0901.png[]
+
+Les arbres Merkle sont utilisés dans Bitcoin pour résumer toutes les transactions d&#39;un bloc, produisant une empreinte numérique globale de l&#39;ensemble des transactions, fournissant un processus très efficace pour vérifier si une transaction est incluse dans un bloc. Un arbre Merkle est construit en hachant récursivement des paires de nœuds jusqu&#39;à ce qu&#39;il n&#39;y ait qu&#39;un seul hachage, appelé _root_, ou _merkle root_. L&#39;algorithme de hachage cryptographique utilisé dans les arbres Merkle de Bitcoin est SHA256 appliqué deux fois, également connu sous le nom de double-SHA256.
+
+Lorsque N éléments de données sont hachés et résumés dans un arbre Merkle, vous pouvez vérifier si un élément de données est inclus dans l&#39;arbre avec au plus +2*log~2~(N)+ calculs, ce qui en fait une donnée très efficace structure.
+
+L&#39;arbre de Merkle est construit de bas en haut. Dans l&#39;exemple suivant, nous commençons avec quatre transactions, A, B, C et D, qui forment les _feuilles_ de l&#39;arbre Merkle, comme indiqué dans &lt;<simple_merkle> &gt;. Les transactions ne sont pas stockées dans l&#39;arborescence Merkle ; à la place, leurs données sont hachées et le hachage résultant est stocké dans chaque nœud feuille sous la forme H~A~, H~B~, H~C~ et H~D~ :
+
+++++
+<pre data-type="codelisting">
+H <sub>A</sub> = SHA256(SHA256(Transaction A))
+</pre>
+++++
+
+Des paires consécutives de nœuds feuilles sont ensuite résumées dans un nœud parent, en concaténant les deux hachages et en les hachant ensemble. Par exemple, pour construire le nœud parent H~AB~, les deux hachages de 32 octets des enfants sont concaténés pour créer une chaîne de 64 octets. Cette chaîne est ensuite doublement hachée pour produire le hachage du nœud parent :
+
+++++
+<pre data-type="codelisting">
+H <sub>AB</sub> = SHA256(SHA256(H <sub>A</sub> + H <sub>B</sub> ))
+</pre>
+++++
+
+Le processus se poursuit jusqu&#39;à ce qu&#39;il n&#39;y ait qu&#39;un seul nœud au sommet, le nœud connu sous le nom de racine merkle. Ce hachage de 32 octets est stocké dans l&#39;en-tête du bloc et résume toutes les données des quatre transactions. &lt;<simple_merkle> &gt; montre comment la racine est calculée par hachages par paires des nœuds.
+
+[[simple_merkle]]
+.Calcul des nœuds dans un arbre de Merkle
+image::images/mbc2_0902.png[&quot;merkle_tree&quot;]
+
+(((&quot;arbres équilibrés&quot;)))Parce que l&#39;arbre de Merkle est un arbre binaire, il a besoin d&#39;un nombre pair de nœuds feuilles. S&#39;il y a un nombre impair de transactions à résumer, le dernier hachage de transaction sera dupliqué pour créer un nombre pair de nœuds feuilles, également appelés _arbre équilibré_. Ceci est montré dans &lt;<merkle_tree_odd> &gt;, où la transaction C est dupliquée.
+
+[[merkle_tree_odd]]
+.La duplication d&#39;un élément de données permet d&#39;obtenir un nombre pair d&#39;éléments de données
+image::images/mbc2_0903.png[&quot;merkle_tree_odd&quot;]
+
+La même méthode de construction d&#39;un arbre à partir de quatre transactions peut être généralisée pour construire des arbres de n&#39;importe quelle taille. Dans le bitcoin, il est courant d&#39;avoir plusieurs centaines à plus d&#39;un millier de transactions dans un seul bloc, qui sont résumées exactement de la même manière, produisant seulement 32 octets de données en tant que racine merkle unique. Dans &lt;<merkle_tree_large> &gt;, vous verrez un arbre construit à partir de 16 transactions. Notez que bien que la racine semble plus grande que les nœuds feuilles dans le diagramme, elle a exactement la même taille, seulement 32 octets. Qu&#39;il y ait une transaction ou cent mille transactions dans le bloc, la racine merkle les résume toujours en 32 octets.
+
+(((&quot;chemins d&#39;authentification&quot;)))Pour prouver qu&#39;une transaction spécifique est incluse dans un bloc, un nœud n&#39;a besoin que de produire +log~2~(N)+ hachages de 32 octets, constituant un _chemin d&#39;authentification_ ou _chemin merkle_ se connectant la transaction spécifique à la racine de l&#39;arborescence. Ceci est particulièrement important lorsque le nombre de transactions augmente, car le logarithme en base 2 du nombre de transactions augmente beaucoup plus lentement. Cela permet aux nœuds Bitcoin de produire efficacement des chemins de 10 ou 12 hachages (320 à 384 octets), qui peuvent fournir la preuve d&#39;une seule transaction parmi plus de mille transactions dans un bloc de la taille d&#39;un mégaoctet.
+
+[[merkle_tree_large]]
+.Un arbre Merkle résumant de nombreux éléments de données
+image::images/mbc2_0904.png[&quot;merkle_tree_large&quot;]
+
+Dans &lt;<merkle_tree_path> &gt;, un nœud peut prouver qu&#39;une transaction K est incluse dans le bloc en produisant un chemin merkle qui ne fait que quatre hachages de 32 octets (128 octets au total). Le chemin se compose des quatre hachages (affichés avec un arrière-plan ombré dans &lt;<merkle_tree_path> &gt;) H~L~, H~IJ~, H~MNOP~ et H~ABCDEFGH~. Avec ces quatre hachages fournis comme chemin d&#39;authentification, n&#39;importe quel nœud peut prouver que H~K~ (avec un fond noir au bas du diagramme) est inclus dans la racine merkle en calculant quatre hachages supplémentaires par paires H~KL~, H~IJKL~, H~IJKLMNOP~ et la racine de l&#39;arbre merkle (indiquée par une ligne pointillée dans le diagramme).
+
+[[merkle_tree_path]]
+.Un chemin merkle utilisé pour prouver l&#39;inclusion d&#39;un élément de données
+image::images/mbc2_0905.png[&quot;merkle_tree_path&quot;]
+
+
+Le code dans &lt;<merkle_example> &gt; illustre le processus de création d&#39;un arbre Merkle depuis les hachages de nœud feuille jusqu&#39;à la racine, en utilisant la bibliothèque libbitcoin pour certaines fonctions d&#39;assistance.
+
+[[merkle_example]]
+[role=&quot;pagebreak-before&quot;]
+.Construire un arbre Merkle
+====
+[source, cpp]
+----
+inclure::code/merkle.cpp[]
+----
+====
+
+&lt;<merkle_example_run> &gt; montre le résultat de la compilation et de l&#39;exécution du code merkle.
+
+[[merkle_example_run]]
+.Compilation et exécution de l&#39;exemple de code merkle
+====
+[source, bash]
+----
+# Compiler le code merkle.cpp
+$ g++ -o merkle merkle.cpp $(pkg-config --cflags --libs libbitcoin)
+# Exécutez l&#39;exécutable merkle
+$ ./merkle
+Liste de hachage Merkle actuelle :
+  32650049a0418e4380db0af81788635d8b65424d397170b8499cdc28c4d27006
+  30861db96905c8dc8b99398ca1cd5bd5b84ac3264a4e1b3e65afa1bcee7540c4
+
+Liste de hachage Merkle actuelle :
+  d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3
+
+Résultat : d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3
+
+----
+====
+
+L&#39;efficacité des arbres Merkle devient évidente à mesure que l&#39;échelle augmente. &lt;<block_structure2> &gt; montre la quantité de données qui doit être échangée sous forme de chemin Merkle pour prouver qu&#39;une transaction fait partie d&#39;un bloc.
+
+[[block_structure2]]
+.Efficacité de l&#39;arbre Merkle
+[options=&quot;en-tête&quot;]
+|=======
+|Nombre de transactions| Environ. taille du bloc | Taille du chemin (hachages) | Taille du chemin (octets)
+| 16 opérations | 4 kilo-octets | 4 hachages | 128 octets
+| 512 opérations | 128 kilo-octets | 9 hachages | 288 octets
+| 2048 opérations | 512 kilo-octets | 11 hachages | 352 octets
+| 65 535 opérations | 16 mégaoctets | 16 hachages | 512 octets
+|=======
+
+Comme vous pouvez le voir dans le tableau, alors que la taille de bloc augmente rapidement, de 4 Ko avec 16 transactions à une taille de bloc de 16 Mo pour 65 535 transactions, le chemin merkle requis pour prouver l&#39;inclusion d&#39;une transaction augmente beaucoup plus lentement, de 128 octets à seulement 512 octets. Avec les arbres Merkle, un nœud peut télécharger uniquement les en-têtes de bloc (80 octets par bloc) et être toujours en mesure d&#39;identifier l&#39;inclusion d&#39;une transaction dans un bloc en récupérant un petit chemin Merkle à partir d&#39;un nœud complet, sans stocker ni transmettre la grande majorité des blockchain, qui peut avoir une taille de plusieurs gigaoctets. Les nœuds qui ne maintiennent pas une blockchain complète, appelés nœuds de vérification simplifiée des paiements (SPV), utilisent des chemins Merkle pour vérifier les transactions sans télécharger des blocs complets.
+
+=== Merkle Trees et vérification simplifiée des paiements (SPV)
+
+(((&quot;Simplified-payment-verification (SPV)&quot;)))(((&quot;Bitcoin nodes&quot;, &quot;SPV nodes&quot;)))Les arbres Merkle sont largement utilisés par les nœuds SPV. Les nœuds SPV n&#39;ont pas toutes les transactions et ne téléchargent pas les blocs complets, juste les en-têtes de bloc. Afin de vérifier qu&#39;une transaction est incluse dans un bloc, sans avoir à télécharger toutes les transactions du bloc, ils utilisent un chemin d&#39;authentification, ou chemin merkle.
+
+Considérons, par exemple, un nœud SPV qui est intéressé par les paiements entrants à une adresse contenue dans son portefeuille. Le nœud SPV établira un filtre bloom (voir &lt;<bloom_filters> &gt;) sur ses connexions à des pairs pour limiter les transactions reçues uniquement à celles contenant des adresses d&#39;intérêt. Lorsqu&#39;un pair voit une transaction qui correspond au filtre bloom, il enverra ce bloc à l&#39;aide d&#39;un message +merkleblock+. Le message +merkleblock+ contient l&#39;en-tête du bloc ainsi qu&#39;un chemin merkle qui relie la transaction d&#39;intérêt à la racine merkle dans le bloc. Le nœud SPV peut utiliser ce chemin Merkle pour connecter la transaction au bloc et vérifier que la transaction est incluse dans le bloc. Le nœud SPV utilise également l&#39;en-tête de bloc pour lier le bloc au reste de la blockchain. La combinaison de ces deux liens, entre la transaction et le bloc, et entre le bloc et la blockchain, prouve que la transaction est enregistrée dans la blockchain. Au total, le nœud SPV aura reçu moins d&#39;un kilo-octet de données pour l&#39;en-tête de bloc et le chemin merkle, une quantité de données plus de mille fois inférieure à un bloc complet (environ 1 mégaoctet actuellement).((( &quot;&quot;, startref=&quot;BCTmerkle09&quot;)))(((&quot;&quot;, startref=&quot;merkle09&quot;)))
+
+=== Blockchains de test de Bitcoin
+
+(((&quot;blockchain (the)&quot;, &quot;test blockchains&quot;, id=&quot;BCTtest09&quot;)))(((&quot;mainnet&quot;, seealso=&quot;blockchain (the)&quot;)))Vous pourriez être surpris d&#39;apprendre qu&#39;il existe plus d&#39;une blockchain Bitcoin. La blockchain Bitcoin &quot;principale&quot;, celle créée par Satoshi Nakamoto le 3 janvier 2009, celle avec le bloc genesis que nous avons étudié dans ce chapitre, s&#39;appelle _mainnet_. Il existe d&#39;autres blockchains Bitcoin qui sont utilisées à des fins de test : actuellement _testnet_, _segnet_ et _regtest_. Regardons chacun à son tour.(((&quot;testnet&quot;, id=&quot;testnet09&quot;)))
+
+
+==== Testnet—Le terrain de test de Bitcoin
+
+Testnet est le nom de la blockchain, du réseau et de la devise de test utilisés à des fins de test. Le testnet est un réseau P2P en direct complet, avec des portefeuilles, des bitcoins de test (pièces de testnet), l&#39;exploitation minière et toutes les autres fonctionnalités du réseau principal. Il n&#39;y a vraiment que deux différences : les pièces testnet sont censées être sans valeur et la difficulté d&#39;extraction doit être suffisamment faible pour que n&#39;importe qui puisse extraire des pièces testnet relativement facilement (en les gardant sans valeur).
+
+Tout développement logiciel destiné à une utilisation en production sur le réseau principal de Bitcoin doit d&#39;abord être testé sur testnet avec des pièces de test. Cela protège à la fois les développeurs des pertes financières dues aux bogues et le réseau des comportements involontaires dus aux bogues.
+
+Garder les pièces sans valeur et l&#39;exploitation minière facile, cependant, n&#39;est pas facile. Malgré les appels des développeurs, certaines personnes utilisent des équipements de minage avancés (GPU et ASIC) pour miner sur testnet. Cela augmente la difficulté, rend impossible l&#39;extraction avec un processeur et rend finalement assez difficile l&#39;obtention de pièces de test pour que les gens commencent à les évaluer, de sorte qu&#39;elles ne sont pas sans valeur. En conséquence, de temps en temps, le testnet doit être supprimé et redémarré à partir d&#39;un nouveau bloc de genèse, réinitialisant la difficulté.
+
+Le testnet actuel s&#39;appelle _testnet3_, la troisième itération de testnet, redémarré en février 2011 pour réinitialiser la difficulté du testnet précédent.
+
+Gardez à l&#39;esprit que testnet3 est une grande blockchain, dépassant 25 Go en 2021. Il faudra environ un jour pour se synchroniser complètement et utiliser les ressources de votre ordinateur. Pas autant que le réseau principal, mais pas exactement &quot;léger&quot; non plus. Une bonne façon d&#39;exécuter un nœud testnet est d&#39;utiliser une image de machine virtuelle (par exemple, VirtualBox, Docker, Cloud Server, etc.) dédiée à cet effet.
+
+===== Utiliser testnet
+
+Bitcoin Core, comme presque tous les autres logiciels bitcoin, prend entièrement en charge le fonctionnement sur testnet au lieu du réseau principal. Toutes les fonctions de Bitcoin Core fonctionnent sur testnet, y compris le portefeuille, l&#39;extraction de pièces testnet et la synchronisation d&#39;un nœud testnet complet.
+
+Pour démarrer Bitcoin Core sur testnet au lieu du réseau principal, vous utilisez le commutateur +testnet+ :
+
+----
+$ bitcoind-testnet
+----
+
+Dans les journaux, vous devriez voir que bitcoind construit une nouvelle blockchain dans le sous-répertoire +testnet3+ du répertoire bitcoind par défaut :
+
+----
+bitcoind : Utilisation du répertoire de données /home/username/.bitcoin/testnet3
+----
+
+Pour vous connecter à bitcoind, vous utilisez l&#39;outil de ligne de commande +bitcoin-cli+, mais vous devez également le passer en mode testnet :
+
+----
+$ bitcoin-cli -testnet getblockchaininfo
+{
+  &quot;chaîne&quot;: &quot;tester&quot;,
+  &quot;blocs&quot;: 1088,
+  &quot;en-têtes&quot;: 139999,
+  &quot;bestblockhash&quot;: &quot;0000000063d29909d475a1c4ba26da64b368e56cce5d925097bf3a2084370128&quot;,
+  &quot;difficulté&quot;: 1,
+  &quot;temps médian&quot;: 1337966158,
+  &quot;progression de vérification&quot;: 0.001644065914099759,
+  &quot;chaîne&quot;: &quot;000000000000000000000000000000000000000000000000044104410441&quot;,
+  &quot;élagué&quot;: faux,
+  &quot;softfork&quot;: [
+
+  [...]
+----
+
+Vous pouvez également exécuter sur testnet3 avec d&#39;autres implémentations de nœud complet, telles que +btcd+ (écrit en Go) et +bcoin+ (écrit en JavaScript), pour expérimenter et apprendre dans d&#39;autres langages et frameworks de programmation.
+
+En 2021, testnet3 prend en charge toutes les fonctionnalités du réseau principal, y compris Segregated Witness (voir &lt;<segwit> &gt;). Par conséquent, testnet3 peut également être utilisé pour tester les fonctionnalités de témoin séparé.(((&quot;&quot;, startref=&quot;testnet09&quot;)))
+
+==== Segnet—Le réseau de test des témoins séparés
+
+
+(((&quot;segnet&quot;)))En 2016, un testnet à usage spécial a été lancé pour aider au développement et aux tests de Segregated Witness (alias segwit; voir &lt;<segwit> &gt;). Cette blockchain de test s&#39;appelle +segnet+ et peut être rejointe en exécutant une version spéciale (branche) de Bitcoin Core.
+
+(((&quot;segwit (Segregated Witness)&quot;)))Depuis que segwit a été ajouté à testnet3, il n&#39;est plus nécessaire d&#39;utiliser segnet pour tester les fonctionnalités de segwit.
+
+À l&#39;avenir, il est probable que nous verrons d&#39;autres chaînes de blocs testnet spécialement conçues pour tester une seule fonctionnalité ou un changement architectural majeur, comme segnet.
+
+==== Regtest—La Blockchain Locale
+
+(((&quot;regtest (Regression Testing)&quot;)))Regtest, qui signifie &quot;Regression Testing&quot;, est une fonctionnalité de Bitcoin Core qui vous permet de créer une blockchain locale à des fins de test. Contrairement à testnet3, qui est une blockchain de test publique et partagée, les blockchains regtest sont destinées à être exécutées comme des systèmes fermés pour les tests locaux. Vous lancez une blockchain regtest à partir de zéro, en créant un bloc de genèse local. Vous pouvez ajouter d&#39;autres nœuds au réseau ou l&#39;exécuter avec un seul nœud uniquement pour tester le logiciel Bitcoin Core.
+
+Pour démarrer Bitcoin Core en mode regtest, vous utilisez le drapeau +regtest+ :
+
+----
+$ bitcoind-regtest
+----
+
+Tout comme avec testnet, Bitcoin Core initialisera une nouvelle blockchain sous le sous-répertoire _regtest_ de votre répertoire par défaut bitcoind :
+
+----
+bitcoind : Utilisation du répertoire de données /home/nom d&#39;utilisateur/.bitcoin/regtest
+----
+
+Pour utiliser l&#39;outil de ligne de commande, vous devez également spécifier l&#39;indicateur +regtest+. Essayons la commande +getblockchaininfo+ pour inspecter la blockchain regtest :
+
+----
+$ bitcoin-cli -regtest getblockchaininfo
+{
+  &quot;chaîne&quot;: &quot;regtester&quot;,
+  &quot;blocs&quot;: 0,
+  &quot;en-têtes&quot;: 0,
+  &quot;bestblockhash&quot;: &quot;0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206&quot;,
+  &quot;difficulté&quot;: 4.656542373906925e-10,
+  &quot;temps médian&quot;: 1296688602,
+  &quot;progrès de vérification&quot;: 1,
+  &quot;chaîne&quot;: &quot;000000000000000000000000000000000000000000000000000000000002&quot;,
+  &quot;élagué&quot;: faux,
+  [...]
+----
+
+Comme vous pouvez le voir, il n&#39;y a pas encore de blocs. Exploitons-en quelques-uns (500 blocs) et gagnons la récompense :
+
+----
+$ bitcoin-cli -regtest génère 500
+[
+  &quot;7afed70259f22c2bf11e406cb12ed5c0657b6e16a6477a9f8b28e2046b5ba1ca&quot;,
+  &quot;1aca2f154a80a9863a9aac4c72047a6d3f385c4eec5441a4aafa6acaa1dada14&quot;,
+  &quot;4334ecf6fb022f30fbd764c3ee778fabbd53b4a4d1950eae8a91f1f5158ed2d1&quot;,
+  &quot;5f951d34065efeaf64e54e91d00b260294fcdfc7f05dbb5599aec84b957a7766&quot;,
+  &quot;43744b5e77c1dfece9d05ab5f0e6796ebe627303163547e69e27f55d0f2b9353&quot;,
+   [...]
+  &quot;6c31585a48d4fc2b3fd25521f4515b18aefb59d0def82bd9c2185c4ecb754327&quot;
+]
+----
+
+Cela ne prendra que quelques secondes pour miner tous ces blocs, ce qui facilite certainement les tests. Si vous vérifiez le solde de votre portefeuille, vous verrez que vous avez gagné une récompense pour les 400 premiers blocs (les récompenses coinbase doivent avoir une profondeur de 100 blocs avant que vous puissiez les dépenser) :
+
+----
+$ bitcoin-cli -regtest getbalance
+12462.50000000
+----
+
+=== Utiliser des chaînes de blocs de test pour le développement
+
+(((&quot;environnement de développement&quot;, &quot;tester les blockchains et&quot;)))Les différentes blockchains de Bitcoin (+regtest+, +segnet+, +testnet3+, +mainnet+) offrent une gamme d&#39;environnements de test pour le développement de bitcoin. Utilisez les chaînes de blocs de test, que vous développiez pour Bitcoin Core ou un autre client de consensus à nœud complet ; une application telle qu&#39;un portefeuille, un échange, un site de commerce électronique ; ou même développer de nouveaux contrats intelligents et des scripts complexes.
+
+Vous pouvez utiliser les blockchains de test pour établir un pipeline de développement. Testez votre code localement sur un +regtest+ au fur et à mesure que vous le développez. Une fois que vous êtes prêt à l&#39;essayer sur un réseau public, passez à +testnet+ pour exposer votre code à un environnement plus dynamique avec plus de diversité de code et d&#39;applications. Enfin, une fois que vous êtes sûr que votre code fonctionne comme prévu, passez à +mainnet+ pour le déployer en production. Au fur et à mesure que vous apportez des modifications, des améliorations, des corrections de bogues, etc., redémarrez le pipeline, en déployant d&#39;abord chaque modification sur +regtest+, puis sur +testnet+, et enfin en production.(((&quot;&quot;, startref=&quot;BCTtest09&quot;)))

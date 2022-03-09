@@ -4,7 +4,7 @@
 
 <span class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span>Bitcoin est structuré comme une architecture de
-réseau peer-to-peer au-dessus de l'Internet. Le terme peer-to-peer, ou
+réseau pair à pair au-dessus de l'Internet. Le terme pair à pair, ou
 P2P, signifie que les ordinateurs qui participent au réseau sont des
 pairs les uns des autres, qu'ils sont tous égaux, qu'il n'y a pas de
 nœuds "spéciaux" et que tous les nœuds partagent la charge de fournir
@@ -42,8 +42,8 @@ connectent les nœuds de minage Stratum via le protocole Stratum au
 réseau Bitcoin principal et relient le protocole Stratum au protocole
 bitcoin P2P. Nous utilisons le terme « réseau Bitcoin étendu » pour
 désigner le réseau global qui comprend le protocole Bitcoin P2P, les
-protocoles de pool-mining, le protocole Stratum et tout autre protocole
-connexe reliant les composants du système Bitcoin.
+protocoles de minage de groupe, le protocole Stratum et tout autre
+protocole connexe reliant les composants du système Bitcoin.
 
 ## Types de nœuds et rôles
 
@@ -55,7 +55,7 @@ différents rôles en fonction de la fonctionnalité qu'ils prennent en
 charge. Un nœud Bitcoin est un ensemble de fonctions : le routage, la
 base de données blockchain, le minage et les services de portefeuille.
 Un nœud complet avec ces quatre fonctions est affiché dans
-&lt;&lt;full\_node\_reference&gt; &gt;.
+[figure\_title](#full_node_reference).
 
 <figure>
 <img src="images/mbc2_0801.png" id="full_node_reference"
@@ -69,24 +69,24 @@ Tous les nœuds incluent la fonction de routage pour participer au réseau
 et peuvent inclure d'autres fonctionnalités. Tous les nœuds valident et
 propagent les transactions et les blocs, et découvrent et maintiennent
 les connexions aux pairs. Dans l'exemple de nœud complet dans
-&lt;&lt;full\_node\_reference&gt; &gt;, la fonction de routage est
+[figure\_title](#full_node_reference), la fonction de routage est
 indiquée par un cercle nommé "Network Routing Node" ou par la lettre
 "N".
 
 <span class="indexterm"></span>Certains nœuds, appelés nœuds complets,
-conservent également une copie complète et à jour de la blockchain. Les
-nœuds complets peuvent vérifier de manière autonome et autoritaire toute
-transaction sans référence externe. <span
+conservent également une copie complète et à jour de la chaîne de blocs.
+Les nœuds complets peuvent vérifier de manière autonome et autoritaire
+toute transaction sans référence externe. <span
 class="indexterm"></span>Certains nœuds ne conservent qu'un
-sous-ensemble de la blockchain et vérifient les transactions à l'aide
-d'une méthode appelée *simplified-payment-verification*, ou SPV. <span
-class="indexterm"></span>Ces nœuds sont appelés nœuds SPV ou nœuds
+sous-ensemble de la chaîne de blocs et vérifient les transactions à
+l'aide d'une méthode appelée *simplified-payment-verification*, ou SPV.
+<span class="indexterm"></span>Ces nœuds sont appelés nœuds SPV ou nœuds
 légers. Dans l'exemple de nœud complet de la figure, la fonction de base
-de données de blockchain de nœud complet est indiquée par un cercle
+de données chaîne de blocs de nœud complet est indiquée par un cercle
 appelé "Full Blockchain" ou la lettre "B". Dans
-&lt;&lt;bitcoin\_network&gt; &gt;, les nœuds SPV sont dessinés sans le
-cercle "B", montrant qu'ils n'ont pas une copie complète de la
-blockchain.
+[figure\_title](#bitcoin_network), les nœuds SPV sont dessinés sans le
+cercle "B", montrant qu'ils n'ont pas une copie complète de la chaîne de
+blocs.
 
 <span class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span> <span class="indexterm"></span><span
@@ -96,24 +96,25 @@ créer de nouveaux blocs en exécutant du matériel spécialisé pour
 résoudre l'algorithme de preuve de travail. Certains nœuds de minage
 sont également des nœuds complets, conservant une copie complète de la
 blockchain, tandis que d'autres sont des nœuds légers participant au
-minage de pool et dépendant d'un serveur de pool pour maintenir un nœud
-complet. La fonction d'exploration de données est affichée dans le nœud
-complet sous la forme d'un cercle appelé "Miner" ou de la lettre "M".
+minage de groupe et dépendant d'un serveur de groupe pour maintenir un
+nœud complet. La fonction d'exploration de données est affichée dans le
+nœud complet sous la forme d'un cercle appelé "Miner" ou de la lettre
+"M".
 
 Les portefeuilles d'utilisateurs peuvent faire partie d'un nœud complet,
 comme c'est généralement le cas avec les clients Bitcoin de bureau. De
 plus en plus, de nombreux portefeuilles d'utilisateurs, en particulier
 ceux fonctionnant sur des appareils à ressources limitées tels que les
 smartphones, sont des nœuds SPV. La fonction de portefeuille est
-affichée dans &lt;&lt;full\_node\_reference&gt; &gt; comme un cercle
+affichée dans [figure\_title](#full_node_reference) comme un cercle
 appelé "Wallet" ou la lettre "W."
 
 En plus des principaux types de nœuds sur le protocole bitcoin P2P, il
 existe des serveurs et des nœuds exécutant d'autres protocoles, tels que
-des protocoles de pool de minage spécialisés et des protocoles d'accès
+des protocoles de groupe de minage spécialisés et des protocoles d'accès
 client légers.
 
-&lt;&lt;node\_type\_ledgend&gt; &gt; montre les types de nœuds les plus
+[figure\_title](#node_type_ledgend) montre les types de nœuds les plus
 courants sur le réseau Bitcoin étendu.
 
 ## Le réseau Bitcoin étendu
@@ -131,33 +132,39 @@ bitcoin P2P sont également des nœuds de minage, en concurrence dans le
 processus de minage, en validant les transactions et en créant de
 nouveaux blocs. Diverses grandes entreprises s'interfacent avec le
 réseau Bitcoin en exécutant des clients à nœud complet basés sur le
-client Bitcoin Core, avec des copies complètes de la blockchain et un
-nœud de réseau, mais sans fonctions de minage ou de portefeuille. Ces
+client Bitcoin Core, avec des copies complètes de la chaîne de blocs et
+un nœud de réseau, mais sans fonctions de minage ou de portefeuille. Ces
 nœuds agissent comme des routeurs de périphérie de réseau, permettant à
 divers autres services (échanges, portefeuilles, explorateurs de blocs,
 traitement des paiements marchands) d'être construits par-dessus.
 
 Le réseau Bitcoin étendu comprend le réseau exécutant le protocole
 bitcoin P2P, décrit précédemment, ainsi que des nœuds exécutant des
-protocoles spécialisés. Un certain nombre de serveurs de pool et de
+protocoles spécialisés. Un certain nombre de serveurs de groupe et de
 passerelles de protocole qui connectent des nœuds exécutant d'autres
 protocoles sont attachés au réseau principal bitcoin P2P. Ces autres
-nœuds de protocole sont principalement des nœuds de pool mining (voir
-&lt;&lt;mining&gt; &gt;) et les clients de portefeuille légers, qui ne
-portent pas une copie complète de la blockchain.
+nœuds de protocole sont principalement des nœuds de minage de groupe
+(voir [???](#mining)) et les clients de portefeuille légers, qui ne
+portent pas une copie complète de la chaîne de blocs.
 
-&lt;&lt;bitcoin\_network&gt; &gt; montre le réseau Bitcoin étendu avec
+[figure\_title](#bitcoin_network) montre le réseau Bitcoin étendu avec
 les différents types de nœuds, serveurs de passerelle, routeurs de
 périphérie et clients de portefeuille et les différents protocoles
 qu'ils utilisent pour se connecter les uns aux autres.
 
-image  
-images/mbc2\_0802.png\["BitcoinNodeTypes"\]
+<figure>
+<img src="images/mbc2_0802.png" id="node_type_ledgend"
+alt="Différents types de nœuds sur le réseau Bitcoin étendu" />
+<figcaption aria-hidden="true">Différents types de nœuds sur le réseau
+Bitcoin étendu</figcaption>
+</figure>
 
-<!-- -->
-
-image  
-images/mbc2\_0803.png\["BitcoinNetwork"\]
+<figure>
+<img src="images/mbc2_0803.png" id="bitcoin_network"
+alt="Le réseau Bitcoin étendu montrant divers types de nœuds, passerelles et protocoles" />
+<figcaption aria-hidden="true">Le réseau Bitcoin étendu montrant divers
+types de nœuds, passerelles et protocoles</figcaption>
+</figure>
 
 ## Réseaux relais Bitcoin
 
@@ -169,22 +176,22 @@ minage de bitcoins.
 
 <span class="indexterm"></span> <span class="indexterm"></span>Les
 mineurs de Bitcoin sont engagés dans une compétition urgente pour
-résoudre le problème de la preuve de travail et étendre la blockchain
-(voir &lt;&lt;mining&gt; &gt;). Tout en participant à cette compétition,
+résoudre le problème de la preuve de travail et étendre la chaîne de
+blocs (voir [???](#mining)). Tout en participant à cette compétition,
 les mineurs de bitcoins doivent minimiser le temps entre la propagation
 d'un bloc gagnant et le début du prochain tour de compétition. Dans le
 secteur minier, la latence du réseau est directement liée aux marges
 bénéficiaires.
 
-Un *Bitcoin Relay Network* est un réseau qui tente de minimiser la
-latence dans la transmission des blocs entre les mineurs. Le
-<https://www.bitcoinrelaynetwork.org> \[Bitcoin Relay Network\] original
-a été créé par le développeur principal Matt Corallo en 2015 pour
-permettre une synchronisation rapide des blocs entre les mineurs avec
-une latence très faible. Le réseau se composait de plusieurs nœuds
-spécialisés hébergés sur l'infrastructure Amazon Web Services à travers
-le monde et servait à connecter la majorité des mineurs et des pools de
-minage.
+Un *Bitcoin Relay Network* ou (réseau de relais Bitcoin) est un réseau
+qui tente de minimiser la latence dans la transmission des blocs entre
+les mineurs. Le <https://www.bitcoinrelaynetwork.org> \[Bitcoin Relay
+Network\] original a été créé par le développeur principal Matt Corallo
+en 2015 pour permettre une synchronisation rapide des blocs entre les
+mineurs avec une latence très faible. Le réseau se composait de
+plusieurs nœuds spécialisés hébergés sur l'infrastructure Amazon Web
+Services à travers le monde et servait à connecter la majorité des
+mineurs et des pools de minage.
 
 <span class="indexterm"></span><span class="indexterm"></span>Le réseau
 de relais Bitcoin d'origine a été remplacé en 2016 par l'introduction du
@@ -219,7 +226,7 @@ Pour se connecter à un pair connu, les nœuds établissent une connexion
 TCP, généralement au port 8333 (le port généralement connu comme celui
 utilisé par bitcoin), ou un autre port s'il en existe un. Lors de
 l'établissement d'une connexion, le nœud commencera une "prise de
-contact" (voir &lt;&lt;network\_handshake&gt; &gt;) en transmettant un
+contact" (voir [figure\_title](#network_handshake)) en transmettant un
 message `version`, qui contient des informations d'identification de
 base, notamment :
 
@@ -242,7 +249,7 @@ L'adresse IP du nœud local, telle que découverte par le nœud local
 
 `subver`  
 Une sous-version indiquant le type de logiciel exécuté sur ce nœud (par
-exemple, `/Satoshi:0.9.2.1/` )
+exemple, `/Satoshi:0.9.2.1/`)
 
 `BestHeight`  
 La hauteur de bloc de la blockchain de ce nœud
@@ -258,33 +265,36 @@ le pair local accusera réception du message `version` et établira une
 connexion en envoyant un message `verack`.
 
 Comment un nouveau nœud trouve-t-il des pairs ? La première méthode
-consiste à interroger DNS à l'aide d'un certain nombre de "graines DNS",
-qui sont des serveurs DNS fournissant une liste d'adresses IP de nœuds
-Bitcoin. Certaines de ces graines DNS fournissent une liste statique
-d'adresses IP de nœuds d'écoute bitcoin stables. Certaines des graines
-DNS sont des implémentations personnalisées de BIND (Berkeley Internet
-Name Daemon) qui renvoient un sous-ensemble aléatoire à partir d'une
-liste d'adresses de nœuds Bitcoin collectées par un robot ou un nœud
-Bitcoin de longue durée. Le client Bitcoin Core contient les noms de
-neuf graines DNS différentes. La diversité de propriété et la diversité
-de mise en œuvre des différentes graines DNS offrent un haut niveau de
-fiabilité pour le processus d'amorçage initial. Dans le client Bitcoin
-Core, l'option d'utilisation des graines DNS est contrôlée par le
-commutateur d'option `-dnsseed` (réglé sur 1 par défaut, pour utiliser
-la graine DNS).
+consiste à interroger les DNS à l'aide d'un certain nombre de d'"indexes
+DNS", qui sont des serveurs DNS fournissant une liste d'adresses IP de
+nœuds Bitcoin. Certaines de ces indexes DNS fournissent une liste
+statique d'adresses IP de nœuds d'écoute bitcoin stables. Certaines des
+indexes DNS sont des implémentations personnalisées de BIND (Berkeley
+Internet Name Daemon) qui renvoient un sous-ensemble aléatoire à partir
+d'une liste d'adresses de nœuds Bitcoin collectées par un robot ou un
+nœud Bitcoin de longue durée. Le client Bitcoin Core contient les noms
+de neuf sources DNS différentes. La diversité de propriété et la
+diversité de mise en œuvre des différentes sources DNS offrent un haut
+niveau de fiabilité pour le processus d'amorçage initial. Dans le client
+Bitcoin Core, l'option d'utilisation des indexes DNS est contrôlée par
+le commutateur d'option `-dnsseed` (réglé sur 1 par défaut, pour
+utiliser la source DNS).
 
 Alternativement, un nœud d'amorçage qui ne sait rien du réseau doit
 recevoir l'adresse IP d'au moins un nœud Bitcoin, après quoi il peut
 établir des connexions via d'autres introductions. L'argument de ligne
 de commande `-seednode` peut être utilisé pour se connecter à un nœud
-uniquement pour les introductions en l'utilisant comme graine. Une fois
+uniquement pour les introductions en l'utilisant comme source. Une fois
 que le nœud de départ initial a été utilisé pour former des
 présentations, le client s'en déconnecte et utilise les pairs
 nouvellement découverts.
 
-**La poignée de main initiale entre pairs**
-
-image ::images/mbc2\_0804.png\["Prise de contact réseau"\]
+<figure>
+<img src="images/mbc2_0804.png" id="network_handshake"
+alt="La poignée de main initiale entre pairs" />
+<figcaption aria-hidden="true">La poignée de main initiale entre
+pairs</figcaption>
+</figure>
 
 Une fois qu'une ou plusieurs connexions sont établies, le nouveau nœud
 enverra un message `addr` contenant sa propre adresse IP à ses voisins.
@@ -294,12 +304,12 @@ mieux connecté. De plus, le nœud nouvellement connecté peut envoyer
 `getaddr` aux voisins, leur demandant de renvoyer une liste d'adresses
 IP d'autres pairs. De cette façon, un nœud peut trouver des pairs
 auxquels se connecter et annoncer son existence sur le réseau pour que
-d'autres nœuds le trouvent. &lt;&lt;address\_propagation&gt; &gt; <span
+d'autres nœuds le trouvent. [figure\_title](#address_propagation) <span
 class="indexterm"></span> <span class="indexterm"></span> montre le
 protocole de découverte d'adresse.
 
 <figure>
-<img src="images/mbc2_0805.png" id="propagation_adresse"
+<img src="images/mbc2_0805.png" id="address_propagation"
 alt="Propagation et découverte d&#39;adresses" />
 <figcaption aria-hidden="true">Propagation et découverte
 d'adresses</figcaption>
@@ -307,18 +317,17 @@ d'adresses</figcaption>
 
 Un nœud doit se connecter à quelques pairs différents afin d'établir
 divers chemins dans le réseau Bitcoin. Les chemins ne sont pas
-persistants - les nœuds vont et viennent - et le nœud doit donc
-continuer à découvrir de nouveaux nœuds à mesure qu'il perd d'anciennes
-connexions et à aider les autres nœuds lors de leur démarrage. Une seule
-connexion est nécessaire pour démarrer, car le premier nœud peut
-proposer des introductions à ses nœuds pairs et ces pairs peuvent
-proposer d'autres introductions. Il est également inutile et gaspilleur
-de ressources réseau de se connecter à plus d'une poignée de nœuds.
-Après le démarrage, un nœud se souviendra de ses dernières connexions
-homologues réussies, de sorte que s'il est redémarré, il peut rapidement
-rétablir les connexions avec son ancien réseau homologue. Si aucun des
-anciens pairs ne répond à sa demande de connexion, le nœud peut utiliser
-les nœuds de départ pour redémarrer.
+persistants, les nœuds vont et viennent, et le nœud doit donc continuer
+à découvrir de nouveaux nœuds à mesure qu'il perd d'anciennes connexions
+et à aider les autres nœuds lors de leur démarrage. Une seule connexion
+est nécessaire pour démarrer, car le premier nœud peut proposer des
+introductions à ses nœuds pairs et ces pairs peuvent proposer d'autres
+introductions. Il est également inutile et gaspilleur de se connecter à
+plus d'une poignée de nœuds. Après le démarrage, un nœud se souviendra
+de ses dernières connexions homologues réussies, de sorte que s'il est
+redémarré, il peut rapidement rétablir les connexions avec son ancien
+réseau homologue. Si aucun des anciens pairs ne répond à sa demande de
+connexion, le nœud peut utiliser les nœuds de départ pour redémarrer.
 
 Sur un nœud exécutant le client Bitcoin Core, vous pouvez lister les
 connexions homologues avec la commande `getpeerinfo` :
@@ -327,45 +336,45 @@ connexions homologues avec la commande `getpeerinfo` :
 
     [
         {
-            &quot;adresse&quot; : &quot;85.213.199.39:8333&quot;,
-            &quot;prestation&quot; : &quot;00000001&quot;,
-            &quot;dernier envoi&quot; : 1405634126,
-            &quot;lastrecv&quot; : 1405634127,
-            &quot;bytessent&quot; : 23487651,
-            &quot;bytesrecv&quot; : 138679099,
-            &quot;conntime&quot; : 1405021768,
-            &quot;pingtime&quot; : 0.00000000,
-            &quot;version&quot; : 70002,
-            &quot;subver&quot; : &quot;/Satoshi:0.9.2.1/&quot;,
-            &quot;entrant&quot; : faux,
-            &quot;hauteur de départ&quot; : 310131,
-            &quot;banscore&quot; : 0,
-            &quot;syncnode&quot; : vrai
+            "addr" : "85.213.199.39:8333",
+            "services" : "00000001",
+            "lastsend" : 1405634126,
+            "lastrecv" : 1405634127,
+            "bytessent" : 23487651,
+            "bytesrecv" : 138679099,
+            "conntime" : 1405021768,
+            "pingtime" : 0.00000000,
+            "version" : 70002,
+            "subver" : "/Satoshi:0.9.2.1/",
+            "inbound" : false,
+            "startingheight" : 310131,
+            "banscore" : 0,
+            "syncnode" : true
         },
         {
-            &quot;adresse&quot; : &quot;58.23.244.20:8333&quot;,
-            &quot;prestation&quot; : &quot;00000001&quot;,
-            &quot;dernier envoi&quot; : 1405634127,
-            &quot;lastrecv&quot; : 1405634124,
-            &quot;bytessent&quot; : 4460918,
-            &quot;bytesrecv&quot; : 8903575,
-            &quot;conntime&quot; : 1405559628,
-            &quot;pingtime&quot; : 0.00000000,
-            &quot;version&quot; : 70001,
-            &quot;subver&quot; : &quot;/Satoshi:0.8.6/&quot;,
-            &quot;entrant&quot; : faux,
-            &quot;hauteur de départ&quot; : 311074,
-            &quot;banscore&quot; : 0,
-            &quot;syncnode&quot; : faux
+            "addr" : "58.23.244.20:8333",
+            "services" : "00000001",
+            "lastsend" : 1405634127,
+            "lastrecv" : 1405634124,
+            "bytessent" : 4460918,
+            "bytesrecv" : 8903575,
+            "conntime" : 1405559628,
+            "pingtime" : 0.00000000,
+            "version" : 70001,
+            "subver" : "/Satoshi:0.8.6/",
+            "inbound" : false,
+            "startingheight" : 311074,
+            "banscore" : 0,
+            "syncnode" : false
         }
     ]
 
 Pour outrepasser la gestion automatique des pairs et spécifier une liste
 d'adresses IP, les utilisateurs peuvent fournir l'option
-+-connect=&lt;IPAddress&gt; + et spécifiez une ou plusieurs adresses IP.
-Si cette option est utilisée, le nœud se connectera uniquement aux
-adresses IP sélectionnées, au lieu de découvrir et de maintenir
-automatiquement les connexions homologues.
+`-connect=<IPAddress>` et spécifiez une ou plusieurs adresses IP. Si
+cette option est utilisée, le nœud se connectera uniquement aux adresses
+IP sélectionnées, au lieu de découvrir et de maintenir automatiquement
+les connexions homologues.
 
 S'il n'y a pas de trafic sur une connexion, les nœuds enverront
 périodiquement un message pour maintenir la connexion. Si un nœud n'a
@@ -381,43 +390,43 @@ class="indexterm"></span>
 
 <span class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span><span class="indexterm"></span> <span
-class="indexterm"></span>Les nœuds complets sont des nœuds qui maintenir
-une blockchain complète avec toutes les transactions. Plus précisément,
-ils devraient probablement être appelés "nœuds de chaîne de blocs
-complets". Dans les premières années de bitcoin, tous les nœuds étaient
-des nœuds complets et actuellement, le client Bitcoin Core est un nœud
-de blockchain complet. Au cours des deux dernières années, cependant, de
-nouvelles formes de clients Bitcoin ont été introduites qui ne
-maintiennent pas une blockchain complète mais fonctionnent comme des
-clients légers. Nous les examinerons plus en détail dans la section
-suivante.
+class="indexterm"></span>Les nœuds complets sont des nœuds qui
+maintiennent une chaîne de blocs complète avec toutes les transactions.
+Plus précisément, ils devraient probablement être appelés "nœuds de
+chaîne de blocs complets". Dans les premières années de bitcoin, tous
+les nœuds étaient des nœuds complets et actuellement, le client Bitcoin
+Core est un nœud de chaîne de blocs complet. Au cours des deux dernières
+années, cependant, de nouvelles formes de clients Bitcoin ont été
+introduites qui ne maintiennent pas une blockchain complète mais
+fonctionnent comme des clients légers. Nous les examinerons plus en
+détail dans la section suivante.
 
 <span class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span><span class="indexterm"></span> <span
-class="indexterm"></span>Les nœuds de blockchain complets maintiennent
-un copie à jour de la blockchain Bitcoin avec toutes les transactions,
-qu'ils construisent et vérifient indépendamment, en commençant par le
-tout premier bloc (bloc de genèse) et en remontant jusqu'au dernier bloc
-connu du réseau. Un nœud de chaîne de blocs complet peut vérifier de
-manière indépendante et autoritaire toute transaction sans recours ni
-recours à aucun autre nœud ou source d'informations. Le nœud de la
-blockchain complète s'appuie sur le réseau pour recevoir des mises à
-jour sur les nouveaux blocs de transactions, qu'il vérifie ensuite et
-intègre dans sa copie locale de la blockchain.
+class="indexterm"></span>Les noeuds de chaîne de blocs complets
+maintiennent un copie à jour de la chaîne de blocs Bitcoin avec toutes
+les transactions, qu'ils construisent et vérifient indépendamment, en
+commençant par le tout premier bloc (bloc de genèse) et en remontant
+jusqu'au dernier bloc connu du réseau. Un nœud de chaîne de blocs
+complet peut vérifier de manière indépendante et autoritaire toute
+transaction sans recours à aucun autre nœud ou source d'informations. Le
+nœud de la chaîne de blocs complète s'appuie sur le réseau pour recevoir
+des mises à jour sur les nouveaux blocs de transactions, qu'il vérifie
+ensuite et intègre dans sa copie locale de la chaîne de blocs.
 
 <span class="indexterm"></span> <span
-class="indexterm"></span>L'exécution d'un nœud blockchain complet vous
-offre l'expérience bitcoin pure : une vérification indépendante de
-toutes les transactions sans avoir besoin de s'appuyer sur, ou de faire
-confiance, à d'autres systèmes. Il est facile de savoir si vous exécutez
-un nœud complet car il nécessite plus de cent gigaoctets de stockage
-persistant (espace disque) pour stocker la blockchain complète. Si vous
-avez besoin de beaucoup de disque et que la synchronisation avec le
-réseau prend deux à trois jours, vous exécutez un nœud complet. C'est le
-prix d'une indépendance totale et de la liberté vis-à-vis de l'autorité
-centrale.
+class="indexterm"></span>L'exécution d'un nœud de chaîne de blocs
+complet vous offre l'expérience bitcoin pure : une vérification
+indépendante de toutes les transactions sans avoir besoin de s'appuyer
+sur, ou de faire confiance, à d'autres systèmes. Il est facile de savoir
+si vous exécutez un nœud complet car il nécessite plus de cent
+gigaoctets de stockage persistant (espace disque) pour stocker la chaîne
+de blocs complète. Si vous avez besoin de beaucoup de disque et que la
+synchronisation avec le réseau prend deux à trois jours, vous exécutez
+un nœud complet. C'est le prix d'une indépendance totale et de la
+liberté vis-à-vis de l'autorité centrale.
 
-<span class="indexterm"></span> Il existe quelques implémentations
+<span class="indexterm"></span>Il existe quelques implémentations
 alternatives de clients Bitcoin à chaîne complète, construites à l'aide
 de différents langages de programmation et architectures logicielles.
 Cependant, l'implémentation la plus courante est le client de référence
@@ -428,43 +437,45 @@ envoyée dans le message `version` et affiché par la commande
 `getpeerinfo` comme nous l'avons vu précédemment ; par exemple,
 `/Satoshi:0.8.6/`.
 
-## Échange "Inventaire"
+## Échanger l'"inventaire"
 
-<span class="indexterm"></span> <span class="indexterm"></span> La
+<span class="indexterm"></span> <span class="indexterm"></span>La
 première chose qu'un nœud complet fera une fois qu'il se connecte à des
-pairs est d'essayer de construire une blockchain complète. S'il s'agit
-d'un tout nouveau nœud et qu'il n'a aucune chaîne de blocs, il ne
+pairs est d'essayer de construire une chaîne de blocs complète. S'il
+s'agit d'un tout nouveau nœud et qu'il n'a aucune chaîne de blocs, il ne
 connaît qu'un seul bloc, le bloc de genèse, qui est intégré de manière
 statique dans le logiciel client. En commençant par le bloc \#0 (le bloc
 de genèse), le nouveau nœud devra télécharger des centaines de milliers
-de blocs pour se synchroniser avec le réseau et rétablir la blockchain
-complète.
+de blocs pour se synchroniser avec le réseau et rétablir la chaîne de
+blocs complète.
 
 <span class="indexterm"></span> <span class="indexterm"></span><span
-class="indexterm"></span>Le processus de synchronisation de la
-blockchain commence par le message `version`, car il contient
-`BestHeight`, la blockchain actuelle d'un nœud hauteur (nombre de
-blocs). Un nœud verra les messages + version + de ses pairs, saura
-combien de blocs ils ont chacun et pourra comparer avec le nombre de
-blocs qu'il a dans sa propre blockchain. Les nœuds appairés échangeront
-un message `getblocks` contenant le hachage (empreinte digitale) du bloc
-supérieur sur leur blockchain locale. L'un des pairs pourra identifier
-le hash reçu comme appartenant à un bloc qui n'est pas au sommet, mais
-appartient plutôt à un bloc plus ancien, en déduisant ainsi que sa
-propre blockchain locale est plus longue que celle de son pair.
+class="indexterm"></span>Le processus de synchronisation de la chaîne de
+blocs commence par le message `version`, car il contient `BestHeight`,
+l’hauteur actuelle d'un nœud (nombre de blocs) de la chaîne de blocs. Un
+nœud verra les messages `version` de ses pairs, saura combien de blocs
+ils ont chacun et pourra comparer avec le nombre de blocs qu'il a dans
+sa propre chaîne de blocs. Les nœuds appairés échangeront un message
+`getblocks` contenant le hachage (empreinte digitale) du bloc supérieur
+sur leur chaîne de blocs locale. L'un des pairs pourra identifier le
+résultat d’hachage reçu comme appartenant à un bloc qui n'est pas au
+sommet, mais appartient plutôt à un bloc plus ancien, en déduisant ainsi
+que sa propre chaîne de blocs locale est plus longue que celle de son
+pair.
 
-Le pair qui a la blockchain la plus longue a plus de blocs que l'autre
-nœud et peut identifier les blocs dont l'autre nœud a besoin pour
-"rattraper son retard". Il identifiera les 500 premiers blocs à partager
-et transmettra leurs hachages à l'aide d'un message `inv` (inventaire).
-Le nœud manquant ces blocs les récupérera ensuite, en émettant une série
-de messages `getdata` demandant les données complètes du bloc et en
-identifiant les blocs demandés à l'aide des hachages du message `inv`.
+Le pair qui a la chaîne de blocs la plus longue a plus de blocs que
+l'autre nœud et peut identifier les blocs dont l'autre nœud a besoin
+pour "rattraper son retard". Il identifiera les 500 premiers blocs à
+partager et transmettra leurs hachages à l'aide d'un message `inv`
+(inventaire). Le nœud manquant ces blocs les récupérera ensuite, en
+émettant une série de messages `getdata` demandant les données complètes
+du bloc et en identifiant les blocs demandés à l'aide des hachages du
+message `inv`.
 
-Supposons, par exemple, qu'un nœud n'ait que le bloc genesis. Il recevra
-alors un message `inv` de ses pairs contenant les hachages des 500
-prochains blocs de la chaîne. Il commencera à demander des blocs à tous
-ses pairs connectés, répartissant la charge et s'assurant qu'il ne
+Supposons, par exemple, qu'un nœud n'ait que le bloc de genèse. Il
+recevra alors un message `inv` de ses pairs contenant les hachages des
+500 prochains blocs de la chaîne. Il commencera à demander des blocs à
+tous ses pairs connectés, répartissant la charge et s'assurant qu'il ne
 submerge aucun pair de demandes. Le nœud garde une trace du nombre de
 blocs "en transit" par connexion homologue, c'est-à-dire des blocs qu'il
 a demandés mais non reçus, en vérifiant qu'il ne dépasse pas une limite
@@ -472,50 +483,53 @@ a demandés mais non reçus, en vérifiant qu'il ne dépasse pas une limite
 beaucoup de blocs, il n'en demandera de nouveaux que lorsque les
 demandes précédentes seront satisfaites, permettant aux pairs de
 contrôler le rythme des mises à jour et de ne pas submerger le réseau.
-Au fur et à mesure que chaque bloc est reçu, il est ajouté à la
-blockchain, comme nous le verrons dans &lt;&lt;blockchain&gt; &gt;. Au
-fur et à mesure que la blockchain locale se construit, davantage de
-blocs sont demandés et reçus, et le processus se poursuit jusqu'à ce que
-le nœud rattrape le reste du réseau.
+Au fur et à mesure que chaque bloc est reçu, il est ajouté à la chaîne
+de blocs, comme nous le verrons dans [???](#blockchain). Au fur et à
+mesure que la chaîne de blocs locale se construit, davantage de blocs
+sont demandés et reçus, et le processus se poursuit jusqu'à ce que le
+nœud rattrape le reste du réseau.
 
-Ce processus de comparaison de la blockchain locale avec les pairs et de
-récupération des blocs manquants se produit chaque fois qu'un nœud se
-déconnecte pendant une période donnée. Qu'un nœud soit hors ligne depuis
-quelques minutes et qu'il manque quelques blocs, ou un mois et qu'il
-manque quelques milliers de blocs, il commence par envoyer `getblocks`,
-reçoit une réponse `inv` et commence à télécharger les blocs manquants.
-&lt;&lt;inventory\_synchronization&gt; &gt; affiche l'inventaire et le
-protocole de propagation des blocs.
+Ce processus de comparaison de la chaîne de blocs locale avec les pairs
+et de récupération des blocs manquants se produit chaque fois qu'un nœud
+se déconnecte pendant une période donnée. Qu'un nœud soit hors ligne
+depuis quelques minutes et qu'il manque quelques blocs, ou un mois et
+qu'il manque quelques milliers de blocs, il commence par envoyer
+`getblocks`, reçoit une réponse `inv` et commence à télécharger les
+blocs manquants. [figure\_title](#inventory_synchronization) affiche
+l'inventaire et le protocole de propagation des blocs.
 
-**Node synchronisant la blockchain en récupérant les blocs d'un pair**
+<figure>
+<img src="images/mbc2_0806.png" id="inventory_synchronization"
+alt="Noeud synchronisant la blockchain en récupérant les blocs d&#39;un pair" />
+<figcaption aria-hidden="true">Noeud synchronisant la blockchain en
+récupérant les blocs d'un pair</figcaption>
+</figure>
 
-image ::images/mbc2\_0806.png\["Synchronisation de l'inventaire"\]
-
-## Nœuds de vérification simplifiée des paiements (SPV)
+## Nœuds de vérification simplifiée des paiements, ou Simplified Payment Verification (SPV)
 
 <span class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span> <span class="indexterm"></span> Tous les nœuds
-n'ont pas la capacité de stocker la blockchain complète. De nombreux
-clients Bitcoin sont conçus pour fonctionner sur des appareils à espace
-et puissance limités, tels que les smartphones, les tablettes ou les
-systèmes embarqués. Pour ces appareils, une méthode de *vérification de
-paiement simplifiée* (SPV) est utilisée pour leur permettre de
-fonctionner sans stocker la blockchain complète. Ces types de clients
-sont appelés clients SPV ou clients légers. À mesure que l'adoption du
-bitcoin augmente, le nœud SPV devient la forme la plus courante de nœud
-Bitcoin, en particulier pour les portefeuilles bitcoin.
+n'ont pas la capacité de stocker la chaîne de blocs complète. De
+nombreux clients Bitcoin sont conçus pour fonctionner sur des appareils
+à espace et puissance limités, tels que les smartphones, les tablettes
+ou les systèmes embarqués. Pour ces appareils, une méthode de
+*vérification de paiement simplifiée* (SPV) est utilisée pour leur
+permettre de fonctionner sans stocker la chaîne de blocs complète. Ces
+types de clients sont appelés clients SPV ou clients légers. À mesure
+que l'adoption du bitcoin augmente, le nœud SPV devient la forme la plus
+courante de nœud Bitcoin, en particulier pour les portefeuilles bitcoin.
 
 Les nœuds SPV téléchargent uniquement les en-têtes de bloc et ne
 téléchargent pas les transactions incluses dans chaque bloc. La chaîne
 de blocs qui en résulte, sans transactions, est 1 000 fois plus petite
-que la blockchain complète. Les nœuds SPV ne peuvent pas construire une
-image complète de tous les UTXO disponibles pour les dépenses car ils ne
-connaissent pas toutes les transactions sur le réseau. Les nœuds SPV
-vérifient les transactions en utilisant une méthode légèrement
+que la chaîne de blocs complète. Les nœuds SPV ne peuvent pas construire
+une image complète de tous les UTXO disponibles pour les dépenses car
+ils ne connaissent pas toutes les transactions sur le réseau. Les nœuds
+SPV vérifient les transactions en utilisant une méthode légèrement
 différente qui s'appuie sur des pairs pour fournir des vues partielles
-des parties pertinentes de la blockchain à la demande.
+des parties pertinentes de la chaîne de blocs à la demande.
 
 Par analogie, un nœud complet est comme un touriste dans une ville
 étrange, équipé d'une carte détaillée de chaque rue et de chaque
@@ -532,12 +546,12 @@ sans carte est de demander à suffisamment de gens et d'espérer que
 certains d'entre eux n'essaient pas de l'agresser.
 
 SPV vérifie les transactions en se référant à leur *profondeur* dans la
-blockchain au lieu de leur *hauteur*. Alors qu'un nœud de blockchain
-complet construira une chaîne entièrement vérifiée de milliers de blocs
-et de transactions descendant dans la blockchain (remontant dans le
-temps) jusqu'au bloc de genèse, un nœud SPV vérifiera la chaîne de tous
-les blocs (mais pas toutes les transactions) et lier cette chaîne à la
-transaction d'intérêt.
+chaîne de blocs au lieu de leur *hauteur*. Alors qu'un nœud de chaîne de
+blocs complet construira une chaîne entièrement vérifiée de milliers de
+blocs et de transactions descendant dans la chaîne de blocs (remontant
+dans le temps) jusqu'au bloc de genèse, un nœud SPV vérifiera la chaîne
+de tous les blocs (mais pas toutes les transactions) et lier cette
+chaîne à la transaction d'intérêt.
 
 Par exemple, lors de l'examen d'une transaction dans le bloc 300 000, un
 nœud complet relie les 300 000 blocs au bloc de genèse et crée une base
@@ -545,13 +559,13 @@ de données complète d'UTXO, établissant la validité de la transaction en
 confirmant que l'UTXO reste non dépensé. Un nœud SPV ne peut pas valider
 si l'UTXO n'est pas dépensé. Au lieu de cela, le nœud SPV établira un
 lien entre la transaction et le bloc qui la contient, en utilisant un
-*merkle path* (voir &lt;&lt;merkle\_trees&gt; &gt;). Ensuite, le nœud
-SPV attend de voir les six blocs 300 001 à 300 006 empilés au-dessus du
-bloc contenant la transaction et le vérifie en établissant sa profondeur
-sous les blocs 300 006 à 300 001. Le fait que d'autres nœuds du réseau
-aient accepté le bloc 300 000 et aient ensuite effectué le travail
-nécessaire pour produire six autres blocs en plus est la preuve, par
-procuration, que la transaction n'était pas une double dépense.
+*chemin de Merkle* (voir [???](#merkle_trees)). Ensuite, le nœud SPV
+attend de voir les six blocs 300 001 à 300 006 empilés au-dessus du bloc
+contenant la transaction et le vérifie en établissant sa profondeur sous
+les blocs 300 006 à 300 001. Le fait que d'autres nœuds du réseau aient
+accepté le bloc 300 000 et aient ensuite effectué le travail nécessaire
+pour produire six autres blocs en plus est la preuve, par procuration,
+que la transaction n'était pas une double dépense.
 
 Un nœud SPV ne peut pas être persuadé qu'une transaction existe dans un
 bloc alors que la transaction n'existe pas en fait. Le nœud SPV établit
@@ -578,10 +592,10 @@ ressources, l'aspect pratique et la sécurité. Pour une sécurité
 infaillible, cependant, rien ne vaut l'exécution d'un nœud de blockchain
 complet.
 
-Un nœud de blockchain complet vérifie une transaction en vérifiant toute
-la chaîne de milliers de blocs en dessous afin de garantir que l'UTXO
-n'est pas dépensé, tandis qu'un nœud SPV vérifie à quelle profondeur le
-bloc est enterré par une poignée de blocs au-dessus.
+Un nœud de chaîne de blocs complet vérifie une transaction en vérifiant
+toute la chaîne de milliers de blocs en dessous afin de garantir que
+l'UTXO n'est pas dépensé, tandis qu'un nœud SPV vérifie à quelle
+profondeur le bloc est enterré par une poignée de blocs au-dessus.
 
 Pour obtenir les en-têtes de bloc, les nœuds SPV utilisent un message
 `getheaders` au lieu de `getblocks`. L'homologue qui répond enverra
@@ -592,52 +606,57 @@ un filtre sur la connexion aux pairs, pour filtrer le flux des futurs
 blocs et transactions envoyés par les pairs. Toutes les transactions
 intéressantes sont récupérées à l'aide d'une requête `getdata`. Le pair
 génère un message `tx` contenant les transactions, en réponse.
-&lt;&lt;spv\_synchronization&gt; &gt; montre la synchronisation des
+[figure\_title](#spv_synchronization) montre la synchronisation des
 en-têtes de bloc.
 
 Étant donné que les nœuds SPV doivent récupérer des transactions
 spécifiques afin de les vérifier de manière sélective, ils créent
-également un risque pour la confidentialité. Contrairement aux nœuds de
-blockchain complets, qui collectent toutes les transactions au sein de
-chaque bloc, les demandes de données spécifiques du nœud SPV peuvent
+également un risque pour la confidentialité. Contrairement aux noeuds de
+chaîne de blocs complets, qui collectent toutes les transactions au sein
+de chaque bloc, les demandes de données spécifiques du nœud SPV peuvent
 révéler par inadvertance les adresses de leur portefeuille. Par exemple,
 un tiers surveillant un réseau pourrait suivre toutes les transactions
 demandées par un portefeuille sur un nœud SPV et les utiliser pour
 associer des adresses Bitcoin à l'utilisateur de ce portefeuille,
 détruisant ainsi la vie privée de l'utilisateur.
 
-Noeud .SPV synchronisant les en-têtes de bloc !["Synchronisation
-SPV"](:images/mbc2_0807.png)
+<figure>
+<img src="images/mbc2_0807.png" id="spv_synchronization"
+alt="Noeud SPV synchronisant les en-têtes de bloc" />
+<figcaption aria-hidden="true">Noeud SPV synchronisant les en-têtes de
+bloc</figcaption>
+</figure>
 
 Peu de temps après l'introduction des nœuds SPV/légers, les développeurs
 de bitcoins ont ajouté une fonctionnalité appelée *filtres de floraison*
-pour faire face aux risques de confidentialité des nœuds SPV. Les
-filtres Bloom permettent aux nœuds SPV de recevoir un sous-ensemble des
-transactions sans révéler précisément les adresses qui les intéressent,
-grâce à un mécanisme de filtrage qui utilise des probabilités plutôt que
-des modèles fixes.<span class="indexterm"></span> <span
-class="indexterm"></span>(( ("", startref="simple08")))
+(Bloom Filters) pour faire face aux risques de confidentialité des nœuds
+SPV. Les filtres de floraison permettent aux nœuds SPV de recevoir un
+sous-ensemble des transactions sans révéler précisément les adresses qui
+les intéressent, grâce à un mécanisme de filtrage qui utilise des
+probabilités plutôt que des modèles fixes.<span
+class="indexterm"></span> <span class="indexterm"></span>(( ("",
+startref="simple08")))
 
-## Filtres Bloom
+## Filtres de floraison
 
 <span class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span> <span class="indexterm"></span> <span
-class="indexterm"></span>Un filtre bloom est un filtre de recherche
-probabiliste qui offre un moyen efficace d'exprimer un modèle de
-recherche tout en protégeant la confidentialité. Ils sont utilisés par
-les nœuds SPV pour demander à leurs pairs des transactions correspondant
-à un modèle spécifique, sans révéler exactement quelles adresses, clés
-ou transactions ils recherchent.
+class="indexterm"></span>Un filtre de floraison est un filtre de
+recherche probabiliste qui offre un moyen efficace d'exprimer un modèle
+de recherche tout en protégeant la confidentialité. Ils sont utilisés
+par les nœuds SPV pour demander à leurs pairs des transactions
+correspondant à un modèle spécifique, sans révéler exactement quelles
+adresses, clés ou transactions ils recherchent.
 
 Dans notre analogie précédente, un touriste sans carte demande son
 chemin vers une adresse spécifique, "23 Church St." Si elle demande à
 des inconnus son chemin vers cette rue, elle révèle par inadvertance sa
-destination. Un filtre Bloom revient à demander : "Y a-t-il des rues
-dans ce quartier dont le nom se termine par RCH ?" Une question comme
-celle-là en dit un peu moins sur la destination souhaitée que de
+destination. Un filtre de floraison revient à demander : "Y a-t-il des
+rues dans ce quartier dont le nom se termine par RCH ?" Une question
+comme celle-là en dit un peu moins sur la destination souhaitée que de
 demander "23 Church St." En utilisant cette technique, un touriste
 pourrait spécifier l'adresse souhaitée plus en détail comme "se
 terminant par URCH" ou moins en détail comme "se terminant par H". En
@@ -646,59 +665,60 @@ moins d'informations, au détriment d'obtenir des résultats plus ou moins
 précis. Si elle demande un modèle moins spécifique, elle obtient
 beaucoup plus d'adresses possibles et une meilleure confidentialité,
 mais de nombreux résultats ne sont pas pertinents. Si elle demande un
-modèle très spécifique, elle obtient moins de résultats mais perd sa vie
-privée.
+modèle très spécifique, elle obtient moins de résultats mais perd sa
+confidentialité.
 
-Les filtres Bloom remplissent cette fonction en permettant à un nœud SPV
-de spécifier un modèle de recherche pour les transactions qui peuvent
-être réglés vers la précision ou la confidentialité. Un filtre bloom
-plus spécifique produira des résultats précis, mais au détriment de la
-révélation des modèles qui intéressent le nœud SPV, révélant ainsi les
-adresses détenues par le portefeuille de l'utilisateur. Un filtre bloom
-moins spécifique produira plus de données sur plus de transactions, dont
-beaucoup ne sont pas pertinentes pour le nœud, mais permettra au nœud de
-maintenir une meilleure confidentialité.
+Les filtres de floraison remplissent cette fonction en permettant à un
+nœud SPV de spécifier un modèle de recherche pour les transactions qui
+peuvent être réglés vers la précision ou la confidentialité. Un filtre
+de floraison plus spécifique produira des résultats précis, mais au
+détriment de la révélation des modèles qui intéressent le nœud SPV,
+révélant ainsi les adresses détenues par le portefeuille de
+l'utilisateur. Un filtre bloom moins spécifique produira plus de données
+sur plus de transactions, dont beaucoup ne sont pas pertinentes pour le
+nœud, mais permettra au nœud de maintenir une meilleure confidentialité.
 
-### Comment fonctionnent les filtres Bloom
+### Comment fonctionnent les filtres de floraison
 
-Les filtres Bloom sont implémentés sous la forme d'un tableau de taille
-variable de N chiffres binaires (un champ de bits) et d'un nombre
+Les filtres de floraison sont implémentés sous la forme d'un tableau de
+taille variable de N chiffres binaires (un champ de bits) et d'un nombre
 variable de M fonctions de hachage. Les fonctions de hachage sont
 conçues pour produire toujours une sortie comprise entre 1 et N,
 correspondant au tableau de chiffres binaires. Les fonctions de hachage
 sont générées de manière déterministe, de sorte que tout nœud
-implémentant un filtre bloom utilisera toujours les mêmes fonctions de
-hachage et obtiendra les mêmes résultats pour une entrée spécifique. En
-choisissant des filtres de bloom de différentes longueurs (N) et un
-nombre différent (M) de fonctions de hachage, le filtre de bloom peut
-être réglé, en faisant varier le niveau de précision et donc de
-confidentialité.
+implémentant un filtre de floraison utilisera toujours les mêmes
+fonctions de hachage et obtiendra les mêmes résultats pour une entrée
+spécifique. En choisissant des filtres de floraison de différentes
+longueurs (N) et un nombre différent (M) de fonctions de hachage, le
+filtres de floraison peut être réglé, en faisant varier le niveau de
+précision et donc de confidentialité.
 
-Dans &lt;&lt;bloom1&gt; &gt;, nous utilisons un très petit tableau de 16
-bits et un ensemble de trois fonctions de hachage pour démontrer le
-fonctionnement des filtres bloom.
+Dans [figure\_title](#bloom1), nous utilisons un très petit tableau de
+16 bits et un ensemble de trois fonctions de hachage pour démontrer le
+fonctionnement des filtres de floraison.
 
 <figure>
-<img src="images/mbc2_0808.png" id="fleur1"
-alt="Un exemple de filtre bloom simpliste, avec un champ 16 bits et trois fonctions de hachage" />
-<figcaption aria-hidden="true">Un exemple de filtre bloom simpliste,
-avec un champ 16 bits et trois fonctions de hachage</figcaption>
+<img src="images/mbc2_0808.png" id="bloom1"
+alt="Un exemple de filtre de floraison simpliste, avec un champ 16 bits et trois fonctions de hachage" />
+<figcaption aria-hidden="true">Un exemple de filtre de floraison
+simpliste, avec un champ 16 bits et trois fonctions de
+hachage</figcaption>
 </figure>
 
-Le filtre de bloom est initialisé de sorte que le tableau de bits ne
-soit que des zéros. Pour ajouter un motif au filtre bloom, le motif est
-haché tour à tour par chaque fonction de hachage. L'application de la
-première fonction de hachage à l'entrée donne un nombre compris entre 1
-et N. Le bit correspondant dans le tableau (indexé de 1 à N) est trouvé
-et défini sur `1`, enregistrant ainsi la sortie de la fonction de
-hachage. Ensuite, la fonction de hachage suivante est utilisée pour
-définir un autre bit et ainsi de suite. Une fois que toutes les
-fonctions de hachage M ont été appliquées, le modèle de recherche sera
-"enregistré" dans le filtre bloom sous forme de M bits qui ont été
-modifiés de `0` à `1`.
+Le filtre de floraison est initialisé de sorte que le tableau de bits ne
+soit que des zéros. Pour ajouter un motif au filtre de floraison, le
+motif est haché tour à tour par chaque fonction de hachage.
+L'application de la première fonction de hachage à l'entrée donne un
+nombre compris entre 1 et N. Le bit correspondant dans le tableau
+(indexé de 1 à N) est trouvé et défini sur `1`, enregistrant ainsi la
+sortie de la fonction de hachage. Ensuite, la fonction de hachage
+suivante est utilisée pour définir un autre bit et ainsi de suite. Une
+fois que toutes les fonctions de hachage M ont été appliquées, le modèle
+de recherche sera "enregistré" dans le filtre de floraison sous forme de
+M bits qui ont été modifiés de `0` à `1`.
 
-&lt;&lt;bloom2&gt; &gt; est un exemple d'ajout d'un motif "A" au filtre
-Bloom simple illustré dans &lt;&lt;bloom1&gt; &gt;.
+[figure\_title](#bloom2) est un exemple d'ajout d'un motif "A" au filtre
+de floraison simple illustré dans [figure\_title](#bloom1).
 
 L'ajout d'un deuxième motif est aussi simple que de répéter ce
 processus. Le motif est haché par chaque fonction de hachage tour à tour
@@ -718,84 +738,86 @@ grande précision. Un tableau de bits plus petit ou moins de fonctions de
 hachage enregistrera moins de modèles et produira moins de précision.
 
 <figure>
-<img src="images/mbc2_0809.png" id="fleurir2"
-alt="Ajout d&#39;un motif &quot;A&quot; à notre filtre bloom simple" />
-<figcaption aria-hidden="true">Ajout d'un motif "A" à notre filtre bloom
-simple</figcaption>
+<img src="images/mbc2_0809.png" id="bloom2"
+alt="Ajout d&#39;un motif &quot;A&quot; à notre filtre de floraison simple" />
+<figcaption aria-hidden="true">Ajout d'un motif "A" à notre filtre de
+floraison simple</figcaption>
 </figure>
 
-&lt;&lt;bloom3&gt; &gt; est un exemple d'ajout d'un deuxième motif "B"
-au filtre bloom simple.
+[figure\_title](#bloom3) est un exemple d'ajout d'un deuxième motif "B"
+au filtre de floraison simple.
 
 <figure>
-<img src="images/mbc2_0810.png" id="fleurir3"
-alt="Ajout d&#39;un deuxième motif &quot;B&quot; à notre filtre bloom simple" />
+<img src="images/mbc2_0810.png" id="bloom3"
+alt="Ajout d&#39;un deuxième motif &quot;B&quot; à notre filtre de floraison simple" />
 <figcaption aria-hidden="true">Ajout d'un deuxième motif "B" à notre
-filtre bloom simple</figcaption>
+filtre de floraison simple</figcaption>
 </figure>
 
-Pour tester si un motif fait partie d'un filtre de bloom, le motif est
-haché par chaque fonction de hachage et le motif de bits résultant est
-testé par rapport au tableau de bits. Si tous les bits indexés par les
-fonctions de hachage sont mis à `1`, alors le motif est *probablement*
-enregistré dans le filtre bloom. Étant donné que les bits peuvent être
-définis en raison du chevauchement de plusieurs modèles, la réponse
-n'est pas certaine, mais plutôt probabiliste. En termes simples, une
-correspondance positive du filtre bloom est un "Peut-être, Oui".
+Pour tester si un motif fait partie d'un filtre de floraison, le motif
+est haché par chaque fonction de hachage et le motif de bits résultant
+est testé par rapport au tableau de bits. Si tous les bits indexés par
+les fonctions de hachage sont mis à `1`, alors le motif est
+*probablement* enregistré dans le filtre de floraison. Étant donné que
+les bits peuvent être définis en raison du chevauchement de plusieurs
+modèles, la réponse n'est pas certaine, mais plutôt probabiliste. En
+termes simples, une correspondance positive du filtre de floraison est
+un "Peut-être, Oui".
 
-&lt;&lt;bloom4&gt; &gt; est un exemple de test de l'existence du motif
-"X" dans le filtre bloom simple. Les bits correspondants sont définis
-sur `1`, donc le motif est probablement une correspondance.
+[figure\_title](#bloom4) est un exemple de test de l'existence du motif
+"X" dans le filtre de floraison simple. Les bits correspondants sont
+définis sur `1`, donc le motif est probablement une correspondance.
 
 <figure>
-<img src="images/mbc2_0811.png" id="fleurir4"
-alt="Tester l&#39;existence du motif &quot;X&quot; dans le filtre bloom. Le résultat est une correspondance positive probabiliste, ce qui signifie &quot;Peut-être&quot;." />
+<img src="images/mbc2_0811.png" id="bloom4"
+alt="Tester l&#39;existence du motif &quot;X&quot; dans le filtre de floraison. Le résultat est une correspondance positive probabiliste, ce qui signifie &quot;Peut-être&quot;." />
 <figcaption aria-hidden="true">Tester l'existence du motif "X" dans le
-filtre bloom. Le résultat est une correspondance positive probabiliste,
-ce qui signifie "Peut-être".</figcaption>
+filtre de floraison. Le résultat est une correspondance positive
+probabiliste, ce qui signifie "Peut-être".</figcaption>
 </figure>
 
 Au contraire, si un motif est testé par rapport au filtre bloom et que
 l'un des bits est mis à `0`, cela prouve que le motif n'a pas été
-enregistré dans le filtre bloom. Un résultat négatif n'est pas une
-probabilité, c'est une certitude. En termes simples, une correspondance
-négative sur un filtre bloom est un "Certainement pas!"
+enregistré dans le filtre de floraison. Un résultat négatif n'est pas
+une probabilité, c'est une certitude. En termes simples, une
+correspondance négative sur un filtre de floraison bloom est un
+"Définitivement pas!"
 
-&lt;&lt;bloom5&gt; &gt; est un exemple de test de l'existence du motif
-"Y" dans le filtre bloom simple. L'un des bits correspondants est défini
-sur `0`, donc le motif n'est certainement pas une correspondance.
+[figure\_title](#bloom5) est un exemple de test de l'existence du motif
+"Y" dans le filtre de floraison simple. L'un des bits correspondants est
+défini sur `0`, donc le motif n'est certainement pas une correspondance.
 
 <figure>
-<img src="images/mbc2_0812.png" id="fleurir5"
-alt="Tester l&#39;existence du motif &quot;Y&quot; dans le filtre bloom. Le résultat est une correspondance négative définitive, ce qui signifie &quot;Certainement pas !&quot;" />
+<img src="images/mbc2_0812.png" id="bloom5"
+alt="Tester l&#39;existence du motif &quot;Y&quot; dans le filtre de floraison. Le résultat est une correspondance négative définitive, ce qui signifie &quot;Définitivement pas !&quot;" />
 <figcaption aria-hidden="true">Tester l'existence du motif "Y" dans le
-filtre bloom. Le résultat est une correspondance négative définitive, ce
-qui signifie "Certainement pas !"</figcaption>
+filtre de floraison. Le résultat est une correspondance négative
+définitive, ce qui signifie "Définitivement pas !"</figcaption>
 </figure>
 
-## Comment les nœuds SPV utilisent les filtres Bloom
+## Comment les nœuds SPV utilisent les filtres de floraison
 
-Les filtres Bloom sont utilisés pour filtrer les transactions (et les
-blocs les contenant) qu'un nœud SPV reçoit de ses pairs, en
+Les filtres de floraison sont utilisés pour filtrer les transactions (et
+les blocs les contenant) qu'un nœud SPV reçoit de ses pairs, en
 sélectionnant uniquement les transactions qui intéressent le nœud SPV
 sans révéler les adresses ou les clés qui l'intéressent.
 
-<span class="indexterm"></span>Un nœud SPV initialisera un filtre bloom
-comme "vide" ; dans cet état, le filtre bloom ne correspondra à aucun
-motif. Le nœud SPV établira ensuite une liste de toutes les adresses,
-clés et hachages qui l'intéressent. Il le fera en extrayant le hachage
-de clé publique et le hachage de script et les ID de transaction de tout
-UTXO contrôlé par son portefeuille. Le nœud SPV ajoute ensuite chacun
-d'entre eux au filtre de floraison, de sorte que le filtre de floraison
-"correspondra" si ces modèles sont présents dans une transaction, sans
-révéler les modèles eux-mêmes.
+<span class="indexterm"></span>Un nœud SPV initialisera un filtre de
+floraison comme "vide" ; dans cet état, le filtre de floraison ne
+correspondra à aucun motif. Le nœud SPV établira ensuite une liste de
+toutes les adresses, clés et hachages qui l'intéressent. Il le fera en
+extrayant le hachage de clé publique et le hachage de script et les ID
+de transaction de tout UTXO contrôlé par son portefeuille. Le nœud SPV
+ajoute ensuite chacun d'entre eux au filtre de floraison, de sorte que
+le filtre de floraison "correspondra" si ces modèles sont présents dans
+une transaction, sans révéler les modèles eux-mêmes.
 
 <span class="indexterm"></span> <span class="indexterm"></span> Le nœud
-SPV enverra alors un message `filterload` au pair, contenant le filtre
-bloom à utiliser sur la connexion. Sur le pair, les filtres bloom sont
-vérifiés par rapport à chaque transaction entrante. Le nœud complet
-vérifie plusieurs parties de la transaction par rapport au filtre Bloom,
-à la recherche d'une correspondance, notamment :
+SPV enverra alors un message `filterload` au pair, contenant le filtres
+de floraison à utiliser sur la connexion. Sur le pair, les filtres de
+floraison sont vérifiés par rapport à chaque transaction entrante. Le
+nœud complet vérifie plusieurs parties de la transaction par rapport au
+filtre de floraison, à la recherche d'une correspondance, notamment :
 
 -   L'identifiant de la transaction
 
@@ -819,10 +841,10 @@ qui correspondent au filtre sont envoyées au nœud.
 
 En réponse à un message `getdata` du nœud, les pairs enverront un
 message `merkleblock` qui ne contient que des en-têtes de bloc pour les
-blocs correspondant au filtre et un chemin merkle (voir
-&lt;&lt;merkle\_trees&gt; &gt;) pour chaque transaction correspondante.
-Le pair enverra alors également des messages `tx` contenant les
-transactions mises en correspondance par le filtre.
+blocs correspondant au filtre et un chemin Merkle (voir
+[???](#merkle_trees)) pour chaque transaction correspondante. Le pair
+enverra alors également des messages `tx` contenant les transactions
+mises en correspondance par le filtre.
 
 Lorsque le nœud complet envoie des transactions au nœud SPV, le nœud SPV
 rejette tous les faux positifs et utilise les transactions correctement
@@ -831,18 +853,18 @@ portefeuille. Au fur et à mesure qu'il met à jour sa propre vue de
 l'ensemble UTXO, il modifie également le filtre de floraison pour
 correspondre à toutes les transactions futures faisant référence à
 l'UTXO qu'il vient de trouver. Le nœud complet utilise ensuite le
-nouveau filtre bloom pour faire correspondre les nouvelles transactions
-et l'ensemble du processus se répète.
+nouveau filtre de floraison pour faire correspondre les nouvelles
+transactions et l'ensemble du processus se répète.
 
-Le nœud définissant le filtre bloom peut ajouter de manière interactive
-des motifs au filtre en envoyant un message `filteradd`. Pour effacer le
-filtre bloom, le nœud peut envoyer un message `filterclear`. Puisqu'il
-n'est pas possible de supprimer un modèle d'un filtre bloom, un nœud
-doit effacer et renvoyer un nouveau filtre bloom si un modèle n'est plus
-souhaité.
+Le nœud définissant le filtre de floraison peut ajouter de manière
+interactive des motifs au filtre en envoyant un message `filteradd`.
+Pour effacer le filtre de floraison, le nœud peut envoyer un message
+`filterclear`. Puisqu'il n'est pas possible de supprimer un modèle d'un
+filtre de floraison, un nœud doit effacer et renvoyer un nouveau filtre
+de floraison si un modèle n'est plus souhaité.
 
-Le protocole réseau et le mécanisme de filtre de bloom pour les nœuds
-SPV sont définis dans [BIP-37 (Peer
+Le protocole réseau et le mécanisme de filtre de floraison pour les
+nœuds SPV sont définis dans [BIP-37 (Peer
 Services)](https://bit.ly/1x6qCiO).<span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span>
@@ -856,13 +878,14 @@ son portefeuille. Un nœud SPV reçoit une liste filtrée des transactions
 liées aux adresses qui se trouvent dans son portefeuille. En
 conséquence, cela réduit la vie privée du propriétaire.
 
-Les filtres Bloom sont un moyen de réduire la perte de confidentialité.
-Sans eux, un nœud SPV devrait répertorier explicitement les adresses qui
-l'intéressent, créant ainsi une grave violation de la vie privée.
-Cependant, même avec des filtres Bloom, un adversaire surveillant le
-trafic d'un client SPV ou s'y connectant directement en tant que nœud du
-réseau P2P peut collecter suffisamment d'informations au fil du temps
-pour apprendre les adresses dans le portefeuille du client SPV.
+Les filtres de floraison sont un moyen de réduire la perte de
+confidentialité. Sans eux, un nœud SPV devrait répertorier explicitement
+les adresses qui l'intéressent, créant ainsi une grave violation de la
+vie privée. Cependant, même avec des filtres de floraison, un adversaire
+surveillant le trafic d'un client SPV ou s'y connectant directement en
+tant que nœud du réseau P2P peut collecter suffisamment d'informations
+au fil du temps pour apprendre les adresses dans le portefeuille du
+client SPV.
 
 ## Connexions cryptées et authentifiées
 
@@ -903,14 +926,14 @@ activer le débogage de Bitcoin Core pour le service Tor comme ceci :
 
     $ bitcoind --daemon --debug=tor
 
-Vous devriez voir "tor : ADD\_ONION réussi" dans les journaux, indiquant
-que Bitcoin Core a ajouté un service caché au réseau Tor.
+Vous devriez voir "tor: ADD\_ONION successful" dans les journaux,
+indiquant que Bitcoin Core a ajouté un service caché au réseau Tor.
 
 Vous pouvez trouver plus d'instructions sur l'exécution de Bitcoin Core
 en tant que service caché de Tor dans la documentation de Bitcoin Core
 (*docs/tor.md*) et divers didacticiels en ligne.
 
-### Authentification et cryptage peer-to-peer
+### Authentification et cryptage pair à pair
 
 <span class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
@@ -921,7 +944,7 @@ services optionnels pouvant être proposés par des nœuds Bitcoin
 compatibles. BIP-151 active le chiffrement négocié pour toutes les
 communications entre deux nœuds qui prennent en charge BIP-151. BIP-150
 offre une authentification par les pairs en option qui permet aux nœuds
-de s'authentifier mutuellement à l'aide d'ECDSA et de clés privées.
+de s'authentifier mutuellement à l'aide d'ECDSA et des clés privées.
 BIP-150 exige qu'avant l'authentification, les deux nœuds aient établi
 des communications cryptées conformément à BIP-151.
 
@@ -935,11 +958,11 @@ chiffrement et l'authentification pour protéger la confidentialité du
 client SPV.
 
 De plus, l'authentification peut être utilisée pour créer des réseaux de
-nœuds Bitcoin de confiance et empêcher les attaques Man-in-the-Middle.
-Enfin, le cryptage P2P, s'il est déployé à grande échelle, renforcerait
-la résistance du bitcoin à l'analyse du trafic et à la surveillance
-portant atteinte à la vie privée, en particulier dans les pays
-totalitaires où l'utilisation d'Internet est fortement contrôlée et
+nœuds Bitcoin de confiance et empêcher les attaques Man-in-the-Middle
+(entre-deux). Enfin, le cryptage P2P, s'il est déployé à grande échelle,
+renforcerait la résistance du bitcoin à l'analyse du trafic et à la
+surveillance portant atteinte à la vie privée, en particulier dans les
+pays totalitaires où l'utilisation d'Internet est fortement contrôlée et
 surveillée.
 
 <span class="indexterm"></span> <span class="indexterm"></span><span
@@ -956,32 +979,32 @@ poste)](https://github.com/bitcoin/bips/blob/master/bip-0151.mediawiki).
 <span class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span><span class="indexterm"></span>Presque tous les
 nœuds du réseau Bitcoin maintiennent une liste temporaire de
-transactions non confirmées appelées *memory pool*, *mempool* ou
-*transaction pool*. Les nœuds utilisent ce pool pour suivre les
+transactions non confirmées appelées *bassin de mémoire*, *mempool* ou
+*bassin de transaction*. Les nœuds utilisent ce bassin pour suivre les
 transactions connues du réseau mais qui ne sont pas encore incluses dans
-la blockchain. Par exemple, un nœud de portefeuille utilisera le pool de
-transactions pour suivre les paiements entrants dans le portefeuille de
-l'utilisateur qui ont été reçus sur le réseau mais qui n'ont pas encore
-été confirmés.
+la chaîne de blocs. Par exemple, un nœud de portefeuille utilisera le
+bassin de transactions pour suivre les paiements entrants dans le
+portefeuille de l'utilisateur qui ont été reçus sur le réseau mais qui
+n'ont pas encore été confirmés.
 
 Au fur et à mesure que les transactions sont reçues et vérifiées, elles
-sont ajoutées au pool de transactions et relayées aux nœuds voisins pour
-se propager sur le réseau.
+sont ajoutées au bassin de transactions et relayées aux nœuds voisins
+pour se propager sur le réseau.
 
 <span class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span>Certaines implémentations de nœuds maintiennent
-également un pool séparé de transactions orphelines. Si les entrées
+également un bassin séparé de transactions orphelines. Si les entrées
 d'une transaction font référence à une transaction qui n'est pas encore
 connue, comme un parent manquant, la transaction orpheline sera stockée
-temporairement dans le pool orphelin jusqu'à ce que la transaction
+temporairement dans le bassin orphelin jusqu'à ce que la transaction
 parent arrive.
 
-Lorsqu'une transaction est ajoutée au pool de transactions, le pool
+Lorsqu'une transaction est ajoutée au bassin de transactions, le bassin
 orphelin est vérifié pour tous les orphelins qui référencent les sorties
 de cette transaction (ses enfants). Tous les orphelins correspondants
-sont ensuite validés. S'ils sont valides, ils sont supprimés du pool
-orphelin et ajoutés au pool de transactions, complétant ainsi la chaîne
-qui a commencé avec la transaction parent. À la lumière de la
+sont ensuite validés. S'ils sont valides, ils sont supprimés du bassin
+orphelin et ajoutés au bassin de transactions, complétant ainsi la
+chaîne qui a commencé avec la transaction parent. À la lumière de la
 transaction nouvellement ajoutée, qui n'est plus orpheline, le processus
 est répété de manière récursive à la recherche de tout autre descendant,
 jusqu'à ce qu'aucun autre descendant ne soit trouvé. Grâce à ce
@@ -990,30 +1013,30 @@ reconstruction en cascade de toute une chaîne de transactions
 interdépendantes en réunissant les orphelins avec leurs parents tout au
 long de la chaîne.
 
-Le pool de transactions et le pool orphelin (le cas échéant) sont
+Le bassin de transactions et le bassin orphelin (le cas échéant) sont
 stockés dans la mémoire locale et ne sont pas enregistrés sur le
 stockage persistant ; ils sont plutôt renseignés dynamiquement à partir
-des messages réseau entrants. Lorsqu'un nœud démarre, les deux pools
+des messages réseau entrants. Lorsqu'un nœud démarre, les deux bassins
 sont vides et se remplissent progressivement avec les nouvelles
 transactions reçues sur le réseau.
 
 Certaines implémentations du client Bitcoin maintiennent également une
-base de données ou un pool UTXO, qui est l'ensemble de toutes les
-sorties non dépensées sur la blockchain. Les utilisateurs de Bitcoin
-Core le trouveront dans le dossier `chainstate/` du répertoire de
-données de leur client. Bien que le nom "pool UTXO" ressemble au pool de
-transactions, il représente un ensemble de données différent.
-Contrairement aux pools de transactions et orphelins, le pool UTXO n'est
-pas initialisé vide mais contient à la place des millions d'entrées de
-sorties de transactions non dépensées, tout ce qui n'est pas dépensé
-depuis le bloc de genèse. Le pool UTXO peut être hébergé dans la mémoire
-locale ou sous la forme d'une table de base de données indexée sur un
-stockage persistant.
+base de données ou un bassin UTXO, qui est l'ensemble de toutes les
+sorties non dépensées sur la chaîne de blocs. Les utilisateurs de
+Bitcoin Core le trouveront dans le dossier `chainstate/` du répertoire
+de données de leur client. Bien que le nom "bassin UTXO" ressemble au
+bassin de transactions, il représente un ensemble de données différent.
+Contrairement aux bassins de transactions et orphelins, le bassin UTXO
+n'est pas initialisé vide mais contient à la place des millions
+d'entrées de sorties de transactions non dépensées, tout ce qui n'est
+pas dépensé depuis le bloc de genèse. Le bassin UTXO peut être hébergé
+dans la mémoire locale ou sous la forme d'une table de base de données
+indexée sur un stockage persistant.
 
-Alors que les pools de transactions et orphelins représentent la
+Alors que les bassins de transactions et orphelins représentent la
 perspective locale d'un seul nœud et peuvent varier considérablement
 d'un nœud à l'autre en fonction du moment où le nœud a été démarré ou
-redémarré, le pool UTXO représente le consensus émergent du réseau et
-variera donc peu entre les nœuds. De plus, les pools de transactions et
-orphelins ne contiennent que des transactions non confirmées, tandis que
-le pool UTXO ne contient que des sorties confirmées.
+redémarré, le bassin UTXO représente le consensus émergent du réseau et
+variera donc peu entre les nœuds. De plus, les bassins de transactions
+et orphelins ne contiennent que des transactions non confirmées, tandis
+que le pool UTXO ne contient que des sorties confirmées.
