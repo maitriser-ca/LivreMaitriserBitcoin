@@ -16508,8 +16508,6 @@ is critical. By decentralizing the basis of trust, the Bitcoin
 blockchain is a platform that will spawn many revolutionary applications
 in a wide variety of industries.
 
-include::for\_translation\_mastering-bitcoin\_appdx-bitcoinwhitepape.asciidoc\[\]\_fr\_CA.txt
-
 Tables and descriptions sourced from
 <https://en.bitcoin.it/wiki/Script>.
 
