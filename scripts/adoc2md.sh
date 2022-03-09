@@ -1,8 +1,4 @@
-C3DIR=$1;
-
-for ad in $C3DIR/*.asciidoc; do
-    FN=${ad%.asciidoc};
-
-    asciidoc -b docbook $ad;
-    pandoc -f docbook -t markdown_strict ${FN}.xml -o ${FN}.md;
-done;
+C3FILE=$1;
+FN=${C3FILE%.asciidoc};
+asciidoc -b docbook $C3FILE;
+pandoc -f docbook -t markdown_strict ${FN}.xml -o ${FN}.md;
