@@ -4,7 +4,7 @@ Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs publique** (_**Ma
 
 ---
 <center>
-<img src="DONE1/images/MB2EO-MY-BANNER_GITHUB.png" alt="Maîtriser Bitcoin: Programmer la chaîne de blocs publique" width="96%"/>
+<img src="assets/MB@EO-MY-BANNER_GITHUB.png" alt="Maîtriser Bitcoin: Programmer la chaîne de blocs publique" width="96%"/>
 </center>
 
 ---
