@@ -1,6 +1,6 @@
 [[appdxbitcoinimpproposals]]
 [appendix]
-== Bitcoin Improvement Proposals (ou Propositions d'améliorations du Bitcoin)
+== Bitcoin Improvement Proposals (ou Propositions d'amélioration du Bitcoin)
 
 (((&quot;bitcoin improvement proposals (ou propositions d'améliorations du bitcoin)&quot;, &quot;types de&quot;)))Les Bitcoin Improvement Proposals (ou Propositions d'améliorations du Bitcoin) sont des documents de conception fournissant des informations à la communauté bitcoin ou décrivant une nouvelle fonctionnalité pour bitcoin ou ses processus ou son environnement.
 

@@ -2,30 +2,11 @@
 
 ## Qu'est-ce que Bitcoin ?
 
-<span class="indexterm"></span> <span class="indexterm"></span> <span
-class="indexterm"></span>Bitcoin est un ensemble de concepts et de
-technologies qui constituent la base d'un écosystème de monnaie
-numérique. Les unités monétaires appelées bitcoin sont utilisées pour
-stocker et transmettre de la valeur entre les participants au réseau
-Bitcoin. Les utilisateurs de Bitcoin communiquent entre eux en utilisant
-le protocole Bitcoin principalement via Internet, bien que d'autres
-réseaux de transport puissent également être utilisés. La pile de
-protocole Bitcoin, disponible en tant que logiciel à source libre, peut
-être exécutée sur une large gamme d'appareils informatiques, y compris
-les ordinateurs portables et les smartphones, ce qui rend la technologie
-facilement accessible.
+Bitcoin est un ensemble de concepts et de technologies qui constituent la base d'un écosystème de monnaie numérique. Les unités monétaires appelées bitcoin sont utilisées pour stocker et transmettre de la valeur entre les participants au réseau Bitcoin. Les utilisateurs de Bitcoin communiquent entre eux en utilisant le protocole Bitcoin principalement via Internet, bien que d'autres réseaux de transport puissent également être utilisés. La pile de protocole Bitcoin, disponible en tant que logiciel à source libre, peut être exécutée sur une large gamme d'appareils informatiques, y compris les ordinateurs portables et les smartphones, ce qui rend la technologie facilement accessible.
 
-Remarquez comment l'unité monétaire s'appelle "bitcoin" avec un petit
-*b*, et le système s'appelle "Bitcoin", avec un *B* majuscule.
+Remarquez comment l'unité monétaire s'appelle "bitcoin" avec un petit *b*, et le système s'appelle "Bitcoin", avec un *B* majuscule.
 
-Les utilisateurs peuvent transférer des bitcoins sur le réseau pour
-faire à peu près tout ce qui peut être fait avec des devises
-conventionnelles, y compris acheter et vendre des biens, envoyer de
-l'argent à des personnes ou à des organisations ou accorder un crédit.
-Le bitcoin peut être acheté, vendu et échangé contre d'autres devises
-dans des bureaux de change spécialisés. Le bitcoin est en un sens la
-forme d'argent idéale pour Internet car il est rapide, sécurisé et sans
-frontières.
+Les utilisateurs peuvent transférer des bitcoins sur le réseau pour faire à peu près tout ce qui peut être fait avec des devises conventionnelles, y compris acheter et vendre des biens, envoyer de l'argent à des personnes ou à des organisations ou accorder un crédit. Le bitcoin peut être acheté, vendu et échangé contre d'autres devises dans des bureaux de change spécialisés. Le bitcoin est en un sens la forme d'argent idéale pour Internet car il est rapide, sécurisé et sans frontières.
 
 Contrairement aux monnaies traditionnelles, le bitcoin est entièrement
 virtuel. Il n'y a pas de pièces physiques ni même de pièces numériques
