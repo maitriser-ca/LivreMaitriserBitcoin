@@ -40,6 +40,7 @@ La source originale de ces textes est tiré du livre à édition ouverte <strong
 <hr />
 <h1>Ma&icirc;triser Bitcoin</h1>
 <h2>Programmer la cha&icirc;ne de blocs publique</h2>
+<h3>2ième édition ouverte</h3>
 <p>Auteur : <strong>Andreas M. Antonopoulos</strong><br />
 Traducteur : <strong>Serafim Dos Santos</strong></p>
 </center>
