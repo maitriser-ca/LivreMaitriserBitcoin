@@ -58,7 +58,7 @@ Traducteur : <strong>Serafim Dos Santos</strong></p>
 10. [Chapitre 8 - Le réseau Bitcoin](DONE1/html/for_use_mastering-bitcoin_chapter-8_fr_CA.html)
 11. [Chapitre 9 - La cha&icirc;ne de blocs](DONE1/html/for_use_mastering-bitcoin_chapter-9_fr_CA.html)
 12. [Chapitre 10 - Minage et Consensus](DONE1/html/for_use_mastering-bitcoin_chapter-10_fr_CA.html)
-13. Chapitre 11
+13. [Chapitre 11 - Sécurité de Bitcoin](DONE1/html/for_use_mastering-bitcoin_chapter-11_fr_CA.html)
 14. Chapitre 12
 15. Annexe A - Le livre blanc de Bitcoin de Satoshi Nakamoto
 16. Annexe B - Script OPs
