@@ -1,4 +1,4 @@
-# Sécurité Bitcoin
+# Sécurité de Bitcoin
 
 Sécuriser le bitcoin est un défi car le bitcoin n'est pas une référence
 abstraite à la valeur, comme le solde d'un compte bancaire. Bitcoin
@@ -72,7 +72,7 @@ leurs clés et se font pirater, un par un.
 
 ### Développer des systèmes Bitcoin en toute sécurité
 
-<span class="indexterm"></span> <span class="indexterm"></span> Le
+<span class="indexterm"></span> <span class="indexterm"></span>Le
 principe le plus important pour les développeurs de bitcoins est la
 décentralisation. La plupart des développeurs connaissent les modèles de
 sécurité centralisés et pourraient être tentés d'appliquer ces modèles à
@@ -83,7 +83,7 @@ sur une validation indépendante des transactions par les mineurs. Si
 vous souhaitez tirer parti de la sécurité du bitcoin, vous devez vous
 assurer que vous restez dans le modèle de sécurité du bitcoin. En termes
 simples : ne retirez pas le contrôle des clés aux utilisateurs et ne
-retirez pas les transactions de la blockchain.
+retirez pas les transactions de la chaîne de blocs.
 
 Par exemple, de nombreux premiers échanges de bitcoins ont concentré
 tous les fonds des utilisateurs dans un seul portefeuille "chaud" avec
@@ -94,15 +94,16 @@ des conséquences désastreuses pour leurs clients.
 
 <span class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span>Une autre erreur courante consiste à retirer
-les transactions "hors blockchain" dans un effort malavisé pour réduire
-les frais de transaction ou accélérer le traitement des transactions. Un
-système "hors blockchain" enregistrera les transactions sur un registre
-interne centralisé et ne les synchronisera qu'occasionnellement avec la
-blockchain Bitcoin. Cette pratique, encore une fois, remplace la
-sécurité bitcoin décentralisée par une approche propriétaire et
-centralisée. Lorsque les transactions sont hors blockchain, des
-registres centralisés mal sécurisés peuvent être falsifiés, détournant
-des fonds et épuisant les réserves, sans que l'on s'en aperçoive.
+les transactions "hors chaîne de blocs" dans un effort malavisé pour
+réduire les frais de transaction ou accélérer le traitement des
+transactions. Un système "hors chaîne de blocs" enregistrera les
+transactions sur un registre interne centralisé et ne les synchronisera
+qu'occasionnellement avec la chaîne de blocs Bitcoin. Cette pratique,
+encore une fois, remplace la sécurité du bitcoin décentralisée par une
+approche propriétaire et centralisée. Lorsque les transactions sont hors
+chaîne de blocs, des registres centralisés mal sécurisés peuvent être
+falsifiés, détournant des fonds et épuisant les réserves, sans que l'on
+s'en aperçoive.
 
 À moins que vous ne soyez prêt à investir massivement dans la sécurité
 opérationnelle, plusieurs couches de contrôle d'accès et des audits
@@ -119,53 +120,53 @@ qui finissent par renverser la sécurité de Bitcoin.
 
 ### La racine de la confiance
 
-<span class="indexterm"></span> L'architecture de sécurité
-traditionnelle est basée sur un concept appelé *racine de confiance*,
-qui est un noyau de confiance utilisé comme base pour la sécurité de
-l'ensemble du système ou de l'application. L'architecture de sécurité
-est développée autour de la racine de la confiance sous la forme d'une
-série de cercles concentriques, comme des couches dans un oignon,
-étendant la confiance vers l'extérieur depuis le centre. Chaque couche
-s'appuie sur la couche interne la plus fiable à l'aide de contrôles
-d'accès, de signatures numériques, de cryptage et d'autres primitives de
-sécurité. À mesure que les systèmes logiciels deviennent plus complexes,
-ils sont plus susceptibles de contenir des bogues, ce qui les rend
-vulnérables aux compromis de sécurité. Par conséquent, plus un système
-logiciel devient complexe, plus il est difficile à sécuriser. Le concept
-de racine de confiance garantit que la plus grande partie de la
-confiance est placée dans la partie la moins complexe du système, et
-donc la moins vulnérable, les parties du système, tandis que des
-logiciels plus complexes sont superposés autour d'elle. Cette
-architecture de sécurité est répétée à différentes échelles, établissant
-d'abord une racine de confiance dans le matériel d'un système unique,
-puis étendant cette racine de confiance à travers le système
-d'exploitation jusqu'aux services système de niveau supérieur, et enfin
-sur de nombreux serveurs superposés en cercles concentriques de
-diminution de la confiance.
+<span class="indexterm"></span>L'architecture de sécurité traditionnelle
+est basée sur un concept appelé *racine de confiance*, qui est un noyau
+de confiance utilisé comme base pour la sécurité de l'ensemble du
+système ou de l'application. L'architecture de sécurité est développée
+autour de la racine de la confiance sous la forme d'une série de cercles
+concentriques, comme des couches dans un oignon, étendant la confiance
+vers l'extérieur depuis le centre. Chaque couche s'appuie sur la couche
+interne la plus fiable à l'aide de contrôles d'accès, de signatures
+numériques, de cryptage et d'autres primitives de sécurité. À mesure que
+les systèmes logiciels deviennent plus complexes, ils sont plus
+susceptibles de contenir des bogues, ce qui les rend vulnérables aux
+compromis de sécurité. Par conséquent, plus un système logiciel devient
+complexe, plus il est difficile à sécuriser. Le concept de racine de
+confiance garantit que la plus grande partie de la confiance est placée
+dans la partie la moins complexe du système, et donc la moins
+vulnérable, tandis que des logiciels plus complexes sont superposés
+autour d'elle. Cette architecture de sécurité est répétée à différentes
+échelles, établissant d'abord une racine de confiance dans le matériel
+d'un système unique, puis étendant cette racine de confiance à travers
+le système d'exploitation jusqu'aux services système de niveau
+supérieur, et enfin sur de nombreux serveurs superposés en cercles
+concentriques de diminution de la confiance.
 
 <span class="indexterm"></span> <span
 class="indexterm"></span>L'architecture de sécurité Bitcoin est
 différente. En bitcoin, le système de consensus crée un grand livre
-public de confiance qui est complètement décentralisé. Une blockchain
-correctement validée utilise le bloc genesis comme racine de confiance,
-construisant une chaîne de confiance jusqu'au bloc actuel. Les systèmes
-Bitcoin peuvent et doivent utiliser la blockchain comme racine de
-confiance. Lors de la conception d'une application bitcoin complexe
-composée de services sur de nombreux systèmes différents, vous devez
-examiner attentivement l'architecture de sécurité afin de déterminer où
-la confiance est placée. En fin de compte, la seule chose à laquelle il
-faut explicitement faire confiance est une blockchain entièrement
-validée. Si votre application accorde explicitement ou implicitement sa
-confiance à autre chose qu'à la blockchain, cela devrait être une source
-de préoccupation car elle introduit une vulnérabilité. Une bonne méthode
-pour évaluer l'architecture de sécurité de votre application consiste à
-considérer chaque composant individuel et à évaluer un scénario
-hypothétique où ce composant est complètement compromis et sous le
-contrôle d'un acteur malveillant. Prenez tour à tour chaque composant de
-votre application et évaluez les impacts sur la sécurité globale si ce
-composant est compromis. Si votre application n'est plus sécurisée
-lorsque des composants sont compromis, cela montre que vous avez mal
-placé la confiance dans ces composants. Une application bitcoin sans
+public de confiance qui est complètement décentralisé. Une chaîne de
+blocs correctement validée utilise le bloc de gen’se comme racine de
+confiance, construisant une chaîne de confiance jusqu'au bloc actuel.
+Les systèmes Bitcoin peuvent et doivent utiliser la chaîne de blocs
+comme racine de confiance. Lors de la conception d'une application
+bitcoin complexe composée de services sur de nombreux systèmes
+différents, vous devez examiner attentivement l'architecture de sécurité
+afin de déterminer où la confiance est placée. En fin de compte, la
+seule chose à laquelle il faut explicitement faire confiance est une
+chaîne de blocs entièrement validée. Si votre application accorde
+explicitement ou implicitement sa confiance à autre chose qu'à la chaîne
+de blocs, cela devrait être une source de préoccupation car elle
+introduit une vulnérabilité. Une bonne méthode pour évaluer
+l'architecture de sécurité de votre application consiste à considérer
+chaque composant individuel et à évaluer un scénario hypothétique où ce
+composant est complètement compromis et sous le contrôle d'un acteur
+malveillant. Prenez tour à tour chaque composant de votre application et
+évaluez les impacts sur la sécurité globale si ce composant est
+compromis. Si votre application n'est plus sécurisée lorsque des
+composants sont compromis, cela montre que vous avez mal placé la
+confiance dans ces composants. Une application bitcoin sans
 vulnérabilités ne devrait être vulnérable qu'à une compromission du
 mécanisme de consensus bitcoin, ce qui signifie que sa racine de
 confiance est basée sur la partie la plus solide de l'architecture de
@@ -175,8 +176,8 @@ Les nombreux exemples d'échanges de bitcoins piratés servent à souligner
 ce point, car leur architecture et leur conception de sécurité échouent
 même sous l'examen le plus occasionnel. Ces implémentations centralisées
 avaient explicitement investi la confiance dans de nombreux composants
-en dehors de la blockchain Bitcoin, tels que les portefeuilles actifs,
-les bases de données de grand livre centralisées, les clés de
+en dehors de la chaîne de blocs Bitcoin, tels que les portefeuilles
+actifs, les bases de données de grand livre centralisées, les clés de
 chiffrement vulnérables et les schémas similaires.<span
 class="indexterm"></span> <span class="indexterm"></span>
 
@@ -185,16 +186,16 @@ class="indexterm"></span> <span class="indexterm"></span>
 <span class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span> <span class="indexterm"></span>Les humains ont
-utilisé la sécurité physique contrôles depuis des milliers d'années. En
-comparaison, notre expérience en matière de sécurité numérique a moins
-de 50 ans. Les systèmes d'exploitation modernes à usage général ne sont
-pas très sécurisés et ne sont pas particulièrement adaptés au stockage
-de l'argent numérique. Nos ordinateurs sont constamment exposés à des
-menaces externes via des connexions Internet permanentes. Ils exécutent
-des milliers de composants logiciels de centaines d'auteurs, souvent
-avec un accès illimité aux fichiers de l'utilisateur. Un seul logiciel
-malveillant, parmi les milliers installés sur votre ordinateur, peut
-compromettre votre clavier et vos fichiers, en volant tout bitcoin
+utilisé des contrôles de sécurité physique depuis des milliers d'années.
+En comparaison, notre expérience en matière de sécurité numérique a
+moins de 50 ans. Les systèmes d'exploitation modernes à usage général ne
+sont pas très sécurisés et ne sont pas particulièrement adaptés au
+stockage de l'argent numérique. Nos ordinateurs sont constamment exposés
+à des menaces externes via des connexions Internet permanentes. Ils
+exécutent des milliers de composants logiciels de centaines d'auteurs,
+souvent avec un accès illimité aux fichiers de l'utilisateur. Un seul
+logiciel malveillant, parmi les milliers installés sur votre ordinateur,
+peut compromettre votre clavier et vos fichiers, en volant tout bitcoin
 stocké dans les applications de portefeuille. Le niveau de maintenance
 informatique requis pour maintenir un ordinateur exempt de virus et de
 chevaux de Troie dépasse le niveau de compétence de tous, sauf d'une
@@ -214,7 +215,7 @@ tels que des cartes de crédit et des comptes bancaires, en valeur après
 les avoir compromis. Malgré la difficulté de clôturer et de blanchir les
 informations financières, nous avons vu des vols sans cesse croissants.
 Bitcoin intensifie ce problème car il n'a pas besoin d'être clôturé ou
-blanchi ; c'est la valeur intrinsèque d'un actif numérique.
+blanchi; c'est la valeur intrinsèque d'un actif numérique.
 
 Heureusement, le bitcoin crée également les incitations à améliorer la
 sécurité informatique. Alors qu'auparavant le risque de compromission
@@ -235,7 +236,7 @@ technologie multisignature et de séquestre numérique. Dans les sections
 suivantes, nous examinerons diverses meilleures pratiques pour la
 sécurité pratique des utilisateurs.
 
-### Stockage Bitcoin Physique
+### Stockage Bitcoin physique
 
 <span class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span><span class="indexterm"></span> <span
@@ -255,12 +256,12 @@ Personnellement, je conserve la grande majorité de mes bitcoins (99 % ou
 plus) stockés sur des portefeuilles en papier, cryptés avec BIP-38, avec
 plusieurs copies enfermées dans des coffres-forts. <span
 class="indexterm"></span><span class="indexterm"></span> <span
-class="indexterm"></span> Garder le bitcoin hors ligne est appelé *cold
-storage* et c'est l'une des techniques de sécurité les plus efficaces.
-Un système de stockage à froid est un système dans lequel les clés sont
-générées sur un système hors ligne (jamais connecté à Internet) et
-stockées hors ligne, soit sur papier, soit sur un support numérique,
-comme une clé USB.
+class="indexterm"></span> Garder le bitcoin hors ligne est appelé
+*stockage à froid* (*cold storage*) et c'est l'une des techniques de
+sécurité les plus efficaces. Un système de stockage à froid est un
+système dans lequel les clés sont générées sur un système hors ligne
+(jamais connecté à Internet) et stockées hors ligne, soit sur papier,
+soit sur un support numérique, comme une clé USB.
 
 ### Portefeuilles matériels
 
@@ -268,7 +269,7 @@ comme une clé USB.
 class="indexterm"></span><span class="indexterm"></span>À long terme, la
 sécurité des bitcoins prendra de plus en plus la forme de portefeuilles
 matériels inviolables. Contrairement à un smartphone ou à un ordinateur
-de bureau, un portefeuille matériel bitcoin n'a qu'un seul objectif :
+de bureau, un portefeuille matériel bitcoin n'a qu'un seul objectif:
 conserver les bitcoins en toute sécurité. Sans logiciel à usage général
 à compromettre et avec des interfaces limitées, les portefeuilles
 matériels peuvent offrir un niveau de sécurité presque infaillible aux
@@ -328,16 +329,17 @@ plusieurs clés qui sont stockées à différents endroits.
 
 <span class="indexterm"></span><span class="indexterm"></span><span
 class="indexterm"></span> <span class="indexterm"></span><span
-class="indexterm"></span> <span class="indexterm"></span>Une sécurité
-importante une considération souvent négligée est la disponibilité, en
-particulier dans un contexte d'incapacité ou de décès du détenteur de la
-clé. Les utilisateurs de Bitcoin sont invités à utiliser des mots de
-passe complexes et à garder leurs clés sécurisées et privées, sans les
-partager avec qui que ce soit. Malheureusement, cette pratique rend
-presque impossible pour la famille de l'utilisateur de récupérer des
-fonds si l'utilisateur n'est pas disponible pour les débloquer. Dans la
-plupart des cas, en fait, les familles des utilisateurs de bitcoins
-pourraient ignorer complètement l'existence des fonds en bitcoins.
+class="indexterm"></span> <span class="indexterm"></span>Une
+considération de sécurité importante souvent négligée est la
+disponibilité, en particulier dans un contexte d'incapacité ou de décès
+du détenteur de la clé. Les utilisateurs de Bitcoin sont invités à
+utiliser des mots de passe complexes et à garder leurs clés sécurisées
+et privées, sans les partager avec qui que ce soit. Malheureusement,
+cette pratique rend presque impossible pour la famille de l'utilisateur
+de récupérer des fonds si l'utilisateur n'est pas disponible pour les
+débloquer. Dans la plupart des cas, en fait, les familles des
+utilisateurs de bitcoins pourraient ignorer complètement l'existence des
+fonds en bitcoins.
 
 Si vous avez beaucoup de bitcoins, vous devriez envisager de partager
 les détails d'accès avec un parent ou un avocat de confiance. Un régime
