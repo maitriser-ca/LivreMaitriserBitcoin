@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+
+<article lang="en">
+<articleinfo>
+    <date>2022-03-12</date>
+</articleinfo>
+<section id="ch11">
+<title>Sécurité Bitcoin</title>
+<simpara>Sécuriser le bitcoin est un défi car le bitcoin n&#39;est pas une référence abstraite à la valeur, comme le solde d&#39;un compte bancaire. Bitcoin ressemble beaucoup à de l&#39;argent numérique ou à de l&#39;or. Vous avez probablement entendu l&#39;expression, &quot;La possession est les neuf dixièmes de la loi.&quot; Eh bien, en bitcoin, la possession correspond aux dix dixièmes de la loi. La possession des clés pour déverrouiller le bitcoin équivaut à la possession d&#39;espèces ou d&#39;un morceau de métal précieux. Vous pouvez le perdre, l&#39;égarer, le faire voler ou donner accidentellement le mauvais montant à quelqu&#39;un. Dans chacun de ces cas, l&#39;usager n&#39;a aucun recours, comme s&#39;il déposait de l&#39;argent sur un trottoir public.</simpara>
+<simpara>Cependant, le bitcoin a des capacités que l&#39;argent, l&#39;or et les comptes bancaires n&#39;ont pas. Un portefeuille bitcoin, contenant vos clés, peut être sauvegardé comme n&#39;importe quel fichier. Il peut être stocké en plusieurs exemplaires, même imprimé sur papier pour une copie papier. Vous ne pouvez pas &quot;sauvegarder&quot; de l&#39;argent, de l&#39;or ou des comptes bancaires. Le bitcoin est suffisamment différent de tout ce qui a précédé pour que nous devions également penser à la sécurité du bitcoin d&#39;une manière nouvelle.</simpara>
+<section id="_principes_de_sécurité">
+<title>Principes de sécurité</title>
+<simpara><indexterm>
+  <primary>&quot;sécurité&quot;</primary><secondary>&quot;principes de sécurité&quot;</secondary><tertiary>id=&quot;Sprinc11&quot;</tertiary>
+</indexterm>
+<indexterm>
+  <primary>&quot;principes de sécurité&quot;</primary><secondary>id=&quot;Sprinc11&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>id=&quot;Sprinc11&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;systèmes décentralisés&quot;</primary><secondary>&quot;sécurité de&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>&quot;sécurité de&quot;</primary>
+</indexterm>Le principe fondamental du bitcoin est la décentralisation et il a des implications importantes pour la sécurité. Un modèle centralisé, tel qu&#39;une banque traditionnelle ou un réseau de paiement, dépend du contrôle d&#39;accès et de la vérification pour garder les mauvais acteurs hors du système. En comparaison, un système décentralisé comme Bitcoin pousse la responsabilité et le contrôle aux utilisateurs. Étant donné que la sécurité du réseau est basée sur la preuve de travail et non sur le contrôle d&#39;accès, le réseau peut être ouvert et aucun cryptage n&#39;est requis pour le trafic bitcoin.</simpara>
+<simpara>Sur un réseau de paiement traditionnel, tel qu&#39;un système de carte de crédit, le paiement est ouvert car il contient l&#39;identifiant privé de l&#39;utilisateur (le numéro de carte de crédit). Après le débit initial, toute personne ayant accès à l&#39;identifiant peut &quot;extraire&quot; des fonds et facturer le propriétaire encore et encore. Ainsi, le réseau de paiement doit être sécurisé de bout en bout avec un cryptage et doit garantir qu&#39;aucun espion ou intermédiaire ne puisse compromettre le trafic de paiement, en transit ou lorsqu&#39;il est stocké (au repos). Si un acteur malveillant accède au système, il peut compromettre les transactions en cours <emphasis>et</emphasis> les jetons de paiement qui peuvent être utilisés pour créer de nouvelles transactions. Pire encore, lorsque les données des clients sont compromises, les clients sont exposés au vol d&#39;identité et doivent prendre des mesures pour empêcher l&#39;utilisation frauduleuse des comptes compromis.</simpara>
+<simpara>Bitcoin est radicalement différent. Une transaction bitcoin n&#39;autorise qu&#39;une valeur spécifique à un destinataire spécifique et ne peut être falsifiée ou modifiée. Il ne révèle aucune information privée, telle que l&#39;identité des parties, et ne peut être utilisé pour autoriser des paiements supplémentaires. Par conséquent, un réseau de paiement bitcoin n&#39;a pas besoin d&#39;être crypté ou protégé contre les écoutes clandestines. En fait, vous pouvez diffuser des transactions en bitcoins sur un canal public ouvert, tel qu&#39;un WiFi ou un Bluetooth non sécurisé, sans perte de sécurité.</simpara>
+<simpara>Le modèle de sécurité décentralisé de Bitcoin donne beaucoup de pouvoir aux utilisateurs. Ce pouvoir s&#39;accompagne de la responsabilité de maintenir le secret des clés. Pour la plupart des utilisateurs, ce n&#39;est pas facile à faire, en particulier sur les appareils informatiques à usage général tels que les smartphones ou les ordinateurs portables connectés à Internet. Bien que le modèle décentralisé de Bitcoin empêche le type de compromis de masse observé avec les cartes de crédit, de nombreux utilisateurs ne sont pas en mesure de sécuriser correctement leurs clés et se font pirater, un par un.</simpara>
+<section id="_développer_des_systèmes_bitcoin_en_toute_sécurité">
+<title>Développer des systèmes Bitcoin en toute sécurité</title>
+<simpara><indexterm>
+  <primary>&quot;systèmes décentralisés&quot;</primary><secondary>&quot;bitcoin en tant que&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>&quot;bitcoin en tant que&quot;</primary>
+</indexterm> Le principe le plus important pour les développeurs de bitcoins est la décentralisation. La plupart des développeurs connaissent les modèles de sécurité centralisés et pourraient être tentés d&#39;appliquer ces modèles à leurs applications bitcoin, avec des résultats désastreux.</simpara>
+<simpara>La sécurité de Bitcoin repose sur un contrôle décentralisé des clés et sur une validation indépendante des transactions par les mineurs. Si vous souhaitez tirer parti de la sécurité du bitcoin, vous devez vous assurer que vous restez dans le modèle de sécurité du bitcoin. En termes simples : ne retirez pas le contrôle des clés aux utilisateurs et ne retirez pas les transactions de la blockchain.</simpara>
+<simpara>Par exemple, de nombreux premiers échanges de bitcoins ont concentré tous les fonds des utilisateurs dans un seul portefeuille &quot;chaud&quot; avec des clés stockées sur un seul serveur. Une telle conception supprime le contrôle des utilisateurs et centralise le contrôle des clés dans un système unique. De nombreux systèmes de ce type ont été piratés, avec des conséquences désastreuses pour leurs clients.</simpara>
+<simpara><indexterm>
+  <primary>&quot;transactions&quot;</primary><secondary>&quot;hors blockchain&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>&quot;hors blockchain&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;transactions hors blockchain&quot;</primary>
+</indexterm>Une autre erreur courante consiste à retirer les transactions &quot;hors blockchain&quot; dans un effort malavisé pour réduire les frais de transaction ou accélérer le traitement des transactions. Un système &quot;hors blockchain&quot; enregistrera les transactions sur un registre interne centralisé et ne les synchronisera qu&#39;occasionnellement avec la blockchain Bitcoin. Cette pratique, encore une fois, remplace la sécurité bitcoin décentralisée par une approche propriétaire et centralisée. Lorsque les transactions sont hors blockchain, des registres centralisés mal sécurisés peuvent être falsifiés, détournant des fonds et épuisant les réserves, sans que l&#39;on s&#39;en aperçoive.</simpara>
+<simpara>À moins que vous ne soyez prêt à investir massivement dans la sécurité opérationnelle, plusieurs couches de contrôle d&#39;accès et des audits (comme le font les banques traditionnelles), vous devez réfléchir très attentivement avant de retirer des fonds du contexte de sécurité décentralisé de Bitcoin. Même si vous disposez des fonds et de la discipline nécessaires pour mettre en œuvre un modèle de sécurité robuste, une telle conception ne fait que reproduire le modèle fragile des réseaux financiers traditionnels, en proie au vol d&#39;identité, à la corruption et au détournement de fonds. Pour tirer parti du modèle de sécurité décentralisé unique de Bitcoin, vous devez éviter la tentation d&#39;architectures centralisées qui pourraient vous sembler familières mais qui finissent par renverser la sécurité de Bitcoin.</simpara>
+</section>
+<section id="_la_racine_de_la_confiance">
+<title>La racine de la confiance</title>
+<simpara><indexterm>
+  <primary>&quot;concept racine de confiance&quot;</primary>
+</indexterm> L&#39;architecture de sécurité traditionnelle est basée sur un concept appelé <emphasis>racine de confiance</emphasis>, qui est un noyau de confiance utilisé comme base pour la sécurité de l&#39;ensemble du système ou de l&#39;application. L&#39;architecture de sécurité est développée autour de la racine de la confiance sous la forme d&#39;une série de cercles concentriques, comme des couches dans un oignon, étendant la confiance vers l&#39;extérieur depuis le centre. Chaque couche s&#39;appuie sur la couche interne la plus fiable à l&#39;aide de contrôles d&#39;accès, de signatures numériques, de cryptage et d&#39;autres primitives de sécurité. À mesure que les systèmes logiciels deviennent plus complexes, ils sont plus susceptibles de contenir des bogues, ce qui les rend vulnérables aux compromis de sécurité. Par conséquent, plus un système logiciel devient complexe, plus il est difficile à sécuriser. Le concept de racine de confiance garantit que la plus grande partie de la confiance est placée dans la partie la moins complexe du système, et donc la moins vulnérable, les parties du système, tandis que des logiciels plus complexes sont superposés autour d&#39;elle. Cette architecture de sécurité est répétée à différentes échelles, établissant d&#39;abord une racine de confiance dans le matériel d&#39;un système unique, puis étendant cette racine de confiance à travers le système d&#39;exploitation jusqu&#39;aux services système de niveau supérieur, et enfin sur de nombreux serveurs superposés en cercles concentriques de diminution de la confiance.</simpara>
+<simpara><indexterm>
+  <primary>&quot;exploitation minière et consensus&quot;</primary><secondary>&quot;sécurité et consensus&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>&quot;sécurité et consensus&quot;</primary>
+</indexterm>L&#39;architecture de sécurité Bitcoin est différente. En bitcoin, le système de consensus crée un grand livre public de confiance qui est complètement décentralisé. Une blockchain correctement validée utilise le bloc genesis comme racine de confiance, construisant une chaîne de confiance jusqu&#39;au bloc actuel. Les systèmes Bitcoin peuvent et doivent utiliser la blockchain comme racine de confiance. Lors de la conception d&#39;une application bitcoin complexe composée de services sur de nombreux systèmes différents, vous devez examiner attentivement l&#39;architecture de sécurité afin de déterminer où la confiance est placée. En fin de compte, la seule chose à laquelle il faut explicitement faire confiance est une blockchain entièrement validée. Si votre application accorde explicitement ou implicitement sa confiance à autre chose qu&#39;à la blockchain, cela devrait être une source de préoccupation car elle introduit une vulnérabilité. Une bonne méthode pour évaluer l&#39;architecture de sécurité de votre application consiste à considérer chaque composant individuel et à évaluer un scénario hypothétique où ce composant est complètement compromis et sous le contrôle d&#39;un acteur malveillant. Prenez tour à tour chaque composant de votre application et évaluez les impacts sur la sécurité globale si ce composant est compromis. Si votre application n&#39;est plus sécurisée lorsque des composants sont compromis, cela montre que vous avez mal placé la confiance dans ces composants. Une application bitcoin sans vulnérabilités ne devrait être vulnérable qu&#39;à une compromission du mécanisme de consensus bitcoin, ce qui signifie que sa racine de confiance est basée sur la partie la plus solide de l&#39;architecture de sécurité bitcoin.</simpara>
+<simpara>Les nombreux exemples d&#39;échanges de bitcoins piratés servent à souligner ce point, car leur architecture et leur conception de sécurité échouent même sous l&#39;examen le plus occasionnel. Ces implémentations centralisées avaient explicitement investi la confiance dans de nombreux composants en dehors de la blockchain Bitcoin, tels que les portefeuilles actifs, les bases de données de grand livre centralisées, les clés de chiffrement vulnérables et les schémas similaires.<indexterm>
+  <primary>&quot;&quot;</primary><secondary>startref=&quot;Spinc11&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>startref=&quot;Spinc11&quot;</primary>
+</indexterm></simpara>
+</section>
+</section>
+<section id="_meilleures_pratiques_de_sécurité_des_utilisateurs">
+<title>Meilleures pratiques de sécurité des utilisateurs</title>
+<simpara><indexterm>
+  <primary>&quot;security&quot;</primary><secondary>&quot;user security best practices&quot;</secondary><tertiary>id=&quot;Suser11&quot;</tertiary>
+</indexterm>
+<indexterm>
+  <primary>&quot;user security best practices&quot;</primary><secondary>id=&quot;Suser11&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>id=&quot;Suser11&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;use cases&quot;</primary><secondary>&quot;user security best practices&quot;</secondary><tertiary>id=&quot;UCsecurity11&quot;</tertiary>
+</indexterm>
+<indexterm>
+  <primary>&quot;user security best practices&quot;</primary><secondary>id=&quot;UCsecurity11&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>id=&quot;UCsecurity11&quot;</primary>
+</indexterm>Les humains ont utilisé la sécurité physique contrôles depuis des milliers d&#39;années. En comparaison, notre expérience en matière de sécurité numérique a moins de 50 ans. Les systèmes d&#39;exploitation modernes à usage général ne sont pas très sécurisés et ne sont pas particulièrement adaptés au stockage de l&#39;argent numérique. Nos ordinateurs sont constamment exposés à des menaces externes via des connexions Internet permanentes. Ils exécutent des milliers de composants logiciels de centaines d&#39;auteurs, souvent avec un accès illimité aux fichiers de l&#39;utilisateur. Un seul logiciel malveillant, parmi les milliers installés sur votre ordinateur, peut compromettre votre clavier et vos fichiers, en volant tout bitcoin stocké dans les applications de portefeuille. Le niveau de maintenance informatique requis pour maintenir un ordinateur exempt de virus et de chevaux de Troie dépasse le niveau de compétence de tous, sauf d&#39;une infime minorité d&#39;utilisateurs d&#39;ordinateurs.</simpara>
+<simpara>Malgré des décennies de recherche et d&#39;avancées en matière de sécurité de l&#39;information, les actifs numériques sont toujours terriblement vulnérables face à un adversaire déterminé. Même les systèmes les plus protégés et les plus restreints, dans les sociétés de services financiers, les agences de renseignement et les sous-traitants de la défense, sont fréquemment piratés. Bitcoin crée des actifs numériques qui ont une valeur intrinsèque et peuvent être volés et détournés vers de nouveaux propriétaires instantanément et irrévocablement. Cela crée une incitation massive pour les pirates. Jusqu&#39;à présent, les pirates devaient convertir des informations d&#39;identité ou des jetons de compte, tels que des cartes de crédit et des comptes bancaires, en valeur après les avoir compromis. Malgré la difficulté de clôturer et de blanchir les informations financières, nous avons vu des vols sans cesse croissants. Bitcoin intensifie ce problème car il n&#39;a pas besoin d&#39;être clôturé ou blanchi ; c&#39;est la valeur intrinsèque d&#39;un actif numérique.</simpara>
+<simpara>Heureusement, le bitcoin crée également les incitations à améliorer la sécurité informatique. Alors qu&#39;auparavant le risque de compromission informatique était vague et indirect, le bitcoin rend ces risques clairs et évidents. La détention de bitcoins sur un ordinateur sert à concentrer l&#39;esprit de l&#39;utilisateur sur la nécessité d&#39;améliorer la sécurité informatique. En conséquence directe de la prolifération et de l&#39;adoption accrue du bitcoin et d&#39;autres monnaies numériques, nous avons assisté à une escalade des techniques de piratage et des solutions de sécurité. En termes simples, les pirates ont désormais une cible très juteuse et les utilisateurs ont une incitation claire à se défendre.</simpara>
+<simpara>Au cours des trois dernières années, en conséquence directe de l&#39;adoption du bitcoin, nous avons assisté à d&#39;énormes innovations dans le domaine de la sécurité de l&#39;information sous la forme de cryptage matériel, de stockage de clés et de portefeuilles matériels, de technologie multisignature et de séquestre numérique. Dans les sections suivantes, nous examinerons diverses meilleures pratiques pour la sécurité pratique des utilisateurs.</simpara>
+<section id="_stockage_bitcoin_physique">
+<title>Stockage Bitcoin Physique</title>
+<simpara><indexterm>
+  <primary>&quot;stockage&quot;</primary><secondary>&quot;stockage physique de bitcoins&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>&quot;stockage physique de bitcoins&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;portefeuilles papier&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;portefeuilles&quot;</primary><secondary>&quot;types de&quot;</secondary><tertiary>&quot;portefeuilles papier&quot;</tertiary>
+</indexterm>
+<indexterm>
+  <primary>&quot;types de&quot;</primary><secondary>&quot;portefeuilles papier&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>&quot;portefeuilles papier&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;portefeuilles papier &quot;</primary><secondary>voir=&quot;également les portefeuilles&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>voir=&quot;également les portefeuilles&quot;</primary>
+</indexterm>Parce que la plupart des utilisateurs sont beaucoup plus à l&#39;aise avec la sécurité physique qu&#39;avec la sécurité des informations, une méthode très efficace pour protéger les bitcoins consiste à les convertir sous forme physique. Les clés Bitcoin ne sont rien de plus que de longs chiffres. Cela signifie qu&#39;ils peuvent être stockés sous une forme physique, telle qu&#39;imprimés sur du papier ou gravés sur une pièce de métal. La sécurisation des clés devient alors aussi simple que la sécurisation physique de la copie imprimée des clés bitcoin. Un ensemble de clés bitcoin imprimées sur papier s&#39;appelle un &quot;portefeuille papier&quot; et de nombreux outils gratuits peuvent être utilisés pour les créer. Personnellement, je conserve la grande majorité de mes bitcoins (99 % ou plus) stockés sur des portefeuilles en papier, cryptés avec BIP-38, avec plusieurs copies enfermées dans des coffres-forts. <indexterm>
+  <primary>&quot;cold storage&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;storage&quot;</primary><secondary>&quot;cold storage&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>&quot;cold storage&quot;</primary>
+</indexterm> Garder le bitcoin hors ligne est appelé <emphasis>cold storage</emphasis> et c&#39;est l&#39;une des techniques de sécurité les plus efficaces. Un système de stockage à froid est un système dans lequel les clés sont générées sur un système hors ligne (jamais connecté à Internet) et stockées hors ligne, soit sur papier, soit sur un support numérique, comme une clé USB.</simpara>
+</section>
+<section id="_portefeuilles_matériels">
+<title>Portefeuilles matériels</title>
+<simpara><indexterm>
+  <primary>&quot;portefeuilles&quot;</primary><secondary>&quot;types de&quot;</secondary><tertiary>&quot;portefeuilles matériels&quot;</tertiary>
+</indexterm>
+<indexterm>
+  <primary>&quot;types de&quot;</primary><secondary>&quot;portefeuilles matériels&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>&quot;portefeuilles matériels&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;portefeuilles matériels&quot;</primary>
+</indexterm>À long terme, la sécurité des bitcoins prendra de plus en plus la forme de portefeuilles matériels inviolables. Contrairement à un smartphone ou à un ordinateur de bureau, un portefeuille matériel bitcoin n&#39;a qu&#39;un seul objectif : conserver les bitcoins en toute sécurité. Sans logiciel à usage général à compromettre et avec des interfaces limitées, les portefeuilles matériels peuvent offrir un niveau de sécurité presque infaillible aux utilisateurs non experts. Je m&#39;attends à voir les portefeuilles matériels devenir la méthode prédominante de stockage de bitcoins. Pour un exemple d&#39;un tel portefeuille matériel, voir le <ulink url="https://trezor.io/">Trezor</ulink>.</simpara>
+</section>
+<section id="_équilibrer_les_risques">
+<title>Équilibrer les risques</title>
+<simpara><indexterm>
+  <primary>&quot;risque</primary><secondary>équilibre et diversification&quot;</secondary><tertiary>voiraussi=&quot;sécurité&quot;</tertiary>
+</indexterm>
+<indexterm>
+  <primary>équilibre et diversification&quot;</primary><secondary>voiraussi=&quot;sécurité&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>voiraussi=&quot;sécurité&quot;</primary>
+</indexterm>Bien que la plupart des utilisateurs soient à juste titre préoccupés par le vol de bitcoins, le risque est encore plus grand. Les fichiers de données se perdent tout le temps. S&#39;ils contiennent du bitcoin, la perte est beaucoup plus douloureuse. Dans le but de sécuriser leurs portefeuilles bitcoin, les utilisateurs doivent faire très attention à ne pas aller trop loin et finir par perdre le bitcoin. En juillet 2011, un projet bien connu de sensibilisation et d&#39;éducation au bitcoin a perdu près de 7 000 bitcoins. Dans leur effort pour prévenir le vol, les propriétaires avaient mis en place une série complexe de sauvegardes cryptées. En fin de compte, ils ont accidentellement perdu les clés de cryptage, rendant les sauvegardes sans valeur et perdant une fortune. Comme cacher de l&#39;argent en l&#39;enterrant dans le désert, si vous sécurisez trop bien votre bitcoin, vous ne pourrez peut-être plus le retrouver.</simpara>
+</section>
+<section id="_risque_de_diversification">
+<title>Risque de diversification</title>
+<simpara>Porteriez-vous toute votre valeur nette en espèces dans votre portefeuille ? La plupart des gens considéreraient cela comme imprudent, mais les utilisateurs de bitcoins conservent souvent tous leurs bitcoins dans un seul portefeuille. Au lieu de cela, les utilisateurs devraient répartir le risque entre plusieurs portefeuilles bitcoin diversifiés. Les utilisateurs prudents ne conserveront qu&#39;une petite fraction, peut-être moins de 5%, de leur bitcoin dans un portefeuille en ligne ou mobile comme &quot;monnaie de poche&quot;. Le reste doit être réparti entre quelques mécanismes de stockage différents, tels qu&#39;un portefeuille de bureau et hors ligne (stockage à froid).</simpara>
+</section>
+<section id="_multisig_et_gouvernance">
+<title>Multisig et gouvernance</title>
+<simpara><indexterm>
+  <primary>&quot;adresses multisig&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;adresses&quot;</primary><secondary>&quot;adresses multisig&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>&quot;adresses multisig&quot;</primary>
+</indexterm>Chaque fois qu&#39;une entreprise ou un particulier stocke de grandes quantités de bitcoins, il doit envisager d&#39;utiliser une adresse Bitcoin multisignature. Les adresses multisignatures sécurisent les fonds en exigeant un nombre minimum de signatures pour effectuer un paiement. Les clés de signature doivent être stockées dans un certain nombre d&#39;endroits différents et sous le contrôle de différentes personnes. Dans un environnement d&#39;entreprise, par exemple, les clés doivent être générées de manière indépendante et détenues par plusieurs dirigeants de l&#39;entreprise, afin de garantir qu&#39;aucune personne ne puisse compromettre les fonds. Les adresses multisignatures peuvent également offrir une redondance, où une seule personne détient plusieurs clés qui sont stockées à différents endroits.</simpara>
+</section>
+<section id="_capacité_de_survie">
+<title>Capacité de survie</title>
+<simpara><indexterm>
+  <primary>&quot;survivabilité&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;exécuteurs d&#39;actifs numériques&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;mots de passe&quot;</primary><secondary>&quot;survivabilité et&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>&quot;survivabilité et&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;sécurité&quot;</primary><secondary>&quot;mots de passe&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>&quot;mots de passe&quot;</primary>
+</indexterm>Une sécurité importante une considération souvent négligée est la disponibilité, en particulier dans un contexte d&#39;incapacité ou de décès du détenteur de la clé. Les utilisateurs de Bitcoin sont invités à utiliser des mots de passe complexes et à garder leurs clés sécurisées et privées, sans les partager avec qui que ce soit. Malheureusement, cette pratique rend presque impossible pour la famille de l&#39;utilisateur de récupérer des fonds si l&#39;utilisateur n&#39;est pas disponible pour les débloquer. Dans la plupart des cas, en fait, les familles des utilisateurs de bitcoins pourraient ignorer complètement l&#39;existence des fonds en bitcoins.</simpara>
+<simpara>Si vous avez beaucoup de bitcoins, vous devriez envisager de partager les détails d&#39;accès avec un parent ou un avocat de confiance. Un régime de survie plus complexe peut être mis en place avec un accès multi-signatures et une planification successorale par l&#39;intermédiaire d&#39;un avocat spécialisé en tant qu&#39;&quot;exécuteur d&#39;actifs numériques&quot;.<indexterm>
+  <primary>&quot;&quot;</primary><secondary>startref=&quot;Suser11&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>startref=&quot;Suser11&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;&quot;</primary><secondary>startref =&quot;UCsecurity11&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>startref =&quot;UCsecurity11&quot;</primary>
+</indexterm></simpara>
+</section>
+</section>
+<section id="_conclusion">
+<title>Conclusion</title>
+<simpara>Bitcoin is a completely new, unprecedented, and complex technology. Over time we will develop better security tools and practices that are easier to use by nonexperts. For now, bitcoin users can use many of the tips discussed here to enjoy a secure and trouble-free bitcoin experience.</simpara>
+</section>
+</section>
+</article>
