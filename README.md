@@ -46,23 +46,23 @@ Traducteur : <strong>Serafim Dos Santos</strong></p>
 </center>
 
 ---
-1. [Préface](DONE1/html/for_use_mastering-bitcoin_preface-open_fr_CA.html)
-2. [Glossaire](DONE1/html/for_use_mastering-bitcoin_glossary-1_fr_CA.html)
-3. [Chapitre 1 - Introduction](DONE1/html/for_use_mastering-bitcoin_chapter-1_fr_CA.html)
-4. [Chapitre 2 - Comment fonctionne Bitcoin](DONE1/html/for_use_mastering-bitcoin_chapter-2_fr_CA.html)
-5. [Chapitre 3 - Bitcoin Core: La référence d'implémentation](DONE1/html/for_use_mastering-bitcoin_chapter-3_fr_CA.html)
-6. [Chapitre 4 - Clés et adresses](DONE1/html/for_use_mastering-bitcoin_chapter-4_fr_CA.html)
-7. [Chapitre 5 - Portefeuilles](DONE1/html/for_use_mastering-bitcoin_chapter-5_fr_CA.html)
-8. [Chapitre 6 - Opérations](DONE1/html/for_use_mastering-bitcoin_chapter-6_fr_CA.html)
-9. [Chapitre 7 - Transactions et scripts avancés](DONE1/html/for_use_mastering-bitcoin_chapter-7_fr_CA.html)
-10. [Chapitre 8 - Le réseau Bitcoin](DONE1/html/for_use_mastering-bitcoin_chapter-8_fr_CA.html)
-11. [Chapitre 9 - La cha&icirc;ne de blocs](DONE1/html/for_use_mastering-bitcoin_chapter-9_fr_CA.html)
-12. [Chapitre 10 - Minage et Consensus](DONE1/html/for_use_mastering-bitcoin_chapter-10_fr_CA.html)
-13. [Chapitre 11 - Sécurité de Bitcoin](DONE1/html/for_use_mastering-bitcoin_chapter-11_fr_CA.html)
-14. [Chapitre 12 - Applications de chaîne de blocs](DONE1/html/for_use_mastering-bitcoin_chapter-12_fr_CA.html)
+1. [Préface](html/for_use_mastering-bitcoin_preface-open_fr_CA.html)
+2. [Glossaire](html/for_use_mastering-bitcoin_glossary-1_fr_CA.html)
+3. [Chapitre 1 - Introduction](html/for_use_mastering-bitcoin_chapter-1_fr_CA.html)
+4. [Chapitre 2 - Comment fonctionne Bitcoin](html/for_use_mastering-bitcoin_chapter-2_fr_CA.html)
+5. [Chapitre 3 - Bitcoin Core: La référence d'implémentation](html/for_use_mastering-bitcoin_chapter-3_fr_CA.html)
+6. [Chapitre 4 - Clés et adresses](html/for_use_mastering-bitcoin_chapter-4_fr_CA.html)
+7. [Chapitre 5 - Portefeuilles](html/for_use_mastering-bitcoin_chapter-5_fr_CA.html)
+8. [Chapitre 6 - Opérations](html/for_use_mastering-bitcoin_chapter-6_fr_CA.html)
+9. [Chapitre 7 - Transactions et scripts avancés](html/for_use_mastering-bitcoin_chapter-7_fr_CA.html)
+10. [Chapitre 8 - Le réseau Bitcoin](html/for_use_mastering-bitcoin_chapter-8_fr_CA.html)
+11. [Chapitre 9 - La cha&icirc;ne de blocs](html/for_use_mastering-bitcoin_chapter-9_fr_CA.html)
+12. [Chapitre 10 - Minage et Consensus](html/for_use_mastering-bitcoin_chapter-10_fr_CA.html)
+13. [Chapitre 11 - Sécurité de Bitcoin](html/for_use_mastering-bitcoin_chapter-11_fr_CA.html)
+14. [Chapitre 12 - Applications de chaîne de blocs](html/for_use_mastering-bitcoin_chapter-12_fr_CA.html)
 15. Annexe A - Le livre blanc de Bitcoin de Satoshi Nakamoto
 16. Annexe B - Script OPs
-17. [Annexe C - Bitcoin Improvement Proposals (BIPs ou Propositions d’amélioration du Bitcoin)](DONE1/html/for_use_mastering-bitcoin_appendix-bips_fr_CA.html)
+17. [Annexe C - Bitcoin Improvement Proposals (BIPs ou Propositions d’amélioration du Bitcoin)](html/for_use_mastering-bitcoin_appendix-bips_fr_CA.html)
 18. Annexe D - PyCoin
 19. Annexe E - BX
 20. Annexe F - BitCore
