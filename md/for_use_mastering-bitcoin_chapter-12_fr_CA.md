@@ -1,4 +1,4 @@
-# Applications de chaîne de blocs
+# Applications pour les chaînes de blocs
 
 Appuyons-nous maintenant sur notre compréhension du bitcoin en le
 considérant comme une *plate-forme d'application*. De nos jours, de
@@ -1212,7 +1212,7 @@ concurrentes de LN et travaillent à une norme d'interopérabilité commune
 réseau de canaux de paiement routés à être déployé en production.<span
 class="indexterm"></span> <span class="indexterm"></span>
 
-===Conclusion
+## Conclusion
 
 Nous n'avons examiné que quelques-unes des applications émergentes qui
 peuvent être construites en utilisant la chaîne de blocs Bitcoin comme

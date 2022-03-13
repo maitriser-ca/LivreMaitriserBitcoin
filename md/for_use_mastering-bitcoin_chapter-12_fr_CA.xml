@@ -8,7 +8,7 @@
     <date>2022-03-13</date>
 </articleinfo>
 <section id="ch12">
-<title>Applications de chaîne de blocs</title>
+<title>Applications pour les chaînes de blocs</title>
 <simpara>Appuyons-nous maintenant sur notre compréhension du bitcoin en le considérant comme une <emphasis>plate-forme d&#39;application</emphasis>. De nos jours, de nombreuses personnes utilisent le terme &quot;blockchain&quot; ou &quot;chaîne de blocs&quot; pour désigner toute plate-forme d&#39;application qui partage les principes de conception du bitcoin. Le terme est souvent mal utilisé et appliqué à de nombreuses choses qui ne fournissent pas les principales fonctionnalités fournies par la chaîne de blocs de Bitcoin.</simpara>
 <simpara>Dans ce chapitre, nous examinerons les fonctionnalités offertes par la chaîne de blocs Bitcoin, en tant que plate-forme d&#39;application. Nous considérerons les <emphasis>primitives</emphasis> de construction d&#39;applications, qui forment les blocs de construction de toute application chaîne de blocs. Nous examinerons plusieurs applications importantes qui utilisent ces primitives, telles que les canaux de paiement (état) et les canaux de paiement routés (Lightning Network).</simpara>
 <section id="_présentation">
@@ -736,9 +736,11 @@ Un réseau Lightning utilise des transactions bitcoin entre des nœuds qui fonct
 <indexterm>
   <primary>startref=&quot;BCAlightning12&quot;</primary>
 </indexterm></simpara>
-<simpara>===Conclusion</simpara>
-<simpara>Nous n&#39;avons examiné que quelques-unes des applications émergentes qui peuvent être construites en utilisant la chaîne de blocs Bitcoin comme plate-forme de confiance. Ces applications élargissent la portée du bitcoin au-delà des paiements et au-delà des instruments financiers, pour englober de nombreuses autres applications où la confiance est essentielle. En décentralisant la base de confiance, la chaîne de blocs Bitcoin est une plate-forme qui engendrera de nombreuses applications révolutionnaires dans une grande variété d&#39;industries.</simpara>
 </section>
+</section>
+<section id="_conclusion">
+<title>Conclusion</title>
+<simpara>Nous n&#39;avons examiné que quelques-unes des applications émergentes qui peuvent être construites en utilisant la chaîne de blocs Bitcoin comme plate-forme de confiance. Ces applications élargissent la portée du bitcoin au-delà des paiements et au-delà des instruments financiers, pour englober de nombreuses autres applications où la confiance est essentielle. En décentralisant la base de confiance, la chaîne de blocs Bitcoin est une plate-forme qui engendrera de nombreuses applications révolutionnaires dans une grande variété d&#39;industries.</simpara>
 </section>
 </section>
 </article>
