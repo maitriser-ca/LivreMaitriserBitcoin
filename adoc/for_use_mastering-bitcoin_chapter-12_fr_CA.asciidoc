@@ -404,6 +404,6 @@ Fonctionnement sans confiance:: Un réseau Lightning utilise des transactions bi
 
 Bien sûr, comme mentionné précédemment, le protocole Lightning Network n&#39;est pas le seul moyen de mettre en œuvre des canaux de paiement routés. D&#39;autres systèmes proposés incluent Tumblebit et Teechan. À l&#39;heure actuelle, cependant, le Lightning Network a déjà été déployé sur testnet. Plusieurs équipes différentes ont développé des implémentations concurrentes de LN et travaillent à une norme d&#39;interopérabilité commune (appelée BOLT). Il est probable que Lightning Network sera le premier réseau de canaux de paiement routés à être déployé en production.(((&quot;&quot;, startref=&quot;BCAlightning12&quot;)))
 
-===Conclusion
+=== Conclusion
 
 Nous n&#39;avons examiné que quelques-unes des applications émergentes qui peuvent être construites en utilisant la chaîne de blocs Bitcoin comme plate-forme de confiance. Ces applications élargissent la portée du bitcoin au-delà des paiements et au-delà des instruments financiers, pour englober de nombreuses autres applications où la confiance est essentielle. En décentralisant la base de confiance, la chaîne de blocs Bitcoin est une plate-forme qui engendrera de nombreuses applications révolutionnaires dans une grande variété d&#39;industries.
