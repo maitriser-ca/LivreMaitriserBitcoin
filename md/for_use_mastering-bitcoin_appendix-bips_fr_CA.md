@@ -1,4 +1,4 @@
-# Bitcoin Improvement Proposals (ou Propositions d’amélioration du Bitcoin)
+# Bitcoin Improvement Proposals (ou Propositions d’amélioration de Bitcoin)
 
 <span class="indexterm"></span> <span class="indexterm"></span>Les
 Bitcoin Improvement Proposals (ou Propositions d’améliorations du
