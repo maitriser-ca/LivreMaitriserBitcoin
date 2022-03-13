@@ -2,17 +2,17 @@
 
 Appuyons-nous maintenant sur notre compréhension du bitcoin en le
 considérant comme une *plate-forme d'application*. De nos jours, de
-nombreuses personnes utilisent le terme "blockchain" pour désigner toute
-plate-forme d'application qui partage les principes de conception du
-bitcoin. Le terme est souvent mal utilisé et appliqué à de nombreuses
-choses qui ne fournissent pas les principales fonctionnalités fournies
-par la blockchain de Bitcoin.
+nombreuses personnes utilisent le terme "blockchain" ou "chaîne de
+blocs" pour désigner toute plate-forme d'application qui partage les
+principes de conception du bitcoin. Le terme est souvent mal utilisé et
+appliqué à de nombreuses choses qui ne fournissent pas les principales
+fonctionnalités fournies par la chaîne de blocs de Bitcoin.
 
 Dans ce chapitre, nous examinerons les fonctionnalités offertes par la
-blockchain Bitcoin, en tant que plate-forme d'application. Nous
+chaîne de blocs Bitcoin, en tant que plate-forme d'application. Nous
 considérerons les *primitives* de construction d'applications, qui
-forment les blocs de construction de toute application blockchain. Nous
-examinerons plusieurs applications importantes qui utilisent ces
+forment les blocs de construction de toute application chaîne de blocs.
+Nous examinerons plusieurs applications importantes qui utilisent ces
 primitives, telles que les canaux de paiement (état) et les canaux de
 paiement routés (Lightning Network).
 
@@ -26,21 +26,22 @@ pour des applications beaucoup plus larges. Bitcoin n'a pas été
 construit avec des composants tels que des comptes, des utilisateurs,
 des soldes et des paiements. Au lieu de cela, il utilise un langage de
 script transactionnel avec des fonctions cryptographiques de bas niveau,
-comme nous l'avons vu dans &lt;&lt;transactions&gt; &gt;. Tout comme les
-concepts de niveau supérieur des comptes, des soldes et des paiements
-peuvent être dérivés de ces primitives de base, il en va de même pour de
-nombreuses autres applications complexes. Ainsi, la blockchain Bitcoin
-peut devenir une plate-forme applicative offrant des services de
+comme nous l'avons vu dans [???](#transactions). Tout comme les concepts
+de niveau supérieur des comptes, des soldes et des paiements peuvent
+être dérivés de ces primitives de base, il en va de même pour de
+nombreuses autres applications complexes. Ainsi, la chaîne de blocs
+Bitcoin peut devenir une plate-forme applicative offrant des services de
 confiance aux applications, tels que les contrats intelligents,
 dépassant de loin l'objectif initial de la monnaie numérique et des
 paiements.
 
-## Blocs de construction (primitifs)
+## Structures de base (les primitifs)
 
 <span class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span>Lorsqu'il fonctionne correctement et sur le
 long terme, le système Bitcoin offre certaines garanties, qui peuvent
-servir de base blocs pour créer des applications. Ceux-ci inclus:
+servir de structures de base pour créer des applications. Ceux-ci
+inclus:
 
 Pas de double dépense  
 La garantie la plus fondamentale de l'algorithme de consensus
@@ -48,20 +49,20 @@ décentralisé de Bitcoin garantit qu'aucun UTXO ne peut être dépensé deux
 fois.
 
 Immuabilité  
-Une fois qu'une transaction est enregistrée dans la blockchain et que
-suffisamment de travail a été ajouté avec les blocs suivants, les
+Une fois qu'une transaction est enregistrée dans la chaîne de blocs et
+que suffisamment de travail a été ajouté avec les blocs suivants, les
 données de la transaction deviennent immuables. L'immuabilité est
-garantie par l'énergie, car la réécriture de la blockchain nécessite une
-dépense d'énergie pour produire une preuve de travail. L'énergie requise
-et donc le degré d'immuabilité augmentent avec la quantité de travail
-engagé au-dessus du bloc contenant une transaction.
+garantie par l'énergie, car la réécriture de la chaîne de blocs
+nécessite une dépense d'énergie pour produire une preuve de travail.
+L'énergie requise et donc le degré d'immuabilité augmentent avec la
+quantité de travail engagé au-dessus du bloc contenant une transaction.
 
 Neutralité  
 Le réseau Bitcoin décentralisé propage des transactions valides quelle
 que soit l'origine ou le contenu de ces transactions. Cela signifie que
 n'importe qui peut créer une transaction valide avec des frais
 suffisants et être sûr qu'il sera en mesure de transmettre cette
-transaction et de l'inclure dans la blockchain à tout moment.
+transaction et de l'inclure dans la chaîne de blocs à tout moment.
 
 Horodatage sécurisé  
 Les règles de consensus rejettent tout bloc dont l'horodatage est trop
@@ -78,8 +79,8 @@ détenteur de la clé privée impliquée dans le script.
 
 Auditabilité  
 Toutes les transactions sont publiques et peuvent être auditées. Toutes
-les transactions et tous les blocs peuvent être liés dans une chaîne
-ininterrompue au bloc de genèse.
+les transactions et tous les blocs sont liés dans une chaîne
+ininterrompue jusqu’au bloc de genèse.
 
 Comptabilité  
 Dans toute transaction (à l'exception de la transaction coinbase), la
@@ -106,20 +107,20 @@ tout moment, une transaction est minée ou non.
 
 Unités de valeur discrètes (indivisibles)  
 Les sorties de transaction sont des unités de valeur discrètes et
-indivisibles. Ils peuvent être dépensés ou non dépensés, en totalité.
-Ils ne peuvent pas être divisés ou partiellement dépensés.
+indivisibles. Elles peuvent être dépensés ou non dépensés, en totalité.
+Elles ne peuvent pas être divisés ou partiellement dépensés.
 
-Quorum de contrôle : : les contraintes de multisignature dans les
-scripts imposent un quorum d'autorisation, prédéfini dans le schéma de
-multisignature. L'exigence M-de-N est appliquée par les règles de
-consensus.
+Quorum de contrôle  
+les contraintes de multisignature dans les scripts imposent un quorum
+d'autorisation, prédéfini dans le schéma de multisignature. L'exigence
+M-de-N est appliquée par les règles de consensus.
 
-Timelock/Aging  
-Toute clause de script contenant un timelock relatif ou absolu ne peut
-être exécutée qu'après que son âge dépasse le temps spécifié.
+Verrou temporel  
+Toute clause de script contenant un verrou temporel relatif ou absolu ne
+peut être exécutée qu'après que son âge dépasse le temps spécifié.
 
 Réplication  
-Le stockage décentralisé de la blockchain garantit que lorsqu'une
+Le stockage décentralisé de la chaîne de blocs garantit que lorsqu'une
 transaction est extraite, après des confirmations suffisantes, elle est
 répliquée sur le réseau et devient durable et résistante aux coupures de
 courant, aux pertes de données, etc.
@@ -130,8 +131,8 @@ Il n'est pas possible de créer ou de contrefaire de la valeur.
 
 Cohérence  
 En l'absence de partitions de mineurs, les blocs enregistrés dans la
-blockchain sont sujets à une réorganisation ou à un désaccord avec une
-probabilité décroissante de manière exponentielle, en fonction de la
+chaîne de blocs sont sujets à une réorganisation ou à un désaccord avec
+une probabilité décroissante de manière exponentielle, en fonction de la
 profondeur à laquelle ils sont enregistrés. Une fois profondément
 enregistrés, le calcul et l'énergie nécessaires pour changer rendent le
 changement pratiquement irréalisable.
@@ -143,65 +144,67 @@ représentant une transition d'état dans une machine à états externe.
 Émission prévisible  
 Moins de 21 millions de bitcoins seront émis, à un rythme prévisible.
 
-La liste des blocs de construction n'est pas complète et d'autres sont
-ajoutées à chaque nouvelle fonctionnalité introduite dans le bitcoin.
+La liste des blocs de construction (ou structures de base) n'est pas
+complète et d'autres sont ajoutées à chaque nouvelle fonctionnalité
+introduite dans le bitcoin.
 
-## Applications à partir de Building Blocks
+## Applications à partir des structures de base
 
-<span class="indexterm"></span> <span class="indexterm"></span>Les blocs
-de construction proposés par bitcoin sont des éléments d'une plateforme
-de confiance qui peuvent être utilisés pour composer des applications.
-Voici quelques exemples d'applications qui existent aujourd'hui et les
-blocs de construction qu'elles utilisent :
+<span class="indexterm"></span> <span class="indexterm"></span>Les
+structures de base proposés par bitcoin sont des éléments d'une
+plateforme de confiance qui peuvent être utilisés pour composer des
+applications. Voici quelques exemples d'applications qui existent
+aujourd'hui et les blocs de construction qu'elles utilisent :
 
-Preuve d'existence (notaire numérique): : <span
-class="indexterm"></span><span class="indexterm"></span>Immuabilité +
-Horodatage + Durabilité. Une empreinte numérique peut être validée avec
-une transaction dans la blockchain, prouvant qu'un document existait
-(horodatage) au moment où il a été enregistré. L'empreinte digitale ne
-pourra pas être modifiée ex-post-facto (Immutabilité) et la preuve sera
-conservée de façon permanente (Durabilité).
+Preuve d'existence (notaire numérique)  
+<span class="indexterm"></span><span
+class="indexterm"></span>Immuabilité + Horodatage + Durabilité. Une
+empreinte numérique peut être validée avec une transaction dans la
+chaîne de blocs, prouvant qu'un document existait (horodatage) au moment
+où il a été enregistré. L'empreinte digitale ne pourra pas être modifiée
+ex-post-facto (Immutabilité) et la preuve sera conservée de façon
+permanente (Durabilité).
 
-Kickstarter (Lighthouse): : Cohérence + Atomicité + Intégrité. Si vous
-signez une entrée et la sortie (intégrité) d'une transaction de collecte
-de fonds, d'autres peuvent contribuer à la collecte de fonds mais elle
-ne peut pas être dépensée (atomicité) tant que l'objectif (valeur de
-sortie) n'est pas financé (cohérence).
+Kickstarter (Lighthouse)  
+Cohérence + Atomicité + Intégrité. Si vous signez une entrée et la
+sortie (intégrité) d'une transaction de collecte de fonds, d'autres
+peuvent contribuer à la collecte de fonds mais elle ne peut pas être
+dépensée (atomicité) tant que l'objectif (valeur de sortie) n'est pas
+financé (cohérence).
 
 Canaux de paiement  
 <span class="indexterm"></span> <span class="indexterm"></span>Quorum de
-contrôle + Timelock + Pas de double dépense + Non-expiration +
+contrôle + Verrou temporel + Pas de double dépense + Non-expiration +
 Résistance à la censure + Autorisation. Un multisig 2-of-2 (Quorum) avec
-un timelock (Timelock) utilisé comme transaction de "règlement" d'un
-canal de paiement peut être détenu (Non-expiration) et dépensé à tout
-moment (Résistance à la censure) par l'une ou l'autre des parties
-(Autorisation). Les deux parties peuvent alors créer des transactions
-d'engagement qui doublent (No Double-Spend) le règlement sur un timelock
-plus court (Timelock).
+un verrou temporel (Verrou temporel) utilisé comme transaction de
+"règlement" d'un canal de paiement peut être détenu (Non-expiration) et
+dépensé à tout moment (Résistance à la censure) par l'une ou l'autre des
+parties (Autorisation). Les deux parties peuvent alors créer des
+transactions d'engagement qui doublent (Pas de double dépense) le
+règlement sur un verrou temporel plus court (Verrou temporel).
 
-## Contrepartie
+## Counterparty
 
 <span class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span><span class="indexterm"></span><span
 class="indexterm"></span><span class="indexterm"></span><span
-class="indexterm"></span>La contrepartie est une couche de protocole
+class="indexterm"></span>Conterparty est une couche de protocole
 construite au-dessus de bitcoin. Le protocole Counterparty offre la
 possibilité de créer et d'échanger des actifs virtuels et des jetons. De
-plus, Counterparty propose un échange décentralisé d'actifs. La
-contrepartie met également en œuvre des contrats intelligents, basés sur
-la machine virtuelle Ethereum (EVM).
+plus, Counterparty propose un échange décentralisé d'actifs. Conterparty
+met également en œuvre des contrats intelligents, basés sur la machine
+virtuelle Ethereum (EVM).
 
-La contrepartie intègre des métadonnées dans les transactions bitcoin,
-en utilisant l'opcode `OP_RETURN` ou des adresses multisignatures 1 sur
-N qui encodent les métadonnées à la place des clés publiques. En
-utilisant ces mécanismes, Counterparty implémente une couche de
-protocole encodée dans les transactions bitcoin. La couche de protocole
-supplémentaire peut être interprétée par des applications compatibles
-avec la contrepartie, telles que les portefeuilles et les explorateurs
-de chaînes de blocs, ou toute application construite à l'aide des
-bibliothèques de contrepartie.
+Conterparty intègre des métadonnées dans les transactions bitcoin, en
+utilisant l'opcode `OP_RETURN` ou des adresses multisignatures 1 sur N
+qui encodent les métadonnées à la place des clés publiques. En utilisant
+ces mécanismes, Counterparty implémente une couche de protocole encodée
+dans les transactions bitcoin. La couche de protocole supplémentaire
+peut être interprétée par des applications compatibles avec Conterparty,
+telles que les portefeuilles et les explorateurs de chaînes de blocs, ou
+toute application construite à l'aide des bibliothèques de Conterparty.
 
-<span class="indexterm"></span>La contrepartie peut être utilisée comme
+<span class="indexterm"></span>Conterparty peut être utilisée comme
 plate-forme pour d'autres applications et services, à leur tour. Par
 exemple, Tokenly est une plate-forme construite sur Counterparty qui
 permet aux créateurs de contenu, aux artistes et aux entreprises
@@ -212,7 +215,7 @@ Counterparty incluent des jeux (Spells of Genesis) et des projets de
 grille informatique (Folding Coin).
 
 Plus de détails sur Counterparty peuvent être trouvés sur
-<https://counterparty.io>. Le projet open source est disponible sur
+<https://counterparty.io>. Le projet à source libre est disponible sur
 <https://github.com/CounterpartyXCP>.
 
 ## Canaux de paiement et canaux d'état
@@ -221,33 +224,33 @@ Plus de détails sur Counterparty peuvent être trouvés sur
 class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span> <span class="indexterm"></span>sont un
 mécanisme sans confiance pour échanger des bitcoins transactions entre
-deux parties, en dehors de la blockchain Bitcoin. Ces transactions, qui
-seraient valides si elles étaient réglées sur la blockchain Bitcoin,
-sont plutôt détenues hors chaîne, agissant comme des billets à ordre
-pour un éventuel règlement par lots. Étant donné que les transactions ne
-sont pas réglées, elles peuvent être échangées sans la latence de
-règlement habituelle, ce qui permet un débit de transaction extrêmement
-élevé, une latence faible (inférieure à la milliseconde) et une
-granularité fine (niveau satoshi).
+deux parties, en dehors de la chaîne de blocs Bitcoin. Ces transactions,
+qui seraient valides si elles étaient réglées sur la chaîne de blocs
+Bitcoin, sont plutôt détenues hors chaîne, agissant comme des *billets à
+ordre* pour un éventuel règlement par lots. Étant donné que les
+transactions ne sont pas réglées, elles peuvent être échangées sans la
+latence de règlement habituelle, ce qui permet un débit de transaction
+extrêmement élevé, une latence faible (inférieure à la milliseconde) et
+une granularité fine (niveau satoshi).
 
 En fait, le terme *canal* est une métaphore. Les canaux d'état sont des
 constructions virtuelles représentées par l'échange d'état entre deux
-parties, en dehors de la blockchain. Il n'y a pas de "canaux" en soi et
-le mécanisme de transport de données sous-jacent n'est pas le canal.
-Nous utilisons le terme canal pour représenter la relation et l'état
-partagé entre deux parties, en dehors de la blockchain.
+parties, en dehors de la chaîne de blocs. Il n'y a pas de "canaux" en
+soi et le mécanisme de transport de données sous-jacent n'est pas le
+canal. Nous utilisons le terme canal pour représenter la relation et
+l'état partagé entre deux parties, en dehors de la chaîne de blocs.
 
 <span class="indexterm"></span> <span class="indexterm"></span>Pour
 expliquer davantage ce concept, pensez à un flux TCP. Du point de vue
-des protocoles de niveau supérieur, il s'agit d'un "socket" connectant
-deux applications sur Internet. Mais si vous regardez le trafic réseau,
-un flux TCP n'est qu'un canal virtuel sur des paquets IP. Chaque
-extrémité du flux TCP séquence et assemble les paquets IP pour créer
-l'illusion d'un flux d'octets. En dessous, ce sont tous les paquets
-déconnectés. De même, un canal de paiement n'est qu'une série de
-transactions. S'ils sont correctement séquencés et connectés, ils créent
-des obligations remboursables auxquelles vous pouvez faire confiance
-même si vous ne faites pas confiance à l'autre côté du canal.
+des protocoles de niveau supérieur, il s'agit d'une "interface de
+connexion" connectant deux applications sur Internet. Mais si vous
+regardez le trafic réseau, un flux TCP n'est qu'un canal virtuel sur des
+paquets IP. Chaque extrémité du flux TCP séquence et assemble les
+paquets IP pour créer l'illusion d'un flux d'octets. En dessous, ce sont
+tous les paquets déconnectés. De même, un canal de paiement n'est qu'une
+série de transactions. S'ils sont correctement séquencés et connectés,
+ils créent des obligations remboursables auxquelles vous pouvez faire
+confiance même si vous ne faites pas confiance à l'autre côté du canal.
 
 Dans cette section, nous examinerons différentes formes de canaux de
 paiement. Premièrement, nous examinerons les mécanismes utilisés pour
@@ -261,16 +264,16 @@ Network*.
 
 Les canaux de paiement font partie du concept plus large d'un *canal
 d'état*, qui représente une altération d'état hors chaîne, sécurisée par
-un éventuel règlement dans une blockchain. Un canal de paiement est un
-canal d'état où l'état modifié est le solde d'une monnaie virtuelle.
+un éventuel règlement dans une chaîne de blocs. Un canal de paiement est
+un canal d'état où l'état modifié est le solde d'une monnaie virtuelle.
 
-### Canaux d'état—Concepts de base et terminologie
+### Canaux d'état, concepts de base et terminologie
 
 <span class="indexterm"></span> <span class="indexterm"></span>Un canal
 d'état est établi entre deux parties, par le biais d'une transaction qui
-verrouille un état partagé sur la blockchain. C'est ce qu'on appelle la
-*transaction de financement* ou *transaction d'ancrage*. Cette
-transaction unique doit être transmise au réseau et exploitée pour
+verrouille un état partagé sur la chaîne de blocs. C'est ce qu'on
+appelle la *transaction de financement* ou *transaction d'ancrage*.
+Cette transaction unique doit être transmise au réseau et exploitée pour
 établir le canal. Dans l'exemple d'un canal de paiement, l'état bloqué
 est le solde initial (en devise) du canal.
 
@@ -294,20 +297,21 @@ mécanismes qui peuvent être utilisés pour invalider l'état antérieur
 dans la suite de ce chapitre.
 
 Enfin, le canal peut être fermé soit de manière coopérative, en
-soumettant une *transaction de règlement* finale à la blockchain, soit
-unilatéralement, par l'une ou l'autre des parties soumettant la dernière
-transaction d'engagement à la blockchain. Une option de fermeture
-unilatérale est nécessaire au cas où l'une des parties se déconnecte de
-manière inattendue. La transaction de règlement représente l'état final
-du canal et est réglée sur la blockchain.
+soumettant une *transaction de règlement* finale à la chaîne de blocs,
+soit unilatéralement, par l'une ou l'autre des parties soumettant la
+dernière transaction d'engagement à la chaîne de blocs. Une option de
+fermeture unilatérale est nécessaire au cas où l'une des parties se
+déconnecte de manière inattendue. La transaction de règlement représente
+l'état final du canal et est réglée sur la chaîne de blocs.
 
 Pendant toute la durée de vie de la chaîne, seules deux transactions
-doivent être soumises pour minage sur la blockchain : les transactions
-de financement et de règlement. Entre ces deux états, les deux parties
-peuvent échanger un nombre illimité de transactions d'engagement qui ne
-sont jamais vues par personne d'autre, ni soumises à la blockchain.
+doivent être soumises pour minage sur la chaîne de blocs: les
+transactions de financement et de règlement. Entre ces deux états, les
+deux parties peuvent échanger un nombre illimité de transactions
+d'engagement qui ne sont jamais vues par personne d'autre, ni soumises à
+la chaîne de blocs.
 
-&lt;&lt;payment\_channel&gt; &gt; illustre un canal de paiement entre
+[figure\_title](#payment_channel) illustre un canal de paiement entre
 Bob et Alice, montrant les transactions de financement, d'engagement et
 de règlement.<span class="indexterm"></span> <span
 class="indexterm"></span> <span class="indexterm"></span>
@@ -333,29 +337,30 @@ pour le rendre sans confiance afin qu'aucune des parties ne puisse
 tricher, même si elle essaie de le faire.
 
 Pour cet exemple, nous supposerons deux participants : Emma et Fabian.
-Fabian propose un service de streaming vidéo facturé à la seconde via un
-canal de micropaiement. Fabian facture 0,01 millibit (0,00001 BTC) par
-seconde de vidéo, ce qui équivaut à 36 millibits (0,036 BTC) par heure
-de vidéo. Emma est une utilisatrice qui achète ce service de streaming
-vidéo auprès de Fabian. &lt;&lt;emma\_fabian\_streaming\_video&gt; &gt;
-montre Emma achetant le service de streaming vidéo de Fabian en
-utilisant un canal de paiement.
+Fabian propose un service de diffusion vidéo en continu facturé à la
+seconde via un canal de micropaiement. Fabian facture 0,01 millibit
+(0,00001 BTC) par seconde de vidéo, ce qui équivaut à 36 millibits
+(0,036 BTC) par heure de vidéo. Emma est une utilisatrice qui achète ce
+service de diffusion vidéo en continu auprès de Fabian.
+[figure\_title](#emma_fabian_streaming_video) montre Emma achetant le
+service de diffusion vidéo en continu de Fabian en utilisant un canal de
+paiement.
 
 <figure>
 <img src="images/mbc2_1202.png" id="emma_fabian_streaming_video"
-alt="Emma achète la vidéo en streaming de Fabian avec un canal de paiement, payant pour chaque seconde de vidéo" />
-<figcaption aria-hidden="true">Emma achète la vidéo en streaming de
-Fabian avec un canal de paiement, payant pour chaque seconde de
+alt="Emma achète la vidéo en continu de Fabian avec un canal de paiement, payant pour chaque seconde de vidéo" />
+<figcaption aria-hidden="true">Emma achète la vidéo en continu de Fabian
+avec un canal de paiement, payant pour chaque seconde de
 vidéo</figcaption>
 </figure>
 
 Dans cet exemple, Fabian et Emma utilisent un logiciel spécial qui gère
-à la fois le canal de paiement et le streaming vidéo. Emma exécute le
-logiciel dans son navigateur, Fabian l'exécute sur un serveur. Le
-logiciel inclut les fonctionnalités de base du portefeuille bitcoin et
-peut créer et signer des transactions bitcoin. Le concept et le terme
-"canal de paiement" sont complètement cachés aux utilisateurs. Ce qu'ils
-voient, c'est une vidéo payée à la seconde.
+à la fois le canal de paiement et la diffusion vidéo en continu. Emma
+exécute le logiciel dans son navigateur, Fabian l'exécute sur un
+serveur. Le logiciel inclut les fonctionnalités de base du portefeuille
+bitcoin et peut créer et signer des transactions bitcoin. Le concept et
+le terme "canal de paiement" sont complètement cachés aux utilisateurs.
+Ce qu'ils voient, c'est une vidéo payée à la seconde.
 
 Pour mettre en place le canal de paiement, Emma et Fabian établissent
 une adresse multisignature 2 sur 2, chacun d'eux détenant l'une des
@@ -368,9 +373,9 @@ canal de paiement.
 
 Pour cet exemple, disons qu'Emma finance la chaîne avec 36 millibits
 (0,036 BTC). Cela permettra à Emma de consommer *jusqu'à* 1 heure de
-vidéo en streaming. La transaction de financement dans ce cas fixe le
-montant maximum qui peut être transmis dans ce canal, en définissant la
-*capacité du canal*.
+diffusion vidéo en continu. La transaction de financement dans ce cas
+fixe le montant maximum qui peut être transmis dans ce canal, en
+définissant la *capacité du canal*.
 
 La transaction de financement consomme une ou plusieurs entrées du
 portefeuille d'Emma, approvisionnant les fonds. Il crée une sortie d'une
@@ -403,13 +408,13 @@ et renvoie la deuxième transaction d'engagement, ainsi qu'une autre
 seconde de vidéo.
 
 De cette manière, le logiciel d'Emma continue d'envoyer des transactions
-d'engagement au serveur de Fabian en échange de vidéo en streaming. Le
-solde de la chaîne s'accumule progressivement en faveur de Fabian, car
-Emma consomme plus de secondes de vidéo. Disons qu'Emma regarde 600
-secondes (10 minutes) de vidéo, créant et signant 600 transactions
-d'engagement. La dernière transaction d'engagement (#600) aura deux
-sorties, divisant le solde de la chaîne, 6 millibits pour Fabian et 30
-millibits pour Emma.
+d'engagement au serveur de Fabian en échange de diffusion vidéo en
+continu. Le solde de la chaîne s'accumule progressivement en faveur de
+Fabian, car Emma consomme plus de secondes de vidéo. Disons qu'Emma
+regarde 600 secondes (10 minutes) de vidéo, créant et signant 600
+transactions d'engagement. La dernière transaction d'engagement (#600)
+aura deux sorties, divisant le solde de la chaîne, 6 millibits pour
+Fabian et 30 millibits pour Emma.
 
 Enfin, Emma sélectionne "Stop" pour arrêter le streaming vidéo. Fabian
 ou Emma peuvent maintenant transmettre la transaction d'état finale pour
@@ -417,14 +422,14 @@ règlement. Cette dernière transaction est la *transaction de règlement*
 et paie Fabian pour toute la vidéo consommée par Emma, remboursant le
 reste de la transaction de financement à Emma.
 
-&lt;&lt;video\_payment\_channel&gt; &gt; montre le canal entre Emma et
+[figure\_title](#video_payment_channel) montre le canal entre Emma et
 Fabian et les transactions d'engagement qui mettent à jour le solde du
 canal.
 
-Au final, seules deux transactions sont enregistrées sur la blockchain :
-la transaction de financement qui établit le canal et une transaction de
-règlement qui répartit correctement le solde final entre les deux
-participants.<span class="indexterm"></span> <span
+Au final, seules deux transactions sont enregistrées sur la chaîne de
+bocs: la transaction de financement qui établit le canal et une
+transaction de règlement qui répartit correctement le solde final entre
+les deux participants.<span class="indexterm"></span> <span
 class="indexterm"></span>
 
 <figure>
@@ -452,15 +457,15 @@ voyons ce qui est nécessaire pour les réparer :
 
 -   Pendant que le canal est en cours d'exécution, Emma peut prendre
     n'importe laquelle des transactions d'engagement que Fabian a
-    contresignées et en transmettre une à la blockchain. Pourquoi payer
-    600 secondes de vidéo, si elle peut transmettre la transaction
+    contresignées et en transmettre une à la chaîne de blocs. Pourquoi
+    payer 600 secondes de vidéo, si elle peut transmettre la transaction
     d'engagement \#1 et ne payer que 1 seconde de vidéo ? La chaîne
     échoue car Emma peut tricher en diffusant un engagement préalable
     qui est en sa faveur.
 
-Ces deux problèmes peuvent être résolus avec des timelocks. Voyons
-comment nous pourrions utiliser des timelocks au niveau des transactions
-(`nLocktime`).
+Ces deux problèmes peuvent être résolus avec des verrous temporels.
+Voyons comment nous pourrions utiliser des verrous temporels au niveau
+des transactions (`nLocktime`).
 
 Emma ne peut pas risquer de financer un multisig 2 sur 2 à moins qu'elle
 n'ait un remboursement garanti. Pour résoudre ce problème, Emma
@@ -470,11 +475,11 @@ personne. Emma transmet uniquement la transaction de remboursement à
 Fabian et obtient sa signature.
 
 La transaction de remboursement agit comme la première transaction
-d'engagement et son timelock établit la limite supérieure pour la durée
-de vie du canal. Dans ce cas, Emma pourrait définir le `nLocktime` sur
-30 jours ou 4320 blocs dans le futur. Toutes les transactions
-d'engagement ultérieures doivent avoir un timelock plus court, afin
-qu'elles puissent être remboursées avant la transaction de
+d'engagement et son verrou temporel établit la limite supérieure pour la
+durée de vie du canal. Dans ce cas, Emma pourrait définir le `nLocktime`
+sur 30 jours ou 4320 blocs dans le futur. Toutes les transactions
+d'engagement ultérieures doivent avoir un verrou temporel plus court,
+afin qu'elles puissent être remboursées avant la transaction de
 remboursement.
 
 Maintenant qu'Emma a une transaction de remboursement entièrement
@@ -502,9 +507,10 @@ est verrouillée dans le temps sur 4319 blocs dans le futur. La
 transaction d'engagement \#600 peut être dépensée 600 blocs avant que la
 transaction d'engagement \#1 ne devienne valide.
 
-&lt;&lt;timelocked\_commitments&gt; &gt; montre chaque transaction
-d'engagement définissant un timelock plus court, lui permettant d'être
-dépensé avant que les engagements précédents ne deviennent valides.
+[figure\_title](#timelocked_commitments) montre chaque transaction
+d'engagement définissant un verrou temporel plus court, lui permettant
+d'être dépensé avant que les engagements précédents ne deviennent
+valides.
 
 <figure>
 <img src="images/mbc2_1204.png" id="timelocked_commitments"
@@ -514,56 +520,57 @@ court, ce qui lui permet d'être dépensé avant que les engagements
 précédents ne deviennent valides</figcaption>
 </figure>
 
-Chaque transaction d'engagement ultérieure doit avoir un timelock plus
-court afin qu'elle puisse être diffusée avant ses prédécesseurs et avant
-la transaction de remboursement. La possibilité de diffuser un
+Chaque transaction d'engagement ultérieure doit avoir un verrou temporel
+plus court afin qu'elle puisse être diffusée avant ses prédécesseurs et
+avant la transaction de remboursement. La possibilité de diffuser un
 engagement plus tôt garantit qu'il sera en mesure de dépenser la sortie
 de financement et d'empêcher toute autre transaction d'engagement d'être
-remboursée en dépensant la sortie. Les garanties offertes par la
-blockchain Bitcoin, empêchant les doubles dépenses et appliquant des
-timelocks, permettent effectivement à chaque transaction d'engagement
-d'invalider ses prédécesseurs.
+remboursée en dépensant la sortie. Les garanties offertes par la chaîne
+de blocs Bitcoin, empêchant les doubles dépenses et appliquant des
+verrous temporels, permettent effectivement à chaque transaction
+d'engagement d'invalider ses prédécesseurs.
 
-Les canaux d'état utilisent des timelocks pour appliquer des contrats
-intelligents dans une dimension temporelle. Dans cet exemple, nous avons
-vu comment la dimension temporelle garantit que la transaction
-d'engagement la plus récente devient valide avant tout engagement
-antérieur. Ainsi, la transaction d'engagement la plus récente peut être
-transmise, dépensant les entrées et invalidant les transactions
-d'engagement précédentes. L'application de contrats intelligents avec
-des délais absolus protège contre la tricherie par l'une des parties.
-Cette implémentation n'a besoin de rien de plus que des timelocks
-absolus au niveau de la transaction (`nLocktime`). Ensuite, nous verrons
-comment les timelocks au niveau du script, `CHECKLOCKTIMEVERIFY` et
-`CHECKSEQUENCEVERIFY`, peuvent être utilisés pour construire des canaux
-d'état plus flexibles, utiles et sophistiqués.
+Les canaux d'état utilisent des verrous temporels pour appliquer des
+contrats intelligents dans une dimension temporelle. Dans cet exemple,
+nous avons vu comment la dimension temporelle garantit que la
+transaction d'engagement la plus récente devient valide avant tout
+engagement antérieur. Ainsi, la transaction d'engagement la plus récente
+peut être transmise, dépensant les entrées et invalidant les
+transactions d'engagement précédentes. L'application de contrats
+intelligents avec des délais absolus protège contre la tricherie par
+l'une des parties. Cette implémentation n'a besoin de rien de plus que
+des verrous temporels absolus au niveau de la transaction (`nLocktime`).
+Ensuite, nous verrons comment les verrous temporels au niveau du script,
+`CHECKLOCKTIMEVERIFY` et `CHECKSEQUENCEVERIFY`, peuvent être utilisés
+pour construire des canaux d'état plus flexibles, utiles et
+sophistiqués.
 
 La première forme de canal de paiement unidirectionnel a été présentée
 sous la forme d'un prototype d'application de streaming vidéo en 2015
 par une équipe de développeurs argentins.
 
-Les blocages horaires ne sont pas le seul moyen d'invalider les
+Les verrous temporels ne sont pas le seul moyen d'invalider les
 transactions d'engagement antérieures. Dans les sections suivantes, nous
 verrons comment une clé de révocation peut être utilisée pour obtenir le
-même résultat. Les timelocks sont efficaces mais ils ont deux
-inconvénients distincts. En établissant un timelock maximal lors de la
-première ouverture du canal, ils limitent la durée de vie du canal.
-Pire, ils obligent les implémentations de canaux à trouver un équilibre
-entre autoriser des canaux à longue durée de vie et obliger l'un des
-participants à attendre très longtemps un remboursement en cas de
-fermeture prématurée. Par exemple, si vous autorisez le canal à rester
-ouvert pendant 30 jours, en réglant le délai de remboursement sur 30
-jours, si l'une des parties disparaît immédiatement, l'autre partie doit
-attendre 30 jours pour un remboursement. Plus le point final est
+même résultat. Les verrous temporels sont efficaces mais ils ont deux
+inconvénients distincts. En établissant un verrou temporel maximal lors
+de la première ouverture du canal, ils limitent la durée de vie du
+canal. Pire, ils obligent les implémentations de canaux à trouver un
+équilibre entre autoriser des canaux à longue durée de vie et obliger
+l'un des participants à attendre très longtemps un remboursement en cas
+de fermeture prématurée. Par exemple, si vous autorisez le canal à
+rester ouvert pendant 30 jours, en réglant le délai de remboursement sur
+30 jours, si l'une des parties disparaît immédiatement, l'autre partie
+doit attendre 30 jours pour un remboursement. Plus le point final est
 éloigné, plus le remboursement est éloigné.
 
 Le deuxième problème est que puisque chaque transaction d'engagement
 ultérieure doit décrémenter le verrouillage temporel, il existe une
 limite explicite sur le nombre de transactions d'engagement qui peuvent
 être échangées entre les parties. Par exemple, un canal de 30 jours,
-définissant un verrouillage temporel de 4 320 blocs dans le futur, ne
-peut accepter que 4 320 transactions d'engagement intermédiaires avant
-de devoir être clôturé. Il y a un danger à définir l'intervalle de
+définissant un verrouillage temporel de 4320 blocs dans le futur, ne
+peut accepter que 4320 transactions d'engagement intermédiaires avant de
+devoir être clôturé. Il y a un danger à définir l'intervalle de
 transaction d'engagement de verrouillage de temps à 1 bloc. En
 définissant l'intervalle de verrouillage entre les transactions
 d'engagement sur 1 bloc, un développeur crée une charge très lourde pour
@@ -571,21 +578,21 @@ les participants au canal qui doivent être vigilants, rester en ligne et
 regarder, et être prêts à transmettre la bonne transaction d'engagement
 à tout moment.
 
-Maintenant que nous comprenons comment les timelocks peuvent être
-utilisés pour invalider des engagements antérieurs, nous pouvons voir la
-différence entre fermer le canal de manière coopérative et le fermer
-unilatéralement en diffusant une transaction d'engagement. Toutes les
-transactions d'engagement sont verrouillées dans le temps, par
+Maintenant que nous comprenons comment les verrous temporels peuvent
+être utilisés pour invalider des engagements antérieurs, nous pouvons
+voir la différence entre fermer le canal de manière coopérative et le
+fermer unilatéralement en diffusant une transaction d'engagement. Toutes
+les transactions d'engagement sont verrouillées dans le temps, par
 conséquent, la diffusion d'une transaction d'engagement impliquera
 toujours d'attendre jusqu'à ce que le verrouillage ait expiré. Mais si
 les deux parties s'entendent sur le solde final et savent qu'elles
 détiennent toutes les deux des transactions d'engagement qui feront
 éventuellement de ce solde une réalité, elles peuvent construire une
-transaction de règlement sans blocage temporel représentant ce même
+transaction de règlement sans verrou temporel représentant ce même
 solde. Dans une clôture coopérative, l'une ou l'autre des parties prend
 la transaction d'engagement la plus récente et construit une transaction
 de règlement qui est identique à tous points de vue, sauf qu'elle omet
-le timelock. Les deux parties peuvent signer cette transaction de
+le verrou temporel. Les deux parties peuvent signer cette transaction de
 règlement en sachant qu'il n'y a aucun moyen de tricher et d'obtenir un
 solde plus favorable. En signant et en transmettant de manière
 coopérative la transaction de règlement, ils peuvent fermer le canal et
@@ -595,7 +602,7 @@ parties peut être mesquine, refuser de coopérer et forcer l'autre partie
 Mais s'ils le font, ils doivent aussi attendre leurs fonds.<span
 class="indexterm"></span> <span class="indexterm"></span>
 
-### Engagements Révocables Asymétriques
+### Engagements révocables asymétriques
 
 <span class="indexterm"></span> <span class="indexterm"></span> <span
 class="indexterm"></span>Une meilleure façon de gérer les états
@@ -604,7 +611,7 @@ n'est pas facile à réaliser. Une caractéristique clé du bitcoin est
 qu'une fois qu'une transaction est valide, elle reste valide et n'expire
 pas. La seule façon d'annuler une transaction est de doubler ses entrées
 avec une autre transaction avant qu'elle ne soit minée. C'est pourquoi
-nous avons utilisé des blocages horaires dans l'exemple de canal de
+nous avons utilisé des verrous temporels dans l'exemple de canal de
 paiement simple ci-dessus pour nous assurer que les engagements les plus
 récents pourraient être dépensés avant que les engagements plus anciens
 ne soient valides. Cependant, l'enchaînement des engagements dans le
@@ -623,13 +630,13 @@ de paiement plus complexe entre deux échanges gérés par Hitesh et Irene.
 Hitesh et Irene gèrent respectivement des échanges de bitcoins en Inde
 et aux États-Unis. Les clients de l'échange indien d'Hitesh envoient
 souvent des paiements aux clients de l'échange américain d'Irene et vice
-versa. Actuellement, ces transactions se produisent sur la blockchain
-Bitcoin, mais cela signifie payer des frais et attendre plusieurs blocs
-pour les confirmations. La mise en place d'un canal de paiement entre
-les bourses réduira considérablement les coûts et accélérera le flux des
-transactions.
+versa. Actuellement, ces transactions se produisent sur la chaîne de
+blocs Bitcoin, mais cela signifie payer des frais et attendre plusieurs
+blocs pour les confirmations. La mise en place d'un canal de paiement
+entre les bourses réduira considérablement les coûts et accélérera le
+flux des transactions.
 
-Hitesh et Irene démarrent la chaîne en construisant en collaboration une
+Hitesh et Irene démarrent le canal en construisant en collaboration une
 transaction de financement, chacun finançant la chaîne avec 5 bitcoins.
 Le solde initial est de 5 bitcoins pour Hitesh et de 5 bitcoins pour
 Irene. La transaction de financement verrouille l'état du canal dans un
@@ -655,54 +662,55 @@ d'engagement différentes qui sont *asymétriques*.
 Hitesh a une transaction d'engagement avec deux sorties. La première
 sortie paie à Irene les 5 bitcoins qui lui sont dus *immédiatement*. La
 deuxième sortie paie à Hitesh les 5 bitcoins qui lui sont dus, mais
-seulement après un timelock de 1000 blocs. Les sorties de transaction
-ressemblent à ceci :
+seulement après un verrou temporel de 1000 blocs. Les sorties de
+transaction ressemblent à ceci :
 
-    Entrée : sortie de financement 2 sur 2, signée par Irene
+    Input: 2-of-2 funding output, signed by Irene
 
-    Sortie 0 &lt;5 bitcoins&gt; :
-    <Irene's Public Key>CHECKSIG
+    Output 0 <5 bitcoin>:
+        <Irene's Public Key> CHECKSIG
 
-    Sortie 1 &lt;5 bitcoins&gt; :
-    &lt;1000 blocs&gt;
-    VÉRIFICATIONSÉQUENCEVÉRIFIER
-    LAISSEZ TOMBER
-    <Hitesh's Public Key>CHECKSIG
+    Output 1 <5 bitcoin>:
+        <1000 blocks>
+        CHECKSEQUENCEVERIFY
+        DROP
+        <Hitesh's Public Key> CHECKSIG
 
 Irène a une transaction d'engagement différente avec deux sorties. La
 première sortie paie à Hitesh les 5 bitcoins qui lui sont dus
 immédiatement. La deuxième sortie paie à Irene les 5 bitcoins qui lui
-sont dus mais seulement après un timelock de 1000 blocs. La transaction
-d'engagement qu'Irene détient (signée par Hitesh) ressemble à ceci :
+sont dus mais seulement après un verrou temporel de 1000 blocs. La
+transaction d'engagement qu'Irene détient (signée par Hitesh) ressemble
+à ceci :
 
     Entrée : sortie de financement 2 sur 2, signée par Hitesh
 
-    Sortie 0 &lt;5 bitcoins&gt; :
-    <Hitesh's Public Key>CHECKSIG
+    Output 0 <5 bitcoin>:
+        <Hitesh's Public Key> CHECKSIG
 
-    Sortie 1 &lt;5 bitcoins&gt; :
-    &lt;1000 blocs&gt;
-    VÉRIFICATIONSÉQUENCEVÉRIFIER
-    LAISSEZ TOMBER
-    <Irene's Public Key>CHECKSIG
+    Output 1 <5 bitcoin>:
+        <1000 blocks>
+        CHECKSEQUENCEVERIFY
+        DROP
+        <Irene's Public Key> CHECKSIG
 
 De cette façon, chaque partie a une transaction d'engagement, dépensant
 la sortie de financement 2 sur 2. Cette entrée est signée par
 l'\_autre\_ partie. À tout moment, la partie détenant la transaction
 peut également signer (remplir le 2 sur 2) et diffuser. Cependant, s'ils
 diffusent la transaction d'engagement, il paie immédiatement l'autre
-partie alors qu'elle doit attendre l'expiration d'un timelock. En
+partie alors qu'elle doit attendre l'expiration d'un verrou temporel. En
 imposant un délai au remboursement de l'une des sorties, nous
 désavantageons légèrement chaque partie lorsqu'elle choisit de diffuser
 unilatéralement une opération d'engagement. Mais un délai ne suffit pas
 à lui seul à encourager une conduite équitable.
 
-&lt;&lt;asymmetric\_commitments&gt; &gt; montre deux opérations
+[figure\_title](#asymmetric_commitments) montre deux opérations
 d'engagement asymétriques, où la sortie payant le titulaire de
 l'engagement est retardée.
 
 <figure>
-<img src="images/mbc2_1205.png" id="engagements_asymétriques"
+<img src="images/mbc2_1205.png" id="asymmetric_commitments"
 alt="Deux opérations d&#39;engagement asymétriques avec paiement différé pour le titulaire de l&#39;opération" />
 <figcaption aria-hidden="true">Deux opérations d'engagement asymétriques
 avec paiement différé pour le titulaire de l'opération</figcaption>
@@ -739,19 +747,19 @@ nouvel état de canal et qu'il voudra révoquer cet engagement.
 
 Le script de la deuxième sortie ressemble à ceci :
 
-    Sortie 0 &lt;5 bitcoins&gt; :
-    <Irene's Public Key>CHECKSIG
+    Output 0 <5 bitcoin>:
+        <Irene's Public Key> CHECKSIG
 
-    Sortie 1 &lt;5 bitcoins&gt; :
-    SI
+    Output 1 <5 bitcoin>:
+    IF
     # Sortie de pénalité de révocation
-    <Revocation Public Key>
-    AUTRE
-    &lt;1000 blocs&gt;
-    VÉRIFICATIONSÉQUENCEVÉRIFIER
-    LAISSEZ TOMBER
-    <Hitesh's Public Key>
-    FIN SI
+        <Revocation Public Key>
+    ELSE
+        <1000 blocks>
+        CHECKSEQUENCEVERIFY
+        DROP
+        <Hitesh's Public Key>
+    ENDIF
     CHECKSIG
 
 Irène peut signer cette transaction en toute confiance, car si elle est
@@ -794,7 +802,7 @@ transactions d'engagement reflétant le nouveau solde du canal.
 
 Comme auparavant, ces transactions d'engagement sont asymétriques de
 sorte que la transaction d'engagement que chaque partie détient les
-oblige à attendre si elles la remboursent. Surtout, avant de signer de
+oblige à attendre si ils la remboursent. Surtout, avant de signer de
 nouvelles transactions d'engagement, ils doivent d'abord échanger des
 clés de révocation pour invalider l'engagement précédent. Dans ce cas
 particulier, les intérêts de Hitesh sont alignés sur l'état réel de la
@@ -831,11 +839,12 @@ class="indexterm"></span>
 
 <span class="indexterm"></span><span class="indexterm"></span> <span
 class="indexterm"></span>Les canaux de paiement peuvent être encore
-étendus avec un type spécial de smart contrat qui permet aux
+étendus avec un type spécial de contrat intelligent qui permet aux
 participants d'engager des fonds dans un secret remboursable, avec un
-délai d'expiration. Cette fonctionnalité est appelée *Hash Time Lock
-Contract*, ou *HTLC*, et est utilisée à la fois dans les canaux de
-paiement bidirectionnels et routés.
+délai d'expiration. Cette fonctionnalité est appelée *contrats de
+verrouillage du temps de hachage* (*Hash Time Lock Contract*), ou
+*HTLC*, et est utilisée à la fois dans les canaux de paiement
+bidirectionnels et routés.
 
 Expliquons d'abord la partie "hachage" du HTLC. Pour créer un HTLC, le
 destinataire prévu du paiement créera d'abord un `R` secret. Ils
@@ -845,25 +854,25 @@ calculent ensuite le hash de ce secret `H` :
 
 Cela produit un hachage `H` qui peut être inclus dans le script de
 verrouillage d'une sortie. Celui qui connaît le secret peut l'utiliser
-pour racheter la sortie. Le secret `R` est également appelé *preimage*
+pour racheter la sortie. Le secret `R` est également appelé *préimage*
 pour la fonction de hachage. La préimage est simplement la donnée
 utilisée comme entrée dans une fonction de hachage.
 
-La deuxième partie d'un HTLC est le composant "time lock". Si le secret
-n'est pas révélé, le payeur du HTLC peut obtenir un "remboursement"
-après un certain temps. Ceci est réalisé avec un verrouillage temporel
-absolu à l'aide de `CHECKLOCKTIMEVERIFY`.
+La deuxième partie d'un HTLC est le composant "verrou temporel". Si le
+secret n'est pas révélé, le payeur du HTLC peut obtenir un
+"remboursement" après un certain temps. Ceci est réalisé avec un
+verrouillage temporel absolu à l'aide de `CHECKLOCKTIMEVERIFY`.
 
 Le script implémentant un HTLC pourrait ressembler à ceci :
 
-    SI
+    IF
     # Paiement si vous avez le secret R
-    HASH160<H> EQUALVERIFIER
-    AUTRE
+        HASH160 <H> EQUALVERIFY
+    ELSE
     # Remboursement après expiration du délai.
-    <locktime>CHECKLOCKTIMEVERIFY DROP
-    <Payer Public Key>CHECKSIG
-    FIN SI
+        <locktime> CHECKLOCKTIMEVERIFY DROP
+        <Payer Public Key> CHECKSIG
+    ENDIF
 
 Toute personne connaissant le secret `R`, qui, lorsqu'il est haché, est
 égal à `H`, peut racheter cette sortie en exerçant la première clause du
@@ -896,13 +905,13 @@ première fois par Joseph Poon et Thadeus Dryja en février 2015\],
 s'appuyant sur le concept de canaux de paiement tel que proposé et
 élaboré par de nombreux autres.
 
-"Lightning Network" fait référence à une conception spécifique pour un
-réseau de canaux de paiement routés, qui a maintenant été mis en œuvre
-par au moins cinq équipes open source différentes. <span
+Le "Lightning Network" fait référence à une conception spécifique pour
+un réseau de canaux de paiement routés, qui a maintenant été mis en
+œuvre par au moins cinq équipes de sources libres différentes. <span
 class="indexterm"></span>Les implémentations indépendantes sont
 coordonnées par un ensemble de normes d'interopérabilité décrites dans
-le [*Basics of Lightning Technology (BOLT)*
-paper](https://bit.ly/2rBHeoL).
+le [document *Basics of Lightning Technology
+(BOLT)*](https://bit.ly/2rBHeoL).
 
 Des implémentations prototypes du Lightning Network ont été publiées par
 plusieurs équipes.
@@ -923,10 +932,10 @@ connecté à Carol, Carol à Diana et Diana à Eric. Pour simplifier,
 supposons que chaque chaîne est financée avec 2 bitcoins par chaque
 participant, pour une capacité totale de 4 bitcoins dans chaque chaîne.
 
-&lt;&lt;lightning\_network\_fig&gt; &gt; montre cinq participants dans
-un Lightning Network, connectés par des canaux de paiement
-bidirectionnels qui peuvent être liés pour effectuer un paiement d'Alice
-à Eric (&lt;&lt;lightning\_network&gt; &gt;).
+[figure\_title](#lightning_network_fig) montre cinq participants dans un
+Lightning Network, connectés par des canaux de paiement bidirectionnels
+qui peuvent être liés pour effectuer un paiement d'Alice à Eric ([Canaux
+de paiement routés (Lightning Network)](#lightning_network)).
 
 <figure>
 <img src="images/mbc2_1206.png" id="lightning_network_fig"
@@ -939,11 +948,11 @@ un paiement d'Alice à Eric</figcaption>
 Alice veut payer Eric 1 bitcoin. Cependant, Alice n'est pas connectée à
 Eric par un canal de paiement. La création d'un canal de paiement
 nécessite une transaction de financement, qui doit être engagée dans la
-blockchain Bitcoin. Alice ne veut pas ouvrir un nouveau canal de
+chaîne de blocs Bitcoin. Alice ne veut pas ouvrir un nouveau canal de
 paiement et engager davantage de ses fonds. Y a-t-il un moyen de payer
 Eric, indirectement ?
 
-&lt;&lt;ln\_payment\_process&gt; &gt; montre le processus étape par
+[formalpara\_title](#ln_payment_process) montre le processus étape par
 étape d'acheminement d'un paiement d'Alice à Eric, à travers une série
 d'engagements HTLC sur les canaux de paiement reliant les participants.
 
@@ -959,7 +968,7 @@ de se connecter via Internet au nœud LN d'Eric. Le nœud LN d'Eric crée
 un `R` secret à l'aide d'un générateur de nombres aléatoires. Le noeud
 d'Eric ne révèle ce secret à personne. Au lieu de cela, le nœud d'Eric
 calcule un hachage `H` du secret `R` et transmet ce hachage au nœud
-d'Alice (voir &lt;&lt;ln\_payment\_process&gt; &gt; étape 1).
+d'Alice (voir [formalpara\_title](#ln_payment_process) étape 1).
 
 Maintenant, le nœud LN d'Alice construit une route entre le nœud LN
 d'Alice et le nœud LN d'Eric. L'algorithme de routage utilisé sera
@@ -968,8 +977,8 @@ nœud d'Alice puisse trouver une route efficace.
 
 Le nœud d'Alice construit alors un HTLC, payable au hash `H`, avec un
 délai de remboursement de 10 blocs (bloc actuel + 10), pour un montant
-de 1,003 bitcoin (voir &lt;&lt;ln\_payment\_process&gt; &gt; étape 2).
-Le supplément de 0,003 sera utilisé pour compenser les nœuds
+de 1,003 bitcoin (voir [formalpara\_title](#ln_payment_process) étape
+2). Le supplément de 0,003 sera utilisé pour compenser les nœuds
 intermédiaires pour leur participation à cette voie de paiement. Alice
 offre ce HTLC à Bob, déduisant 1,003 bitcoin de son solde de canal avec
 Bob et l'engageant sur le HTLC. Le HTLC a la signification suivante :
@@ -985,54 +994,55 @@ R + dans les 10 prochains blocs, il puisse réclamer les 1,003
 verrouillés par Alice. Avec cet engagement en main, le nœud de Bob
 construit un HTLC sur son canal de paiement avec Carol. Le HTLC de Bob
 engage 1,002 bitcoin dans le hachage `H` pendant 9 blocs, que Carol peut
-échanger si elle a le secret `R` (voir &lt;&lt;ln\_payment\_process&gt;
-&gt; étape 3). Bob sait que si Carol peut réclamer son HTLC, elle doit
-produire `R`. Si Bob a + R + dans neuf blocs, il peut l'utiliser pour
-lui réclamer le HTLC d'Alice. Il gagne également 0,001 bitcoin pour
-avoir engagé le solde de son canal pendant neuf blocs. Si Carol n'est
-pas en mesure de réclamer son HTLC et qu'il ne peut pas réclamer le HTLC
-d'Alice, tout revient aux soldes de canal précédents et personne n'est à
-perte. L'équilibre des canaux entre Bob et Carol est maintenant : 2 pour
-Carol, 0,998 pour Bob, 1,002 commis par Bob pour le HTLC.
+échanger si elle a le secret `R` (voir
+[formalpara\_title](#ln_payment_process) étape 3). Bob sait que si Carol
+peut réclamer son HTLC, elle doit produire `R`. Si Bob a + R + dans neuf
+blocs, il peut l'utiliser pour lui réclamer le HTLC d'Alice. Il gagne
+également 0,001 bitcoin pour avoir engagé le solde de son canal pendant
+neuf blocs. Si Carol n'est pas en mesure de réclamer son HTLC et qu'il
+ne peut pas réclamer le HTLC d'Alice, tout revient aux soldes de canal
+précédents et personne n'est à perte. L'équilibre des canaux entre Bob
+et Carol est maintenant : 2 pour Carol, 0,998 pour Bob, 1,002 commis par
+Bob pour le HTLC.
 
-Carol s'est maintenant engagée à ce que si elle obtient + R + dans les
+Carol s'est maintenant engagée à ce que si elle obtient `R` dans les
 neuf prochains blocs, elle puisse réclamer 1,002 bitcoin verrouillé par
 Bob. Elle peut désormais s'engager sur HTLC sur sa chaîne avec Diana.
 Elle engage un HTLC de 1.001 bitcoin au hachage `H`, pour huit blocs,
 que Diana peut racheter si elle a le secret `R` (voir
-&lt;&lt;ln\_payment\_process&gt; &gt; étape 4). Du point de vue de
-Carol, si cela fonctionne, elle est mieux lotie de 0,001 bitcoin et si
-ce n'est pas le cas, elle ne perd rien. Son HTLC à Diana n'est viable
-que si + R + est révélé, auquel cas elle peut réclamer le HTLC à Bob.
+[formalpara\_title](#ln_payment_process) étape 4). Du point de vue de
+Carol, si cela fonctionne, elle est plus riche de 0,001 bitcoin et si ce
+n'est pas le cas, elle ne perd rien. Son HTLC à Diana n'est viable que
+si `R` est révélé, auquel cas elle peut réclamer le HTLC à Bob.
 L'équilibre des canaux entre Carol et Diana est désormais : 2 pour
 Diana, 0,999 pour Carol, 1,001 commis par Carol pour le HTLC.
 
 Enfin, Diana peut proposer un HTLC à Eric, engageant 1 bitcoin pour sept
-blocs à hacher `H` (voir &lt;&lt;ln\_payment\_process&gt; &gt; étape 5).
-L'équilibre des canaux entre Diana et Eric est maintenant : 2 à Eric, 1
-à Diana, 1 commis par Diana au HTLC.
+blocs à hacher `H` (voir [formalpara\_title](#ln_payment_process) étape
+5). L'équilibre des canaux entre Diana et Eric est maintenant : 2 à
+Eric, 1 à Diana, 1 commis par Diana au HTLC.
 
-Cependant, à ce saut dans la route, Eric *a* secret `R`. Il peut donc
+Cependant, à ce saut dans la route, Eric *a* le secret `R`. Il peut donc
 prétendre au HTLC proposé par Diana. Il envoie `R` à Diana et réclame le
 1 bitcoin, l'ajoutant au solde de son canal (voir
-&lt;&lt;ln\_payment\_process&gt; &gt; étape 6). L'équilibre des canaux
-est maintenant : 1 pour Diana, 3 pour Eric.
+[formalpara\_title](#ln_payment_process) étape 6). L'équilibre des
+canaux est maintenant : 1 pour Diana, 3 pour Eric.
 
 Maintenant, Diana a un `R` secret. Par conséquent, elle peut désormais
 réclamer le HTLC à Carol. Diana transmet `R` à Carol et ajoute le
 bitcoin 1.001 au solde de son canal (voir
-&lt;&lt;ln\_payment\_process&gt; &gt; étape 7). Maintenant, l'équilibre
-des canaux entre Carol et Diana est : 0,999 pour Carol, 3,001 pour
-Diana. Diana a "gagné" 0,001 pour sa participation à cette voie de
-paiement.
+[formalpara\_title](#ln_payment_process) étape 7). Maintenant,
+l'équilibre des canaux entre Carol et Diana est : 0,999 pour Carol,
+3,001 pour Diana. Diana a "gagné" 0,001 pour sa participation à cette
+voie de paiement.
 
 En revenant sur le parcours, le secret `R` permet à chaque participant
 de réclamer les HTLC restants. Carol réclame 1,002 à Bob, fixant le
 solde sur leur chaîne à : 0,998 à Bob, 3,002 à Carol (voir
-&lt;&lt;ln\_payment\_process&gt; &gt; étape 8). Enfin, Bob revendique le
-HTLC d'Alice (voir &lt;&lt;ln\_payment\_process&gt; &gt; étape 9). Leur
-solde de canaux est mis à jour comme suit : 0,997 pour Alice, 3,003 pour
-Bob.
+[formalpara\_title](#ln_payment_process) étape 8). Enfin, Bob revendique
+le HTLC d'Alice (voir [formalpara\_title](#ln_payment_process) étape 9).
+Leur solde de canaux est mis à jour comme suit : 0,997 pour Alice, 3,003
+pour Bob.
 
 Alice a payé Eric 1 bitcoin sans ouvrir de chaîne à Eric. Aucune des
 parties intermédiaires de la voie de paiement n'avait à se faire
@@ -1041,7 +1051,7 @@ ils peuvent gagner une petite commission, le seul risque étant un léger
 retard de remboursement si le canal était fermé ou si le paiement
 acheminé échouait.
 
-### Transport et routage du réseau Lightning
+### Transport et routage du Lightning Network
 
 <span class="indexterm"></span> <span class="indexterm"></span>Toutes
 les communications entre les nœuds LN sont cryptées point à point. De
@@ -1060,7 +1070,7 @@ Certaines implémentations de Lightning Network utilisent le protocole
 IRC comme mécanisme pratique permettant aux nœuds d'annoncer les
 informations de routage. Une autre implémentation de la découverte de
 route utilise un modèle P2P où les nœuds propagent les annonces de canal
-à leurs pairs, dans un modèle "flooding", similaire à la façon dont
+à leurs pairs, dans un modèle d'"inondation", similaire à la façon dont
 bitcoin propage les transactions. Les plans futurs incluent une
 proposition appelée [Flare](https://bit.ly/2r5TACm), qui est un modèle
 de routage hybride avec des "quartiers" de nœuds locaux et des nœuds de
@@ -1104,20 +1114,20 @@ communiquer un chemin à travers le Lightning Network tel que :
     au niveau du réseau ne peut pas associer les paquets de différentes
     parties du chemin les uns aux autres.
 
--   Contrairement à Tor (un protocole d'anonymisation routé par oignon
-    sur Internet), il n'y a pas de "nœuds de sortie" qui peuvent être
-    placés sous surveillance. Les paiements n'ont pas besoin d'être
-    transmis à la blockchain Bitcoin ; les nœuds mettent simplement à
-    jour les soldes des canaux.
+-   Contrairement à Tor (un protocole d'anonymisation routé par couches
+    d’oignon sur Internet), il n'y a pas de "nœuds de sortie" qui
+    peuvent être placés sous surveillance. Les paiements n'ont pas
+    besoin d'être transmis à la chaîne de blocs Bitcoin ; les nœuds
+    mettent simplement à jour les soldes des canaux.
 
-En utilisant ce protocole routé en oignon, Alice enveloppe chaque
-élément du chemin dans une couche de cryptage, en commençant par la fin
-et en remontant. Elle crypte un message à Eric avec la clé publique
-d'Eric. Ce message est enveloppé dans un message crypté pour Diana,
-identifiant Eric comme le prochain destinataire. Le message à Diana est
-enveloppé dans un message crypté avec la clé publique de Carol et
-identifiant Diana comme le prochain destinataire. Le message à Carol est
-crypté avec la clé de Bob. Ainsi, Alice a construit cet "oignon"
+En utilisant ce protocole routé en couches d’oignon, Alice enveloppe
+chaque élément du chemin dans une couche de cryptage, en commençant par
+la fin et en remontant. Elle crypte un message à Eric avec la clé
+publique d'Eric. Ce message est enveloppé dans un message crypté pour
+Diana, identifiant Eric comme le prochain destinataire. Le message à
+Diana est enveloppé dans un message crypté avec la clé publique de Carol
+et identifiant Diana comme le prochain destinataire. Le message à Carol
+est crypté avec la clé de Bob. Ainsi, Alice a construit cet "oignon"
 multicouche chiffré de messages. Elle l'envoie à Bob, qui ne peut que
 déchiffrer et déballer la couche externe. À l'intérieur, Bob trouve un
 message adressé à Carol qu'il peut transmettre à Carol mais ne peut pas
@@ -1143,13 +1153,13 @@ transmettre. Seul le destinataire final voit qu'il n'y a pas de saut
 suivant. Pour tout le monde, il semble qu'il y ait toujours 20 sauts de
 plus à faire.
 
-### Avantages du réseau Lightning
+### Avantages du Lightning Network
 
 <span class="indexterm"></span> <span class="indexterm"></span>Un
 Lightning Network est une technologie de routage de deuxième couche. Il
-peut être appliqué à toute blockchain prenant en charge certaines
+peut être appliqué à toute chaîne de blocs prenant en charge certaines
 fonctionnalités de base, telles que les transactions multisignatures,
-les timelocks et les contrats intelligents de base.
+les verrous temporels et les contrats intelligents de base.
 
 Si un réseau Lightning est superposé au réseau Bitcoin, le réseau
 Bitcoin peut bénéficier d'une augmentation significative de la capacité,
@@ -1159,9 +1169,10 @@ intermédiaires :
 
 Confidentialité  
 Les paiements Lightning Network sont beaucoup plus privés que les
-paiements sur la blockchain Bitcoin, car ils ne sont pas publics. Bien
-que les participants à une route puissent voir les paiements se propager
-sur leurs canaux, ils ne connaissent ni l'expéditeur ni le destinataire.
+paiements sur la chaîne de blocs Bitcoin, car ils ne sont pas publics.
+Bien que les participants à une route puissent voir les paiements se
+propager sur leurs canaux, ils ne connaissent ni l'expéditeur ni le
+destinataire.
 
 Fongibilité  
 Un Lightning Network rend beaucoup plus difficile l'application de la
@@ -1204,10 +1215,10 @@ class="indexterm"></span> <span class="indexterm"></span>
 ===Conclusion
 
 Nous n'avons examiné que quelques-unes des applications émergentes qui
-peuvent être construites en utilisant la blockchain Bitcoin comme
+peuvent être construites en utilisant la chaîne de blocs Bitcoin comme
 plate-forme de confiance. Ces applications élargissent la portée du
 bitcoin au-delà des paiements et au-delà des instruments financiers,
 pour englober de nombreuses autres applications où la confiance est
-essentielle. En décentralisant la base de confiance, la blockchain
+essentielle. En décentralisant la base de confiance, la chaîne de blocs
 Bitcoin est une plate-forme qui engendrera de nombreuses applications
 révolutionnaires dans une grande variété d'industries.

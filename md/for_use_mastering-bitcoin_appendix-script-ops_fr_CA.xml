@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+
+<article lang="en">
+<articleinfo>
+    <date>2022-03-13</date>
+</articleinfo>
+<informalexample>
+<simpara>Tableaux et descriptions provenant de <ulink url="https://en.bitcoin.it/wiki/Script">https://en.bitcoin.it/wiki/Script</ulink>.</simpara>
+</informalexample>
+<simpara>&lt;&lt;tx_script_ops_table_pushdata&gt; &gt; affiche les opérateurs pour pousser les valeurs sur la pile.<indexterm>
+  <primary>&quot;transactions&quot;</primary><secondary>&quot;scripts et langage de script&quot;</secondary><tertiary>id=&quot;TRlang14&quot;</tertiary>
+</indexterm>
+<indexterm>
+  <primary>&quot;scripts et langage de script&quot;</primary><secondary>id=&quot;TRlang14&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>id=&quot;TRlang14&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;scripting&quot;</primary><secondary>&quot;Opérateurs de langage de script</secondary><tertiary>constantes et symboles&quot;</tertiary>
+</indexterm>
+<indexterm>
+  <primary>&quot;Opérateurs de langage de script</primary><secondary>constantes et symboles&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>constantes et symboles&quot;</primary>
+</indexterm></simpara>
+<table id="tx_script_ops_table_pushdata"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>Pousser la valeur sur la pile</title>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33*"/>
+<colspec colname="col_2" colwidth="33*"/>
+<colspec colname="col_3" colwidth="33*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Symbole</simpara></entry>
+<entry align="left" valign="top"><simpara>Valeur (hex)</simpara></entry>
+<entry align="left" valign="top"><simpara>La description</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_0 ou OP_FALSE</simpara></entry>
+<entry align="left" valign="top"><simpara>0x00</simpara></entry>
+<entry align="left" valign="top"><simpara>Un tableau vide est poussé sur la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>1 à 75</simpara></entry>
+<entry align="left" valign="top"><simpara>0x01 à 0x4b</simpara></entry>
+<entry align="left" valign="top"><simpara>Poussez les N octets suivants sur la pile, où N est compris entre 1 et 75 octets</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_PUSHDATA1</simpara></entry>
+<entry align="left" valign="top"><simpara>0x4c</simpara></entry>
+<entry align="left" valign="top"><simpara>L&#39;octet de script suivant contient N, poussez les N octets suivants sur la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_PUSHDATA2</simpara></entry>
+<entry align="left" valign="top"><simpara>0x4d</simpara></entry>
+<entry align="left" valign="top"><simpara>Les deux octets de script suivants contiennent N, poussez les N octets suivants sur la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_PUSHDATA4</simpara></entry>
+<entry align="left" valign="top"><simpara>0x4e</simpara></entry>
+<entry align="left" valign="top"><simpara>Les quatre octets de script suivants contiennent N, poussez les N octets suivants sur la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_1NEGATE</simpara></entry>
+<entry align="left" valign="top"><simpara>0x4f</simpara></entry>
+<entry align="left" valign="top"><simpara>Poussez la valeur &quot;–1&quot; sur la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_RESERVED</simpara></entry>
+<entry align="left" valign="top"><simpara>0x50</simpara></entry>
+<entry align="left" valign="top"><simpara>Halt - Transaction non valide à moins qu&#39;elle ne se trouve dans une clause OP_IF non exécutée</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_1 ou OP_TRUE</simpara></entry>
+<entry align="left" valign="top"><simpara>0x51</simpara></entry>
+<entry align="left" valign="top"><simpara>Poussez la valeur &quot;1&quot; sur la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_2 à OP_16</simpara></entry>
+<entry align="left" valign="top"><simpara>0x52 à 0x60</simpara></entry>
+<entry align="left" valign="top"><simpara>Pour OP_N, poussez la valeur &quot;N&quot; sur la pile, par exemple, OP_2 pousse &quot;2&quot;</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<simpara>&lt;&lt;tx_script_ops_table_control&gt; &gt; affiche les opérateurs de contrôle de flux conditionnel.</simpara>
+<table id="tx_script_ops_table_control"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>Contrôle de flux conditionnel</title>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33*"/>
+<colspec colname="col_2" colwidth="33*"/>
+<colspec colname="col_3" colwidth="33*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Symbole</simpara></entry>
+<entry align="left" valign="top"><simpara>Valeur (hex)</simpara></entry>
+<entry align="left" valign="top"><simpara>La description</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_NOP</simpara></entry>
+<entry align="left" valign="top"><simpara>0x61</simpara></entry>
+<entry align="left" valign="top"><simpara>Ne fais rien</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_VER</simpara></entry>
+<entry align="left" valign="top"><simpara>0x62</simpara></entry>
+<entry align="left" valign="top"><simpara>Halt - Transaction non valide à moins qu&#39;elle ne se trouve dans une clause OP_IF non exécutée</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_IF</simpara></entry>
+<entry align="left" valign="top"><simpara>0x63</simpara></entry>
+<entry align="left" valign="top"><simpara>Exécute les instructions suivantes si le haut de la pile n&#39;est pas 0</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_NOTIF</simpara></entry>
+<entry align="left" valign="top"><simpara>0x64</simpara></entry>
+<entry align="left" valign="top"><simpara>Exécute les instructions suivantes si le haut de la pile est 0</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_VERIF</simpara></entry>
+<entry align="left" valign="top"><simpara>0x65</simpara></entry>
+<entry align="left" valign="top"><simpara>Interrompre—Transaction invalide</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_VERNOTIF</simpara></entry>
+<entry align="left" valign="top"><simpara>0x66</simpara></entry>
+<entry align="left" valign="top"><simpara>Interrompre—Transaction invalide</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_ELSE</simpara></entry>
+<entry align="left" valign="top"><simpara>0x67</simpara></entry>
+<entry align="left" valign="top"><simpara>Exécuter uniquement si les instructions précédentes n&#39;ont pas été exécutées</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_ENDIF</simpara></entry>
+<entry align="left" valign="top"><simpara>0x68</simpara></entry>
+<entry align="left" valign="top"><simpara>Terminer le bloc OP_IF, OP_NOTIF, OP_ELSE</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_VERIFY</simpara></entry>
+<entry align="left" valign="top"><simpara>0x69</simpara></entry>
+<entry align="left" valign="top"><simpara>Vérifiez le haut de la pile, arrêtez et invalidez la transaction si elle n&#39;est pas VRAIE</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_RETURN</simpara></entry>
+<entry align="left" valign="top"><simpara>0x6a</simpara></entry>
+<entry align="left" valign="top"><simpara>Arrêter et invalider la transaction</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<simpara>&lt;&lt;tx_script_ops_table_timelock&gt; &gt; affiche les opérateurs utilisés pour les timelocks.</simpara>
+<table id="tx_script_ops_table_timelock"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>Opérations Timelock</title>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33*"/>
+<colspec colname="col_2" colwidth="33*"/>
+<colspec colname="col_3" colwidth="33*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Symbole</simpara></entry>
+<entry align="left" valign="top"><simpara>Valeur (hex)</simpara></entry>
+<entry align="left" valign="top"><simpara>La description</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_CHECKLOCKTIMEVERIFY (précédemment OP_NOP2)</simpara></entry>
+<entry align="left" valign="top"><simpara>0xb1</simpara></entry>
+<entry align="left" valign="top"><simpara>Marque la transaction comme non valide si l&#39;élément supérieur de la pile est supérieur au champ nLockTime de la transaction, sinon l&#39;évaluation du script continue comme si un OP_NOP avait été exécuté. La transaction est également invalide si 1. la pile est vide ; ou 2. l&#39;élément de la pile supérieure est négatif ; ou 3. l&#39;élément de la pile supérieure est supérieur ou égal à 500000000 alors que le champ nLockTime de la transaction est inférieur à 500000000, ou vice versa ; ou 4. le champ nSequence de l&#39;entrée est égal à 0xffffffff. La sémantique précise est décrite dans la BIP-65</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_CHECKSEQUENCEVERIFY (précédemment OP_NOP3)</simpara></entry>
+<entry align="left" valign="top"><simpara>0xb2</simpara></entry>
+<entry align="left" valign="top"><simpara>Marque la transaction comme non valide si le temps de verrouillage relatif de l&#39;entrée (appliqué par BIP 0068 avec nSequence) n&#39;est pas égal ou supérieur à la valeur de l&#39;élément de la pile supérieure. La sémantique précise est décrite dans BIP-112</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<simpara>&lt;&lt;tx_script_ops_table_stack&gt; &gt; montre les opérateurs utilisés pour manipuler la pile.</simpara>
+<table id="tx_script_ops_table_stack"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>Opérations de pile</title>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33*"/>
+<colspec colname="col_2" colwidth="33*"/>
+<colspec colname="col_3" colwidth="33*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Symbole</simpara></entry>
+<entry align="left" valign="top"><simpara>Valeur (hex)</simpara></entry>
+<entry align="left" valign="top"><simpara>La description</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_TOALTSTACK</simpara></entry>
+<entry align="left" valign="top"><simpara>0x6b</simpara></entry>
+<entry align="left" valign="top"><simpara>Sortez l&#39;élément supérieur de la pile et poussez vers une autre pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_FROMALTSTACK</simpara></entry>
+<entry align="left" valign="top"><simpara>0x6c</simpara></entry>
+<entry align="left" valign="top"><simpara>Sortez l&#39;élément supérieur de la pile alternative et poussez pour empiler</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_2DROP</simpara></entry>
+<entry align="left" valign="top"><simpara>0x6d</simpara></entry>
+<entry align="left" valign="top"><simpara>Pop top deux éléments de la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_2DUP</simpara></entry>
+<entry align="left" valign="top"><simpara>0x6e</simpara></entry>
+<entry align="left" valign="top"><simpara>Dupliquer les deux éléments du haut de la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_3DUP</simpara></entry>
+<entry align="left" valign="top"><simpara>0x6f</simpara></entry>
+<entry align="left" valign="top"><simpara>Dupliquer les trois premiers éléments de la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_2OVER</simpara></entry>
+<entry align="left" valign="top"><simpara>0x70</simpara></entry>
+<entry align="left" valign="top"><simpara>Copiez les troisième et quatrième éléments de la pile vers le haut</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_2ROT</simpara></entry>
+<entry align="left" valign="top"><simpara>0x71</simpara></entry>
+<entry align="left" valign="top"><simpara>Déplacez les cinquième et sixième éléments de la pile vers le haut</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_2SWAP</simpara></entry>
+<entry align="left" valign="top"><simpara>0x72</simpara></entry>
+<entry align="left" valign="top"><simpara>Échangez les deux meilleures paires d&#39;objets dans la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_IFDUP</simpara></entry>
+<entry align="left" valign="top"><simpara>0x73</simpara></entry>
+<entry align="left" valign="top"><simpara>Dupliquer l&#39;élément du haut de la pile s&#39;il n&#39;est pas 0</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_DEPTH</simpara></entry>
+<entry align="left" valign="top"><simpara>0x74</simpara></entry>
+<entry align="left" valign="top"><simpara>Comptez les éléments sur la pile et poussez le décompte résultant</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_DROP</simpara></entry>
+<entry align="left" valign="top"><simpara>0x75</simpara></entry>
+<entry align="left" valign="top"><simpara>Déposez l&#39;élément du haut de la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_DUP</simpara></entry>
+<entry align="left" valign="top"><simpara>0x76</simpara></entry>
+<entry align="left" valign="top"><simpara>Dupliquer l&#39;élément supérieur de la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_NIP</simpara></entry>
+<entry align="left" valign="top"><simpara>0x77</simpara></entry>
+<entry align="left" valign="top"><simpara>Déposez le deuxième élément de la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_OVER</simpara></entry>
+<entry align="left" valign="top"><simpara>0x78</simpara></entry>
+<entry align="left" valign="top"><simpara>Copiez le deuxième élément de la pile et poussez-le vers le haut</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_PICK</simpara></entry>
+<entry align="left" valign="top"><simpara>0x79</simpara></entry>
+<entry align="left" valign="top"><simpara>Extraire la valeur N du haut, puis copier le Nième élément en haut de la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_ROLL</simpara></entry>
+<entry align="left" valign="top"><simpara>0x7a</simpara></entry>
+<entry align="left" valign="top"><simpara>Extraire la valeur N du haut, puis déplacer le Nième élément vers le haut de la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_ROT</simpara></entry>
+<entry align="left" valign="top"><simpara>0x7b</simpara></entry>
+<entry align="left" valign="top"><simpara>Faire pivoter les trois premiers éléments de la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_SWAP</simpara></entry>
+<entry align="left" valign="top"><simpara>0x7c</simpara></entry>
+<entry align="left" valign="top"><simpara>Échangez les deux premiers éléments de la pile</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_TUCK</simpara></entry>
+<entry align="left" valign="top"><simpara>0x7d</simpara></entry>
+<entry align="left" valign="top"><simpara>Copiez l&#39;élément supérieur et insérez-le entre l&#39;élément supérieur et le deuxième élément</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<simpara>&lt;&lt;tx_script_ops_table_splice&gt; &gt; affiche les opérateurs de chaîne.</simpara>
+<table id="tx_script_ops_table_splice"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>Opérations d&#39;épissure de chaînes</title>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33*"/>
+<colspec colname="col_2" colwidth="33*"/>
+<colspec colname="col_3" colwidth="33*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Symbole</simpara></entry>
+<entry align="left" valign="top"><simpara>Valeur (hex)</simpara></entry>
+<entry align="left" valign="top"><simpara>La description</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_CAT</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x7e</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (concatène les deux premiers éléments)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_SUBSTR</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x7f</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (renvoie la sous-chaîne)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_LEFT</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x80</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (renvoie la sous-chaîne gauche)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_RIGHT</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x81</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (renvoie la sous-chaîne droite)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_SIZE</simpara></entry>
+<entry align="left" valign="top"><simpara>0x82</simpara></entry>
+<entry align="left" valign="top"><simpara>Calculer la longueur de la chaîne de l&#39;élément supérieur et pousser le résultat</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<simpara>&lt;&lt;tx_script_ops_table_binmath&gt; &gt; affiche les opérateurs logiques arithmétiques et booléens binaires.</simpara>
+<table id="tx_script_ops_table_binmath"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>Arithmétique binaire et conditionnelles</title>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33*"/>
+<colspec colname="col_2" colwidth="33*"/>
+<colspec colname="col_3" colwidth="33*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Symbole</simpara></entry>
+<entry align="left" valign="top"><simpara>Valeur (hex)</simpara></entry>
+<entry align="left" valign="top"><simpara>La description</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_INVERT</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x83</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (Inverser les bits de l&#39;élément supérieur)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_AND</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x84</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (booléen ET des deux premiers éléments)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_OU</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x85</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (OU booléen des deux éléments supérieurs)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_XOR</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x86</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (XOR booléen des deux principaux éléments)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_EQUAL</simpara></entry>
+<entry align="left" valign="top"><simpara>0x87</simpara></entry>
+<entry align="left" valign="top"><simpara>Appuyez sur TRUE (1) si les deux premiers éléments sont exactement égaux, appuyez sur FALSE (0) sinon</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_EQUALVERIFY</simpara></entry>
+<entry align="left" valign="top"><simpara>0x88</simpara></entry>
+<entry align="left" valign="top"><simpara>Identique à OP_EQUAL, mais exécutez OP_VERIFY après pour arrêter si ce n&#39;est pas TRUE</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_RESERVED1</simpara></entry>
+<entry align="left" valign="top"><simpara>0x89</simpara></entry>
+<entry align="left" valign="top"><simpara>Halt - Transaction non valide à moins qu&#39;elle ne se trouve dans une clause OP_IF non exécutée</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_RESERVED2</simpara></entry>
+<entry align="left" valign="top"><simpara>0x8a</simpara></entry>
+<entry align="left" valign="top"><simpara>Halt - Transaction non valide à moins qu&#39;elle ne se trouve dans une clause OP_IF non exécutée</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<simpara>&lt;&lt;tx_script_ops_table_numbers&gt; &gt; affiche les opérateurs numériques (arithmétiques).</simpara>
+<table id="tx_script_ops_table_numbers"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>Opérateurs numériques</title>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33*"/>
+<colspec colname="col_2" colwidth="33*"/>
+<colspec colname="col_3" colwidth="33*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Symbole</simpara></entry>
+<entry align="left" valign="top"><simpara>Valeur (hex)</simpara></entry>
+<entry align="left" valign="top"><simpara>La description</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_1AJOUT</simpara></entry>
+<entry align="left" valign="top"><simpara>0x8b</simpara></entry>
+<entry align="left" valign="top"><simpara>Ajouter 1 à l&#39;élément supérieur</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_1SUB</simpara></entry>
+<entry align="left" valign="top"><simpara>0x8c</simpara></entry>
+<entry align="left" valign="top"><simpara>Soustraire 1 de l&#39;élément supérieur</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_2MUL</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x8d</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (multiplier l&#39;élément supérieur par 2)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_2DIV</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x8e</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (diviser l&#39;élément supérieur par 2)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_NEGATE</simpara></entry>
+<entry align="left" valign="top"><simpara>0x8f</simpara></entry>
+<entry align="left" valign="top"><simpara>Retournez le signe de l&#39;élément supérieur</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_ABS</simpara></entry>
+<entry align="left" valign="top"><simpara>0x90</simpara></entry>
+<entry align="left" valign="top"><simpara>Changer le signe de l&#39;élément supérieur en positif</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_NOT</simpara></entry>
+<entry align="left" valign="top"><simpara>0x91</simpara></entry>
+<entry align="left" valign="top"><simpara>Si l&#39;élément supérieur est 0 ou 1 booléen retournez-le, sinon retournez 0</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_0NOTEQUAL</simpara></entry>
+<entry align="left" valign="top"><simpara>0x92</simpara></entry>
+<entry align="left" valign="top"><simpara>Si l&#39;élément supérieur est 0, renvoie 0, sinon renvoie 1</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_ADD</simpara></entry>
+<entry align="left" valign="top"><simpara>0x93</simpara></entry>
+<entry align="left" valign="top"><simpara>Pop top deux éléments, ajoutez-les et poussez le résultat</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_SUB</simpara></entry>
+<entry align="left" valign="top"><simpara>0x94</simpara></entry>
+<entry align="left" valign="top"><simpara>Faites apparaître les deux premiers éléments, soustrayez le premier du second, poussez le résultat</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_MUL</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x95</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (multiplier les deux premiers éléments)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_DIV</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x96</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (diviser le deuxième élément par le premier élément)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_MOD</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x97</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (le reste divise le deuxième élément par le premier élément)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_LSHIFT</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x98</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (décaler le deuxième élément vers la gauche du nombre de bits du premier élément)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis>OP_RSHIFT</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>0x99</simpara></entry>
+<entry align="left" valign="top"><simpara>Désactivé (décaler le deuxième élément vers la droite du nombre de bits du premier élément)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_BOLAND</simpara></entry>
+<entry align="left" valign="top"><simpara>0x9a</simpara></entry>
+<entry align="left" valign="top"><simpara>ET booléen des deux premiers éléments</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_BOOLOR</simpara></entry>
+<entry align="left" valign="top"><simpara>0x9b</simpara></entry>
+<entry align="left" valign="top"><simpara>OU booléen des deux premiers éléments</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_NUMEQUAL</simpara></entry>
+<entry align="left" valign="top"><simpara>0x9c</simpara></entry>
+<entry align="left" valign="top"><simpara>Renvoie TRUE si les deux premiers éléments sont des nombres égaux</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_NUMEQUALVERIFY</simpara></entry>
+<entry align="left" valign="top"><simpara>0x9d</simpara></entry>
+<entry align="left" valign="top"><simpara>Identique à NUMEQUAL, puis OP_VERIFY pour arrêter si ce n&#39;est pas TRUE</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_NUMNOTEQUAL</simpara></entry>
+<entry align="left" valign="top"><simpara>0x9e</simpara></entry>
+<entry align="left" valign="top"><simpara>Renvoie VRAI si les deux premiers éléments ne sont pas des nombres égaux</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_LESSTHAN</simpara></entry>
+<entry align="left" valign="top"><simpara>0x9f</simpara></entry>
+<entry align="left" valign="top"><simpara>Renvoie VRAI si le deuxième élément est inférieur à l&#39;élément supérieur</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_GREATERTHAN</simpara></entry>
+<entry align="left" valign="top"><simpara>0xa0</simpara></entry>
+<entry align="left" valign="top"><simpara>Renvoie VRAI si le deuxième élément est supérieur à l&#39;élément supérieur</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_LESSTHANOREQUAL</simpara></entry>
+<entry align="left" valign="top"><simpara>0xa1</simpara></entry>
+<entry align="left" valign="top"><simpara>Renvoie VRAI si le deuxième élément est inférieur ou égal à l&#39;élément supérieur</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_GREATERTHANOREQUAL</simpara></entry>
+<entry align="left" valign="top"><simpara>0xa2</simpara></entry>
+<entry align="left" valign="top"><simpara>Renvoie VRAI si le deuxième élément est supérieur ou égal à l&#39;élément supérieur</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_MIN</simpara></entry>
+<entry align="left" valign="top"><simpara>0xa3</simpara></entry>
+<entry align="left" valign="top"><simpara>Renvoie le plus petit des deux premiers éléments</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_MAX</simpara></entry>
+<entry align="left" valign="top"><simpara>0xa4</simpara></entry>
+<entry align="left" valign="top"><simpara>Renvoie le plus grand des deux premiers éléments</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_WITHIN</simpara></entry>
+<entry align="left" valign="top"><simpara>0xa5</simpara></entry>
+<entry align="left" valign="top"><simpara>Renvoie VRAI si le troisième élément est compris entre le deuxième élément (ou égal) et le premier élément</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<simpara>&lt;&lt;tx_script_ops_table_crypto&gt; &gt; affiche les opérateurs de fonction cryptographique.</simpara>
+<table id="tx_script_ops_table_crypto"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>Opérations cryptographiques et de hachage</title>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33*"/>
+<colspec colname="col_2" colwidth="33*"/>
+<colspec colname="col_3" colwidth="33*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Symbole</simpara></entry>
+<entry align="left" valign="top"><simpara>Valeur (hex)</simpara></entry>
+<entry align="left" valign="top"><simpara>La description</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_RIPEMD160</simpara></entry>
+<entry align="left" valign="top"><simpara>0xa6</simpara></entry>
+<entry align="left" valign="top"><simpara>Renvoyer le hachage RIPEMD160 de l&#39;élément supérieur</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_SHA1</simpara></entry>
+<entry align="left" valign="top"><simpara>0xa7</simpara></entry>
+<entry align="left" valign="top"><simpara>Renvoie le hachage SHA1 de l&#39;élément supérieur</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_SHA256</simpara></entry>
+<entry align="left" valign="top"><simpara>0xa8</simpara></entry>
+<entry align="left" valign="top"><simpara>Renvoie le hachage SHA256 de l&#39;élément supérieur</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_HASH160</simpara></entry>
+<entry align="left" valign="top"><simpara>0xa9</simpara></entry>
+<entry align="left" valign="top"><simpara>Renvoie le hachage RIPEMD160(SHA256(x)) de l&#39;élément supérieur</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_HASH256</simpara></entry>
+<entry align="left" valign="top"><simpara>0xaa</simpara></entry>
+<entry align="left" valign="top"><simpara>Renvoie le hachage SHA256(SHA256(x)) de l&#39;élément supérieur</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_CODESEPARATOR</simpara></entry>
+<entry align="left" valign="top"><simpara>0xab</simpara></entry>
+<entry align="left" valign="top"><simpara>Marquer le début des données vérifiées par signature</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_CHECKSIG</simpara></entry>
+<entry align="left" valign="top"><simpara>0xac</simpara></entry>
+<entry align="left" valign="top"><simpara>Popez une clé publique et une signature et validez la signature pour les données hachées de la transaction, renvoyez TRUE si cela correspond</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_CHECKSIGNVERIFY</simpara></entry>
+<entry align="left" valign="top"><simpara>0xad</simpara></entry>
+<entry align="left" valign="top"><simpara>Identique à CHECKSIG, puis OP_VERIFY pour arrêter si ce n&#39;est pas TRUE</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_CHECKMULTISIG</simpara></entry>
+<entry align="left" valign="top"><simpara>0xae</simpara></entry>
+<entry align="left" valign="top"><simpara>Exécutez CHECKSIG pour chaque paire de signature et de clé publique fournie. Tous doivent correspondre. Un bogue dans la mise en œuvre affiche une valeur supplémentaire, préfixée par OP_0 comme solution de contournement</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_CHECKMULTISIGVERIFY</simpara></entry>
+<entry align="left" valign="top"><simpara>0xaf</simpara></entry>
+<entry align="left" valign="top"><simpara>Identique à CHECKMULTISIG, puis OP_VERIFY pour arrêter si ce n&#39;est pas TRUE</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<simpara>&lt;&lt;tx_script_ops_table_nop&gt; &gt; affiche les symboles non opérateur.</simpara>
+<table id="tx_script_ops_table_nop"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>Nonopérateurs</title>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33*"/>
+<colspec colname="col_2" colwidth="33*"/>
+<colspec colname="col_3" colwidth="33*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Symbole</simpara></entry>
+<entry align="left" valign="top"><simpara>Valeur (hex)</simpara></entry>
+<entry align="left" valign="top"><simpara>La description</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_NOP1 à OP_NOP10</simpara></entry>
+<entry align="left" valign="top"><simpara>0xb0 à 0xb9</simpara></entry>
+<entry align="left" valign="top"><simpara>Ne fait rien, ignoré</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<simpara>&lt;&lt;tx_script_ops_table_internal&gt; &gt; affiche les codes opérateur réservés à l&#39;analyseur de script interne.<indexterm>
+  <primary>&quot;&quot;</primary><secondary>startref=&quot;TRlang14&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>startref=&quot;TRlang14&quot;</primary>
+</indexterm><indexterm>
+  <primary>&quot;&quot;</primary><secondary>startref=&quot;SCRlang14&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>startref=&quot;SCRlang14&quot;</primary>
+</indexterm></simpara>
+<table id="tx_script_ops_table_internal"
+frame="all"
+rowsep="1" colsep="1"
+>
+<title>Codes OP réservés à un usage interne par l&#39;analyseur</title>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33*"/>
+<colspec colname="col_2" colwidth="33*"/>
+<colspec colname="col_3" colwidth="33*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Symbole</simpara></entry>
+<entry align="left" valign="top"><simpara>Valeur (hex)</simpara></entry>
+<entry align="left" valign="top"><simpara>La description</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_SMALLDATA</simpara></entry>
+<entry align="left" valign="top"><simpara>0xf9</simpara></entry>
+<entry align="left" valign="top"><simpara>Représente un petit champ de données</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_SMALLINTEGER</simpara></entry>
+<entry align="left" valign="top"><simpara>0xfa</simpara></entry>
+<entry align="left" valign="top"><simpara>Représente un petit champ de données entier</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_PUBKEYS</simpara></entry>
+<entry align="left" valign="top"><simpara>0xfb</simpara></entry>
+<entry align="left" valign="top"><simpara>Représente les champs de clé publique</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_PUBKEYHASH</simpara></entry>
+<entry align="left" valign="top"><simpara>0xfd</simpara></entry>
+<entry align="left" valign="top"><simpara>Représente un champ de hachage de clé publique</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_PUBKEY</simpara></entry>
+<entry align="left" valign="top"><simpara>0xfe</simpara></entry>
+<entry align="left" valign="top"><simpara>Représente un champ de clé publique</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>OP_INVALIDOPCODE</simpara></entry>
+<entry align="left" valign="top"><simpara>0xff</simpara></entry>
+<entry align="left" valign="top"><simpara>Représente tout code OP non attribué actuellement</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</article>
