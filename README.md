@@ -65,7 +65,7 @@ Traducteur : <strong>Serafim Dos Santos</strong></p>
 17. [Annexe C - Bitcoin Improvement Proposals (BIPs ou Propositions d’amélioration de Bitcoin)](html/for_use_mastering-bitcoin_appendix-bips_fr_CA.html)
 18. [Annexe D - pycoin, ku et tx](html/for_use_mastering-bitcoin_appendix-pycoin_fr_CA.html)
 19. [Annexe E - Commandes de l'explorateur Bitcoin (bx)](html/for_use_mastering-bitcoin_appendix-bx_fr_CA.html)
-20. Annexe F - BitCore
+20. [Annexe F - BitCore](html/for_use_mastering-bitcoin_appdx-bitcoretxt_fr_CA.html)
 
 ---
 ## Translations
