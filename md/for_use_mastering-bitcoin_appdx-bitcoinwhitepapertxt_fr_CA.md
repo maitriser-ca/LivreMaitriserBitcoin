@@ -1,4 +1,4 @@
-# The Bitcoin Whitepaper by Satoshi Nakamoto (Le livre blanc Bitcoin de Satoshi Nakamoto)
+# Le livre blanc Bitcoin de Satoshi Nakamoto
 
 <span class="indexterm"></span> <span class="indexterm"></span><span
 class="indexterm"></span> <span class="indexterm"></span><span
@@ -268,10 +268,10 @@ réseau complet. Un utilisateur n'a besoin que de conserver une copie des
 en-têtes de bloc de la chaîne de preuve de travail la plus longue, qu'il
 peut obtenir en interrogeant les nœuds du réseau jusqu'à ce qu'il soit
 convaincu qu'il a la chaîne la plus longue, et d'obtenir la branche
-Merkle reliant la transaction au bloc il est horodaté. Il ne peut pas
-vérifier la transaction par lui-même, mais en la liant à un endroit de
-la chaîne, il peut voir qu'un nœud du réseau l'a acceptée, et les blocs
-ajoutés après confirment que le réseau l'a acceptée.
+Merkle reliant la transaction au bloc dont il est horodaté. Il ne peut
+pas vérifier la transaction par lui-même, mais en la liant à un endroit
+de la chaîne, il peut voir qu'un nœud du réseau l'a acceptée, et les
+blocs ajoutés après confirment que le réseau l'a acceptée aussi.
 
 !["spv"](images/mbc2_abin05.png)
 
@@ -279,7 +279,7 @@ Ainsi, la vérification est fiable tant que des nœuds honnêtes contrôlent
 le réseau, mais est plus vulnérable si le réseau est maîtrisé par un
 attaquant. Alors que les nœuds du réseau peuvent vérifier les
 transactions par eux-mêmes, la méthode simplifiée peut être trompée par
-les transactions fabriquées par un attaquant tant que l'attaquant peut
+les transactions fabriquées par un attaquant, tant que l'attaquant peut
 continuer à maîtriser le réseau. Une stratégie de protection contre cela
 consisterait à accepter les alertes des nœuds du réseau lorsqu'ils
 détectent un bloc invalide, incitant le logiciel de l'utilisateur à
@@ -310,15 +310,15 @@ transaction.
 ## Confidentialité
 
 Le modèle bancaire traditionnel atteint un niveau de confidentialité en
-limitant l'accès aux informations aux parties concernées et au tiers de
-confiance. La nécessité d'annoncer publiquement toutes les transactions
-exclut cette méthode, mais la confidentialité peut toujours être
-préservée en interrompant le flux d'informations à un autre endroit : en
-gardant les clés publiques anonymes. Le public peut voir que quelqu'un
-envoie un montant à quelqu'un d'autre, mais sans information liant la
-transaction à qui que ce soit. Ceci est similaire au niveau
-d'information publié par les bourses, où l'heure et la taille des
-transactions individuelles, la "bande", sont rendues publiques, mais
+limitant l'accès aux informations des parties concernées et au tierce
+partie de confiance. La nécessité d'annoncer publiquement toutes les
+transactions exclut cette méthode, mais la confidentialité peut toujours
+être préservée en interrompant le flux d'informations à un autre
+endroit : en gardant les clés publiques anonymes. Le public peut voir
+que quelqu'un envoie un montant à quelqu'un d'autre, mais sans
+information liant la transaction à qui que ce soit. Ceci est similaire
+au niveau d'information publié par les bourses, où l'heure et la taille
+des transactions individuelles, la "bande", sont rendues publiques, mais
 sans dire qui étaient les parties.
 
 !["vie privée"](images/mbc2_abin07.png)
@@ -350,12 +350,12 @@ et l'événement d'échec est la chaîne de l'attaquant prolongée d'un bloc,
 réduisant l'écart de -1.
 
 La probabilité qu'un attaquant rattrape un déficit donné est analogue à
-un problème de Gambler's Ruin. Supposons qu'un joueur avec un crédit
-illimité commence avec un déficit et joue potentiellement un nombre
-infini d'essais pour essayer d'atteindre le seuil de rentabilité. Nous
-pouvons calculer la probabilité qu'il atteigne jamais le seuil de
-rentabilité, ou qu'un attaquant rattrape jamais la chaîne honnête, comme
-suit
+un problème de la ruine du joueur (Gambler's Ruin). Supposons qu'un
+joueur avec un crédit illimité commence avec un déficit et joue
+potentiellement un nombre infini d'essais pour essayer d'atteindre le
+seuil de rentabilité. Nous pouvons calculer la probabilité qu'il
+atteigne jamais le seuil de rentabilité, ou qu'un attaquant rattrape
+jamais la chaîne honnête, comme suit
 
 \[8\]
 
@@ -372,9 +372,9 @@ derrière
 
 Étant donné notre hypothèse que p &gt; q, la probabilité chute de façon
 exponentielle à mesure que le nombre de blocs que l'attaquant doit
-rattraper augmente. Avec les chances contre lui, s'il ne fait pas une
-fente chanceuse en avant dès le début, ses chances deviennent infiniment
-petites à mesure qu'il prend du retard.
+rattraper augmente. Avec les chances contre lui, s'il n’a pas un coup de
+chance deavant dès le début, ses chances deviennent infiniment petites à
+mesure qu'il prend du retard.
 
 Nous considérons maintenant combien de temps le destinataire d'une
 nouvelle transaction doit attendre avant d'être suffisamment certain que
@@ -415,21 +415,21 @@ distribution…
 
 Conversion en code C…
 
-    #inclure<math.h>
+    #include <math.h>
     double AttackerSuccessProbability(double q, int z)
     {
-    double p = 1,0 - q ;
-    double lambda = z * (q / p);
-    double somme = 1,0 ;
-    int je, k ;
-    pour (k = 0; k &lt;= z; k++)
-    {
-    double poisson = exp(-lambda);
-    pour (i = 1; i &lt;= k; i++)
-    poisson *= lambda / i;
-    somme -= poisson * (1 - pow(q / p, z - k));
+        double p = 1.0 - q;
+        double lambda = z * (q / p);
+        double sum = 1.0;
+        int i, k;
+        for (k = 0; k <= z; k++)
+        {
+            double poisson = exp(-lambda);
+            for (i = 1; i <= k; i++)
+                poisson *= lambda / i;
+            sum -= poisson * (1 - pow(q / p, z - k));
         }
-    somme de retour ;
+        return sum;
     }
 
 En exécutant certains résultats, nous pouvons voir la probabilité chuter
@@ -450,7 +450,7 @@ de façon exponentielle avec z.
 
     q=0.3
     z=0 P=1.0000000
-    z=5 P=0,1773523
+    z=5 P=0.1773523
     z=10 P=0.0416605
     z=15 P=0.0101008
     z=20 P=0.0024804
@@ -463,41 +463,43 @@ de façon exponentielle avec z.
 
 Résolution pour P inférieur à 0,1 %…
 
-    P &lt; 0,001
+    P < 0.001
     q=0.10 z=5
-    q=0,15 z=8
+    q=0.15 z=8
     q=0.20 z=11
-    q=0,25 z=15
+    q=0.25 z=15
     q=0.30 z=24
-    q=0,35 z=41
-    q=0,40 z=89
-    q=0,45 z=340
+    q=0.35 z=41
+    q=0.40 z=89
+    q=0.45 z=340
 
-====Conclusion Nous avons proposé un système de transactions
-électroniques sans reposer sur la confiance. Nous avons commencé avec le
-cadre habituel des pièces fabriquées à partir de signatures numériques,
-qui offre un contrôle fort de la propriété, mais qui est incomplet sans
-un moyen d'éviter les doubles dépenses. Pour résoudre ce problème, nous
-avons proposé un réseau peer-to-peer utilisant la preuve de travail pour
-enregistrer un historique public des transactions qui devient rapidement
-impossible à modifier par un attaquant si des nœuds honnêtes contrôlent
-la majorité de la puissance du processeur. Le réseau est robuste dans sa
-simplicité non structurée. Les nœuds fonctionnent tous en même temps
-avec peu de coordination. Ils n'ont pas besoin d'être identifiés, car
-les messages ne sont pas acheminés vers un endroit particulier et ne
-doivent être livrés que dans la mesure du possible. Les nœuds peuvent
-quitter et rejoindre le réseau à volonté, acceptant la chaîne de preuve
-de travail comme preuve de ce qui s'est passé pendant leur absence. Ils
-votent avec leur puissance CPU, exprimant leur acceptation des blocs
-valides en travaillant à les étendre et rejetant les blocs invalides en
-refusant de travailler dessus. Toutes les règles et incitations
-nécessaires peuvent être appliquées avec ce mécanisme de consensus.
+## Conclusion
+
+Nous avons proposé un système de transactions électroniques sans reposer
+sur la confiance. Nous avons commencé avec le cadre habituel des pièces
+fabriquées à partir de signatures numériques, qui offre un fort contrôle
+de propriété, mais qui est incomplet sans un moyen d'éviter les doubles
+dépenses. Pour résoudre ce problème, nous avons proposé un réseau pair à
+pair utilisant la preuve de travail pour enregistrer un historique
+public des transactions qui devient rapidement impossible à modifier par
+un attaquant si des nœuds honnêtes contrôlent la majorité de la
+puissance du processeur. Le réseau est robuste dans sa simplicité non
+structurée. Les nœuds fonctionnent tous en même temps avec peu de
+coordination. Ils n'ont pas besoin d'être identifiés, car les messages
+ne sont pas acheminés vers un endroit particulier et ne doivent être
+livrés que dans la mesure du possible. Les nœuds peuvent quitter et
+rejoindre le réseau à volonté, acceptant la chaîne de preuve de travail
+comme preuve de ce qui s'est passé pendant leur absence. Ils votent avec
+leur puissance CPU, exprimant leur acceptation des blocs valides en
+travaillant à les étendre et rejetant les blocs invalides en refusant de
+travailler dessus. Toutes les règles et incitations nécessaires peuvent
+être appliquées avec ce mécanisme de consensus.
 
 ## Références
 
 \[1\]
 
-W. Dai, "b-money",
+W. Dai, "b-money,"
 
 http://www.weidai.com/bmoney.txt
 
@@ -505,30 +507,30 @@ http://www.weidai.com/bmoney.txt
 
 \[2\]
 
-H. Massias, XS Avila et J.-J. Quisquater, « Design of a secure
-timestamping service with minimal trust requirements », In 20th
-Symposium on Information Theory in the Benelux, mai 1999.
+H. Massias, X.S. Avila, and J.-J. Quisquater, "Design of a secure
+timestamping service with minimal trust requirements," In 20th Symposium
+on Information Theory in the Benelux, May 1999.
 
 \[3\]
 
-S. Haber, WS Stornetta, "Comment horodater un document numérique," In
+S. Haber, W.S. Stornetta, "How to time-stamp a digital document," In
 Journal of Cryptology, vol 3, no 2, pages 99-111, 1991.
 
 \[4\]
 
-D. Bayer, S. Haber, WS Stornetta, "Améliorer l'efficacité et la
-fiabilité de l'horodatage numérique", In Sequences II: Methods in
+D. Bayer, S. Haber, W.S. Stornetta, "Improving the efficiency and
+reliability of digital time-stamping," In Sequences II: Methods in
 Communication, Security and Computer Science, pages 329-334, 1993.
 
 \[5\]
 
-S. Haber, WS Stornetta, "Noms sécurisés pour les chaînes de bits", dans
-Actes de la 4ème conférence ACM sur la sécurité informatique et des
-communications, pages 28-35, avril 1997.
+S. Haber, W.S. Stornetta, "Secure names for bit-strings," In Proceedings
+of the 4th ACM Conference on Computer and Communications Security, pages
+28-35, April 1997.
 
 \[6\]
 
-A. Back, "Hashcash - une contre-mesure de déni de service,"
+A. Back, "Hashcash - a denial of service counter-measure,"
 
 http://www.hashcash.org/papers/hashcash.pdf
 
@@ -536,14 +538,14 @@ http://www.hashcash.org/papers/hashcash.pdf
 
 \[7\]
 
-RC Merkle, "Protocoles pour les cryptosystèmes à clé publique", In Proc.
-1980 Symposium on Security and Privacy, IEEE Computer Society, pages
-122-133, avril 1980.
+R.C. Merkle, "Protocols for public key cryptosystems," In Proc. 1980
+Symposium on Security and Privacy, IEEE Computer Society, pages 122-133,
+April 1980.
 
 \[8\]
 
-W. Feller, « Une introduction à la théorie des probabilités et à ses
-applications », 1957.
+W. Feller, "An introduction to probability theory and its applications,"
+1957.
 
 # Licence
 
@@ -553,28 +555,25 @@ documentation de support au logiciel bitcoin, qui porte la même licence
 MIT. Il a été reproduit dans ce livre, sans modification autre que la
 mise en forme, selon les termes de la licence MIT :
 
-La licence MIT (MIT) Copyright (c) 2008 Satoshi Nakamoto
+The MIT License (MIT) Copyright (c) 2008 Satoshi Nakamoto
 
-L'autorisation est accordée, gratuitement, à toute personne obtenant une
-copie de ce logiciel et des fichiers de documentation associés (le
-"Logiciel"), de traiter le Logiciel sans restriction, y compris, sans
-limitation, les droits d'utilisation, de copie, de modification, de
-fusion , publier, distribuer, sous-licencier et/ou vendre des copies du
-Logiciel, et permettre aux personnes à qui le Logiciel est fourni de le
-faire, sous réserve des conditions suivantes :
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
 
-L'avis de droit d'auteur ci-dessus et cet avis d'autorisation doivent
-être inclus dans toutes les copies ou parties substantielles du
-Logiciel.
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
 
-LE LOGICIEL EST FOURNI "TEL QUEL", SANS GARANTIE D'AUCUNE SORTE,
-EXPRESSE OU IMPLICITE, Y COMPRIS, MAIS SANS S'Y LIMITER, LES GARANTIES
-DE QUALITÉ MARCHANDE, D'ADÉQUATION À UN USAGE PARTICULIER ET D'ABSENCE
-DE CONTREFAÇON. EN AUCUN CAS, LES AUTEURS OU LES DÉTENTEURS DU COPYRIGHT
-NE SERONT RESPONSABLES DE TOUTE RÉCLAMATION, DOMMAGE OU AUTRE
-RESPONSABILITÉ, QUE CE SOIT DANS UNE ACTION CONTRACTUELLE, DÉLICTUELLE
-OU AUTRE, DÉCOULANT DE, DE OU EN RELATION AVEC LE LOGICIEL OU
-L'UTILISATION OU D'AUTRES TRANSACTIONS DANS LE LOGICIEL.<span
-class="indexterm"></span> <span class="indexterm"></span><span
-class="indexterm"></span> <span class="indexterm"></span><span
-class="indexterm"></span> <span class="indexterm"></span>
+THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.<span
+class="indexterm"></span><span class="indexterm"></span><span
+class="indexterm"></span>

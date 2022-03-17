@@ -8,7 +8,7 @@
     <date>2022-03-17</date>
 </articleinfo>
 <appendix id="satoshi_whitepaper">
-<title>The Bitcoin Whitepaper by Satoshi Nakamoto (Le livre blanc Bitcoin de Satoshi Nakamoto)</title>
+<title>Le livre blanc Bitcoin de Satoshi Nakamoto</title>
 <note>
 <simpara><indexterm>
   <primary>&quot;livre blanc&quot;</primary><secondary>id=&quot;whitethirteen&quot;</secondary>
@@ -140,7 +140,7 @@ Les nœuds expriment leur acceptation du bloc en travaillant à la création du 
 </section>
 <section id="_vérification_de_paiement_simplifiée">
 <title>Vérification de paiement simplifiée</title>
-<simpara>Il est possible de vérifier les paiements sans exécuter un nœud de réseau complet. Un utilisateur n&#39;a besoin que de conserver une copie des en-têtes de bloc de la chaîne de preuve de travail la plus longue, qu&#39;il peut obtenir en interrogeant les nœuds du réseau jusqu&#39;à ce qu&#39;il soit convaincu qu&#39;il a la chaîne la plus longue, et d&#39;obtenir la branche Merkle reliant la transaction au bloc il est horodaté. Il ne peut pas vérifier la transaction par lui-même, mais en la liant à un endroit de la chaîne, il peut voir qu&#39;un nœud du réseau l&#39;a acceptée, et les blocs ajoutés après confirment que le réseau l&#39;a acceptée.</simpara>
+<simpara>Il est possible de vérifier les paiements sans exécuter un nœud de réseau complet. Un utilisateur n&#39;a besoin que de conserver une copie des en-têtes de bloc de la chaîne de preuve de travail la plus longue, qu&#39;il peut obtenir en interrogeant les nœuds du réseau jusqu&#39;à ce qu&#39;il soit convaincu qu&#39;il a la chaîne la plus longue, et d&#39;obtenir la branche Merkle reliant la transaction au bloc dont il est horodaté. Il ne peut pas vérifier la transaction par lui-même, mais en la liant à un endroit de la chaîne, il peut voir qu&#39;un nœud du réseau l&#39;a acceptée, et les blocs ajoutés après confirment que le réseau l&#39;a acceptée aussi.</simpara>
 <informalfigure>
 <mediaobject>
   <imageobject>
@@ -149,7 +149,7 @@ Les nœuds expriment leur acceptation du bloc en travaillant à la création du 
   <textobject><phrase>&quot;spv&quot;</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Ainsi, la vérification est fiable tant que des nœuds honnêtes contrôlent le réseau, mais est plus vulnérable si le réseau est maîtrisé par un attaquant. Alors que les nœuds du réseau peuvent vérifier les transactions par eux-mêmes, la méthode simplifiée peut être trompée par les transactions fabriquées par un attaquant tant que l&#39;attaquant peut continuer à maîtriser le réseau. Une stratégie de protection contre cela consisterait à accepter les alertes des nœuds du réseau lorsqu&#39;ils détectent un bloc invalide, incitant le logiciel de l&#39;utilisateur à télécharger le bloc complet et les transactions alertées pour confirmer l&#39;incohérence. Les entreprises qui reçoivent des paiements fréquents voudront probablement toujours exécuter leurs propres nœuds pour une sécurité plus indépendante et une vérification plus rapide.</simpara>
+<simpara>Ainsi, la vérification est fiable tant que des nœuds honnêtes contrôlent le réseau, mais est plus vulnérable si le réseau est maîtrisé par un attaquant. Alors que les nœuds du réseau peuvent vérifier les transactions par eux-mêmes, la méthode simplifiée peut être trompée par les transactions fabriquées par un attaquant, tant que l&#39;attaquant peut continuer à maîtriser le réseau. Une stratégie de protection contre cela consisterait à accepter les alertes des nœuds du réseau lorsqu&#39;ils détectent un bloc invalide, incitant le logiciel de l&#39;utilisateur à télécharger le bloc complet et les transactions alertées pour confirmer l&#39;incohérence. Les entreprises qui reçoivent des paiements fréquents voudront probablement toujours exécuter leurs propres nœuds pour une sécurité plus indépendante et une vérification plus rapide.</simpara>
 </section>
 <section id="_combiner_et_diviser_la_valeur">
 <title>Combiner et diviser la valeur</title>
@@ -166,7 +166,7 @@ Les nœuds expriment leur acceptation du bloc en travaillant à la création du 
 </section>
 <section id="_confidentialité">
 <title>Confidentialité</title>
-<simpara>Le modèle bancaire traditionnel atteint un niveau de confidentialité en limitant l&#39;accès aux informations aux parties concernées et au tiers de confiance. La nécessité d&#39;annoncer publiquement toutes les transactions exclut cette méthode, mais la confidentialité peut toujours être préservée en interrompant le flux d&#39;informations à un autre endroit : en gardant les clés publiques anonymes. Le public peut voir que quelqu&#39;un envoie un montant à quelqu&#39;un d&#39;autre, mais sans information liant la transaction à qui que ce soit. Ceci est similaire au niveau d&#39;information publié par les bourses, où l&#39;heure et la taille des transactions individuelles, la &quot;bande&quot;, sont rendues publiques, mais sans dire qui étaient les parties.</simpara>
+<simpara>Le modèle bancaire traditionnel atteint un niveau de confidentialité en limitant l&#39;accès aux informations des parties concernées et au tierce partie de confiance. La nécessité d&#39;annoncer publiquement toutes les transactions exclut cette méthode, mais la confidentialité peut toujours être préservée en interrompant le flux d&#39;informations à un autre endroit : en gardant les clés publiques anonymes. Le public peut voir que quelqu&#39;un envoie un montant à quelqu&#39;un d&#39;autre, mais sans information liant la transaction à qui que ce soit. Ceci est similaire au niveau d&#39;information publié par les bourses, où l&#39;heure et la taille des transactions individuelles, la &quot;bande&quot;, sont rendues publiques, mais sans dire qui étaient les parties.</simpara>
 <informalfigure>
 <mediaobject>
   <imageobject>
@@ -181,7 +181,7 @@ Les nœuds expriment leur acceptation du bloc en travaillant à la création du 
 <title>Calculs</title>
 <simpara>Nous considérons le scénario d&#39;un attaquant essayant de générer une chaîne alternative plus rapidement que la chaîne honnête. Même si cela est accompli, cela n&#39;ouvre pas le système à des changements arbitraires, comme créer de la valeur à partir de rien ou prendre de l&#39;argent qui n&#39;a jamais appartenu à l&#39;attaquant. Les nœuds n&#39;accepteront pas une transaction invalide comme paiement, et les nœuds honnêtes n&#39;accepteront jamais un bloc les contenant. Un attaquant ne peut essayer de modifier qu&#39;une de ses propres transactions pour récupérer l&#39;argent qu&#39;il a récemment dépensé.</simpara>
 <simpara>La course entre la chaîne honnête et une chaîne attaquante peut être caractérisée comme une marche aléatoire binomiale. L&#39;événement de succès est la chaîne honnête prolongée d&#39;un bloc, augmentant son avance de +1, et l&#39;événement d&#39;échec est la chaîne de l&#39;attaquant prolongée d&#39;un bloc, réduisant l&#39;écart de -1.</simpara>
-<p>La probabilité qu&#39;un attaquant rattrape un déficit donné est analogue à un problème de Gambler&#39;s Ruin. Supposons qu&#39;un joueur avec un crédit illimité commence avec un déficit et joue potentiellement un nombre infini d&#39;essais pour essayer d&#39;atteindre le seuil de rentabilité. Nous pouvons calculer la probabilité qu&#39;il atteigne jamais le seuil de rentabilité, ou qu&#39;un attaquant rattrape jamais la chaîne honnête, comme suit <a href="#ref_eight">[8]</a> :</p>
+<p>La probabilité qu&#39;un attaquant rattrape un déficit donné est analogue à un problème de la ruine du joueur (Gambler&#39;s Ruin). Supposons qu&#39;un joueur avec un crédit illimité commence avec un déficit et joue potentiellement un nombre infini d&#39;essais pour essayer d&#39;atteindre le seuil de rentabilité. Nous pouvons calculer la probabilité qu&#39;il atteigne jamais le seuil de rentabilité, ou qu&#39;un attaquant rattrape jamais la chaîne honnête, comme suit <a href="#ref_eight">[8]</a>:</p>
 <simpara>p = probabilité qu&#39;un nœud honnête trouve le bloc suivant</simpara>
 <simpara>q = probabilité que l&#39;attaquant trouve le bloc suivant</simpara>
 <simpara>q<subscript>z</subscript> = probabilité que l&#39;attaquant rattrape jamais z blocs derrière</simpara>
@@ -193,7 +193,7 @@ Les nœuds expriment leur acceptation du bloc en travaillant à la création du 
   <textobject><phrase>&quot;eq1&quot;</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Étant donné notre hypothèse que p &gt; q, la probabilité chute de façon exponentielle à mesure que le nombre de blocs que l&#39;attaquant doit rattraper augmente. Avec les chances contre lui, s&#39;il ne fait pas une fente chanceuse en avant dès le début, ses chances deviennent infiniment petites à mesure qu&#39;il prend du retard.</simpara>
+<simpara>Étant donné notre hypothèse que p &gt; q, la probabilité chute de façon exponentielle à mesure que le nombre de blocs que l&#39;attaquant doit rattraper augmente. Avec les chances contre lui, s&#39;il n&#8217;a pas un coup de chance deavant dès le début, ses chances deviennent infiniment petites à mesure qu&#39;il prend du retard.</simpara>
 <simpara>Nous considérons maintenant combien de temps le destinataire d&#39;une nouvelle transaction doit attendre avant d&#39;être suffisamment certain que l&#39;expéditeur ne peut pas modifier la transaction. Nous supposons que l&#39;expéditeur est un attaquant qui veut faire croire au destinataire qu&#39;il l&#39;a payé pendant un certain temps, puis le changer pour se rembourser après un certain temps. Le destinataire sera alerté lorsque cela se produira, mais l&#39;expéditeur espère qu&#39;il sera trop tard.</simpara>
 <simpara>Le récepteur génère une nouvelle paire de clés et donne la clé publique à l&#39;expéditeur peu de temps avant la signature. Cela évite à l&#39;expéditeur de préparer une chaîne de blocs à l&#39;avance en y travaillant continuellement jusqu&#39;à ce qu&#39;il ait la chance d&#39;aller assez loin, puis d&#39;exécuter la transaction à ce moment-là. Une fois la transaction envoyée, l&#39;expéditeur malhonnête commence à travailler en secret sur une chaîne parallèle contenant une version alternative de sa transaction.</simpara>
 <simpara>Le destinataire attend que la transaction ait été ajoutée à un bloc et que z blocs aient été liés après celle-ci. Il ne connaît pas la progression exacte de l&#39;attaquant, mais en supposant que les blocs honnêtes ont pris le temps moyen attendu par bloc, la progression potentielle de l&#39;attaquant sera une distribution de Poisson avec une valeur attendue :</simpara>
@@ -224,21 +224,21 @@ Les nœuds expriment leur acceptation du bloc en travaillant à la création du 
 </mediaobject>
 </informalfigure>
 <simpara>Conversion en code C&#8230;</simpara>
-<programlisting language="c" linenumbering="unnumbered">#inclure&lt;math.h&gt;
+<programlisting language="c" linenumbering="unnumbered">#include &lt;math.h&gt;
 double AttackerSuccessProbability(double q, int z)
 {
-double p = 1,0 - q ;
-double lambda = z * (q / p);
-double somme = 1,0 ;
-int je, k ;
-pour (k = 0; k &amp;lt;= z; k++)
-{
-double poisson = exp(-lambda);
-pour (i = 1; i &amp;lt;= k; i++)
-poisson *= lambda / i;
-somme -= poisson * (1 - pow(q / p, z - k));
+    double p = 1.0 - q;
+    double lambda = z * (q / p);
+    double sum = 1.0;
+    int i, k;
+    for (k = 0; k &lt;= z; k++)
+    {
+        double poisson = exp(-lambda);
+        for (i = 1; i &lt;= k; i++)
+            poisson *= lambda / i;
+        sum -= poisson * (1 - pow(q / p, z - k));
     }
-somme de retour ;
+    return sum;
 }</programlisting>
 <simpara>En exécutant certains résultats, nous pouvons voir la probabilité chuter de façon exponentielle avec z.</simpara>
 <screen>q=0.1
@@ -255,7 +255,7 @@ z=9 P=0.0000046
 z=10 P=0.0000012</screen>
 <screen>q=0.3
 z=0 P=1.0000000
-z=5 P=0,1773523
+z=5 P=0.1773523
 z=10 P=0.0416605
 z=15 P=0.0101008
 z=20 P=0.0024804
@@ -266,48 +266,50 @@ z=40 P=0.0000095
 z=45 P=0.0000024
 z=50 P=0.0000006</screen>
 <simpara>Résolution pour P inférieur à 0,1 %&#8230;</simpara>
-<screen>P &amp;lt; 0,001
+<screen>P &lt; 0.001
 q=0.10 z=5
-q=0,15 z=8
+q=0.15 z=8
 q=0.20 z=11
-q=0,25 z=15
+q=0.25 z=15
 q=0.30 z=24
-q=0,35 z=41
-q=0,40 z=89
-q=0,45 z=340</screen>
-<simpara>====Conclusion
-Nous avons proposé un système de transactions électroniques sans reposer sur la confiance. Nous avons commencé avec le cadre habituel des pièces fabriquées à partir de signatures numériques, qui offre un contrôle fort de la propriété, mais qui est incomplet sans un moyen d&#39;éviter les doubles dépenses. Pour résoudre ce problème, nous avons proposé un réseau peer-to-peer utilisant la preuve de travail pour enregistrer un historique public des transactions qui devient rapidement impossible à modifier par un attaquant si des nœuds honnêtes contrôlent la majorité de la puissance du processeur. Le réseau est robuste dans sa simplicité non structurée. Les nœuds fonctionnent tous en même temps avec peu de coordination. Ils n&#39;ont pas besoin d&#39;être identifiés, car les messages ne sont pas acheminés vers un endroit particulier et ne doivent être livrés que dans la mesure du possible. Les nœuds peuvent quitter et rejoindre le réseau à volonté, acceptant la chaîne de preuve de travail comme preuve de ce qui s&#39;est passé pendant leur absence. Ils votent avec leur puissance CPU, exprimant leur acceptation des blocs valides en travaillant à les étendre et rejetant les blocs invalides en refusant de travailler dessus. Toutes les règles et incitations nécessaires peuvent être appliquées avec ce mécanisme de consensus.</simpara>
+q=0.35 z=41
+q=0.40 z=89
+q=0.45 z=340</screen>
+</section>
+<section id="_conclusion">
+<title>Conclusion</title>
+<simpara>Nous avons proposé un système de transactions électroniques sans reposer sur la confiance. Nous avons commencé avec le cadre habituel des pièces fabriquées à partir de signatures numériques, qui offre un fort contrôle de propriété, mais qui est incomplet sans un moyen d&#39;éviter les doubles dépenses. Pour résoudre ce problème, nous avons proposé un réseau pair à pair utilisant la preuve de travail pour enregistrer un historique public des transactions qui devient rapidement impossible à modifier par un attaquant si des nœuds honnêtes contrôlent la majorité de la puissance du processeur. Le réseau est robuste dans sa simplicité non structurée. Les nœuds fonctionnent tous en même temps avec peu de coordination. Ils n&#39;ont pas besoin d&#39;être identifiés, car les messages ne sont pas acheminés vers un endroit particulier et ne doivent être livrés que dans la mesure du possible. Les nœuds peuvent quitter et rejoindre le réseau à volonté, acceptant la chaîne de preuve de travail comme preuve de ce qui s&#39;est passé pendant leur absence. Ils votent avec leur puissance CPU, exprimant leur acceptation des blocs valides en travaillant à les étendre et rejetant les blocs invalides en refusant de travailler dessus. Toutes les règles et incitations nécessaires peuvent être appliquées avec ce mécanisme de consensus.</simpara>
 </section>
 <section id="_références">
 <title>Références</title>
 <p>
-<span id="ref_one">[1]</span> W. Dai, &quot;b-money&quot;, <a href="http://www.weidai.com/bmoney.txt"><em>http://www.weidai.com/bmoney.txt</em></a> , 1998.
+<span id="ref_one">[1]</span> W. Dai, "b-money," <a href="http://www.weidai.com/bmoney.txt"><em>http://www.weidai.com/bmoney.txt</em></a>, 1998.
 </p>
 <p>
-<span id="ref_two">[2]</span> H. Massias, XS Avila et J.-J. Quisquater, « Design of a secure timestamping service with minimal trust requirements », In 20th Symposium on Information Theory in the Benelux, mai 1999.
+<span id="ref_two">[2]</span> H. Massias, X.S. Avila, and J.-J. Quisquater, "Design of a secure timestamping service with minimal trust requirements," In 20th Symposium on Information Theory in the Benelux, May 1999.
 </p>
 <p>
-<span id="ref_three">[3]</span> S. Haber, WS Stornetta, &quot;Comment horodater un document numérique,&quot; In Journal of Cryptology, vol 3, no 2, pages 99-111, 1991.
-</p>
-
-<p>
-<span id="ref_four">[4]</span> D. Bayer, S. Haber, WS Stornetta, &quot;Améliorer l&#39;efficacité et la fiabilité de l&#39;horodatage numérique&quot;, In Sequences II: Methods in Communication, Security and Computer Science, pages 329-334, 1993.
+<span id="ref_three">[3]</span> S. Haber, W.S. Stornetta, "How to time-stamp a digital document," In Journal of Cryptology, vol 3, no 2, pages 99-111, 1991.
 </p>
 
 <p>
-<span id="ref_five">[5]</span> S. Haber, WS Stornetta, &quot;Noms sécurisés pour les chaînes de bits&quot;, dans Actes de la 4ème conférence ACM sur la sécurité informatique et des communications, pages 28-35, avril 1997.
+<span id="ref_four">[4]</span> D. Bayer, S. Haber, W.S. Stornetta, "Improving the efficiency and reliability of digital time-stamping," In Sequences II: Methods in Communication, Security and Computer Science, pages 329-334, 1993.
 </p>
 
 <p>
-<span id="ref_six">[6]</span> A. Back, &quot;Hashcash - une contre-mesure de déni de service,&quot; <a href="http://www.hashcash.org/papers/hashcash.pdf"><em>http://www.hashcash.org/papers/hashcash.pdf</em></a> , 2002.
+<span id="ref_five">[5]</span> S. Haber, W.S. Stornetta, "Secure names for bit-strings," In Proceedings of the 4th ACM Conference on Computer and Communications Security, pages 28-35, April 1997.
 </p>
 
 <p>
-<span id="ref_seven">[7]</span> RC Merkle, &quot;Protocoles pour les cryptosystèmes à clé publique&quot;, In Proc. 1980 Symposium on Security and Privacy, IEEE Computer Society, pages 122-133, avril 1980.
+<span id="ref_six">[6]</span> A. Back, "Hashcash - a denial of service counter-measure," <a href="http://www.hashcash.org/papers/hashcash.pdf"><em>http://www.hashcash.org/papers/hashcash.pdf</em></a>, 2002.
 </p>
 
 <p>
-<span id="ref_eight">[8]</span> W. Feller, « Une introduction à la théorie des probabilités et à ses applications », 1957.
+<span id="ref_seven">[7]</span> R.C. Merkle, "Protocols for public key cryptosystems," In Proc. 1980 Symposium on Security and Privacy, IEEE Computer Society, pages 122-133, April 1980.
+</p>
+
+<p>
+<span id="ref_eight">[8]</span> W. Feller, "An introduction to probability theory and its applications," 1957.
 </p>
 </section>
 </section>
@@ -316,25 +318,16 @@ Nous avons proposé un système de transactions électroniques sans reposer sur 
 <simpara><indexterm>
   <primary>&quot;licences open source&quot;</primary>
 </indexterm>Ce livre blanc a été publié en octobre 2008 par Satoshi Nakamoto. Il a ensuite été (2009) ajouté comme documentation de support au logiciel bitcoin, qui porte la même licence MIT. Il a été reproduit dans ce livre, sans modification autre que la mise en forme, selon les termes de la licence MIT :</simpara>
-<simpara>La licence MIT (MIT)
+<simpara>The MIT License (MIT)
 Copyright (c) 2008 Satoshi Nakamoto</simpara>
-<simpara>L&#39;autorisation est accordée, gratuitement, à toute personne obtenant une copie de ce logiciel et des fichiers de documentation associés (le &quot;Logiciel&quot;), de traiter le Logiciel sans restriction, y compris, sans limitation, les droits d&#39;utilisation, de copie, de modification, de fusion , publier, distribuer, sous-licencier et/ou vendre des copies du Logiciel, et permettre aux personnes à qui le Logiciel est fourni de le faire, sous réserve des conditions suivantes :</simpara>
-<simpara>L&#39;avis de droit d&#39;auteur ci-dessus et cet avis d&#39;autorisation doivent être inclus dans toutes les copies ou parties substantielles du Logiciel.</simpara>
-<simpara>LE LOGICIEL EST FOURNI &quot;TEL QUEL&quot;, SANS GARANTIE D&#39;AUCUNE SORTE, EXPRESSE OU IMPLICITE, Y COMPRIS, MAIS SANS S&#39;Y LIMITER, LES GARANTIES DE QUALITÉ MARCHANDE, D&#39;ADÉQUATION À UN USAGE PARTICULIER ET D&#39;ABSENCE DE CONTREFAÇON. EN AUCUN CAS, LES AUTEURS OU LES DÉTENTEURS DU COPYRIGHT NE SERONT RESPONSABLES DE TOUTE RÉCLAMATION, DOMMAGE OU AUTRE RESPONSABILITÉ, QUE CE SOIT DANS UNE ACTION CONTRACTUELLE, DÉLICTUELLE OU AUTRE, DÉCOULANT DE, DE OU EN RELATION AVEC LE LOGICIEL OU L&#39;UTILISATION OU D&#39;AUTRES TRANSACTIONS DANS LE LOGICIEL.<indexterm>
-  <primary>&quot;&quot;</primary><secondary>startref=&quot;whitethirteen&quot;</secondary>
-</indexterm>
-<indexterm>
-  <primary>startref=&quot;whitethirteen&quot;</primary>
+<simpara>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</simpara>
+<simpara>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</simpara>
+<simpara>THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.<indexterm>
+  <primary></primary>
 </indexterm><indexterm>
-  <primary>&quot;&quot;</primary><secondary>startref=&quot;nakamatothirteen&quot;</secondary>
-</indexterm>
-<indexterm>
-  <primary>startref=&quot;nakamatothirteen&quot;</primary>
+  <primary></primary>
 </indexterm><indexterm>
-  <primary>&quot;&quot;</primary><secondary>startref=&quot;BCwhitethirteen&quot;</secondary>
-</indexterm>
-<indexterm>
-  <primary>startref=&quot;BCwhitethirteen&quot;</primary>
+  <primary></primary>
 </indexterm></simpara>
 </section>
 </appendix>
