@@ -1,8 +1,10 @@
+# pycoin, ku et tx
+
 <span class="indexterm"></span>La bibliothèque Python
 [`pycoin`](https://github.com/richardkiss/pycoin), initialement écrite
 et maintenue par Richard Kiss, est une bibliothèque basée sur Python qui
-prend en charge la manipulation des clés bitcoin et transactions, même
-en prenant en charge suffisamment le langage de script pour traiter
+prend en charge la manipulation des clés bitcoin et les transactions,
+même en prenant en charge suffisamment le langage de script pour traiter
 correctement les transactions non standard.
 
 La bibliothèque pycoin prend en charge Python 2 (2.7.x) et Python 3 (3.3
@@ -12,44 +14,44 @@ commande pratiques, `ku` et `tx`.
 # Utilitaire de clé (KU)
 
 <span class="indexterm"></span> <span
-class="indexterm"></span>L'utilitaire de ligne de commande `ku` ("key
-utility") est un couteau suisse pour manipuler les clés. Il prend en
-charge les clés BIP-32, le WIF et les adresses (bitcoin et alt coins).
-Voici quelques exemples.
+class="indexterm"></span>L'utilitaire de ligne de commande `ku`
+("utilitaire de clé") est un utilitaire multi-usage pour manipuler les
+clés. Il prend en charge les clés BIP-32, le WIF et les adresses
+(bitcoin et alt coins). Voici quelques exemples.
 
 Créez une clé BIP-32 en utilisant les sources d'entropie par défaut de
 GPG et */dev/random* :
 
-    $ ku créer
+    $ ku create
 
-    entrée : créer
-    réseau : Bitcoin
-    clé portefeuille : xprv9s21ZrQH143K3LU5ctPZTBnb9kTjA5Su9DcWHvXJemiJBsY7VqXUG7hipgdWaU
+    input           : create
+    network         : Bitcoin
+    wallet key      : xprv9s21ZrQH143K3LU5ctPZTBnb9kTjA5Su9DcWHvXJemiJBsY7VqXUG7hipgdWaU
                         m2nhnzdvxJf5KJo9vjP2nABX65c5sFsWsV8oXcbpehtJi
-    version publique : xpub661MyMwAqRbcFpYYiuvZpKjKhnJDZYAkWSY76JvvD7FH4fsG3Nqiov2CfxzxY8
+    public version  : xpub661MyMwAqRbcFpYYiuvZpKjKhnJDZYAkWSY76JvvD7FH4fsG3Nqiov2CfxzxY8
                         DGcpfT56AMFeo8M8KPkFMfLUtvwjwb6WPv8rY65L2q8Hz
-    profondeur de l&#39;arbre : 0
-    empreinte digitale : 9d9c6092
-    parent f&#39;print : 00000000
-    index enfant : 0
-    code chaîne : 80574fb260edaa4905bc86c9a47d30c697c50047ed466c0d4a5167f6821e8f3c
-    clé privée : oui
-    exposant secret : 112471538590155650688604752840386134637231974546906847202389294096567806844862
-     hexagone : f8a8a28b28a916e1043cc0aca52033a18a13cab1638d544006469bc171fddfbe
-    wif : L5Z54xi6qJusQT42JHA44mfPVZGjyb4XBRWfxAzUWwRiGx1kV4sP
-     non compressé : 5KhoEavGNNH4GHKoy2Ptu4KfdNp4r56L5B5un8FP6RZnbsz5Nmb
-    paire publique x : 76460638240546478364843397478278468101877117767873462127021560368290114016034
-    paire publique y : 59807879657469774102040120298272207730921291736633247737077406753676825777701
-     x comme hexadécimal : a90b3008792432060fa04365941e09a8e4adf928bdbdb9dad41131274e379322
-     y comme hex : 843a0f6ed9c0eb1962c74533795406914fe3f1957c5238951f4fe245a4fcd625
-    y parité : impaire
-    paire de clés comme sec : 03a90b3008792432060fa04365941e09a8e4adf928bdbdb9dad41131274e379322
-     non compressé : 04a90b3008792432060fa04365941e09a8e4adf928bdbdb9dad41131274e379322
+    tree depth      : 0
+    fingerprint     : 9d9c6092
+    parent f'print  : 00000000
+    child index     : 0
+    chain code      : 80574fb260edaa4905bc86c9a47d30c697c50047ed466c0d4a5167f6821e8f3c
+    private key     : yes
+    secret exponent : 112471538590155650688604752840386134637231974546906847202389294096567806844862
+     hex            : f8a8a28b28a916e1043cc0aca52033a18a13cab1638d544006469bc171fddfbe
+    wif             : L5Z54xi6qJusQT42JHA44mfPVZGjyb4XBRWfxAzUWwRiGx1kV4sP
+     uncompressed   : 5KhoEavGNNH4GHKoy2Ptu4KfdNp4r56L5B5un8FP6RZnbsz5Nmb
+    public pair x   : 76460638240546478364843397478278468101877117767873462127021560368290114016034
+    public pair y   : 59807879657469774102040120298272207730921291736633247737077406753676825777701
+     x as hex       : a90b3008792432060fa04365941e09a8e4adf928bdbdb9dad41131274e379322
+     y as hex       : 843a0f6ed9c0eb1962c74533795406914fe3f1957c5238951f4fe245a4fcd625
+    y parity        : odd
+    key pair as sec : 03a90b3008792432060fa04365941e09a8e4adf928bdbdb9dad41131274e379322
+     uncompressed   : 04a90b3008792432060fa04365941e09a8e4adf928bdbdb9dad41131274e379322
                         843a0f6ed9c0eb1962c74533795406914fe3f1957c5238951f4fe245a4fcd625
-    hachage160 : 9d9c609247174ae323acfc96c852753fe3c8819d
-     non compressé : 8870d869800c9b91ce1eb460f4c60540f87c15d7
-    Adresse Bitcoin : 1FNNRQ5fSv1wBi5gyfVBs2rkNheMGt86sp
-     non compressé : 1DSS5isnH4FsVaLVjeVXewVSpfqktdiQAM
+    hash160         : 9d9c609247174ae323acfc96c852753fe3c8819d
+     uncompressed   : 8870d869800c9b91ce1eb460f4c60540f87c15d7
+    Bitcoin address : 1FNNRQ5fSv1wBi5gyfVBs2rkNheMGt86sp
+     uncompressed   : 1DSS5isnH4FsVaLVjeVXewVSpfqktdiQAM
 
 Créez une clé BIP-32 à partir d'une phrase secrète :
 
@@ -57,80 +59,80 @@ La phrase de passe dans cet exemple est beaucoup trop facile à deviner.
 
     $ ku P:foo
 
-    entrée : P:foo
-    réseau : Bitcoin
-    clé de portefeuille : xprv9s21ZrQH143K31AgNK5pyVvW23gHnkBq2wh5aEk6g1s496M8ZMjxncCKZKgb5j
+    input           : P:foo
+    network         : Bitcoin
+    wallet key      : xprv9s21ZrQH143K31AgNK5pyVvW23gHnkBq2wh5aEk6g1s496M8ZMjxncCKZKgb5j
                         ZoY5eSJMJ2Vbyvi2hbmQnCuHBujZ2WXGTux1X2k9Krdtq
-    version publique : xpub661MyMwAqRbcFVF9ULcqLdsEa5WnCCugQAcgNd9iEMQ31tgH6u4DLQWoQayvtS
+    public version  : xpub661MyMwAqRbcFVF9ULcqLdsEa5WnCCugQAcgNd9iEMQ31tgH6u4DLQWoQayvtS
                         VYFvXz2vPPpbXE1qpjoUFidhjFj82pVShWu9curWmb2zy
-    profondeur de l&#39;arbre : 0
-    empreinte digitale : 5d353a2e
-    parent f&#39;print : 00000000
-    index enfant : 0
-    code chaîne : 5eeb1023fd6dd1ae52a005ce0e73420821e1d90e08be980a85e9111fd7646bbc
-    clé privée : oui
-    exposant secret : 65825730547097305716057160437970790220123864299761908948746835886007793998275
-     hexagone : 91880b0e3017ba586b735fe7d04f1790f3c46b818a2151fb2def5f14dd2fd9c3
-    wif : L26c3H6jEPVSqAr1usXUp9qtQJw6NHgApq6Ls4ncyqtsvcq2MwKH
-     non compressé : 5JvNzA5vXDoKYJdw8SwwLHxUxaWvn9mDea6k1vRPCX7KLUVWa7W
-    paire publique x : 81821982719381104061777349269130419024493616650993589394553404347774393168191
-    paire publique y : 58994218069605424278320703250689780154785099509277691723126325051200459038290
-     x comme hexadécimal : b4e599dfa44555a4ed38bcfff0071d5af676a86abf123c5b4b4e8e67a0b0b13f
-     y comme hex : 826d8b4d3010aea16ff4c1c1d3ae68541d9a04df54a2c48cc241c2983544de52
-    y parité : pair
-    paire de clés comme sec : 02b4e599dfa44555a4ed38bcfff0071d5af676a86abf123c5b4b4e8e67a0b0b13f
-     non compressé : 04b4e599dfa44555a4ed38bcfff0071d5af676a86abf123c5b4b4e8e67a0b0b13f
+    tree depth      : 0
+    fingerprint     : 5d353a2e
+    parent f'print  : 00000000
+    child index     : 0
+    chain code      : 5eeb1023fd6dd1ae52a005ce0e73420821e1d90e08be980a85e9111fd7646bbc
+    private key     : yes
+    secret exponent : 65825730547097305716057160437970790220123864299761908948746835886007793998275
+     hex            : 91880b0e3017ba586b735fe7d04f1790f3c46b818a2151fb2def5f14dd2fd9c3
+    wif             : L26c3H6jEPVSqAr1usXUp9qtQJw6NHgApq6Ls4ncyqtsvcq2MwKH
+     uncompressed   : 5JvNzA5vXDoKYJdw8SwwLHxUxaWvn9mDea6k1vRPCX7KLUVWa7W
+    public pair x   : 81821982719381104061777349269130419024493616650993589394553404347774393168191
+    public pair y   : 58994218069605424278320703250689780154785099509277691723126325051200459038290
+     x as hex       : b4e599dfa44555a4ed38bcfff0071d5af676a86abf123c5b4b4e8e67a0b0b13f
+     y as hex       : 826d8b4d3010aea16ff4c1c1d3ae68541d9a04df54a2c48cc241c2983544de52
+    y parity        : even
+    key pair as sec : 02b4e599dfa44555a4ed38bcfff0071d5af676a86abf123c5b4b4e8e67a0b0b13f
+     uncompressed   : 04b4e599dfa44555a4ed38bcfff0071d5af676a86abf123c5b4b4e8e67a0b0b13f
                         826d8b4d3010aea16ff4c1c1d3ae68541d9a04df54a2c48cc241c2983544de52
-    hachage160 : 5d353a2ecdb262477172852d57a3f11de0c19286
-     non compressé : e5bd3a7e6cb62b4c820e51200fb1c148d79e67da
-    Adresse Bitcoin : 19Vqc8uLTfUonmxUEZac7fz1M5c5ZZbAii
-     non compressé : 1MwkRkogzBRMehBntgcq2aJhXCXStJTXHT
+    hash160         : 5d353a2ecdb262477172852d57a3f11de0c19286
+     uncompressed   : e5bd3a7e6cb62b4c820e51200fb1c148d79e67da
+    Bitcoin address : 19Vqc8uLTfUonmxUEZac7fz1M5c5ZZbAii
+     uncompressed   : 1MwkRkogzBRMehBntgcq2aJhXCXStJTXHT
 
 Obtenir des informations au format JSON :
 
     $ ku P:foo -P -j
 
     {
-       &quot;y_parity&quot;: &quot;pair&quot;,
-       &quot;public_pair_y_hex&quot;: &quot;826d8b4d3010aea16ff4c1c1d3ae68541d9a04df54a2c48cc241c2983544de52&quot;,
-       &quot;clé_privée&quot;: &quot;non&quot;,
-       &quot;parent_fingerprint&quot;: &quot;00000000&quot;,
-       &quot;profondeur_arbre&quot;: &quot;0&quot;,
-       &quot;réseau&quot;: &quot;Bitcoin&quot;,
-       &quot;btc_address_uncompressed&quot;: &quot;1MwkRkogzBRMehBntgcq2aJhXCXStJTXHT&quot;,
-       &quot;key_pair_as_sec_uncompressed&quot;: &quot;04b4e599dfa44555a4ed38bcfff0071d5af676a86abf123c5b4b4e8e67a0b0b13f826d8b4d3010aea16ff4c1c1d3ae68541d9a04df54a2c48cc244c2952&quot;,
-       &quot;public_pair_x_hex&quot;: &quot;b4e599dfa44555a4ed38bcfff0071d5af676a86abf123c5b4b4e8e67a0b0b13f&quot;,
-       &quot;wallet_key&quot;: &quot;xpub661MyMwAqRbcFVF9ULcqLdsEa5WnCCugQAcgNd9iEMQ31tgH6u4DLQWoQayvtSVYFvXz2vPPpbXE1qpjoUFidhjFj82pVShWu9curWmb2zy&quot;,
-       &quot;chain_code&quot;: &quot;5eeb1023fd6dd1ae52a005ce0e73420821e1d90e08be980a85e9111fd7646bbc&quot;,
-       &quot;index_enfant&quot;: &quot;0&quot;,
-       &quot;hash160_uncompressed&quot;: &quot;e5bd3a7e6cb62b4c820e51200fb1c148d79e67da&quot;,
-       &quot;btc_address&quot;: &quot;19Vqc8uLTfUonmxUEZac7fz1M5c5ZZbAii&quot;,
-       &quot;empreinte digitale&quot;: &quot;5d353a2e&quot;,
-       &quot;hachage160&quot;: &quot;5d353a2ecdb262477172852d57a3f11de0c19286&quot;,
-       &quot;input&quot;: &quot;P:foo&quot;,
-       &quot;public_pair_x&quot;: &quot;81821982719381104061777349269130419024493616650993589394553404347774393168191&quot;,
-       &quot;public_pair_y&quot;: &quot;58994218069605424278320703250689780154785099509277691723126325051200459038290&quot;,
-       &quot;key_pair_as_sec&quot;: &quot;02b4e599dfa44555a4ed38bcfff0071d5af676a86abf123c5b4b4e8e67a0b0b13f&quot;
+       "y_parity": "even",
+       "public_pair_y_hex": "826d8b4d3010aea16ff4c1c1d3ae68541d9a04df54a2c48cc241c2983544de52",
+       "private_key": "no",
+       "parent_fingerprint": "00000000",
+       "tree_depth": "0",
+       "network": "Bitcoin",
+       "btc_address_uncompressed": "1MwkRkogzBRMehBntgcq2aJhXCXStJTXHT",
+       "key_pair_as_sec_uncompressed": "04b4e599dfa44555a4ed38bcfff0071d5af676a86abf123c5b4b4e8e67a0b0b13f826d8b4d3010aea16ff4c1c1d3ae68541d9a04df54a2c48cc241c2983544de52",
+       "public_pair_x_hex": "b4e599dfa44555a4ed38bcfff0071d5af676a86abf123c5b4b4e8e67a0b0b13f",
+       "wallet_key": "xpub661MyMwAqRbcFVF9ULcqLdsEa5WnCCugQAcgNd9iEMQ31tgH6u4DLQWoQayvtSVYFvXz2vPPpbXE1qpjoUFidhjFj82pVShWu9curWmb2zy",
+       "chain_code": "5eeb1023fd6dd1ae52a005ce0e73420821e1d90e08be980a85e9111fd7646bbc",
+       "child_index": "0",
+       "hash160_uncompressed": "e5bd3a7e6cb62b4c820e51200fb1c148d79e67da",
+       "btc_address": "19Vqc8uLTfUonmxUEZac7fz1M5c5ZZbAii",
+       "fingerprint": "5d353a2e",
+       "hash160": "5d353a2ecdb262477172852d57a3f11de0c19286",
+       "input": "P:foo",
+       "public_pair_x": "81821982719381104061777349269130419024493616650993589394553404347774393168191",
+       "public_pair_y": "58994218069605424278320703250689780154785099509277691723126325051200459038290",
+       "key_pair_as_sec": "02b4e599dfa44555a4ed38bcfff0071d5af676a86abf123c5b4b4e8e67a0b0b13f"
     }
 
 Clé publique BIP32 :
 
-    $ ku -w -PP:foo
+    $ ku -w -P P:foo
     xpub661MyMwAqRbcFVF9ULcqLdsEa5WnCCugQAcgNd9iEMQ31tgH6u4DLQWoQayvtSVYFvXz2vPPpbXE1qpjoUFidhjFj82pVShWu9curWmb2zy
 
 Générez une sous-clé :
 
     $ ku -w -s3/2 P:foo
-    xprv9wTERTSkjVyJa1v4cUTFMFkWMe5eu8ErbQcs9xajnsUzCBT7ykHAwdrxvG3g3f6BFk7ms5hHBvmbdutNmyg6iogWKxx6mefEw4M8EroLgKj
+    xprv9wTErTSkjVyJa1v4cUTFMFkWMe5eu8ErbQcs9xajnsUzCBT7ykHAwdrxvG3g3f6BFk7ms5hHBvmbdutNmyg6iogWKxx6mefEw4M8EroLgKj
 
 Sous-clé renforcée :
 
     $ ku -w -s3/2H P:foo
-    xprv9wTERTSu5AWGkDeUPmqBcbZWX1xq85ZNX9iQRQW9DXwygFp7iRGJo79dsVctcsCHsnZ3XU3DhsuaGZbDh8iDkBN45k67UKsJUXM1JfRCdn1
+    xprv9wTErTSu5AWGkDeUPmqBcbZWX1xq85ZNX9iQRQW9DXwygFp7iRGJo79dsVctcsCHsnZ3XU3DhsuaGZbDh8iDkBN45k67UKsJUXM1JfRCdn1
 
-Wi-Fi :
+WIF:
 
-    $ ku -WP:foo
+    $ ku -W P:foo
     L26c3H6jEPVSqAr1usXUp9qtQJw6NHgApq6Ls4ncyqtsvcq2MwKH
 
 Adresse:
@@ -152,7 +154,7 @@ Générez les adresses correspondantes :
 
     $ ku P:foo -s 0/0-5 -a
     1MrjE78H1R1rqdFrmkjdHnPUdLCJALbv3x
-    1AnyyVEcuqeoVzH96zj1eYKwoWfwte2pxu
+    1AnYyVEcuqeoVzH96zj1eYKwoWfwte2pxu
     1GXr1kZfxE1FcK6ZRD5sqqqs5YfvuzA1Lb
     116AXZc4bDVQrqmcinzu4aaPdrYqvuiBEK
     1Cz2rTLjRM6pMnxPNrRKp9ZSvRtj5dDUML
@@ -182,91 +184,91 @@ De l'exposant secret :
 
     $ ku 1
 
-    entrée : 1
-    réseau : Bitcoin
-    exposant secret : 1
-     hex : 1
-    wif : KwDiBf89QgGbjEhKnhXJuH7LrciVrZi3qYjgd9M7rFU73sVHnoWn
-     non compressé : 5HpHagT65TZzG1PH3CSu63k8DbpvD8s5ip4nEB3kEsreAnchuDf
-    paire publique x : 55066263022277343669578718895168534326250603453777594175500187360389116729240
-    paire publique y : 32670510020758816978083085130507043184471273380659243275938904335757337482424
-     x comme hexadécimal : 79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
-     y comme hex : 483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
-    y parité : pair
-    paire de clés comme sec : 0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
-     non compressé : 0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
+    input           : 1
+    network         : Bitcoin
+    secret exponent : 1
+     hex            : 1
+    wif             : KwDiBf89QgGbjEhKnhXJuH7LrciVrZi3qYjgd9M7rFU73sVHnoWn
+     uncompressed   : 5HpHagT65TZzG1PH3CSu63k8DbpvD8s5ip4nEB3kEsreAnchuDf
+    public pair x   : 55066263022277343669578718895168534326250603453777594175500187360389116729240
+    public pair y   : 32670510020758816978083085130507043184471273380659243275938904335757337482424
+     x as hex       : 79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
+     y as hex       : 483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
+    y parity        : even
+    key pair as sec : 0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
+     uncompressed   : 0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
                         483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
-    hachage160 : 751e76e8199196d454941c45d1b3a323f1433bd6
-     non compressé : 91b24bf9f5288532960ac687abb035127b1d28a5
-    Adresse Bitcoin : 1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH
-     non compressé : 1EHNa6Q4Jz2uvNExL497mE43ikXhwF6kZm
+    hash160         : 751e76e8199196d454941c45d1b3a323f1433bd6
+     uncompressed   : 91b24bf9f5288532960ac687abb035127b1d28a5
+    Bitcoin address : 1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH
+     uncompressed   : 1EHNa6Q4Jz2uvNExL497mE43ikXhwF6kZm
 
 Version Litecoin :
 
     $ ku -nL 1
 
-    entrée : 1
-    réseau : Litecoin
-    exposant secret : 1
-     hex : 1
-    wif : T33ydQRKp4FCW5LCLLUB7deioUMoveiwekdwUwyfRDeGZm76aUjV
-     non compressé : 6u823ozcyt2rjPH8Z2ErsSXJB5PPQwK7VVTwwN4mxLBFrao69XQ
-    paire publique x : 55066263022277343669578718895168534326250603453777594175500187360389116729240
-    paire publique y : 32670510020758816978083085130507043184471273380659243275938904335757337482424
-     x comme hexadécimal : 79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
-     y comme hex : 483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
-    y parité : pair
-    paire de clés comme sec : 0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
-     non compressé : 0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
+    input            : 1
+    network          : Litecoin
+    secret exponent  : 1
+     hex             : 1
+    wif              : T33ydQRKp4FCW5LCLLUB7deioUMoveiwekdwUwyfRDeGZm76aUjV
+     uncompressed    : 6u823ozcyt2rjPH8Z2ErsSXJB5PPQwK7VVTwwN4mxLBFrao69XQ
+    public pair x    : 55066263022277343669578718895168534326250603453777594175500187360389116729240
+    public pair y    : 32670510020758816978083085130507043184471273380659243275938904335757337482424
+     x as hex        : 79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
+     y as hex        : 483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
+    y parity         : even
+    key pair as sec  : 0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
+     uncompressed    : 0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
                          483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
-    hachage160 : 751e76e8199196d454941c45d1b3a323f1433bd6
-     non compressé : 91b24bf9f5288532960ac687abb035127b1d28a5
-    Adresse Litecoin : LVuDpNCSSj6pQ7t9Pv6d6sUkLKoqDEVUnJ
-     non compressé : LYWKqJhtPeGyBAw7WC8R3F7ovxtzAiubdM
+    hash160          : 751e76e8199196d454941c45d1b3a323f1433bd6
+     uncompressed    : 91b24bf9f5288532960ac687abb035127b1d28a5
+    Litecoin address : LVuDpNCSSj6pQ7t9Pv6d6sUkLKoqDEVUnJ
+     uncompressed    : LYWKqJhtPeGyBAw7WC8R3F7ovxtzAiubdM
 
-Dogecoin WIF :
+Dogecoin WIF:
 
     $ ku -nD -W 1
     QNcdLVw8fHkixm6NNyN6nVwxKek4u7qrioRbQmjxac5TVoTtZuot
 
 Depuis la paire publique (sur Testnet) :
 
-    $ ku -nT 55066263022277343669578718895168534326250603453777594175500187360389116729240,même
+    $ ku -nT 55066263022277343669578718895168534326250603453777594175500187360389116729240,even
 
-    entrée : 550662630222773436695787188951685343262506034537775941755001873603
-                                89116729240,même
-    réseau : Bitcoin testnet
-    paire publique x : 55066263022277343669578718895168534326250603453777594175500187360389116729240
-    paire publique y : 32670510020758816978083085130507043184471273380659243275938904335757337482424
-     x comme hexadécimal : 79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
-     y comme hex : 483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
-    y parité : pair
-    paire de clés comme sec : 0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
-     non compressé : 0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
+    input                   : 550662630222773436695787188951685343262506034537775941755001873603
+                                89116729240,even
+    network                 : Bitcoin testnet
+    public pair x           : 55066263022277343669578718895168534326250603453777594175500187360389116729240
+    public pair y           : 32670510020758816978083085130507043184471273380659243275938904335757337482424
+     x as hex               : 79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
+     y as hex               : 483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
+    y parity                : even
+    key pair as sec         : 0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
+     uncompressed           : 0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
                                 483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
-    hachage160 : 751e76e8199196d454941c45d1b3a323f1433bd6
-     non compressé : 91b24bf9f5288532960ac687abb035127b1d28a5
-    Adresse testnet Bitcoin : mrCDrCybB6J1vRfbwM5hemdJz73FwDBC8r
-     non compressé : mtoKs9V381UAhUia3d7Vb9GNak8Qvmcsme
+    hash160                 : 751e76e8199196d454941c45d1b3a323f1433bd6
+     uncompressed           : 91b24bf9f5288532960ac687abb035127b1d28a5
+    Bitcoin testnet address : mrCDrCybB6J1vRfbwM5hemdJz73FwDBC8r
+     uncompressed           : mtoKs9V381UAhUia3d7Vb9GNak8Qvmcsme
 
 Depuis hash160 :
 
     $ ku 751e76e8199196d454941c45d1b3a323f1433bd6
 
-    entrée : 751e76e8199196d454941c45d1b3a323f1433bd6
-    réseau : Bitcoin
-    hachage160 : 751e76e8199196d454941c45d1b3a323f1433bd6
-    Adresse Bitcoin : 1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH
+    input           : 751e76e8199196d454941c45d1b3a323f1433bd6
+    network         : Bitcoin
+    hash160         : 751e76e8199196d454941c45d1b3a323f1433bd6
+    Bitcoin address : 1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH
 
 <span class="indexterm"></span> <span class="indexterm"></span>En tant
 qu'adresse Dogecoin :
 
     $ ku -nD 751e76e8199196d454941c45d1b3a323f1433bd6
 
-    entrée : 751e76e8199196d454941c45d1b3a323f1433bd6
-    réseau : Dogecoin
-    hachage160 : 751e76e8199196d454941c45d1b3a323f1433bd6
-    Adresse Dogecoin : DFpN6QqFfUm3gKNaxN6tNcab1FArL9cZLE
+    input            : 751e76e8199196d454941c45d1b3a323f1433bd6
+    network          : Dogecoin
+    hash160          : 751e76e8199196d454941c45d1b3a323f1433bd6
+    Dogecoin address : DFpN6QqFfUm3gKNaxN6tNcab1FArL9cZLE
 
 ## Utilitaire de transaction (TX)
 
@@ -275,30 +277,30 @@ L'utilitaire de ligne de commande `tx` affichera les transactions sous
 une forme lisible par l'homme, récupérera les transactions de base du
 cache de transactions de pycoin ou des services Web (blockchain.info,
 blockcypher.com, blockr.io et chain.so sont actuellement pris en
-charge), fusionnera les transactions , ajouter ou supprimer des entrées
-ou des sorties et signer des transactions.
+charge), fusionnera les transactions , ajoutera ou supprimera des
+entrées ou des sorties et signera des transactions.
 
 Voici quelques exemples.
 
-Voir la fameuse transaction "pizza":
+Voir la fameuse transaction de "pizza":
 
     $ tx 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a
-    avertissement : envisagez de définir la variable d&#39;environnement PYCOIN_CACHE_DIR=~/.pycoin_cache pour mettre en cache les transactions récupérées via les services Web
-    avertissement : aucun fournisseur de services trouvé pour get_tx ; envisagez de définir la variable d&#39;environnement PYCOIN_BTC_PROVIDERS
-    utilisation : tx [-h] [-t TRANSACTION_VERSION] [-l LOCK_TIME] [-n NETWORK] [-a]
-              [-i adresse] [-f chemin-des-clés-privées] [-g GPG_ARGUMENT]
+    warning: consider setting environment variable PYCOIN_CACHE_DIR=~/.pycoin_cache to cache transactions fetched via web services
+    warning: no service providers found for get_tx; consider setting environment variable PYCOIN_BTC_PROVIDERS
+    usage: tx [-h] [-t TRANSACTION_VERSION] [-l LOCK_TIME] [-n NETWORK] [-a]
+              [-i address] [-f path-to-private-keys] [-g GPG_ARGUMENT]
               [--remove-tx-in tx_in_index_to_delete]
-              [--remove-tx-out tx_out_index_to_delete] [-F frais de transaction] [-u]
-              [-b BITCOIND_URL] [-o chemin-du-fichier-de-sortie]
-              argumentation [argumentation ...]
-    tx : erreur : impossible de trouver Tx avec l&#39;identifiant 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a
+              [--remove-tx-out tx_out_index_to_delete] [-F transaction-fee] [-u]
+              [-b BITCOIND_URL] [-o path-to-output-file]
+              argument [argument ...]
+    tx: error: can't find Tx with id 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a
 
 Oups! Nous n'avons pas mis en place de services Web. Faisons cela
 maintenant :
 
     $ PYCOIN_CACHE_DIR=~/.pycoin_cache
-    $ PYCOIN_BTC_PROVIDERS=&quot;block.io blockchain.info blockexplorer.com&quot;
-    $ exporter PYCOIN_CACHE_DIR PYCOIN_BTC_PROVIDERS
+    $ PYCOIN_BTC_PROVIDERS="block.io blockchain.info blockexplorer.com"
+    $ export PYCOIN_CACHE_DIR PYCOIN_BTC_PROVIDERS
 
 Cela ne se fait pas automatiquement afin qu'un outil de ligne de
 commande ne divulgue pas d'informations potentiellement privées sur les
@@ -308,18 +310,18 @@ en souciez pas, vous pouvez mettre ces lignes dans votre *.profile*.
 Essayons encore:
 
     $ tx 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a
-    Version : 1 hachage tx 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a 159 octets
-    Nombre de TxIn : 1 ; Nombre de sorties : 1
-    Temps de verrouillage : 0 (valable à tout moment)
-    Contribution:
-      0: (inconnu) de 1e133f7de73ac7d074e2746a3d6717dfc99ecaa8e9f9fade2cb8b0b20a5e0441:0
-    Sortir:
-      0 : 1CZDM6oTttND6WPdt3D6bydo7DYKzd9Qik reçoit 10000000,00000 mBTC
-    Sortie totale 10000000.00000 mBTC
-    y compris les non dépensés dans le vidage hexadécimal puisque la transaction n&#39;est pas entièrement signée
+    Version:  1  tx hash 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a  159 bytes
+    TxIn count: 1; TxOut count: 1
+    Lock time: 0 (valid anytime)
+    Input:
+      0:                          (unknown) from 1e133f7de73ac7d074e2746a3d6717dfc99ecaa8e9f9fade2cb8b0b20a5e0441:0
+    Output:
+      0: 1CZDM6oTttND6WPdt3D6bydo7DYKzd9Qik receives 10000000.00000 mBTC
+    Total output 10000000.00000 mBTC
+    including unspents in hex dump since transaction not fully signed
     010000000141045e0ab2b0b82cdefaf9e9a8ca9ec9df17673d6a74e274d0c73ae77d3f131e000000004a493046022100a7f26eda874931999c90f87f01ff1ffc76bcd058fe16137e0e63fdb6a35c2d78022100a61e9199238eb73f07c8f209504c84b80f03e30ed8169edd44f80ed17ddf451901ffffffff010010a5d4e80000001976a9147ec1003336542cae8bded8909cdd6b5e48ba0ab688ac00000000
 
-    ** impossible de valider la transaction car les transactions source sont manquantes
+    ** can't validate transaction as source transactions missing
 
 La dernière ligne apparaît car pour valider les signatures des
 transactions, vous avez techniquement besoin des transactions sources.
@@ -327,22 +329,22 @@ Ajoutons donc `-a` pour augmenter les transactions avec des informations
 sources :
 
     $ tx -a 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a
-    avertissement : les recommandations de frais de transaction sont calculées avec désinvolture et les estimations peuvent être incorrectes
-    avertissement : frais de transaction inférieurs à la valeur attendue (calculée avec désinvolture) de 0,1 mBTC, la transaction peut ne pas se propager
-    Version : 1 hachage tx 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a 159 octets
-    Nombre de TxIn : 1 ; Nombre de sorties : 1
-    Temps de verrouillage : 0 (valable à tout moment)
-    Contribution:
-      0: 17WFx2GQZUmh6Up2NDNCEDk3deYomdNCfk de 1e133f7de73ac7d074e2746a3d6717dfc99ecaa8e9f9fade2cb8b0b20a5e0441:0 10000000.00000 mBTC sig ok
-    Sortir:
-      0 : 1CZDM6oTttND6WPdt3D6bydo7DYKzd9Qik reçoit 10000000,00000 mBTC
-    Entrée totale 10000000.00000 mBTC
-    Sortie totale 10000000.00000 mBTC
-    Frais totaux 0,00000 mBTC
+    warning: transaction fees recommendations casually calculated and estimates may be incorrect
+    warning: transaction fee lower than (casually calculated) expected value of 0.1 mBTC, transaction might not propagate
+    Version:  1  tx hash 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a  159 bytes
+    TxIn count: 1; TxOut count: 1
+    Lock time: 0 (valid anytime)
+    Input:
+      0: 17WFx2GQZUmh6Up2NDNCEDk3deYomdNCfk from 1e133f7de73ac7d074e2746a3d6717dfc99ecaa8e9f9fade2cb8b0b20a5e0441:0 10000000.00000 mBTC  sig ok
+    Output:
+      0: 1CZDM6oTttND6WPdt3D6bydo7DYKzd9Qik receives 10000000.00000 mBTC
+    Total input  10000000.00000 mBTC
+    Total output 10000000.00000 mBTC
+    Total fees        0.00000 mBTC
 
     010000000141045e0ab2b0b82cdefaf9e9a8ca9ec9df17673d6a74e274d0c73ae77d3f131e000000004a493046022100a7f26eda874931999c90f87f01ff1ffc76bcd058fe16137e0e63fdb6a35c2d78022100a61e9199238eb73f07c8f209504c84b80f03e30ed8169edd44f80ed17ddf451901ffffffff010010a5d4e80000001976a9147ec1003336542cae8bded8909cdd6b5e48ba0ab688ac00000000
 
-    toutes les valeurs des transactions entrantes validées
+    all incoming transaction values validated
 
 <span class="indexterm"></span> <span class="indexterm"></span>
 Maintenant, regardons les sorties non dépensées pour une adresse
@@ -350,7 +352,7 @@ spécifique (UTXO). Dans le bloc \#1, nous voyons une transaction
 coinbase vers `12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX`. Utilisons
 `fetch_unspent` pour trouver toutes les pièces à cette adresse :
 
-    $ récupérer_unspent 12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX
+    $ fetch_unspent 12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX
     a3a6f902a51a2cbebede144e48a88c05e608c2cce28024041a5b9874013a1e2a/0/76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac/333000
     cea36d008badf5c7866894b191d3239de9582d89b6b452b596f1f1b76347f8cb/31/76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac/10000
     065ef6b1463f552f675622a5d1fd2c08d6324b4402049f68e767a719e2049e8d/86/76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac/10000
@@ -359,7 +361,7 @@ coinbase vers `12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX`. Utilisons
     d658ab87cc053b8dbcfd4aa2717fd23cc3edfe90ec75351fadd6a0f7993b461d/5/76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac/911
     36ebe0ca3237002acb12e1474a3859bde0ac84b419ec4ae373e63363ebef731c/1/76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac/100000
     fd87f9adebb17f4ebb1673da76ff48ad29e64b7afa02fda0f2c14e43d220fe24/0/76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac/1
-    dfdf0b375a987f17056e5e919ee6eadd87papa36c09c4016d4a03cea15e5c05e3/1/76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac/1337
+    dfdf0b375a987f17056e5e919ee6eadd87dad36c09c4016d4a03cea15e5c05e3/1/76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac/1337
     cb2679bfd0a557b2dc0d8a6116822f3fcbe281ca3f3e18d3855aa7ea378fa373/0/76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac/1337
     d6be34ccf6edddc3cf69842dce99fe503bf632ba2c2adb0f95c63f6706ae0c52/1/76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac/2000000
-        0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098 / 0 / 410496b538e853519c726a2c91e61ec11600ae1390813a627c66fb8be7947be63c52da7589379515d4e0a604f8141781e62294721166bf621e73a82cbf2342c858eeac / 5000000000
+        0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098/0/410496b538e853519c726a2c91e61ec11600ae1390813a627c66fb8be7947be63c52da7589379515d4e0a604f8141781e62294721166bf621e73a82cbf2342c858eeac/5000000000
