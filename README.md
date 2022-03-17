@@ -63,7 +63,7 @@ Traducteur : <strong>Serafim Dos Santos</strong></p>
 15. Annexe A - Le livre blanc de Bitcoin de Satoshi Nakamoto
 16. [Annexe B - Opérateurs, constantes et symboles du langage de script de transaction](html/for_use_mastering-bitcoin_appendix-script-ops_fr_CA.html)
 17. [Annexe C - Bitcoin Improvement Proposals (BIPs ou Propositions d’amélioration de Bitcoin)](html/for_use_mastering-bitcoin_appendix-bips_fr_CA.html)
-18. Annexe D - PyCoin
+18. [Annexe D - pycoin, ku et tx](html/for_use_mastering-bitcoin_appendix-pycoin_fr_CA.html)
 19. Annexe E - BX
 20. Annexe F - BitCore
 
