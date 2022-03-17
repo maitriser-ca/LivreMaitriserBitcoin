@@ -60,7 +60,7 @@ Traducteur : <strong>Serafim Dos Santos</strong></p>
 12. [Chapitre 10 - Minage et Consensus](html/for_use_mastering-bitcoin_chapter-10_fr_CA.html)
 13. [Chapitre 11 - Sécurité de Bitcoin](html/for_use_mastering-bitcoin_chapter-11_fr_CA.html)
 14. [Chapitre 12 - Applications pour les chaînes de blocs](html/for_use_mastering-bitcoin_chapter-12_fr_CA.html)
-15. Annexe A - Le livre blanc de Bitcoin de Satoshi Nakamoto
+15. [Annexe A - Le livre blanc Bitcoin de Satoshi Nakamoto](html/for_use_mastering-bitcoin_appdx-bitcoinwhitepapertxt_fr_CA.html)
 16. [Annexe B - Opérateurs, constantes et symboles du langage de script de transaction](html/for_use_mastering-bitcoin_appendix-script-ops_fr_CA.html)
 17. [Annexe C - Bitcoin Improvement Proposals (BIPs ou Propositions d’amélioration de Bitcoin)](html/for_use_mastering-bitcoin_appendix-bips_fr_CA.html)
 18. [Annexe D - pycoin, ku et tx](html/for_use_mastering-bitcoin_appendix-pycoin_fr_CA.html)
