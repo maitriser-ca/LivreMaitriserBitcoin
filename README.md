@@ -26,12 +26,20 @@ La source originale de ces textes est tiré du livre à édition ouverte <strong
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! ! !
 </pre>
+
+<div style="">
+<p>Pour un don ou me payer un café :</p>
+<img src="assets/bluewallet-bitcoin-sponsoring-qr-code.jpg" alt="" style="max-width:50%;">
+<p>bitcoin:bc1qgal2khvhktyqaj99etxmtd6m6xhv72ht0zvhtx</p>
+<p>ETH : serafdossantos.eth</p>
+</div>
+
 </center>
 
 ## Feuille de route
 * Traduction
-  - [ ] Phase de traduction (DONE1) : en cours...
-  - [ ] Phase de révision (DONE2) : en attente...
+  - [x] Phase de traduction (DONE1) : 👍
+  - [ ] Phase de révision (DONE2) : en cours...
   - [ ] Phase de conclusion (DONEF) : en attente...
 * Révision
   - [ ] Phase de révision externe
