@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
-<title>Commandes de l&#39;explorateur Bitcoin (bx)</title>
+<title>Bitcore</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -441,209 +441,174 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1 data-line-4">
-<h2 id="appdx_bx">Appendix A: Commandes de l&#39;explorateur Bitcoin (bx)</h2>
+<h2 id="appdx_bitcore">Appendix A: Bitcore</h2>
 <div class="sectionbody">
-<div class="paragraph data-line-6">
-<p>Bitcoin Explorer (bx) est un outil en ligne de commande qui offre une variété de commandes pour la gestion des clés et la construction de transactions. Il fait partie de la bibliothèque Bitcoin libbitcoin.</p>
+<div class="paragraph data-line-7">
+<p>Bitcore est une suite d&#39;outils fournis par BitPay. Son objectif est de fournir des outils faciles à utiliser pour les développeurs Bitcoin. Presque tout le code de Bitcore est écrit en JavaScript. Il existe des modules écrits spécifiquement pour NodeJS. Enfin, le module &quot;node&quot; de Bitcore inclut le code C++ de Bitcoin Core. Veuillez consulter <a href="https://bitcore.io" class="undefined" data-href="https://bitcore.io">https://bitcore.io</a> pour plus d&#39;informations.</p>
 </div>
-<div class="listingblock data-line-8">
+<div class="sect2 data-line-9">
+<h3 id="_liste_des_fonctionnalités_de_bitcore">Liste des fonctionnalités de Bitcore</h3>
+<div class="ulist data-line-11">
+<ul>
+<li class="data-line-11">
+<p>Nœud complet Bitcoin (nœud bitcore)</p>
+</li>
+<li class="data-line-12">
+<p>Explorateur de blocs (aperçu)</p>
+</li>
+<li class="data-line-13">
+<p>Utilitaires de blocage, de transaction et de portefeuille (bitcore-lib)</p>
+</li>
+<li class="data-line-14">
+<p>Communiquer directement avec le réseau P2P de Bitcoin (bitcore-p2p)</p>
+</li>
+<li class="data-line-15">
+<p>Génération mnémonique d&#39;entropie de graine (bitcore-mnémonique)</p>
+</li>
+<li class="data-line-16">
+<p>Protocole de paiement (bitcore-payment-protocol)</p>
+</li>
+<li class="data-line-17">
+<p>Vérification et signature des messages (bitcore-message)</p>
+</li>
+<li class="data-line-18">
+<p>Schéma de chiffrement intégré à courbe elliptique (bitcore-ecies)</p>
+</li>
+<li class="data-line-19">
+<p>Service de portefeuille (bitcore-wallet-service)</p>
+</li>
+<li class="data-line-20">
+<p>Client de portefeuille (bitcore-wallet-client)</p>
+</li>
+<li class="data-line-21">
+<p>Intégration des services directement avec Bitcoin Core (bitcore-node)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2 data-line-23">
+<h3 id="_exemples_de_bibliothèque_bitcore">Exemples de bibliothèque Bitcore</h3>
+<div class="sect3 data-line-25">
+<h4 id="_prérequis">Prérequis</h4>
+<div class="ulist data-line-27">
+<ul>
+<li class="data-line-27">
+<p>NodeJS &gt;= 4.x</p>
+</li>
+</ul>
+</div>
+<div class="paragraph data-line-29">
+<p>Si vous utilisez NodeJS et le nœud REPL :</p>
+</div>
+<div class="listingblock data-line-32">
 <div class="content">
-<pre>Usage: bx COMMAND [--help]
-
-Info: The bx commands are:
-
-address-decode
-address-embed
-address-encode
-address-validate
-base16-decode
-base16-encode
-base58-decode
-base58-encode
-base58check-decode
-base58check-encode
-base64-decode
-base64-encode
-bitcoin160
-bitcoin256
-btc-to-satoshi
-ec-add
-ec-add-secrets
-ec-multiply
-ec-multiply-secrets
-ec-new
-ec-to-address
-ec-to-public
-ec-to-wif
-fetch-balance
-fetch-header
-fetch-height
-fetch-history
-fetch-stealth
-fetch-tx
-fetch-tx-index
-hd-new
-hd-private
-hd-public
-hd-to-address
-hd-to-ec
-hd-to-public
-hd-to-wif
-help
-input-set
-input-sign
-input-validate
-message-sign
-message-validate
-mnemonic-decode
-mnemonic-encode
-ripemd160
-satoshi-to-btc
-script-decode
-script-encode
-script-to-address
-seed
-send-tx
-send-tx-node
-send-tx-p2p
-settings
-sha160
-sha256
-sha512
-stealth-decode
-stealth-encode
-stealth-public
-stealth-secret
-stealth-shared
-tx-decode
-tx-encode
-uri-decode
-uri-encode
-validate-tx
-watch-address
-wif-to-ec
-wif-to-public
-wrap-decode
-wrap-encode</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$npm install -g bitcore-lib bitcore-p2p</code></pre>
 </div>
 </div>
-<div class="paragraph data-line-88">
-<p>Pour plus d&#39;informations, consultez la <a href="https://github.com/libbitcoin/libbitcoin-explorer" data-href="https://github.com/libbitcoin/libbitcoin-explorer">page d&#8217;accueil Bitcoin Explorer</a> et <a href="https://github.com/libbitcoin/libbitcoin-explorer/wiki" data-href="https://github.com/libbitcoin/libbitcoin-explorer/wiki">guide d&#8217;usage Bitcoin Explorer</a>.</p>
 </div>
-<div class="sect2 data-line-90">
-<h3 id="_exemples_dutilisation_de_la_commande_bx">Exemples d&#39;utilisation de la commande bx</h3>
-<div class="paragraph data-line-92">
-<p>Regardons quelques exemples d&#39;utilisation des commandes Bitcoin Explorer pour expérimenter avec des clés et des adresses.</p>
+<div class="sect3 data-line-36">
+<h4 id="_exemples_de_portefeuille_utilisant_bitcore_lib">Exemples de portefeuille utilisant bitcore-lib</h4>
+<div class="paragraph data-line-38">
+<p>Création d&#39;une nouvelle adresse Bitcoin avec clé privée associée :</p>
 </div>
-<div class="paragraph data-line-94">
-<p>Générez une &quot;valeur d&#8217;amorçage&quot; aléatoire à l&#39;aide de la commande seed, qui utilise le générateur de nombres aléatoires du système d&#39;exploitation. Transmettez la valeur à la commande ec-new pour générer une nouvelle clé privée. Nous sauvegardons la sortie standard dans le fichier <em>private_key</em> :</p>
-</div>
-<div class="listingblock data-line-96">
+<div class="listingblock data-line-40">
 <div class="content">
-<pre>$ bx seed | bx ec-new &gt; private_key
-$ cat private_key
-73096ed11ab9f1db6135857958ece7d73ea7c30862145bcc4bbc7649075de474</pre>
+<pre>&amp;gt; bitcore = require(&amp;#39;bitcore-lib&amp;#39;)
+&amp;gt; privateKey = nouveau bitcore.PrivateKey()
+&amp;gt; adresse = cléprivée.toAddress().toString()</pre>
 </div>
 </div>
-<div class="paragraph data-line-102">
-<p>Maintenant, générez la clé publique à partir de cette clé privée à l&#39;aide de la commande ec-to-public. Nous passons le fichier <em>private_key</em> dans l&#39;entrée standard et enregistrons la sortie standard de la commande dans un nouveau fichier <em>public_key</em> :</p>
+<div class="paragraph data-line-46">
+<p>Création d&#39;une clé privée déterministe hiérarchique et d&#39;une adresse :</p>
 </div>
-<div class="listingblock data-line-104">
+<div class="listingblock data-line-48">
 <div class="content">
-<pre>$ bx ec-to-public &lt; private_key &gt; public_key
-$ cat public_key
-02fca46a6006a62dfdd2dbb2149359d0d97a04f430f12a7626dd409256c12be500</pre>
+<pre>&amp;gt; hdPrivateKey = bitcore.HDPrivateKey()
+&amp;gt; hdPublicKey = bitcore.HDPublicKey(hdPrivateKey)
+&amp;gt; hdAddress = nouveau bitcore.Address(hdPublicKey.publicKey).toString()</pre>
 </div>
 </div>
-<div class="paragraph data-line-110">
-<p>Nous pouvons reformater la public_key en tant qu&#39;adresse à l&#39;aide de la commande ec-to-address. Nous passons le fichier <em>public_key</em> dans l&#39;entrée standard :</p>
+<div class="paragraph data-line-54">
+<p>Création et signature d&#39;une transaction depuis un UTXO :</p>
 </div>
-<div class="listingblock data-line-112">
+<div class="listingblock data-line-56">
 <div class="content">
-<pre>$ bx ec-to-address &lt; public_key
-17re1S4Q8ZHyCP8Kw7xQad1Lr6XUzWUnkG</pre>
+<pre>&amp;gt; utxo = {
+txId : txId, // identifiant de transaction contenant une sortie non dépensée
+outputIndex : outputIndex, // index de sortie (par exemple 0)
+adresse : addressOfUtxo,
+script : bitcore.Script.buildPublicKeyHashOut(addressOfUtxo).toString(),
+satoshis : satoshis // montant envoyé à l&amp;#39;adresse
+}
+&amp;gt; frais = 3000 //défini de manière appropriée pour les conditions sur le réseau
+&amp;gt; tx = nouveau bitcore.Transaction()
+.de(utxo)
+.à(adresse, 35000)
+.frais(frais)
+.enableRBF()
+.sign(CléPrivéeDeUtxo)</pre>
 </div>
 </div>
-<div class="paragraph data-line-117">
-<p>Les clés générées de cette manière produisent un portefeuille non déterministe de type 0. Cela signifie que chaque clé est générée à partir d&#39;une valeur d&#8217;amorçage indépendante. Les commandes de Bitcoin Explorer peuvent également générer des clés de manière déterministe, conformément au BIP-32. Dans ce cas, une clé &quot;maître&quot; est créée à partir d&#39;une valeur d&#8217;amorçage, puis étendue de manière déterministe pour produire un arbre de sous-clés, résultant en un portefeuille déterministe de type 2.</p>
+<div class="paragraph data-line-73">
+<p>Remplacer la dernière transaction dans le mempool (replace-by-fee) :</p>
 </div>
-<div class="paragraph data-line-119">
-<p>Tout d&#39;abord, nous utilisons les commandes seed et hd-new pour générer une clé principale qui servira de base pour dériver une hiérarchie de clés :</p>
-</div>
-<div class="listingblock data-line-121">
+<div class="listingblock data-line-75">
 <div class="content">
-<pre>$ bx seed &gt; seed
-$ cat seed
-eb68ee9f3df6bd4441a9feadec179ff1
-
-$ bx hd-new &lt; seed &gt; master
-$ cat master
-xprv9s21ZrQH143K2BEhMYpNQoUvAgiEjArAVaZaCTgsaGe6LsAnwubeiTcDzd23mAoyizm9cApe51gNfLMkBqkYoWWMCRwzfuJk8RwF1SVEpAQ</pre>
+<pre>&amp;gt; rbfTx = nouvelle Transaction()
+.de(utxo)
+.à(adresse, 35000)
+.frais(frais*2)
+.enableRBF()
+.sign(cléprivéed&amp;#39;Utxo);
+&amp;gt; tx.sérialiser();
+&amp;gt; rbfTx.sérialiser();</pre>
 </div>
 </div>
-<div class="paragraph data-line-131">
-<p>Nous utilisons maintenant la commande hd-private pour générer une clé de &quot;compte&quot; renforcée et une séquence de deux clés privées au sein du compte :</p>
+<div class="paragraph data-line-86">
+<p>Diffuser une transaction sur le réseau Bitcoin
+(remarque : ne diffusez que des transactions valides ; reportez-vous à <a href="https://bitnodes.21.co/nodes" class="undefined" data-href="https://bitnodes.21.co/nodes">https://bitnodes.21.co/nodes</a> pour les hôtes homologues) :</p>
 </div>
-<div class="listingblock data-line-133">
+<div class="olist arabic data-line-89">
+<ol class="arabic">
+<li class="data-line-89">
+<p>Copiez le code ci-dessous dans un fichier appelé <em>broadcast.js</em>.</p>
+</li>
+<li class="data-line-90">
+<p>Les variables tx et rbfTx sont la sortie de tx.serialize() et rbfTx.serialize(), respectivement.</p>
+</li>
+<li class="data-line-91">
+<p>Afin de remplacer par des frais, l&#39;homologue doit prendre en charge l&#39;option bitcoind mempoolreplace et la définir sur 1.</p>
+</li>
+<li class="data-line-92">
+<p>Exécutez le nœud de fichier <em>broadcast.js</em> :</p>
+</li>
+</ol>
+</div>
+<div class="listingblock data-line-94">
 <div class="content">
-<pre>$ bx hd-private --hard &lt; master &gt; account
-$ cat account
-xprv9vkDLt81dTKjwHB8fsVB5QK8cGnzveChzSrtCfvu3aMWvQaThp59ueufuyQ8Qi3qpjk4aKsbmbfxwcgS8PYbgoR2NWHeLyvg4DhoEE68A1n
-
-$ bx hd-private --index 0 &lt; account
-xprv9xHfb6w1vX9xgZyPNXVgAhPxSsEkeRcPHEUV5iJcVEsuUEACvR3NRY3fpGhcnBiDbvG4LgndirDsia1e9F3DWPkX7Tp1V1u97HKG1FJwUpU
-
-$ bx hd-private --index 1 &lt; account
-xprv9xHfb6w1vX9xjc8XbN4GN86jzNAZ6xHEqYxzbLB4fzHFd6VqCLPGRZFsdjsuMVERadbgDbziCRJru9n6tzEWrASVpEdrZrFidt1RDfn4yA3</pre>
+<pre>var p2p = require(&amp;#39;bitcore-p2p&amp;#39;);
+var bitcore = require(&amp;#39;bitcore-lib&amp;#39;);
+var tx = new bitcore.Transaction(&amp;#39;sortie de la fonction de sérialisation&amp;#39;);
+var rbfTx = new bitcore.Transaction(&amp;#39;sortie de la fonction de sérialisation&amp;#39;);
+var host = &amp;#39;adresse IP&amp;#39;; // utilise une écoute homologue valide sur tcp 8333
+var pair = new p2p.Peer({hôte : hôte});
+var messages = new p2p.Messages();
+peer.on(&amp;#39;prêt&amp;#39;, fonction() {
+var txs = [messages.Transaction(tx), messages.Transaction(rbfTx)] ;
+indice var = 0 ;
+var intervalle = setInterval(fonction() {
+pair.sendMessage(txs[index++]);
+console.log(&amp;#39;tx : &amp;#39; + index + &amp;#39; envoyé&amp;#39;);
+si (index === txs.longueur) {
+clearInterval(intervalle);
+console.log(&amp;#39;déconnexion du pair : &amp;#39; + host);
+pair.disconnect();
+}
+}, 2000);
+});
+pair.connect();</pre>
 </div>
 </div>
-<div class="paragraph data-line-145">
-<p>Ensuite, nous utilisons la commande hd-public pour générer la séquence correspondante de deux clés publiques :</p>
-</div>
-<div class="listingblock data-line-147">
-<div class="content">
-<pre>$ bx hd-public --index 0 &lt; account
-xpub6BH1zcTuktiFu43rUZ2gXqLgzu5F3tLEeTQ5t6iE3aQtM2VMTxMcyLN9fYHiGhGpQe9QQYmqL2eYPFJ3vezHz5wzaSW4FiGrseNDR4LKqTy
-
-$ bx hd-public --index 1 &lt; account
-xpub6BH1zcTuktiFx6CzhPbGjG3UYQ13WR16CmtbPiagEKpEVtpyjshWyMaMV1cn7nUPUkgQHPVXJVqsrA8xWbGQDhohEcDFTEYMvYzwRD7Juf8</pre>
-</div>
-</div>
-<div class="paragraph data-line-155">
-<p>Les clés publiques peuvent également être dérivées de leurs clés privées correspondantes à l&#39;aide de la commande hd-to-public :</p>
-</div>
-<div class="listingblock data-line-157">
-<div class="content">
-<pre>$ bx hd-private --index 0 &lt; account | bx hd-to-public
-xpub6BH1zcTuktiFu43rUZ2gXqLgzu5F3tLEeTQ5t6iE3aQtM2VMTxMcyLN9fYHiGhGpQe9QQYmqL2eYPFJ3vezHz5wzaSW4FiGrseNDR4LKqTy
-
-$ bx hd-private --index 1 &lt; account | bx hd-to-public
-xpub6BH1zcTuktiFx6CzhPbGjG3UYQ13WR16CmtbPiagEKpEVtpyjshWyMaMV1cn7nUPUkgQHPVXJVqsrA8xWbGQDhohEcDFTEYMvYzwRD7Juf8</pre>
-</div>
-</div>
-<div class="paragraph data-line-165">
-<p>Nous pouvons générer un nombre pratiquement illimité de clés dans une chaîne déterministe, toutes dérivées d&#39;une seule valeur d&#8217;amorçage. Cette technique est utilisée dans de nombreuses applications de portefeuille pour générer des clés qui peuvent être sauvegardées et restaurées avec une seule valeur de départ. C&#39;est plus facile que d&#39;avoir à sauvegarder le portefeuille avec toutes ses clés générées de manière aléatoire à chaque fois qu&#39;une nouvelle clé est créée.</p>
-</div>
-<div class="paragraph data-line-167">
-<p>La valeur d&#8217;amorçage peut être encodée à l&#39;aide de la commande mnemonic-encode :</p>
-</div>
-<div class="listingblock data-line-169">
-<div class="content">
-<pre>$ bx hd-mnemonic &lt; seed &gt; words
-adore repeat vision worst especially veil inch woman cast recall dwell appreciate</pre>
-</div>
-</div>
-<div class="paragraph data-line-174">
-<p>La valeur d&#8217;amorçage peut ensuite être décodée à l&#39;aide de la commande mnemonic-decode :</p>
-</div>
-<div class="listingblock data-line-176">
-<div class="content">
-<pre>$ bx mnemonic-decode &lt; words
-eb68ee9f3df6bd4441a9feadec179ff1</pre>
-</div>
-</div>
-<div class="paragraph data-line-181">
-<p>L&#39;encodage mnémonique peut faciliter l&#39;enregistrement et même la mémorisation de la valeur d&#8217;amorçage.</p>
 </div>
 </div>
 </div>
@@ -651,7 +616,7 @@ eb68ee9f3df6bd4441a9feadec179ff1</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-17 11:05:50 -0400
+Last updated 2022-03-17 11:07:09 -0400
 </div>
 </div>
 </body>

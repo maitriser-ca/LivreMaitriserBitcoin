@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+
+<article lang="en">
+<articleinfo>
+    <date>2022-03-17</date>
+</articleinfo>
+<appendix id="appdx_bitcore">
+<title>Bitcore</title>
+<simpara><indexterm>
+  <primary>&quot;Bitcore&quot;</primary><secondary>id=&quot;bitcore16&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>id=&quot;bitcore16&quot;</primary>
+</indexterm>Bitcore est une suite d&#39;outils fournis par BitPay. Son objectif est de fournir des outils faciles à utiliser pour les développeurs Bitcoin. Presque tout le code de Bitcore est écrit en JavaScript. Il existe des modules écrits spécifiquement pour NodeJS. Enfin, le module &quot;node&quot; de Bitcore inclut le code C++ de Bitcoin Core. Veuillez consulter <ulink url="https://bitcore.io">https://bitcore.io</ulink> pour plus d&#39;informations.</simpara>
+<section id="_liste_des_fonctionnalités_de_bitcore">
+<title>Liste des fonctionnalités de Bitcore</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Nœud complet Bitcoin (nœud bitcore)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Explorateur de blocs (aperçu)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Utilitaires de blocage, de transaction et de portefeuille (bitcore-lib)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Communiquer directement avec le réseau P2P de Bitcoin (bitcore-p2p)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Génération mnémonique d&#39;entropie de graine (bitcore-mnémonique)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Protocole de paiement (bitcore-payment-protocol)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Vérification et signature des messages (bitcore-message)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Schéma de chiffrement intégré à courbe elliptique (bitcore-ecies)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Service de portefeuille (bitcore-wallet-service)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Client de portefeuille (bitcore-wallet-client)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Intégration des services directement avec Bitcoin Core (bitcore-node)
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_exemples_de_bibliothèque_bitcore">
+<title>Exemples de bibliothèque Bitcore</title>
+<section id="_prérequis">
+<title>Prérequis</title>
+<itemizedlist>
+<listitem>
+<simpara>
+NodeJS &gt;= 4.x
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>Si vous utilisez NodeJS et le nœud REPL :</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$npm install -g bitcore-lib bitcore-p2p</programlisting>
+</section>
+<section id="_exemples_de_portefeuille_utilisant_bitcore_lib">
+<title>Exemples de portefeuille utilisant bitcore-lib</title>
+<simpara>Création d&#39;une nouvelle adresse Bitcoin avec clé privée associée :</simpara>
+<screen>&amp;gt; bitcore = require(&amp;#39;bitcore-lib&amp;#39;)
+&amp;gt; privateKey = nouveau bitcore.PrivateKey()
+&amp;gt; adresse = cléprivée.toAddress().toString()</screen>
+<simpara>Création d&#39;une clé privée déterministe hiérarchique et d&#39;une adresse :</simpara>
+<screen>&amp;gt; hdPrivateKey = bitcore.HDPrivateKey()
+&amp;gt; hdPublicKey = bitcore.HDPublicKey(hdPrivateKey)
+&amp;gt; hdAddress = nouveau bitcore.Address(hdPublicKey.publicKey).toString()</screen>
+<simpara>Création et signature d&#39;une transaction depuis un UTXO :</simpara>
+<screen>&amp;gt; utxo = {
+txId : txId, // identifiant de transaction contenant une sortie non dépensée
+outputIndex : outputIndex, // index de sortie (par exemple 0)
+adresse : addressOfUtxo,
+script : bitcore.Script.buildPublicKeyHashOut(addressOfUtxo).toString(),
+satoshis : satoshis // montant envoyé à l&amp;#39;adresse
+}
+&amp;gt; frais = 3000 //défini de manière appropriée pour les conditions sur le réseau
+&amp;gt; tx = nouveau bitcore.Transaction()
+.de(utxo)
+.à(adresse, 35000)
+.frais(frais)
+.enableRBF()
+.sign(CléPrivéeDeUtxo)</screen>
+<simpara>Remplacer la dernière transaction dans le mempool (replace-by-fee) :</simpara>
+<screen>&amp;gt; rbfTx = nouvelle Transaction()
+.de(utxo)
+.à(adresse, 35000)
+.frais(frais*2)
+.enableRBF()
+.sign(cléprivéed&amp;#39;Utxo);
+&amp;gt; tx.sérialiser();
+&amp;gt; rbfTx.sérialiser();</screen>
+<simpara>Diffuser une transaction sur le réseau Bitcoin
+(remarque : ne diffusez que des transactions valides ; reportez-vous à <ulink url="https://bitnodes.21.co/nodes">https://bitnodes.21.co/nodes</ulink> pour les hôtes homologues) :</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Copiez le code ci-dessous dans un fichier appelé <emphasis>broadcast.js</emphasis>.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Les variables <literal>tx</literal> et <literal>rbfTx</literal> sont la sortie de <literal>tx.serialize()</literal> et <literal>rbfTx.serialize()</literal>, respectivement.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Afin de remplacer par des frais, l&#39;homologue doit prendre en charge l&#39;option bitcoind <literal>mempoolreplace</literal> et la définir sur <literal>1</literal>.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Exécutez le nœud de fichier <emphasis>broadcast.js</emphasis><indexterm>
+  <primary>&quot;&quot;</primary><secondary>startref=&quot;bitcore16&quot;</secondary>
+</indexterm>
+<indexterm>
+  <primary>startref=&quot;bitcore16&quot;</primary>
+</indexterm> :
+</simpara>
+</listitem>
+</orderedlist>
+<screen>var p2p = require(&amp;#39;bitcore-p2p&amp;#39;);
+var bitcore = require(&amp;#39;bitcore-lib&amp;#39;);
+var tx = new bitcore.Transaction(&amp;#39;sortie de la fonction de sérialisation&amp;#39;);
+var rbfTx = new bitcore.Transaction(&amp;#39;sortie de la fonction de sérialisation&amp;#39;);
+var host = &amp;#39;adresse IP&amp;#39;; // utilise une écoute homologue valide sur tcp 8333
+var pair = new p2p.Peer({hôte : hôte});
+var messages = new p2p.Messages();
+peer.on(&amp;#39;prêt&amp;#39;, fonction() {
+var txs = [messages.Transaction(tx), messages.Transaction(rbfTx)] ;
+indice var = 0 ;
+var intervalle = setInterval(fonction() {
+pair.sendMessage(txs[index++]);
+console.log(&amp;#39;tx : &amp;#39; + index + &amp;#39; envoyé&amp;#39;);
+si (index === txs.longueur) {
+clearInterval(intervalle);
+console.log(&amp;#39;déconnexion du pair : &amp;#39; + host);
+pair.disconnect();
+}
+}, 2000);
+});
+pair.connect();</screen>
+</section>
+</section>
+</appendix>
+</article>

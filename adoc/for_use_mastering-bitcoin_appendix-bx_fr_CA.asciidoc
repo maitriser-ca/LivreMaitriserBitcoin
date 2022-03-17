@@ -1,181 +1,181 @@
 [[appdx_bx]]
-[appendice]
+[appendix]
 
 == Commandes de l&#39;explorateur Bitcoin (bx)
 
-(((&quot;Commandes &quot;Bitcoin Explorer (bx)&quot;, id=&quot;BX18_1&quot;, range=&quot;startofrange&quot;)))Bitcoin Explorer (bx) est un outil en ligne de commande qui offre une variété de commandes pour la gestion des clés et la construction de transactions. Il fait partie de la bibliothèque libbitcoin bitcoin.
+(((&quot;Commandes &quot;Bitcoin Explorer (bx)&quot;, id=&quot;BX18_1&quot;, range=&quot;startofrange&quot;)))Bitcoin Explorer (bx) est un outil en ligne de commande qui offre une variété de commandes pour la gestion des clés et la construction de transactions. Il fait partie de la bibliothèque Bitcoin libbitcoin.
 
 ----
-Utilisation : bx COMMANDE [--help]
+Usage: bx COMMAND [--help]
 
-Info : Les commandes bx sont :
+Info: The bx commands are:
 
-adresse-décoder
-adresse intégrée
-adresse-encoder
-adresse-valider
-décodage en base16
-encoder en base16
-décodage base58
-encoder en base58
-base58check-décoder
-base58check-encoder
-décodage base64
-encoder en base64
-Bitcoin160
-Bitcoin256
-btc-à-satoshi
+address-decode
+address-embed
+address-encode
+address-validate
+base16-decode
+base16-encode
+base58-decode
+base58-encode
+base58check-decode
+base58check-encode
+base64-decode
+base64-encode
+bitcoin160
+bitcoin256
+btc-to-satoshi
 ec-add
 ec-add-secrets
-ec-multiplier
-ec-multiplier-secrets
-ec-nouveau
+ec-multiply
+ec-multiply-secrets
+ec-new
 ec-to-address
 ec-to-public
-ec vers wif
-récupérer le solde
-récupérer l&#39;en-tête
-hauteur de récupération
-récupérer l&#39;historique
-aller chercher furtivement
-récupérer-tx
-récupérer-tx-index
-hd-nouveau
-hd-privé
+ec-to-wif
+fetch-balance
+fetch-header
+fetch-height
+fetch-history
+fetch-stealth
+fetch-tx
+fetch-tx-index
+hd-new
+hd-private
 hd-public
 hd-to-address
-hd-vers-ec
+hd-to-ec
 hd-to-public
-hd-vers-wif
-aider
-jeu d&#39;entrées
-signe d&#39;entrée
-entrée-valider
+hd-to-wif
+help
+input-set
+input-sign
+input-validate
 message-sign
-message-valider
-décodage mnémonique
+message-validate
+mnemonic-decode
 mnemonic-encode
-mûrmd160
+ripemd160
 satoshi-to-btc
-décodage de script
-encodage de script
-script vers adresse
-planter
-envoyer-tx
-envoyer-tx-nœud
-envoyer-tx-p2p
-réglages
+script-decode
+script-encode
+script-to-address
+seed
+send-tx
+send-tx-node
+send-tx-p2p
+settings
 sha160
 sha256
 sha512
-décodage furtif
-encodage furtif
-furtif-public
-secret-furtif
-furtivement partagé
-décodage tx
-tx-encoder
-décodage uri
-uri-encoder
-valider-tx
-adresse de la montre
-wif-à-ec
-wif-au-public
-décodage enveloppant
-envelopper-encoder
+stealth-decode
+stealth-encode
+stealth-public
+stealth-secret
+stealth-shared
+tx-decode
+tx-encode
+uri-decode
+uri-encode
+validate-tx
+watch-address
+wif-to-ec
+wif-to-public
+wrap-decode
+wrap-encode
 ----
 
-Pour plus d&#39;informations, consultez la https://github.com/libbitcoin/libbitcoin-explorer[Bitcoin Explorer homepage] et https://github.com/libbitcoin/libbitcoin-explorer/wiki[Bitcoin Explorer user documentation].
+Pour plus d&#39;informations, consultez la https://github.com/libbitcoin/libbitcoin-explorer[page d'accueil Bitcoin Explorer] et https://github.com/libbitcoin/libbitcoin-explorer/wiki[guide d'usage Bitcoin Explorer].
 
 === Exemples d&#39;utilisation de la commande bx
 
 Regardons quelques exemples d&#39;utilisation des commandes Bitcoin Explorer pour expérimenter avec des clés et des adresses.
 
-Générez une valeur &quot;seed&quot; aléatoire à l&#39;aide de la commande +seed+, qui utilise le générateur de nombres aléatoires du système d&#39;exploitation. Transmettez la graine à la commande +ec-new+ pour générer une nouvelle clé privée. Nous sauvegardons la sortie standard dans le fichier _private_key_ :
+Générez une &quot;valeur d'amorçage&quot; aléatoire à l&#39;aide de la commande +seed+, qui utilise le générateur de nombres aléatoires du système d&#39;exploitation. Transmettez la valeur à la commande +ec-new+ pour générer une nouvelle clé privée. Nous sauvegardons la sortie standard dans le fichier _private_key_ :
 
 ----
-$ bx semence | bx ec-new &gt; clé_privée
-$ chat clé_privée
+$ bx seed | bx ec-new > private_key
+$ cat private_key
 73096ed11ab9f1db6135857958ece7d73ea7c30862145bcc4bbc7649075de474
 ----
 
 Maintenant, générez la clé publique à partir de cette clé privée à l&#39;aide de la commande +ec-to-public+. Nous passons le fichier _private_key_ dans l&#39;entrée standard et enregistrons la sortie standard de la commande dans un nouveau fichier _public_key_ :
 
 ----
-$ bx ec-to-public &lt; clé_privée &gt; clé_publique
+$ bx ec-to-public < private_key > public_key
 $ cat public_key
 02fca46a6006a62dfdd2dbb2149359d0d97a04f430f12a7626dd409256c12be500
 ----
 
-Nous pouvons reformater la +public_key+ en tant qu&#39;adresse à l&#39;aide de la commande +ec-to-address+. Nous passons la _clé_publique_ dans l&#39;entrée standard :
+Nous pouvons reformater la +public_key+ en tant qu&#39;adresse à l&#39;aide de la commande +ec-to-address+. Nous passons le fichier _public_key_ dans l&#39;entrée standard :
 
 ----
-$ bx ec-to-address &lt; public_key
+$ bx ec-to-address < public_key
 17re1S4Q8ZHyCP8Kw7xQad1Lr6XUzWUnkG
 ----
 
-Les clés générées de cette manière produisent un portefeuille non déterministe de type 0. Cela signifie que chaque clé est générée à partir d&#39;une graine indépendante. Les commandes de Bitcoin Explorer peuvent également générer des clés de manière déterministe, conformément au BIP-32. Dans ce cas, une clé &quot;maître&quot; est créée à partir d&#39;une graine, puis étendue de manière déterministe pour produire un arbre de sous-clés, résultant en un portefeuille déterministe de type 2.
+Les clés générées de cette manière produisent un portefeuille non déterministe de type 0. Cela signifie que chaque clé est générée à partir d&#39;une valeur d'amorçage indépendante. Les commandes de Bitcoin Explorer peuvent également générer des clés de manière déterministe, conformément au BIP-32. Dans ce cas, une clé &quot;maître&quot; est créée à partir d&#39;une valeur d'amorçage, puis étendue de manière déterministe pour produire un arbre de sous-clés, résultant en un portefeuille déterministe de type 2.
 
 Tout d&#39;abord, nous utilisons les commandes +seed+ et +hd-new+ pour générer une clé principale qui servira de base pour dériver une hiérarchie de clés :
 
 ----
-$ bx graine &gt; graine
-$ graines de chat
+$ bx seed > seed
+$ cat seed
 eb68ee9f3df6bd4441a9feadec179ff1
 
-$ bx hd-new &lt; graine &gt; maître
-$ maître de chat
-xprv9s21ZrQH143K2BEhMYpNQouvAgiEjArAVaZaCTgsaGe6LsAnwubeiTcDzd23mAoyizm9cApe51gNfLMkBqkYoWWMCRwzfuJk8RwF1SVEpAQ
+$ bx hd-new < seed > master
+$ cat master
+xprv9s21ZrQH143K2BEhMYpNQoUvAgiEjArAVaZaCTgsaGe6LsAnwubeiTcDzd23mAoyizm9cApe51gNfLMkBqkYoWWMCRwzfuJk8RwF1SVEpAQ
 ----
 
 Nous utilisons maintenant la commande +hd-private+ pour générer une clé de &quot;compte&quot; renforcée et une séquence de deux clés privées au sein du compte :
 
 ----
-$ bx hd-private --hard &lt; maître &gt; compte
-compte chat en $
+$ bx hd-private --hard < master > account
+$ cat account
 xprv9vkDLt81dTKjwHB8fsVB5QK8cGnzveChzSrtCfvu3aMWvQaThp59ueufuyQ8Qi3qpjk4aKsbmbfxwcgS8PYbgoR2NWHeLyvg4DhoEE68A1n
 
-$ bx hd-privé --index 0 &lt; compte
+$ bx hd-private --index 0 < account
 xprv9xHfb6w1vX9xgZyPNXVgAhPxSsEkeRcPHEUV5iJcVEsuUEACvR3NRY3fpGhcnBiDbvG4LgndirDsia1e9F3DWPkX7Tp1V1u97HKG1FJwUpU
 
-$ bx hd-privé --index 1 &lt; compte
+$ bx hd-private --index 1 < account
 xprv9xHfb6w1vX9xjc8XbN4GN86jzNAZ6xHEqYxzbLB4fzHFd6VqCLPGRZFsdjsuMVERadbgDbziCRJru9n6tzEWrASVpEdrZrFidt1RDfn4yA3
 ----
 
 Ensuite, nous utilisons la commande +hd-public+ pour générer la séquence correspondante de deux clés publiques :
 
 ----
-$ bx hd-public --index 0 &lt; compte
+$ bx hd-public --index 0 < account
 xpub6BH1zcTuktiFu43rUZ2gXqLgzu5F3tLEeTQ5t6iE3aQtM2VMTxMcyLN9fYHiGhGpQe9QQYmqL2eYPFJ3vezHz5wzaSW4FiGrseNDR4LKqTy
 
-$ bx hd-public --index 1 &lt; compte
+$ bx hd-public --index 1 < account
 xpub6BH1zcTuktiFx6CzhPbGjG3UYQ13WR16CmtbPiagEKpEVtpyjshWyMaMV1cn7nUPUkgQHPVXJVqsrA8xWbGQDhohEcDFTEYMvYzwRD7Juf8
 ----
 
 Les clés publiques peuvent également être dérivées de leurs clés privées correspondantes à l&#39;aide de la commande +hd-to-public+ :
 
 ----
-$ bx hd-privé --index 0 &lt; compte | bx hd-to-public
+$ bx hd-private --index 0 < account | bx hd-to-public
 xpub6BH1zcTuktiFu43rUZ2gXqLgzu5F3tLEeTQ5t6iE3aQtM2VMTxMcyLN9fYHiGhGpQe9QQYmqL2eYPFJ3vezHz5wzaSW4FiGrseNDR4LKqTy
 
-$ bx hd-privé --index 1 &lt; compte | bx hd-to-public
+$ bx hd-private --index 1 < account | bx hd-to-public
 xpub6BH1zcTuktiFx6CzhPbGjG3UYQ13WR16CmtbPiagEKpEVtpyjshWyMaMV1cn7nUPUkgQHPVXJVqsrA8xWbGQDhohEcDFTEYMvYzwRD7Juf8
 ----
 
-Nous pouvons générer un nombre pratiquement illimité de clés dans une chaîne déterministe, toutes dérivées d&#39;une seule graine. Cette technique est utilisée dans de nombreuses applications de portefeuille pour générer des clés qui peuvent être sauvegardées et restaurées avec une seule valeur de départ. C&#39;est plus facile que d&#39;avoir à sauvegarder le portefeuille avec toutes ses clés générées de manière aléatoire à chaque fois qu&#39;une nouvelle clé est créée.
+Nous pouvons générer un nombre pratiquement illimité de clés dans une chaîne déterministe, toutes dérivées d&#39;une seule valeur d'amorçage. Cette technique est utilisée dans de nombreuses applications de portefeuille pour générer des clés qui peuvent être sauvegardées et restaurées avec une seule valeur de départ. C&#39;est plus facile que d&#39;avoir à sauvegarder le portefeuille avec toutes ses clés générées de manière aléatoire à chaque fois qu&#39;une nouvelle clé est créée.
 
-La graine peut être encodée à l&#39;aide de la commande +mnemonic-encode+ :
-
-----
-$ bx hd-mnemonic &lt; graine &gt; mots
-adorent répéter la pire vision, en particulier les pouces du voile, femme, rappel de la distribution, apprécient
-----
-
-La graine peut ensuite être décodée à l&#39;aide de la commande +mnemonic-decode+ :
+La valeur d'amorçage peut être encodée à l&#39;aide de la commande +mnemonic-encode+ :
 
 ----
-$ bx décodage-mnémonique &lt; mots
+$ bx hd-mnemonic < seed > words
+adore repeat vision worst especially veil inch woman cast recall dwell appreciate
+----
+
+La valeur d'amorçage peut ensuite être décodée à l&#39;aide de la commande +mnemonic-decode+ :
+
+----
+$ bx mnemonic-decode < words
 eb68ee9f3df6bd4441a9feadec179ff1
 ----
 
-L&#39;encodage mnémonique peut faciliter l&#39;enregistrement et même la mémorisation de la graine.(((range=&quot;endofrange&quot;, startref=&quot;BX18_1&quot;)))
+L&#39;encodage mnémonique peut faciliter l&#39;enregistrement et même la mémorisation de la valeur d'amorçage.(((range=&quot;endofrange&quot;, startref=&quot;BX18_1&quot;)))
