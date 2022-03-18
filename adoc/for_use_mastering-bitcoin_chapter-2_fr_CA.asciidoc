@@ -61,14 +61,14 @@ image::images/mbc2_0202.png["payment-request"]
 bitcoin:1GdK9UzpHBzqzX2A9JFP3Di4weBwqgmoQA?
 amount=0.015&
 label=Bob%27s%20Cafe&
-message=Acheter%20chez%20Bob%27s%20Café
+message=Purchase%20at%20Bob%27s%20Cafe
 
-Composants de l&#39;URL
+Composants de l'URL
 
-Une adresse Bitcoin : &quot;1GdK9UzpHBzqzX2A9JFP3Di4weBwqgmoQA&quot;
-Le montant du paiement: &quot;0,015&quot;
-Une étiquette pour l&#39;adresse du destinataire : « Bob&#39;s Cafe »
-Une description du paiement : &quot;Acheter au Bob&#39;s Cafe&quot;
+Une adresse Bitcoin : "1GdK9UzpHBzqzX2A9JFP3Di4weBwqgmoQA"
+Le montant du paiement: "0,015"
+Une étiquette pour l&#39;adresse du destinataire : "Bob's Cafe"
+Une description du paiement : "Purchase at Bob's Cafe"
 ----
 
 Alice utilise son smartphone pour scanner le code-barres affiché. Son smartphone affiche un paiement de +0,0150 BTC+ à +Bob&#39;s Cafe+ et elle sélectionne Envoyer pour autoriser le paiement. En quelques secondes (environ le même temps qu&#39;une autorisation de carte de crédit), Bob voit la transaction sur le registre, complétant la transaction.
