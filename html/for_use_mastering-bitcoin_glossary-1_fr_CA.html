@@ -454,7 +454,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </dd>
 <dt class="hdlist1">bip</dt>
 <dd>
-<p>Bitcoin Improvement Proposals (ou Propositions d&#8217;améliorations du Bitcoin). Un ensemble de propositions que les membres de la communauté Bitcoin ont soumises pour améliorer Bitcoin. Par exemple, BIP-21 est une proposition visant à améliorer le schéma d&#39;identificateur de ressource uniforme (URI) bitcoin.</p>
+<p>Bitcoin Improvement Proposals (ou Propositions d&#8217;amélioration de Bitcoin). Un ensemble de propositions que les membres de la communauté Bitcoin ont soumises pour améliorer Bitcoin. Par exemple, BIP-21 est une proposition visant à améliorer le schéma d&#39;identificateur de ressource uniforme (URI) bitcoin.</p>
 </dd>
 <dt class="hdlist1">bitcoin</dt>
 <dd>
@@ -464,7 +464,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dd>
 <p>Regroupement de transactions, marqué d&#39;un horodatage et d&#39;une empreinte digitale du bloc précédent. L&#39;en-tête du bloc est haché (c.-à-d., on obtient un résultat de hachage) pour produire une preuve de travail, validant ainsi les transactions. Les blocs valides sont ajoutés à la chaîne de blocs principale par consensus du réseau.</p>
 </dd>
-<dt class="hdlist1">blockchain (ou chaîne de blocs)</dt>
+<dt class="hdlist1">chaîne de blocs (ou blockchain)</dt>
 <dd>
 <p>Une liste de blocs validés, chacun lié à son prédécesseur jusqu&#39;au bloc de genèse.</p>
 </dd>
@@ -472,7 +472,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dd>
 <p>Un montant inclus dans chaque nouveau bloc comme récompense par le réseau au mineur qui a trouvé la solution Proof-of-Work (ou Preuve de travail)). Environ tous les quatre ans, ou plus précisément tous les 210 000 blocs, la récompense de bloc globale est réduite de moitié. Il est actuellement de 6,25 BTC par bloc.</p>
 </dd>
-<dt class="hdlist1">Byzantine Generals Problem (ou Problème des généraux Byzantins)</dt>
+<dt class="hdlist1">Problème des généraux Byzantins (ou Byzantine Generals Problem)</dt>
 <dd>
 <p>Un système informatique fiable doit pouvoir faire face à la défaillance d&#39;un ou plusieurs de ses composants. Un composant défaillant peut présenter un type de comportement souvent négligé, à savoir l&#39;envoi d&#39;informations contradictoires à différentes parties du système. Le problème de faire face à ce type d&#39;échec est exprimé abstraitement comme le Byzantine Generals Problem (ou Problème des généraux byzantins) (voir <a href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_des_g%C3%A9n%C3%A9raux_byzantins" class="undefined" data-href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_des_g%C3%A9n%C3%A9raux_byzantins">https://fr.wikipedia.org/wiki/Probl%C3%A8me_des_g%C3%A9n%C3%A9raux_byzantins</a>).</p>
 </dd>
@@ -480,7 +480,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dd>
 <p>Un bloc qu&#39;un mineur essaie toujours d&#39;exploiter. Ce n&#39;est pas encore un bloc valide, car il ne contient pas de Proof-of-Work (ou Preuve de travail) valide.</p>
 </dd>
-<dt class="hdlist1">coinbase (ou unité de monnaie primaire du bloc) (alias données coinbase)</dt>
+<dt class="hdlist1">coinbase (ou unité de monnaie primaire du bloc) (alias donnée coinbase)</dt>
 <dd>
 <p>Un champ spécial utilisé comme seule entrée pour les transactions coinbase. Le champ de données coinbase permet de réclamer la récompense de bloc et fournit jusqu&#39;à 100 octets pour les données arbitraires.
 À ne pas confondre avec la "transaction coinbase" ou la "récompense coinbase".</p>
@@ -532,7 +532,7 @@ A ne pas confondre avec le consensus.</p>
 <dd>
 <p>Au fur et à mesure que la difficulté augmentait, les mineurs parcouraient souvent les 4 milliards de nombres aléatoires explicites (nonce) sans trouver de bloc. Étant donné que le script coinbase peut stocker entre 2 et 100 octets de données, les mineurs ont commencé à utiliser cet espace comme espace pour un nombre aléatoire explicite supplémentaire, leur permettant d&#39;explorer une gamme beaucoup plus large de valeurs d&#39;en-tête de bloc pour trouver des blocs valides.</p>
 </dd>
-<dt class="hdlist1">frais</dt>
+<dt class="hdlist1">Frais</dt>
 <dd>
 <p>L&#39;expéditeur d&#39;une transaction inclut souvent une valeur de frais au réseau pour le traitement de la transaction demandée. La plupart des transactions nécessitent des frais minimum de 0,5 mBTC.</p>
 </dd>
@@ -544,36 +544,36 @@ A ne pas confondre avec le consensus.</p>
 <dd>
 <p>Le premier bloc de la chaîne de blocs, utilisé pour initialiser la cryptomonnaie (ou cybermonnaie).</p>
 </dd>
-<dt class="hdlist1">halving (ou réduction de moitié)</dt>
+<dt class="hdlist1">réduction de moitié (ou halving)</dt>
 <dd>
 <p>Un événement de réduction de moitié se produit lorsque la récompense de bloc est réduite de moitié, ce qui se produit environ tous les quatre ans (ou précisément tous les 210 000 blocs). Bitcoin a déjà connu trois événements de réduction de moitié : en 2012 (de 50 à 25 BTC), en 2016 (de 25 à 12,5 BTC) et en 2020 (de 12,5 à 6,25 BTC).</p>
 </dd>
-<dt class="hdlist1">fourche dure</dt>
+<dt class="hdlist1">embranchement divergent (ou hard fork)</dt>
 <dd>
-<p>La fourche dure, également connu sous le nom de Hard-Forking Change, est une divergence permanente dans la chaîne de blocs, se produit généralement lorsque les nœuds non mis à niveau ne peuvent pas valider les blocs créés par les nœuds mis à niveau qui suivent les nouvelles règles de consensus.
+<p>L&#8217;embranchement divergent, également connu sous le nom de Hard-Forking Change, est une divergence permanente dans la chaîne de blocs, se produit généralement lorsque les nœuds non mis à niveau ne peuvent pas valider les blocs créés par les nœuds mis à niveau qui suivent les nouvelles règles de consensus.
 À ne pas confondre avec une fourche, une fourche molle, une fourche de code ou une fourche Git, mais tout de même un nouvel embranchement d&#8217;une arborescence de données (avec une source parent unique).</p>
 </dd>
 <dt class="hdlist1">portefeuille matériel (hardware)</dt>
 <dd>
 <p>Un portefeuille matériel est un type spécial de portefeuille bitcoin qui stocke les clés privées de l&#39;utilisateur dans un périphérique matériel sécurisé.</p>
 </dd>
-<dt class="hdlist1">résultat de hachage</dt>
+<dt class="hdlist1">résultat de hachage (ou hash)</dt>
 <dd>
 <p>Une empreinte numérique d&#39;une entrée binaire.</p>
 </dd>
-<dt class="hdlist1">hashlocks (ou serrure par empreinte numérique)</dt>
+<dt class="hdlist1">serrure par empreinte numérique (ou hashlocks)</dt>
 <dd>
-<p>Un hashlock (ou serrure par empreinte numérique) est un type de contrainte qui limite les dépenses d&#39;une sortie jusqu&#39;à ce qu&#39;une donnée spécifique soit révélée publiquement. Les hashlocks ont la propriété utile qu&#39;une fois qu&#39;un hashlock est ouvert publiquement, tout autre hashlock sécurisé à l&#39;aide de la même clé peut également être ouvert. Cela permet de créer plusieurs sorties qui sont toutes encombrées par le même hashlock et qui deviennent toutes dépensables en même temps.</p>
+<p>Un serrure par empreinte numérique (ou hashlock) est un type de contrainte qui limite les dépenses d&#39;une sortie jusqu&#39;à ce qu&#39;une donnée spécifique soit révélée publiquement. Les hashlocks ont la propriété utile qu&#39;une fois qu&#39;un hashlock est ouvert publiquement, tout autre hashlock sécurisé à l&#39;aide de la même clé peut également être ouvert. Cela permet de créer plusieurs sorties qui sont toutes encombrées par le même hashlock et qui deviennent toutes dépensables en même temps.</p>
 </dd>
-<dt class="hdlist1">Protocole HD</dt>
+<dt class="hdlist1">protocole HD</dt>
 <dd>
 <p>Le protocole de création et de transfert de clés Hierarchical Deterministic (HD) (BIP-32), qui permet de créer des clés enfants à partir de clés parents dans une hiérarchie.</p>
 </dd>
-<dt class="hdlist1">Portefeuille HD </dt>
+<dt class="hdlist1">portefeuille HD</dt>
 <dd>
 <p>Portefeuilles utilisant le protocole de création et de transfert de clés Hierarchical Deterministic (HD Protocol) (BIP-32).</p>
 </dd>
-<dt class="hdlist1">Portefeuille d&#8217;amorçage HD</dt>
+<dt class="hdlist1">portefeuille d&#8217;amorçage HD</dt>
 <dd>
 <p>Le portefeuille d&#8217;amorçage HD ou la valeur d&#8217;amorçage est une valeur potentiellement courte utilisée comme valeur racine pour générer la clé privée principale et le code de chaîne principal pour un portefeuille HD.</p>
 </dd>
@@ -593,7 +593,7 @@ A ne pas confondre avec le consensus.</p>
 <dd>
 <p>Lightning Network est une implémentation de Hashed Timelock Contracts (HTLC) avec des canaux de paiement bidirectionnels qui permettent aux paiements d&#39;être acheminés en toute sécurité sur plusieurs canaux de paiement pair à pair. Cela permet la formation d&#39;un réseau où n&#39;importe quel pair sur le réseau peut payer n&#39;importe quel autre pair même s&#39;ils n&#39;ont pas directement de canal ouvert entre eux.</p>
 </dd>
-<dt class="hdlist1">Locktime (ou valeur de relâche de transaction)</dt>
+<dt class="hdlist1">valeur de relâche de transaction (ou Locktime)</dt>
 <dd>
 <p>Locktime, ou plus techniquement nLockTime, est la partie d&#39;une transaction qui indique la première heure où le premier bloc auquel cette transaction peut être ajoutée à la chaîne de blocs. C&#8217;est une valeur horodatée servant de date ultérieur pour une transaction; comme un chèque postdaté.</p>
 </dd>
@@ -601,11 +601,11 @@ A ne pas confondre avec le consensus.</p>
 <dd>
 <p>Le bitcoin Mempool (bassin de mémoire) est une collection de toutes les données de transaction dans un bloc qui ont été vérifiées par les nœuds Bitcoin, mais qui ne sont pas encore confirmées.</p>
 </dd>
-<dt class="hdlist1">racine de merkle </dt>
+<dt class="hdlist1">racine de Merkle</dt>
 <dd>
-<p>Le nœud racine d&#39;un arbre Merkle, un descendant de toutes les paires hachées de l&#39;arbre. Les en-têtes de bloc doivent inclure une racine merkle valide issue de toutes les transactions de ce bloc.</p>
+<p>Le nœud racine d&#39;un arbre de Merkle, un descendant de toutes les paires hachées de l&#39;arbre. Les en-têtes de bloc doivent inclure une racine merkle valide issue de toutes les transactions de ce bloc.</p>
 </dd>
-<dt class="hdlist1">arbre de merkle</dt>
+<dt class="hdlist1">arbre de Merkle</dt>
 <dd>
 <p>Un arbre construit en hachant des données appariées (les feuilles), puis en appariant et en hachant les résultats jusqu&#39;à ce qu&#39;il ne reste qu&#39;un seul résultat de hachage, la racine de Merkle. En bitcoin, les feuilles sont presque toujours des transactions d&#39;un seul bloc.</p>
 </dd>
@@ -625,9 +625,9 @@ A ne pas confondre avec le consensus.</p>
 <dd>
 <p>Un réseau pair à pair qui propage les transactions et les bloques à chaque nœud Bitcoin du réseau.</p>
 </dd>
-<dt class="hdlist1">nonce (ou nombre aléatoire explicite)</dt>
+<dt class="hdlist1">nombre aléatoire explicite (ou nonce)</dt>
 <dd>
-<p>Le &quot;nonce&quot; (ou nombre aléatoire explicite) dans un bloc bitcoin est un champ de 32 bits (4 octets) dont la valeur est définie de manière à ce que le résultat de hachage du bloc contienne une série de zéros non significatifs. Les autres champs ne peuvent pas être modifiés, car ils ont une signification définie.</p>
+<p>Le &quot;nombre aléatoire explicite&quot; (ou nonce) dans un bloc bitcoin est un champ de 32 bits (4 octets) dont la valeur est définie de manière à ce que le résultat de hachage du bloc contienne une série de zéros non significatifs. Les autres champs ne peuvent pas être modifiés, car ils ont une signification définie.</p>
 </dd>
 <dt class="hdlist1">transactions hors chaîne </dt>
 <dd>
@@ -637,19 +637,19 @@ A ne pas confondre avec le consensus.</p>
 <dd>
 <p>Codes d&#39;opération du langage de script bitcoin qui poussent des données ou exécutent des fonctions dans un script pubkey ou un script de signature.</p>
 </dd>
-<dt class="hdlist1">Protocole Open Assets (ou Actifs ouverts)</dt>
+<dt class="hdlist1">protocole d&#8217;actifs ouverts (ou Open Assets protocol)</dt>
 <dd>
-<p>Le protocole Open Assets (ou Actifs ouverts) est un protocole simple et puissant construit au-dessus de la chaîne de blocs Bitcoin. Il permet l&#39;émission et le transfert d&#39;actifs créés par l&#39;utilisateur.</p>
+<p>Le protocole d&#8217;actifs ouverts (ou Open Assets protocol) est un protocole simple et puissant construit au-dessus de la chaîne de blocs Bitcoin. Il permet l&#39;émission et le transfert d&#39;actifs créés par l&#39;utilisateur.</p>
 </dd>
 <dt class="hdlist1">OP_RETURN</dt>
 <dd>
 <p>Un opcode (ou code d&#8217;opération) utilisé dans l&#39;une des sorties d&#39;une transaction OP_RETURN. A ne pas confondre avec la transaction OP_RETURN.</p>
 </dd>
-<dt class="hdlist1">Transaction OP_RETURN </dt>
+<dt class="hdlist1">Transaction OP_RETURN</dt>
 <dd>
 <p>Un type de transaction qui ajoute des données arbitraires à un script pubkey prouvé que les nœuds complets n&#39;ont pas à stocker dans leur base de données UTXO. A ne pas confondre avec l&#39;opcode OP_RETURN.</p>
 </dd>
-<dt class="hdlist1">bloc orphelin </dt>
+<dt class="hdlist1">bloc orphelin</dt>
 <dd>
 <p>Les blocs dont le bloc parent n&#39;a pas été traité par le nœud local, ils ne peuvent donc pas encore être entièrement validés. À ne pas confondre avec le bloc obsolète.</p>
 </dd>
@@ -657,9 +657,9 @@ A ne pas confondre avec le consensus.</p>
 <dd>
 <p>Transactions qui ne peuvent pas entrer dans le bassin de mémoire (Mempool) en raison d&#39;une ou plusieurs transactions d&#39;entrée manquantes.</p>
 </dd>
-<dt class="hdlist1">extrant</dt>
+<dt class="hdlist1">extrant (ou output)</dt>
 <dd>
-<p>L&#8217;Output (le produit sorti ou l&#8217;extrant), la sortie de transaction ou TxOut est une sortie dans une transaction qui contient deux champs : un champ de valeur pour transférer zéro ou plusieurs satoshis et un script pubkey pour indiquer quelles conditions doivent être remplies pour que ces satoshis soient dépensés davantage.</p>
+<p>Le produit sorti ou l&#8217;extrant (ou output), la sortie de transaction ou TxOut est une sortie dans une transaction qui contient deux champs : un champ de valeur pour transférer zéro ou plusieurs satoshis et un script pubkey pour indiquer quelles conditions doivent être remplies pour que ces satoshis soient dépensés davantage.</p>
 </dd>
 <dt class="hdlist1">P2PKH</dt>
 <dd>
@@ -721,30 +721,23 @@ A ne pas confondre avec le consensus.</p>
 <dd>
 <p>Bitcoin utilise un système de script pour les transactions. Comme Forth, Script est simple, basé sur une pile et traité de gauche à droite. Il n&#39;est délibérément pas complet de Turing et sans boucles.</p>
 </dd>
-</dl>
-</div>
-<div class="paragraph data-line-212">
-<p>ScriptPubKey (alias script pubkey): :
-    ScriptPubKey ou script pubkey, est un script inclus dans les sorties qui définit les conditions qui doivent être remplies pour que ces satoshis soient dépensés. Les données permettant de remplir les conditions peuvent être fournies dans un script de signature.</p>
-</div>
-<div class="paragraph data-line-215">
-<p>ScriptSig (ou Script de signature): :
-    ScriptSig ou script de signature, sont les données générées par un dépensier qui sont presque toujours utilisées comme variables pour satisfaire un script pubkey.</p>
-</div>
-<div class="paragraph data-line-218">
-<p>clé secrète (ou clé privée): :
-	Le numéro secret qui déverrouille le bitcoin envoyé à l&#39;adresse correspondante.  <span class="keep-together">Une clé secrète</span>  ressemble à ceci :</p>
-</div>
-<div class="paragraph data-line-220">
-<p>+</p>
-</div>
+<dt class="hdlist1">ScriptPubKey (alias script pubkey)</dt>
+<dd>
+<p>ScriptPubKey ou script pubkey, est un script inclus dans les sorties qui définit les conditions qui doivent être remplies pour que ces satoshis soient dépensés. Les données permettant de remplir les conditions peuvent être fournies dans un script de signature.</p>
+</dd>
+<dt class="hdlist1">ScriptSig (ou Script de signature)</dt>
+<dd>
+<p>ScriptSig ou script de signature, sont les données générées par un dépensier qui sont presque toujours utilisées comme variables pour satisfaire un script pubkey.</p>
+</dd>
+<dt class="hdlist1">clé secrète (ou clé privée)</dt>
+<dd>
+<p>Le numéro secret qui déverrouille le bitcoin envoyé à l&#39;adresse correspondante. <span class="keep-together">Une clé secrète</span> ressemble à ceci :</p>
 <div class="listingblock data-line-221">
 <div class="content">
 <pre>5J76sF8L5jTtzE96r66Sf8cka9y44wdpJjMwCxR3tzLh3ibVPxh</pre>
 </div>
 </div>
-<div class="dlist data-line-225">
-<dl>
+</dd>
 <dt class="hdlist1">Témoin Séparé</dt>
 <dd>
 <p>Le témoin séparé est une mise à niveau du protocole Bitcoin dans laquelle les données de signature (&quot;témoin&quot;) sont séparées des données de l&#39;expéditeur/destinataire pour optimiser davantage la structure des transactions. Le témoin Séparé a été implémenté comme un embranchement convergent ; un changement qui rend techniquement les règles du protocole de bitcoin plus restrictives.</p>
@@ -753,27 +746,23 @@ A ne pas confondre avec le consensus.</p>
 <dd>
 <p>Le Secure Hash Algorithm ou SHA est une famille de fonctions de hachage cryptographiques publiées par le National Institute of Standards and Technology (NIST).</p>
 </dd>
-</dl>
-</div>
-<div class="paragraph data-line-231">
-<p>Simplified Payment Verification (SPV ou Vérification simplifiée des paiements): :
-    SPV ou vérification simplifiée des paiements est une méthode permettant de vérifier que des transactions particulières ont été incluses dans un bloc, sans télécharger le bloc entier. Cette méthode de vérification est souvent utilisée par les clients Bitcoin légers.</p>
-</div>
-<div class="dlist data-line-234">
-<dl>
-<dt class="hdlist1">embranchement convergent</dt>
+<dt class="hdlist1">vérification simplifiée des paiements (SPV ou Simplified Payment Verification)</dt>
+<dd>
+<p>La vérification simplifiée des paiements (SPV ou Simplified Payment Verification) est une méthode permettant de vérifier que des transactions particulières ont été incluses dans un bloc, sans télécharger le bloc entier. Cette méthode de vérification est souvent utilisée par les clients Bitcoin légers.</p>
+</dd>
+<dt class="hdlist1">embranchement convergent (ou soft fork)</dt>
 <dd>
 <p>L&#8217;embranchement convergent ou le Soft-Forking Change est un fourche temporaire dans la chaîne de blocs qui se produit généralement lorsque les mineurs utilisant des nœuds non mis à niveau ne suivent pas une nouvelle règle de consensus que leurs nœuds ne connaissent pas.
-À ne pas confondre avec fourche, fourche dure, fourche logicielle ou fourche de Git.</p>
+À ne pas confondre avec fourche, embranchement divergent (hard fork), fourche logicielle ou fourche de Git.</p>
 </dd>
 <dt class="hdlist1">bloc périmé</dt>
 <dd>
 <p>Un bloc valide qui a été extrait avec succès mais qui n&#39;est pas inclus dans la branche principale actuelle (avec la plupart des preuves de travail cumulatives), car un autre bloc valide qui a été extrait à la même hauteur a vu sa chaîne étendue en premier. Le mineur d&#39;un bloc périmé ne reçoit pas la récompense du bloc ni les frais de transaction de ce bloc.
 À ne pas confondre avec le bloc orphelin ou le bloc candidat.</p>
 </dd>
-<dt class="hdlist1">timelocks (ou serrures horaires)</dt>
+<dt class="hdlist1">verrou temporels (ou timelocks)</dt>
 <dd>
-<p>Un timelock (ou serrure horaire) est un type de contrainte qui limite la dépense de certains bitcoins jusqu&#39;à une heure future ou une hauteur de bloc spécifiée. Les timelocks figurent en bonne place dans de nombreux contrats bitcoin, y compris les canaux de paiement et les contrats de timelock hachés.</p>
+<p>Un verrou temporel (ou timelock) est un type de contrainte qui limite la dépense de certains bitcoins jusqu&#39;à une heure future ou une hauteur de bloc spécifiée. Les timelocks figurent en bonne place dans de nombreux contrats bitcoin, y compris les canaux de paiement et les contrats de timelock hachés.</p>
 </dd>
 <dt class="hdlist1">transaction</dt>
 <dd>
@@ -783,7 +772,7 @@ A ne pas confondre avec le consensus.</p>
 <dd>
 <p>Une collection non ordonnée de transactions qui ne sont pas en blocs dans la chaîne principale, mais pour lesquelles nous avons des transactions d&#39;entrée.</p>
 </dd>
-<dt class="hdlist1">Complétude de Turing</dt>
+<dt class="hdlist1">complétude de Turing</dt>
 <dd>
 <p>Un langage de programmation est appelé &quot;Turing complet&quot; s&#39;il peut exécuter n&#39;importe quel programme qu&#39;une machine de Turing peut exécuter, avec suffisamment de temps et de mémoire.</p>
 </dd>
@@ -795,9 +784,9 @@ A ne pas confondre avec le consensus.</p>
 <dd>
 <p>Logiciel qui contient toutes vos adresses Bitcoin et clés secrètes. Utilisez-le pour envoyer, recevoir et stocker vos bitcoins.</p>
 </dd>
-<dt class="hdlist1">Wallet Import Format (WIF ou Format d&#8217;importation de portefeuille)</dt>
+<dt class="hdlist1">format d&#8217;importation de portefeuille (WIF ou Wallet Import Format)</dt>
 <dd>
-<p>WIF ou Wallet Import Format (format d&#8217;importation de portefeuille) est un format d&#39;échange de données conçu pour permettre l&#39;exportation et l&#39;importation d&#39;une seule clé privée avec un indicateur indiquant s&#39;il utilise ou non une clé publique compressée.</p>
+<p>Le format d&#8217;importation de portefeuille (WIF ou Wallet Import Format) est un format d&#39;échange de données conçu pour permettre l&#39;exportation et l&#39;importation d&#39;une seule clé privée avec un indicateur indiquant s&#39;il utilise ou non une clé publique compressée.</p>
 </dd>
 </dl>
 </div>
@@ -809,7 +798,7 @@ A ne pas confondre avec le consensus.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-02 10:14:02 -0500
+Last updated 2022-03-18 13:03:43 -0400
 </div>
 </div>
 </body>
