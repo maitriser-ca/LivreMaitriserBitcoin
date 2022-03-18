@@ -3,7 +3,7 @@
 
 === Transactions, blocs, minage et la chaîne de blocs
 
-(((&quot;bitcoin&quot;, &quot;aperçu de&quot;, id=&quot;BCover02&quot;)))(((&quot;autorité centrale de confiance&quot;)))(((&quot;systèmes décentralisés&quot;, &quot;aperçu de bitcoin&quot;, id=&quot;DCSover02&quot;))) Le système Bitcoin, contrairement aux systèmes bancaires et de paiement traditionnels, est basé sur la confiance décentralisée. Au lieu d&#39;une autorité centrale de confiance, dans le bitcoin, la confiance est obtenue en tant que propriété émergente à partir des interactions des différents participants au système Bitcoin. Dans ce chapitre, nous examinerons le bitcoin d&#39;un niveau élevé en suivant une seule transaction via le système Bitcoin et en observant qu&#39;elle devient &quot;de confiance&quot; et acceptée par le mécanisme de consensus distribué bitcoin et est finalement enregistrée sur la chaîne de blocs, le grand livre distribué de toutes transactions. Les chapitres suivants approfondiront la technologie derrière les transactions, le réseau et l&#39;exploitation minière.
+(((&quot;bitcoin&quot;, &quot;aperçu de&quot;, id=&quot;BCover02&quot;)))(((&quot;autorité centrale de confiance&quot;)))(((&quot;systèmes décentralisés&quot;, &quot;aperçu de bitcoin&quot;, id=&quot;DCSover02&quot;)))Le système Bitcoin, contrairement aux systèmes bancaires et de paiement traditionnels, est basé sur la confiance décentralisée. Au lieu d&#39;une autorité centrale de confiance, dans le bitcoin, la confiance est obtenue en tant que propriété émergente à partir des interactions des différents participants au système Bitcoin. Dans ce chapitre, nous examinerons le bitcoin d&#39;un niveau élevé en suivant une seule transaction via le système Bitcoin et en observant qu&#39;elle devient &quot;de confiance&quot; et acceptée par le mécanisme de consensus distribué bitcoin et est finalement enregistrée sur la chaîne de blocs, le grand livre distribué de toutes transactions. Les chapitres suivants approfondiront la technologie derrière les transactions, le réseau et l&#39;exploitation minière.
 
 ==== Présentation de Bitcoin
 
@@ -40,7 +40,7 @@ Total:
 ----
 
 
-(((&quot;millibits&quot;))) Bob dit : &quot;C&#39;est un dollar cinquante, ou quinze millibits.&quot;
+(((&quot;millibits&quot;)))Bob dit : &quot;C&#39;est un dollar cinquante, ou quinze millibits.&quot;
 
 (((&quot;demandes de paiement&quot;)))(((&quot;codes QR&quot;, &quot;demandes de paiement&quot;)))Le système de point de vente de Bob créera également automatiquement un code QR spécial contenant une _demande de paiement_ (voir &lt;<payment-request-QR>&gt;).
 
@@ -53,7 +53,7 @@ image::images/mbc2_0202.png["payment-request"]
 
 [TIP]
 ====
-(((&quot;Codes QR&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;transactions&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;avertissements et mises en garde&quot;, &quot;éviter d&#39;envoyer de l&#39;argent aux adresses figurant dans le livre&quot; ))) Essayez de scanner ceci avec votre portefeuille pour voir l&#39;adresse et le montant, mais N&#39;ENVOYEZ PAS D&#39;ARGENT.
+(((&quot;Codes QR&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;transactions&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;avertissements et mises en garde&quot;, &quot;éviter d&#39;envoyer de l&#39;argent aux adresses figurant dans le livre&quot;)))Essayez de scanner ceci avec votre portefeuille pour voir l&#39;adresse et le montant, mais N&#39;ENVOYEZ PAS D&#39;ARGENT.
 ====
 [[payment-request-URL]]
 .Le QR code de demande de paiement encode l&#39;URL suivante, définie dans BIP-21 :
@@ -229,7 +229,7 @@ Si l&#39;application de portefeuille bitcoin de Bob est directement connectée �
 
 [TIP]
 ====
-(((&quot;confirmations&quot;, &quot;des transactions de petite valeur&quot;,secondary-sortas=&quot;transactions de petite valeur&quot;))) Une idée fausse courante à propos des transactions bitcoin est qu&#39;elles doivent être &quot;confirmées&quot; en attendant 10 minutes pour un nouveau bloc, ou jusqu&#39;à 60 minutes pour six confirmations complètes. Bien que les confirmations garantissent que la transaction a été acceptée par l&#39;ensemble du réseau, un tel délai n&#39;est pas nécessaire pour les articles de petite valeur comme une tasse de café. Un commerçant peut accepter une transaction valide de petite valeur sans confirmation, sans plus de risque qu&#39;un paiement par carte de crédit effectué sans pièce d&#39;identité ni signature, comme les commerçants l&#39;acceptent couramment aujourd&#39;hui.(((&quot;&quot;, startref=&quot;Tconstruct02&quot;)) )
+(((&quot;confirmations&quot;, &quot;des transactions de petite valeur&quot;,secondary-sortas=&quot;transactions de petite valeur&quot;)))Une idée fausse courante à propos des transactions bitcoin est qu&#39;elles doivent être &quot;confirmées&quot; en attendant 10 minutes pour un nouveau bloc, ou jusqu&#39;à 60 minutes pour six confirmations complètes. Bien que les confirmations garantissent que la transaction a été acceptée par l&#39;ensemble du réseau, un tel délai n&#39;est pas nécessaire pour les articles de petite valeur comme une tasse de café. Un commerçant peut accepter une transaction valide de petite valeur sans confirmation, sans plus de risque qu&#39;un paiement par carte de crédit effectué sans pièce d&#39;identité ni signature, comme les commerçants l&#39;acceptent couramment aujourd&#39;hui.(((&quot;&quot;, startref=&quot;Tconstruct02&quot;)) )
 ====
 
 === Extraction de bitcoins

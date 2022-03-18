@@ -71,7 +71,7 @@ Si vous pensez que votre utilisation d&#39;exemples de code ne respecte pas l&#3
 
 === Adresses et transactions Bitcoin dans ce livre
 
-(((&quot;pour commencer&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;avertissements et mises en garde&quot;, &quot;éviter d&#39;envoyer de l&#39;argent aux adresses figurant dans le livre&quot;)))(((&quot;clés et adresses&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;transactions&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;applications chaîne de blocs&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;codes QR&quot;, &quot;avertissements et mises en garde&quot;) ))Les adresses Bitcoin, les transactions, les clés, les codes QR et les données de chaîne de blocs utilisées dans ce livre sont, pour la plupart, réelles. Cela signifie que vous pouvez parcourir la chaîne de blocs, regarder les transactions proposées en exemple, les récupérer avec vos propres scripts ou programmes, etc.
+(((&quot;pour commencer&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;avertissements et mises en garde&quot;, &quot;éviter d&#39;envoyer de l&#39;argent aux adresses figurant dans le livre&quot;)))(((&quot;clés et adresses&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;transactions&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;applications chaîne de blocs&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;codes QR&quot;, &quot;avertissements et mises en garde&quot;)))Les adresses Bitcoin, les transactions, les clés, les codes QR et les données de chaîne de blocs utilisées dans ce livre sont, pour la plupart, réelles. Cela signifie que vous pouvez parcourir la chaîne de blocs, regarder les transactions proposées en exemple, les récupérer avec vos propres scripts ou programmes, etc.
 
 Cependant, notez que les clés privées utilisées pour construire les adresses sont soit imprimées dans ce livre, soit ont été &quot;radiées&quot;. Cela signifie que si vous envoyez de l&#39;argent à l&#39;une de ces adresses, l&#39;argent sera perdu pour toujours ou, dans certains cas, tous ceux qui peuvent lire ce livre peuvent le prendre en utilisant les clés privées imprimées dans celui-ci.
 
@@ -109,7 +109,7 @@ Pour plus d&#39;informations, rendez-vous sur pass:[<a href="https://oreilly.com
 
 Pour commenter ou poser des questions techniques sur ce livre, envoyez un courriel à l&#39;adresse suivante pass:[<a class="email" href="mailto:bookquestions@oreilly.com"><em>bookquestions@oreilly.com</em></a>].
 
-Pour plus d&#39;informations sur nos livres, cours, conférences et actualités, consultez notre site Web au lien : $$https://www.oreilly.com$$[].
+Pour plus d&#39;informations sur nos livres, cours, conférences et actualités, consultez notre site Web au link:$$https://www.oreilly.com$$[].
 
 Retrouvez-nous sur Facebook : link:$$https://facebook.com/oreilly$$[]
 

@@ -1,5 +1,5 @@
 <section data-type="dedication" class="praise">
-<h1>Praise for <em>Maîtriser Bitcoin</em></h1>
+<h1>Éloge pour <em>Mastering Bitcoin</em></h1>
 <blockquote>
   <p>Quand je parle de bitcoin au grand public, on me demande parfois &quot;mais comment ça marche vraiment ?&quot; J&#39;ai maintenant une excellente réponse à cette question, car quiconque lit <em>Maîtriser Bitcoin</em> aura une compréhension approfondie de son fonctionnement et sera bien équipé pour écrire la prochaine génération d&#39;incroyables applications de cryptomonnaie.</p>
   <p data-type="attribution">Gavin Andresen, scientifique en chef de la Fondation Bitcoin</p>

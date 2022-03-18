@@ -4,5 +4,5 @@ Traduire le contenu suivant les variables
 ////
 :author: Andreas M. Antonopoulos
 :book_title: Maîtriser Bitcoin Seconde Édition Ouverte
-:subtitle: Programmer sur la chaîne de blocs ouverte
+:subtitle: Programmer la chaîne de blocs publique
 :publisher: aantonop Books LLC

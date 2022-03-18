@@ -17,7 +17,7 @@ include::for_use_mastering-bitcoin_chapter-5_fr_CA.asciidoc[]
 include::for_use_mastering-bitcoin_chapter-6_fr_CA.asciidoc[]
 
 include::for_use_mastering-bitcoin_chapter-7_fr_CA.asciidoc[]
-////
+
 include::for_use_mastering-bitcoin_chapter-8_fr_CA.asciidoc[]
 
 include::for_use_mastering-bitcoin_chapter-9_fr_CA.asciidoc[]
@@ -28,20 +28,18 @@ include::for_use_mastering-bitcoin_chapter-11_fr_CA.asciidoc[]
 
 include::for_use_mastering-bitcoin_chapter-12_fr_CA.asciidoc[]
 
-include::appdx-bitcoinwhitepaper.asciidoc[]
+include::for_use_mastering-bitcoin_appdx-bitcoinwhitepapertxt_fr_CA.asciidoc[]
 
-include::appdx-scriptops.asciidoc[]
-////
-include::appdx-bips.asciidoc[]
-////
-include::appdx-segwit.asciidoc[]
+include::for_use_mastering-bitcoin_appendix-script-ops_fr_CA.asciidoc[]
 
-include::appdx-bitcore.asciidoc[]
+include::for_use_mastering-bitcoin_appendix-bips_fr_CA.asciidoc[]
 
-include::appdx-pycoin.asciidoc[]
+include::for_use_mastering-bitcoin_appdx-bitcoretxt_fr_CA.asciidoc[]
 
-include::appdx-bx.asciidoc[]
+include::for_use_mastering-bitcoin_appendix-pycoin_fr_CA.asciidoc[]
 
-include::index.asciidoc[]
-////
-include::colo.asciidoc[]
+include::for_use_mastering-bitcoin_appendix-bx_fr_CA.asciidoc[]
+
+include::index.html[]
+
+include::for_use_mastering-bitcoin_colohtml_fr_CA.html[]

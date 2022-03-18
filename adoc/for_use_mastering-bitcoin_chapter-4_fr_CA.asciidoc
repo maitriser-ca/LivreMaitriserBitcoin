@@ -58,7 +58,7 @@ La clé privée bitcoin n&#39;est qu&#39;un nombre. Vous pouvez choisir vos clé
 
 ===== Générer une clé privée à partir d&#39;un nombre aléatoire
 
-La première et la plus importante étape de la génération de clés consiste à trouver une source sécurisée d&#39;entropie ou de caractère aléatoire. La création d&#39;une clé bitcoin est essentiellement la même que &quot;Choisissez un nombre entre 1 et 2 ^ 256 ^&quot;. La méthode exacte que vous utilisez pour choisir ce nombre n&#39;a pas d&#39;importance tant qu&#39;elle n&#39;est pas prévisible ou reproductible. Le logiciel Bitcoin utilise les générateurs de nombres aléatoires du système d&#39;exploitation sous-jacent pour produire 256 bits d&#39;entropie (aléatoire). Habituellement, le générateur de nombres aléatoires du système d&#39;exploitation est initialisé par une source humaine d&#39;aléatoire, c&#39;est pourquoi il peut vous être demandé de remuer votre souris pendant quelques secondes.
+La première et la plus importante étape de la génération de clés consiste à trouver une source sécurisée d&#39;entropie ou de caractère aléatoire. La création d&#39;une clé bitcoin est essentiellement la même que &quot;Choisissez un nombre entre 1 et 2^256^&quot;. La méthode exacte que vous utilisez pour choisir ce nombre n&#39;a pas d&#39;importance tant qu&#39;elle n&#39;est pas prévisible ou reproductible. Le logiciel Bitcoin utilise les générateurs de nombres aléatoires du système d&#39;exploitation sous-jacent pour produire 256 bits d&#39;entropie (aléatoire). Habituellement, le générateur de nombres aléatoires du système d&#39;exploitation est initialisé par une source humaine d&#39;aléatoire, c&#39;est pourquoi il peut vous être demandé de remuer votre souris pendant quelques secondes.
 
 Plus précisément, la clé privée peut être n&#39;importe quel nombre compris entre +0+ et +n - 1+ inclus, où n est une constante (n = 1,1578 * 10^77^, légèrement inférieure à 2^256^) définie comme l&#39;ordre de la courbe elliptique utilisée dans le bitcoin (voir &lt;<elliptic_curve>&gt;). Pour créer une telle clé, nous choisissons au hasard un nombre de 256 bits et vérifions qu&#39;il est inférieur à +n+. En termes de programmation, cela est généralement réalisé en alimentant une plus grande chaîne de bits aléatoires, collectés à partir d&#39;une source aléatoire sécurisée par cryptographie, dans l&#39;algorithme de hachage SHA256, qui produira commodément un nombre de 256 bits. Si le résultat est inférieur à +n+, nous avons une clé privée appropriée. Sinon, nous réessayons simplement avec un autre nombre aléatoire.
 
@@ -76,7 +76,7 @@ Ce qui suit est une clé privée générée aléatoirement (k) affichée au form
 
 [TIP]
 ====
-La taille de l&#39;espace de clé privée de bitcoin, (2 ^ 256^) est un nombre insondable. Il est d&#39;environ 10^77^ en décimal. À titre de comparaison, on estime que l&#39;univers visible contient 10^80^ atomes.
+La taille de l&#39;espace de clé privée de bitcoin, (2^256^) est un nombre insondable. Il est d&#39;environ 10^77^ en décimal. À titre de comparaison, on estime que l&#39;univers visible contient 10^80^ atomes.
 ====
 
 (((&quot;commande dumpprivkey&quot;)))Pour générer une nouvelle clé avec le client Bitcoin Core (voir &lt;<ch03_bitcoin_client>&gt;), utilisez la commande +getnewaddress+. Pour des raisons de sécurité, il affiche uniquement l&#39;adresse, pas la clé privée. Pour demander à +bitcoind+ d&#39;exposer la clé privée, utilisez la commande +dumpprivkey+. La commande +dumpprivkey+ affiche la clé privée dans un format de somme de contrôle Base58 appelé _Wallet Import Format_ (WIF ou format d'importation de portefeuille), que nous examinerons plus en détail dans &lt;<priv_formats>&gt;. Voici un exemple de génération et d&#39;affichage d&#39;une clé privée à l&#39;aide de ces deux commandes :
@@ -143,7 +143,7 @@ ou
 \end{equation}
 ++++
 
-Le _mod p_ (modulo nombre premier p) indique que cette courbe est sur un corps fini d&#39;ordre premier _p_, également écrit comme latexmath :[\( \mathbb{F}_p \)], où p = 2^256^ – 2 ^32^ – 2^9^ – 2^8^ – 2^7^ – 2^6^ – 2^4^ – 1, un très grand nombre premier.
+Le _mod p_ (modulo nombre premier p) indique que cette courbe est sur un corps fini d&#39;ordre premier _p_, également écrit comme latexmath:[\( \mathbb{F}_p \)], où p = 2^256^ – 2 ^32^ – 2^9^ – 2^8^ – 2^7^ – 2^6^ – 2^4^ – 1, un très grand nombre premier.
 
 Parce que cette courbe est définie sur un champ fini d&#39;ordre premier au lieu de sur les nombres réels, elle ressemble à un motif de points dispersés en deux dimensions, ce qui la rend difficile à visualiser. Cependant, le calcul est identique à celui d&#39;une courbe elliptique sur des nombres réels. A titre d&#39;exemple, &lt;<ecc-over-F17-math>&gt; montre la même courbe elliptique sur un champ fini beaucoup plus petit d&#39;ordre premier 17, montrant un motif de points sur une grille. La courbe elliptique du bitcoin +secp256k1+ peut être considérée comme un motif beaucoup plus complexe de points sur une grille insondable.
 
@@ -282,10 +282,10 @@ image::images/mbc2_0405.png["pubkey_to_address"]
 [[base58]]
 ==== Encodage Base58 et Base58Check
 
-(((&quot;clés et adresses&quot;, &quot;adresses Bitcoin&quot;, &quot;encodage Base58 et Base58check&quot;)))(((&quot;Encodage Base58 et Base58check&quot;, id=&quot;base5804&quot;)))(((&quot;adresses&quot;, &quot;encodage Base58 et Base58check&quot;, id=&quot;Abase5804&quot;))) Afin de représenter les nombres longs de manière compacte, en utilisant moins de symboles, de nombreux systèmes informatiques utilisent des représentations alphanumériques mixtes avec une base supérieure à 10. Par exemple, alors que le système décimal traditionnel utilise les 10 chiffres de 0 à 9, le système hexadécimal utilise 16, avec les lettres A à F comme six symboles supplémentaires. Un nombre représenté au format hexadécimal est plus court que la représentation décimale équivalente. Encore plus compacte, la représentation Base64 utilise 26 lettres minuscules, 26 lettres majuscules, 10 chiffres et 2 caractères supplémentaires tels que &quot;`+`&quot; et &quot;/&quot; pour transmettre des données binaires sur des supports textuels tels que le courrier électronique. Base64 est le plus couramment utilisé pour ajouter des pièces jointes binaires aux e-mails. Base58 est un format de codage binaire basé sur du texte développé pour être utilisé dans le bitcoin et utilisé dans de nombreuses autres cryptomonnaies. Il offre un équilibre entre représentation compacte, lisibilité et détection et prévention des erreurs. Base58 est un sous-ensemble de Base64, utilisant des lettres et des chiffres majuscules et minuscules, mais omettant certains caractères qui sont fréquemment confondus et qui peuvent apparaître identiques lorsqu&#39;ils sont affichés dans certaines polices. Plus précisément, Base58 est Base64 sans le 0 (chiffre zéro), O (o majuscule), l (L inférieur), I (i majuscule) et les symboles &quot;`+`&quot; et &quot;/&quot;. Ou, plus simplement, c&#39;est un ensemble de lettres minuscules et majuscules et de chiffres sans les quatre (0, O, l, I) que nous venons de mentionner. &lt;<base58alphabet>&gt; affiche l&#39;alphabet Base58 complet.
+(((&quot;clés et adresses&quot;, &quot;adresses Bitcoin&quot;, &quot;encodage Base58 et Base58check&quot;)))(((&quot;Encodage Base58 et Base58check&quot;, id=&quot;base5804&quot;)))(((&quot;adresses&quot;, &quot;encodage Base58 et Base58check&quot;, id=&quot;Abase5804&quot;)))Afin de représenter les nombres longs de manière compacte, en utilisant moins de symboles, de nombreux systèmes informatiques utilisent des représentations alphanumériques mixtes avec une base supérieure à 10. Par exemple, alors que le système décimal traditionnel utilise les 10 chiffres de 0 à 9, le système hexadécimal utilise 16, avec les lettres A à F comme six symboles supplémentaires. Un nombre représenté au format hexadécimal est plus court que la représentation décimale équivalente. Encore plus compacte, la représentation Base64 utilise 26 lettres minuscules, 26 lettres majuscules, 10 chiffres et 2 caractères supplémentaires tels que &quot;`+`&quot; et &quot;/&quot; pour transmettre des données binaires sur des supports textuels tels que le courrier électronique. Base64 est le plus couramment utilisé pour ajouter des pièces jointes binaires aux e-mails. Base58 est un format de codage binaire basé sur du texte développé pour être utilisé dans le bitcoin et utilisé dans de nombreuses autres cryptomonnaies. Il offre un équilibre entre représentation compacte, lisibilité et détection et prévention des erreurs. Base58 est un sous-ensemble de Base64, utilisant des lettres et des chiffres majuscules et minuscules, mais omettant certains caractères qui sont fréquemment confondus et qui peuvent apparaître identiques lorsqu&#39;ils sont affichés dans certaines polices. Plus précisément, Base58 est Base64 sans le 0 (chiffre zéro), O (o majuscule), l (L inférieur), I (i majuscule) et les symboles &quot;`+`&quot; et &quot;/&quot;. Ou, plus simplement, c&#39;est un ensemble de lettres minuscules et majuscules et de chiffres sans les quatre (0, O, l, I) que nous venons de mentionner. &lt;<base58alphabet>&gt; affiche l&#39;alphabet Base58 complet.
 
 [[base58alphabet]]
-Alphabet Base58 de .Bitcoin
+.Alphabet Base58 de Bitcoin
 ====
 ----
 123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz
@@ -308,7 +308,8 @@ somme de contrôle (checksum) = SHA256(SHA256(préfixe+données))
 Le résultat est composé de trois éléments : un préfixe, les données et une somme de contrôle. Ce résultat est encodé en utilisant l&#39;alphabet Base58 décrit précédemment. &lt;<base58check_encoding>&gt; illustre le processus d&#39;encodage Base58Check.
 
 [[base58check_encoding]]
-Encodage .Base58Check : un format Base58, versionné et à somme de contrôle pour encoder sans ambiguïté les données bitcoin
+.Encodage Base58Check : un format Base58, versionné et à somme de contrôle pour encoder sans ambiguïté les données bitcoin
+
 image::images/mbc2_0406.png["Base58CheckEncoding"]
 
 En bitcoin, la plupart des données présentées à l&#39;utilisateur sont encodées en Base58Check pour les rendre compactes, faciles à lire et faciles à détecter les erreurs. Le préfixe de version dans l&#39;encodage Base58Check est utilisé pour créer des formats faciles à distinguer qui, lorsqu&#39;ils sont encodés en Base58, contiennent des caractères spécifiques au début de la charge utile encodée en Base58Check. Ces caractères permettent aux humains d&#39;identifier facilement le type de données codées et comment les utiliser. C&#39;est ce qui différencie, par exemple, une adresse Bitcoin encodée en Base58Check qui commence par un 1 d&#39;une clé privée WIF encodée en Base58Check qui commence par un 5. Quelques exemples de préfixes de version et les caractères Base58 résultants sont affichés dans &lt;<base58check_versions>&gt;.
@@ -435,19 +436,17 @@ y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB
 
 Voici la même clé publique affichée sous la forme d&#39;un nombre de 520 bits (130 chiffres hexadécimaux) avec le préfixe +04+ suivi de +x+ puis des coordonnées +y+, sous la forme +04 x y+ :
 
-++++
-<pre data-type="programlisting">
+----
 K = 04F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A&#x21b5;
 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB
-</pre>
-++++
+----
 
 [[comp_pub]]
 ===== Clés publiques compressées
 
 (((&quot;clés publiques et privées&quot;, &quot;clés publiques compressées&quot;)))Des clés publiques compressées ont été introduites dans le bitcoin pour réduire la taille des transactions et économiser de l&#39;espace disque sur les nœuds qui stockent la base de données de la blockchain Bitcoin. La plupart des transactions incluent la clé publique, qui est nécessaire pour valider les informations d&#39;identification du propriétaire et dépenser le bitcoin. Chaque clé publique nécessite 520 bits (préfixe + x + y), ce qui, multiplié par plusieurs centaines de transactions par bloc, soit des dizaines de milliers de transactions par jour, ajoute une quantité importante de données à la chaîne de blocs.
 
-Comme nous l&#39;avons vu dans la section &lt;<pubkey>&gt;, une clé publique est un point (x,y) sur une courbe elliptique. Parce que la courbe exprime une fonction mathématique, un point sur la courbe représente une solution à l&#39;équation et, par conséquent, si nous connaissons la coordonnée _x_, nous pouvons calculer la coordonnée _y_ en résolvant l&#39;équation y ^ 2 ^ mod p = (x ^ 3 ^ + 7) mod p. Cela nous permet de stocker uniquement la coordonnée _x_ du point de clé publique, en omettant la coordonnée _y_ et en réduisant la taille de la clé et l&#39;espace requis pour la stocker de 256 bits. Une réduction de près de 50 % de la taille de chaque transaction représente une grande quantité de données enregistrées au fil du temps !
+Comme nous l&#39;avons vu dans la section &lt;<pubkey>&gt;, une clé publique est un point (x,y) sur une courbe elliptique. Parce que la courbe exprime une fonction mathématique, un point sur la courbe représente une solution à l&#39;équation et, par conséquent, si nous connaissons la coordonnée _x_, nous pouvons calculer la coordonnée _y_ en résolvant l&#39;équation y^2^ mod p = (x^3^ + 7) mod p. Cela nous permet de stocker uniquement la coordonnée _x_ du point de clé publique, en omettant la coordonnée _y_ et en réduisant la taille de la clé et l&#39;espace requis pour la stocker de 256 bits. Une réduction de près de 50 % de la taille de chaque transaction représente une grande quantité de données enregistrées au fil du temps !
 
 Alors que les clés publiques non compressées ont un préfixe de +04+, les clés publiques compressées commencent par un préfixe +02+ ou +03+. Regardons pourquoi il y a deux préfixes possibles : parce que le côté gauche de l&#39;équation est __y__^2^, la solution pour _y_ est une racine carrée, qui peut avoir une valeur positive ou négative. Visuellement, cela signifie que la coordonnée _y_ résultante peut être au-dessus ou au-dessous de l&#39;axe des x. Comme vous pouvez le voir sur le graphique de la courbe elliptique en &lt;<ecc-curve>&gt;, la courbe est symétrique, c&#39;est-à-dire qu&#39;elle est réfléchie comme par un miroir à l&#39;axe des abscisses. Ainsi, bien que nous puissions omettre la coordonnée _y_, nous devons stocker le _signe_ de _y_ (positif ou négatif) ; ou en d&#39;autres termes, nous devons nous rappeler si c&#39;était au-dessus ou au-dessous de l&#39;axe des x parce que chacune de ces options représente un point différent et une clé publique différente. Lors du calcul de la courbe elliptique en arithmétique binaire sur le corps fini d&#39;ordre premier p, la coordonnée _y_ est paire ou impaire, ce qui correspond au signe positif/négatif comme expliqué précédemment. Ainsi, pour distinguer les deux valeurs possibles de _y_, on stocke une clé publique compressée avec le préfixe +02+ si le _y_ est pair, et +03+ s&#39;il est impair, permettant au logiciel de déduire correctement la coordonnée _y_ de la coordonnée _x_ et de décompresser la clé publique aux coordonnées complètes du point. La compression de clé publique est illustrée dans &lt;<pubkey_compression>&gt;.
 
@@ -551,8 +550,8 @@ include::code/key-to-address-ecc-example.py[]
 [[key-to-address_script_run]]
 .Exécution de key-to-address-ecc-example.py
 ====
-++++
-<pre data-type="programlisting">
+
+----
 $ python key-to-address-ecc-example.py
 Private Key (hex) is:
  3aba4162c7251c891207b747840551a71939b0de081f85c4e44cf7c13e41daa6
@@ -577,7 +576,7 @@ Bitcoin Address (b58check) is:
 Compressed Bitcoin Address (b58check) is:
  14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
 </pre>
-++++
+----
 ====
 
 
