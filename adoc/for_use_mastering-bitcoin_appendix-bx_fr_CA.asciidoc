@@ -1,7 +1,7 @@
 [[appdx_bx]]
 [appendix]
 
-== Commandes de l&#39;explorateur Bitcoin (bx)
+== Commandes de l'explorateur Bitcoin (bx)
 
 (((&quot;Commandes &quot;Bitcoin Explorer (bx)&quot;, id=&quot;BX18_1&quot;, range=&quot;startofrange&quot;)))Bitcoin Explorer (bx) est un outil en ligne de commande qui offre une variété de commandes pour la gestion des clés et la construction de transactions. Il fait partie de la bibliothèque Bitcoin libbitcoin.
 
@@ -85,13 +85,13 @@ wrap-decode
 wrap-encode
 ----
 
-Pour plus d&#39;informations, consultez la https://github.com/libbitcoin/libbitcoin-explorer[page d'accueil Bitcoin Explorer] et https://github.com/libbitcoin/libbitcoin-explorer/wiki[guide d'usage Bitcoin Explorer].
+Pour plus d'informations, consultez la https://github.com/libbitcoin/libbitcoin-explorer[page d'accueil Bitcoin Explorer] et https://github.com/libbitcoin/libbitcoin-explorer/wiki[guide d'usage Bitcoin Explorer].
 
-=== Exemples d&#39;utilisation de la commande bx
+=== Exemples d'utilisation de la commande bx
 
-Regardons quelques exemples d&#39;utilisation des commandes Bitcoin Explorer pour expérimenter avec des clés et des adresses.
+Regardons quelques exemples d'utilisation des commandes Bitcoin Explorer pour expérimenter avec des clés et des adresses.
 
-Générez une &quot;valeur d'amorçage&quot; aléatoire à l&#39;aide de la commande +seed+, qui utilise le générateur de nombres aléatoires du système d&#39;exploitation. Transmettez la valeur à la commande +ec-new+ pour générer une nouvelle clé privée. Nous sauvegardons la sortie standard dans le fichier _private_key_ :
+Générez une &quot;valeur d'amorçage&quot; aléatoire à l'aide de la commande +seed+, qui utilise le générateur de nombres aléatoires du système d'exploitation. Transmettez la valeur à la commande +ec-new+ pour générer une nouvelle clé privée. Nous sauvegardons la sortie standard dans le fichier _private_key_ :
 
 ----
 $ bx seed | bx ec-new > private_key
@@ -99,7 +99,7 @@ $ cat private_key
 73096ed11ab9f1db6135857958ece7d73ea7c30862145bcc4bbc7649075de474
 ----
 
-Maintenant, générez la clé publique à partir de cette clé privée à l&#39;aide de la commande +ec-to-public+. Nous passons le fichier _private_key_ dans l&#39;entrée standard et enregistrons la sortie standard de la commande dans un nouveau fichier _public_key_ :
+Maintenant, générez la clé publique à partir de cette clé privée à l'aide de la commande +ec-to-public+. Nous passons le fichier _private_key_ dans l'entrée standard et enregistrons la sortie standard de la commande dans un nouveau fichier _public_key_ :
 
 ----
 $ bx ec-to-public < private_key > public_key
@@ -107,16 +107,16 @@ $ cat public_key
 02fca46a6006a62dfdd2dbb2149359d0d97a04f430f12a7626dd409256c12be500
 ----
 
-Nous pouvons reformater la +public_key+ en tant qu&#39;adresse à l&#39;aide de la commande +ec-to-address+. Nous passons le fichier _public_key_ dans l&#39;entrée standard :
+Nous pouvons reformater la +public_key+ en tant qu'adresse à l'aide de la commande +ec-to-address+. Nous passons le fichier _public_key_ dans l'entrée standard :
 
 ----
 $ bx ec-to-address < public_key
 17re1S4Q8ZHyCP8Kw7xQad1Lr6XUzWUnkG
 ----
 
-Les clés générées de cette manière produisent un portefeuille non déterministe de type 0. Cela signifie que chaque clé est générée à partir d&#39;une valeur d'amorçage indépendante. Les commandes de Bitcoin Explorer peuvent également générer des clés de manière déterministe, conformément au BIP-32. Dans ce cas, une clé &quot;maître&quot; est créée à partir d&#39;une valeur d'amorçage, puis étendue de manière déterministe pour produire un arbre de sous-clés, résultant en un portefeuille déterministe de type 2.
+Les clés générées de cette manière produisent un portefeuille non déterministe de type 0. Cela signifie que chaque clé est générée à partir d'une valeur d'amorçage indépendante. Les commandes de Bitcoin Explorer peuvent également générer des clés de manière déterministe, conformément au BIP-32. Dans ce cas, une clé &quot;maître&quot; est créée à partir d'une valeur d'amorçage, puis étendue de manière déterministe pour produire un arbre de sous-clés, résultant en un portefeuille déterministe de type 2.
 
-Tout d&#39;abord, nous utilisons les commandes +seed+ et +hd-new+ pour générer une clé principale qui servira de base pour dériver une hiérarchie de clés :
+Tout d'abord, nous utilisons les commandes +seed+ et +hd-new+ pour générer une clé principale qui servira de base pour dériver une hiérarchie de clés :
 
 ----
 $ bx seed > seed
@@ -152,7 +152,7 @@ $ bx hd-public --index 1 < account
 xpub6BH1zcTuktiFx6CzhPbGjG3UYQ13WR16CmtbPiagEKpEVtpyjshWyMaMV1cn7nUPUkgQHPVXJVqsrA8xWbGQDhohEcDFTEYMvYzwRD7Juf8
 ----
 
-Les clés publiques peuvent également être dérivées de leurs clés privées correspondantes à l&#39;aide de la commande +hd-to-public+ :
+Les clés publiques peuvent également être dérivées de leurs clés privées correspondantes à l'aide de la commande +hd-to-public+ :
 
 ----
 $ bx hd-private --index 0 < account | bx hd-to-public
@@ -162,20 +162,20 @@ $ bx hd-private --index 1 < account | bx hd-to-public
 xpub6BH1zcTuktiFx6CzhPbGjG3UYQ13WR16CmtbPiagEKpEVtpyjshWyMaMV1cn7nUPUkgQHPVXJVqsrA8xWbGQDhohEcDFTEYMvYzwRD7Juf8
 ----
 
-Nous pouvons générer un nombre pratiquement illimité de clés dans une chaîne déterministe, toutes dérivées d&#39;une seule valeur d'amorçage. Cette technique est utilisée dans de nombreuses applications de portefeuille pour générer des clés qui peuvent être sauvegardées et restaurées avec une seule valeur de départ. C&#39;est plus facile que d&#39;avoir à sauvegarder le portefeuille avec toutes ses clés générées de manière aléatoire à chaque fois qu&#39;une nouvelle clé est créée.
+Nous pouvons générer un nombre pratiquement illimité de clés dans une chaîne déterministe, toutes dérivées d'une seule valeur d'amorçage. Cette technique est utilisée dans de nombreuses applications de portefeuille pour générer des clés qui peuvent être sauvegardées et restaurées avec une seule valeur de départ. C'est plus facile que d'avoir à sauvegarder le portefeuille avec toutes ses clés générées de manière aléatoire à chaque fois qu'une nouvelle clé est créée.
 
-La valeur d'amorçage peut être encodée à l&#39;aide de la commande +mnemonic-encode+ :
+La valeur d'amorçage peut être encodée à l'aide de la commande +mnemonic-encode+ :
 
 ----
 $ bx hd-mnemonic < seed > words
 adore repeat vision worst especially veil inch woman cast recall dwell appreciate
 ----
 
-La valeur d'amorçage peut ensuite être décodée à l&#39;aide de la commande +mnemonic-decode+ :
+La valeur d'amorçage peut ensuite être décodée à l'aide de la commande +mnemonic-decode+ :
 
 ----
 $ bx mnemonic-decode < words
 eb68ee9f3df6bd4441a9feadec179ff1
 ----
 
-L&#39;encodage mnémonique peut faciliter l&#39;enregistrement et même la mémorisation de la valeur d'amorçage.(((range=&quot;endofrange&quot;, startref=&quot;BX18_1&quot;)))
+L'encodage mnémonique peut faciliter l'enregistrement et même la mémorisation de la valeur d'amorçage.(((range=&quot;endofrange&quot;, startref=&quot;BX18_1&quot;)))

@@ -16,11 +16,11 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 | Symbole | Valeur (hex) | La description
 | OP_0 ou OP_FALSE | 0x00 | Un tableau vide est poussé sur la pile
 | 1 à 75 | 0x01 à 0x4b | Poussez les N octets suivants sur la pile, où N est compris entre 1 et 75 octets
-| OP_PUSHDATA1 | 0x4c | L&#39;octet de script suivant contient N, poussez les N octets suivants sur la pile
+| OP_PUSHDATA1 | 0x4c | L'octet de script suivant contient N, poussez les N octets suivants sur la pile
 | OP_PUSHDATA2 | 0x4d | Les deux octets de script suivants contiennent N, poussez les N octets suivants sur la pile
 | OP_PUSHDATA4 | 0x4e | Les quatre octets de script suivants contiennent N, poussez les N octets suivants sur la pile
 | OP_1NEGATE | 0x4f | Poussez la valeur &quot;–1&quot; sur la pile
-| OP_RESERVED | 0x50 | Halt - Transaction non valide à moins qu&#39;elle ne se trouve dans une clause OP_IF non exécutée
+| OP_RESERVED | 0x50 | Interruption - Transaction non valide à moins qu'elle ne se trouve dans une clause OP_IF non exécutée
 | OP_1 ou OP_TRUE | 0x51 | Poussez la valeur &quot;1&quot; sur la pile
 | OP_2 à OP_16 | 0x52 à 0x60 | Pour OP_N, poussez la valeur &quot;N&quot; sur la pile, par exemple, OP_2 pousse &quot;2&quot;
 |=======
@@ -34,14 +34,14 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 |=======
 | Symbole | Valeur (hex) | La description
 | OP_NOP | 0x61 | Ne fais rien
-| OP_VER | 0x62 | Interrompt la transaction non valide à moins qu&#39;elle ne se trouve dans une clause OP_IF non exécutée
-| OP_IF | 0x63 | Exécute les instructions suivantes si le haut de la pile n&#39;est pas 0
+| OP_VER | 0x62 | Interrompt la transaction non valide à moins qu'elle ne se trouve dans une clause OP_IF non exécutée
+| OP_IF | 0x63 | Exécute les instructions suivantes si le haut de la pile n'est pas 0
 | OP_NOTIF | 0x64 | Exécute les instructions suivantes si le haut de la pile est 0
 | OP_VERIF | 0x65 | Interrompt la transaction invalide
 | OP_VERNOTIF | 0x66 | Interrompt la transaction invalide
-| OP_ELSE | 0x67 | Exécuter uniquement si les instructions précédentes n&#39;ont pas été exécutées
+| OP_ELSE | 0x67 | Exécuter uniquement si les instructions précédentes n'ont pas été exécutées
 | OP_ENDIF | 0x68 | Terminer le bloc OP_IF, OP_NOTIF, OP_ELSE
-| OP_VERIFY | 0x69 | Vérifie le haut de la pile, arrête et invalide la transaction si elle n&#39;est pas VRAIE
+| OP_VERIFY | 0x69 | Vérifie le haut de la pile, arrête et invalide la transaction si elle n'est pas VRAIE
 | OP_RETURN | 0x6a | Arrête et invalide la transaction
 |=======
 
@@ -52,8 +52,8 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 [options="header"]
 |=======
 | Symbole | Valeur (hex) | La description
-| OP_CHECKLOCKTIMEVERIFY (précédemment OP_NOP2) | 0xb1 | Marque la transaction comme non valide si l&#39;élément supérieur de la pile est supérieur au champ nLockTime de la transaction, sinon l&#39;évaluation du script continue comme si un OP_NOP avait été exécuté. La transaction est également invalide si 1. la pile est vide ; ou 2. l&#39;élément de la pile supérieure est négatif ; ou 3. l&#39;élément de la pile supérieure est supérieur ou égal à 500000000 alors que le champ nLockTime de la transaction est inférieur à 500000000, ou vice versa ; ou 4. le champ nSequence de l&#39;entrée est égal à 0xffffffff. La sémantique précise est décrite dans la BIP-65 
-| OP_CHECKSEQUENCEVERIFY (précédemment OP_NOP3) | 0xb2 | Marque la transaction comme non valide si le temps de verrouillage relatif de l&#39;entrée (appliqué par BIP 0068 avec nSequence) n&#39;est pas égal ou supérieur à la valeur de l&#39;élément de la pile supérieure. La sémantique précise est décrite dans BIP-112|
+| OP_CHECKLOCKTIMEVERIFY (précédemment OP_NOP2) | 0xb1 | Marque la transaction comme non valide si l'élément supérieur de la pile est supérieur au champ nLockTime de la transaction, sinon l'évaluation du script continue comme si un OP_NOP avait été exécuté. La transaction est également invalide si 1. la pile est vide ; ou 2. l'élément de la pile supérieure est négatif ; ou 3. l'élément de la pile supérieure est supérieur ou égal à 500000000 alors que le champ nLockTime de la transaction est inférieur à 500000000, ou vice versa ; ou 4. le champ nSequence de l'entrée est égal à 0xffffffff. La sémantique précise est décrite dans la BIP-65 
+| OP_CHECKSEQUENCEVERIFY (précédemment OP_NOP3) | 0xb2 | Marque la transaction comme non valide si le temps de verrouillage relatif de l'entrée (appliqué par BIP 0068 avec nSequence) n'est pas égal ou supérieur à la valeur de l'élément de la pile supérieure. La sémantique précise est décrite dans BIP-112|
 |=======
 
 &lt;<tx_script_ops_table_stack>&gt; montre les opérateurs utilisés pour manipuler la pile.
@@ -63,31 +63,31 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 [options="header"]
 |=======
 | Symbole | Valeur (hex) | La description
-| OP_TOALTSTACK | 0x6b | Extrait l&#39;élément supérieur de la pile et le pousse vers une autre pile
-| OP_FROMALTSTACK | 0x6c | Extrait l&#39;élément supérieur de la pile alternative et le pousse pour empiler
+| OP_TOALTSTACK | 0x6b | Extrait l'élément supérieur de la pile et le pousse vers une autre pile
+| OP_FROMALTSTACK | 0x6c | Extrait l'élément supérieur de la pile alternative et le pousse pour empiler
 | OP_2DROP | 0x6d | Extrait top deux éléments de la pile
 | OP_2DUP | 0x6e | Dupliquer les deux éléments du haut de la pile
 | OP_3DUP | 0x6f | Dupliquer les trois premiers éléments de la pile
 | OP_2OVER | 0x70 | Copie les troisième et quatrième éléments de la pile vers le haut
 | OP_2ROT | 0x71 | Déplace les cinquième et sixième éléments de la pile vers le haut
-| OP_2SWAP | 0x72 | Échange les deux paires d&#39;objets dans la pile
-| OP_IFDUP | 0x73 | Duplique l&#39;élément du haut de la pile s&#39;il n&#39;est pas 0
+| OP_2SWAP | 0x72 | Échange les deux paires d'objets dans la pile
+| OP_IFDUP | 0x73 | Duplique l'élément du haut de la pile s'il n'est pas 0
 | OP_DEPTH | 0x74 | Compte les éléments sur la pile et pousse le décompte résultant
-| OP_DROP | 0x75 | Extrait l&#39;élément du haut de la pile
-| OP_DUP | 0x76 | Duplique l&#39;élément supérieur de la pile
+| OP_DROP | 0x75 | Extrait l'élément du haut de la pile
+| OP_DUP | 0x76 | Duplique l'élément supérieur de la pile
 | OP_NIP | 0x77 | Extrait le deuxième élément de la pile
 | OP_OVER | 0x78 | Copie le deuxième élément de la pile et le pousse vers le haut
 | OP_PICK | 0x79 | Extrait la valeur N du haut, puis copie le Nième élément en haut de la pile
 | OP_ROLL | 0x7a | Extrait la valeur N du haut, puis déplacer le Nième élément vers le haut de la pile
 | OP_ROT | 0x7b | Alterne les trois premiers éléments de la pile
 | OP_SWAP | 0x7c | Échange les deux premiers éléments de la pile
-| OP_TUCK | 0x7d | Copie l&#39;élément supérieur et l'insère entre l&#39;élément supérieur et le deuxième élément
+| OP_TUCK | 0x7d | Copie l'élément supérieur et l'insère entre l'élément supérieur et le deuxième élément
 |=======
 
 &lt;<tx_script_ops_table_splice>&gt; affiche les opérateurs de chaîne.
 
 [[tx_script_ops_table_splice]]
-.Opérations d&#39;épissure de chaînes de caractère
+.Opérations d'épissure de chaînes de caractère
 [options="header"]
 |=======
 | Symbole | Valeur (hex) | La description
@@ -95,7 +95,7 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 | _OP_SUBSTR_ | 0x7f | Désactivé (renvoie la sous-chaîne)
 | _OP_LEFT_ | 0x80 | Désactivé (renvoie la sous-chaîne gauche)
 | _OP_RIGHT_ | 0x81 | Désactivé (renvoie la sous-chaîne droite)
-| OP_SIZE | 0x82 | Calculer la longueur de la chaîne de l&#39;élément supérieur et pousser le résultat 
+| OP_SIZE | 0x82 | Calculer la longueur de la chaîne de l'élément supérieur et pousser le résultat 
 |=======
 
 &lt;<tx_script_ops_table_binmath>&gt; affiche les opérateurs logiques arithmétiques et booléens binaires.
@@ -105,14 +105,14 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 [options="header"]
 |=======
 | Symbole | Valeur (hex) | La description
-| _OP_INVERT_ | 0x83 | Désactivé (Inverser les bits de l&#39;élément supérieur)
+| _OP_INVERT_ | 0x83 | Désactivé (Inverser les bits de l'élément supérieur)
 | _OP_AND_ | 0x84 | Désactivé (booléen ET des deux premiers éléments)
 | _OP_OR_ | 0x85 | Désactivé (OU booléen des deux éléments supérieurs)
 | _OP_XOR_ | 0x86 | Désactivé (XOR booléen des deux principaux éléments)
 | OP_EQUAL | 0x87 | Pousse TRUE (1) si les deux premiers éléments sont exactement égaux, pousse FALSE (0) sinon
-| OP_EQUALVERIFY | 0x88 | Identique à OP_EQUAL, mais exécute OP_VERIFY après pour arrêter si ce n&#39;est pas TRUE
-| OP_RESERVED1 | 0x89 | Interruption - Transaction non valide à moins qu&#39;elle ne se trouve dans une clause OP_IF non exécutée
-| OP_RESERVED2 | 0x8a | Interruption - Transaction non valide à moins qu&#39;elle ne se trouve dans une clause OP_IF non exécutée
+| OP_EQUALVERIFY | 0x88 | Identique à OP_EQUAL, mais exécute OP_VERIFY après pour arrêter si ce n'est pas TRUE
+| OP_RESERVED1 | 0x89 | Interruption - Transaction non valide à moins qu'elle ne se trouve dans une clause OP_IF non exécutée
+| OP_RESERVED2 | 0x8a | Interruption - Transaction non valide à moins qu'elle ne se trouve dans une clause OP_IF non exécutée
 |=======
 
 [role="pagebreak-before"]
@@ -123,14 +123,14 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 [options="header"]
 |=======
 | Symbole | Valeur (hex) | La description
-| OP_1ADD | 0x8b | Ajouter 1 à l&#39;élément au dessus de la pile   
-| OP_1SUB | 0x8c | Soustraire 1 de l&#39;élément au dessus de la pile
-| _OP_2MUL_ | 0x8d | Désactivé (multiplier l&#39;élément au dessus de la pile par 2)
-| _OP_2DIV_ | 0x8e | Désactivé (diviser l&#39;élément au dessus de la pile par 2)
-| OP_NEGATE | 0x8f | Inverse le signe de l&#39;élément au dessus de la pile
-| OP_ABS | 0x90 | Change le signe de l&#39;élément au dessus de la pile en positif
-| OP_NOT | 0x91 | Retourne l'élément du dessus si l&#39;élément est 0 ou 1 booléen, sinon retourne 0
-| OP_0NOTEQUAL | 0x92 | Si l&#39;élément supérieur est 0, renvoie 0, sinon renvoie 1
+| OP_1ADD | 0x8b | Ajouter 1 à l'élément au dessus de la pile   
+| OP_1SUB | 0x8c | Soustraire 1 de l'élément au dessus de la pile
+| _OP_2MUL_ | 0x8d | Désactivé (multiplier l'élément au dessus de la pile par 2)
+| _OP_2DIV_ | 0x8e | Désactivé (diviser l'élément au dessus de la pile par 2)
+| OP_NEGATE | 0x8f | Inverse le signe de l'élément au dessus de la pile
+| OP_ABS | 0x90 | Change le signe de l'élément au dessus de la pile en positif
+| OP_NOT | 0x91 | Retourne l'élément du dessus si l'élément est 0 ou 1 booléen, sinon retourne 0
+| OP_0NOTEQUAL | 0x92 | Si l'élément supérieur est 0, renvoie 0, sinon renvoie 1
 | OP_ADD | 0x93 | Sort les deux éléments au dessus de la pile, les additionnes et pousse le résultat
 | OP_SUB | 0x94 | Sort les deux éléments au dessus de la pile, soustrait le premier du second et pousse le résultat
 | _OP_MUL_ | 0x95 | Désactivé (multiplie les deux premiers éléments)
@@ -141,12 +141,12 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 | OP_BOLAND | 0x9a | ET booléen des deux premiers éléments
 | OP_BOOLOR | 0x9b | OU booléen des deux premiers éléments
 | OP_NUMEQUAL | 0x9c | Renvoie TRUE si les deux premiers éléments sont des nombres égaux
-| OP_NUMEQUALVERIFY | 0x9d | Identique à NUMEQUAL, puis OP_VERIFY pour arrêter si ce n&#39;est pas TRUE
+| OP_NUMEQUALVERIFY | 0x9d | Identique à NUMEQUAL, puis OP_VERIFY pour arrêter si ce n'est pas TRUE
 | OP_NUMNOTEQUAL | 0x9e | Renvoie TRUE si les deux premiers éléments ne sont pas des nombres égaux
-| OP_LESSTHAN | 0x9f | Renvoie TRUE si le deuxième élément est inférieur à l&#39;élément supérieur
-| OP_GREATERTHAN | 0xa0 | Renvoie TRUE si le deuxième élément est supérieur à l&#39;élément supérieur
-| OP_LESSTHANOREQUAL | 0xa1 | Renvoie TRUE si le deuxième élément est inférieur ou égal à l&#39;élément supérieur
-| OP_GREATERTHANOREQUAL | 0xa2 | Renvoie TRUE si le deuxième élément est supérieur ou égal à l&#39;élément supérieur
+| OP_LESSTHAN | 0x9f | Renvoie TRUE si le deuxième élément est inférieur à l'élément supérieur
+| OP_GREATERTHAN | 0xa0 | Renvoie TRUE si le deuxième élément est supérieur à l'élément supérieur
+| OP_LESSTHANOREQUAL | 0xa1 | Renvoie TRUE si le deuxième élément est inférieur ou égal à l'élément supérieur
+| OP_GREATERTHANOREQUAL | 0xa2 | Renvoie TRUE si le deuxième élément est supérieur ou égal à l'élément supérieur
 | OP_MIN | 0xa3 | Renvoie le plus petit des deux premiers éléments 
 | OP_MAX | 0xa4 | Renvoie le plus grand des deux premiers éléments
 | OP_WITHIN | 0xa5 | Renvoie TRUE si le troisième élément est compris entre le deuxième élément (ou égal) et le premier élément
@@ -160,16 +160,16 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 [options="header"]
 |=======
 | Symbole | Valeur (hex) | La description
-| OP_RIPEMD160 | 0xa6 | Renvoye le hachage RIPEMD160 de l&#39;élément supérieur
-| OP_SHA1 | 0xa7 | Renvoie le hachage SHA1 de l&#39;élément supérieur
-| OP_SHA256 | 0xa8 | Renvoie le hachage SHA256 de l&#39;élément supérieur
-| OP_HASH160 | 0xa9 | Renvoie le hachage RIPEMD160(SHA256(x)) de l&#39;élément supérieur
-| OP_HASH256 | 0xaa | Renvoie le hachage SHA256(SHA256(x)) de l&#39;élément supérieur
+| OP_RIPEMD160 | 0xa6 | Renvoye le hachage RIPEMD160 de l'élément supérieur
+| OP_SHA1 | 0xa7 | Renvoie le hachage SHA1 de l'élément supérieur
+| OP_SHA256 | 0xa8 | Renvoie le hachage SHA256 de l'élément supérieur
+| OP_HASH160 | 0xa9 | Renvoie le hachage RIPEMD160(SHA256(x)) de l'élément supérieur
+| OP_HASH256 | 0xaa | Renvoie le hachage SHA256(SHA256(x)) de l'élément supérieur
 | OP_CODESEPARATOR | 0xab | Marque le début des données vérifiées par signature
 | OP_CHECKSIG | 0xac | Sort une clé publique et une signature et valide la signature pour les données hachées de la transaction, renvoie TRUE si cela correspond
-| OP_CHECKSIGNVERIFY | 0xad | Identique à CHECKSIG, puis OP_VERIFY pour arrêter si ce n&#39;est pas TRUE
+| OP_CHECKSIGNVERIFY | 0xad | Identique à CHECKSIG, puis OP_VERIFY pour arrêter si ce n'est pas TRUE
 | OP_CHECKMULTISIG | 0xae | Exécute CHECKSIG pour chaque paire de signature et de clé publique fournie. Tous doivent correspondre. Un bogue dans la mise en œuvre affiche une valeur supplémentaire, préfixée par OP_0 comme solution de contournement
-| OP_CHECKMULTISIGVERIFY | 0xaf | Identique à CHECKMULTISIG, puis OP_VERIFY pour arrêter si ce n&#39;est pas TRUE
+| OP_CHECKMULTISIGVERIFY | 0xaf | Identique à CHECKMULTISIG, puis OP_VERIFY pour arrêter si ce n'est pas TRUE
 |=======
 
 &lt;<tx_script_ops_table_nop>&gt; affiche les symboles non opérateur.
@@ -183,10 +183,10 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 |=======
 
 
-&lt;<tx_script_ops_table_internal>&gt; affiche les codes opérateur réservés à l&#39;analyseur de script interne.(((&quot;&quot;, startref=&quot;TRlang14&quot;)))(((&quot;&quot;, startref=&quot;SCRlang14&quot;)))
+&lt;<tx_script_ops_table_internal>&gt; affiche les codes opérateur réservés à l'analyseur de script interne.(((&quot;&quot;, startref=&quot;TRlang14&quot;)))(((&quot;&quot;, startref=&quot;SCRlang14&quot;)))
 
 [[tx_script_ops_table_internal]]
-.Codes OP réservés à un usage interne par l&#39;analyseur
+.Codes OP réservés à un usage interne par l'analyseur
 [options="header"]
 |=======
 | Symbole | Valeur (hex) | La description

@@ -488,7 +488,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_PUSHDATA1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x4c</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L&#39;octet de script suivant contient N, poussez les N octets suivants sur la pile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L&#8217;octet de script suivant contient N, poussez les N octets suivants sur la pile</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_PUSHDATA2</p></td>
@@ -508,7 +508,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_RESERVED</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x50</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Halt - Transaction non valide à moins qu&#39;elle ne se trouve dans une clause OP_IF non exécutée</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interruption - Transaction non valide à moins qu&#8217;elle ne se trouve dans une clause OP_IF non exécutée</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_1 ou OP_TRUE</p></td>
@@ -548,12 +548,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_VER</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x62</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Interrompt la transaction non valide à moins qu&#39;elle ne se trouve dans une clause OP_IF non exécutée</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interrompt la transaction non valide à moins qu&#8217;elle ne se trouve dans une clause OP_IF non exécutée</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_IF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x63</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Exécute les instructions suivantes si le haut de la pile n&#39;est pas 0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exécute les instructions suivantes si le haut de la pile n&#8217;est pas 0</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_NOTIF</p></td>
@@ -573,7 +573,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_ELSE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x67</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Exécuter uniquement si les instructions précédentes n&#39;ont pas été exécutées</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exécuter uniquement si les instructions précédentes n&#8217;ont pas été exécutées</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_ENDIF</p></td>
@@ -583,7 +583,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_VERIFY</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x69</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vérifie le haut de la pile, arrête et invalide la transaction si elle n&#39;est pas VRAIE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vérifie le haut de la pile, arrête et invalide la transaction si elle n&#8217;est pas VRAIE</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_RETURN</p></td>
@@ -613,12 +613,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_CHECKLOCKTIMEVERIFY (précédemment OP_NOP2)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0xb1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Marque la transaction comme non valide si l&#39;élément supérieur de la pile est supérieur au champ nLockTime de la transaction, sinon l&#39;évaluation du script continue comme si un OP_NOP avait été exécuté. La transaction est également invalide si 1. la pile est vide ; ou 2. l&#39;élément de la pile supérieure est négatif ; ou 3. l&#39;élément de la pile supérieure est supérieur ou égal à 500000000 alors que le champ nLockTime de la transaction est inférieur à 500000000, ou vice versa ; ou 4. le champ nSequence de l&#39;entrée est égal à 0xffffffff. La sémantique précise est décrite dans la BIP-65</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Marque la transaction comme non valide si l&#8217;élément supérieur de la pile est supérieur au champ nLockTime de la transaction, sinon l&#8217;évaluation du script continue comme si un OP_NOP avait été exécuté. La transaction est également invalide si 1. la pile est vide ; ou 2. l&#8217;élément de la pile supérieure est négatif ; ou 3. l&#8217;élément de la pile supérieure est supérieur ou égal à 500000000 alors que le champ nLockTime de la transaction est inférieur à 500000000, ou vice versa ; ou 4. le champ nSequence de l&#8217;entrée est égal à 0xffffffff. La sémantique précise est décrite dans la BIP-65</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_CHECKSEQUENCEVERIFY (précédemment OP_NOP3)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0xb2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Marque la transaction comme non valide si le temps de verrouillage relatif de l&#39;entrée (appliqué par BIP 0068 avec nSequence) n&#39;est pas égal ou supérieur à la valeur de l&#39;élément de la pile supérieure. La sémantique précise est décrite dans BIP-112</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Marque la transaction comme non valide si le temps de verrouillage relatif de l&#8217;entrée (appliqué par BIP 0068 avec nSequence) n&#8217;est pas égal ou supérieur à la valeur de l&#8217;élément de la pile supérieure. La sémantique précise est décrite dans BIP-112</p></td>
 </tr>
 </tbody>
 </table>
@@ -643,12 +643,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_TOALTSTACK</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x6b</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Extrait l&#39;élément supérieur de la pile et le pousse vers une autre pile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extrait l&#8217;élément supérieur de la pile et le pousse vers une autre pile</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_FROMALTSTACK</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x6c</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Extrait l&#39;élément supérieur de la pile alternative et le pousse pour empiler</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extrait l&#8217;élément supérieur de la pile alternative et le pousse pour empiler</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_2DROP</p></td>
@@ -678,12 +678,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_2SWAP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x72</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Échange les deux paires d&#39;objets dans la pile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Échange les deux paires d&#8217;objets dans la pile</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_IFDUP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x73</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Duplique l&#39;élément du haut de la pile s&#39;il n&#39;est pas 0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duplique l&#8217;élément du haut de la pile s&#8217;il n&#8217;est pas 0</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_DEPTH</p></td>
@@ -693,12 +693,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_DROP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x75</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Extrait l&#39;élément du haut de la pile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extrait l&#8217;élément du haut de la pile</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_DUP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x76</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Duplique l&#39;élément supérieur de la pile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duplique l&#8217;élément supérieur de la pile</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_NIP</p></td>
@@ -733,15 +733,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_TUCK</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x7d</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Copie l&#39;élément supérieur et l&#8217;insère entre l&#39;élément supérieur et le deuxième élément</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Copie l&#8217;élément supérieur et l&#8217;insère entre l&#8217;élément supérieur et le deuxième élément</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph data-line-87">
-<p><a href="#tx_script_ops_table_splice">Opérations d&#39;épissure de chaînes de caractère</a> affiche les opérateurs de chaîne.</p>
+<p><a href="#tx_script_ops_table_splice">Opérations d&#8217;épissure de chaînes de caractère</a> affiche les opérateurs de chaîne.</p>
 </div>
 <table id="tx_script_ops_table_splice" class="tableblock frame-all grid-all stretch data-line-92">
-<caption class="title">Table 5. Opérations d&#39;épissure de chaînes de caractère</caption>
+<caption class="title">Table 5. Opérations d&#8217;épissure de chaînes de caractère</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -778,7 +778,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_SIZE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x82</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Calculer la longueur de la chaîne de l&#39;élément supérieur et pousser le résultat</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Calculer la longueur de la chaîne de l&#8217;élément supérieur et pousser le résultat</p></td>
 </tr>
 </tbody>
 </table>
@@ -803,7 +803,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>OP_INVERT</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x83</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Désactivé (Inverser les bits de l&#39;élément supérieur)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Désactivé (Inverser les bits de l&#8217;élément supérieur)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>OP_AND</em></p></td>
@@ -828,17 +828,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_EQUALVERIFY</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x88</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Identique à OP_EQUAL, mais exécute OP_VERIFY après pour arrêter si ce n&#39;est pas TRUE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identique à OP_EQUAL, mais exécute OP_VERIFY après pour arrêter si ce n&#8217;est pas TRUE</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_RESERVED1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x89</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Interruption - Transaction non valide à moins qu&#39;elle ne se trouve dans une clause OP_IF non exécutée</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interruption - Transaction non valide à moins qu&#8217;elle ne se trouve dans une clause OP_IF non exécutée</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_RESERVED2</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x8a</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Interruption - Transaction non valide à moins qu&#39;elle ne se trouve dans une clause OP_IF non exécutée</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interruption - Transaction non valide à moins qu&#8217;elle ne se trouve dans une clause OP_IF non exécutée</p></td>
 </tr>
 </tbody>
 </table>
@@ -863,42 +863,42 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_1ADD</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x8b</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ajouter 1 à l&#39;élément au dessus de la pile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ajouter 1 à l&#8217;élément au dessus de la pile</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_1SUB</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x8c</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Soustraire 1 de l&#39;élément au dessus de la pile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Soustraire 1 de l&#8217;élément au dessus de la pile</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>OP_2MUL</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x8d</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Désactivé (multiplier l&#39;élément au dessus de la pile par 2)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Désactivé (multiplier l&#8217;élément au dessus de la pile par 2)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>OP_2DIV</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x8e</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Désactivé (diviser l&#39;élément au dessus de la pile par 2)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Désactivé (diviser l&#8217;élément au dessus de la pile par 2)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_NEGATE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x8f</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Inverse le signe de l&#39;élément au dessus de la pile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inverse le signe de l&#8217;élément au dessus de la pile</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_ABS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x90</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Change le signe de l&#39;élément au dessus de la pile en positif</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Change le signe de l&#8217;élément au dessus de la pile en positif</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_NOT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x91</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Retourne l&#8217;élément du dessus si l&#39;élément est 0 ou 1 booléen, sinon retourne 0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retourne l&#8217;élément du dessus si l&#8217;élément est 0 ou 1 booléen, sinon retourne 0</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_0NOTEQUAL</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x92</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Si l&#39;élément supérieur est 0, renvoie 0, sinon renvoie 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Si l&#8217;élément supérieur est 0, renvoie 0, sinon renvoie 1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_ADD</p></td>
@@ -953,7 +953,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_NUMEQUALVERIFY</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x9d</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Identique à NUMEQUAL, puis OP_VERIFY pour arrêter si ce n&#39;est pas TRUE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identique à NUMEQUAL, puis OP_VERIFY pour arrêter si ce n&#8217;est pas TRUE</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_NUMNOTEQUAL</p></td>
@@ -963,22 +963,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_LESSTHAN</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0x9f</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie TRUE si le deuxième élément est inférieur à l&#39;élément supérieur</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie TRUE si le deuxième élément est inférieur à l&#8217;élément supérieur</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_GREATERTHAN</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0xa0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie TRUE si le deuxième élément est supérieur à l&#39;élément supérieur</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie TRUE si le deuxième élément est supérieur à l&#8217;élément supérieur</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_LESSTHANOREQUAL</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0xa1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie TRUE si le deuxième élément est inférieur ou égal à l&#39;élément supérieur</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie TRUE si le deuxième élément est inférieur ou égal à l&#8217;élément supérieur</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_GREATERTHANOREQUAL</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0xa2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie TRUE si le deuxième élément est supérieur ou égal à l&#39;élément supérieur</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie TRUE si le deuxième élément est supérieur ou égal à l&#8217;élément supérieur</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_MIN</p></td>
@@ -1018,27 +1018,27 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_RIPEMD160</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0xa6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoye le hachage RIPEMD160 de l&#39;élément supérieur</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoye le hachage RIPEMD160 de l&#8217;élément supérieur</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_SHA1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0xa7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie le hachage SHA1 de l&#39;élément supérieur</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie le hachage SHA1 de l&#8217;élément supérieur</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_SHA256</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0xa8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie le hachage SHA256 de l&#39;élément supérieur</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie le hachage SHA256 de l&#8217;élément supérieur</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_HASH160</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0xa9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie le hachage RIPEMD160(SHA256(x)) de l&#39;élément supérieur</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie le hachage RIPEMD160(SHA256(x)) de l&#8217;élément supérieur</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_HASH256</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0xaa</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie le hachage SHA256(SHA256(x)) de l&#39;élément supérieur</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Renvoie le hachage SHA256(SHA256(x)) de l&#8217;élément supérieur</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_CODESEPARATOR</p></td>
@@ -1053,7 +1053,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_CHECKSIGNVERIFY</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0xad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Identique à CHECKSIG, puis OP_VERIFY pour arrêter si ce n&#39;est pas TRUE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identique à CHECKSIG, puis OP_VERIFY pour arrêter si ce n&#8217;est pas TRUE</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_CHECKMULTISIG</p></td>
@@ -1063,7 +1063,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OP_CHECKMULTISIGVERIFY</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0xaf</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Identique à CHECKMULTISIG, puis OP_VERIFY pour arrêter si ce n&#39;est pas TRUE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identique à CHECKMULTISIG, puis OP_VERIFY pour arrêter si ce n&#8217;est pas TRUE</p></td>
 </tr>
 </tbody>
 </table>
@@ -1093,10 +1093,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <div class="paragraph data-line-186">
-<p><a href="#tx_script_ops_table_internal">Codes OP réservés à un usage interne par l&#39;analyseur</a> affiche les codes opérateur réservés à l&#39;analyseur de script interne.</p>
+<p><a href="#tx_script_ops_table_internal">Codes OP réservés à un usage interne par l&#8217;analyseur</a> affiche les codes opérateur réservés à l&#8217;analyseur de script interne.</p>
 </div>
 <table id="tx_script_ops_table_internal" class="tableblock frame-all grid-all stretch data-line-191">
-<caption class="title">Table 10. Codes OP réservés à un usage interne par l&#39;analyseur</caption>
+<caption class="title">Table 10. Codes OP réservés à un usage interne par l&#8217;analyseur</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1147,7 +1147,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-17 09:18:49 -0400
+Last updated 2022-03-21 09:19:48 -0400
 </div>
 </div>
 </body>

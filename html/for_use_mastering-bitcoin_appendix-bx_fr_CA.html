@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
-<title>Commandes de l&#39;explorateur Bitcoin (bx)</title>
+<title>Commandes de l&#8217;explorateur Bitcoin (bx)</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -441,7 +441,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1 data-line-4">
-<h2 id="appdx_bx">Appendix A: Commandes de l&#39;explorateur Bitcoin (bx)</h2>
+<h2 id="appdx_bx">Appendix A: Commandes de l&#8217;explorateur Bitcoin (bx)</h2>
 <div class="sectionbody">
 <div class="paragraph data-line-6">
 <p>Bitcoin Explorer (bx) est un outil en ligne de commande qui offre une variété de commandes pour la gestion des clés et la construction de transactions. Il fait partie de la bibliothèque Bitcoin libbitcoin.</p>
@@ -528,15 +528,15 @@ wrap-encode</pre>
 </div>
 </div>
 <div class="paragraph data-line-88">
-<p>Pour plus d&#39;informations, consultez la <a href="https://github.com/libbitcoin/libbitcoin-explorer" data-href="https://github.com/libbitcoin/libbitcoin-explorer">page d&#8217;accueil Bitcoin Explorer</a> et <a href="https://github.com/libbitcoin/libbitcoin-explorer/wiki" data-href="https://github.com/libbitcoin/libbitcoin-explorer/wiki">guide d&#8217;usage Bitcoin Explorer</a>.</p>
+<p>Pour plus d&#8217;informations, consultez la <a href="https://github.com/libbitcoin/libbitcoin-explorer" data-href="https://github.com/libbitcoin/libbitcoin-explorer">page d&#8217;accueil Bitcoin Explorer</a> et <a href="https://github.com/libbitcoin/libbitcoin-explorer/wiki" data-href="https://github.com/libbitcoin/libbitcoin-explorer/wiki">guide d&#8217;usage Bitcoin Explorer</a>.</p>
 </div>
 <div class="sect2 data-line-90">
-<h3 id="_exemples_dutilisation_de_la_commande_bx">Exemples d&#39;utilisation de la commande bx</h3>
+<h3 id="_exemples_dutilisation_de_la_commande_bx">Exemples d&#8217;utilisation de la commande bx</h3>
 <div class="paragraph data-line-92">
-<p>Regardons quelques exemples d&#39;utilisation des commandes Bitcoin Explorer pour expérimenter avec des clés et des adresses.</p>
+<p>Regardons quelques exemples d&#8217;utilisation des commandes Bitcoin Explorer pour expérimenter avec des clés et des adresses.</p>
 </div>
 <div class="paragraph data-line-94">
-<p>Générez une &quot;valeur d&#8217;amorçage&quot; aléatoire à l&#39;aide de la commande seed, qui utilise le générateur de nombres aléatoires du système d&#39;exploitation. Transmettez la valeur à la commande ec-new pour générer une nouvelle clé privée. Nous sauvegardons la sortie standard dans le fichier <em>private_key</em> :</p>
+<p>Générez une &quot;valeur d&#8217;amorçage&quot; aléatoire à l&#8217;aide de la commande seed, qui utilise le générateur de nombres aléatoires du système d&#8217;exploitation. Transmettez la valeur à la commande ec-new pour générer une nouvelle clé privée. Nous sauvegardons la sortie standard dans le fichier <em>private_key</em> :</p>
 </div>
 <div class="listingblock data-line-96">
 <div class="content">
@@ -546,7 +546,7 @@ $ cat private_key
 </div>
 </div>
 <div class="paragraph data-line-102">
-<p>Maintenant, générez la clé publique à partir de cette clé privée à l&#39;aide de la commande ec-to-public. Nous passons le fichier <em>private_key</em> dans l&#39;entrée standard et enregistrons la sortie standard de la commande dans un nouveau fichier <em>public_key</em> :</p>
+<p>Maintenant, générez la clé publique à partir de cette clé privée à l&#8217;aide de la commande ec-to-public. Nous passons le fichier <em>private_key</em> dans l&#8217;entrée standard et enregistrons la sortie standard de la commande dans un nouveau fichier <em>public_key</em> :</p>
 </div>
 <div class="listingblock data-line-104">
 <div class="content">
@@ -556,7 +556,7 @@ $ cat public_key
 </div>
 </div>
 <div class="paragraph data-line-110">
-<p>Nous pouvons reformater la public_key en tant qu&#39;adresse à l&#39;aide de la commande ec-to-address. Nous passons le fichier <em>public_key</em> dans l&#39;entrée standard :</p>
+<p>Nous pouvons reformater la public_key en tant qu&#8217;adresse à l&#8217;aide de la commande ec-to-address. Nous passons le fichier <em>public_key</em> dans l&#8217;entrée standard :</p>
 </div>
 <div class="listingblock data-line-112">
 <div class="content">
@@ -565,10 +565,10 @@ $ cat public_key
 </div>
 </div>
 <div class="paragraph data-line-117">
-<p>Les clés générées de cette manière produisent un portefeuille non déterministe de type 0. Cela signifie que chaque clé est générée à partir d&#39;une valeur d&#8217;amorçage indépendante. Les commandes de Bitcoin Explorer peuvent également générer des clés de manière déterministe, conformément au BIP-32. Dans ce cas, une clé &quot;maître&quot; est créée à partir d&#39;une valeur d&#8217;amorçage, puis étendue de manière déterministe pour produire un arbre de sous-clés, résultant en un portefeuille déterministe de type 2.</p>
+<p>Les clés générées de cette manière produisent un portefeuille non déterministe de type 0. Cela signifie que chaque clé est générée à partir d&#8217;une valeur d&#8217;amorçage indépendante. Les commandes de Bitcoin Explorer peuvent également générer des clés de manière déterministe, conformément au BIP-32. Dans ce cas, une clé &quot;maître&quot; est créée à partir d&#8217;une valeur d&#8217;amorçage, puis étendue de manière déterministe pour produire un arbre de sous-clés, résultant en un portefeuille déterministe de type 2.</p>
 </div>
 <div class="paragraph data-line-119">
-<p>Tout d&#39;abord, nous utilisons les commandes seed et hd-new pour générer une clé principale qui servira de base pour dériver une hiérarchie de clés :</p>
+<p>Tout d&#8217;abord, nous utilisons les commandes seed et hd-new pour générer une clé principale qui servira de base pour dériver une hiérarchie de clés :</p>
 </div>
 <div class="listingblock data-line-121">
 <div class="content">
@@ -610,7 +610,7 @@ xpub6BH1zcTuktiFx6CzhPbGjG3UYQ13WR16CmtbPiagEKpEVtpyjshWyMaMV1cn7nUPUkgQHPVXJVqs
 </div>
 </div>
 <div class="paragraph data-line-155">
-<p>Les clés publiques peuvent également être dérivées de leurs clés privées correspondantes à l&#39;aide de la commande hd-to-public :</p>
+<p>Les clés publiques peuvent également être dérivées de leurs clés privées correspondantes à l&#8217;aide de la commande hd-to-public :</p>
 </div>
 <div class="listingblock data-line-157">
 <div class="content">
@@ -622,10 +622,10 @@ xpub6BH1zcTuktiFx6CzhPbGjG3UYQ13WR16CmtbPiagEKpEVtpyjshWyMaMV1cn7nUPUkgQHPVXJVqs
 </div>
 </div>
 <div class="paragraph data-line-165">
-<p>Nous pouvons générer un nombre pratiquement illimité de clés dans une chaîne déterministe, toutes dérivées d&#39;une seule valeur d&#8217;amorçage. Cette technique est utilisée dans de nombreuses applications de portefeuille pour générer des clés qui peuvent être sauvegardées et restaurées avec une seule valeur de départ. C&#39;est plus facile que d&#39;avoir à sauvegarder le portefeuille avec toutes ses clés générées de manière aléatoire à chaque fois qu&#39;une nouvelle clé est créée.</p>
+<p>Nous pouvons générer un nombre pratiquement illimité de clés dans une chaîne déterministe, toutes dérivées d&#8217;une seule valeur d&#8217;amorçage. Cette technique est utilisée dans de nombreuses applications de portefeuille pour générer des clés qui peuvent être sauvegardées et restaurées avec une seule valeur de départ. C&#8217;est plus facile que d&#8217;avoir à sauvegarder le portefeuille avec toutes ses clés générées de manière aléatoire à chaque fois qu&#8217;une nouvelle clé est créée.</p>
 </div>
 <div class="paragraph data-line-167">
-<p>La valeur d&#8217;amorçage peut être encodée à l&#39;aide de la commande mnemonic-encode :</p>
+<p>La valeur d&#8217;amorçage peut être encodée à l&#8217;aide de la commande mnemonic-encode :</p>
 </div>
 <div class="listingblock data-line-169">
 <div class="content">
@@ -634,7 +634,7 @@ adore repeat vision worst especially veil inch woman cast recall dwell appreciat
 </div>
 </div>
 <div class="paragraph data-line-174">
-<p>La valeur d&#8217;amorçage peut ensuite être décodée à l&#39;aide de la commande mnemonic-decode :</p>
+<p>La valeur d&#8217;amorçage peut ensuite être décodée à l&#8217;aide de la commande mnemonic-decode :</p>
 </div>
 <div class="listingblock data-line-176">
 <div class="content">
@@ -643,7 +643,7 @@ eb68ee9f3df6bd4441a9feadec179ff1</pre>
 </div>
 </div>
 <div class="paragraph data-line-181">
-<p>L&#39;encodage mnémonique peut faciliter l&#39;enregistrement et même la mémorisation de la valeur d&#8217;amorçage.</p>
+<p>L&#8217;encodage mnémonique peut faciliter l&#8217;enregistrement et même la mémorisation de la valeur d&#8217;amorçage.</p>
 </div>
 </div>
 </div>
@@ -651,7 +651,7 @@ eb68ee9f3df6bd4441a9feadec179ff1</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-17 11:05:50 -0400
+Last updated 2022-03-21 09:19:34 -0400
 </div>
 </div>
 </body>

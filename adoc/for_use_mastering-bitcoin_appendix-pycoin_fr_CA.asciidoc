@@ -9,9 +9,9 @@ La bibliothèque pycoin prend en charge Python 2 (2.7.x) et Python 3 (3.3 et ver
 
 === Utilitaire de clé (KU)
 
-(((&quot;utilitaire de clé (ku)&quot;, id=&quot;keyutil17&quot;)))L&#39;utilitaire de ligne de commande +ku+ (&quot;utilitaire de clé&quot;) est un utilitaire multi-usage pour manipuler les clés. Il prend en charge les clés BIP-32, le WIF et les adresses (bitcoin et alt coins). Voici quelques exemples.
+(((&quot;utilitaire de clé (ku)&quot;, id=&quot;keyutil17&quot;)))L'utilitaire de ligne de commande +ku+ (&quot;utilitaire de clé&quot;) est un utilitaire multi-usage pour manipuler les clés. Il prend en charge les clés BIP-32, le WIF et les adresses (bitcoin et alt coins). Voici quelques exemples.
 
-Créez une clé BIP-32 en utilisant les sources d&#39;entropie par défaut de GPG et _/dev/random_ :
+Créez une clé BIP-32 en utilisant les sources d'entropie par défaut de GPG et _/dev/random_ :
 
 
 ----
@@ -47,7 +47,7 @@ Bitcoin address : 1FNNRQ5fSv1wBi5gyfVBs2rkNheMGt86sp
  uncompressed   : 1DSS5isnH4FsVaLVjeVXewVSpfqktdiQAM
 ----
 
-Créez une clé BIP-32 à partir d&#39;une phrase secrète :
+Créez une clé BIP-32 à partir d'une phrase secrète :
 
 [WARNING]
 ====
@@ -213,9 +213,9 @@ $ ku -a xprv9xWkBDfyBXmZsA85GyWj9uYPyoQv826YAadKWMaaEosNrFBKgj2TqWuiWY3zuqxYGpHf
 ----
 
 
-Oui, ça a l&#39;air familier.
+Oui, ça a l'air familier.
 
-De l&#39;exposant secret :
+De l'exposant secret :
 
 
 ----
@@ -315,7 +315,7 @@ Bitcoin address : 1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH
 ----
 
 
-(((&quot;&quot;, startref=&quot;bibliothèque pycoin&quot;)))En tant qu&#39;adresse Dogecoin :
+(((&quot;&quot;, startref=&quot;bibliothèque pycoin&quot;)))En tant qu'adresse Dogecoin :
 
 
 ----
@@ -330,7 +330,7 @@ Dogecoin address : DFpN6QqFfUm3gKNaxN6tNcab1FArL9cZLE
 ==== Utilitaire de transaction (TX)
 
 (((&quot;utilitaire de transaction (TX)&quot;, id=&quot;TX17&quot;)))
-L&#39;utilitaire de ligne de commande +tx+ affichera les transactions sous une forme lisible par l&#39;homme, récupérera les transactions de base du cache de transactions de pycoin ou des services Web (blockchain.info, blockcypher.com, blockr.io et chain.so sont actuellement pris en charge), fusionnera les transactions , ajoutera ou supprimera des entrées ou des sorties et signera des transactions.
+L'utilitaire de ligne de commande +tx+ affichera les transactions sous une forme lisible par l'homme, récupérera les transactions de base du cache de transactions de pycoin ou des services Web (blockchain.info, blockcypher.com, blockr.io et chain.so sont actuellement pris en charge), fusionnera les transactions , ajoutera ou supprimera des entrées ou des sorties et signera des transactions.
 
 Voici quelques exemples.
 
@@ -352,7 +352,7 @@ tx: error: can't find Tx with id 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833
 ----
 
 
-Oups! Nous n&#39;avons pas mis en place de services Web. Faisons cela maintenant :
+Oups! Nous n'avons pas mis en place de services Web. Faisons cela maintenant :
 
 
 [source,bash]
@@ -363,7 +363,7 @@ $ export PYCOIN_CACHE_DIR PYCOIN_BTC_PROVIDERS
 ----
 
 
-Cela ne se fait pas automatiquement afin qu&#39;un outil de ligne de commande ne divulgue pas d&#39;informations potentiellement privées sur les transactions qui vous intéressent sur un site Web tiers. Si vous ne vous en souciez pas, vous pouvez mettre ces lignes dans votre _.profile_.
+Cela ne se fait pas automatiquement afin qu'un outil de ligne de commande ne divulgue pas d'informations potentiellement privées sur les transactions qui vous intéressent sur un site Web tiers. Si vous ne vous en souciez pas, vous pouvez mettre ces lignes dans votre _.profile_.
 
 Essayons encore:
 
