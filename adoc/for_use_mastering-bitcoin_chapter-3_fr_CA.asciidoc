@@ -1,17 +1,17 @@
 [[ch03_bitcoin_client]]
-== Bitcoin Core : La référence d&#39;implémentation
+== Bitcoin Core : La référence d'implémentation
 
-(((&quot;licences source libre&quot;)))(((&quot;Nakamoto, Satoshi&quot;)))Bitcoin est un projet _source libre_ et le code source est disponible sous une licence ouverte (MIT), téléchargeable et utilisable à n&#39;importe quelle fin. Source libre signifie plus que simplement libre d&#39;utilisation. Cela signifie également que le bitcoin est développé par une communauté ouverte de bénévoles. Au début, cette communauté se composait uniquement de Satoshi Nakamoto. En 2016, le code source de Bitcoin comptait plus de 400 contributeurs avec une douzaine de développeurs travaillant sur le code presque à temps plein et plusieurs dizaines d&#39;autres à temps partiel. Tout le monde peut contribuer au code, y compris vous !
+(((&quot;licences source libre&quot;)))(((&quot;Nakamoto, Satoshi&quot;)))Bitcoin est un projet _source libre_ et le code source est disponible sous une licence ouverte (MIT), téléchargeable et utilisable à n'importe quelle fin. Source libre signifie plus que simplement libre d'utilisation. Cela signifie également que le bitcoin est développé par une communauté ouverte de bénévoles. Au début, cette communauté se composait uniquement de Satoshi Nakamoto. En 2016, le code source de Bitcoin comptait plus de 400 contributeurs avec une douzaine de développeurs travaillant sur le code presque à temps plein et plusieurs dizaines d'autres à temps partiel. Tout le monde peut contribuer au code, y compris vous !
 
 
-(((&quot;livre blanc bitcoin&quot;)))(((&quot;client Satoshi&quot;)))(((&quot;implémentation de référence&quot;, see=&quot;Bitcoin Core&quot;)))(((&quot;Bitcoin Core&quot;, &quot;implémentation de référence&quot;)))Lorsque bitcoin a été créé par Satoshi Nakamoto, le logiciel était en fait terminé avant le livre blanc reproduit dans &lt;<satoshi_whitepaper>&gt;. Satoshi voulait s&#39;assurer que cela fonctionnait avant d&#39;écrire à ce sujet. Cette première implémentation, alors simplement connue sous le nom de &quot;Bitcoin&quot; ou &quot;client Satoshi&quot;, a été fortement modifiée et améliorée. Il a évolué vers ce qu&#39;on appelle _Bitcoin Core_, pour le différencier des autres implémentations compatibles. Bitcoin Core est la _mise en œuvre de référence_ du système Bitcoin, ce qui signifie qu&#39;il s&#39;agit de la référence faisant autorité sur la manière dont chaque partie de la technologie doit être mise en œuvre. Bitcoin Core implémente tous les aspects du bitcoin, y compris les portefeuilles, un moteur de validation des transactions et des blocs et un nœud de réseau complet dans le réseau Bitcoin pair à pair.
+(((&quot;livre blanc bitcoin&quot;)))(((&quot;client Satoshi&quot;)))(((&quot;implémentation de référence&quot;, see=&quot;Bitcoin Core&quot;)))(((&quot;Bitcoin Core&quot;, &quot;implémentation de référence&quot;)))Lorsque bitcoin a été créé par Satoshi Nakamoto, le logiciel était en fait terminé avant le livre blanc reproduit dans &lt;<satoshi_whitepaper>&gt;. Satoshi voulait s'assurer que cela fonctionnait avant d'écrire à ce sujet. Cette première implémentation, alors simplement connue sous le nom de &quot;Bitcoin&quot; ou &quot;client Satoshi&quot;, a été fortement modifiée et améliorée. Il a évolué vers ce qu'on appelle _Bitcoin Core_, pour le différencier des autres implémentations compatibles. Bitcoin Core est la _mise en œuvre de référence_ du système Bitcoin, ce qui signifie qu'il s'agit de la référence faisant autorité sur la manière dont chaque partie de la technologie doit être mise en œuvre. Bitcoin Core implémente tous les aspects du bitcoin, y compris les portefeuilles, un moteur de validation des transactions et des blocs et un nœud de réseau complet dans le réseau Bitcoin pair à pair.
 
 [WARNING]
 ====
-(((&quot;portefeuilles&quot;, &quot;meilleures pratiques pour&quot;)))(((&quot;propositions d&#39;amélioration du bitcoin&quot;, &quot;mots de code mnémonique (BIP-39)&quot;)))(((&quot;propositions d&#39;amélioration du bitcoin&quot;, &quot;portefeuilles déterministes hiérarchiques (BIP-32/BIP-44)&quot;)))Même si Bitcoin Core inclut une implémentation de référence d&#39;un portefeuille, celui-ci n&#39;est pas destiné à être utilisé comme portefeuille de production pour les utilisateurs ou pour les applications. Il est conseillé aux développeurs d&#39;applications de créer des portefeuilles en utilisant des normes modernes telles que BIP-39 et BIP-32 (voir &lt;<mnemonic_code_words>&gt; et &lt;<hd_wallets>&gt;). BIP signifie _Bitcoin Improvement Proposal_.
+(((&quot;portefeuilles&quot;, &quot;meilleures pratiques pour&quot;)))(((&quot;propositions d'amélioration du bitcoin&quot;, &quot;mots de code mnémonique (BIP-39)&quot;)))(((&quot;propositions d'amélioration du bitcoin&quot;, &quot;portefeuilles déterministes hiérarchiques (BIP-32/BIP-44)&quot;)))Même si Bitcoin Core inclut une implémentation de référence d'un portefeuille, celui-ci n'est pas destiné à être utilisé comme portefeuille de production pour les utilisateurs ou pour les applications. Il est conseillé aux développeurs d'applications de créer des portefeuilles en utilisant des normes modernes telles que BIP-39 et BIP-32 (voir &lt;<mnemonic_code_words>&gt; et &lt;<hd_wallets>&gt;). BIP signifie _Bitcoin Improvement Proposal_.
 ====
 
-&lt;<bitcoin_core_architecture>&gt; montre l&#39;architecture de Bitcoin Core.(((&quot;Bitcoin Core&quot;, &quot;architecture&quot;)))
+&lt;<bitcoin_core_architecture>&gt; montre l'architecture de Bitcoin Core.(((&quot;Bitcoin Core&quot;, &quot;architecture&quot;)))
 
 [[bitcoin_core_architecture]]
 .Architecture Bitcoin Core (Source : Eric Lombrozo)
@@ -20,16 +20,16 @@ image::images/mbc2_0301.png[&quot;Architecture de base Bitcoin&quot;]
 
 === Environnement de développement Bitcoin
 
-(((&quot;environnement de développement&quot;, &quot;configuration&quot;, see=&quot;Bitcoin Core&quot;))) Si vous êtes un développeur, vous souhaiterez configurer un environnement de développement avec tous les outils, bibliothèques et logiciels de support pour le développement d'applications bitcoin. Dans ce chapitre très technique, nous allons parcourir ce processus étape par étape. Si le matériel devient trop dense (et que vous n&#39;êtes pas en train de mettre en place un environnement de développement), n&#39;hésitez pas à passer au chapitre suivant, qui est moins technique.
+(((&quot;environnement de développement&quot;, &quot;configuration&quot;, see=&quot;Bitcoin Core&quot;))) Si vous êtes un développeur, vous souhaiterez configurer un environnement de développement avec tous les outils, bibliothèques et logiciels de support pour le développement d'applications bitcoin. Dans ce chapitre très technique, nous allons parcourir ce processus étape par étape. Si le matériel devient trop dense (et que vous n'êtes pas en train de mettre en place un environnement de développement), n'hésitez pas à passer au chapitre suivant, qui est moins technique.
 
 [[compiling_core]]
 === Compilation de Bitcoin Core à partir du code source
 
-(((&quot;Bitcoin Core&quot;, &quot;compilation à partir du code source&quot;, id=&quot;BCsource03&quot;)))(((&quot;Bitcoin Core&quot;, &quot;compilation à partir du code source&quot;, &quot;téléchargement&quot;)))(((&quot;exemples de code , obtenir et utiliser&quot;)))Le code source de Bitcoin Core peut être téléchargé sous forme d&#39;archive ou en clonant le référentiel source faisant autorité à partir de GitHub. (((&quot;téléchargement de Bitcoin Core&quot;)))Sur la https://bitcoincore.org/bin/[page de téléchargement de Bitcoin Core], sélectionnez la version la plus récente et téléchargez l&#39;archive compressée du code source, par exemple, +bitcoin-0.15.0.2.tar.gz+. (((&quot;page GitHub bitcoin&quot;)))Vous pouvez également utiliser la ligne de commande git pour créer une copie locale du code source à partir de la https://github.com/bitcoin/bitcoin[page GitHub de bitcoin].
+(((&quot;Bitcoin Core&quot;, &quot;compilation à partir du code source&quot;, id=&quot;BCsource03&quot;)))(((&quot;Bitcoin Core&quot;, &quot;compilation à partir du code source&quot;, &quot;téléchargement&quot;)))(((&quot;exemples de code , obtenir et utiliser&quot;)))Le code source de Bitcoin Core peut être téléchargé sous forme d'archive ou en clonant le référentiel source faisant autorité à partir de GitHub. (((&quot;téléchargement de Bitcoin Core&quot;)))Sur la https://bitcoincore.org/bin/[page de téléchargement de Bitcoin Core], sélectionnez la version la plus récente et téléchargez l'archive compressée du code source, par exemple, +bitcoin-0.15.0.2.tar.gz+. (((&quot;page GitHub bitcoin&quot;)))Vous pouvez également utiliser la ligne de commande git pour créer une copie locale du code source à partir de la https://github.com/bitcoin/bitcoin[page GitHub de bitcoin].
 
 [TIP]
 ====
-(((&quot;symbole $&quot;)))(((&quot;commandes interface système&quot;)))(((&quot;applications de terminal&quot;)))Dans de nombreux exemples de ce chapitre, nous utiliserons l&#39;interface de de commande du système d&#39;exploitation ( également appelé &quot;shell&quot; ou &quot;interface système&quot; ou &quot;coque logicielle&quot;), accessible via une application &quot;terminal&quot;. L'interface système affichera une invite; vous tapez une commande; et l'interface système répond avec du texte et une nouvelle invite pour votre prochaine commande. L&#39;invite peut sembler différente sur votre système, mais dans les exemples suivants, elle est indiquée par un symbole +$+. Dans les exemples, lorsque vous voyez du texte après un symbole +$+, ne tapez pas le symbole +$+ mais tapez la commande qui le suit immédiatement, puis appuyez sur Entrée pour exécuter la commande. Dans les exemples, les lignes sous chaque commande sont les réponses du système d&#39;exploitation à cette commande. Lorsque vous verrez le prochain préfixe +$+, vous saurez qu&#39;il s&#39;agit d&#39;une nouvelle commande et vous devrez répéter le processus.
+(((&quot;symbole $&quot;)))(((&quot;commandes interface système&quot;)))(((&quot;applications de terminal&quot;)))Dans de nombreux exemples de ce chapitre, nous utiliserons l'interface de de commande du système d'exploitation ( également appelé &quot;shell&quot; ou &quot;interface système&quot; ou &quot;coque logicielle&quot;), accessible via une application &quot;terminal&quot;. L'interface système affichera une invite; vous tapez une commande; et l'interface système répond avec du texte et une nouvelle invite pour votre prochaine commande. L'invite peut sembler différente sur votre système, mais dans les exemples suivants, elle est indiquée par un symbole +$+. Dans les exemples, lorsque vous voyez du texte après un symbole +$+, ne tapez pas le symbole +$+ mais tapez la commande qui le suit immédiatement, puis appuyez sur Entrée pour exécuter la commande. Dans les exemples, les lignes sous chaque commande sont les réponses du système d'exploitation à cette commande. Lorsque vous verrez le prochain préfixe +$+, vous saurez qu'il s'agit d'une nouvelle commande et vous devrez répéter le processus.
 ====
 
 (((&quot;clonage du code source&quot;)))(((&quot;code source, clonage&quot;, seealso=&quot;Bitcoin Core&quot;))) Dans cet exemple, nous utilisons la commande +git+ pour créer une copie locale (un &quot;clone&quot;) du code source :
@@ -48,17 +48,17 @@ $
 
 [TIP]
 ====
-(((&quot;systèmes de contrôle de version distribués&quot;)))Git est le système de contrôle de version distribué le plus largement utilisé et un élément essentiel de la boîte à outils de tout développeur de logiciels. Vous devrez peut-être installer la commande +git+, ou une interface utilisateur graphique pour git, sur votre système d&#39;exploitation si vous ne l&#39;avez pas déjà.
+(((&quot;systèmes de contrôle de version distribués&quot;)))Git est le système de contrôle de version distribué le plus largement utilisé et un élément essentiel de la boîte à outils de tout développeur de logiciels. Vous devrez peut-être installer la commande +git+, ou une interface utilisateur graphique pour git, sur votre système d'exploitation si vous ne l'avez pas déjà.
 ====
 
-Une fois l&#39;opération de clonage git terminée, vous aurez une copie locale complète du référentiel de code source dans le répertoire _bitcoin_. Accédez à ce répertoire en tapant ++**cd bitcoin**++ à l&#39;invite :
+Une fois l'opération de clonage git terminée, vous aurez une copie locale complète du référentiel de code source dans le répertoire _bitcoin_. Accédez à ce répertoire en tapant ++**cd bitcoin**++ à l'invite :
 
 ----
 $ cd bitcoin
 ----
 
-==== Sélection d&#39;une version de Bitcoin Core
-(((&quot;Bitcoin Core&quot;, &quot;compilation à partir du code source&quot;, &quot;sélection de version&quot;)))Par défaut, la copie locale sera synchronisée avec le code le plus récent, qui peut être une version instable ou bêta de bitcoin. Avant de compiler le code, sélectionnez une version spécifique en consultant une version avec la commande Git _tag_. Cela synchronisera la copie locale avec un instantané (snapshot) spécifique du référentiel de code identifié par une balise de mot-clé (le _tag_.) Les balises sont utilisées par les développeurs pour marquer des versions spécifiques du code par numéro de version. Tout d&#39;abord, pour trouver les balises disponibles, nous utilisons la commande +git tag+ :
+==== Sélection d'une version de Bitcoin Core
+(((&quot;Bitcoin Core&quot;, &quot;compilation à partir du code source&quot;, &quot;sélection de version&quot;)))Par défaut, la copie locale sera synchronisée avec le code le plus récent, qui peut être une version instable ou bêta de bitcoin. Avant de compiler le code, sélectionnez une version spécifique en consultant une version avec la commande Git _tag_. Cela synchronisera la copie locale avec un instantané (snapshot) spécifique du référentiel de code identifié par une balise de mot-clé (le _tag_.) Les balises sont utilisées par les développeurs pour marquer des versions spécifiques du code par numéro de version. Tout d'abord, pour trouver les balises disponibles, nous utilisons la commande +git tag+ :
 
 ----
 $ git tag
@@ -73,7 +73,7 @@ v0.12.0rc2
 ...
 ----
 
-La liste des balises montre toutes les versions publiées de bitcoin. Par convention, les _release candidates_ (ou _versions d'évaluations_), qui sont destinées aux tests, ont le suffixe &quot;rc&quot;. Les versions stables pouvant être exécutées sur des systèmes de production n&#39;ont pas de suffixe. Dans la liste précédente, sélectionnez la version la plus élevée, qui au moment de la rédaction était v0.15.0. Pour synchroniser le code local avec cette version, utilisez la commande +git checkout+ :
+La liste des balises montre toutes les versions publiées de bitcoin. Par convention, les _release candidates_ (ou _versions d'évaluations_), qui sont destinées aux tests, ont le suffixe &quot;rc&quot;. Les versions stables pouvant être exécutées sur des systèmes de production n'ont pas de suffixe. Dans la liste précédente, sélectionnez la version la plus élevée, qui au moment de la rédaction était v0.15.0. Pour synchroniser le code local avec cette version, utilisez la commande +git checkout+ :
 
 ----
 $ git checkout v0.15.0
@@ -90,9 +90,9 @@ nothing to commit, working directory clean
 
 ==== Configuration de la construction de Bitcoin Core
 
-(((&quot;Bitcoin Core&quot;, &quot;compilation à partir du code source&quot;, &quot;build configuration&quot;)))(((&quot;documentation&quot;)))(((&quot;contruire documentation&quot;, seealso=&quot;Bitcoin Core&quot;)))Le code source inclut la documentation, qui peut être trouvée dans un certain nombre de fichiers. Passez en revue la documentation principale située dans _README.md_ dans le répertoire _bitcoin_ en tapant ++**more README.md**++ à l&#39;invite et en utilisant la barre d&#39;espace pour passer à la page suivante. Dans ce chapitre, nous allons construire le client Bitcoin en ligne de commande, également connu sous le nom de +bitcoind+ sous Linux. Passez en revue les instructions pour compiler le client de ligne de commande +bitcoind+ sur votre plate-forme en tapant ++**more doc/build-unix.md**++. Des instructions alternatives pour macOS et Windows peuvent être trouvées dans le répertoire _doc_, comme _build-osx.md_ ou _build-windows.md_, respectivement.
+(((&quot;Bitcoin Core&quot;, &quot;compilation à partir du code source&quot;, &quot;build configuration&quot;)))(((&quot;documentation&quot;)))(((&quot;contruire documentation&quot;, seealso=&quot;Bitcoin Core&quot;)))Le code source inclut la documentation, qui peut être trouvée dans un certain nombre de fichiers. Passez en revue la documentation principale située dans _README.md_ dans le répertoire _bitcoin_ en tapant ++**more README.md**++ à l'invite et en utilisant la barre d'espace pour passer à la page suivante. Dans ce chapitre, nous allons construire le client Bitcoin en ligne de commande, également connu sous le nom de +bitcoind+ sous Linux. Passez en revue les instructions pour compiler le client de ligne de commande +bitcoind+ sur votre plate-forme en tapant ++**more doc/build-unix.md**++. Des instructions alternatives pour macOS et Windows peuvent être trouvées dans le répertoire _doc_, comme _build-osx.md_ ou _build-windows.md_, respectivement.
 
-Examinez attentivement les prérequis de construction, qui se trouvent dans la première partie de la documentation de construction. Ce sont des bibliothèques qui doivent être présentes sur votre système avant de pouvoir commencer à compiler Bitcoin. Si ces conditions préalables sont manquantes, le processus de génération échouera avec une erreur. Si cela se produit parce que vous avez manqué une condition préalable, vous pouvez l&#39;installer, puis reprendre le processus de génération là où vous l&#39;avez laissé. En supposant que les prérequis sont installés, vous démarrez le processus de génération en générant un ensemble de scripts de génération à l&#39;aide du script _autogen.sh_.
+Examinez attentivement les prérequis de construction, qui se trouvent dans la première partie de la documentation de construction. Ce sont des bibliothèques qui doivent être présentes sur votre système avant de pouvoir commencer à compiler Bitcoin. Si ces conditions préalables sont manquantes, le processus de génération échouera avec une erreur. Si cela se produit parce que vous avez manqué une condition préalable, vous pouvez l'installer, puis reprendre le processus de génération là où vous l'avez laissé. En supposant que les prérequis sont installés, vous démarrez le processus de génération en générant un ensemble de scripts de génération à l'aide du script _autogen.sh_.
 
 ----
 $ ./autogen.sh
@@ -111,7 +111,7 @@ Makefile.am: installing 'build-aux/depcomp'
 ...
 ----
 
-Le script _autogen.sh_ crée un ensemble de scripts de configuration automatique qui interrogeront votre système pour découvrir les paramètres corrects et s&#39;assurer que vous disposez de toutes les bibliothèques nécessaires pour compiler le code. Le plus important d&#39;entre eux est le script +configure+ qui offre un certain nombre d&#39;options différentes pour personnaliser le processus de construction. Tapez ++**./configure --help**++ pour voir les différentes options:
+Le script _autogen.sh_ crée un ensemble de scripts de configuration automatique qui interrogeront votre système pour découvrir les paramètres corrects et s'assurer que vous disposez de toutes les bibliothèques nécessaires pour compiler le code. Le plus important d'entre eux est le script +configure+ qui offre un certain nombre d'options différentes pour personnaliser le processus de construction. Tapez ++**./configure --help**++ pour voir les différentes options:
 
 ----
 $ ./configure --help
@@ -131,23 +131,23 @@ Optional Features:
 ...
 ----
 
-Le script +configure+ vous permet d&#39;activer ou de désactiver certaines fonctionnalités de +bitcoind+ grâce à l&#39;utilisation des drapeaux +--enable-FEATURE+ et +--disable-FEATURE+, où pass:[<span class="keep-together"><code>FEATURE</code></span>] est remplacé par le nom de la fonctionnalité, comme indiqué dans la sortie d&#39;aide. Dans ce chapitre, nous allons construire le client +bitcoind+ avec toutes les fonctionnalités par défaut. Nous n&#39;utiliserons pas les indicateurs de configuration, mais vous devriez les consulter pour comprendre quelles fonctionnalités facultatives font partie du client. Si vous êtes dans un environnement universitaire, les restrictions du laboratoire informatique peuvent vous obliger à installer des applications dans votre répertoire personnel (par exemple, en utilisant +--prefix=$HOME+).
+Le script +configure+ vous permet d'activer ou de désactiver certaines fonctionnalités de +bitcoind+ grâce à l'utilisation des drapeaux +--enable-FEATURE+ et +--disable-FEATURE+, où pass:[<span class="keep-together"><code>FEATURE</code></span>] est remplacé par le nom de la fonctionnalité, comme indiqué dans la sortie d'aide. Dans ce chapitre, nous allons construire le client +bitcoind+ avec toutes les fonctionnalités par défaut. Nous n'utiliserons pas les indicateurs de configuration, mais vous devriez les consulter pour comprendre quelles fonctionnalités facultatives font partie du client. Si vous êtes dans un environnement universitaire, les restrictions du laboratoire informatique peuvent vous obliger à installer des applications dans votre répertoire personnel (par exemple, en utilisant +--prefix=$HOME+).
 
 Voici quelques options utiles qui remplacent le comportement par défaut du script configure:
 
 ++++
 <dl>
 <dt><code>--prefix=$HOME</code></dt>
-<dd><p>Cela remplace l&#39;emplacement d&#39;installation par défaut (qui est <em>/usr/local/</em> ) pour l&#39;exécutable résultant. Utilisez <code>$HOME</code> pour tout mettre dans votre répertoire personnel, ou un chemin différent.</p></dd>
+<dd><p>Cela remplace l'emplacement d'installation par défaut (qui est <em>/usr/local/</em> ) pour l'exécutable résultant. Utilisez <code>$HOME</code> pour tout mettre dans votre répertoire personnel, ou un chemin différent.</p></dd>
 
 <dt><code>--disable-wallet</code></dt>
-<dd><p>Ceci est utilisé pour désactiver l&#39;implémentation du portefeuille de référence.</p></dd>
+<dd><p>Ceci est utilisé pour désactiver l'implémentation du portefeuille de référence.</p></dd>
 
 <dt><code>--with-incompatible-bdb</code></dt>
-<dd><p>Si vous construisez un portefeuille, autorisez l&#39;utilisation d&#39;une version incompatible de la bibliothèque Berkeley DB.</p></dd>
+<dd><p>Si vous construisez un portefeuille, autorisez l'utilisation d'une version incompatible de la bibliothèque Berkeley DB.</p></dd>
 
 <dt><code>--with-gui=no</code></dt>
-<dd><p>Ne construisez pas l&#39;interface utilisateur graphique, qui nécessite la bibliothèque Qt. Cela construit uniquement le bitcoin du serveur et de la ligne de commande.</p></dd>
+<dd><p>Ne construisez pas l'interface utilisateur graphique, qui nécessite la bibliothèque Qt. Cela construit uniquement le bitcoin du serveur et de la ligne de commande.</p></dd>
 </dl>
 ++++
 
@@ -169,11 +169,11 @@ $
 ----
 
 
-Si tout s&#39;est bien passé, la commande +configure+ se terminera par la création des scripts de construction personnalisés qui nous permettront de compiler +bitcoind+. S&#39;il y a des bibliothèques manquantes ou des erreurs, la commande +configure+ se terminera par une erreur au lieu de créer les scripts de construction. Si une erreur se produit, elle est probablement due à une bibliothèque manquante ou incompatible. Relisez à nouveau la documentation de build et assurez-vous d&#39;installer les prérequis manquants. Ensuite, exécutez à nouveau +configure+ et voyez si cela corrige l&#39;erreur.
+Si tout s'est bien passé, la commande +configure+ se terminera par la création des scripts de construction personnalisés qui nous permettront de compiler +bitcoind+. S'il y a des bibliothèques manquantes ou des erreurs, la commande +configure+ se terminera par une erreur au lieu de créer les scripts de construction. Si une erreur se produit, elle est probablement due à une bibliothèque manquante ou incompatible. Relisez à nouveau la documentation de build et assurez-vous d'installer les prérequis manquants. Ensuite, exécutez à nouveau +configure+ et voyez si cela corrige l'erreur.
 
 ==== Construire les exécutables Bitcoin Core
 
-(((&quot;Bitcoin Core&quot;, &quot;compiling from source code&quot;, &quot;core executables&quot;)))(((&quot;core executables&quot;, seealso=&quot;Bitcoin Core&quot;))) Ensuite, vous allez compiler le code source, un processus qui peut prendre jusqu&#39;à une heure, en fonction de la vitesse de votre processeur et de la mémoire disponible. Pendant le processus de compilation, vous devriez voir une sortie toutes les quelques secondes ou toutes les quelques minutes, ou une erreur si quelque chose ne va pas. Si une erreur se produit ou si le processus de compilation est interrompu, il peut être repris à tout moment en tapant à nouveau +make+. Tapez ++**make**++ pour lancer la compilation de l&#39;application exécutable :
+(((&quot;Bitcoin Core&quot;, &quot;compiling from source code&quot;, &quot;core executables&quot;)))(((&quot;core executables&quot;, seealso=&quot;Bitcoin Core&quot;))) Ensuite, vous allez compiler le code source, un processus qui peut prendre jusqu'à une heure, en fonction de la vitesse de votre processeur et de la mémoire disponible. Pendant le processus de compilation, vous devriez voir une sortie toutes les quelques secondes ou toutes les quelques minutes, ou une erreur si quelque chose ne va pas. Si une erreur se produit ou si le processus de compilation est interrompu, il peut être repris à tout moment en tapant à nouveau +make+. Tapez ++**make**++ pour lancer la compilation de l'application exécutable :
 
 ----
 $ make
@@ -194,7 +194,7 @@ Making all in src
 $
 ----
 
-Sur un système rapide avec plusieurs processeurs, vous souhaiterez peut-être définir le nombre de tâches de compilation parallèles. Par exemple, +make -j 2+ utilisera deux cœurs s&#39;ils sont disponibles. Si tout se passe bien, Bitcoin Core est maintenant compilé. Vous devez exécuter la suite de tests unitaires avec +make check+ pour vous assurer que les bibliothèques liées ne sont pas cassées de manière évidente. La dernière étape consiste à installer les différents exécutables sur votre système à l&#39;aide de la commande +make install+. Vous serez peut-être invité à saisir votre mot de passe utilisateur, car cette étape nécessite des privilèges d&#39;administrateur:
+Sur un système rapide avec plusieurs processeurs, vous souhaiterez peut-être définir le nombre de tâches de compilation parallèles. Par exemple, +make -j 2+ utilisera deux cœurs s'ils sont disponibles. Si tout se passe bien, Bitcoin Core est maintenant compilé. Vous devez exécuter la suite de tests unitaires avec +make check+ pour vous assurer que les bibliothèques liées ne sont pas cassées de manière évidente. La dernière étape consiste à installer les différents exécutables sur votre système à l'aide de la commande +make install+. Vous serez peut-être invité à saisir votre mot de passe utilisateur, car cette étape nécessite des privilèges d'administrateur:
 
 ----
 $ make check && sudo make install
@@ -208,7 +208,7 @@ libtool: install: /usr/bin/install -c bitcoin-tx /usr/local/bin/bitcoin-tx
 $
 ----
 
-(((&quot;&quot;, startref=&quot;BCsource03&quot;)))L&#39;installation par défaut de +bitcoind+ le place dans _/usr/local/bin_. Vous pouvez confirmer que Bitcoin Core est correctement installé en demandant au système le chemin des exécutables, comme suit:
+(((&quot;&quot;, startref=&quot;BCsource03&quot;)))L'installation par défaut de +bitcoind+ le place dans _/usr/local/bin_. Vous pouvez confirmer que Bitcoin Core est correctement installé en demandant au système le chemin des exécutables, comme suit:
 
 ----
 $ which bitcoind
@@ -218,18 +218,18 @@ $ which bitcoin-cli
 /usr/local/bin/bitcoin-cli
 ----
 
-=== Exécution d&#39;un nœud Bitcoin Core
+=== Exécution d'un nœud Bitcoin Core
 
-(((&quot;Bitcoin Core&quot;, &quot;running core nodes&quot;, id=&quot;BCnode03&quot;)))(((&quot;Bitcoin nodes&quot;, &quot;running core nodes&quot;, id=&quot;BNcore03&quot;)))Le réseau pair à pair de Bitcoin est composé de &quot;nœuds&quot; de réseau, gérés principalement par des bénévoles et certaines des entreprises qui créent des applications bitcoin. Ceux qui exécutent des nœuds Bitcoin ont une vue directe et faisant autorité sur la chaîne de blocs Bitcoin, avec une copie locale de toutes les transactions, validées indépendamment par leur propre système. En exécutant un nœud, vous n&#39;avez pas besoin de faire appel à un tiers pour valider une transaction. De plus, en exécutant un nœud Bitcoin, vous contribuez au réseau Bitcoin en le rendant plus robuste et sécuritaire.
+(((&quot;Bitcoin Core&quot;, &quot;rouler des noeuds coeur&quot;, id=&quot;BCnode03&quot;)))(((&quot;noeuds Bitcoin&quot;, &quot;rouler des noeuds coeur&quot;, id=&quot;BNcore03&quot;)))Le réseau pair à pair de Bitcoin est composé de &quot;nœuds&quot; de réseau, gérés principalement par des bénévoles et certaines des entreprises qui créent des applications bitcoin. Ceux qui exécutent des nœuds Bitcoin ont une vue directe et faisant autorité sur la chaîne de blocs Bitcoin, avec une copie locale de toutes les transactions, validées indépendamment par leur propre système. En exécutant un nœud, vous n'avez pas besoin de faire appel à un tiers pour valider une transaction. De plus, en exécutant un nœud Bitcoin, vous contribuez au réseau Bitcoin en le rendant plus robuste et sécuritaire.
 
-Cependant, l&#39;exécution d&#39;un nœud nécessite un système connecté en permanence avec suffisamment de ressources pour traiter toutes les transactions bitcoin. Selon que vous choisissez d&#39;indexer toutes les transactions et de conserver une copie complète de la chaîne de blocs, vous pouvez également avoir besoin de beaucoup d&#39;espace disque et de mémoire RAM. Au début de 2021, un nœud à index complet a besoin de 2 Go de RAM et d&#39;un minimum de 360 Go d&#39;espace disque (voir https://www.blockchain.com/charts/blocks-size[]). Les nœuds Bitcoin transmettent et reçoivent également des transactions et des blocs Bitcoin, consommant de la bande passante Internet. Si votre connexion Internet est limitée, a un faible plafond de données ou est mesurée (facturée au gigabit), vous ne devriez probablement pas exécuter un nœud Bitcoin, ou l&#39;exécuter d&#39;une manière qui limite sa bande passante (voir &lt;<constrained_resources>&gt;).
+Cependant, l'exécution d'un nœud nécessite un système connecté en permanence avec suffisamment de ressources pour traiter toutes les transactions bitcoin. Selon que vous choisissez d'indexer toutes les transactions et de conserver une copie complète de la chaîne de blocs, vous pouvez également avoir besoin de beaucoup d'espace disque et de mémoire RAM. Au début de 2021, un nœud à index complet a besoin de 2 Go de RAM et d'un minimum de 360 Go d'espace disque (voir https://www.blockchain.com/charts/blocks-size[]). Les nœuds Bitcoin transmettent et reçoivent également des transactions et des blocs Bitcoin, consommant de la bande passante Internet. Si votre connexion Internet est limitée, a un faible plafond de données ou est mesurée (facturée au gigabit), vous ne devriez probablement pas exécuter un nœud Bitcoin, ou l'exécuter d'une manière qui limite sa bande passante (voir &lt;<constrained_resources>&gt;).
 
 [TIP]
 ====
-(((&quot;avertissements et mises en garde&quot;, &quot;besoins en ressources du nœud principal&quot;)))(((&quot;besoins en ressources&quot;)))Bitcoin Core conserve une copie complète de la chaîne de blocs par défaut, avec chaque transaction qui s&#39;est déjà produite sur le Bitcoin réseau depuis sa création en 2009. Cet ensemble de données a une taille de dizaines de gigaoctets et est téléchargé de manière incrémentielle sur plusieurs jours ou semaines, en fonction de la vitesse de votre CPU et de votre connexion Internet. Bitcoin Core ne pourra pas traiter les transactions ou mettre à jour les soldes des comptes tant que l&#39;ensemble de données complet de la chaîne de blocs n&#39;aura pas été téléchargé. Assurez-vous que vous disposez de suffisamment d&#39;espace disque, de bande passante et de temps pour effectuer la synchronisation initiale. Vous pouvez configurer Bitcoin Core pour réduire la taille de la chaîne de blocs en supprimant les anciens blocs (voir &lt;<constrained_resources>&gt;), mais il téléchargera tout de même l&#39;intégralité de l&#39;ensemble de données avant de les supprimer.
+(((&quot;avertissements et mises en garde&quot;, &quot;besoins en ressources du nœud principal&quot;)))(((&quot;besoins en ressources&quot;)))Bitcoin Core conserve une copie complète de la chaîne de blocs par défaut, avec chaque transaction qui s'est déjà produite sur le Bitcoin réseau depuis sa création en 2009. Cet ensemble de données a une taille de dizaines de gigaoctets et est téléchargé de manière incrémentielle sur plusieurs jours ou semaines, en fonction de la vitesse de votre CPU et de votre connexion Internet. Bitcoin Core ne pourra pas traiter les transactions ou mettre à jour les soldes des comptes tant que l'ensemble de données complet de la chaîne de blocs n'aura pas été téléchargé. Assurez-vous que vous disposez de suffisamment d'espace disque, de bande passante et de temps pour effectuer la synchronisation initiale. Vous pouvez configurer Bitcoin Core pour réduire la taille de la chaîne de blocs en supprimant les anciens blocs (voir &lt;<constrained_resources>&gt;), mais il téléchargera tout de même l'intégralité de l'ensemble de données avant de les supprimer.
 ====
 
-Malgré ces besoins en ressources, des milliers de bénévoles gèrent des nœuds Bitcoin. Certains fonctionnent sur des systèmes aussi simples qu&#39;un Raspberry Pi (un ordinateur à 35$ US de la taille d&#39;un paquet de cartes). De nombreux volontaires exécutent également des nœuds Bitcoin sur des serveurs loués, généralement une variante de Linux. Une instance de _Virtual Private Server_ (VPS ou serveur virtuel privé) ou _Cloud Computing Server_ (ou serveur en infonuagique) peut être utilisée pour exécuter un nœud Bitcoin. Ces serveurs peuvent être loués pour 25$ à 50$ US par mois auprès de divers fournisseurs.
+Malgré ces besoins en ressources, des milliers de bénévoles gèrent des nœuds Bitcoin. Certains fonctionnent sur des systèmes aussi simples qu'un Raspberry Pi (un ordinateur à 35$ US de la taille d'un paquet de cartes). De nombreux volontaires exécutent également des nœuds Bitcoin sur des serveurs loués, généralement une variante de Linux. Une instance de _Virtual Private Server_ (VPS ou serveur virtuel privé) ou _Cloud Computing Server_ (ou serveur en infonuagique) peut être utilisée pour exécuter un nœud Bitcoin. Ces serveurs peuvent être loués pour 25$ à 50$ US par mois auprès de divers fournisseurs.
 
 Pourquoi voudriez-vous exécuter un nœud ? Voici quelques-unes des raisons les plus courantes :
 
@@ -237,11 +237,11 @@ Pourquoi voudriez-vous exécuter un nœud ? Voici quelques-unes des raisons les
 
 * Si vous créez des applications qui doivent valider les transactions selon les règles de consensus de bitcoin. En règle générale, les éditeurs de logiciels Bitcoin exécutent plusieurs nœuds.
 
-* Si vous souhaitez prendre en charge le bitcoin. L&#39;exécution d&#39;un nœud rend le réseau plus robuste et capable de servir plus de portefeuilles, plus d&#39;utilisateurs et plus de transactions.
+* Si vous souhaitez prendre en charge le bitcoin. L'exécution d'un nœud rend le réseau plus robuste et capable de servir plus de portefeuilles, plus d'utilisateurs et plus de transactions.
 
 * Si vous ne souhaitez pas vous fier à un tiers pour traiter ou valider vos transactions.
 
-Si vous lisez ce livre et êtes intéressé par le développement d&#39;un logiciel Bitcoin, vous devriez exécuter votre propre nœud.
+Si vous lisez ce livre et êtes intéressé par le développement d'un logiciel Bitcoin, vous devriez exécuter votre propre nœud.
 
 ==== Configuration du nœud Bitcoin Core
 
@@ -258,7 +258,7 @@ Using config file /home/ubuntu/.bitcoin/bitcoin.conf
 ...
 ----
 
-Vous pouvez appuyer sur Ctrl-C pour fermer le nœud une fois que vous avez déterminé l&#39;emplacement du fichier de configuration. Habituellement, le fichier de configuration se trouve dans le répertoire de données _.bitcoin_ sous le répertoire personnel de votre utilisateur. Il n&#39;est pas créé automatiquement, mais vous pouvez créer un fichier de configuration de démarrage en copiant et collant à partir de l&#39;exemple &lt;&lt;#full_index_node&gt;&gt; ci-dessous. Vous pouvez créer ou modifier le fichier de configuration dans votre éditeur préféré.
+Vous pouvez appuyer sur Ctrl-C pour fermer le nœud une fois que vous avez déterminé l'emplacement du fichier de configuration. Habituellement, le fichier de configuration se trouve dans le répertoire de données _.bitcoin_ sous le répertoire personnel de votre utilisateur. Il n'est pas créé automatiquement, mais vous pouvez créer un fichier de configuration de démarrage en copiant et collant à partir de l'exemple &lt;&lt;#full_index_node&gt;&gt; ci-dessous. Vous pouvez créer ou modifier le fichier de configuration dans votre éditeur préféré.
 
 Bitcoin Core propose plus de 100 options de configuration qui modifient le comportement du nœud de réseau, le stockage de la chaîne de blocs et de nombreux autres aspects de son fonctionnement. Pour voir une liste de ces options, exécutez +bitcoind --help+ :
 
@@ -281,7 +281,7 @@ Options:
        Execute command when a relevant alert is received or we see a really
        long fork (%s in cmd is replaced by message)
 ...
-[beaucoup plus d&#39;options]
+[beaucoup plus d'options]
 ...
 
   -rpcthreads=<n>
@@ -290,11 +290,11 @@ Options:
 
 (((&quot;configuration d'options&quot;, seealso=&quot;Bitcoin Core&quot;)))Voici quelques-unes des options les plus importantes que vous pouvez définir dans le fichier de configuration, ou en tant que paramètres de ligne de commande pour +bitcoind+ :
 
-alertnotify:: Exécute une commande ou un script spécifié pour envoyer des alertes d&#39;urgence au propriétaire de ce nœud, généralement par courriel.
+alertnotify:: Exécute une commande ou un script spécifié pour envoyer des alertes d'urgence au propriétaire de ce nœud, généralement par courriel.
 
-conf:: Un emplacement alternatif pour le fichier de configuration. Cela n&#39;a de sens qu&#39;en tant que paramètre de ligne de commande pour +bitcoind+, car il ne peut pas se trouver dans le fichier de configuration auquel il se réfère.
+conf:: Un emplacement alternatif pour le fichier de configuration. Cela n'a de sens qu'en tant que paramètre de ligne de commande pour +bitcoind+, car il ne peut pas se trouver dans le fichier de configuration auquel il se réfère.
 
-datadir:: Sélectionnez le répertoire et le système de fichiers dans lesquels vous placer toutes les données de la chaîne de blocs. Par défaut, il s&#39;agit d'un sous-répertoire de _.bitcoin_ de votre répertoire personnel. Assurez-vous que ce système de fichiers dispose de plusieurs gigaoctets d&#39;espace libre.
+datadir:: Sélectionnez le répertoire et le système de fichiers dans lesquels vous placer toutes les données de la chaîne de blocs. Par défaut, il s'agit d'un sous-répertoire de _.bitcoin_ de votre répertoire personnel. Assurez-vous que ce système de fichiers dispose de plusieurs gigaoctets d'espace libre.
 
 prune:: Réduisez les besoins en espace disque à ce nombre de mégaoctets, en supprimant les anciens blocs. Utilisez ceci sur un nœud à ressources limitées qui ne peut pas contenir la chaîne de blocs complète.
 
@@ -304,7 +304,7 @@ dbcache:: La taille du cache UTXO. La valeur par défaut est 450 Mio. Augmentez 
 
 maxconnections:: Définissez le nombre maximal de nœuds à partir desquels accepter les connexions. Le réduire par défaut réduira votre consommation de bande passante. À utiliser si vous avez un plafond de données ou si vous payez au gigaoctet.
 
-maxmempool:: Limite le bassin de mémoire de transaction à ce nombre de mégaoctets. Utilisez-le pour réduire l&#39;utilisation de la mémoire sur les nœuds à mémoire limitée.
+maxmempool:: Limite le bassin de mémoire de transaction à ce nombre de mégaoctets. Utilisez-le pour réduire l'utilisation de la mémoire sur les nœuds à mémoire limitée.
 
 maxreceivebuffer/maxsendbuffer:: Limite la mémoire tampon par connexion à ce nombre de multiples de 1000 octets. À utiliser sur les nœuds à mémoire limitée.
 
@@ -314,13 +314,13 @@ minrelaytxfee:: Définissez le taux de frais minimum pour la transaction que vou
 [[txindex]]
 .Index de la base de données des transactions et option txindex
 ****
-(((&quot;Bitcoin Core&quot;, &quot;fonction des noeuds coeurs&quot;, &quot;database options&quot;)))(((&quot;transactions&quot;, &quot;configuration d'options de base de données&quot;)))(((&quot;option txindex&quot;)))(((&quot;option d&#39;indexation complète&quot;)))Par défaut, Bitcoin Core construit une base de données contenant _uniquement_ les transactions liées au portefeuille de l&#39;utilisateur. Si vous voulez pouvoir accéder à _n&#39;importe quelle_ transaction avec des commandes comme +getrawtransaction+ (voir &lt;<exploring_and_decoding_transanctions>&gt;), vous devez configurer Bitcoin Core pour créer un index de transaction complet, ce qui peut être réalisé avec l&#39;option +txindex+. Définissez +txindex=1+ dans le fichier de configuration de Bitcoin Core. Si vous ne définissez pas cette option au début et que vous la réglez ensuite sur l&#39;indexation complète, vous devez redémarrer +bitcoind+ avec l&#39;option +-reindex+ et attendre qu&#39;elle reconstruise l&#39;index.
+(((&quot;Bitcoin Core&quot;, &quot;fonction des noeuds coeurs&quot;, &quot;database options&quot;)))(((&quot;transactions&quot;, &quot;configuration d'options de base de données&quot;)))(((&quot;option txindex&quot;)))(((&quot;option d'indexation complète&quot;)))Par défaut, Bitcoin Core construit une base de données contenant _uniquement_ les transactions liées au portefeuille de l'utilisateur. Si vous voulez pouvoir accéder à _n'importe quelle_ transaction avec des commandes comme +getrawtransaction+ (voir &lt;<exploring_and_decoding_transanctions>&gt;), vous devez configurer Bitcoin Core pour créer un index de transaction complet, ce qui peut être réalisé avec l'option +txindex+. Définissez +txindex=1+ dans le fichier de configuration de Bitcoin Core. Si vous ne définissez pas cette option au début et que vous la réglez ensuite sur l'indexation complète, vous devez redémarrer +bitcoind+ avec l'option +-reindex+ et attendre qu'elle reconstruise l'index.
 ****
 
 &lt;<full_index_node>&gt; montre comment vous pouvez combiner les options précédentes, avec un nœud entièrement indexé, fonctionnant comme un backend API pour une application bitcoin.
 
 [[full_index_node]]
-.Exemple de configuration d&#39;un nœud à index complet
+.Exemple de configuration d'un nœud à index complet
 ====
 ----
 alertnotify=myemailscript.sh &quot;Alerte : %s&quot;
@@ -329,10 +329,10 @@ index_tx=1
 ----
 ====
 
-&lt;<constrained_resources>&gt; montre un nœud à ressources limitées s&#39;exécutant sur un serveur plus petit.
+&lt;<constrained_resources>&gt; montre un nœud à ressources limitées s'exécutant sur un serveur plus petit.
 
 [[constrained_resources]]
-.Exemple de configuration d&#39;un système à ressources limitées
+.Exemple de configuration d'un système à ressources limitées
 ====
 ----
 alertnotify=myemailscript.sh &quot;Alerte : %s&quot;
@@ -345,7 +345,7 @@ maxsendbuffer=500
 ----
 ====
 
-Une fois que vous avez modifié le fichier de configuration et défini les options qui représentent le mieux vos besoins, vous pouvez tester +bitcoind+ avec cette configuration. Exécutez Bitcoin Core avec l&#39;option +printtoconsole+ pour s&#39;exécuter au premier plan avec une sortie vers la console :
+Une fois que vous avez modifié le fichier de configuration et défini les options qui représentent le mieux vos besoins, vous pouvez tester +bitcoind+ avec cette configuration. Exécutez Bitcoin Core avec l'option +printtoconsole+ pour s'exécuter au premier plan avec une sortie vers la console :
 
 ----
 $ bitcoind -printtoconsole
@@ -381,11 +381,11 @@ Opened LevelDB successfully
 [... plus de messages de démarrage ...]
 ----
 
-Vous pouvez appuyer sur Ctrl-C pour interrompre le processus une fois que vous êtes convaincu qu&#39;il charge les paramètres correctement et s&#39;exécute comme prévu.
+Vous pouvez appuyer sur Ctrl-C pour interrompre le processus une fois que vous êtes convaincu qu'il charge les paramètres correctement et s'exécute comme prévu.
 
-Pour exécuter Bitcoin Core en arrière-plan en tant que processus, démarrez-le avec l&#39;option +daemon+, en tant que +bitcoind -daemon+.
+Pour exécuter Bitcoin Core en arrière-plan en tant que processus, démarrez-le avec l'option +daemon+, en tant que +bitcoind -daemon+.
 
-Pour surveiller la progression et l&#39;état d&#39;exécution de votre nœud Bitcoin, utilisez la commande +bitcoin-cli getblockchaininfo+ :
+Pour surveiller la progression et l'état d'exécution de votre nœud Bitcoin, utilisez la commande +bitcoin-cli getblockchaininfo+ :
 
 ----
 $ bitcoin-cli getblockchaininfo
@@ -409,13 +409,14 @@ $ bitcoin-cli getblockchaininfo
 
 Cela montre un nœud avec une hauteur de blockchain de 0 blocs et 83999 en-têtes. Le nœud récupère actuellement les en-têtes de bloc de la meilleure chaîne et continue ensuite à télécharger les blocs complets.
 
-Une fois que vous êtes satisfait des options de configuration que vous avez sélectionnées, vous devez ajouter _bitcoin_ aux scripts de démarrage de votre système d&#39;exploitation, afin qu&#39;il s&#39;exécute en continu et au redémarrage du système d&#39;exploitation. Vous trouverez un certain nombre d&#39;exemples de scripts de démarrage pour différents systèmes d&#39;exploitation dans le répertoire source de bitcoin sous _contrib/init_ et un fichier _README.md_ indiquant quel système utilise quel script.(((&quot;&quot;, startref=&quot;BCnode03&quot;)))(( (&quot;&quot;, startref=&quot;BNcore03&quot;)))
+Une fois que vous êtes satisfait des options de configuration que vous avez sélectionnées, vous devez ajouter _bitcoin_ aux scripts de démarrage de votre système d'exploitation, afin qu'il s'exécute en continu et au redémarrage du système d'exploitation. Vous trouverez un certain nombre d'exemples de scripts de démarrage pour différents systèmes d'exploitation dans le répertoire source de bitcoin sous _contrib/init_ et un fichier _README.md_ indiquant quel système utilise quel script.(((&quot;&quot;, startref=&quot;BCnode03&quot;)))(( (&quot;&quot;, startref=&quot;BNcore03&quot;)))
 
-=== Interface de programmation d&#39;application (API) de base Bitcoin
+=== Interface de programmation d'application (API) de base Bitcoin
 
-(((&quot;Bitcoin Core&quot;, &quot;Bitcoin Core API&quot;, id=&quot;BCapi03&quot;)))Le client Bitcoin Core implémente une interface JSON-RPC accessible également à l&#39;aide de l&#39;assistant de ligne de commande +bitcoin-cli+. La ligne de commande nous permet d&#39;expérimenter de manière interactive les fonctionnalités qui sont également disponibles par programmation via l&#39;API. (((&quot;Bitcoin Core&quot;, &quot;Bitcoin Core API&quot;, &quot;Commandes RPC&quot;)))Pour commencer, appelez la commande +help+ pour voir une liste des commandes RPC bitcoin disponibles :
+(((&quot;Bitcoin Core&quot;, &quot;Bitcoin Core API&quot;, id=&quot;BCapi03&quot;)))Le client Bitcoin Core implémente une interface JSON-RPC accessible également à l'aide de l'assistant de ligne de commande +bitcoin-cli+. La ligne de commande nous permet d'expérimenter de manière interactive les fonctionnalités qui sont également disponibles par programmation via l'API. (((&quot;Bitcoin Core&quot;, &quot;Bitcoin Core API&quot;, &quot;Commandes RPC&quot;)))Pour commencer, appelez la commande +help+ pour voir une liste des commandes RPC bitcoin disponibles :
 
 [[bitcoind_commands]]
+
 ----
 $ bitcoin-cli help
 addmultisigaddress nrequired ["key",...] ( "account" )
@@ -432,7 +433,7 @@ walletpassphrase "passphrase" timeout
 walletpassphrasechange "oldpassphrase" "newpassphrase"
 ----
 
-Chacune de ces commandes peut prendre un certain nombre de paramètres. Pour obtenir une aide supplémentaire, une description détaillée et des informations sur les paramètres, ajoutez le nom de la commande après +help+. Par exemple, pour voir l&#39;aide sur la commande +getblockhash+ RPC :
+Chacune de ces commandes peut prendre un certain nombre de paramètres. Pour obtenir une aide supplémentaire, une description détaillée et des informations sur les paramètres, ajoutez le nom de la commande après +help+. Par exemple, pour voir l'aide sur la commande +getblockhash+ RPC :
 
 ----
 $ bitcoin-cli help getblockhash
@@ -451,22 +452,22 @@ Examples:
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockhash", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
 ----
 
-À la fin des informations d&#39;aide, vous verrez deux exemples de la commande RPC, utilisant l&#39;assistant +bitcoin-cli+ ou le client HTTP +curl+. Ces exemples montrent comment vous pouvez appeler la commande. Copiez le premier exemple et voyez le résultat :
+À la fin des informations d'aide, vous verrez deux exemples de la commande RPC, utilisant l'assistant +bitcoin-cli+ ou le client HTTP +curl+. Ces exemples montrent comment vous pouvez appeler la commande. Copiez le premier exemple et voyez le résultat :
 
 ----
 $ bitcoin-cli getblockhash 1000
 00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09
 ----
 
-Le résultat est un hachage de bloc, qui est décrit plus en détail dans les chapitres suivants. Mais pour l&#39;instant, cette commande devrait renvoyer le même résultat sur votre système, démontrant que votre nœud Bitcoin Core est en cours d&#39;exécution, accepte les commandes et dispose d&#39;informations sur le bloc 1000 à vous renvoyer.
+Le résultat est un hachage de bloc, qui est décrit plus en détail dans les chapitres suivants. Mais pour l'instant, cette commande devrait renvoyer le même résultat sur votre système, démontrant que votre nœud Bitcoin Core est en cours d'exécution, accepte les commandes et dispose d'informations sur le bloc 1000 à vous renvoyer.
 
 Dans les sections suivantes, nous allons démontrer quelques commandes RPC très utiles et leur sortie attendue.
 
-==== Obtenir des informations sur l&#39;état du client Bitcoin Core
+==== Obtenir des informations sur l'état du client Bitcoin Core
 
-(((&quot;Bitcoin Core&quot;, &quot;Bitcoin Core API&quot;, &quot;informations d&#39;état&quot;)))Bitcoin Core fournit des rapports d&#39;état sur différents modules via l&#39;interface JSON-RPC. Les commandes les plus importantes incluent +getblockchaininfo+, +getmempoolinfo+, +getnetworkinfo+ et +getwalletinfo+.
+(((&quot;Bitcoin Core&quot;, &quot;Bitcoin Core API&quot;, &quot;informations d'état&quot;)))Bitcoin Core fournit des rapports d'état sur différents modules via l'interface JSON-RPC. Les commandes les plus importantes incluent +getblockchaininfo+, +getmempoolinfo+, +getnetworkinfo+ et +getwalletinfo+.
 
-La commande +getblockchaininfo+ RPC de Bitcoin a été introduite plus tôt. La commande +getnetworkinfo+ affiche des informations de base sur l&#39;état du nœud de réseau Bitcoin. Utilisez +bitcoin-cli+ pour l&#39;exécuter :
+La commande +getblockchaininfo+ RPC de Bitcoin a été introduite plus tôt. La commande +getnetworkinfo+ affiche des informations de base sur l'état du nœud de réseau Bitcoin. Utilisez +bitcoin-cli+ pour l'exécuter :
 
 ----
 $ bitcoin-cli getnetworkinfo
@@ -495,68 +496,61 @@ $ bitcoin-cli getnetworkinfo
 
 ----
 
-Les données sont renvoyées en JavaScript Object Notation (JSON), un format qui peut facilement être &quot;consommé&quot; par tous les langages de programmation mais qui est également assez lisible par l&#39;homme. Parmi ces données, nous voyons les numéros de version du client logiciel bitcoin (150000) et du protocole Bitcoin (70015). On y voit le nombre actuel de connexions (8) et diverses informations sur le réseau Bitcoin et les paramètres liés à ce client.
+Les données sont renvoyées en JavaScript Object Notation (JSON), un format qui peut facilement être &quot;consommé&quot; par tous les langages de programmation mais qui est également assez lisible par l'homme. Parmi ces données, nous voyons les numéros de version du client logiciel bitcoin (150000) et du protocole Bitcoin (70015). On y voit le nombre actuel de connexions (8) et diverses informations sur le réseau Bitcoin et les paramètres liés à ce client.
 
 [TIP]
 ====
-Il faudra un certain temps, peut-être plus d&#39;une journée, pour que le client +bitcoind+ &quot;rattrape&quot; la hauteur actuelle de la chaîne de blocs lorsqu&#39;il télécharge des blocs d&#39;autres clients Bitcoin. Vous pouvez vérifier sa progression en utilisant +getblockchaininfo+ pour voir le nombre de blocs connus.
+Il faudra un certain temps, peut-être plus d'une journée, pour que le client +bitcoind+ &quot;rattrape&quot; la hauteur actuelle de la chaîne de blocs lorsqu'il télécharge des blocs d'autres clients Bitcoin. Vous pouvez vérifier sa progression en utilisant +getblockchaininfo+ pour voir le nombre de blocs connus.
 ====
 
 [[exploring_and_decoding_transanctions]]
 ==== Explorer et décoder les transactions
 
-(((&quot;Bitcoin Core&quot;, &quot;Bitcoin Core API&quot;, &quot;explorer et décoder les transactions&quot;)))(((&quot;transactions&quot;, &quot;explorer avec l&#39;API Bitcoin Core&quot;)))Commandes : +getrawtransaction+, +decoderawtransaction+
+(((&quot;Bitcoin Core&quot;, &quot;Bitcoin Core API&quot;, &quot;explorer et décoder les transactions&quot;)))(((&quot;transactions&quot;, &quot;explorer avec l'API Bitcoin Core&quot;)))Commandes : +getrawtransaction+, +decoderawtransaction+
 
 
 
-Dans &lt;<cup_of_coffee>&gt;, (((&quot;cas d&#39;utilisation&quot;, &quot;acheter du café&quot;, id=&quot;alicethree&quot;)))Alice a acheté une tasse de café au Bob&#39;s Cafe. Sa transaction a été enregistrée sur la blockchain avec l&#39;identifiant de transaction (+txid+) +0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2+. Utilisons l&#39;API pour récupérer et examiner cette transaction en transmettant l&#39;identifiant de transaction en tant que paramètre :
+Dans &lt;<cup_of_coffee>&gt;, (((&quot;cas d'utilisation&quot;, &quot;acheter du café&quot;, id=&quot;alicethree&quot;)))Alice a acheté une tasse de café au Bob's Cafe. Sa transaction a été enregistrée sur la blockchain avec l'identifiant de transaction (+txid+) +0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2+. Utilisons l'API pour récupérer et examiner cette transaction en transmettant l'identifiant de transaction en tant que paramètre :
 
-[source,bash]
-----
-$ bitcoin-cli getrawtransaction 0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2
+++++
+<pre data-type="programlisting">
+$ bitcoin-cli getrawtransaction 0627052b6f28912f2703066a912ea577f2ce4da4caa5a&#x21b5;
+5fbd8a57286c345c2f2
 
-0100000001186f9f998a5aa6f048e51dd8419a14d8a0f1a8a2836dd734d2804fe65fa35779000
-
-000008b483045022100884d142d86652a3f47ba4746ec719bbfbd040a570b1deccbb6498c75c4
-
-ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813014
-
-10484ecc0d46f1918b30928fa0e4ed99f16a0fb4fde0735e7ade8416ab9fe423cc54123363767
-
-89d172787ec3457eee41c04f4938de5cc17b4a10fa336a8d752adfffffffff0260e3160000000
-
-0001976a914ab68025513c3dbd2f7b92a94e0581f5d50f654e788acd0ef8000000000001976a9
-
+0100000001186f9f998a5aa6f048e51dd8419a14d8a0f1a8a2836dd734d2804fe65fa35779000&#x21b5;
+000008b483045022100884d142d86652a3f47ba4746ec719bbfbd040a570b1deccbb6498c75c4&#x21b5;
+ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813014&#x21b5;
+10484ecc0d46f1918b30928fa0e4ed99f16a0fb4fde0735e7ade8416ab9fe423cc54123363767&#x21b5;
+89d172787ec3457eee41c04f4938de5cc17b4a10fa336a8d752adfffffffff0260e3160000000&#x21b5;
+0001976a914ab68025513c3dbd2f7b92a94e0581f5d50f654e788acd0ef8000000000001976a9&#x21b5;
 147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a888ac00000000
-----
+</pre>
+++++
+
 
 [TIP]
 ====
-(((&quot;identifiant de transaction (txd)&quot;)))(((&quot;malléabilité&quot;)))Un identifiant de transaction ne fait pas autorité tant qu&#39;une transaction n&#39;a pas été confirmée. L&#39;absence d&#39;un hachage de transaction dans la blockchain ne signifie pas que la transaction n&#39;a pas été traitée. C&#39;est ce qu&#39;on appelle la &quot;malléabilité des transactions&quot;, car les hachages de transaction peuvent être modifiés avant la confirmation dans un bloc. Après confirmation, le +txid+ est immuable et fait autorité.
+(((&quot;identifiant de transaction (txd)&quot;)))(((&quot;malléabilité&quot;)))Un identifiant de transaction ne fait pas autorité tant qu'une transaction n'a pas été confirmée. L'absence d'un hachage de transaction dans la blockchain ne signifie pas que la transaction n'a pas été traitée. C'est ce qu'on appelle la &quot;malléabilité des transactions&quot;, car les hachages de transaction peuvent être modifiés avant la confirmation dans un bloc. Après confirmation, le +txid+ est immuable et fait autorité.
 ====
 
-La commande +getrawtransaction+ renvoie une transaction sérialisée en notation hexadécimale. Pour décoder cela, nous utilisons la commande +decoderawtransaction+, en passant les données hexadécimales en paramètre. Vous pouvez copier l&#39;hex renvoyé par +getrawtransaction+ et le coller en tant que paramètre dans +decoderawtransaction+ :
+La commande +getrawtransaction+ renvoie une transaction sérialisée en notation hexadécimale. Pour décoder cela, nous utilisons la commande +decoderawtransaction+, en passant les données hexadécimales en paramètre. Vous pouvez copier l'hex renvoyé par +getrawtransaction+ et le coller en tant que paramètre dans +decoderawtransaction+ :
 
-----
-$ bitcoin-cli decoderawtransaction 0100000001186f9f998a5aa6f048e51dd8419a14d8
-
-a0f1a8a2836dd734d2804fe65fa35779000000008b483045022100884d142d86652a3f47ba474
-
-6ec719bbfbd040a570b1deccbb6498c75c4ae24cb02204b9f039ff08df09cbe9f6addac960298
-
-cad530a863ea8f53982c09db8f6e381301410484ecc0d46f1918b30928fa0e4ed99f16a0fb4fd
-
-e0735e7ade8416ab9fe423cc5412336376789d172787ec3457eee41c04f4938de5cc17b4a10fa
-
-336a8d752adfffffffff0260e31600000000001976a914ab68025513c3dbd2f7b92a94e0581f5
-
-d50f654e788acd0ef8000000000001976a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8
-
+++++
+<pre data-type="programlisting">
+$ bitcoin-cli decoderawtransaction 0100000001186f9f998a5aa6f048e51dd8419a14d8&#x21b5;
+a0f1a8a2836dd734d2804fe65fa35779000000008b483045022100884d142d86652a3f47ba474&#x21b5;
+6ec719bbfbd040a570b1deccbb6498c75c4ae24cb02204b9f039ff08df09cbe9f6addac960298&#x21b5;
+cad530a863ea8f53982c09db8f6e381301410484ecc0d46f1918b30928fa0e4ed99f16a0fb4fd&#x21b5;
+e0735e7ade8416ab9fe423cc5412336376789d172787ec3457eee41c04f4938de5cc17b4a10fa&#x21b5;
+336a8d752adfffffffff0260e31600000000001976a914ab68025513c3dbd2f7b92a94e0581f5&#x21b5;
+d50f654e788acd0ef8000000000001976a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8&#x21b5;
 88ac00000000
-----
 
-[source,json]
-----
+</pre>
+++++
+
+++++
+<pre data-type="programlisting" data-code-language="json">
 {
   "txid": "0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2",
   "size": 258,
@@ -602,11 +596,13 @@ d50f654e788acd0ef8000000000001976a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8
     }
   ]
 }
-----
 
-Le décodage de la transaction montre tous les composants de cette transaction, y compris les entrées et les sorties de la transaction. Dans ce cas, nous voyons que la transaction qui a crédité notre nouvelle adresse de 15 millibits a utilisé une entrée et généré deux sorties. L&#39;entrée de cette transaction était la sortie d&#39;une transaction précédemment confirmée (indiquée par +txid+ commençant par +7957a35fe+). Les deux sorties correspondent au crédit de 15 millibits et une sortie avec retour à l&#39;expéditeur.
+</pre>
+++++
 
-Nous pouvons explorer davantage la chaîne de blocs en examinant la transaction précédente référencée par son +txid+ dans cette transaction en utilisant les mêmes commandes (par exemple, +getrawtransaction+). En sautant d&#39;une transaction à l&#39;autre, nous pouvons suivre une chaîne de transactions à mesure que les pièces sont transmises d&#39;adresse de propriétaire à adresse de propriétaire.
+Le décodage de la transaction montre tous les composants de cette transaction, y compris les entrées et les sorties de la transaction. Dans ce cas, nous voyons que la transaction qui a crédité notre nouvelle adresse de 15 millibits a utilisé une entrée et généré deux sorties. L'entrée de cette transaction était la sortie d'une transaction précédemment confirmée (indiquée par +txid+ commençant par +7957a35fe+). Les deux sorties correspondent au crédit de 15 millibits et une sortie avec retour à l'expéditeur.
+
+Nous pouvons explorer davantage la chaîne de blocs en examinant la transaction précédente référencée par son +txid+ dans cette transaction en utilisant les mêmes commandes (par exemple, +getrawtransaction+). En sautant d'une transaction à l'autre, nous pouvons suivre une chaîne de transactions à mesure que les pièces sont transmises d'adresse de propriétaire à adresse de propriétaire.
 
 
 
@@ -614,23 +610,28 @@ Nous pouvons explorer davantage la chaîne de blocs en examinant la transaction 
 
 (((&quot;Bitcoin Core&quot;, &quot;Bitcoin Core API&quot;, &quot;exploration de blocs&quot;)))(((&quot;blocs&quot;, &quot;exploration avec Bitcoin Core API&quot;)))Commandes : +getblock+, +getblockhash+
 
-(((&quot;blocs&quot;, &quot;hauteur de bloc&quot;)))(((&quot;blocs&quot;, &quot;hachage de bloc&quot;)))L&#39;exploration de blocs est similaire à l&#39;exploration de transactions. Cependant, les blocs peuvent être référencés soit par la _hauteur_ du bloc (_height_), soit par le résultat de _hachage_ (ou _hash_) du bloc. Tout d&#39;abord, trouvons un bloc par sa hauteur. Dans &lt;<cup_of_coffee>&gt;, nous avons vu que la transaction d&#39;Alice était incluse dans le bloc 277316.
+(((&quot;blocs&quot;, &quot;hauteur de bloc&quot;)))(((&quot;blocs&quot;, &quot;hachage de bloc&quot;)))L'exploration de blocs est similaire à l'exploration de transactions. Cependant, les blocs peuvent être référencés soit par la _hauteur_ du bloc (_height_), soit par le résultat de _hachage_ (ou _hash_) du bloc. Tout d'abord, trouvons un bloc par sa hauteur. Dans &lt;<cup_of_coffee>&gt;, nous avons vu que la transaction d'Alice était incluse dans le bloc 277316.
 
 Nous utilisons la commande +getblockhash+, qui prend la hauteur du bloc comme paramètre et renvoie le hachage pour ce bloc :
 
-----
+++++
+<pre data-type="programlisting">
 $ bitcoin-cli getblockhash 277316
 0000000000000001b6b9a13b095e96db41c4a928b97ef2d944a9b31b2cc7bdc4
-----
+</pre>
+++++
 
-Maintenant que nous savons dans quel bloc la transaction d&#39;Alice était incluse, nous pouvons interroger ce bloc. Nous utilisons la commande +getblock+ avec le hachage de bloc comme paramètre :
+Maintenant que nous savons dans quel bloc la transaction d'Alice était incluse, nous pouvons interroger ce bloc. Nous utilisons la commande +getblock+ avec le hachage de bloc comme paramètre :
 
-----
-$ bitcoin-cli getblock 0000000000000001b6b9a13b095e96db41c4a928b97ef2d944a9b3
+++++
+<pre data-type="programlisting">
+$ bitcoin-cli getblock 0000000000000001b6b9a13b095e96db41c4a928b97ef2d944a9b3&#x21b5;
 1b2cc7bdc4
-----
+</pre>
+++++
 
-----
+++++
+<pre data-type="programlisting" data-code-language="json">
 {
   "hash": "0000000000000001b6b9a13b095e96db41c4a928b97ef2d944a9b31b2cc7bdc4",
   "confirmations": 37371,
@@ -664,34 +665,35 @@ $ bitcoin-cli getblock 0000000000000001b6b9a13b095e96db41c4a928b97ef2d944a9b3
   "previousblockhash": "0000000000000002a7bbd25a417c0374cc55261021e8a9ca74442b01284f0569",
   "nextblockhash": "000000000000000010236c269dd6ed714dd5db39d36b33959079d78dfd431ba7"
 }
-----
+</pre>
+++++
 
-Le bloc contient 419 transactions et la 64ème transaction répertoriée (+0627052b...+) est le paiement du café d&#39;Alice. L&#39;entrée + hauteur + nous indique qu&#39;il s&#39;agit du 277316e bloc de la blockchain.
+Le bloc contient 419 transactions et la 64ème transaction répertoriée (+0627052b...+) est le paiement du café d'Alice. L'entrée + hauteur + nous indique qu'il s'agit du 277316e bloc de la blockchain.
 
-==== Utilisation de l&#39;interface de programmation de Bitcoin Core
+==== Utilisation de l'interface de programmation de Bitcoin Core
 
-(((&quot;Bitcoin Core&quot;, &quot;Bitcoin Core API&quot;, &quot;utiliser une interface de programmation&quot;)))(((&quot;interface de programmation&quot;, id=&quot;progint03&quot;)))L&#39;assistant +bitcoin-cli+ est très utile pour explorer la bibliothèue (API) Bitcoin Core et les fonctions de test. Mais tout l&#39;intérêt d&#39;une interface de programmation d&#39;application est d&#39;accéder aux fonctions par programmation. Dans cette section, nous montrerons comment accéder à Bitcoin Core à partir d&#39;un autre programme.
+(((&quot;Bitcoin Core&quot;, &quot;Bitcoin Core API&quot;, &quot;utiliser une interface de programmation&quot;)))(((&quot;interface de programmation&quot;, id=&quot;progint03&quot;)))L'assistant +bitcoin-cli+ est très utile pour explorer la bibliothèue (API) Bitcoin Core et les fonctions de test. Mais tout l'intérêt d'une interface de programmation d'application est d'accéder aux fonctions par programmation. Dans cette section, nous montrerons comment accéder à Bitcoin Core à partir d'un autre programme.
 
-L&#39;API de Bitcoin Core est une interface JSON-RPC. JSON signifie JavaScript Object Notation et c&#39;est un moyen très pratique de présenter des données que les humains et les programmes peuvent facilement lire. RPC signifie Remote Procedure Call (ou appel de procédure à distance), ce qui signifie que nous appelons des procédures (fonctions) distantes (sur le nœud Bitcoin Core) via un protocole réseau. Dans ce cas, le protocole réseau est HTTP ou HTTPS (pour les connexions cryptées).
+L'API de Bitcoin Core est une interface JSON-RPC. JSON signifie JavaScript Object Notation et c'est un moyen très pratique de présenter des données que les humains et les programmes peuvent facilement lire. RPC signifie Remote Procedure Call (ou appel de procédure à distance), ce qui signifie que nous appelons des procédures (fonctions) distantes (sur le nœud Bitcoin Core) via un protocole réseau. Dans ce cas, le protocole réseau est HTTP ou HTTPS (pour les connexions cryptées).
 
-Lorsque nous avons utilisé la commande +bitcoin-cli+ pour obtenir de l&#39;aide sur une commande, elle nous a montré un exemple d&#39;utilisation de +curl+, le client HTTP polyvalent en ligne de commande pour construire l&#39;un de ces appels JSON-RPC :
+Lorsque nous avons utilisé la commande +bitcoin-cli+ pour obtenir de l'aide sur une commande, elle nous a montré un exemple d'utilisation de +curl+, le client HTTP polyvalent en ligne de commande pour construire l'un de ces appels JSON-RPC :
 
 ----
 $ curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockchaininfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
 ----
 
-Cette commande montre que +curl+ soumet une requête HTTP à l&#39;hôte local (127.0.0.1), se connecte au port bitcoin par défaut (8332) et soumet une requête +jsonrpc+ pour la méthode +getblockchaininfo+ en utilisant l&#39;encodage +text/plain+.
+Cette commande montre que +curl+ soumet une requête HTTP à l'hôte local (127.0.0.1), se connecte au port bitcoin par défaut (8332) et soumet une requête +jsonrpc+ pour la méthode +getblockchaininfo+ en utilisant l'encodage +text/plain+.
 
-Vous remarquerez peut-être que curl demandera que les informations d&#39;identification soient envoyées avec la demande. Bitcoin Core créera un mot de passe aléatoire à chaque démarrage et le placera dans le répertoire de données sous le nom +.cookie+. L&#39;assistant +bitcoin-cli+ peut lire ce fichier de mots de passe étant donné le répertoire de données. De même, vous pouvez copier le mot de passe et le transmettre à curl (ou à tout wrapper Bitcoin Core RPC de niveau supérieur). Alternativement, vous pouvez créer un mot de passe statique avec le script d&#39;assistance fourni dans _./share/rpcauth/rpcauth.py_ dans le répertoire source de Bitcoin Core.
+Vous remarquerez peut-être que curl demandera que les informations d'identification soient envoyées avec la demande. Bitcoin Core créera un mot de passe aléatoire à chaque démarrage et le placera dans le répertoire de données sous le nom +.cookie+. L'assistant +bitcoin-cli+ peut lire ce fichier de mots de passe étant donné le répertoire de données. De même, vous pouvez copier le mot de passe et le transmettre à curl (ou à tout wrapper Bitcoin Core RPC de niveau supérieur). Alternativement, vous pouvez créer un mot de passe statique avec le script d'assistance fourni dans _./share/rpcauth/rpcauth.py_ dans le répertoire source de Bitcoin Core.
 
-Si vous implémentez un appel JSON-RPC dans votre propre programme, vous pouvez utiliser une bibliothèque HTTP générique pour construire l&#39;appel, similaire à ce qui est montré dans l&#39;exemple +curl+ précédent.
+Si vous implémentez un appel JSON-RPC dans votre propre programme, vous pouvez utiliser une bibliothèque HTTP générique pour construire l'appel, similaire à ce qui est montré dans l'exemple +curl+ précédent.
 
-Cependant, il existe des bibliothèques dans la plupart des langages de programmation qui &quot;enveloppent&quot; l&#39;API Bitcoin Core d&#39;une manière qui rend cela beaucoup plus simple. Nous utiliserons la bibliothèque +python-bitcoinlib+ pour simplifier l&#39;accès à l&#39;API. N&#39;oubliez pas que cela nécessite que vous disposiez d&#39;une instance Bitcoin Core en cours d&#39;exécution, qui sera utilisée pour effectuer des appels JSON-RPC.
+Cependant, il existe des bibliothèques dans la plupart des langages de programmation qui &quot;enveloppent&quot; l'API Bitcoin Core d'une manière qui rend cela beaucoup plus simple. Nous utiliserons la bibliothèque +python-bitcoinlib+ pour simplifier l'accès à l'API. N'oubliez pas que cela nécessite que vous disposiez d'une instance Bitcoin Core en cours d'exécution, qui sera utilisée pour effectuer des appels JSON-RPC.
 
 Le script Python dans &lt;<rpc_example>&gt; effectue un simple appel +getblockchaininfo+ et imprime le paramètre +blocks+ à partir des données renvoyées par Bitcoin Core (nœud complet requis).
 
 [[rpc_example]]
-.Exécution de getblockchaininfo via l&#39;API JSON-RPC de Bitcoin Core
+.Exécution de getblockchaininfo via l'API JSON-RPC de Bitcoin Core
 ====
 [source,python]
 ----
@@ -706,9 +708,9 @@ $ python rpc_example.py
 394075
 ----
 
-Il nous indique que notre nœud local Bitcoin Core a 394075 blocs dans sa chaîne de blocs. Ce n&#39;est pas un résultat spectaculaire, mais cela démontre l&#39;utilisation de base de la bibliothèque en tant qu&#39;interface simplifiée avec l&#39;API JSON-RPC de Bitcoin Core.
+Il nous indique que notre nœud local Bitcoin Core a 394075 blocs dans sa chaîne de blocs. Ce n'est pas un résultat spectaculaire, mais cela démontre l'utilisation de base de la bibliothèque en tant qu'interface simplifiée avec l'API JSON-RPC de Bitcoin Core.
 
-Ensuite, utilisons les appels +getrawtransaction+ et +decodetransaction+ pour récupérer les détails du paiement du café d&#39;Alice. Dans &lt;<rpc_transaction>&gt;, nous récupérons la transaction d&#39;Alice et listons les sorties de la transaction. Pour chaque sortie, nous affichons l&#39;adresse et la valeur du destinataire. Pour rappel, la transaction d&#39;Alice avait une sortie pour payer Bob&#39;s Cafe et une sortie pour rendre la monnaie à Alice.
+Ensuite, utilisons les appels +getrawtransaction+ et +decodetransaction+ pour récupérer les détails du paiement du café d'Alice. Dans &lt;<rpc_transaction>&gt;, nous récupérons la transaction d'Alice et listons les sorties de la transaction. Pour chaque sortie, nous affichons l'adresse et la valeur du destinataire. Pour rappel, la transaction d'Alice avait une sortie pour payer Bob's Cafe et une sortie pour rendre la monnaie à Alice.
 
 [[rpc_transaction]]
 .Récupérer une transaction et itérer ses sorties
@@ -727,12 +729,12 @@ $ python rpc_transaction.py
 ([u'1Cdid9KFAaatwczBwBttQcwXYCpvK8h7FK'], Decimal('0.08450000'))
 ----
 
-Les deux exemples précédents sont assez simples. Vous n&#39;avez pas vraiment besoin d&#39;un programme pour les exécuter ; vous pouvez tout aussi bien utiliser l&#39;assistant +bitcoin-cli+. L&#39;exemple suivant, cependant, nécessite plusieurs centaines d&#39;appels RPC et démontre plus clairement l&#39;utilisation d&#39;une interface de programmation.
+Les deux exemples précédents sont assez simples. Vous n'avez pas vraiment besoin d'un programme pour les exécuter ; vous pouvez tout aussi bien utiliser l'assistant +bitcoin-cli+. L'exemple suivant, cependant, nécessite plusieurs centaines d'appels RPC et démontre plus clairement l'utilisation d'une interface de programmation.
 
-Dans &lt;<rpc_block>&gt;, nous récupérons d&#39;abord le bloc 277316, puis récupérons chacune des 419 transactions en référence à chaque identifiant de transaction. Ensuite, nous parcourons chacune des sorties de la transaction et additionnons la valeur.(((&quot;&quot;, startref=&quot;alicethree&quot;)))
+Dans &lt;<rpc_block>&gt;, nous récupérons d'abord le bloc 277316, puis récupérons chacune des 419 transactions en référence à chaque identifiant de transaction. Ensuite, nous parcourons chacune des sorties de la transaction et additionnons la valeur.(((&quot;&quot;, startref=&quot;alicethree&quot;)))
 
 [[rpc_block]]
-.Récupération d&#39;un bloc et ajout de toutes les sorties de transaction
+.Récupération d'un bloc et ajout de toutes les sorties de transaction
 ====
 [source,python]
 ----
@@ -748,19 +750,19 @@ $ python rpc_block.py
 ('Total value in block: ', Decimal('10322.07722534'))
 ----
 
-Notre exemple de code calcule que la valeur totale des transactions dans ce bloc est de 10 322,07722534 BTC (dont 25 BTC de récompense et 0,0909 BTC de frais). Comparez cela au montant rapporté par un site d&#39;exploration de blocs en recherchant le hachage ou la hauteur du bloc. Certains explorateurs de blocs rapportent la valeur totale hors récompense et hors frais. Voyez si vous pouvez repérer la différence.(((&quot;&quot;, startref=&quot;BCapi03&quot;)))(((&quot;&quot;, startref=&quot;progint03&quot;)))
+Notre exemple de code calcule que la valeur totale des transactions dans ce bloc est de 10 322,07722534 BTC (dont 25 BTC de récompense et 0,0909 BTC de frais). Comparez cela au montant rapporté par un site d'exploration de blocs en recherchant le hachage ou la hauteur du bloc. Certains explorateurs de blocs rapportent la valeur totale hors récompense et hors frais. Voyez si vous pouvez repérer la différence.(((&quot;&quot;, startref=&quot;BCapi03&quot;)))(((&quot;&quot;, startref=&quot;progint03&quot;)))
 
 [[alt_libraries]]
 === Clients, bibliothèques et boîtes à outils alternatifs
 
-(((&quot;Bitcoin Core&quot;, &quot;alternatives à&quot;, id=&quot;BCalt03&quot;)))(((&quot;clients, bibliothèques et boîtes à outils&quot;, id=&quot;clients03&quot;)))(((&quot;bibliothèques, clients et trousses d&#39;outils&quot;, id=&quot;librar03&quot;)))(((&quot;trousses d&#39;outils, bibliothèques et clients&quot;, id=&quot;toolkit03&quot;)))(((&quot;clients API tiers&quot;, id=&quot;thirdpart03&quot;))) Il existe de nombreux clients alternatifs, bibliothèques, boîtes à outils et même des implémentations de nœuds complets dans l&#39;écosystème bitcoin. Ceux-ci sont implémentés dans une variété de langages de programmation, offrant aux programmeurs des interfaces natives dans leur langue préférée.
+(((&quot;Bitcoin Core&quot;, &quot;alternatives à&quot;, id=&quot;BCalt03&quot;)))(((&quot;clients, bibliothèques et boîtes à outils&quot;, id=&quot;clients03&quot;)))(((&quot;bibliothèques, clients et trousses d'outils&quot;, id=&quot;librar03&quot;)))(((&quot;trousses d'outils, bibliothèques et clients&quot;, id=&quot;toolkit03&quot;)))(((&quot;clients API tiers&quot;, id=&quot;thirdpart03&quot;))) Il existe de nombreux clients alternatifs, bibliothèques, boîtes à outils et même des implémentations de nœuds complets dans l'écosystème bitcoin. Ceux-ci sont implémentés dans une variété de langages de programmation, offrant aux programmeurs des interfaces natives dans leur langue préférée.
 
-Les sections suivantes répertorient certaines des meilleures bibliothèques, clients et kits d&#39;outils, organisés par langages de programmation.
+Les sections suivantes répertorient certaines des meilleures bibliothèques, clients et kits d'outils, organisés par langages de programmation.
 
 ==== C/C++
-https://github.com/bitcoin/bitcoin[Bitcoin Core]:: L&#39;implémentation de référence de bitcoin
+https://github.com/bitcoin/bitcoin[Bitcoin Core]:: L'implémentation de référence de bitcoin
 https://github.com/libbitcoin/libbitcoin-system[libbitcoin]:: Boîte à outils de développement C++ multiplateforme, nœud et bibliothèque de consensus
-https://github.com/libbitcoin/libbitcoin-explorer[bitcoin explorer]:: L&#39;outil de ligne de commande de Libbitcoin
+https://github.com/libbitcoin/libbitcoin-explorer[bitcoin explorer]:: L'outil de ligne de commande de Libbitcoin
 https://github.com/jgarzik/picocoin[picocoin]:: Bibliothèque cliente légère en langage C pour bitcoin par Jeff Garzik
 
 ==== JavaScript
@@ -780,13 +782,13 @@ https://github.com/richardkiss/pycoin[pycoin]:: Une bibliothèque Bitcoin en Pyt
 https://github.com/primal100/pybitcointools[pybitcointools]:: Une fourche archivé de la bibliothèque Bitcoin en Python par Vitalik Buterin
 
 ==== Ruby
-https://github.com/sinisterchipmunk/bitcoin-client[bitcoin-client]:: Un wrapper de bibliothèque Ruby pour l&#39;API JSON-RPC
+https://github.com/sinisterchipmunk/bitcoin-client[bitcoin-client]:: Un wrapper de bibliothèque Ruby pour l'API JSON-RPC
 
 ==== Go
 https://github.com/btcsuite/btcd[btcd]:: Un client Bitcoin à nœud complet en langage Go
 
 ==== Rust
-https://github.com/rust-bitcoin/rust-bitcoin[rust-bitcoin]:: Bibliothèque Bitcoin Rust pour la sérialisation, l&#39;analyse et les appels d&#39;API
+https://github.com/rust-bitcoin/rust-bitcoin[rust-bitcoin]:: Bibliothèque Bitcoin Rust pour la sérialisation, l'analyse et les appels d'API
 
 ==== C#
 https://github.com/MetacoSA/NBitcoin[NBitcoin]:: Bibliothèque Bitcoin complète pour le framework .NET
@@ -794,4 +796,4 @@ https://github.com/MetacoSA/NBitcoin[NBitcoin]:: Bibliothèque Bitcoin complète
 ==== Objective-C
 https://github.com/oleganza/CoreBitcoin[CoreBitcoin] :: Boîte à outils Bitcoin pour ObjC et Swift
 
-De nombreuses autres bibliothèques existent dans une variété d&#39;autres langages de programmation et d&#39;autres sont créées tout le temps.(((&quot;&quot;, startref=&quot;BCalt03&quot;)))(((&quot;&quot;, startref=&quot;clients03&quot;)))((( &quot;&quot;, startref=&quot;thirdpart03&quot;)))(((&quot;&quot;, startref=&quot;toolkit03&quot;)))(((&quot;&quot;, startref=&quot;librar03&quot;)))
+De nombreuses autres bibliothèques existent dans une variété d'autres langages de programmation et d'autres sont créées tout le temps.(((&quot;&quot;, startref=&quot;BCalt03&quot;)))(((&quot;&quot;, startref=&quot;clients03&quot;)))((( &quot;&quot;, startref=&quot;thirdpart03&quot;)))(((&quot;&quot;, startref=&quot;toolkit03&quot;)))(((&quot;&quot;, startref=&quot;librar03&quot;)))

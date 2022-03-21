@@ -272,7 +272,7 @@ Les engagements révocables asymétriques avec blocages temporels relatifs (+CSV
 
 ==== Contrats de verrouillage du temps de hachage (HTLC)
 
-(((&quot;Hash Time Lock Contracts Contrats de verrouillage du temps de hachage (HTLC)&quot;)))(((&quot;canaux de paiements (d'état)&quot;, &quot;Hash Time Lock Contracts Contrats de verrouillage du temps de hachage (HTLC)&quot;)))Les canaux de paiement peuvent être encore étendus avec un type spécial de contrat intelligent qui permet aux participants d'engager des fonds dans un secret remboursable, avec un délai d'expiration. Cette fonctionnalité est appelée _contrats de verrouillage du temps de hachage_ (_Hash Time Lock Contract_), ou _HTLC_, et est utilisée à la fois dans les canaux de paiement bidirectionnels et routés.
+(((&quot;Hash Time Lock Contracts (Contrats de verrouillage du temps de hachage) (HTLC)&quot;)))(((&quot;canaux de paiements (d'état)&quot;, &quot;Hash Time Lock Contracts Contrats de verrouillage du temps de hachage (HTLC)&quot;)))Les canaux de paiement peuvent être encore étendus avec un type spécial de contrat intelligent qui permet aux participants d'engager des fonds dans un secret remboursable, avec un délai d'expiration. Cette fonctionnalité est appelée _contrats de verrouillage du temps de hachage_ (_Hash Time Lock Contract_), ou _HTLC_, et est utilisée à la fois dans les canaux de paiement bidirectionnels et routés.
 
 Expliquons d'abord la partie &quot;hachage&quot; du HTLC. Pour créer un HTLC, le destinataire prévu du paiement créera d'abord un +R+ secret. Ils calculent ensuite le hash de ce secret +H+ :
 

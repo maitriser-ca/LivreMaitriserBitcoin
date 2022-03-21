@@ -444,7 +444,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="appdx_bitcore">Appendix A: Bitcore</h2>
 <div class="sectionbody">
 <div class="paragraph data-line-7">
-<p>Bitcore est une suite d&#39;outils fournis par BitPay. Son objectif est de fournir des outils faciles à utiliser pour les développeurs Bitcoin. Presque tout le code de Bitcore est écrit en JavaScript. Il existe des modules écrits spécifiquement pour NodeJS. Enfin, le module &quot;node&quot; de Bitcore inclut le code C++ de Bitcoin Core. Veuillez consulter <a href="https://bitcore.io" class="undefined" data-href="https://bitcore.io">https://bitcore.io</a> pour plus d&#39;informations.</p>
+<p>Bitcore est une suite d&#8217;outils fournis par BitPay. Son objectif est de fournir des outils faciles à utiliser pour les développeurs Bitcoin. Presque tout le code de Bitcore est écrit en JavaScript. Il existe des modules écrits spécifiquement pour NodeJS. Enfin, le module &quot;node&quot; de Bitcore inclut le code C++ de Bitcoin Core. Veuillez consulter <a href="https://bitcore.io" class="undefined" data-href="https://bitcore.io">https://bitcore.io</a> pour plus d&#8217;informations.</p>
 </div>
 <div class="sect2 data-line-9">
 <h3 id="_liste_des_fonctionnalités_de_bitcore">Liste des fonctionnalités de Bitcore</h3>
@@ -463,7 +463,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Communiquer directement avec le réseau P2P de Bitcoin (bitcore-p2p)</p>
 </li>
 <li class="data-line-15">
-<p>Génération mnémonique d&#39;entropie de valeur d&#8217;amorçage (bitcore-mnémonique)</p>
+<p>Génération mnémonique d&#8217;entropie de valeur d&#8217;amorçage (bitcore-mnémonique)</p>
 </li>
 <li class="data-line-16">
 <p>Protocole de paiement (bitcore-payment-protocol)</p>
@@ -509,7 +509,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect3 data-line-36">
 <h4 id="_exemples_de_portefeuille_utilisant_bitcore_lib">Exemples de portefeuille utilisant bitcore-lib</h4>
 <div class="paragraph data-line-38">
-<p>Création d&#39;une nouvelle adresse Bitcoin avec clé privée associée :</p>
+<p>Création d&#8217;une nouvelle adresse Bitcoin avec clé privée associée :</p>
 </div>
 <div class="listingblock data-line-40">
 <div class="content">
@@ -519,7 +519,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="paragraph data-line-46">
-<p>Création d&#39;une clé privée déterministe hiérarchique et d&#39;une adresse :</p>
+<p>Création d&#8217;une clé privée déterministe hiérarchique et d&#8217;une adresse :</p>
 </div>
 <div class="listingblock data-line-48">
 <div class="content">
@@ -529,7 +529,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="paragraph data-line-54">
-<p>Création et signature d&#39;une transaction depuis un UTXO :</p>
+<p>Création et signature d&#8217;une transaction depuis un UTXO :</p>
 </div>
 <div class="listingblock data-line-56">
 <div class="content">
@@ -538,7 +538,7 @@ txId: txId, // identifiant de transaction contenant une sortie non dépensée
 outputIndex: outputIndex, // index de sortie (par exemple 0)
   address: addressOfUtxo,
   script: bitcore.Script.buildPublicKeyHashOut(addressOfUtxo).toString(),
-satoshis: satoshis // montant envoyé à l&amp;#39;adresse
+satoshis: satoshis // montant envoyé à l'adresse
 }
 &gt; fee = 3000 //défini de manière appropriée pour les conditions sur le réseau
 &gt; tx = new bitcore.Transaction()
@@ -577,7 +577,7 @@ satoshis: satoshis // montant envoyé à l&amp;#39;adresse
 <p>Les variables tx et rbfTx sont la sortie de tx.serialize() et rbfTx.serialize(), respectivement.</p>
 </li>
 <li class="data-line-91">
-<p>Afin de remplacer par des frais, l&#39;homologue doit prendre en charge l&#39;option bitcoind mempoolreplace et la définir sur 1.</p>
+<p>Afin de remplacer par des frais, l&#8217;homologue doit prendre en charge l&#8217;option bitcoind mempoolreplace et la définir sur 1.</p>
 </li>
 <li class="data-line-92">
 <p>Exécutez le nœud de fichier <em>broadcast.js</em> :</p>
@@ -616,7 +616,7 @@ peer.connect();</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-17 12:13:25 -0400
+Last updated 2022-03-21 10:52:49 -0400
 </div>
 </div>
 </body>

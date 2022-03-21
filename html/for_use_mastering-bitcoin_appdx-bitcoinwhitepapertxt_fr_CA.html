@@ -451,7 +451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </td>
 <td class="content">
 <div class="paragraph data-line-7">
-<p>Ceci est le livre blanc original, reproduit dans son intégralité exactement tel qu&#39;il a été publié par Satoshi Nakamoto en octobre 2008 et traduit (par assistance informatique) par Serafim Dos Santos en 2022 pour l&#8217;édition ouverte de <em>Maîtriser Bitcoin</em> (voir version originale <em>Mastering Bitcoin</em>).</p>
+<p>Ceci est le livre blanc original, reproduit dans son intégralité exactement tel qu&#8217;il a été publié par Satoshi Nakamoto en octobre 2008 et traduit (par assistance informatique) par Serafim Dos Santos en 2022 pour l&#8217;édition ouverte de <em>Maîtriser Bitcoin</em> (voir version originale <em>Mastering Bitcoin</em>).</p>
 </div>
 </td>
 </tr>
@@ -469,15 +469,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a href="https://bitcoin.org/en/" class="orm:hideurl"><em>www.bitcoin.org</em></a></p>
 </div>
 <div class="paragraph data-line-18">
-<p><strong>Résumé.</strong> Une version purement pair à pair de la monnaie électronique permettrait d&#39;envoyer des paiements en ligne directement d&#39;une partie à une autre sans passer par une institution financière. Les signatures numériques fournissent une partie de la solution, mais les principaux avantages sont perdus si un tiers de confiance est toujours requis pour éviter les doubles dépenses. Nous proposons une solution au problème de la double dépense en utilisant un réseau pair à pair. Le réseau horodate les transactions en les hachant dans une chaîne continue de preuves de travail (proof-of-work) basées sur le hachage, formant un enregistrement qui ne peut pas être modifié sans refaire la preuve de travail. La chaîne la plus longue sert non seulement de preuve de la séquence d&#39;événements observés, mais aussi de preuve qu&#39;elle provient du plus grand bassin de puissance CPU. Tant que la majorité de la puissance du processeur est contrôlée par des nœuds qui ne coopèrent pas pour attaquer le réseau, ils généreront la plus longue chaîne et devanceront les attaquants. Le réseau lui-même nécessite une structure minimale. Les messages sont diffusés dans la mesure du possible, et les nœuds peuvent quitter et rejoindre le réseau à volonté, acceptant la plus longue chaîne de preuve de travail comme preuve de ce qui s&#39;est passé pendant leur absence.</p>
+<p><strong>Résumé.</strong> Une version purement pair à pair de la monnaie électronique permettrait d&#8217;envoyer des paiements en ligne directement d&#8217;une partie à une autre sans passer par une institution financière. Les signatures numériques fournissent une partie de la solution, mais les principaux avantages sont perdus si un tiers de confiance est toujours requis pour éviter les doubles dépenses. Nous proposons une solution au problème de la double dépense en utilisant un réseau pair à pair. Le réseau horodate les transactions en les hachant dans une chaîne continue de preuves de travail (proof-of-work) basées sur le hachage, formant un enregistrement qui ne peut pas être modifié sans refaire la preuve de travail. La chaîne la plus longue sert non seulement de preuve de la séquence d&#8217;événements observés, mais aussi de preuve qu&#8217;elle provient du plus grand bassin de puissance CPU. Tant que la majorité de la puissance du processeur est contrôlée par des nœuds qui ne coopèrent pas pour attaquer le réseau, ils généreront la plus longue chaîne et devanceront les attaquants. Le réseau lui-même nécessite une structure minimale. Les messages sont diffusés dans la mesure du possible, et les nœuds peuvent quitter et rejoindre le réseau à volonté, acceptant la plus longue chaîne de preuve de travail comme preuve de ce qui s&#8217;est passé pendant leur absence.</p>
 </div>
 <div class="sect3 data-line-20">
 <h4 id="_introduction">Introduction</h4>
 <div class="paragraph data-line-21">
-<p>Le commerce sur Internet en est venu à s&#39;appuyer presque exclusivement sur des institutions financières servant de tiers de confiance pour traiter les paiements électroniques. Bien que le système fonctionne assez bien pour la plupart des transactions, il souffre toujours des faiblesses inhérentes au modèle basé sur la confiance. Les transactions totalement irréversibles ne sont pas vraiment possibles, car les institutions financières ne peuvent éviter la médiation des différends. Le coût de la médiation augmente les coûts de transaction, limitant la taille pratique minimale des transactions et supprimant la possibilité de petites transactions occasionnelles, et il y a un coût plus important dans la perte de capacité à effectuer des paiements irréversibles pour des services irréversibles. Avec la possibilité d&#39;inversion, le besoin de confiance se répand. Les commerçants doivent se méfier de leurs clients et les harceler pour obtenir plus d&#39;informations qu&#39;ils n&#39;en auraient autrement besoin. Un certain pourcentage de fraude est accepté comme inévitable. Ces coûts et incertitudes de paiement peuvent être évités en personne en utilisant de la monnaie physique, mais aucun mécanisme n&#39;existe pour effectuer des paiements via un canal de communication sans une partie de confiance.</p>
+<p>Le commerce sur Internet en est venu à s&#8217;appuyer presque exclusivement sur des institutions financières servant de tiers de confiance pour traiter les paiements électroniques. Bien que le système fonctionne assez bien pour la plupart des transactions, il souffre toujours des faiblesses inhérentes au modèle basé sur la confiance. Les transactions totalement irréversibles ne sont pas vraiment possibles, car les institutions financières ne peuvent éviter la médiation des différends. Le coût de la médiation augmente les coûts de transaction, limitant la taille pratique minimale des transactions et supprimant la possibilité de petites transactions occasionnelles, et il y a un coût plus important dans la perte de capacité à effectuer des paiements irréversibles pour des services irréversibles. Avec la possibilité d&#8217;inversion, le besoin de confiance se répand. Les commerçants doivent se méfier de leurs clients et les harceler pour obtenir plus d&#8217;informations qu&#8217;ils n&#8217;en auraient autrement besoin. Un certain pourcentage de fraude est accepté comme inévitable. Ces coûts et incertitudes de paiement peuvent être évités en personne en utilisant de la monnaie physique, mais aucun mécanisme n&#8217;existe pour effectuer des paiements via un canal de communication sans une partie de confiance.</p>
 </div>
 <div class="paragraph data-line-23">
-<p>Ce qu&#39;il faut, c&#39;est un système de paiement électronique basé sur la preuve cryptographique au lieu de la confiance, permettant à deux parties consentantes d&#39;effectuer des transactions directement l&#39;une avec l&#39;autre sans avoir besoin d&#39;un tiers de confiance. Les transactions impossibles à annuler sur le plan informatique protégeraient les vendeurs contre la fraude, et des mécanismes de séquestre de routine pourraient facilement être mis en œuvre pour protéger les acheteurs. Dans cet article, nous proposons une solution au problème de la double dépense en utilisant un serveur d&#39;horodatage distribué pair à pair pour générer une preuve informatique de l&#39;ordre chronologique des transactions. Le système est sécurisé tant que les nœuds honnêtes contrôlent collectivement plus de puissance CPU que n&#39;importe quel groupe coopérant de nœuds attaquants.</p>
+<p>Ce qu&#8217;il faut, c&#8217;est un système de paiement électronique basé sur la preuve cryptographique au lieu de la confiance, permettant à deux parties consentantes d&#8217;effectuer des transactions directement l&#8217;une avec l&#8217;autre sans avoir besoin d&#8217;un tiers de confiance. Les transactions impossibles à annuler sur le plan informatique protégeraient les vendeurs contre la fraude, et des mécanismes de séquestre de routine pourraient facilement être mis en œuvre pour protéger les acheteurs. Dans cet article, nous proposons une solution au problème de la double dépense en utilisant un serveur d&#8217;horodatage distribué pair à pair pour générer une preuve informatique de l&#8217;ordre chronologique des transactions. Le système est sécurisé tant que les nœuds honnêtes contrôlent collectivement plus de puissance CPU que n&#8217;importe quel groupe coopérant de nœuds attaquants.</p>
 </div>
 </div>
 <div class="sect3 data-line-25">
@@ -491,38 +491,38 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="paragraph data-line-30">
-<p>Le problème est bien sûr que le bénéficiaire ne peut pas vérifier que l&#39;un des propriétaires n&#39;a pas dépensé deux fois la pièce. Une solution courante consiste à introduire une autorité centrale de confiance, ou "maison ou hôtel de la monnaie", qui vérifie chaque transaction pour les doubles dépenses. Après chaque transaction, la pièce doit être retournée à l&#8217;hôtel de la monnaie pour émettre une nouvelle pièce, et seules les pièces émises directement par l&#8217;hôtel de la monnaie sont réputées ne pas être dépensées en double. Le problème avec cette solution est que le sort de l&#39;ensemble du système monétaire dépend de la société qui gère la monnaie, chaque transaction devant passer par elle, tout comme une banque.</p>
+<p>Le problème est bien sûr que le bénéficiaire ne peut pas vérifier que l&#8217;un des propriétaires n&#8217;a pas dépensé deux fois la pièce. Une solution courante consiste à introduire une autorité centrale de confiance, ou "maison ou hôtel de la monnaie", qui vérifie chaque transaction pour les doubles dépenses. Après chaque transaction, la pièce doit être retournée à l&#8217;hôtel de la monnaie pour émettre une nouvelle pièce, et seules les pièces émises directement par l&#8217;hôtel de la monnaie sont réputées ne pas être dépensées en double. Le problème avec cette solution est que le sort de l&#8217;ensemble du système monétaire dépend de la société qui gère la monnaie, chaque transaction devant passer par elle, tout comme une banque.</p>
 </div>
 <div class="paragraph data-line-32">
-<p>Nous avons besoin d&#39;un moyen pour que le bénéficiaire sache que les propriétaires précédents n&#39;ont signé aucune transaction antérieure. Pour nos besoins, la première transaction est celle qui compte, donc nous ne nous soucions pas des tentatives ultérieures de doubler les dépenses. La seule façon de confirmer l&#39;absence d&#39;une transaction est d&#39;être au courant de toutes les transactions. Dans le modèle basé sur la monnaie, la monnaie était au courant de toutes les transactions et décidait laquelle arrivait en premier. Pour y parvenir sans partie de confiance, les transactions doivent être annoncées publiquement [1], et nous avons besoin d&#39;un système permettant aux participants de s&#39;entendre sur un historique unique de l&#39;ordre dans lequel elles ont été reçues. Le bénéficiaire doit avoir la preuve qu&#39;au moment de chaque transaction, la majorité des nœuds ont convenu qu&#39;il s&#39;agissait du premier reçu.</p>
+<p>Nous avons besoin d&#8217;un moyen pour que le bénéficiaire sache que les propriétaires précédents n&#8217;ont signé aucune transaction antérieure. Pour nos besoins, la première transaction est celle qui compte, donc nous ne nous soucions pas des tentatives ultérieures de doubler les dépenses. La seule façon de confirmer l&#8217;absence d&#8217;une transaction est d&#8217;être au courant de toutes les transactions. Dans le modèle basé sur la monnaie, la monnaie était au courant de toutes les transactions et décidait laquelle arrivait en premier. Pour y parvenir sans partie de confiance, les transactions doivent être annoncées publiquement [1], et nous avons besoin d&#8217;un système permettant aux participants de s&#8217;entendre sur un historique unique de l&#8217;ordre dans lequel elles ont été reçues. Le bénéficiaire doit avoir la preuve qu&#8217;au moment de chaque transaction, la majorité des nœuds ont convenu qu&#8217;il s&#8217;agissait du premier reçu.</p>
 </div>
 </div>
 <div class="sect3 data-line-34">
-<h4 id="_serveur_dhorodatage">Serveur d&#39;horodatage</h4>
+<h4 id="_serveur_dhorodatage">Serveur d&#8217;horodatage</h4>
 <div class="paragraph data-line-35">
-<p>La solution que nous proposons commence par un serveur d&#39;horodatage. Un serveur d&#39;horodatage fonctionne en prenant un hachage d&#39;un bloc d&#39;éléments à horodater et en publiant largement le hachage, comme dans un journal ou une publication Usenet [2-5]. L&#39;horodatage prouve que les données doivent avoir existé à l&#39;époque, évidemment, pour entrer dans le hachage. Chaque horodatage inclut l&#39;horodatage précédent dans son hachage, formant une chaîne où chaque horodatage supplémentaire renforce ceux qui le précèdent.</p>
+<p>La solution que nous proposons commence par un serveur d&#8217;horodatage. Un serveur d&#8217;horodatage fonctionne en prenant un hachage d&#8217;un bloc d&#8217;éléments à horodater et en publiant largement le hachage, comme dans un journal ou une publication Usenet [2-5]. L&#8217;horodatage prouve que les données doivent avoir existé à l&#8217;époque, évidemment, pour entrer dans le hachage. Chaque horodatage inclut l&#8217;horodatage précédent dans son hachage, formant une chaîne où chaque horodatage supplémentaire renforce ceux qui le précèdent.</p>
 </div>
 <div class="imageblock data-line-37">
 <div class="content">
-<img src="images/mbc2_abin02.png" alt="timestamp server">
+<img src="images/mbc2_abin02.png" alt="serveur d&#8217;horodatage">
 </div>
 </div>
 </div>
 <div class="sect3 data-line-39">
 <h4 id="_proof_of_work_ou_preuve_de_travail">Proof-of-Work (ou Preuve de travail)</h4>
 <div class="paragraph data-line-40">
-<p>Pour implémenter un serveur d&#39;horodatage distribué sur une base pair à pair, nous devrons utiliser un système de preuve de travail similaire à Hashcash d&#39;Adam Back [6], plutôt que des articles de journaux ou Usenet. La preuve de travail implique la recherche d&#39;une valeur qui, lorsqu&#39;elle est hachée, comme avec SHA-256, le hachage commence par un certain nombre de bits zéro. Le travail moyen requis est exponentiel dans le nombre de bits zéro requis et peut être vérifié en exécutant un seul hachage. Pour notre réseau d&#39;horodatage, nous implémentons la preuve de travail en incrémentant un nonce dans le bloc jusqu&#39;à ce qu&#39;une valeur soit trouvée qui donne au hachage du bloc les bits zéro requis. Une fois que l&#39;effort CPU a été dépensé pour satisfaire la preuve de travail, le bloc ne peut pas être modifié sans refaire le travail. Comme les blocs ultérieurs sont enchaînés après celui-ci, le travail de modification du bloc comprendrait la refonte de tous les blocs après celui-ci.</p>
+<p>Pour implémenter un serveur d&#8217;horodatage distribué sur une base pair à pair, nous devrons utiliser un système de preuve de travail similaire à Hashcash d&#8217;Adam Back [6], plutôt que des articles de journaux ou Usenet. La preuve de travail implique la recherche d&#8217;une valeur qui, lorsqu&#8217;elle est hachée, comme avec SHA-256, le hachage commence par un certain nombre de bits zéro. Le travail moyen requis est exponentiel dans le nombre de bits zéro requis et peut être vérifié en exécutant un seul hachage. Pour notre réseau d&#8217;horodatage, nous implémentons la preuve de travail en incrémentant un nonce dans le bloc jusqu&#8217;à ce qu&#8217;une valeur soit trouvée qui donne au hachage du bloc les bits zéro requis. Une fois que l&#8217;effort CPU a été dépensé pour satisfaire la preuve de travail, le bloc ne peut pas être modifié sans refaire le travail. Comme les blocs ultérieurs sont enchaînés après celui-ci, le travail de modification du bloc comprendrait la refonte de tous les blocs après celui-ci.</p>
 </div>
 <div class="imageblock data-line-42">
 <div class="content">
-<img src="images/mbc2_abin03.png" alt="pow">
+<img src="images/mbc2_abin03.png" alt="preuve de travail">
 </div>
 </div>
 <div class="paragraph data-line-44">
-<p>La preuve de travail résout également le problème de la détermination de la représentation dans la prise de décision à la majorité. Si la majorité était basée sur une adresse IP, un vote, elle pourrait être renversée par toute personne capable d&#39;allouer de nombreuses adresses IP. La preuve de travail est essentiellement un processeur, un vote. La décision majoritaire est représentée par la chaîne la plus longue, qui a investi le plus grand effort de preuve de travail. Si la majorité de la puissance du processeur est contrôlée par des nœuds honnêtes, la chaîne honnête se développera le plus rapidement et dépassera toutes les chaînes concurrentes. Pour modifier un bloc passé, un attaquant devrait refaire la preuve de travail du bloc et de tous les blocs qui le suivent, puis rattraper et dépasser le travail des nœuds honnêtes. Nous montrerons plus tard que la probabilité qu&#39;une attaque plus lente rattrape le système, diminue de manière exponentielle à mesure que des blocs ultérieurs sont ajoutés.</p>
+<p>La preuve de travail résout également le problème de la détermination de la représentation dans la prise de décision à la majorité. Si la majorité était basée sur une adresse IP, un vote, elle pourrait être renversée par toute personne capable d&#8217;allouer de nombreuses adresses IP. La preuve de travail est essentiellement un processeur, un vote. La décision majoritaire est représentée par la chaîne la plus longue, qui a investi le plus grand effort de preuve de travail. Si la majorité de la puissance du processeur est contrôlée par des nœuds honnêtes, la chaîne honnête se développera le plus rapidement et dépassera toutes les chaînes concurrentes. Pour modifier un bloc passé, un attaquant devrait refaire la preuve de travail du bloc et de tous les blocs qui le suivent, puis rattraper et dépasser le travail des nœuds honnêtes. Nous montrerons plus tard que la probabilité qu&#8217;une attaque plus lente rattrape le système, diminue de manière exponentielle à mesure que des blocs ultérieurs sont ajoutés.</p>
 </div>
 <div class="paragraph data-line-46">
-<p>Pour compenser l&#39;augmentation de la vitesse matérielle et l&#39;intérêt variable pour l&#39;exécution des nœuds au fil du temps, la difficulté de la preuve de travail est déterminée par une moyenne mobile ciblant un nombre moyen de blocs par heure. S&#39;ils sont générés trop rapidement, la difficulté augmente.</p>
+<p>Pour compenser l&#8217;augmentation de la vitesse matérielle et l&#8217;intérêt variable pour l&#8217;exécution des nœuds au fil du temps, la difficulté de la preuve de travail est déterminée par une moyenne mobile ciblant un nombre moyen de blocs par heure. S&#8217;ils sont générés trop rapidement, la difficulté augmente.</p>
 </div>
 </div>
 <div class="sect3 data-line-48">
@@ -542,10 +542,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Chaque nœud travaille à trouver une preuve de travail difficile pour son bloc.</p>
 </li>
 <li class="data-line-55">
-<p>Lorsqu&#39;un nœud trouve une preuve de travail, il diffuse le bloc à tous les nœuds.</p>
+<p>Lorsqu&#8217;un nœud trouve une preuve de travail, il diffuse le bloc à tous les nœuds.</p>
 </li>
 <li class="data-line-56">
-<p>Les nœuds n&#39;acceptent le bloc que si toutes les transactions qu&#39;il contient sont valides et non déjà dépensées.</p>
+<p>Les nœuds n&#8217;acceptent le bloc que si toutes les transactions qu&#8217;il contient sont valides et non déjà dépensées.</p>
 </li>
 <li class="data-line-57">
 <p>Les nœuds expriment leur acceptation du bloc en travaillant à la création du bloc suivant dans la chaîne, en utilisant le hachage du bloc accepté comme hachage précédent.</p>
@@ -553,40 +553,40 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ol>
 </div>
 <div class="paragraph data-line-59">
-<p>Les nœuds considèrent toujours que la chaîne la plus longue est la bonne et continueront à travailler pour l&#39;étendre. Si deux nœuds diffusent simultanément des versions différentes du bloc suivant, certains nœuds peuvent recevoir l&#39;un ou l&#39;autre en premier. Dans ce cas, ils travaillent sur la première branche qu&#39;ils ont reçue, mais conservent l&#39;autre branche au cas où elle deviendrait plus longue. L&#39;égalité sera rompue lorsque la prochaine preuve de travail sera trouvée et qu&#39;une branche s&#39;allongera ; les nœuds qui travaillaient sur l&#39;autre branche passeront alors à la plus longue.</p>
+<p>Les nœuds considèrent toujours que la chaîne la plus longue est la bonne et continueront à travailler pour l&#8217;étendre. Si deux nœuds diffusent simultanément des versions différentes du bloc suivant, certains nœuds peuvent recevoir l&#8217;un ou l&#8217;autre en premier. Dans ce cas, ils travaillent sur la première branche qu&#8217;ils ont reçue, mais conservent l&#8217;autre branche au cas où elle deviendrait plus longue. L&#8217;égalité sera rompue lorsque la prochaine preuve de travail sera trouvée et qu&#8217;une branche s&#8217;allongera ; les nœuds qui travaillaient sur l&#8217;autre branche passeront alors à la plus longue.</p>
 </div>
 <div class="paragraph data-line-61">
-<p>Les diffusions de nouvelles transactions n&#39;ont pas nécessairement besoin d&#39;atteindre tous les nœuds. Tant qu&#39;ils atteignent de nombreux nœuds, ils entreront dans un bloc avant longtemps. Les diffusions en bloc sont également tolérantes aux messages abandonnés. Si un nœud ne reçoit pas de bloc, il le demandera lorsqu&#39;il recevra le bloc suivant et réalisera qu&#39;il en a manqué un.</p>
+<p>Les diffusions de nouvelles transactions n&#8217;ont pas nécessairement besoin d&#8217;atteindre tous les nœuds. Tant qu&#8217;ils atteignent de nombreux nœuds, ils entreront dans un bloc avant longtemps. Les diffusions en bloc sont également tolérantes aux messages abandonnés. Si un nœud ne reçoit pas de bloc, il le demandera lorsqu&#8217;il recevra le bloc suivant et réalisera qu&#8217;il en a manqué un.</p>
 </div>
 </div>
 <div class="sect3 data-line-63">
 <h4 id="_incitatif">Incitatif</h4>
 <div class="paragraph data-line-64">
-<p>Par convention, la première transaction d&#39;un bloc est une transaction spéciale qui démarre une nouvelle pièce appartenant au créateur du bloc. Cela ajoute une incitation pour les nœuds à prendre en charge le réseau et fournit un moyen de distribuer initialement les pièces en circulation, car il n&#39;y a pas d&#39;autorité centrale pour les émettre. L&#39;ajout régulier d&#39;une quantité constante de nouvelles pièces est analogue aux mineurs d&#39;or qui dépensent des ressources pour ajouter de l&#39;or à la circulation. Dans notre cas, c&#39;est le temps CPU et l&#39;électricité qui sont dépensés.</p>
+<p>Par convention, la première transaction d&#8217;un bloc est une transaction spéciale qui démarre une nouvelle pièce appartenant au créateur du bloc. Cela ajoute une incitation pour les nœuds à prendre en charge le réseau et fournit un moyen de distribuer initialement les pièces en circulation, car il n&#8217;y a pas d&#8217;autorité centrale pour les émettre. L&#8217;ajout régulier d&#8217;une quantité constante de nouvelles pièces est analogue aux mineurs d&#8217;or qui dépensent des ressources pour ajouter de l&#8217;or à la circulation. Dans notre cas, c&#8217;est le temps CPU et l&#8217;électricité qui sont dépensés.</p>
 </div>
 <div class="paragraph data-line-66">
-<p>L&#39;incitation peut également être financée par des frais de transaction. Si la valeur de sortie d&#39;une transaction est inférieure à sa valeur d&#39;entrée, la différence est une commission de transaction qui s&#39;ajoute à la valeur incitative du bloc contenant la transaction. Une fois qu&#39;un nombre prédéterminé de pièces est entré en circulation, l&#39;incitation peut passer entièrement aux frais de transaction et être totalement exempte d&#39;inflation.</p>
+<p>L&#8217;incitation peut également être financée par des frais de transaction. Si la valeur de sortie d&#8217;une transaction est inférieure à sa valeur d&#8217;entrée, la différence est une commission de transaction qui s&#8217;ajoute à la valeur incitative du bloc contenant la transaction. Une fois qu&#8217;un nombre prédéterminé de pièces est entré en circulation, l&#8217;incitation peut passer entièrement aux frais de transaction et être totalement exempte d&#8217;inflation.</p>
 </div>
 <div class="paragraph data-line-68">
-<p>L&#39;incitation peut aider à encourager les nœuds à rester honnêtes. Si un attaquant cupide est capable d&#39;assembler plus de puissance CPU que tous les nœuds honnêtes, il devrait choisir entre l&#39;utiliser pour frauder les gens en volant leur paiements, ou l&#39;utiliser pour générer de nouvelles pièces. Il devrait trouver plus avantageux de jouer selon les règles que de saper le système et la validité de sa propre richesse. De telles règles le favorise avec plus de nouvelles pièces plus que tout les nœuds réunis.</p>
+<p>L&#8217;incitation peut aider à encourager les nœuds à rester honnêtes. Si un attaquant cupide est capable d&#8217;assembler plus de puissance CPU que tous les nœuds honnêtes, il devrait choisir entre l&#8217;utiliser pour frauder les gens en volant leur paiements, ou l&#8217;utiliser pour générer de nouvelles pièces. Il devrait trouver plus avantageux de jouer selon les règles que de saper le système et la validité de sa propre richesse. De telles règles le favorise avec plus de nouvelles pièces plus que tout les nœuds réunis.</p>
 </div>
 </div>
 <div class="sect3 data-line-70">
-<h4 id="_récupération_despace_disque">Récupération d&#39;espace disque</h4>
-<p>Une fois que la dernière transaction d&#39;une pièce est enterrée sous suffisamment de blocs, les transactions passées avant peuvent être supprimées pour économiser de l&#39;espace disque. Pour faciliter cela sans casser le hachage du bloc, les transactions sont hachées dans un arbre Merkle <a href="#ref_seven">[7]</a> <a href="#ref_two">[2]</a> <a href="#ref_five">[5]</a> , avec seulement la racine incluse dans le hachage du bloc. Les vieux blocs peuvent ensuite être compactés en écrasant les branches de l&#39;arbre. Les hachages intérieurs n&#39;ont pas besoin d&#39;être stockés.</p>
+<h4 id="_récupération_despace_disque">Récupération d&#8217;espace disque</h4>
+<p>Une fois que la dernière transaction d'une pièce est enterrée sous suffisamment de blocs, les transactions passées avant peuvent être supprimées pour économiser de l'espace disque. Pour faciliter cela sans casser le hachage du bloc, les transactions sont hachées dans un arbre Merkle <a href="#ref_seven">[7]</a> <a href="#ref_two">[2]</a> <a href="#ref_five">[5]</a> , avec seulement la racine incluse dans le hachage du bloc. Les vieux blocs peuvent ensuite être compactés en écrasant les branches de l'arbre. Les hachages intérieurs n'ont pas besoin d'être stockés.</p>
 <div class="imageblock data-line-76">
 <div class="content">
-<img src="images/mbc2_abin04.png" alt="disk">
+<img src="images/mbc2_abin04.png" alt="disque">
 </div>
 </div>
 <div class="paragraph data-line-78">
-<p>Un en-tête de bloc sans transactions serait d&#39;environ 80 octets. Si nous supposons que les blocs sont générés toutes les 10 minutes, 80 octets * 6 * 24 * 365 = 4,2 Mo par an. Avec des systèmes informatiques se vendant généralement avec 2 Go de RAM à partir de 2008 et la loi de Moore prédisant une croissance actuelle de 1,2 Go par an, le stockage ne devrait pas être un problème même si les en-têtes de bloc doivent être conservés en mémoire.</p>
+<p>Un en-tête de bloc sans transactions serait d&#8217;environ 80 octets. Si nous supposons que les blocs sont générés toutes les 10 minutes, 80 octets * 6 * 24 * 365 = 4,2 Mo par an. Avec des systèmes informatiques se vendant généralement avec 2 Go de RAM à partir de 2008 et la loi de Moore prédisant une croissance actuelle de 1,2 Go par an, le stockage ne devrait pas être un problème même si les en-têtes de bloc doivent être conservés en mémoire.</p>
 </div>
 </div>
 <div class="sect3 data-line-80">
 <h4 id="_vérification_de_paiement_simplifiée">Vérification de paiement simplifiée</h4>
 <div class="paragraph data-line-81">
-<p>Il est possible de vérifier les paiements sans exécuter un nœud de réseau complet. Un utilisateur n&#39;a besoin que de conserver une copie des en-têtes de bloc de la chaîne de preuve de travail la plus longue, qu&#39;il peut obtenir en interrogeant les nœuds du réseau jusqu&#39;à ce qu&#39;il soit convaincu qu&#39;il a la chaîne la plus longue, et d&#39;obtenir la branche Merkle reliant la transaction au bloc dont il est horodaté. Il ne peut pas vérifier la transaction par lui-même, mais en la liant à un endroit de la chaîne, il peut voir qu&#39;un nœud du réseau l&#39;a acceptée, et les blocs ajoutés après confirment que le réseau l&#39;a acceptée aussi.</p>
+<p>Il est possible de vérifier les paiements sans exécuter un nœud de réseau complet. Un utilisateur n&#8217;a besoin que de conserver une copie des en-têtes de bloc de la chaîne de preuve de travail la plus longue, qu&#8217;il peut obtenir en interrogeant les nœuds du réseau jusqu&#8217;à ce qu&#8217;il soit convaincu qu&#8217;il a la chaîne la plus longue, et d&#8217;obtenir la branche Merkle reliant la transaction au bloc dont il est horodaté. Il ne peut pas vérifier la transaction par lui-même, mais en la liant à un endroit de la chaîne, il peut voir qu&#8217;un nœud du réseau l&#8217;a acceptée, et les blocs ajoutés après confirment que le réseau l&#8217;a acceptée aussi.</p>
 </div>
 <div class="imageblock data-line-83">
 <div class="content">
@@ -594,27 +594,27 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="paragraph data-line-85">
-<p>Ainsi, la vérification est fiable tant que des nœuds honnêtes contrôlent le réseau, mais est plus vulnérable si le réseau est maîtrisé par un attaquant. Alors que les nœuds du réseau peuvent vérifier les transactions par eux-mêmes, la méthode simplifiée peut être trompée par les transactions fabriquées par un attaquant, tant que l&#39;attaquant peut continuer à maîtriser le réseau. Une stratégie de protection contre cela consisterait à accepter les alertes des nœuds du réseau lorsqu&#39;ils détectent un bloc invalide, incitant le logiciel de l&#39;utilisateur à télécharger le bloc complet et les transactions alertées pour confirmer l&#39;incohérence. Les entreprises qui reçoivent des paiements fréquents voudront probablement toujours exécuter leurs propres nœuds pour une sécurité plus indépendante et une vérification plus rapide.</p>
+<p>Ainsi, la vérification est fiable tant que des nœuds honnêtes contrôlent le réseau, mais est plus vulnérable si le réseau est maîtrisé par un attaquant. Alors que les nœuds du réseau peuvent vérifier les transactions par eux-mêmes, la méthode simplifiée peut être trompée par les transactions fabriquées par un attaquant, tant que l&#8217;attaquant peut continuer à maîtriser le réseau. Une stratégie de protection contre cela consisterait à accepter les alertes des nœuds du réseau lorsqu&#8217;ils détectent un bloc invalide, incitant le logiciel de l&#8217;utilisateur à télécharger le bloc complet et les transactions alertées pour confirmer l&#8217;incohérence. Les entreprises qui reçoivent des paiements fréquents voudront probablement toujours exécuter leurs propres nœuds pour une sécurité plus indépendante et une vérification plus rapide.</p>
 </div>
 </div>
 <div class="sect3 data-line-87">
 <h4 id="_combiner_et_diviser_la_valeur">Combiner et diviser la valeur</h4>
 <div class="paragraph data-line-88">
-<p>Bien qu&#39;il soit possible de gérer les pièces individuellement, il serait difficile d&#39;effectuer une transaction distincte pour chaque centime d&#39;un transfert. Pour permettre à la valeur d&#39;être fractionnée et combinée, les transactions contiennent plusieurs entrées et sorties. Normalement, il y aura soit une seule entrée provenant d&#39;une transaction précédente plus importante, soit plusieurs entrées combinant des montants plus petits, et au plus deux sorties : une pour le paiement et une renvoyant la monnaie, le cas échéant, à l&#39;expéditeur.</p>
+<p>Bien qu&#8217;il soit possible de gérer les pièces individuellement, il serait difficile d&#8217;effectuer une transaction distincte pour chaque centime d&#8217;un transfert. Pour permettre à la valeur d&#8217;être fractionnée et combinée, les transactions contiennent plusieurs entrées et sorties. Normalement, il y aura soit une seule entrée provenant d&#8217;une transaction précédente plus importante, soit plusieurs entrées combinant des montants plus petits, et au plus deux sorties : une pour le paiement et une renvoyant la monnaie, le cas échéant, à l&#8217;expéditeur.</p>
 </div>
 <div class="imageblock data-line-90">
 <div class="content">
-<img src="images/mbc2_abin06.png" alt="&quot;combining-splitting&quot;">
+<img src="images/mbc2_abin06.png" alt="&quot;séparateur de combinaison&quot;">
 </div>
 </div>
 <div class="paragraph data-line-92">
-<p>Il convient de noter que la diffusion, où une transaction dépend de plusieurs transactions, et ces transactions dépendent de beaucoup d&#39;autres, n&#39;est pas un problème ici. Il n&#39;est jamais nécessaire d&#39;extraire une copie autonome complète de l&#39;historique d&#39;une transaction.</p>
+<p>Il convient de noter que la diffusion, où une transaction dépend de plusieurs transactions, et ces transactions dépendent de beaucoup d&#8217;autres, n&#8217;est pas un problème ici. Il n&#8217;est jamais nécessaire d&#8217;extraire une copie autonome complète de l&#8217;historique d&#8217;une transaction.</p>
 </div>
 </div>
 <div class="sect3 data-line-94">
 <h4 id="_confidentialité">Confidentialité</h4>
 <div class="paragraph data-line-95">
-<p>Le modèle bancaire traditionnel atteint un niveau de confidentialité en limitant l&#39;accès aux informations des parties concernées et au tierce partie de confiance. La nécessité d&#39;annoncer publiquement toutes les transactions exclut cette méthode, mais la confidentialité peut toujours être préservée en interrompant le flux d&#39;informations à un autre endroit : en gardant les clés publiques anonymes. Le public peut voir que quelqu&#39;un envoie un montant à quelqu&#39;un d&#39;autre, mais sans information liant la transaction à qui que ce soit. Ceci est similaire au niveau d&#39;information publié par les bourses, où l&#39;heure et la taille des transactions individuelles, la &quot;bande&quot;, sont rendues publiques, mais sans dire qui étaient les parties.</p>
+<p>Le modèle bancaire traditionnel atteint un niveau de confidentialité en limitant l&#8217;accès aux informations des parties concernées et au tierce partie de confiance. La nécessité d&#8217;annoncer publiquement toutes les transactions exclut cette méthode, mais la confidentialité peut toujours être préservée en interrompant le flux d&#8217;informations à un autre endroit : en gardant les clés publiques anonymes. Le public peut voir que quelqu&#8217;un envoie un montant à quelqu&#8217;un d&#8217;autre, mais sans information liant la transaction à qui que ce soit. Ceci est similaire au niveau d&#8217;information publié par les bourses, où l&#8217;heure et la taille des transactions individuelles, la &quot;bande&quot;, sont rendues publiques, mais sans dire qui étaient les parties.</p>
 </div>
 <div class="imageblock data-line-97">
 <div class="content">
@@ -622,26 +622,26 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="paragraph data-line-99">
-<p>En tant que pare-feu supplémentaire, une nouvelle paire de clés doit être utilisée pour chaque transaction afin d&#39;éviter qu&#39;elles ne soient liées à un propriétaire commun. Certains liens sont encore inévitables avec les transactions multi-entrées, qui révèlent nécessairement que leurs entrées appartenaient au même propriétaire. Le risque est que si le propriétaire d&#39;une clé est révélé, la liaison pourrait révéler d&#39;autres transactions ayant appartenu au même propriétaire.</p>
+<p>En tant que pare-feu supplémentaire, une nouvelle paire de clés doit être utilisée pour chaque transaction afin d&#8217;éviter qu&#8217;elles ne soient liées à un propriétaire commun. Certains liens sont encore inévitables avec les transactions multi-entrées, qui révèlent nécessairement que leurs entrées appartenaient au même propriétaire. Le risque est que si le propriétaire d&#8217;une clé est révélé, la liaison pourrait révéler d&#8217;autres transactions ayant appartenu au même propriétaire.</p>
 </div>
 </div>
 <div class="sect3 data-line-101">
 <h4 id="_calculs">Calculs</h4>
 <div class="paragraph data-line-102">
-<p>Nous considérons le scénario d&#39;un attaquant essayant de générer une chaîne alternative plus rapidement que la chaîne honnête. Même si cela est accompli, cela n&#39;ouvre pas le système à des changements arbitraires, comme créer de la valeur à partir de rien ou prendre de l&#39;argent qui n&#39;a jamais appartenu à l&#39;attaquant. Les nœuds n&#39;accepteront pas une transaction invalide comme paiement, et les nœuds honnêtes n&#39;accepteront jamais un bloc les contenant. Un attaquant ne peut essayer de modifier qu&#39;une de ses propres transactions pour récupérer l&#39;argent qu&#39;il a récemment dépensé.</p>
+<p>Nous considérons le scénario d&#8217;un attaquant essayant de générer une chaîne alternative plus rapidement que la chaîne honnête. Même si cela est accompli, cela n&#8217;ouvre pas le système à des changements arbitraires, comme créer de la valeur à partir de rien ou prendre de l&#8217;argent qui n&#8217;a jamais appartenu à l&#8217;attaquant. Les nœuds n&#8217;accepteront pas une transaction invalide comme paiement, et les nœuds honnêtes n&#8217;accepteront jamais un bloc les contenant. Un attaquant ne peut essayer de modifier qu&#8217;une de ses propres transactions pour récupérer l&#8217;argent qu&#8217;il a récemment dépensé.</p>
 </div>
 <div class="paragraph data-line-104">
-<p>La course entre la chaîne honnête et une chaîne attaquante peut être caractérisée comme une marche aléatoire binomiale. L&#39;événement de succès est la chaîne honnête prolongée d&#39;un bloc, augmentant son avance de +1, et l&#39;événement d&#39;échec est la chaîne de l&#39;attaquant prolongée d&#39;un bloc, réduisant l&#39;écart de -1.</p>
+<p>La course entre la chaîne honnête et une chaîne attaquante peut être caractérisée comme une marche aléatoire binomiale. L&#8217;événement de succès est la chaîne honnête prolongée d&#8217;un bloc, augmentant son avance de +1, et l&#8217;événement d&#8217;échec est la chaîne de l&#8217;attaquant prolongée d&#8217;un bloc, réduisant l&#8217;écart de -1.</p>
 </div>
-<p>La probabilité qu&#39;un attaquant rattrape un déficit donné est analogue à un problème de la ruine du joueur (Gambler&#39;s Ruin). Supposons qu&#39;un joueur avec un crédit illimité commence avec un déficit et joue potentiellement un nombre infini d&#39;essais pour essayer d&#39;atteindre le seuil de rentabilité. Nous pouvons calculer la probabilité qu&#39;il atteigne jamais le seuil de rentabilité, ou qu&#39;un attaquant rattrape jamais la chaîne honnête, comme suit <a href="#ref_eight">[8]</a>:</p>
+<p>La probabilité qu'un attaquant rattrape un déficit donné est analogue à un problème de la ruine du joueur (Gambler's Ruin). Supposons qu'un joueur avec un crédit illimité commence avec un déficit et joue potentiellement un nombre infini d'essais pour essayer d'atteindre le seuil de rentabilité. Nous pouvons calculer la probabilité qu'il atteigne jamais le seuil de rentabilité, ou qu'un attaquant rattrape jamais la chaîne honnête, comme suit <a href="#ref_eight">[8]</a>:</p>
 <div class="paragraph data-line-110">
-<p>p = probabilité qu&#39;un nœud honnête trouve le bloc suivant</p>
+<p>p = probabilité qu&#8217;un nœud honnête trouve le bloc suivant</p>
 </div>
 <div class="paragraph data-line-112">
-<p>q = probabilité que l&#39;attaquant trouve le bloc suivant</p>
+<p>q = probabilité que l&#8217;attaquant trouve le bloc suivant</p>
 </div>
 <div class="paragraph data-line-114">
-<p>q<sub>z</sub> = probabilité que l&#39;attaquant rattrape jamais z blocs derrière</p>
+<p>q<sub>z</sub> = probabilité que l&#8217;attaquant rattrape jamais z blocs derrière</p>
 </div>
 <div class="imageblock data-line-116">
 <div class="content">
@@ -649,16 +649,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="paragraph data-line-118">
-<p>Étant donné notre hypothèse que p &gt; q, la probabilité chute de façon exponentielle à mesure que le nombre de blocs que l&#39;attaquant doit rattraper augmente. Avec les chances contre lui, s&#39;il n&#8217;a pas un coup de chance deavant dès le début, ses chances deviennent infiniment petites à mesure qu&#39;il prend du retard.</p>
+<p>Étant donné notre hypothèse que p &gt; q, la probabilité chute de façon exponentielle à mesure que le nombre de blocs que l&#8217;attaquant doit rattraper augmente. Avec les chances contre lui, s&#8217;il n&#8217;a pas un coup de chance deavant dès le début, ses chances deviennent infiniment petites à mesure qu&#8217;il prend du retard.</p>
 </div>
 <div class="paragraph data-line-120">
-<p>Nous considérons maintenant combien de temps le destinataire d&#39;une nouvelle transaction doit attendre avant d&#39;être suffisamment certain que l&#39;expéditeur ne peut pas modifier la transaction. Nous supposons que l&#39;expéditeur est un attaquant qui veut faire croire au destinataire qu&#39;il l&#39;a payé pendant un certain temps, puis le changer pour se rembourser après un certain temps. Le destinataire sera alerté lorsque cela se produira, mais l&#39;expéditeur espère qu&#39;il sera trop tard.</p>
+<p>Nous considérons maintenant combien de temps le destinataire d&#8217;une nouvelle transaction doit attendre avant d&#8217;être suffisamment certain que l&#8217;expéditeur ne peut pas modifier la transaction. Nous supposons que l&#8217;expéditeur est un attaquant qui veut faire croire au destinataire qu&#8217;il l&#8217;a payé pendant un certain temps, puis le changer pour se rembourser après un certain temps. Le destinataire sera alerté lorsque cela se produira, mais l&#8217;expéditeur espère qu&#8217;il sera trop tard.</p>
 </div>
 <div class="paragraph data-line-122">
-<p>Le récepteur génère une nouvelle paire de clés et donne la clé publique à l&#39;expéditeur peu de temps avant la signature. Cela évite à l&#39;expéditeur de préparer une chaîne de blocs à l&#39;avance en y travaillant continuellement jusqu&#39;à ce qu&#39;il ait la chance d&#39;aller assez loin, puis d&#39;exécuter la transaction à ce moment-là. Une fois la transaction envoyée, l&#39;expéditeur malhonnête commence à travailler en secret sur une chaîne parallèle contenant une version alternative de sa transaction.</p>
+<p>Le récepteur génère une nouvelle paire de clés et donne la clé publique à l&#8217;expéditeur peu de temps avant la signature. Cela évite à l&#8217;expéditeur de préparer une chaîne de blocs à l&#8217;avance en y travaillant continuellement jusqu&#8217;à ce qu&#8217;il ait la chance d&#8217;aller assez loin, puis d&#8217;exécuter la transaction à ce moment-là. Une fois la transaction envoyée, l&#8217;expéditeur malhonnête commence à travailler en secret sur une chaîne parallèle contenant une version alternative de sa transaction.</p>
 </div>
 <div class="paragraph data-line-124">
-<p>Le destinataire attend que la transaction ait été ajoutée à un bloc et que z blocs aient été liés après celle-ci. Il ne connaît pas la progression exacte de l&#39;attaquant, mais en supposant que les blocs honnêtes ont pris le temps moyen attendu par bloc, la progression potentielle de l&#39;attaquant sera une distribution de Poisson avec une valeur attendue :</p>
+<p>Le destinataire attend que la transaction ait été ajoutée à un bloc et que z blocs aient été liés après celle-ci. Il ne connaît pas la progression exacte de l&#8217;attaquant, mais en supposant que les blocs honnêtes ont pris le temps moyen attendu par bloc, la progression potentielle de l&#8217;attaquant sera une distribution de Poisson avec une valeur attendue :</p>
 </div>
 <div class="imageblock data-line-126">
 <div class="content">
@@ -666,7 +666,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="paragraph data-line-128">
-<p>Pour obtenir la probabilité que l&#39;attaquant puisse encore rattraper maintenant, nous multiplions la densité de Poisson pour chaque quantité de progrès qu&#39;il aurait pu faire par la probabilité qu&#39;il puisse rattraper à partir de ce point :</p>
+<p>Pour obtenir la probabilité que l&#8217;attaquant puisse encore rattraper maintenant, nous multiplions la densité de Poisson pour chaque quantité de progrès qu&#8217;il aurait pu faire par la probabilité qu&#8217;il puisse rattraper à partir de ce point :</p>
 </div>
 <div class="imageblock data-line-130">
 <div class="content">
@@ -759,7 +759,7 @@ q=0.45 z=340</pre>
 <div class="sect3 data-line-200">
 <h4 id="_conclusion">Conclusion</h4>
 <div class="paragraph data-line-201">
-<p>Nous avons proposé un système de transactions électroniques sans reposer sur la confiance. Nous avons commencé avec le cadre habituel des pièces fabriquées à partir de signatures numériques, qui offre un fort contrôle de propriété, mais qui est incomplet sans un moyen d&#39;éviter les doubles dépenses. Pour résoudre ce problème, nous avons proposé un réseau pair à pair utilisant la preuve de travail pour enregistrer un historique public des transactions qui devient rapidement impossible à modifier par un attaquant si des nœuds honnêtes contrôlent la majorité de la puissance du processeur. Le réseau est robuste dans sa simplicité non structurée. Les nœuds fonctionnent tous en même temps avec peu de coordination. Ils n&#39;ont pas besoin d&#39;être identifiés, car les messages ne sont pas acheminés vers un endroit particulier et ne doivent être livrés que dans la mesure du possible. Les nœuds peuvent quitter et rejoindre le réseau à volonté, acceptant la chaîne de preuve de travail comme preuve de ce qui s&#39;est passé pendant leur absence. Ils votent avec leur puissance CPU, exprimant leur acceptation des blocs valides en travaillant à les étendre et rejetant les blocs invalides en refusant de travailler dessus. Toutes les règles et incitations nécessaires peuvent être appliquées avec ce mécanisme de consensus.</p>
+<p>Nous avons proposé un système de transactions électroniques sans reposer sur la confiance. Nous avons commencé avec le cadre habituel des pièces fabriquées à partir de signatures numériques, qui offre un fort contrôle de propriété, mais qui est incomplet sans un moyen d&#8217;éviter les doubles dépenses. Pour résoudre ce problème, nous avons proposé un réseau pair à pair utilisant la preuve de travail pour enregistrer un historique public des transactions qui devient rapidement impossible à modifier par un attaquant si des nœuds honnêtes contrôlent la majorité de la puissance du processeur. Le réseau est robuste dans sa simplicité non structurée. Les nœuds fonctionnent tous en même temps avec peu de coordination. Ils n&#8217;ont pas besoin d&#8217;être identifiés, car les messages ne sont pas acheminés vers un endroit particulier et ne doivent être livrés que dans la mesure du possible. Les nœuds peuvent quitter et rejoindre le réseau à volonté, acceptant la chaîne de preuve de travail comme preuve de ce qui s&#8217;est passé pendant leur absence. Ils votent avec leur puissance CPU, exprimant leur acceptation des blocs valides en travaillant à les étendre et rejetant les blocs invalides en refusant de travailler dessus. Toutes les règles et incitations nécessaires peuvent être appliquées avec ce mécanisme de consensus.</p>
 </div>
 </div>
 <div class="sect3 data-line-203">
@@ -819,7 +819,7 @@ Copyright (c) 2008 Satoshi Nakamoto</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-17 15:56:30 -0400
+Last updated 2022-03-21 10:52:27 -0400
 </div>
 </div>
 </body>

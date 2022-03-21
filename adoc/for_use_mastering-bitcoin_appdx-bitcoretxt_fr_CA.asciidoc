@@ -4,7 +4,7 @@
 == Bitcore
 
 
-(((&quot;Bitcore&quot;, id=&quot;bitcore16&quot;)))Bitcore est une suite d&#39;outils fournis par BitPay. Son objectif est de fournir des outils faciles à utiliser pour les développeurs Bitcoin. Presque tout le code de Bitcore est écrit en JavaScript. Il existe des modules écrits spécifiquement pour NodeJS. Enfin, le module &quot;node&quot; de Bitcore inclut le code C++ de Bitcoin Core. Veuillez consulter https://bitcore.io pour plus d&#39;informations.
+(((&quot;Bitcore&quot;, id=&quot;bitcore16&quot;)))Bitcore est une suite d'outils fournis par BitPay. Son objectif est de fournir des outils faciles à utiliser pour les développeurs Bitcoin. Presque tout le code de Bitcore est écrit en JavaScript. Il existe des modules écrits spécifiquement pour NodeJS. Enfin, le module &quot;node&quot; de Bitcore inclut le code C++ de Bitcoin Core. Veuillez consulter https://bitcore.io pour plus d'informations.
 
 === Liste des fonctionnalités de Bitcore
 
@@ -12,7 +12,7 @@
 * Explorateur de blocs (aperçu)
 * Utilitaires de bloc, de transaction et de portefeuille (bitcore-lib)
 * Communiquer directement avec le réseau P2P de Bitcoin (bitcore-p2p)
-* Génération mnémonique d&#39;entropie de valeur d'amorçage (bitcore-mnémonique)
+* Génération mnémonique d'entropie de valeur d'amorçage (bitcore-mnémonique)
 * Protocole de paiement (bitcore-payment-protocol)
 * Vérification et signature des messages (bitcore-message)
 * Schéma de chiffrement intégré à courbe elliptique (bitcore-ecies)
@@ -35,7 +35,7 @@ $ npm install -g bitcore-lib bitcore-p2p
 
 ==== Exemples de portefeuille utilisant bitcore-lib
 
-Création d&#39;une nouvelle adresse Bitcoin avec clé privée associée :
+Création d'une nouvelle adresse Bitcoin avec clé privée associée :
 
 ----
 > bitcore = require('bitcore-lib')
@@ -43,7 +43,7 @@ Création d&#39;une nouvelle adresse Bitcoin avec clé privée associée :
 > address = privateKey.toAddress().toString()
 ----
 
-Création d&#39;une clé privée déterministe hiérarchique et d&#39;une adresse :
+Création d'une clé privée déterministe hiérarchique et d'une adresse :
 
 ----
 > hdPrivateKey = bitcore.HDPrivateKey()
@@ -51,7 +51,7 @@ Création d&#39;une clé privée déterministe hiérarchique et d&#39;une adress
 > hdAddress = new bitcore.Address(hdPublicKey.publicKey).toString()
 ----
 
-Création et signature d&#39;une transaction depuis un UTXO :
+Création et signature d'une transaction depuis un UTXO :
 
 ----
 > utxo = {
@@ -59,7 +59,7 @@ txId: txId, // identifiant de transaction contenant une sortie non dépensée
 outputIndex: outputIndex, // index de sortie (par exemple 0)
   address: addressOfUtxo,
   script: bitcore.Script.buildPublicKeyHashOut(addressOfUtxo).toString(),
-satoshis: satoshis // montant envoyé à l&#39;adresse
+satoshis: satoshis // montant envoyé à l'adresse
 }
 > fee = 3000 //défini de manière appropriée pour les conditions sur le réseau
 > tx = new bitcore.Transaction()
@@ -88,7 +88,7 @@ Diffuser une transaction sur le réseau Bitcoin
 
 1. Copiez le code ci-dessous dans un fichier appelé _broadcast.js_.
 2. Les variables +tx+ et +rbfTx+ sont la sortie de +tx.serialize()+ et +rbfTx.serialize()+, respectivement.
-3. Afin de remplacer par des frais, l&#39;homologue doit prendre en charge l&#39;option bitcoind +mempoolreplace+ et la définir sur +1+.
+3. Afin de remplacer par des frais, l'homologue doit prendre en charge l'option bitcoind +mempoolreplace+ et la définir sur +1+.
 4. Exécutez le nœud de fichier _broadcast.js_(((&quot;&quot;, startref=&quot;bitcore16&quot;))) :
 
 ----

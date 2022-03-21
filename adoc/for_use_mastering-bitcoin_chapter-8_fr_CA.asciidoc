@@ -16,7 +16,7 @@ L'architecture du réseau P2P de Bitcoin est bien plus qu'un choix de topologie.
 [[full_node_reference]]
 [role="smallerfifty"]
 .Un nœud de réseau Bitcoin avec les quatre fonctions : portefeuille, mineur, base de données blockchain complète et routage réseau
-image::images/mbc2_0801.png["FullNodeReferenceClient_Small"]
+image::images/mbc2_0801.png["Référence de noeud client complet"]
 
 Tous les nœuds incluent la fonction de routage pour participer au réseau et peuvent inclure d'autres fonctionnalités. Tous les nœuds valident et propagent les transactions et les blocs, et découvrent et maintiennent les connexions aux pairs. Dans l'exemple de nœud complet dans &lt;<full_node_reference>&gt;, la fonction de routage est indiquée par un cercle nommé &quot;Network Routing Node&quot; ou par la lettre &quot;N&quot;.
 
@@ -40,11 +40,11 @@ Le réseau Bitcoin étendu comprend le réseau exécutant le protocole bitcoin P
 
 [[node_type_ledgend]]
 .Différents types de nœuds sur le réseau Bitcoin étendu
-image::images/mbc2_0802.png["BitcoinNodeTypes"]
+image::images/mbc2_0802.png["Types de noeuds Bitcoin"]
 
 [[bitcoin_network]]
 .Le réseau Bitcoin étendu montrant divers types de nœuds, passerelles et protocoles
-image::images/mbc2_0803.png["BitcoinNetwork"]
+image::images/mbc2_0803.png["Réseau Bitcoin"]
 
 === Réseaux relais Bitcoin
 
@@ -196,7 +196,7 @@ Pour obtenir les en-têtes de bloc, les nœuds SPV utilisent un message +gethead
 
 [[spv_synchronization]]
 .Noeud SPV synchronisant les en-têtes de bloc
-image::images/mbc2_0807.png["SPVSynchronization"]
+image::images/mbc2_0807.png["Synchronisation SPV"]
 
 Peu de temps après l'introduction des nœuds SPV/légers, les développeurs de bitcoins ont ajouté une fonctionnalité appelée _filtres de floraison_ (Bloom Filters) pour faire face aux risques de confidentialité des nœuds SPV. Les filtres de floraison permettent aux nœuds SPV de recevoir un sous-ensemble des transactions sans révéler précisément les adresses qui les intéressent, grâce à un mécanisme de filtrage qui utilise des probabilités plutôt que des modèles fixes.(((&quot;&quot;, startref=&quot;BNspvnodes08&quot;)))(((&quot;&quot;, startref=&quot;simple08&quot;)))
 
@@ -217,7 +217,7 @@ Dans &lt;<bloom1>&gt;, nous utilisons un très petit tableau de 16 bits et un en
 
 [[bloom1]]
 .Un exemple de filtre de floraison simpliste, avec un champ 16 bits et trois fonctions de hachage
-image::images/mbc2_0808.png["Bloom1"]
+image::images/mbc2_0808.png["Floraison 1"]
 
 Le filtre de floraison est initialisé de sorte que le tableau de bits ne soit que des zéros. Pour ajouter un motif au filtre de floraison, le motif est haché tour à tour par chaque fonction de hachage. L'application de la première fonction de hachage à l'entrée donne un nombre compris entre 1 et N. Le bit correspondant dans le tableau (indexé de 1 à N) est trouvé et défini sur +1+, enregistrant ainsi la sortie de la fonction de hachage. Ensuite, la fonction de hachage suivante est utilisée pour définir un autre bit et ainsi de suite. Une fois que toutes les fonctions de hachage M ont été appliquées, le modèle de recherche sera &quot;enregistré&quot; dans le filtre de floraison sous forme de M bits qui ont été modifiés de +0+ à +1+.
 
@@ -227,14 +227,14 @@ L'ajout d'un deuxième motif est aussi simple que de répéter ce processus. Le 
 
 [[bloom2]]
 .Ajout d'un motif &quot;A&quot; à notre filtre de floraison simple
-image::images/mbc2_0809.png["Bloom2"]
+image::images/mbc2_0809.png["Floraison 2"]
 
 &lt;<bloom3>&gt; est un exemple d'ajout d'un deuxième motif &quot;B&quot; au filtre de floraison simple.
 
 [[bloom3]]
 [role="smallereighty"]
 .Ajout d'un deuxième motif &quot;B&quot; à notre filtre de floraison simple
-image::images/mbc2_0810.png["Bloom3"]
+image::images/mbc2_0810.png["Floraison 3"]
 
 Pour tester si un motif fait partie d'un filtre de floraison, le motif est haché par chaque fonction de hachage et le motif de bits résultant est testé par rapport au tableau de bits. Si tous les bits indexés par les fonctions de hachage sont mis à +1+, alors le motif est _probablement_ enregistré dans le filtre de floraison. Étant donné que les bits peuvent être définis en raison du chevauchement de plusieurs modèles, la réponse n'est pas certaine, mais plutôt probabiliste. En termes simples, une correspondance positive du filtre de floraison est un &quot;Peut-être, Oui&quot;.
 
@@ -243,7 +243,7 @@ Pour tester si un motif fait partie d'un filtre de floraison, le motif est hach�
 [[bloom4]]
 [role="smallereighty"]
 .Tester l'existence du motif &quot;X&quot; dans le filtre de floraison. Le résultat est une correspondance positive probabiliste, ce qui signifie &quot;Peut-être&quot;.
-image::images/mbc2_0811.png["Bloom4"]
+image::images/mbc2_0811.png["Floraison 4"]
 
 Au contraire, si un motif est testé par rapport au filtre bloom et que l'un des bits est mis à +0+, cela prouve que le motif n'a pas été enregistré dans le filtre de floraison. Un résultat négatif n'est pas une probabilité, c'est une certitude. En termes simples, une correspondance négative sur un filtre de floraison bloom est un &quot;Définitivement pas!&quot;
 

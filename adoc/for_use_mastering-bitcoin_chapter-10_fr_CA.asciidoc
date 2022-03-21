@@ -33,7 +33,7 @@ En novembre 2012, le nouveau taux d'émission de bitcoins a été réduit à 25 
 
 [[bitcoin_money_supply]]
 .Offre de monnaie bitcoin au fil du temps basée sur un taux d'émission géométriquement décroissant
-image::images/mbc2_1001.png["BitcoinMoneySupply"]
+image::images/mbc2_1001.png["Masse monétaire Bitcoin"]
 
 [NOTE]
 ====
@@ -130,7 +130,7 @@ En vérifiant indépendamment chaque transaction lors de sa réception et avant 
 
 === Nœuds miniers
 
-(((&quot;mining and consensus&quot;, &quot;mining nodes&quot;)))(((&quot;Bitcoin nodes&quot;, &quot;mining nodes&quot;)))Certains des nœuds du réseau Bitcoin sont des nœuds spécialisés appelés _mineurs_. Dans &lt;<ch01_intro_what_is_bitcoin>&gt; nous avons présenté (((&quot;cas d'utilisation&quot;, &quot;miner du bitcoin&quot;, id=&quot;jingten&quot;)))Jing, un étudiant en génie informatique à Shanghai, en Chine, est un mineur de bitcoin. Jing gagne du bitcoin en exécutant une &quot;plate-forme minière&quot;, qui est un système informatique spécialisé conçu pour exploiter le bitcoin. Le matériel minier spécialisé de Jing est connecté à un serveur exécutant un nœud Bitcoin complet. Contrairement à Jing, certains mineurs minent sans nœud complet, comme nous le verrons dans &lt;<mining_pools>&gt;. Comme tous les autres nœuds complets, le nœud de Jing reçoit et propage les transactions non confirmées sur le réseau Bitcoin. Le nœud de Jing, cependant, agrège également ces transactions dans de nouveaux blocs.
+(((&quot;minage et consensus&quot;, &quot;noeuds de minage&quot;)))(((&quot;noeuds Bitcoin&quot;, &quot;noeuds de minage&quot;)))Certains des nœuds du réseau Bitcoin sont des nœuds spécialisés appelés _mineurs_. Dans &lt;<ch01_intro_what_is_bitcoin>&gt; nous avons présenté (((&quot;cas d'utilisation&quot;, &quot;miner du bitcoin&quot;, id=&quot;jingten&quot;)))Jing, un étudiant en génie informatique à Shanghai, en Chine, est un mineur de bitcoin. Jing gagne du bitcoin en exécutant une &quot;plate-forme minière&quot;, qui est un système informatique spécialisé conçu pour exploiter le bitcoin. Le matériel minier spécialisé de Jing est connecté à un serveur exécutant un nœud Bitcoin complet. Contrairement à Jing, certains mineurs minent sans nœud complet, comme nous le verrons dans &lt;<mining_pools>&gt;. Comme tous les autres nœuds complets, le nœud de Jing reçoit et propage les transactions non confirmées sur le réseau Bitcoin. Le nœud de Jing, cependant, agrège également ces transactions dans de nouveaux blocs.
 
 Le nœud de Jing est à l'écoute de nouveaux blocs, propagés sur le réseau Bitcoin, comme tous les nœuds. Cependant, l'arrivée d'un nouveau bloc a une signification particulière pour un nœud minier. La compétition entre mineurs se termine effectivement par la propagation d'un nouveau bloc qui fait office d'annonce d'un gagnant. Pour les mineurs, recevoir un nouveau bloc valide signifie que quelqu'un d'autre a gagné la compétition et qu'il (on) a perdu. Cependant, la fin d'un tour d'une compétition est aussi le début du tour suivant. Le nouveau bloc n'est pas seulement un drapeau à damier, marquant la fin de la course; c'est aussi le pistolet de départ dans la course pour le bloc suivant.
 
@@ -279,7 +279,7 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 
 La subvention initiale est calculée en satoshis en multipliant 50 par la constante +COIN+ (100 000 000 satoshis). Cela fixe la récompense initiale (+nSubsidy+) à 5 milliards de satoshis.
 
-(((&quot;halvings&quot;)))Ensuite, la fonction calcule le nombre de +halvings+ qui se sont produits en divisant la hauteur actuelle du bloc par l'intervalle de halving (+SubsidyHalvingInterval+). Dans le cas du bloc 277 316, avec un intervalle de moitié tous les 210 000 blocs, le résultat est 1 moitié.
+(((&quot;réduction de moitié&quot;)))Ensuite, la fonction calcule le nombre de +halvings+ qui se sont produits en divisant la hauteur actuelle du bloc par l'intervalle de halving (ou réduction de moitié) (+SubsidyHalvingInterval+). Dans le cas du bloc 277 316, avec un intervalle de moitié tous les 210 000 blocs, le résultat est 1 moitié.
 
 Le nombre maximum de moitiés autorisé est de 64, donc le code impose une récompense nulle (ne renvoie que les frais) si les 64 moitiés sont dépassées.
 
@@ -850,13 +850,13 @@ Dans le graphique en &lt;<network_hashing_power>&gt;, nous pouvons voir que la p
 
 [[network_hashing_power]]
 .Puissance de hachage totale, terahachages par seconde (TH/sec) (graphique sur une échelle linéaire)
-image::images/mbc2_1007.png["NetworkHashingRate"]
+image::images/mbc2_1007.png["Taux de hachage du réseau"]
 
 Alors que la quantité de puissance de hachage appliquée à l'extraction de bitcoins a explosé, la difficulté a augmenté pour l'égaler. La métrique de difficulté dans le graphique affiché dans &lt;<bitcoin_difficulty>&gt; est mesuré comme un rapport de la difficulté actuelle sur la difficulté minimale (la difficulté du premier bloc).
 
 [[bitcoin_difficulty]]
 .Métrique de la difficulté de minage de Bitcoin (graphique sur une échelle logarithmique)
-image::images/mbc2_1008.png["BitcoinDifficulty"]
+image::images/mbc2_1008.png["Difficulté Bitcoin"]
 
 Au cours des deux dernières années, les puces minières ASIC sont devenues de plus en plus denses, se rapprochant de la pointe de la fabrication de silicium avec une taille de caractéristique (résolution) de 7 nanomètres (nm). Actuellement, les fabricants d'ASIC visent à dépasser les fabricants de puces CPU à usage général, en concevant des puces avec une taille de fonctionnalité de 5 nm, car la rentabilité de l'exploitation minière fait avancer cette industrie encore plus rapidement que l'informatique générale. Il n'y a plus de pas de géant dans l'extraction de bitcoins, car l'industrie a atteint l'avant-garde de la loi de Moore, qui stipule que la densité de calcul doublera environ tous les 18 mois. Pourtant, la puissance minière du réseau continue de progresser à un rythme exponentiel alors que la course aux puces à plus haute densité s'accompagne d'une course aux centres de données à plus haute densité où des milliers de ces puces peuvent être déployées. Il ne s'agit plus de savoir combien d'extraction peut être effectuée avec une seule puce, mais combien de puces peuvent être insérées dans un bâtiment, tout en dissipant la chaleur et en fournissant une puissance adéquate.
 
@@ -960,7 +960,7 @@ Examinons les mécanismes d'un embranchement divergent avec un exemple spécifiq
 
 [[blockchainwithforks]]
 .Une blockchain avec des fourches
-image::images/mbc2_1009.png[Une chaîne de blocs avec des fourches]
+image::images/mbc2_1009.png[&quot;Une chaîne de blocs avec des fourches&quot;]
 
 Plus tard, cependant, à la hauteur de bloc 6, une bifurcation divergente se produit. Supposons qu'une nouvelle implémentation du client soit publiée avec un changement dans les règles de consensus. À partir de la hauteur de bloc 7, les mineurs exécutant cette nouvelle implémentation accepteront un nouveau type de signature numérique, appelons-le une signature &quot;Smores&quot;, qui n'est pas basée sur ECDSA. Immédiatement après, un nœud exécutant la nouvelle implémentation crée une transaction qui contient une signature Smores et un mineur avec le logiciel mis à jour mine le bloc 7b contenant cette transaction.
 
@@ -1110,7 +1110,7 @@ Les propositions commencent dans l'état +DEFINED+, une fois que leurs paramètr
 
 [[bip9states]]
 .BIP-9 diagramme de transition d'état
-image::images/mbc2_1010.png[Diagramme de transition d'état de la proposition BIP-9]
+image::images/mbc2_1010.png[&quot;Diagramme de transition d'état de la proposition BIP-9&quot;]
 
 BIP-9 a d'abord été implémenté pour l'activation de +CHECKSEQUENCEVERIFY+ et des BIP associés (68, 112, 113). La proposition nommée &quot;csv&quot; a été activée avec succès en juillet 2016.(((&quot;&quot;, startref=&quot;forks10a&quot;)))
 

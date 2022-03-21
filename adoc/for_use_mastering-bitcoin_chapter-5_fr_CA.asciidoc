@@ -43,7 +43,7 @@ L'utilisation de portefeuilles non déterministes est déconseillée pour autre 
 [[Type0_wallet]]
 [role="smallersixty"]
 .Portefeuille non déterministe (aléatoire) de type-0 : une collection de clés générées aléatoirement
-image::images/mbc2_0501.png["Non-Deterministic Wallet"]
+image::images/mbc2_0501.png[&quot;Portefeuille non déterministe&quot;]
 
 ==== Portefeuilles déterministes (ensemencés)
 
@@ -52,7 +52,7 @@ image::images/mbc2_0501.png["Non-Deterministic Wallet"]
 [[Type1_wallet]]
 [role="smallersixty"]
 .Portefeuille déterministe (ensemencé) de type-1 : une séquence déterministe de clés dérivée d'une valeur d'amorçage
-image::images/mbc2_0502.png["Deterministic Wallet"]
+image::images/mbc2_0502.png["Portefeuille déterministe"]
 
 [[hd_wallets]]
 ==== Portefeuilles HD (BIP-32/BIP-44)
@@ -61,7 +61,7 @@ image::images/mbc2_0502.png["Deterministic Wallet"]
 
 [[Type2_wallet]]
 .Portefeuille HD de type-2 : un arbre de clés généré à partir d'une seule valeur d'amorçage
-image::images/mbc2_0503.png["HD wallet"]
+image::images/mbc2_0503.png["portefeuille HD"]
 
 Les portefeuilles HD offrent deux avantages majeurs par rapport aux clés aléatoires (non déterministes). Tout d'abord, la structure arborescente peut être utilisée pour exprimer une signification organisationnelle supplémentaire, par exemple lorsqu'une branche spécifique de sous-clés est utilisée pour recevoir des paiements entrants et qu'une branche différente est utilisée pour recevoir la monnaie des paiements sortants. Les branches de clés peuvent également être utilisées dans les paramètres de l'entreprise, en attribuant différentes branches à des départements, des filiales, des fonctions spécifiques ou des catégories comptables.
 
@@ -120,7 +120,7 @@ Lorsque Gabriel a utilisé le Trezor pour la première fois, l'appareil a géné
 
 [[trezor_mnemonic_display]]
 .Trezor affichant un des mots mnémoniques
-image::images/mbc2_0505.png["Trezor wallet display of mnemonic word"]
+image::images/mbc2_0505.png["Vue des mots mnémoniques du portefeuille Trezor"]
 
 En écrivant ce mnémonique, Gabriel a créé une sauvegarde (voir &lt;<mnemonic_paper_backup>&gt;) qui peut être utilisé pour la récupération en cas de perte ou d'endommagement de l'appareil Trezor. Ce mnémonique peut être utilisé pour la récupération dans un nouveau Trezor ou dans l'un des nombreux portefeuilles logiciels ou matériels compatibles. Notez que la séquence des mots est importante, donc les sauvegardes papier mnémotechniques ont des espaces numérotés pour chaque mot. Gabriel a dû enregistrer soigneusement chaque mot dans l'espace numéroté pour préserver la séquence correcte.
 
@@ -308,7 +308,7 @@ Le processus de création des clés principales et du code de chaîne principal 
 
 [[HDWalletFromSeed]]
 .Création de clés principales et de code de chaîne à partir d'une valeur d'amorçage racine
-image::images/mbc2_0509.png["HDWalletFromRootSeed"]
+image::images/mbc2_0509.png["Valeur d'amorçage racine du portefeuille HD"]
 
 La valeur d'amorçage racine est entrée dans l'algorithme HMAC-SHA512 et le hachage résultant est utilisé pour créer une _clé privée principale_ (m) et un _code de chaîne principal_ (c).
 
@@ -318,7 +318,7 @@ Le code de chaîne (c) est utilisé pour introduire de l'entropie dans la foncti
 
 ===== Dérivation de clé enfant privée
 
-(((&quot;dérivation de la clé-enfant (CKD)&quot;)))(((&quot;clé publique et privé&quot;, &quot;dérivation de clé-enfant (CKD)&quot;)))Les portefeuilles HD utilisent une fonction _dérivation de la clé-enfant_ (CKD) pour dériver les clés enfants à partir des clés parents.
+(((&quot;dérivation de la clé enfant (CKD)&quot;)))(((&quot;clé publique et privé&quot;, &quot;dérivation de clé enfant (CKD)&quot;)))Les portefeuilles HD utilisent une fonction _dérivation de la clé enfant_ (CKD) pour dériver les clés enfants à partir des clés parents.
 
 Les fonctions de dérivation de la clé-enfant sont basées sur une fonction de hachage unidirectionnelle qui combine :
 
@@ -334,7 +334,7 @@ La clé publique parent, le code de chaîne et le numéro d'index sont combinés
 
 [[CKDpriv]]
 .Étendre une clé privée parent pour créer une clé privée enfant
-image::images/mbc2_0510.png["ChildPrivateDerivation"]
+image::images/mbc2_0510.png["Dérivation enfant privée"]
 
 Changer l'index nous permet d'étendre le parent et de créer les autres enfants dans la séquence, par exemple, Enfant 0, Enfant 1, Enfant 2, etc. Chaque clé parent peut avoir 2 147 483 647 (2^31^) enfants (2^31^ est moitié de la plage entière 2^32^ disponible car l'autre moitié est réservée à un type spécial de dérivation dont nous parlerons plus loin dans ce chapitre).
 
@@ -393,7 +393,7 @@ Une application courante de cette solution consiste à installer une clé publiq
 
 [[CKDpub]]
 .Étendre une clé publique parent pour créer une clé publique enfant
-image::images/mbc2_0511.png["ChildPublicDerivation"]
+image::images/mbc2_0511.png["Dérivation enfant publique"]
 
 ===== Dérivation de clé enfant renforcée
 
@@ -403,7 +403,7 @@ Pour contrer ce risque, les portefeuilles HD utilisent une fonction de dérivati
 
 [[CKDprime]]
 .Dérivation renforcée d'une clé enfant ; omet la clé publique parent
-image::images/mbc2_0513.png["ChildHardPrivateDerivation"]
+image::images/mbc2_0513.png["Dérivation enfant stricte privée"]
 
 [role="pagebreak-before"]
 Lorsque la fonction de dérivation privée renforcée est utilisée, la clé privée enfant et le code de chaîne résultants sont complètement différents de ce qui résulterait de la fonction de dérivation normale. La &quot;branche&quot; de clés résultante peut être utilisée pour produire des clés publiques étendues qui ne sont pas vulnérables, car le code de chaîne qu'elles contiennent ne peut pas être exploité pour révéler des clés privées. La dérivation renforcée est donc utilisée pour créer un &quot;trou&quot; dans l'arborescence au-dessus du niveau où les clés publiques étendues sont utilisées.

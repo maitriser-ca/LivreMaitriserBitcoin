@@ -186,13 +186,13 @@ Le processus se poursuit jusqu'à ce qu'il n'y ait qu'un seul nœud au sommet, l
 
 [[simple_merkle]]
 .Calcul des nœuds dans un arbre de Merkle
-image::images/mbc2_0902.png["merkle_tree"]
+image::images/mbc2_0902.png["Arbre de Merkle"]
 
 (((&quot;arbres équilibrés&quot;)))Parce que l'arbre de Merkle est un arbre binaire, il a besoin d'un nombre pair de nœuds feuilles. S'il y a un nombre impair de transactions à résumer, le dernier hachage de transaction sera dupliqué pour créer un nombre pair de nœuds feuilles, également appelés _arbre équilibré_. Ceci est montré dans &lt;<merkle_tree_odd>&gt;, où la transaction C est dupliquée.
 
 [[merkle_tree_odd]]
 .La duplication d'un élément de données permet d'obtenir un nombre pair d'éléments de données
-image::images/mbc2_0903.png["merkle_tree_odd"]
+image::images/mbc2_0903.png["Arbre de Merkle impair"]
 
 La même méthode de construction d'un arbre à partir de quatre transactions peut être généralisée pour construire des arbres de n'importe quelle taille. Dans le Bitcoin, il est courant d'avoir plusieurs centaines à plus d'un millier de transactions dans un seul bloc, qui sont résumées exactement de la même manière, produisant seulement 32 octets de données en tant que racine de Merkle unique. Dans &lt;<merkle_tree_large>&gt;, vous verrez un arbre construit à partir de 16 transactions. Notez que bien que la racine semble plus grande que les nœuds feuilles dans le diagramme, elle a exactement la même taille, seulement 32 octets. Qu'il y ait une transaction ou cent mille transactions dans le bloc, la racine de Merkle les résume toujours en 32 octets.
 
@@ -200,13 +200,13 @@ La même méthode de construction d'un arbre à partir de quatre transactions pe
 
 [[merkle_tree_large]]
 .Un arbre Merkle résumant de nombreux éléments de données
-image::images/mbc2_0904.png["merkle_tree_large"]
+image::images/mbc2_0904.png["Grand arbre de Merkle"]
 
 Dans &lt;<merkle_tree_path>&gt;, un nœud peut prouver qu'une transaction K est incluse dans le bloc en produisant un chemin de Merkle qui ne fait que quatre hachages de 32 octets (128 octets au total). Le chemin se compose des quatre hachages (affichés avec un arrière-plan ombré dans &lt;<merkle_tree_path>&gt;) H~L~, H~IJ~, H~MNOP~ et H~ABCDEFGH~. Avec ces quatre hachages fournis comme chemin d'authentification, n'importe quel nœud peut prouver que H~K~ (avec un fond noir au bas du diagramme) est inclus dans la racine de Merkle en calculant quatre hachages supplémentaires par paires H~KL~, H~IJKL~, H~IJKLMNOP~ et la racine de l'arbre de Merkle (indiquée par une ligne pointillée dans le diagramme).
 
 [[merkle_tree_path]]
 .Un chemin (ou trajet) de Merkle utilisé pour prouver l'inclusion d'un élément de données
-image::images/mbc2_0905.png["merkle_tree_path"]
+image::images/mbc2_0905.png["Chemin d'arbre de Merkle"]
 
 
 Le code dans &lt;<merkle_example>&gt; illustre le processus de création d'un arbre de Merkle depuis les hachages de nœud feuille jusqu'à la racine, en utilisant la bibliothèque libbitcoin pour certaines fonctions d'assistance.

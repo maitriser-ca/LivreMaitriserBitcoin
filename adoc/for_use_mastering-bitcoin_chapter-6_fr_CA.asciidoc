@@ -345,7 +345,7 @@ L'API renvoie un objet JSON avec l'estimation actuelle des frais pour la confirm
 
 [[bitcoinfeesearncom]]
 .Service d'estimation des frais bitcoinfees.earn.com
-image::images/mbc2_0602.png[Service d'estimation des frais bitcoinfees.earn.com]
+image::images/mbc2_0602.png[&quot;Service d'estimation des frais bitcoinfees.earn.com&quot;]
 
 ==== Ajout de frais aux transactions
 
@@ -417,7 +417,7 @@ Notez que l'UTXO est enregistré en permanence dans la blockchain, et est donc i
 
 [[scriptSig_and_scriptPubKey]]
 .Combiner scriptSig et scriptPubKey pour évaluer un script de transaction
-image::images/mbc2_0603.png[&quot;scriptSig_and_scriptPubKey&quot;]
+image::images/mbc2_0603.png[&quot;scriptSig et scriptPubKey&quot;]
 
 ===== La pile d'exécution de script
 
@@ -462,7 +462,7 @@ Comme nous l'avons vu dans l'exemple étape par étape dans &lt;<simplemath_scri
 
 [[simplemath_script]]
 .La validation du script Bitcoin en calculs simples
-image::images/mbc2_0604.png[&quot;TxScriptSimpleMathExample&quot;]
+image::images/mbc2_0604.png[&quot;Exemple mathématique simple du TxScript&quot;]
 
 [role="pagebreak-before"]
 Ce qui suit est un script légèrement plus complexe, qui calcule ++2 + 7 - 3 + 1++. Notez que lorsque le script contient plusieurs opérateurs à la suite, la pile permet aux résultats d'un opérateur d'être appliqués par l'opérateur suivant :
@@ -596,7 +596,7 @@ Voyez si vous pouvez décoder la signature sérialisée (encodée en DER) d'Alic
 
 ==== Vérification de la signature
 
-(((&quot;digital signatures&quot;, &quot;verifying&quot;)))Pour vérifier la signature, il faut avoir la signature (+R+ et +S+), la transaction sérialisée, et la clé publique (qui correspond à la clé privée utilisée pour créer la signature). Essentiellement, la vérification d'une signature signifie &quot;Seul le propriétaire de la clé privée qui a généré cette clé publique pourrait avoir produit cette signature sur cette transaction.&quot;
+(((&quot;signatures numériques&quot;, &quot;vérification&quot;)))Pour vérifier la signature, il faut avoir la signature (+R+ et +S+), la transaction sérialisée, et la clé publique (qui correspond à la clé privée utilisée pour créer la signature). Essentiellement, la vérification d'une signature signifie &quot;Seul le propriétaire de la clé privée qui a généré cette clé publique pourrait avoir produit cette signature sur cette transaction.&quot;
 
 L'algorithme de vérification de signature prend le message (un hachage de la transaction ou de parties de celui-ci), la clé publique du signataire et la signature (+valeurs R+ et +S+), et renvoie TRUE si la signature est valide pour ce message et cette clé publique.
 
