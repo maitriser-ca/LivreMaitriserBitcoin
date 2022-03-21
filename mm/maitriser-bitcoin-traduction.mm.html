@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Mastering Bitcoin</title>
+<style type="text/css">
+    li { list-style: none;  margin: 0; }
+    p { margin: 0; }
+    span.foldopened { color: white; font-size: xx-small;
+    border-width: 1; font-family: monospace; padding: 0em 0.25em 0em 0.25em; background: #e0e0e0;
+    VISIBILITY: visible;
+    cursor:pointer; }
+
+
+    span.foldclosed { color: #666666; font-size: xx-small;
+    border-width: 1; font-family: monospace; padding: 0em 0.25em 0em 0.25em; background: #e0e0e0;
+    VISIBILITY: hidden;
+    cursor:pointer; }
+
+    span.foldspecial { color: #666666; font-size: xx-small; border-style: none solid solid none;
+    border-color: #CCCCCC; border-width: 1; font-family: sans-serif; padding: 0em 0.1em 0em 0.1em; background: #e0e0e0;
+    cursor:pointer; }
+
+    span.l { color: red; font-weight: bold; }
+
+    a.mapnode:link {text-decoration: none; color: black; }
+    a.mapnode:visited {text-decoration: none; color: black; }
+    a.mapnode:active {text-decoration: none; color: black; }
+    a.mapnode:hover {text-decoration: none; color: black; background: #eeeee0; }
+
+</style>
+<!-- ^ Position is not set to relative / absolute here because of Mozilla -->
+</head>
+<body>
+
+<script type="text/javascript">
+   // Here we implement folding. It works fine with MSIE5.5, MSIE6.0 and
+   // Mozilla 0.9.6.
+
+   if (document.layers) {
+      //Netscape 4 specific code
+      pre = 'document.';
+      post = ''; }
+   if (document.getElementById) {
+      //Netscape 6 specific code
+      pre = 'document.getElementById("';
+      post = '").style'; }
+   if (document.all) {
+      //IE4+ specific code
+      pre = 'document.all.';
+      post = '.style'; }
+
+function layer_exists(layer) {
+   try {
+      eval(pre + layer + post);
+      return true; }
+   catch (error) {
+      return false; }}
+
+function show_layer(layer) {
+   eval(pre + layer + post).position = 'relative'; 
+   eval(pre + layer + post).visibility = 'visible'; }
+
+function hide_layer(layer) {
+   eval(pre + layer + post).visibility = 'hidden';
+   eval(pre + layer + post).position = 'absolute'; }
+
+function hide_folder(folder) {
+    hide_folding_layer(folder)
+    show_layer('show'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function show_folder(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_layer('show'+folder+'_'+i); }
+}
+function show_folder_completely(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_folder_completely(folder+'_'+i); }
+}
+
+
+
+function hide_folding_layer(folder) {
+   var i;
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       hide_folding_layer(folder+'_'+i); }
+
+   hide_layer('hide'+folder);
+   hide_layer('show'+folder);
+   hide_layer('fold'+folder);
+
+   scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function fold_document() {
+   var i;
+   var folder = '1';
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       hide_folder(folder+'_'+i); }
+}
+
+function unfold_document() {
+   var i;
+   var folder = '1';
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_folder_completely(folder+'_'+i); }
+}
+
+</script>
+<SPAN class="foldspecial" onclick="fold_document()">All +</SPAN>
+<SPAN class="foldspecial" onclick="unfold_document()">All -</SPAN>
+&#xa;    <div style="text-align: left">&#xa;      Mastering Bitcoin&#xa;    </div>&#xa;  
+<ul><li>Traduction (fr_CA)
+<ul><li><span id="show1_1" class="foldclosed" onClick="show_folder('1_1')" style="POSITION: absolute">+</span> <span id="hide1_1" class="foldopened" onClick="hide_folder('1_1')">-</span>
+&#xa;        <div style="text-align: left">&#xa;          Phase 1&#xa;        </div>&#xa;      
+<ul id="fold1_1" style="POSITION: relative; VISIBILITY: visible;"><li>&#xa;          <div style="text-align: left">&#xa;            traduire le glossaire&#xa;          </div>&#xa;        
+&#xa;          <div style="text-align: left">&#xa;            traduire selon l&apos;ordre de priorit&#233; des ressources&#xa;          </div>&#xa;        
+</li>
+</ul>&#xa;        <div style="text-align: left">&#xa;          Phase 2&#xa;        </div>&#xa;      
+<ul><li>&#xa;          <div style="text-align: left">&#xa;            g&#233;n&#233;rer HTML&#xa;          </div>&#xa;        
+&#xa;          <div style="text-align: left">&#xa;            automation de revision&#xa;          </div>&#xa;        
+<ul><li>&#xa;            <div style="text-align: left">&#xa;              automatiser la copie source des &#233;l&#233;ments codes&#xa;            </div>&#xa;          
+</li>
+</ul>&#xa;          <div style="text-align: left">&#xa;            find and replace&#xa;          </div>&#xa;        
+<ul><li>&#xa;            <div style="text-align: left">&#xa;              espaces ins&#233;cables&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              &amp;quot; par &quot;&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              entit&#233;s html (&amp;#x27; = &apos;, &amp;#39; = &apos;)&#xa;            </div>&#xa;          
+</li>
+</ul>&#xa;          <div style="text-align: left">&#xa;            reviser ASCIIDOC&#xa;          </div>&#xa;        
+<ul><li>&#xa;            <div style="text-align: left">&#xa;              voir les balises html &lt;ins&#233;rables&gt;&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              reviser les (((mots cl&#233;s))) d&apos;ent&#234;tes&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              reviser les fin de r&#233;f&#233;rences &amp;gt; &gt;&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              les image::path/sub[texte &#224; traduire ? ]&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              reviser les [[attributs] ]&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              reviser les non traduisibles&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              reviser les noms d&apos;entit&#233;es pass: :entit&#233;e&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              reviser les .Titres&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              reviser les query see= (voir=) et seealso= (voir aussi=)&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              reviser les URLs http://exemple.com[traduire ceci]&#xa;            </div>&#xa;          
+<ul><li>&#xa;              <div style="text-align: left">&#xa;                traduire [les links]&#xa;              </div>&#xa;            
+</li>
+</ul>&#xa;            <div style="text-align: left">&#xa;              reviser les espaces entre les caract&#232;res symboles ] . ; ) etc.&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              reviser les snippets de code ; pas de traduction&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              o dans e (noeud, coeur)&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              reviser les champs [WARNING/ATTENTION,NOTE/REMARQUE,TIP/POINTE]&#xa;            </div>&#xa;          
+</li>
+</ul>&#xa;          <div style="text-align: left">&#xa;            &#233;l&#233;ments manquants&#xa;          </div>&#xa;        
+<ul><li>&#xa;            <div style="text-align: left">&#xa;              images&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              codes source&#xa;            </div>&#xa;          
+</li>
+</ul></li>
+</ul>&#xa;        <div style="text-align: left">&#xa;          Phase 3&#xa;        </div>&#xa;      
+<ul><li>&#xa;          <div style="text-align: left">&#xa;            reviser certains termes et en conclure l&apos;utilisation&#xa;          </div>&#xa;        
+<ul><li>&#xa;            <div style="text-align: left">&#xa;              dans le glossaire&#xa;            </div>&#xa;          
+<ul><li>&#xa;              <div style="text-align: left">&#xa;                blockchain&#xa;              </div>&#xa;            
+&#xa;              <div style="text-align: left">&#xa;                graine&#xa;              </div>&#xa;            
+&#xa;              <div style="text-align: left">&#xa;                normaliser&#xa;              </div>&#xa;            
+<ul><li>&#xa;                <div style="text-align: left">&#xa;                  cas d&apos;usage -&gt; cas d&apos;utilisation&#xa;                </div>&#xa;              
+&#xa;                <div style="text-align: left">&#xa;                  phrase de passe -&gt; phrase secr&#232;te&#xa;                </div>&#xa;              
+&#xa;                <div style="text-align: left">&#xa;                  r&#233;sultat d&apos;hachage -&gt; hachage&#xa;                </div>&#xa;              
+&#xa;                <div style="text-align: left">&#xa;                  cl&#233;-enfant -&gt; cl&#233; enfant&#xa;                </div>&#xa;              
+&#xa;                <div style="text-align: left">&#xa;                  bitcoin/Bitcoin&#xa;                </div>&#xa;              
+</li>
+</ul>&#xa;              <div style="text-align: left">&#xa;                revoir&#xa;              </div>&#xa;            
+<ul><li>&#xa;                <div style="text-align: left">&#xa;                  public ou publique&#xa;                </div>&#xa;              
+&#xa;                <div style="text-align: left">&#xa;                  Bitcoin Improvement Proposals (ou Propositions d&#8217;am&#233;lioration~S~ du Bitcoin)&#xa;                </div>&#xa;              
+</li>
+</ul></li>
+</ul>&#xa;            <div style="text-align: left">&#xa;              sur wikitionary&#xa;            </div>&#xa;          
+&#xa;            <div style="text-align: left">&#xa;              voir oqlf&#xa;            </div>&#xa;          
+<ul><li>&#xa;              <div style="text-align: left">&#xa;                s&apos;informer de l&apos;&#233;tat des choses&#xa;              </div>&#xa;            
+</li>
+</ul></li>
+</ul>&#xa;          <div style="text-align: left">&#xa;            traduire les commentaires des fichiers de code include::&#xa;          </div>&#xa;        
+&#xa;          <div style="text-align: left">&#xa;            [latexmath]&#xa;          </div>&#xa;        
+&#xa;          <div style="text-align: left">&#xa;            liens r&#233;f&#233;rences (#headings) [r&#233;f&#233;rence]&#xa;          </div>&#xa;        
+</li>
+</ul>&#xa;        <div style="text-align: left">&#xa;          FIN&#xa;        </div>&#xa;      
+<ul><li>&#xa;          <div style="text-align: left">&#xa;            t&#233;l&#233;charger le glossaire&#xa;          </div>&#xa;        
+&#xa;          <div style="text-align: left">&#xa;            t&#233;l&#233;charger une copie finale&#xa;          </div>&#xa;        
+</li>
+</ul>&#xa;        <div style="text-align: left">&#xa;          Mots cl&#233;s en commentaires&#xa;        </div>&#xa;      
+<ul><li>&#xa;          <div style="text-align: left">&#xa;            DONE1&#xa;          </div>&#xa;        
+<ul><li>&#xa;            <div style="text-align: left">&#xa;              ronde 1 compl&#232;te&#xa;            </div>&#xa;          
+</li>
+</ul>&#xa;          <div style="text-align: left">&#xa;            DONE2&#xa;          </div>&#xa;        
+<ul><li>&#xa;            <div style="text-align: left">&#xa;              ronde 2 compl&#232;te&#xa;            </div>&#xa;          
+</li>
+</ul>&#xa;          <div style="text-align: left">&#xa;            DONEF&#xa;          </div>&#xa;        
+<ul><li>&#xa;            <div style="text-align: left">&#xa;              ronde finale compl&#232;te&#xa;            </div>&#xa;          
+</li>
+</ul>&#xa;          <div style="text-align: left">&#xa;            VOIR&#xa;          </div>&#xa;        
+<ul><li>&#xa;            <div style="text-align: left">&#xa;              &#224; reviser aupr&#232;s de l&apos;auteur ou du collaborateur&#xa;            </div>&#xa;          
+</li>
+</ul>&#xa;          <div style="text-align: left">&#xa;            ICI&#xa;          </div>&#xa;        
+<ul><li>&#xa;            <div style="text-align: left">&#xa;              o&#249; je suis rendu&#xa;            </div>&#xa;          
+</li>
+</ul>&#xa;          <div style="text-align: left">&#xa;            EYE&#xa;          </div>&#xa;        
+<ul><li>&#xa;            <div style="text-align: left">&#xa;              &#224; revisiter&#xa;            </div>&#xa;          
+</li>
+</ul></li>
+</ul></li>
+</ul>
+</li>
+
+</ul><SCRIPT type="text/javascript">
+fold_document();
+</SCRIPT>
+</body>
+</html>

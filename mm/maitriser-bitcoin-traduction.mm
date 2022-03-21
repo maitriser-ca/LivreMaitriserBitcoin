@@ -1,6 +1,6 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node BACKGROUND_COLOR="#662c90" CREATED="1647766807452" ID="ID_181399632" MODIFIED="1647766807452">
+<node CREATED="1647766807452" ID="ID_181399632" MODIFIED="1647772141063">
 <richcontent TYPE="NODE"><html>
   <head>
 
@@ -48,7 +48,7 @@
       </html></richcontent>
 </node>
 </node>
-<node CREATED="1647766807453" ID="ID_1268647913" MODIFIED="1647767266854">
+<node CREATED="1647766807453" ID="ID_1268647913" MODIFIED="1647772249315">
 <richcontent TYPE="NODE"><html>
       <head>
 
@@ -90,54 +90,6 @@
           <body>
             <div style="text-align: left">
               automatiser la copie source des &#233;l&#233;ments codes
-            </div>
-          </body>
-        </html></richcontent>
-</node>
-</node>
-<node CREATED="1647766807453" ID="ID_1975235496" MODIFIED="1647767266854">
-<richcontent TYPE="NODE"><html>
-        <head>
-
-        </head>
-        <body>
-          <div style="text-align: left">
-            find and replace
-          </div>
-        </body>
-      </html></richcontent>
-<node CREATED="1647766807453" ID="ID_1734476130" MODIFIED="1647767266854">
-<richcontent TYPE="NODE"><html>
-          <head>
-
-          </head>
-          <body>
-            <div style="text-align: left">
-              espaces ins&#233;cables
-            </div>
-          </body>
-        </html></richcontent>
-</node>
-<node CREATED="1647766807453" ID="ID_167337101" MODIFIED="1647767266854">
-<richcontent TYPE="NODE"><html>
-          <head>
-
-          </head>
-          <body>
-            <div style="text-align: left">
-              &amp;quot; par &quot;
-            </div>
-          </body>
-        </html></richcontent>
-</node>
-<node CREATED="1647766807453" ID="ID_953911294" MODIFIED="1647767266854">
-<richcontent TYPE="NODE"><html>
-          <head>
-
-          </head>
-          <body>
-            <div style="text-align: left">
-              entit&#233;s html (&amp;#x27; = &apos;, &amp;#39; = &apos;)
             </div>
           </body>
         </html></richcontent>
@@ -573,6 +525,54 @@
             </body>
           </html></richcontent>
 </node>
+</node>
+</node>
+<node CREATED="1647766807453" ID="ID_1975235496" MODIFIED="1647767266854">
+<richcontent TYPE="NODE"><html>
+        <head>
+
+        </head>
+        <body>
+          <div style="text-align: left">
+            find and replace
+          </div>
+        </body>
+      </html></richcontent>
+<node CREATED="1647766807453" ID="ID_1734476130" MODIFIED="1647767266854">
+<richcontent TYPE="NODE"><html>
+          <head>
+
+          </head>
+          <body>
+            <div style="text-align: left">
+              espaces ins&#233;cables
+            </div>
+          </body>
+        </html></richcontent>
+</node>
+<node CREATED="1647766807453" ID="ID_167337101" MODIFIED="1647767266854">
+<richcontent TYPE="NODE"><html>
+          <head>
+
+          </head>
+          <body>
+            <div style="text-align: left">
+              &amp;quot; par &quot;
+            </div>
+          </body>
+        </html></richcontent>
+</node>
+<node CREATED="1647766807453" ID="ID_953911294" MODIFIED="1647767266854">
+<richcontent TYPE="NODE"><html>
+          <head>
+
+          </head>
+          <body>
+            <div style="text-align: left">
+              entit&#233;s html (&amp;#x27; = &apos;, &amp;#39; = &apos;)
+            </div>
+          </body>
+        </html></richcontent>
 </node>
 </node>
 <node CREATED="1647766807454" ID="ID_299730914" MODIFIED="1647767266857">
