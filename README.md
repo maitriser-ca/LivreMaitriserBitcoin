@@ -39,8 +39,8 @@ La source originale de ces textes est tiré du livre à édition ouverte <strong
 ## Feuille de route
 * Traduction
   - [x] Phase de traduction (DONE1) : 👍
-  - [ ] Phase de révision (DONE2) : en cours...
-  - [ ] Phase de conclusion (DONEF) : en attente...
+  - [x] Phase de révision (DONE2) : 👍
+  - [ ] Phase de conclusion (DONEF) : en cours...
 * Révision
   - [ ] Phase de révision externe
 
