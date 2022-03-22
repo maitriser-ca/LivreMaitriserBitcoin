@@ -763,7 +763,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect3 data-line-215">
 <h4 id="_utiliser_le_script_et_la_validation">Utiliser le script et la validation</h4>
 <div class="paragraph data-line-217">
-<p>(&quot;Pay-to-Script-Hash (P2SH)&quot;, &quot;scripts de rachat et validation&quot; )Avant la version 0.9.2 du client Bitcoin Core, Pay-to-Script-Hash était limité aux types standard de scripts de transaction bitcoin, par la fonction IsStandard(). Cela signifie que le script d&#8217;échange présenté dans la transaction de dépenses ne peut être que l&#8217;un des types standard : P2PK, P2PKH ou multisig.</p>
+<p>Avant la version 0.9.2 du client Bitcoin Core, Pay-to-Script-Hash était limité aux types standard de scripts de transaction bitcoin, par la fonction IsStandard(). Cela signifie que le script d&#8217;échange présenté dans la transaction de dépenses ne peut être que l&#8217;un des types standard : P2PK, P2PKH ou multisig.</p>
 </div>
 <div class="paragraph data-line-219">
 <p>Depuis la version 0.9.2 du client Bitcoin Core, les transactions P2SH peuvent contenir n&#8217;importe quel script valide, ce qui rend la norme P2SH beaucoup plus flexible et permet d&#8217;expérimenter de nombreux types de transactions nouveaux et complexes.</p>
@@ -847,7 +847,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect3 data-line-267">
 <h4 id="transaction_locktime_nlocktime">Temps de verrouillage des transactions (nLocktime)</h4>
 <div class="paragraph data-line-269">
-<p>Depuis le début, Bitcoin a eu une fonction de timelock au niveau de la transaction. L&#8217;heure de verrouillage de la transaction est un paramètre au niveau de la transaction (un champ dans la structure des données de la transaction) qui définit la première heure à laquelle une transaction est valide et peut être relayée sur le réseau ou ajoutée à la chaîne de blocs. Le verrou temporel est également connu sous le nom de nLocktime à partir du nom de variable utilisé dans la base de code Bitcoin Core. Il est défini sur zéro dans la plupart des transactions pour indiquer une propagation et une exécution immédiates. Si nLocktime est différent de zéro et inférieur à 500 millions, il est interprété comme une hauteur de bloc, ce qui signifie que la transaction n&#8217;est pas valide et n&#8217;est pas relayée ou incluse dans la blockchain avant la hauteur de bloc spécifiée. S&#8217;il est supérieur ou égal à 500 millions, il est interprété comme un horodatage Unix Epoch (secondes depuis le 1er janvier 1970) et la transaction n&#8217;est pas valide avant l&#8217;heure spécifiée. Les transactions avec nLocktime spécifiant un bloc ou une heure future doivent être conservées par le système d&#8217;origine et transmises au réseau Bitcoin uniquement après leur validité. Si une transaction est transmise au réseau avant le nLocktime spécifié, la transaction sera rejetée par le premier nœud comme invalide et ne sera pas relayée vers les autres nœuds. L&#8217;utilisation de nLocktime équivaut à postdater un chèque papier.</p>
+<p>Depuis le début, Bitcoin a eu une fonction de timelock au niveau de la transaction. L&#8217;heure de verrouillage de la transaction est un paramètre au niveau de la transaction (un champ dans la structure des données de la transaction) qui définit la première heure à laquelle une transaction est valide et peut être relayée sur le réseau ou ajoutée à la chaîne de blocs. Le verrou temporel est également connu sous le nom de nLocktime à partir du nom de variable utilisé dans la base de code Bitcoin Core. Il est défini sur zéro dans la plupart des transactions pour indiquer une propagation et une exécution immédiates. Si nLocktime est différent de zéro et inférieur à 500 millions, il est interprété comme une hauteur de bloc, ce qui signifie que la transaction n&#8217;est pas valide et n&#8217;est pas relayée ou incluse dans la chaîne de blocs avant la hauteur de bloc spécifiée. S&#8217;il est supérieur ou égal à 500 millions, il est interprété comme un horodatage Unix Epoch (secondes depuis le 1er janvier 1970) et la transaction n&#8217;est pas valide avant l&#8217;heure spécifiée. Les transactions avec nLocktime spécifiant un bloc ou une heure future doivent être conservées par le système d&#8217;origine et transmises au réseau Bitcoin uniquement après leur validité. Si une transaction est transmise au réseau avant le nLocktime spécifié, la transaction sera rejetée par le premier nœud comme invalide et ne sera pas relayée vers les autres nœuds. L&#8217;utilisation de nLocktime équivaut à postdater un chèque papier.</p>
 </div>
 <div class="sect4 data-line-272">
 <h5 id="locktime_limitations">Limitations du temps de verrouillage des transactions</h5>
@@ -2124,7 +2124,7 @@ ENDIF</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-19 00:29:44 -0400
+Last updated 2022-03-22 06:27:31 -0400
 </div>
 </div>
 </body>

@@ -11,18 +11,18 @@ L'architecture du réseau P2P de Bitcoin est bien plus qu'un choix de topologie.
 
 === Types de nœuds et rôles
 
-(((&quot;réseau Bitcoin&quot;, &quot;types de noeuds et rôles&quot;, id=&quot;BNnode08&quot;)))(((&quot;noeuds Bitcoin&quot;, &quot;types et rôles&quot;, id=&quot;BNtype08&quot;)))Bien que les nœuds dans le bitcoin Les réseaux P2P sont égaux, ils peuvent jouer différents rôles en fonction de la fonctionnalité qu'ils prennent en charge. Un nœud Bitcoin est un ensemble de fonctions : le routage, la base de données blockchain, le minage et les services de portefeuille. Un nœud complet avec ces quatre fonctions est affiché dans &lt;<full_node_reference>&gt;.
+(((&quot;réseau Bitcoin&quot;, &quot;types de nœuds et rôles&quot;, id=&quot;BNnode08&quot;)))(((&quot;nœuds Bitcoin&quot;, &quot;types et rôles&quot;, id=&quot;BNtype08&quot;)))Bien que les nœuds dans le bitcoin Les réseaux P2P sont égaux, ils peuvent jouer différents rôles en fonction de la fonctionnalité qu'ils prennent en charge. Un nœud Bitcoin est un ensemble de fonctions : le routage, la base de données chaîne de blocs, le minage et les services de portefeuille. Un nœud complet avec ces quatre fonctions est affiché dans &lt;<full_node_reference>&gt;.
 
 [[full_node_reference]]
 [role="smallerfifty"]
-.Un nœud de réseau Bitcoin avec les quatre fonctions : portefeuille, mineur, base de données blockchain complète et routage réseau
-image::images/mbc2_0801.png["Référence de noeud client complet"]
+.Un nœud de réseau Bitcoin avec les quatre fonctions : portefeuille, mineur, base de données chaîne de blocs complète et routage réseau
+image::images/mbc2_0801.png["Référence de nœud client complet"]
 
 Tous les nœuds incluent la fonction de routage pour participer au réseau et peuvent inclure d'autres fonctionnalités. Tous les nœuds valident et propagent les transactions et les blocs, et découvrent et maintiennent les connexions aux pairs. Dans l'exemple de nœud complet dans &lt;<full_node_reference>&gt;, la fonction de routage est indiquée par un cercle nommé &quot;Network Routing Node&quot; ou par la lettre &quot;N&quot;.
 
 (((&quot;clients à nœud complet&quot;)))Certains nœuds, appelés nœuds complets, conservent également une copie complète et à jour de la chaîne de blocs. Les nœuds complets peuvent vérifier de manière autonome et autoritaire toute transaction sans référence externe. (((&quot;simplified-payment-verification (SPV)&quot;)))Certains nœuds ne conservent qu'un sous-ensemble de la chaîne de blocs et vérifient les transactions à l'aide d'une méthode appelée _simplified-payment-verification_, ou SPV. (((&quot;clients légers&quot;)))Ces nœuds sont appelés nœuds SPV ou nœuds légers. Dans l'exemple de nœud complet de la figure, la fonction de base de données chaîne de blocs de nœud complet est indiquée par un cercle appelé &quot;Full Blockchain&quot; ou la lettre &quot;B&quot;. Dans &lt;<bitcoin_network>&gt;, les nœuds SPV sont dessinés sans le cercle &quot;B&quot;, montrant qu'ils n'ont pas une copie complète de la chaîne de blocs.
 
-(((&quot;Nœuds Bitcoin&quot;, &quot;nœuds de minage&quot;)))(((&quot;minage et consensus&quot;, &quot;nœuds de minage&quot;)))(((&quot;Algorithme de preuve de travail&quot;)))(((&quot;minage et consensus&quot;, &quot;Algorithme de preuve de travail&quot;))) Les nœuds de minage se font concurrence pour créer de nouveaux blocs en exécutant du matériel spécialisé pour résoudre l'algorithme de preuve de travail. Certains nœuds de minage sont également des nœuds complets, conservant une copie complète de la blockchain, tandis que d'autres sont des nœuds légers participant au minage de groupe et dépendant d'un serveur de groupe pour maintenir un nœud complet. La fonction d'exploration de données est affichée dans le nœud complet sous la forme d'un cercle appelé &quot;Miner&quot; ou de la lettre &quot;M&quot;.
+(((&quot;Nœuds Bitcoin&quot;, &quot;nœuds de minage&quot;)))(((&quot;minage et consensus&quot;, &quot;nœuds de minage&quot;)))(((&quot;Algorithme de preuve de travail&quot;)))(((&quot;minage et consensus&quot;, &quot;Algorithme de preuve de travail&quot;))) Les nœuds de minage se font concurrence pour créer de nouveaux blocs en exécutant du matériel spécialisé pour résoudre l'algorithme de preuve de travail. Certains nœuds de minage sont également des nœuds complets, conservant une copie complète de la chaîne de blocs, tandis que d'autres sont des nœuds légers participant au minage de groupe et dépendant d'un serveur de groupe pour maintenir un nœud complet. La fonction d'exploration de données est affichée dans le nœud complet sous la forme d'un cercle appelé &quot;Miner&quot; ou de la lettre &quot;M&quot;.
 
 Les portefeuilles d'utilisateurs peuvent faire partie d'un nœud complet, comme c'est généralement le cas avec les clients Bitcoin de bureau. De plus en plus, de nombreux portefeuilles d'utilisateurs, en particulier ceux fonctionnant sur des appareils à ressources limitées tels que les smartphones, sont des nœuds SPV. La fonction de portefeuille est affichée dans &lt;<full_node_reference>&gt; comme un cercle appelé &quot;Wallet&quot; ou la lettre &quot;W.&quot;
 
@@ -40,7 +40,7 @@ Le réseau Bitcoin étendu comprend le réseau exécutant le protocole bitcoin P
 
 [[node_type_ledgend]]
 .Différents types de nœuds sur le réseau Bitcoin étendu
-image::images/mbc2_0802.png["Types de noeuds Bitcoin"]
+image::images/mbc2_0802.png["Types de nœuds Bitcoin"]
 
 [[bitcoin_network]]
 .Le réseau Bitcoin étendu montrant divers types de nœuds, passerelles et protocoles
@@ -60,7 +60,7 @@ Les réseaux de relais ne remplacent pas le réseau P2P de Bitcoin. Au lieu de c
 
 === Découverte du réseau
 
-(((&quot;réseau Bitcoin&quot;, &quot;découverte réseau étendu&quot;, id=&quot;BNextend08&quot;)))(((&quot;noeuds Bitcoin&quot;, &quot;découverte réseau&quot;, id=&quot;BNodiscover08&quot;)))Lorsqu'un nouveau nœud démarre, il doit découvrir d'autres nœuds Bitcoin sur le réseau afin de participer. Pour démarrer ce processus, un nouveau nœud doit découvrir au moins un nœud existant sur le réseau et s'y connecter. L'emplacement géographique des autres nœuds n'est pas pertinent ; la topologie du réseau Bitcoin n'est pas définie géographiquement. Par conséquent, tous les nœuds Bitcoin existants peuvent être sélectionnés au hasard.
+(((&quot;réseau Bitcoin&quot;, &quot;découverte réseau étendu&quot;, id=&quot;BNextend08&quot;)))(((&quot;nœuds Bitcoin&quot;, &quot;découverte réseau&quot;, id=&quot;BNodiscover08&quot;)))Lorsqu'un nouveau nœud démarre, il doit découvrir d'autres nœuds Bitcoin sur le réseau afin de participer. Pour démarrer ce processus, un nouveau nœud doit découvrir au moins un nœud existant sur le réseau et s'y connecter. L'emplacement géographique des autres nœuds n'est pas pertinent ; la topologie du réseau Bitcoin n'est pas définie géographiquement. Par conséquent, tous les nœuds Bitcoin existants peuvent être sélectionnés au hasard.
 
 Pour se connecter à un pair connu, les nœuds établissent une connexion TCP, généralement au port 8333 (le port généralement connu comme celui utilisé par bitcoin), ou un autre port s'il en existe un. Lors de l'établissement d'une connexion, le nœud commencera une &quot;prise de contact&quot; (voir &lt;<network_handshake>&gt;) en transmettant un message +version+, qui contient des informations d'identification de base, notamment :
 
@@ -70,7 +70,7 @@ Pour se connecter à un pair connu, les nœuds établissent une connexion TCP, g
 +addrYou+:: L'adresse IP du nœud distant vue depuis ce nœud
 +addrMe+:: L'adresse IP du nœud local, telle que découverte par le nœud local
 +subver+:: Une sous-version indiquant le type de logiciel exécuté sur ce nœud (par exemple, pass:[<span class="keep-together"><code>/Satoshi:0.9.2.1/</code></span>])
-+BestHeight+:: La hauteur de bloc de la blockchain de ce nœud
++BestHeight+:: La hauteur de bloc de la chaîne de blocs de ce nœud
 
 (Voir https://bit.ly/1qlsC7w[GitHub] pour un exemple du message de +version+ du réseau.)
 
@@ -143,9 +143,9 @@ S'il n'y a pas de trafic sur une connexion, les nœuds enverront périodiquement
 
 === Nœuds complets
 
-(((&quot;réseau Bitcoin&quot;, &quot;noeuds complets&quot;)))(((&quot;noeuds complets clients&quot;)))(((&quot;chaîne de blocs (la)&quot;, &quot;noeuds de chaîne de blocs complets&quot;)))Les nœuds complets sont des nœuds qui maintiennent une chaîne de blocs complète avec toutes les transactions. Plus précisément, ils devraient probablement être appelés &quot;nœuds de chaîne de blocs complets&quot;. Dans les premières années de bitcoin, tous les nœuds étaient des nœuds complets et actuellement, le client Bitcoin Core est un nœud de chaîne de blocs complet. Au cours des deux dernières années, cependant, de nouvelles formes de clients Bitcoin ont été introduites qui ne maintiennent pas une blockchain complète mais fonctionnent comme des clients légers. Nous les examinerons plus en détail dans la section suivante.
+(((&quot;réseau Bitcoin&quot;, &quot;nœuds complets&quot;)))(((&quot;nœuds complets clients&quot;)))(((&quot;chaîne de blocs (la)&quot;, &quot;nœuds de chaîne de blocs complets&quot;)))Les nœuds complets sont des nœuds qui maintiennent une chaîne de blocs complète avec toutes les transactions. Plus précisément, ils devraient probablement être appelés &quot;nœuds de chaîne de blocs complets&quot;. Dans les premières années de bitcoin, tous les nœuds étaient des nœuds complets et actuellement, le client Bitcoin Core est un nœud de chaîne de blocs complet. Au cours des deux dernières années, cependant, de nouvelles formes de clients Bitcoin ont été introduites qui ne maintiennent pas une chaîne de blocs complète mais fonctionnent comme des clients légers. Nous les examinerons plus en détail dans la section suivante.
 
-(((&quot;blocs&quot;, &quot;bloc de genèse&quot;)))(((&quot;bloc de genèse&quot;)))(((&quot;chaîne de blocs (la)&quot;, &quot;bloc de genèse&quot;)))Les noeuds de chaîne de blocs complets maintiennent un copie à jour de la chaîne de blocs Bitcoin avec toutes les transactions, qu'ils construisent et vérifient indépendamment, en commençant par le tout premier bloc (bloc de genèse) et en remontant jusqu'au dernier bloc connu du réseau. Un nœud de chaîne de blocs complet peut vérifier de manière indépendante et autoritaire toute transaction sans recours à aucun autre nœud ou source d'informations. Le nœud de la chaîne de blocs complète s'appuie sur le réseau pour recevoir des mises à jour sur les nouveaux blocs de transactions, qu'il vérifie ensuite et intègre dans sa copie locale de la chaîne de blocs.
+(((&quot;blocs&quot;, &quot;bloc de genèse&quot;)))(((&quot;bloc de genèse&quot;)))(((&quot;chaîne de blocs (la)&quot;, &quot;bloc de genèse&quot;)))Les nœuds de chaîne de blocs complets maintiennent un copie à jour de la chaîne de blocs Bitcoin avec toutes les transactions, qu'ils construisent et vérifient indépendamment, en commençant par le tout premier bloc (bloc de genèse) et en remontant jusqu'au dernier bloc connu du réseau. Un nœud de chaîne de blocs complet peut vérifier de manière indépendante et autoritaire toute transaction sans recours à aucun autre nœud ou source d'informations. Le nœud de la chaîne de blocs complète s'appuie sur le réseau pour recevoir des mises à jour sur les nouveaux blocs de transactions, qu'il vérifie ensuite et intègre dans sa copie locale de la chaîne de blocs.
 
 (((&quot;Nœuds Bitcoin&quot;, &quot;nœuds complets&quot;)))L'exécution d'un nœud de chaîne de blocs complet vous offre l'expérience bitcoin pure : une vérification indépendante de toutes les transactions sans avoir besoin de s'appuyer sur, ou de faire confiance, à d'autres systèmes. Il est facile de savoir si vous exécutez un nœud complet car il nécessite plus de cent gigaoctets de stockage persistant (espace disque) pour stocker la chaîne de blocs complète. Si vous avez besoin de beaucoup de disque et que la synchronisation avec le réseau prend deux à trois jours, vous exécutez un nœud complet. C'est le prix d'une indépendance totale et de la liberté vis-à-vis de l'autorité centrale.
 
@@ -165,13 +165,13 @@ Ce processus de comparaison de la chaîne de blocs locale avec les pairs et de r
 
 [[inventory_synchronization]]
 [role="smallerfifty"]
-.Noeud synchronisant la blockchain en récupérant les blocs d'un pair
+.Nœud synchronisant la chaîne de blocs en récupérant les blocs d'un pair
 image::images/mbc2_0806.png[&quot;Synchronisation de l'inventaire&quot;]
 
 [[spv_nodes]]
 === Nœuds de vérification simplifiée des paiements, ou Simplified Payment Verification (SPV)
 
-(((&quot;réseau Bitcoin&quot;, &quot;noeuds SPV&quot;, id=&quot;BNspvnodes08&quot;)))(((&quot;noeuds Bitcoin&quot;, &quot;noeuds SPV&quot;, id=&quot;BNospv08&quot;)))(((&quot;simplified-payment- vérification (SPV)&quot;, id=&quot;simple08&quot;)))Tous les nœuds n'ont pas la capacité de stocker la chaîne de blocs complète. De nombreux clients Bitcoin sont conçus pour fonctionner sur des appareils à espace et puissance limités, tels que les smartphones, les tablettes ou les systèmes embarqués. Pour ces appareils, une méthode de _vérification de paiement simplifiée_ (SPV) est utilisée pour leur permettre de fonctionner sans stocker la chaîne de blocs complète. Ces types de clients sont appelés clients SPV ou clients légers. À mesure que l'adoption du bitcoin augmente, le nœud SPV devient la forme la plus courante de nœud Bitcoin, en particulier pour les portefeuilles bitcoin.
+(((&quot;réseau Bitcoin&quot;, &quot;nœuds SPV&quot;, id=&quot;BNspvnodes08&quot;)))(((&quot;nœuds Bitcoin&quot;, &quot;nœuds SPV&quot;, id=&quot;BNospv08&quot;)))(((&quot;simplified-payment- vérification (SPV)&quot;, id=&quot;simple08&quot;)))Tous les nœuds n'ont pas la capacité de stocker la chaîne de blocs complète. De nombreux clients Bitcoin sont conçus pour fonctionner sur des appareils à espace et puissance limités, tels que les smartphones, les tablettes ou les systèmes embarqués. Pour ces appareils, une méthode de _vérification de paiement simplifiée_ (SPV) est utilisée pour leur permettre de fonctionner sans stocker la chaîne de blocs complète. Ces types de clients sont appelés clients SPV ou clients légers. À mesure que l'adoption du bitcoin augmente, le nœud SPV devient la forme la plus courante de nœud Bitcoin, en particulier pour les portefeuilles bitcoin.
 
 Les nœuds SPV téléchargent uniquement les en-têtes de bloc et ne téléchargent pas les transactions incluses dans chaque bloc. La chaîne de blocs qui en résulte, sans transactions, est 1 000 fois plus petite que la chaîne de blocs complète. Les nœuds SPV ne peuvent pas construire une image complète de tous les UTXO disponibles pour les dépenses car ils ne connaissent pas toutes les transactions sur le réseau. Les nœuds SPV vérifient les transactions en utilisant une méthode légèrement différente qui s'appuie sur des pairs pour fournir des vues partielles des parties pertinentes de la chaîne de blocs à la demande.
 
@@ -183,7 +183,7 @@ Par exemple, lors de l'examen d'une transaction dans le bloc 300 000, un nœud c
 
 Un nœud SPV ne peut pas être persuadé qu'une transaction existe dans un bloc alors que la transaction n'existe pas en fait. Le nœud SPV établit l'existence d'une transaction dans un bloc en demandant une preuve de chemin Merkle et en validant la preuve de travail dans la chaîne de blocs. Cependant, l'existence d'une transaction peut être &quot;masquée&quot; à un nœud SPV. Un nœud SPV peut certainement prouver qu'une transaction existe mais ne peut pas vérifier qu'une transaction, telle qu'une double dépense du même UTXO, n'existe pas car il n'a pas d'enregistrement de toutes les transactions. Cette vulnérabilité peut être utilisée dans une attaque par déni de service ou pour une attaque à double dépense contre les nœuds SPV. Pour se défendre contre cela, un nœud SPV doit se connecter de manière aléatoire à plusieurs nœuds, pour augmenter la probabilité qu'il soit en contact avec au moins un nœud honnête. Ce besoin de se connecter de manière aléatoire signifie que les nœuds SPV sont également vulnérables aux attaques de partitionnement de réseau ou aux attaques Sybil, où ils sont connectés à de faux nœuds ou à de faux réseaux et n'ont pas accès à des nœuds honnêtes ou au vrai réseau Bitcoin.
 
-Dans la plupart des cas pratiques, les nœuds SPV bien connectés sont suffisamment sécurisés, trouvant un équilibre entre les besoins en ressources, l'aspect pratique et la sécurité. Pour une sécurité infaillible, cependant, rien ne vaut l'exécution d'un nœud de blockchain complet.
+Dans la plupart des cas pratiques, les nœuds SPV bien connectés sont suffisamment sécurisés, trouvant un équilibre entre les besoins en ressources, l'aspect pratique et la sécurité. Pour une sécurité infaillible, cependant, rien ne vaut l'exécution d'un nœud de chaîne de blocs complet.
 
 [TIP]
 ====
@@ -192,74 +192,74 @@ Un nœud de chaîne de blocs complet vérifie une transaction en vérifiant tout
 
 Pour obtenir les en-têtes de bloc, les nœuds SPV utilisent un message +getheaders+ au lieu de +getblocks+. L'homologue qui répond enverra jusqu'à 2 000 en-têtes de bloc à l'aide d'un seul message +headers+. Le processus est par ailleurs le même que celui utilisé par un nœud complet pour récupérer des blocs complets. Les nœuds SPV définissent également un filtre sur la connexion aux pairs, pour filtrer le flux des futurs blocs et transactions envoyés par les pairs. Toutes les transactions intéressantes sont récupérées à l'aide d'une requête +getdata+. Le pair génère un message +tx+ contenant les transactions, en réponse. &lt;<spv_synchronization>&gt; montre la synchronisation des en-têtes de bloc.
 
-Étant donné que les nœuds SPV doivent récupérer des transactions spécifiques afin de les vérifier de manière sélective, ils créent également un risque pour la confidentialité. Contrairement aux noeuds de chaîne de blocs complets, qui collectent toutes les transactions au sein de chaque bloc, les demandes de données spécifiques du nœud SPV peuvent révéler par inadvertance les adresses de leur portefeuille. Par exemple, un tiers surveillant un réseau pourrait suivre toutes les transactions demandées par un portefeuille sur un nœud SPV et les utiliser pour associer des adresses Bitcoin à l'utilisateur de ce portefeuille, détruisant ainsi la vie privée de l'utilisateur.
+Étant donné que les nœuds SPV doivent récupérer des transactions spécifiques afin de les vérifier de manière sélective, ils créent également un risque pour la confidentialité. Contrairement aux nœuds de chaîne de blocs complets, qui collectent toutes les transactions au sein de chaque bloc, les demandes de données spécifiques du nœud SPV peuvent révéler par inadvertance les adresses de leur portefeuille. Par exemple, un tiers surveillant un réseau pourrait suivre toutes les transactions demandées par un portefeuille sur un nœud SPV et les utiliser pour associer des adresses Bitcoin à l'utilisateur de ce portefeuille, détruisant ainsi la vie privée de l'utilisateur.
 
 [[spv_synchronization]]
-.Noeud SPV synchronisant les en-têtes de bloc
+.Nœud SPV synchronisant les en-têtes de bloc
 image::images/mbc2_0807.png["Synchronisation SPV"]
 
-Peu de temps après l'introduction des nœuds SPV/légers, les développeurs de bitcoins ont ajouté une fonctionnalité appelée _filtres de floraison_ (Bloom Filters) pour faire face aux risques de confidentialité des nœuds SPV. Les filtres de floraison permettent aux nœuds SPV de recevoir un sous-ensemble des transactions sans révéler précisément les adresses qui les intéressent, grâce à un mécanisme de filtrage qui utilise des probabilités plutôt que des modèles fixes.(((&quot;&quot;, startref=&quot;BNspvnodes08&quot;)))(((&quot;&quot;, startref=&quot;simple08&quot;)))
+Peu de temps après l'introduction des nœuds SPV/légers, les développeurs de bitcoins ont ajouté une fonctionnalité appelée _filtres de Bloom_ pour faire face aux risques de confidentialité des nœuds SPV. Les filtres de Bloom permettent aux nœuds SPV de recevoir un sous-ensemble des transactions sans révéler précisément les adresses qui les intéressent, grâce à un mécanisme de filtrage qui utilise des probabilités plutôt que des modèles fixes.(((&quot;&quot;, startref=&quot;BNspvnodes08&quot;)))(((&quot;&quot;, startref=&quot;simple08&quot;)))
 
 [[bloom_filters]]
-=== Filtres de floraison
+=== Filtres de Bloom
 
-(((&quot;Réseau Bitcoin&quot;, &quot;filtres de floraison&quot;, id=&quot;BNebloom08&quot;)))(((&quot;filtres de floraison&quot;, id=&quot;bloom08&quot;)))(((&quot;confidentialité, maintien&quot;, id=&quot;privacy08 &quot;)))(((&quot;securité&quot;, &quot;maintenir la confidentialité&quot;, id=&quot;Sprivacy08&quot;)))Un filtre de floraison est un filtre de recherche probabiliste qui offre un moyen efficace d'exprimer un modèle de recherche tout en protégeant la confidentialité. Ils sont utilisés par les nœuds SPV pour demander à leurs pairs des transactions correspondant à un modèle spécifique, sans révéler exactement quelles adresses, clés ou transactions ils recherchent.
+(((&quot;Réseau Bitcoin&quot;, &quot;filtres de Bloom&quot;, id=&quot;BNebloom08&quot;)))(((&quot;filtres de Bloom&quot;, id=&quot;bloom08&quot;)))(((&quot;confidentialité, maintien&quot;, id=&quot;privacy08 &quot;)))(((&quot;securité&quot;, &quot;maintenir la confidentialité&quot;, id=&quot;Sprivacy08&quot;)))Un filtre de Bloom est un filtre de recherche probabiliste qui offre un moyen efficace d'exprimer un modèle de recherche tout en protégeant la confidentialité. Ils sont utilisés par les nœuds SPV pour demander à leurs pairs des transactions correspondant à un modèle spécifique, sans révéler exactement quelles adresses, clés ou transactions ils recherchent.
 
-Dans notre analogie précédente, un touriste sans carte demande son chemin vers une adresse spécifique, &quot;23 Church St.&quot; Si elle demande à des inconnus son chemin vers cette rue, elle révèle par inadvertance sa destination. Un filtre de floraison revient à demander : &quot;Y a-t-il des rues dans ce quartier dont le nom se termine par RCH ?&quot; Une question comme celle-là en dit un peu moins sur la destination souhaitée que de demander &quot;23 Church St.&quot; En utilisant cette technique, un touriste pourrait spécifier l'adresse souhaitée plus en détail comme &quot;se terminant par URCH&quot; ou moins en détail comme &quot;se terminant par H&quot;. En faisant varier la précision de la recherche, le touriste révèle plus ou moins d'informations, au détriment d'obtenir des résultats plus ou moins précis. Si elle demande un modèle moins spécifique, elle obtient beaucoup plus d'adresses possibles et une meilleure confidentialité, mais de nombreux résultats ne sont pas pertinents. Si elle demande un modèle très spécifique, elle obtient moins de résultats mais perd sa confidentialité.
+Dans notre analogie précédente, un touriste sans carte demande son chemin vers une adresse spécifique, &quot;23 Church St.&quot; Si elle demande à des inconnus son chemin vers cette rue, elle révèle par inadvertance sa destination. Un filtre de Bloom revient à demander : &quot;Y a-t-il des rues dans ce quartier dont le nom se termine par RCH ?&quot; Une question comme celle-là en dit un peu moins sur la destination souhaitée que de demander &quot;23 Church St.&quot; En utilisant cette technique, un touriste pourrait spécifier l'adresse souhaitée plus en détail comme &quot;se terminant par URCH&quot; ou moins en détail comme &quot;se terminant par H&quot;. En faisant varier la précision de la recherche, le touriste révèle plus ou moins d'informations, au détriment d'obtenir des résultats plus ou moins précis. Si elle demande un modèle moins spécifique, elle obtient beaucoup plus d'adresses possibles et une meilleure confidentialité, mais de nombreux résultats ne sont pas pertinents. Si elle demande un modèle très spécifique, elle obtient moins de résultats mais perd sa confidentialité.
 
-Les filtres de floraison remplissent cette fonction en permettant à un nœud SPV de spécifier un modèle de recherche pour les transactions qui peuvent être réglés vers la précision ou la confidentialité. Un filtre de floraison plus spécifique produira des résultats précis, mais au détriment de la révélation des modèles qui intéressent le nœud SPV, révélant ainsi les adresses détenues par le portefeuille de l'utilisateur. Un filtre bloom moins spécifique produira plus de données sur plus de transactions, dont beaucoup ne sont pas pertinentes pour le nœud, mais permettra au nœud de maintenir une meilleure confidentialité.
+Les filtres de Bloom remplissent cette fonction en permettant à un nœud SPV de spécifier un modèle de recherche pour les transactions qui peuvent être réglés vers la précision ou la confidentialité. Un filtre de Bloom plus spécifique produira des résultats précis, mais au détriment de la révélation des modèles qui intéressent le nœud SPV, révélant ainsi les adresses détenues par le portefeuille de l'utilisateur. Un filtre bloom moins spécifique produira plus de données sur plus de transactions, dont beaucoup ne sont pas pertinentes pour le nœud, mais permettra au nœud de maintenir une meilleure confidentialité.
 
-==== Comment fonctionnent les filtres de floraison
+==== Comment fonctionnent les filtres de Bloom
 
-Les filtres de floraison sont implémentés sous la forme d'un tableau de taille variable de N chiffres binaires (un champ de bits) et d'un nombre variable de M fonctions de hachage. Les fonctions de hachage sont conçues pour produire toujours une sortie comprise entre 1 et N, correspondant au tableau de chiffres binaires. Les fonctions de hachage sont générées de manière déterministe, de sorte que tout nœud implémentant un filtre de floraison utilisera toujours les mêmes fonctions de hachage et obtiendra les mêmes résultats pour une entrée spécifique. En choisissant des filtres de floraison de différentes longueurs (N) et un nombre différent (M) de fonctions de hachage, le filtres de floraison peut être réglé, en faisant varier le niveau de précision et donc de confidentialité.
+Les filtres de Bloom sont implémentés sous la forme d'un tableau de taille variable de N chiffres binaires (un champ de bits) et d'un nombre variable de M fonctions de hachage. Les fonctions de hachage sont conçues pour produire toujours une sortie comprise entre 1 et N, correspondant au tableau de chiffres binaires. Les fonctions de hachage sont générées de manière déterministe, de sorte que tout nœud implémentant un filtre de Bloom utilisera toujours les mêmes fonctions de hachage et obtiendra les mêmes résultats pour une entrée spécifique. En choisissant des filtres de Bloom de différentes longueurs (N) et un nombre différent (M) de fonctions de hachage, le filtres de Bloom peut être réglé, en faisant varier le niveau de précision et donc de confidentialité.
 
-Dans &lt;<bloom1>&gt;, nous utilisons un très petit tableau de 16 bits et un ensemble de trois fonctions de hachage pour démontrer le fonctionnement des filtres de floraison.
+Dans &lt;<bloom1>&gt;, nous utilisons un très petit tableau de 16 bits et un ensemble de trois fonctions de hachage pour démontrer le fonctionnement des filtres de Bloom.
 
 [[bloom1]]
-.Un exemple de filtre de floraison simpliste, avec un champ 16 bits et trois fonctions de hachage
-image::images/mbc2_0808.png["Floraison 1"]
+.Un exemple de filtre de Bloom simpliste, avec un champ 16 bits et trois fonctions de hachage
+image::images/mbc2_0808.png["Bloom 1"]
 
-Le filtre de floraison est initialisé de sorte que le tableau de bits ne soit que des zéros. Pour ajouter un motif au filtre de floraison, le motif est haché tour à tour par chaque fonction de hachage. L'application de la première fonction de hachage à l'entrée donne un nombre compris entre 1 et N. Le bit correspondant dans le tableau (indexé de 1 à N) est trouvé et défini sur +1+, enregistrant ainsi la sortie de la fonction de hachage. Ensuite, la fonction de hachage suivante est utilisée pour définir un autre bit et ainsi de suite. Une fois que toutes les fonctions de hachage M ont été appliquées, le modèle de recherche sera &quot;enregistré&quot; dans le filtre de floraison sous forme de M bits qui ont été modifiés de +0+ à +1+.
+Le filtre de Bloom est initialisé de sorte que le tableau de bits ne soit que des zéros. Pour ajouter un motif au filtre de Bloom, le motif est haché tour à tour par chaque fonction de hachage. L'application de la première fonction de hachage à l'entrée donne un nombre compris entre 1 et N. Le bit correspondant dans le tableau (indexé de 1 à N) est trouvé et défini sur +1+, enregistrant ainsi la sortie de la fonction de hachage. Ensuite, la fonction de hachage suivante est utilisée pour définir un autre bit et ainsi de suite. Une fois que toutes les fonctions de hachage M ont été appliquées, le modèle de recherche sera &quot;enregistré&quot; dans le filtre de Bloom sous forme de M bits qui ont été modifiés de +0+ à +1+.
 
-&lt;<bloom2>&gt; est un exemple d'ajout d'un motif &quot;A&quot; au filtre de floraison simple illustré dans &lt;<bloom1>&gt;.
+&lt;<bloom2>&gt; est un exemple d'ajout d'un motif &quot;A&quot; au filtre de Bloom simple illustré dans &lt;<bloom1>&gt;.
 
 L'ajout d'un deuxième motif est aussi simple que de répéter ce processus. Le motif est haché par chaque fonction de hachage tour à tour et le résultat est enregistré en réglant les bits sur +1+. Notez qu'à mesure qu'un filtre bloom est rempli de plusieurs modèles, le résultat d'une fonction de hachage peut coïncider avec un bit déjà défini sur +1+, auquel cas le bit n'est pas modifié. Essentiellement, à mesure que davantage de motifs sont enregistrés sur des bits qui se chevauchent, le filtre de bloom commence à être saturé avec davantage de bits réglés sur +1+ et la précision du filtre diminue. C'est pourquoi le filtre est une structure de données probabiliste - il devient moins précis à mesure que d'autres modèles sont ajoutés. La précision dépend du nombre de motifs ajoutés par rapport à la taille du tableau de bits (N) et du nombre de fonctions de hachage (M). Un tableau de bits plus grand et plus de fonctions de hachage peuvent enregistrer plus de modèles avec une plus grande précision. Un tableau de bits plus petit ou moins de fonctions de hachage enregistrera moins de modèles et produira moins de précision.
 
 [[bloom2]]
-.Ajout d'un motif &quot;A&quot; à notre filtre de floraison simple
-image::images/mbc2_0809.png["Floraison 2"]
+.Ajout d'un motif &quot;A&quot; à notre filtre de Bloom simple
+image::images/mbc2_0809.png["Bloom 2"]
 
-&lt;<bloom3>&gt; est un exemple d'ajout d'un deuxième motif &quot;B&quot; au filtre de floraison simple.
+&lt;<bloom3>&gt; est un exemple d'ajout d'un deuxième motif &quot;B&quot; au filtre de Bloom simple.
 
 [[bloom3]]
 [role="smallereighty"]
-.Ajout d'un deuxième motif &quot;B&quot; à notre filtre de floraison simple
-image::images/mbc2_0810.png["Floraison 3"]
+.Ajout d'un deuxième motif &quot;B&quot; à notre filtre de Bloom simple
+image::images/mbc2_0810.png["Bloom 3"]
 
-Pour tester si un motif fait partie d'un filtre de floraison, le motif est haché par chaque fonction de hachage et le motif de bits résultant est testé par rapport au tableau de bits. Si tous les bits indexés par les fonctions de hachage sont mis à +1+, alors le motif est _probablement_ enregistré dans le filtre de floraison. Étant donné que les bits peuvent être définis en raison du chevauchement de plusieurs modèles, la réponse n'est pas certaine, mais plutôt probabiliste. En termes simples, une correspondance positive du filtre de floraison est un &quot;Peut-être, Oui&quot;.
+Pour tester si un motif fait partie d'un filtre de Bloom, le motif est haché par chaque fonction de hachage et le motif de bits résultant est testé par rapport au tableau de bits. Si tous les bits indexés par les fonctions de hachage sont mis à +1+, alors le motif est _probablement_ enregistré dans le filtre de Bloom. Étant donné que les bits peuvent être définis en raison du chevauchement de plusieurs modèles, la réponse n'est pas certaine, mais plutôt probabiliste. En termes simples, une correspondance positive du filtre de Bloom est un &quot;Peut-être, Oui&quot;.
 
-&lt;<bloom4>&gt; est un exemple de test de l'existence du motif &quot;X&quot; dans le filtre de floraison simple. Les bits correspondants sont définis sur +1+, donc le motif est probablement une correspondance.
+&lt;<bloom4>&gt; est un exemple de test de l'existence du motif &quot;X&quot; dans le filtre de Bloom simple. Les bits correspondants sont définis sur +1+, donc le motif est probablement une correspondance.
 
 [[bloom4]]
 [role="smallereighty"]
-.Tester l'existence du motif &quot;X&quot; dans le filtre de floraison. Le résultat est une correspondance positive probabiliste, ce qui signifie &quot;Peut-être&quot;.
-image::images/mbc2_0811.png["Floraison 4"]
+.Tester l'existence du motif &quot;X&quot; dans le filtre de Bloom. Le résultat est une correspondance positive probabiliste, ce qui signifie &quot;Peut-être&quot;.
+image::images/mbc2_0811.png["Bloom 4"]
 
-Au contraire, si un motif est testé par rapport au filtre bloom et que l'un des bits est mis à +0+, cela prouve que le motif n'a pas été enregistré dans le filtre de floraison. Un résultat négatif n'est pas une probabilité, c'est une certitude. En termes simples, une correspondance négative sur un filtre de floraison bloom est un &quot;Définitivement pas!&quot;
+Au contraire, si un motif est testé par rapport au filtre bloom et que l'un des bits est mis à +0+, cela prouve que le motif n'a pas été enregistré dans le filtre de Bloom. Un résultat négatif n'est pas une probabilité, c'est une certitude. En termes simples, une correspondance négative sur un filtre de Bloom est un &quot;Définitivement pas!&quot;
 
-&lt;<bloom5>&gt; est un exemple de test de l'existence du motif &quot;Y&quot; dans le filtre de floraison simple. L'un des bits correspondants est défini sur +0+, donc le motif n'est certainement pas une correspondance.
+&lt;<bloom5>&gt; est un exemple de test de l'existence du motif &quot;Y&quot; dans le filtre de Bloom simple. L'un des bits correspondants est défini sur +0+, donc le motif n'est certainement pas une correspondance.
 
 [[bloom5]]
-.Tester l'existence du motif &quot;Y&quot; dans le filtre de floraison. Le résultat est une correspondance négative définitive, ce qui signifie &quot;Définitivement pas !&quot;
+.Tester l'existence du motif &quot;Y&quot; dans le filtre de Bloom. Le résultat est une correspondance négative définitive, ce qui signifie &quot;Définitivement pas !&quot;
 image::images/mbc2_0812.png[]
 
-=== Comment les nœuds SPV utilisent les filtres de floraison
+=== Comment les nœuds SPV utilisent les filtres de Bloom
 
-Les filtres de floraison sont utilisés pour filtrer les transactions (et les blocs les contenant) qu'un nœud SPV reçoit de ses pairs, en sélectionnant uniquement les transactions qui intéressent le nœud SPV sans révéler les adresses ou les clés qui l'intéressent.
+Les filtres de Bloom sont utilisés pour filtrer les transactions (et les blocs les contenant) qu'un nœud SPV reçoit de ses pairs, en sélectionnant uniquement les transactions qui intéressent le nœud SPV sans révéler les adresses ou les clés qui l'intéressent.
 
-(((&quot;transaction IDs (txid)&quot;)))Un nœud SPV initialisera un filtre de floraison comme &quot;vide&quot; ; dans cet état, le filtre de floraison ne correspondra à aucun motif. Le nœud SPV établira ensuite une liste de toutes les adresses, clés et hachages qui l'intéressent. Il le fera en extrayant le hachage de clé publique et le hachage de script et les ID de transaction de tout UTXO contrôlé par son portefeuille. Le nœud SPV ajoute ensuite chacun d'entre eux au filtre de floraison, de sorte que le filtre de floraison &quot;correspondra&quot; si ces modèles sont présents dans une transaction, sans révéler les modèles eux-mêmes.
+(((&quot;transaction IDs (txid)&quot;)))Un nœud SPV initialisera un filtre de Bloom comme &quot;vide&quot; ; dans cet état, le filtre de Bloom ne correspondra à aucun motif. Le nœud SPV établira ensuite une liste de toutes les adresses, clés et hachages qui l'intéressent. Il le fera en extrayant le hachage de clé publique et le hachage de script et les ID de transaction de tout UTXO contrôlé par son portefeuille. Le nœud SPV ajoute ensuite chacun d'entre eux au filtre de Bloom, de sorte que le filtre de Bloom &quot;correspondra&quot; si ces modèles sont présents dans une transaction, sans révéler les modèles eux-mêmes.
 
-(((&quot;Nœuds Bitcoin&quot;, &quot;nœuds complets&quot;)))Le nœud SPV enverra alors un message +filterload+ au pair, contenant le filtres de floraison à utiliser sur la connexion. Sur le pair, les filtres de floraison sont vérifiés par rapport à chaque transaction entrante. Le nœud complet vérifie plusieurs parties de la transaction par rapport au filtre de floraison, à la recherche d'une correspondance, notamment :
+(((&quot;Nœuds Bitcoin&quot;, &quot;nœuds complets&quot;)))Le nœud SPV enverra alors un message +filterload+ au pair, contenant le filtres de Bloom à utiliser sur la connexion. Sur le pair, les filtres de Bloom sont vérifiés par rapport à chaque transaction entrante. Le nœud complet vérifie plusieurs parties de la transaction par rapport au filtre de Bloom, à la recherche d'une correspondance, notamment :
 
 * L'identifiant de la transaction
 * Les composants de données des scripts de verrouillage de chacune des sorties de transaction (chaque clé et hachage du script)
@@ -272,18 +272,18 @@ Une fois qu'un filtre est établi, le pair teste ensuite la sortie de chaque tra
 
 En réponse à un message +getdata+ du nœud, les pairs enverront un message +merkleblock+ qui ne contient que des en-têtes de bloc pour les blocs correspondant au filtre et un chemin Merkle (voir &lt;<merkle_trees>&gt;) pour chaque transaction correspondante. Le pair enverra alors également des messages +tx+ contenant les transactions mises en correspondance par le filtre.
 
-Lorsque le nœud complet envoie des transactions au nœud SPV, le nœud SPV rejette tous les faux positifs et utilise les transactions correctement appariées pour mettre à jour son ensemble UTXO et le solde de son portefeuille. Au fur et à mesure qu'il met à jour sa propre vue de l'ensemble UTXO, il modifie également le filtre de floraison pour correspondre à toutes les transactions futures faisant référence à l'UTXO qu'il vient de trouver. Le nœud complet utilise ensuite le nouveau filtre de floraison pour faire correspondre les nouvelles transactions et l'ensemble du processus se répète.
+Lorsque le nœud complet envoie des transactions au nœud SPV, le nœud SPV rejette tous les faux positifs et utilise les transactions correctement appariées pour mettre à jour son ensemble UTXO et le solde de son portefeuille. Au fur et à mesure qu'il met à jour sa propre vue de l'ensemble UTXO, il modifie également le filtre de Bloom pour correspondre à toutes les transactions futures faisant référence à l'UTXO qu'il vient de trouver. Le nœud complet utilise ensuite le nouveau filtre de Bloom pour faire correspondre les nouvelles transactions et l'ensemble du processus se répète.
 
-Le nœud définissant le filtre de floraison peut ajouter de manière interactive des motifs au filtre en envoyant un message +filteradd+. Pour effacer le filtre de floraison, le nœud peut envoyer un message +filterclear+. Puisqu'il n'est pas possible de supprimer un modèle d'un filtre de floraison, un nœud doit effacer et renvoyer un nouveau filtre de floraison si un modèle n'est plus souhaité.
+Le nœud définissant le filtre de Bloom peut ajouter de manière interactive des motifs au filtre en envoyant un message +filteradd+. Pour effacer le filtre de Bloom, le nœud peut envoyer un message +filterclear+. Puisqu'il n'est pas possible de supprimer un modèle d'un filtre de Bloom, un nœud doit effacer et renvoyer un nouveau filtre de Bloom si un modèle n'est plus souhaité.
 
-Le protocole réseau et le mécanisme de filtre de floraison pour les nœuds SPV sont définis dans https://bit.ly/1x6qCiO[BIP-37 (Peer Services)].(((&quot;&quot;, startref=&quot;BNebloom08&quot;)))(((&quot; &quot;, startref=&quot;bloom08&quot;)))
+Le protocole réseau et le mécanisme de filtre de Bloom pour les nœuds SPV sont définis dans https://bit.ly/1x6qCiO[BIP-37 (Peer Services)].(((&quot;&quot;, startref=&quot;BNebloom08&quot;)))(((&quot; &quot;, startref=&quot;bloom08&quot;)))
 
 
 === Nœuds SPV et confidentialité
 
 Les nœuds qui implémentent SPV ont une confidentialité plus faible qu'un nœud complet. Un nœud complet reçoit toutes les transactions et ne révèle donc aucune information indiquant s'il utilise une adresse dans son portefeuille. Un nœud SPV reçoit une liste filtrée des transactions liées aux adresses qui se trouvent dans son portefeuille. En conséquence, cela réduit la vie privée du propriétaire.
 
-Les filtres de floraison sont un moyen de réduire la perte de confidentialité. Sans eux, un nœud SPV devrait répertorier explicitement les adresses qui l'intéressent, créant ainsi une grave violation de la vie privée. Cependant, même avec des filtres de floraison, un adversaire surveillant le trafic d'un client SPV ou s'y connectant directement en tant que nœud du réseau P2P peut collecter suffisamment d'informations au fil du temps pour apprendre les adresses dans le portefeuille du client SPV.
+Les filtres de Bloom sont un moyen de réduire la perte de confidentialité. Sans eux, un nœud SPV devrait répertorier explicitement les adresses qui l'intéressent, créant ainsi une grave violation de la vie privée. Cependant, même avec des filtres de Bloom, un adversaire surveillant le trafic d'un client SPV ou s'y connectant directement en tant que nœud du réseau P2P peut collecter suffisamment d'informations au fil du temps pour apprendre les adresses dans le portefeuille du client SPV.
 
 === Connexions cryptées et authentifiées
 

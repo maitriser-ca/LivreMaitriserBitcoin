@@ -17,7 +17,7 @@ Dans cette section, nous résumons les différentes technologies utilisées pour
 
 [TIP]
 ====
-Les portefeuilles Bitcoin contiennent des clés, pas des pièces (ou coins). Chaque utilisateur dispose d'un portefeuille contenant des clés. Les portefeuilles sont en réalité des porte-clés contenant des paires de clés privées/publiques (voir &lt;<private_public_keys>&gt;). Les utilisateurs signent des transactions avec les clés, prouvant ainsi qu'ils sont propriétaires des sorties de transaction (leurs pièces ou monnaies). Les pièces sont stockées sur la blockchain sous la forme de sorties de transaction (souvent notées vout ou txout).
+Les portefeuilles Bitcoin contiennent des clés, pas des pièces (ou coins). Chaque utilisateur dispose d'un portefeuille contenant des clés. Les portefeuilles sont en réalité des porte-clés contenant des paires de clés privées/publiques (voir &lt;<private_public_keys>&gt;). Les utilisateurs signent des transactions avec les clés, prouvant ainsi qu'ils sont propriétaires des sorties de transaction (leurs pièces ou monnaies). Les pièces sont stockées sur la chaîne de blocs sous la forme de sorties de transaction (souvent notées vout ou txout).
 ====
 
 (((&quot;portefeuilles&quot;, &quot;types de&quot;, &quot;distinctions primaires&quot;)))Il existe deux principaux types de portefeuilles, qui se distinguent par le fait que les clés qu'ils contiennent sont liées les unes aux autres ou non.
@@ -67,7 +67,7 @@ Les portefeuilles HD offrent deux avantages majeurs par rapport aux clés aléat
 
 Le deuxième avantage des portefeuilles HD est que les utilisateurs peuvent créer une séquence de clés publiques sans avoir accès aux clés privées correspondantes. Cela permet aux portefeuilles HD d'être utilisés sur un serveur non sécurisé ou dans une capacité de réception uniquement, en émettant une clé publique différente pour chaque transaction. Les clés publiques n'ont pas besoin d'être préchargées ou dérivées à l'avance, mais le serveur ne dispose pas des clés privées qui peuvent dépenser les fonds.
 
-==== Graines (ou valeurs d'amorçages) et codes mnémoniques (BIP-39)
+==== Valeurs d'amorçages (ou graines) et codes mnémoniques (BIP-39)
 
 (((&quot;portefeuilles&quot;, &quot;technologie de&quot;, &quot;valeurs d'amorçage et codes mnémoniques&quot;)))(((&quot;mots de code mnémoniques&quot;)))(((&quot;propositions d'amélioration du bitcoin&quot;, &quot;mots de code mnémoniques (BIP-39) &quot;)))Les portefeuilles HD sont un mécanisme très puissant pour gérer de nombreuses clés et adresses. Ils sont encore plus utiles s'ils sont combinés à une manière standardisée de créer des valeurs d'amorçage à partir d'une séquence de mots anglais faciles à transcrire, exporter et importer sur plusieurs portefeuilles. C'est ce qu'on appelle un _mnémonique_ et la norme est définie par BIP-39. Aujourd'hui, la plupart des portefeuilles Bitcoin (ainsi que des portefeuilles pour d'autres cryptomonnaies) utilisent cette norme et peuvent importer et exporter des valeurs d'amorçage pour la sauvegarde et la récupération à l'aide de mnémoniques interopérables.
 
@@ -199,14 +199,14 @@ image::images/mbc2_0506.png[&quot;Génération d'entropie et encodage sous forme
 
 (((&quot;fonction d'étirement de clé&quot;)))(((&quot;Fonction PBKDF2&quot;)))Les mots mnémoniques représentent l'entropie d'une longueur de 128 à 256 bits. L'entropie est ensuite utilisée pour dériver une valeur d'amorçage plus longue (512 bits) grâce à l'utilisation de la fonction d'étirement de clé PBKDF2. La valeur d'amorçage produite est ensuite utilisée pour construire un portefeuille déterministe et en dériver ses clés.
 
-(((&quot;sels&quot;)))(((&quot;Phrases de passe&quot;)))La fonction d'étirement de clé prend deux paramètres : le mnémonique et un _sel_. Le but d'un sel dans une fonction d'étirement de clé est de rendre difficile la construction d'une table de recherche permettant une attaque par force brute. Dans la norme BIP-39, le sel a un autre objectif : il permet l'introduction d'une phrase secrète qui sert de facteur de sécurité supplémentaire protégeant la valeur d'amorçage, comme nous le décrirons plus en détail dans &lt;<mnemonic_passphrase>&gt;.
+(((&quot;sels&quot;)))(((&quot;Phrases secrètes&quot;)))La fonction d'étirement de clé prend deux paramètres : le mnémonique et un _sel_. Le but d'un sel dans une fonction d'étirement de clé est de rendre difficile la construction d'une table de recherche permettant une attaque par force brute. Dans la norme BIP-39, le sel a un autre objectif : il permet l'introduction d'une phrase secrète qui sert de facteur de sécurité supplémentaire protégeant la valeur d'amorçage, comme nous le décrirons plus en détail dans &lt;<mnemonic_passphrase>&gt;.
 
 Le processus décrit aux étapes 7 à 9 continue à partir du processus décrit précédemment dans &lt;<generating_mnemonic_words>&gt; :
 
 ++++
 <ol start="7">
 	<li>Le premier paramètre de la fonction d'étirement de clé PBKDF2 est le <em>mnémonique</em> produit à partir de l'étape 6.</li>
-	<li>Le deuxième paramètre de la fonction d'étirement de clé PBKDF2 est un <em>sel</em> . Le sel est composé de la constante de chaîne &quot;<code>mnemonique</code>&quot; concaténée avec une phrase de passe facultative fournie par l'utilisateur.</li>
+	<li>Le deuxième paramètre de la fonction d'étirement de clé PBKDF2 est un <em>sel</em> . Le sel est composé de la constante de chaîne &quot;<code>mnemonique</code>&quot; concaténée avec une phrase secrète facultative fournie par l'utilisateur.</li>
 	<li>PBKDF2 étend les paramètres mnémoniques et le sel en utilisant 2048 cycles de hachage avec l'algorithme HMAC-SHA512, produisant une valeur de 512 bits comme sortie finale. Cette valeur de 512 bits est la valeur d'amorçage.</li>
 </ol>
 ++++
@@ -219,7 +219,7 @@ image::images/mbc2_0507.png[&quot;Du mnémonique à la valeur d'amorçage&quot;]
 
 [TIP]
 ====
-La fonction d'étirement de clé, avec ses 2048 tours de hachage, est une protection très efficace contre les attaques par force brute contre le mnémonique ou la phrase secrète. Cela rend extrêmement coûteux (en calcul) d'essayer plus de quelques milliers de combinaisons de mots de passe et de mnémoniques, alors que le nombre de graines dérivées possibles est vaste (2 ^ 512 ^).
+La fonction d'étirement de clé, avec ses 2048 tours de hachage, est une protection très efficace contre les attaques par force brute contre le mnémonique ou la phrase secrète. Cela rend extrêmement coûteux (en calcul) d'essayer plus de quelques milliers de combinaisons de mots de passe et de mnémoniques, alors que le nombre de valeurs d'amorçage dérivées possibles est vaste (2 ^ 512 ^).
 ====
 
 Les tableaux pass:[<a data-type="xref" href="#mnemonic_128_no_pass" data-xrefstyle="select: labelnumber">#mnemonic_128_no_pass</a>], pass:[<a data-type="xref" href="#mnemonic_128_w_pass" data-xrefstyle="select: labelnumber">#mnemonic_128_w_pass</a>] et pass:[<a data-type="xref" href="#mnemonic_256_no_pass" data-xrefstyle="select: labelnumber">#mnemonic_256_no_pass</a>] montrent quelques exemples de codes mnémoniques et les valeurs d'amorçage qu'ils produisent (avec ou sans phrase secrète).
@@ -267,11 +267,11 @@ De nombreux portefeuilles ne permettent pas la création de portefeuilles avec p
 [[mnemonic_passphrase]]
 ===== Phrase secrète facultative dans BIP-39
 
-(((&quot;phrases secrètes&quot;)))La norme BIP-39 permet l'utilisation d'une phrase secrète facultative dans la dérivation de la valeur d'amorçage. Si aucune phrase secrète n'est utilisée, le mnémonique est étiré avec un sel constitué de la chaîne constante +&quot;mnémonique&quot;+, produisant une graine spécifique de 512 bits à partir de n'importe quel mnémonique donné. Si une phrase secrète est utilisée, la fonction d'étirement produit une valeur d'amorçage _différente_ à partir de ce même mnémonique. En fait, étant donné un seul mnémonique, chaque phrases secrètes possible conduit à une valeurs d'amorçage différente. Essentiellement, il n'y a pas de &quot;mauvaise&quot; phrase secrète. Toutes les phrases secrètes sont valides et mènent toutes à des valeurs d'amorçage différentes, formant un vaste ensemble de portefeuilles non initialisés possibles. L'ensemble des portefeuilles possibles est si grand (2 ^512^) qu'il n'y a aucune possibilité pratique de forcer brutalement ou de deviner accidentellement celui qui est utilisé.
+(((&quot;phrases secrètes&quot;)))La norme BIP-39 permet l'utilisation d'une phrase secrète facultative dans la dérivation de la valeur d'amorçage. Si aucune phrase secrète n'est utilisée, le mnémonique est étiré avec un sel constitué de la chaîne constante +&quot;mnémonique&quot;+, produisant une valeur d'amorçage spécifique de 512 bits à partir de n'importe quel mnémonique donné. Si une phrase secrète est utilisée, la fonction d'étirement produit une valeur d'amorçage _différente_ à partir de ce même mnémonique. En fait, étant donné un seul mnémonique, chaque phrases secrètes possible conduit à une valeurs d'amorçage différente. Essentiellement, il n'y a pas de &quot;mauvaise&quot; phrase secrète. Toutes les phrases secrètes sont valides et mènent toutes à des valeurs d'amorçage différentes, formant un vaste ensemble de portefeuilles non initialisés possibles. L'ensemble des portefeuilles possibles est si grand (2 ^512^) qu'il n'y a aucune possibilité pratique de forcer brutalement ou de deviner accidentellement celui qui est utilisé.
 
 [TIP]
 ====
-Il n'y a pas de &quot;mauvaises&quot; phrases secrètes dans BIP-39. Chaque phrase de passe mène à un portefeuille qui, à moins qu'il n'ait été utilisé auparavant, sera vide.
+Il n'y a pas de &quot;mauvaises&quot; phrases secrètes dans BIP-39. Chaque phrase secrète mène à un portefeuille qui, à moins qu'il n'ait été utilisé auparavant, sera vide.
 ====
 
 La phrase secrète facultative crée deux fonctionnalités importantes :
@@ -320,13 +320,13 @@ Le code de chaîne (c) est utilisé pour introduire de l'entropie dans la foncti
 
 (((&quot;dérivation de la clé enfant (CKD)&quot;)))(((&quot;clé publique et privé&quot;, &quot;dérivation de clé enfant (CKD)&quot;)))Les portefeuilles HD utilisent une fonction _dérivation de la clé enfant_ (CKD) pour dériver les clés enfants à partir des clés parents.
 
-Les fonctions de dérivation de la clé-enfant sont basées sur une fonction de hachage unidirectionnelle qui combine :
+Les fonctions de dérivation de la clé enfant sont basées sur une fonction de hachage unidirectionnelle qui combine :
 
 * Une clé privée ou publique parent (clé compressée ECDSA)
 * Une valeur d'amorçage appelée code de chaîne (256 bits)
 * Un numéro d'index (32 bits)
 
-Le code de chaîne est utilisé pour introduire des données aléatoires déterministes dans le processus, de sorte que la connaissance de l'index et d'une clé-enfant ne suffit pas pour dériver d'autres clés-enfants. Connaître une clé enfant ne permet pas de retrouver ses frères et sœurs, sauf si vous disposez également du code chaîne. La valeur d'amorçage de code de chaîne initiale (à la racine de l'arborescence) est créée à partir de la valeur d'amorçage, tandis que les codes de chaîne enfants suivants sont dérivés de chaque code de chaîne parent.
+Le code de chaîne est utilisé pour introduire des données aléatoires déterministes dans le processus, de sorte que la connaissance de l'index et d'une clé enfant ne suffit pas pour dériver d'autres clés enfants. Connaître une clé enfant ne permet pas de retrouver ses frères et sœurs, sauf si vous disposez également du code chaîne. La valeur d'amorçage de code de chaîne initiale (à la racine de l'arborescence) est créée à partir de la valeur d'amorçage, tandis que les codes de chaîne enfants suivants sont dérivés de chaque code de chaîne parent.
 
 Ces trois éléments (clé parent, code de chaîne et index) sont combinés et hachés pour générer des clés enfants, comme suit.
 

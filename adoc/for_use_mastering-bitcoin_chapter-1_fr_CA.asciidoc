@@ -147,8 +147,8 @@ Une fois qu'Alice a enregistré la phrase mnémotechnique, elle doit prévoir de
 [WARNING]
 ====
 N'essayez jamais un système de sécurité &quot;bricolage&quot; qui s'écarte de quelque manière que ce soit de la recommandation des meilleures pratiques dans &lt;<mnemonic-storage>&gt;. Ne coupez pas votre mnémonique en deux, ne faites pas de captures d'écran, ne stockez pas sur des clés USB, des e-mails ou des lecteurs cloud, ne le cryptez pas ou n'essayez aucune autre méthode non standard. Vous ferez pencher la balance de manière à risquer une perte permanente ou un vol. De nombreuses personnes ont perdu de l'argent, non pas à cause d'un vol, mais parce qu'elles ont essayé une solution non standard sans avoir l'expertise pour équilibrer les risques encourus. La recommandation des meilleures pratiques est soigneusement équilibrée par des experts et adaptée à la grande majorité des utilisateurs.
-
 ====
+****
 [[bluewallet-welcome]]
 .Alice utilise l'écran de réception sur son portefeuille Bitcoin mobile Bluewallet et affiche son adresse à Bob au format de code QR
 image::images/mbc2_0101.png["Écran de bienvenue Bluewallet"]
@@ -216,7 +216,7 @@ Dans le champ de saisie de l'adresse Bitcoin, il y a un petit bouton _Scan_. Cel
 
 Joe a maintenant l'adresse Bitcoin d'Alice définie comme destinataire. Joe saisit le montant de 10 dollars américains et son portefeuille le convertit en accédant au taux de change le plus récent à partir d'un service en ligne. Le taux de change à l'époque est de 100 dollars américains par bitcoin, donc 10 dollars américains valent 0,10 bitcoin (BTC) ou 100 millibitcoin (mBTC) comme le montre la capture d'écran du portefeuille de Joe (voir &lt;<bluewallet-mobile-send>&gt;).
 
-Dans la saisie de la note/description de la transaction, Joe saisit « Alice ». Il peut utiliser ce champ pour ajouter des informations concernant sa transaction pour référence future. Cette fonction est pour sa tenue de dossiers uniquement. La note de transaction sera stockée dans son portefeuille et seul Joe pourra la voir. Il ne sera pas envoyé à Alice, ni stocké sur la blockchain.
+Dans la saisie de la note/description de la transaction, Joe saisit « Alice ». Il peut utiliser ce champ pour ajouter des informations concernant sa transaction pour référence future. Cette fonction est pour sa tenue de dossiers uniquement. La note de transaction sera stockée dans son portefeuille et seul Joe pourra la voir. Il ne sera pas envoyé à Alice, ni stocké sur la chaîne de blocs.
 
 Il sélectionne également des frais de transaction pour sa transaction. Plus les frais de transaction sont élevés, plus vite sa transaction sera confirmée (incluse dans un bloc par un mineur). Il sélectionne les frais de transaction minimum possibles à ce moment-là (0 satoshis/octet).
 

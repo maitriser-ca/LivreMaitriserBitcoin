@@ -444,7 +444,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="ch12">Applications pour les chaînes de blocs</h2>
 <div class="sectionbody">
 <div class="paragraph data-line-4">
-<p>Appuyons-nous maintenant sur notre compréhension du bitcoin en le considérant comme une <em>plate-forme d&#8217;application</em>. De nos jours, de nombreuses personnes utilisent le terme &quot;blockchain&quot; ou &quot;chaîne de blocs&quot; pour désigner toute plate-forme d&#8217;application qui partage les principes de conception du bitcoin. Le terme est souvent mal utilisé et appliqué à de nombreuses choses qui ne fournissent pas les principales fonctionnalités fournies par la chaîne de blocs de Bitcoin.</p>
+<p>Appuyons-nous maintenant sur notre compréhension du bitcoin en le considérant comme une <em>plate-forme d&#8217;application</em>. De nos jours, de nombreuses personnes utilisent le terme &quot;chaîne de blocs&quot; ou &quot;chaîne de blocs&quot; pour désigner toute plate-forme d&#8217;application qui partage les principes de conception du bitcoin. Le terme est souvent mal utilisé et appliqué à de nombreuses choses qui ne fournissent pas les principales fonctionnalités fournies par la chaîne de blocs de Bitcoin.</p>
 </div>
 <div class="paragraph data-line-6">
 <p>Dans ce chapitre, nous examinerons les fonctionnalités offertes par la chaîne de blocs Bitcoin, en tant que plate-forme d&#8217;application. Nous considérerons les <em>primitives</em> de construction d&#8217;applications, qui forment les blocs de construction de toute application chaîne de blocs. Nous examinerons plusieurs applications importantes qui utilisent ces primitives, telles que les canaux de paiement (état) et les canaux de paiement routés (Lightning Network).</p>
@@ -852,7 +852,7 @@ CHECKSIG</pre>
 <p>Comme auparavant, ces transactions d&#8217;engagement sont asymétriques de sorte que la transaction d&#8217;engagement que chaque partie détient les oblige à attendre si ils la remboursent. Surtout, avant de signer de nouvelles transactions d&#8217;engagement, ils doivent d&#8217;abord échanger des clés de révocation pour invalider l&#8217;engagement précédent. Dans ce cas particulier, les intérêts de Hitesh sont alignés sur l&#8217;état réel de la chaîne et il n&#8217;a donc aucune raison de diffuser un état antérieur. Cependant, pour Irene, l&#8217;état numéro 1 lui laisse un solde plus élevé que l&#8217;état 2. Quand Irene donne à Hitesh la clé de révocation pour sa transaction d&#8217;engagement précédente (état numéro 1), elle révoque effectivement sa capacité à tirer profit de la régression du canal vers un précédent. état parce qu&#8217;avec la clé de révocation, Hitesh peut racheter sans délai les deux sorties de la transaction d&#8217;engagement précédente. Cela signifie que si Irene diffuse l&#8217;état antérieur, Hitesh peut exercer son droit de prendre toutes les sorties.</p>
 </div>
 <div class="paragraph data-line-269">
-<p>Il est important de noter que la révocation ne se produit pas automatiquement. Alors que Hitesh a la capacité de punir Irene pour avoir triché, il doit surveiller la blockchain avec diligence pour détecter des signes de tricherie. S&#8217;il voit une diffusion d&#8217;une transaction d&#8217;engagement préalable, il dispose de 1000 blocs pour agir et utiliser la clé de révocation pour contrecarrer la tricherie d&#8217;Irène et la punir en prenant la totalité du solde, les 10 bitcoins.</p>
+<p>Il est important de noter que la révocation ne se produit pas automatiquement. Alors que Hitesh a la capacité de punir Irene pour avoir triché, il doit surveiller la chaîne de blocs avec diligence pour détecter des signes de tricherie. S&#8217;il voit une diffusion d&#8217;une transaction d&#8217;engagement préalable, il dispose de 1000 blocs pour agir et utiliser la clé de révocation pour contrecarrer la tricherie d&#8217;Irène et la punir en prenant la totalité du solde, les 10 bitcoins.</p>
 </div>
 <div class="paragraph data-line-271">
 <p>Les engagements révocables asymétriques avec blocages temporels relatifs (CSV) sont une bien meilleure façon de mettre en œuvre les canaux de paiement et une innovation très importante dans cette technologie. Avec cette construction, le canal peut rester ouvert indéfiniment et peut avoir des milliards de transactions d&#8217;engagement intermédiaires. Dans les implémentations prototypes de Lightning Network, l&#8217;état d&#8217;engagement est identifié par un index de 48 bits, permettant plus de 281 000 milliards (2,8 x 10<sup>14</sup>) de transitions d&#8217;état dans n&#8217;importe quel canal !</p>
@@ -947,7 +947,7 @@ ENDIF</pre>
 <div class="title">Figure 7. Acheminement des paiements étape par étape via un réseau Lightning</div>
 </div>
 <div class="paragraph data-line-337">
-<p>Alice exécute un nœud Lightning Network (LN) qui assure le suivi de son canal de paiement vers Bob et a la capacité de découvrir des itinéraires entre les canaux de paiement. Le nœud LN d&#8217;Alice a également la capacité de se connecter via Internet au nœud LN d&#8217;Eric. Le nœud LN d&#8217;Eric crée un R secret à l&#8217;aide d&#8217;un générateur de nombres aléatoires. Le noeud d&#8217;Eric ne révèle ce secret à personne. Au lieu de cela, le nœud d&#8217;Eric calcule un hachage H du secret R et transmet ce hachage au nœud d&#8217;Alice (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 1).</p>
+<p>Alice exécute un nœud Lightning Network (LN) qui assure le suivi de son canal de paiement vers Bob et a la capacité de découvrir des itinéraires entre les canaux de paiement. Le nœud LN d&#8217;Alice a également la capacité de se connecter via Internet au nœud LN d&#8217;Eric. Le nœud LN d&#8217;Eric crée un R secret à l&#8217;aide d&#8217;un générateur de nombres aléatoires. Le nœud d&#8217;Eric ne révèle ce secret à personne. Au lieu de cela, le nœud d&#8217;Eric calcule un hachage H du secret R et transmet ce hachage au nœud d&#8217;Alice (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 1).</p>
 </div>
 <div class="paragraph data-line-339">
 <p>Maintenant, le nœud LN d&#8217;Alice construit une route entre le nœud LN d&#8217;Alice et le nœud LN d&#8217;Eric. L&#8217;algorithme de routage utilisé sera examiné plus en détail plus tard, mais pour l&#8217;instant supposons que le nœud d&#8217;Alice puisse trouver une route efficace.</p>
@@ -1078,7 +1078,7 @@ ENDIF</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-21 10:53:53 -0400
+Last updated 2022-03-22 06:27:50 -0400
 </div>
 </div>
 </body>

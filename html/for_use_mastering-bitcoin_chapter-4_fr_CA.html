@@ -899,7 +899,7 @@ y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</pre>
 </div>
 </div>
 <div class="paragraph data-line-306">
-<p>À partir du hachage de 32 octets résultant (hachag-d&#8217;un-hachage), nous ne prenons que les quatre premiers octets. Ces quatre octets servent de code de contrôle d&#8217;erreur ou de somme de contrôle (checksum). La somme de contrôle est concaténée (ajoutée) à la fin.</p>
+<p>À partir du hachage de 32 octets résultant (hachage-d&#8217;un-hachage), nous ne prenons que les quatre premiers octets. Ces quatre octets servent de code de contrôle d&#8217;erreur ou de somme de contrôle (checksum). La somme de contrôle est concaténée (ajoutée) à la fin.</p>
 </div>
 <div class="paragraph data-line-308">
 <p>Le résultat est composé de trois éléments : un préfixe, les données et une somme de contrôle. Ce résultat est encodé en utilisant l&#8217;alphabet Base58 décrit précédemment. <a href="#base58check_encoding">Encodage Base58Check : un format Base58, versionné et à somme de contrôle pour encoder sans ambiguïté les données bitcoin</a> illustre le processus d&#8217;encodage Base58Check.</p>
@@ -1146,7 +1146,7 @@ K = 04F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A&#x21b5;
 <div class="sect4 data-line-446">
 <h5 id="comp_pub">Clés publiques compressées</h5>
 <div class="paragraph data-line-448">
-<p>Des clés publiques compressées ont été introduites dans le bitcoin pour réduire la taille des transactions et économiser de l&#8217;espace disque sur les nœuds qui stockent la base de données de la blockchain Bitcoin. La plupart des transactions incluent la clé publique, qui est nécessaire pour valider les informations d&#8217;identification du propriétaire et dépenser le bitcoin. Chaque clé publique nécessite 520 bits (préfixe + x + y), ce qui, multiplié par plusieurs centaines de transactions par bloc, soit des dizaines de milliers de transactions par jour, ajoute une quantité importante de données à la chaîne de blocs.</p>
+<p>Des clés publiques compressées ont été introduites dans le bitcoin pour réduire la taille des transactions et économiser de l&#8217;espace disque sur les nœuds qui stockent la base de données de la chaîne de blocs Bitcoin. La plupart des transactions incluent la clé publique, qui est nécessaire pour valider les informations d&#8217;identification du propriétaire et dépenser le bitcoin. Chaque clé publique nécessite 520 bits (préfixe + x + y), ce qui, multiplié par plusieurs centaines de transactions par bloc, soit des dizaines de milliers de transactions par jour, ajoute une quantité importante de données à la chaîne de blocs.</p>
 </div>
 <div class="paragraph data-line-450">
 <p>Comme nous l&#8217;avons vu dans la section <a href="#pubkey">Clés publiques</a>, une clé publique est un point (x,y) sur une courbe elliptique. Parce que la courbe exprime une fonction mathématique, un point sur la courbe représente une solution à l&#8217;équation et, par conséquent, si nous connaissons la coordonnée <em>x</em>, nous pouvons calculer la coordonnée <em>y</em> en résolvant l&#8217;équation y <sup>2</sup> mod p = (x <sup>3</sup> + 7) mod p. Cela nous permet de stocker uniquement la coordonnée <em>x</em> du point de clé publique, en omettant la coordonnée <em>y</em> et en réduisant la taille de la clé et l&#8217;espace requis pour la stocker de 256 bits. Une réduction de près de 50 % de la taille de chaque transaction représente une grande quantité de données enregistrées au fil du temps !</p>
@@ -1221,7 +1221,7 @@ K = 04F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A&#x21b5;
 <p>Notez que le format de clé privée compressée en hexadécimal a un octet supplémentaire à la fin (01 en hexadécimal). Bien que le préfixe de version Base58Check soit le même (0x80) pour les formats WIF et WIF compressés, l&#8217;ajout d&#8217;un octet à la fin du numéro fait passer le premier caractère de l&#8217;encodage Base58 de 5 à <em>K</em> ou <em>L</em> . Considérez cela comme l&#8217;équivalent Base58 de la différence de codage décimal entre le nombre 100 et le nombre 99. Alors que 100 est un chiffre plus long que 99, il a également un préfixe de 1 au lieu d&#8217;un préfixe de 9. Lorsque la longueur change, il affecte le préfixe. En Base58, le préfixe 5 se transforme en <em>K</em> ou <em>L</em> lorsque la longueur du nombre augmente d&#8217;un octet.</p>
 </div>
 <div class="paragraph data-line-491">
-<p>N&#8217;oubliez pas que ces formats ne sont <em>pas</em> utilisés de manière interchangeable. Dans un portefeuille plus récent qui implémente des clés publiques compressées, les clés privées ne seront exportées qu&#8217;au format WIF compressé (avec un préfixe <em>K</em> ou <em>L</em>). Si le portefeuille est une implémentation plus ancienne et n&#8217;utilise pas de clés publiques compressées, les clés privées ne seront exportées qu&#8217;au format WIF (avec un préfixe 5). Le but ici est de signaler au portefeuille qui importe ces clés privées s&#8217;il doit rechercher dans la blockchain des clés et des adresses publiques compressées ou non.</p>
+<p>N&#8217;oubliez pas que ces formats ne sont <em>pas</em> utilisés de manière interchangeable. Dans un portefeuille plus récent qui implémente des clés publiques compressées, les clés privées ne seront exportées qu&#8217;au format WIF compressé (avec un préfixe <em>K</em> ou <em>L</em>). Si le portefeuille est une implémentation plus ancienne et n&#8217;utilise pas de clés publiques compressées, les clés privées ne seront exportées qu&#8217;au format WIF (avec un préfixe 5). Le but ici est de signaler au portefeuille qui importe ces clés privées s&#8217;il doit rechercher dans la chaîne de blocs des clés et des adresses publiques compressées ou non.</p>
 </div>
 <div class="paragraph data-line-493">
 <p>Si un portefeuille bitcoin est capable d&#8217;implémenter des clés publiques compressées, il les utilisera dans toutes les transactions. Les clés privées du portefeuille seront utilisées pour dériver les points de clé publique sur la courbe, qui seront compressés. Les clés publiques compressées seront utilisées pour produire des adresses Bitcoin et celles-ci seront utilisées dans les transactions. Lors de l&#8217;exportation de clés privées à partir d&#8217;un nouveau portefeuille qui implémente des clés publiques compressées, le WIF est modifié, avec l&#8217;ajout d&#8217;un suffixe d&#8217;un octet 01 à la clé privée. La clé privée encodée en Base58Check qui en résulte est appelée &quot;WIF compressé&quot; et commence par la lettre <em>K</em> ou <em>L</em>, au lieu de commencer par &quot;5&quot; comme c&#8217;est le cas avec les clés encodées en WIF (non compressées) des portefeuilles plus anciens.</p>
@@ -1973,7 +1973,7 @@ sys	0m0.035s</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-21 10:53:26 -0400
+Last updated 2022-03-22 06:27:17 -0400
 </div>
 </div>
 </body>

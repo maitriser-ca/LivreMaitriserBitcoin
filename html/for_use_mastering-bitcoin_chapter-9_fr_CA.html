@@ -536,7 +536,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">32 octets</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Racine de Merkel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Racine de Merkle</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Un hachage de la racine de l&#8217;arbre Merkle des transactions de ce bloc</p></td>
 </tr>
 <tr>
@@ -652,7 +652,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2 data-line-116">
 <h3 id="_relier_les_blocs_dans_la_chaîne_de_blocs">Relier les blocs dans la chaîne de blocs</h3>
 <div class="paragraph data-line-118">
-<p>Les nœuds complets Bitcoin conservent une copie locale de la chaîne de blocs, à partir du bloc de genèse. La copie locale de la chaîne de blocs est constamment mise à jour au fur et à mesure que de nouveaux blocs sont trouvés et utilisés pour étendre la chaîne. Lorsqu&#8217;un nœud reçoit des blocs entrants du réseau, il validera ces blocs, puis les reliera à la blockchain existante. Pour établir un lien, un nœud examinera l&#8217;en-tête de bloc entrant et recherchera le &quot;hachage de bloc précédent&quot;.</p>
+<p>Les nœuds complets Bitcoin conservent une copie locale de la chaîne de blocs, à partir du bloc de genèse. La copie locale de la chaîne de blocs est constamment mise à jour au fur et à mesure que de nouveaux blocs sont trouvés et utilisés pour étendre la chaîne. Lorsqu&#8217;un nœud reçoit des blocs entrants du réseau, il validera ces blocs, puis les reliera à la chaîne de blocs existante. Pour établir un lien, un nœud examinera l&#8217;en-tête de bloc entrant et recherchera le &quot;hachage de bloc précédent&quot;.</p>
 </div>
 <div class="paragraph data-line-120">
 <p>Supposons, par exemple, qu&#8217;un nœud ait 277 314 blocs dans la copie locale de la chaîne de blocs. Le dernier bloc dont le nœud a connaissance est le bloc 277 314, avec un hachage d&#8217;en-tête de bloc :</p>
@@ -688,7 +688,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="paragraph data-line-150">
-<p>En regardant ce nouveau bloc, le nœud trouve le champ previousblockhash, qui contient le hachage de son bloc parent. Il s&#8217;agit d&#8217;un hachage connu du nœud, celui du dernier bloc de la chaîne à la hauteur 277,314. Par conséquent, ce nouveau bloc est un enfant du dernier bloc de la chaîne et étend la blockchain existante. Le nœud ajoute ce nouveau bloc à la fin de la chaîne, rendant la blockchain plus longue avec une nouvelle hauteur de 277 315. <a href="#chain_of_blocks">Blocs liés dans une chaîne par référence au hachage d&#8217;en-tête de bloc précédent</a> montre la chaîne de trois blocs, liés par des références dans le champ previousblockhash.</p>
+<p>En regardant ce nouveau bloc, le nœud trouve le champ previousblockhash, qui contient le hachage de son bloc parent. Il s&#8217;agit d&#8217;un hachage connu du nœud, celui du dernier bloc de la chaîne à la hauteur 277,314. Par conséquent, ce nouveau bloc est un enfant du dernier bloc de la chaîne et étend la chaîne de blocs existante. Le nœud ajoute ce nouveau bloc à la fin de la chaîne, rendant la chaîne de blocs plus longue avec une nouvelle hauteur de 277 315. <a href="#chain_of_blocks">Blocs liés dans une chaîne par référence au hachage d&#8217;en-tête de bloc précédent</a> montre la chaîne de trois blocs, liés par des références dans le champ previousblockhash.</p>
 </div>
 </div>
 <div class="sect2 data-line-154">
@@ -906,7 +906,7 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
 </tbody>
 </table>
 <div class="paragraph data-line-260">
-<p>Comme vous pouvez le voir dans le tableau, alors que la taille de bloc augmente rapidement, de 4 Ko avec 16 transactions à une taille de bloc de 16 Mo pour 65 535 transactions, le chemin de Merkle requis pour prouver l&#8217;inclusion d&#8217;une transaction augmente beaucoup plus lentement, de 128 octets à seulement 512 octets. Avec les arbres de Merkle, un nœud peut télécharger uniquement les en-têtes de bloc (80 octets par bloc) et être toujours en mesure d&#8217;identifier l&#8217;inclusion d&#8217;une transaction dans un bloc en récupérant un petit chemin Merkle à partir d&#8217;un nœud complet, sans stocker ni transmettre la grande majorité des blockchain, qui peut avoir une taille de plusieurs gigaoctets. Les nœuds qui ne maintiennent pas une chaîne de blocs complète, appelés nœuds de vérification simplifiée des paiements (SPV), utilisent des chemins de Merkle pour vérifier les transactions sans télécharger des blocs complets.</p>
+<p>Comme vous pouvez le voir dans le tableau, alors que la taille de bloc augmente rapidement, de 4 Ko avec 16 transactions à une taille de bloc de 16 Mo pour 65 535 transactions, le chemin de Merkle requis pour prouver l&#8217;inclusion d&#8217;une transaction augmente beaucoup plus lentement, de 128 octets à seulement 512 octets. Avec les arbres de Merkle, un nœud peut télécharger uniquement les en-têtes de bloc (80 octets par bloc) et être toujours en mesure d&#8217;identifier l&#8217;inclusion d&#8217;une transaction dans un bloc en récupérant un petit chemin Merkle à partir d&#8217;un nœud complet, sans stocker ni transmettre la grande majorité des chaînes de blocs, qui peut avoir une taille de plusieurs gigaoctets. Les nœuds qui ne maintiennent pas une chaîne de blocs complète, appelés nœuds de vérification simplifiée des paiements (SPV), utilisent des chemins de Merkle pour vérifier les transactions sans télécharger des blocs complets.</p>
 </div>
 </div>
 <div class="sect2 data-line-262">
@@ -915,7 +915,7 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
 <p>Les arbres Merkle sont largement utilisés par les nœuds SPV. Les nœuds SPV n&#8217;ont pas toutes les transactions et ne téléchargent pas les blocs complets, juste les en-têtes de bloc. Afin de vérifier qu&#8217;une transaction est incluse dans un bloc, sans avoir à télécharger toutes les transactions du bloc, ils utilisent un chemin d&#8217;authentification, ou chemin de Merkle.</p>
 </div>
 <div class="paragraph data-line-266">
-<p>Considérons, par exemple, un nœud SPV qui est intéressé par les paiements entrants à une adresse contenue dans son portefeuille. Le nœud SPV établira un filtre de floraison (voir <a href="#bloom_filters">[bloom_filters]</a>) sur ses connexions à des pairs pour limiter les transactions reçues uniquement à celles contenant des adresses d&#8217;intérêt. Lorsqu&#8217;un pair voit une transaction qui correspond au filtre de floraison, il enverra ce bloc à l&#8217;aide d&#8217;un message merkleblock. Le message merkleblock contient l&#8217;en-tête du bloc ainsi qu&#8217;un chemin de Merkle qui relie la transaction d&#8217;intérêt à la racine de Merkle dans le bloc. Le nœud SPV peut utiliser ce chemin de Merkle pour connecter la transaction au bloc et vérifier que la transaction est incluse dans le bloc. Le nœud SPV utilise également l&#8217;en-tête de bloc pour lier le bloc au reste de la chaîne de blocs. La combinaison de ces deux liens, entre la transaction et le bloc, et entre le bloc et la chaîne de blocs, prouve que la transaction est enregistrée dans la chaîne de blocs. Au total, le nœud SPV aura reçu moins d&#8217;un kilo-octet de données pour l&#8217;en-tête de bloc et le chemin de Merkle, une quantité de données plus de mille fois inférieure à un bloc complet (environ 1 mégaoctet actuellement).</p>
+<p>Considérons, par exemple, un nœud SPV qui est intéressé par les paiements entrants à une adresse contenue dans son portefeuille. Le nœud SPV établira un filtre de Bloom (voir <a href="#bloom_filters">[bloom_filters]</a>) sur ses connexions à des pairs pour limiter les transactions reçues uniquement à celles contenant des adresses d&#8217;intérêt. Lorsqu&#8217;un pair voit une transaction qui correspond au filtre de Bloom, il enverra ce bloc à l&#8217;aide d&#8217;un message merkleblock. Le message merkleblock contient l&#8217;en-tête du bloc ainsi qu&#8217;un chemin de Merkle qui relie la transaction d&#8217;intérêt à la racine de Merkle dans le bloc. Le nœud SPV peut utiliser ce chemin de Merkle pour connecter la transaction au bloc et vérifier que la transaction est incluse dans le bloc. Le nœud SPV utilise également l&#8217;en-tête de bloc pour lier le bloc au reste de la chaîne de blocs. La combinaison de ces deux liens, entre la transaction et le bloc, et entre le bloc et la chaîne de blocs, prouve que la transaction est enregistrée dans la chaîne de blocs. Au total, le nœud SPV aura reçu moins d&#8217;un kilo-octet de données pour l&#8217;en-tête de bloc et le chemin de Merkle, une quantité de données plus de mille fois inférieure à un bloc complet (environ 1 mégaoctet actuellement).</p>
 </div>
 </div>
 <div class="sect2 data-line-268">
@@ -926,7 +926,7 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
 <div class="sect3 data-line-273">
 <h4 id="_testnet_le_terrain_de_test_de_bitcoin">Testnet : Le terrain de test de Bitcoin</h4>
 <div class="paragraph data-line-275">
-<p>Testnet est le nom de la blockchain, du réseau et de la devise de test utilisés à des fins de test. Le testnet est un réseau P2P en direct complet, avec des portefeuilles, des bitcoins de test (pièces de testnet), l&#8217;exploitation minière et toutes les autres fonctionnalités du réseau principal. Il n&#8217;y a vraiment que deux différences : les pièces testnet sont censées être sans valeur et la difficulté d&#8217;extraction doit être suffisamment faible pour que n&#8217;importe qui puisse extraire des pièces testnet relativement facilement (en les gardant sans valeur).</p>
+<p>Testnet est le nom de la chaîne de blocs, du réseau et de la devise de test utilisés à des fins de test. Le testnet est un réseau P2P en direct complet, avec des portefeuilles, des bitcoins de test (pièces de testnet), l&#8217;exploitation minière et toutes les autres fonctionnalités du réseau principal. Il n&#8217;y a vraiment que deux différences : les pièces testnet sont censées être sans valeur et la difficulté d&#8217;extraction doit être suffisamment faible pour que n&#8217;importe qui puisse extraire des pièces testnet relativement facilement (en les gardant sans valeur).</p>
 </div>
 <div class="paragraph data-line-277">
 <p>Tout développement logiciel destiné à une utilisation en production sur le réseau principal de Bitcoin doit d&#8217;abord être testé sur testnet avec des pièces de test. Cela protège à la fois les développeurs des pertes financières dues aux bogues et le réseau des comportements involontaires dus aux bogues.</p>
@@ -938,7 +938,7 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
 <p>Le testnet actuel s&#8217;appelle <em>testnet3</em>, la troisième itération de testnet, redémarré en février 2011 pour réinitialiser la difficulté du testnet précédent.</p>
 </div>
 <div class="paragraph data-line-283">
-<p>Gardez à l&#8217;esprit que testnet3 est une grande blockchain, dépassant 25 Go en 2021. Il faudra environ un jour pour se synchroniser complètement et utiliser les ressources de votre ordinateur. Pas autant que le réseau principal, mais pas exactement &quot;léger&quot; non plus. Une bonne façon d&#8217;exécuter un nœud testnet est d&#8217;utiliser une image de machine virtuelle (par exemple, VirtualBox, Docker, Cloud Server, etc.) dédiée à cet effet.</p>
+<p>Gardez à l&#8217;esprit que testnet3 est une grande chaîne de blocs, dépassant 25 Go en 2021. Il faudra environ un jour pour se synchroniser complètement et utiliser les ressources de votre ordinateur. Pas autant que le réseau principal, mais pas exactement &quot;léger&quot; non plus. Une bonne façon d&#8217;exécuter un nœud testnet est d&#8217;utiliser une image de machine virtuelle (par exemple, VirtualBox, Docker, Cloud Server, etc.) dédiée à cet effet.</p>
 </div>
 <div class="sect4 data-line-285">
 <h5 id="_utiliser_testnet">Utiliser testnet</h5>
@@ -954,7 +954,7 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
 </div>
 </div>
 <div class="paragraph data-line-295">
-<p>Dans les journaux, vous devriez voir que bitcoind construit une nouvelle blockchain dans le sous-répertoire testnet3 du répertoire bitcoind par défaut :</p>
+<p>Dans les journaux, vous devriez voir que bitcoind construit une nouvelle chaîne de blocs dans le sous-répertoire testnet3 du répertoire bitcoind par défaut :</p>
 </div>
 <div class="listingblock data-line-297">
 <div class="content">
@@ -1005,7 +1005,7 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
 <div class="sect3 data-line-333">
 <h4 id="_regtest_la_chaîne_de_blocs_locale">Regtest : La chaîne de blocs locale</h4>
 <div class="paragraph data-line-335">
-<p>Regtest, qui signifie &quot;Regression Testing&quot;, (ou tests de régressions) est une fonctionnalité de Bitcoin Core qui vous permet de créer une chaîne de blocs locale à des fins de test. Contrairement à testnet3, qui est une blockchain de test publique et partagée, les chaînes de blocs regtest sont destinées à être exécutées comme des systèmes fermés pour les tests locaux. Vous lancez une chaîne de blocs regtest à partir de zéro, en créant un bloc de genèse local. Vous pouvez ajouter d&#8217;autres nœuds au réseau ou l&#8217;exécuter avec un seul nœud uniquement pour tester le logiciel Bitcoin Core.</p>
+<p>Regtest, qui signifie &quot;Regression Testing&quot;, (ou tests de régressions) est une fonctionnalité de Bitcoin Core qui vous permet de créer une chaîne de blocs locale à des fins de test. Contrairement à testnet3, qui est une chaîne de blocs de test publique et partagée, les chaînes de blocs regtest sont destinées à être exécutées comme des systèmes fermés pour les tests locaux. Vous lancez une chaîne de blocs regtest à partir de zéro, en créant un bloc de genèse local. Vous pouvez ajouter d&#8217;autres nœuds au réseau ou l&#8217;exécuter avec un seul nœud uniquement pour tester le logiciel Bitcoin Core.</p>
 </div>
 <div class="paragraph data-line-337">
 <p>Pour démarrer Bitcoin Core en mode regtest, vous utilisez le drapeau regtest :</p>
@@ -1016,7 +1016,7 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
 </div>
 </div>
 <div class="paragraph data-line-343">
-<p>Tout comme avec testnet, Bitcoin Core initialisera une nouvelle blockchain sous le sous-répertoire <em>regtest</em> de votre répertoire par défaut bitcoind :</p>
+<p>Tout comme avec testnet, Bitcoin Core initialisera une nouvelle chaîne de blocs sous le sous-répertoire <em>regtest</em> de votre répertoire par défaut bitcoind :</p>
 </div>
 <div class="listingblock data-line-345">
 <div class="content">
@@ -1024,7 +1024,7 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
 </div>
 </div>
 <div class="paragraph data-line-349">
-<p>Pour utiliser l&#8217;outil de ligne de commande, vous devez également spécifier l&#8217;indicateur regtest. Essayons la commande getblockchaininfo pour inspecter la blockchain regtest :</p>
+<p>Pour utiliser l&#8217;outil de ligne de commande, vous devez également spécifier l&#8217;indicateur regtest. Essayons la commande getblockchaininfo pour inspecter la chaîne de blocs regtest :</p>
 </div>
 <div class="listingblock data-line-351">
 <div class="content">
@@ -1084,7 +1084,7 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-21 10:53:43 -0400
+Last updated 2022-03-22 06:27:41 -0400
 </div>
 </div>
 </body>

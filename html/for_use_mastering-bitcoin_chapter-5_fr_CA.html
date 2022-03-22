@@ -471,7 +471,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </td>
 <td class="content">
 <div class="paragraph data-line-20">
-<p>Les portefeuilles Bitcoin contiennent des clés, pas des pièces (ou coins). Chaque utilisateur dispose d&#8217;un portefeuille contenant des clés. Les portefeuilles sont en réalité des porte-clés contenant des paires de clés privées/publiques (voir <a href="#private_public_keys">[private_public_keys]</a>). Les utilisateurs signent des transactions avec les clés, prouvant ainsi qu&#8217;ils sont propriétaires des sorties de transaction (leurs pièces ou monnaies). Les pièces sont stockées sur la blockchain sous la forme de sorties de transaction (souvent notées vout ou txout).</p>
+<p>Les portefeuilles Bitcoin contiennent des clés, pas des pièces (ou coins). Chaque utilisateur dispose d&#8217;un portefeuille contenant des clés. Les portefeuilles sont en réalité des porte-clés contenant des paires de clés privées/publiques (voir <a href="#private_public_keys">[private_public_keys]</a>). Les utilisateurs signent des transactions avec les clés, prouvant ainsi qu&#8217;ils sont propriétaires des sorties de transaction (leurs pièces ou monnaies). Les pièces sont stockées sur la chaîne de blocs sous la forme de sorties de transaction (souvent notées vout ou txout).</p>
 </div>
 </td>
 </tr>
@@ -549,7 +549,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3 data-line-70">
-<h4 id="_graines_ou_valeurs_damorçages_et_codes_mnémoniques_bip_39">Graines (ou valeurs d&#8217;amorçages) et codes mnémoniques (BIP-39)</h4>
+<h4 id="_valeurs_damorçages_ou_graines_et_codes_mnémoniques_bip_39">Valeurs d&#8217;amorçages (ou graines) et codes mnémoniques (BIP-39)</h4>
 <div class="paragraph data-line-72">
 <p>Les portefeuilles HD sont un mécanisme très puissant pour gérer de nombreuses clés et adresses. Ils sont encore plus utiles s&#8217;ils sont combinés à une manière standardisée de créer des valeurs d&#8217;amorçage à partir d&#8217;une séquence de mots anglais faciles à transcrire, exporter et importer sur plusieurs portefeuilles. C&#8217;est ce qu&#8217;on appelle un <em>mnémonique</em> et la norme est définie par BIP-39. Aujourd&#8217;hui, la plupart des portefeuilles Bitcoin (ainsi que des portefeuilles pour d&#8217;autres cryptomonnaies) utilisent cette norme et peuvent importer et exporter des valeurs d&#8217;amorçage pour la sauvegarde et la récupération à l&#8217;aide de mnémoniques interopérables.</p>
 </div>
@@ -842,7 +842,7 @@ garbage claim echo media make crunch</pre>
 </div>
 <ol start="7">
 	<li>Le premier paramètre de la fonction d'étirement de clé PBKDF2 est le <em>mnémonique</em> produit à partir de l'étape 6.</li>
-	<li>Le deuxième paramètre de la fonction d'étirement de clé PBKDF2 est un <em>sel</em> . Le sel est composé de la constante de chaîne &quot;<code>mnemonique</code>&quot; concaténée avec une phrase de passe facultative fournie par l'utilisateur.</li>
+	<li>Le deuxième paramètre de la fonction d'étirement de clé PBKDF2 est un <em>sel</em> . Le sel est composé de la constante de chaîne &quot;<code>mnemonique</code>&quot; concaténée avec une phrase secrète facultative fournie par l'utilisateur.</li>
 	<li>PBKDF2 étend les paramètres mnémoniques et le sel en utilisant 2048 cycles de hachage avec l'algorithme HMAC-SHA512, produisant une valeur de 512 bits comme sortie finale. Cette valeur de 512 bits est la valeur d'amorçage.</li>
 </ol>
 <div class="paragraph data-line-214">
@@ -862,7 +862,7 @@ garbage claim echo media make crunch</pre>
 </td>
 <td class="content">
 <div class="paragraph data-line-222">
-<p>La fonction d&#8217;étirement de clé, avec ses 2048 tours de hachage, est une protection très efficace contre les attaques par force brute contre le mnémonique ou la phrase secrète. Cela rend extrêmement coûteux (en calcul) d&#8217;essayer plus de quelques milliers de combinaisons de mots de passe et de mnémoniques, alors que le nombre de graines dérivées possibles est vaste (2 ^ 512 ^).</p>
+<p>La fonction d&#8217;étirement de clé, avec ses 2048 tours de hachage, est une protection très efficace contre les attaques par force brute contre le mnémonique ou la phrase secrète. Cela rend extrêmement coûteux (en calcul) d&#8217;essayer plus de quelques milliers de combinaisons de mots de passe et de mnémoniques, alors que le nombre de valeurs d&#8217;amorçage dérivées possibles est vaste (2 ^ 512 ^).</p>
 </div>
 </td>
 </tr>
@@ -968,7 +968,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 <div class="sect4 data-line-268">
 <h5 id="mnemonic_passphrase">Phrase secrète facultative dans BIP-39</h5>
 <div class="paragraph data-line-270">
-<p>La norme BIP-39 permet l&#8217;utilisation d&#8217;une phrase secrète facultative dans la dérivation de la valeur d&#8217;amorçage. Si aucune phrase secrète n&#8217;est utilisée, le mnémonique est étiré avec un sel constitué de la chaîne constante &amp;quot;mnémonique&amp;quot;, produisant une graine spécifique de 512 bits à partir de n&#8217;importe quel mnémonique donné. Si une phrase secrète est utilisée, la fonction d&#8217;étirement produit une valeur d&#8217;amorçage <em>différente</em> à partir de ce même mnémonique. En fait, étant donné un seul mnémonique, chaque phrases secrètes possible conduit à une valeurs d&#8217;amorçage différente. Essentiellement, il n&#8217;y a pas de &quot;mauvaise&quot; phrase secrète. Toutes les phrases secrètes sont valides et mènent toutes à des valeurs d&#8217;amorçage différentes, formant un vaste ensemble de portefeuilles non initialisés possibles. L&#8217;ensemble des portefeuilles possibles est si grand (2 <sup>512</sup>) qu&#8217;il n&#8217;y a aucune possibilité pratique de forcer brutalement ou de deviner accidentellement celui qui est utilisé.</p>
+<p>La norme BIP-39 permet l&#8217;utilisation d&#8217;une phrase secrète facultative dans la dérivation de la valeur d&#8217;amorçage. Si aucune phrase secrète n&#8217;est utilisée, le mnémonique est étiré avec un sel constitué de la chaîne constante &amp;quot;mnémonique&amp;quot;, produisant une valeur d&#8217;amorçage spécifique de 512 bits à partir de n&#8217;importe quel mnémonique donné. Si une phrase secrète est utilisée, la fonction d&#8217;étirement produit une valeur d&#8217;amorçage <em>différente</em> à partir de ce même mnémonique. En fait, étant donné un seul mnémonique, chaque phrases secrètes possible conduit à une valeurs d&#8217;amorçage différente. Essentiellement, il n&#8217;y a pas de &quot;mauvaise&quot; phrase secrète. Toutes les phrases secrètes sont valides et mènent toutes à des valeurs d&#8217;amorçage différentes, formant un vaste ensemble de portefeuilles non initialisés possibles. L&#8217;ensemble des portefeuilles possibles est si grand (2 <sup>512</sup>) qu&#8217;il n&#8217;y a aucune possibilité pratique de forcer brutalement ou de deviner accidentellement celui qui est utilisé.</p>
 </div>
 <div class="admonitionblock tip data-line-273">
 <table>
@@ -978,7 +978,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 </td>
 <td class="content">
 <div class="paragraph data-line-274">
-<p>Il n&#8217;y a pas de &quot;mauvaises&quot; phrases secrètes dans BIP-39. Chaque phrase de passe mène à un portefeuille qui, à moins qu&#8217;il n&#8217;ait été utilisé auparavant, sera vide.</p>
+<p>Il n&#8217;y a pas de &quot;mauvaises&quot; phrases secrètes dans BIP-39. Chaque phrase secrète mène à un portefeuille qui, à moins qu&#8217;il n&#8217;ait été utilisé auparavant, sera vide.</p>
 </div>
 </td>
 </tr>
@@ -1069,7 +1069,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 <p>Les portefeuilles HD utilisent une fonction <em>dérivation de la clé enfant</em> (CKD) pour dériver les clés enfants à partir des clés parents.</p>
 </div>
 <div class="paragraph data-line-323">
-<p>Les fonctions de dérivation de la clé-enfant sont basées sur une fonction de hachage unidirectionnelle qui combine :</p>
+<p>Les fonctions de dérivation de la clé enfant sont basées sur une fonction de hachage unidirectionnelle qui combine :</p>
 </div>
 <div class="ulist data-line-325">
 <ul>
@@ -1085,7 +1085,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 </ul>
 </div>
 <div class="paragraph data-line-329">
-<p>Le code de chaîne est utilisé pour introduire des données aléatoires déterministes dans le processus, de sorte que la connaissance de l&#8217;index et d&#8217;une clé-enfant ne suffit pas pour dériver d&#8217;autres clés-enfants. Connaître une clé enfant ne permet pas de retrouver ses frères et sœurs, sauf si vous disposez également du code chaîne. La valeur d&#8217;amorçage de code de chaîne initiale (à la racine de l&#8217;arborescence) est créée à partir de la valeur d&#8217;amorçage, tandis que les codes de chaîne enfants suivants sont dérivés de chaque code de chaîne parent.</p>
+<p>Le code de chaîne est utilisé pour introduire des données aléatoires déterministes dans le processus, de sorte que la connaissance de l&#8217;index et d&#8217;une clé enfant ne suffit pas pour dériver d&#8217;autres clés enfants. Connaître une clé enfant ne permet pas de retrouver ses frères et sœurs, sauf si vous disposez également du code chaîne. La valeur d&#8217;amorçage de code de chaîne initiale (à la racine de l&#8217;arborescence) est créée à partir de la valeur d&#8217;amorçage, tandis que les codes de chaîne enfants suivants sont dérivés de chaque code de chaîne parent.</p>
 </div>
 <div class="paragraph data-line-331">
 <p>Ces trois éléments (clé parent, code de chaîne et index) sont combinés et hachés pour générer des clés enfants, comme suit.</p>
@@ -1394,7 +1394,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-21 10:53:30 -0400
+Last updated 2022-03-22 06:27:22 -0400
 </div>
 </div>
 </body>

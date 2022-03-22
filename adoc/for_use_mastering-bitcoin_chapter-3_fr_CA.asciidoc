@@ -220,7 +220,7 @@ $ which bitcoin-cli
 
 === Exécution d'un nœud Bitcoin Core
 
-(((&quot;Bitcoin Core&quot;, &quot;rouler des noeuds coeur&quot;, id=&quot;BCnode03&quot;)))(((&quot;noeuds Bitcoin&quot;, &quot;rouler des noeuds coeur&quot;, id=&quot;BNcore03&quot;)))Le réseau pair à pair de Bitcoin est composé de &quot;nœuds&quot; de réseau, gérés principalement par des bénévoles et certaines des entreprises qui créent des applications bitcoin. Ceux qui exécutent des nœuds Bitcoin ont une vue directe et faisant autorité sur la chaîne de blocs Bitcoin, avec une copie locale de toutes les transactions, validées indépendamment par leur propre système. En exécutant un nœud, vous n'avez pas besoin de faire appel à un tiers pour valider une transaction. De plus, en exécutant un nœud Bitcoin, vous contribuez au réseau Bitcoin en le rendant plus robuste et sécuritaire.
+(((&quot;Bitcoin Core&quot;, &quot;rouler des nœuds cœurs&quot;, id=&quot;BCnode03&quot;)))(((&quot;nœuds Bitcoin&quot;, &quot;rouler des nœuds cœurs&quot;, id=&quot;BNcore03&quot;)))Le réseau pair à pair de Bitcoin est composé de &quot;nœuds&quot; de réseau, gérés principalement par des bénévoles et certaines des entreprises qui créent des applications bitcoin. Ceux qui exécutent des nœuds Bitcoin ont une vue directe et faisant autorité sur la chaîne de blocs Bitcoin, avec une copie locale de toutes les transactions, validées indépendamment par leur propre système. En exécutant un nœud, vous n'avez pas besoin de faire appel à un tiers pour valider une transaction. De plus, en exécutant un nœud Bitcoin, vous contribuez au réseau Bitcoin en le rendant plus robuste et sécuritaire.
 
 Cependant, l'exécution d'un nœud nécessite un système connecté en permanence avec suffisamment de ressources pour traiter toutes les transactions bitcoin. Selon que vous choisissez d'indexer toutes les transactions et de conserver une copie complète de la chaîne de blocs, vous pouvez également avoir besoin de beaucoup d'espace disque et de mémoire RAM. Au début de 2021, un nœud à index complet a besoin de 2 Go de RAM et d'un minimum de 360 Go d'espace disque (voir https://www.blockchain.com/charts/blocks-size[]). Les nœuds Bitcoin transmettent et reçoivent également des transactions et des blocs Bitcoin, consommant de la bande passante Internet. Si votre connexion Internet est limitée, a un faible plafond de données ou est mesurée (facturée au gigabit), vous ne devriez probablement pas exécuter un nœud Bitcoin, ou l'exécuter d'une manière qui limite sa bande passante (voir &lt;<constrained_resources>&gt;).
 
@@ -233,7 +233,7 @@ Malgré ces besoins en ressources, des milliers de bénévoles gèrent des nœud
 
 Pourquoi voudriez-vous exécuter un nœud ? Voici quelques-unes des raisons les plus courantes :
 
-* Si vous développez un logiciel bitcoin et que vous devez vous fier à un nœud Bitcoin pour un accès programmable (API) au réseau et à la blockchain.
+* Si vous développez un logiciel bitcoin et que vous devez vous fier à un nœud Bitcoin pour un accès programmable (API) au réseau et à la chaîne de blocs.
 
 * Si vous créez des applications qui doivent valider les transactions selon les règles de consensus de bitcoin. En règle générale, les éditeurs de logiciels Bitcoin exécutent plusieurs nœuds.
 
@@ -314,7 +314,7 @@ minrelaytxfee:: Définissez le taux de frais minimum pour la transaction que vou
 [[txindex]]
 .Index de la base de données des transactions et option txindex
 ****
-(((&quot;Bitcoin Core&quot;, &quot;fonction des noeuds coeurs&quot;, &quot;database options&quot;)))(((&quot;transactions&quot;, &quot;configuration d'options de base de données&quot;)))(((&quot;option txindex&quot;)))(((&quot;option d'indexation complète&quot;)))Par défaut, Bitcoin Core construit une base de données contenant _uniquement_ les transactions liées au portefeuille de l'utilisateur. Si vous voulez pouvoir accéder à _n'importe quelle_ transaction avec des commandes comme +getrawtransaction+ (voir &lt;<exploring_and_decoding_transanctions>&gt;), vous devez configurer Bitcoin Core pour créer un index de transaction complet, ce qui peut être réalisé avec l'option +txindex+. Définissez +txindex=1+ dans le fichier de configuration de Bitcoin Core. Si vous ne définissez pas cette option au début et que vous la réglez ensuite sur l'indexation complète, vous devez redémarrer +bitcoind+ avec l'option +-reindex+ et attendre qu'elle reconstruise l'index.
+(((&quot;Bitcoin Core&quot;, &quot;fonction des nœuds cœurs&quot;, &quot;database options&quot;)))(((&quot;transactions&quot;, &quot;configuration d'options de base de données&quot;)))(((&quot;option txindex&quot;)))(((&quot;option d'indexation complète&quot;)))Par défaut, Bitcoin Core construit une base de données contenant _uniquement_ les transactions liées au portefeuille de l'utilisateur. Si vous voulez pouvoir accéder à _n'importe quelle_ transaction avec des commandes comme +getrawtransaction+ (voir &lt;<exploring_and_decoding_transanctions>&gt;), vous devez configurer Bitcoin Core pour créer un index de transaction complet, ce qui peut être réalisé avec l'option +txindex+. Définissez +txindex=1+ dans le fichier de configuration de Bitcoin Core. Si vous ne définissez pas cette option au début et que vous la réglez ensuite sur l'indexation complète, vous devez redémarrer +bitcoind+ avec l'option +-reindex+ et attendre qu'elle reconstruise l'index.
 ****
 
 &lt;<full_index_node>&gt; montre comment vous pouvez combiner les options précédentes, avec un nœud entièrement indexé, fonctionnant comme un backend API pour une application bitcoin.
@@ -407,7 +407,7 @@ $ bitcoin-cli getblockchaininfo
 }
 ----
 
-Cela montre un nœud avec une hauteur de blockchain de 0 blocs et 83999 en-têtes. Le nœud récupère actuellement les en-têtes de bloc de la meilleure chaîne et continue ensuite à télécharger les blocs complets.
+Cela montre un nœud avec une hauteur de chaîne de blocs de 0 blocs et 83999 en-têtes. Le nœud récupère actuellement les en-têtes de bloc de la meilleure chaîne et continue ensuite à télécharger les blocs complets.
 
 Une fois que vous êtes satisfait des options de configuration que vous avez sélectionnées, vous devez ajouter _bitcoin_ aux scripts de démarrage de votre système d'exploitation, afin qu'il s'exécute en continu et au redémarrage du système d'exploitation. Vous trouverez un certain nombre d'exemples de scripts de démarrage pour différents systèmes d'exploitation dans le répertoire source de bitcoin sous _contrib/init_ et un fichier _README.md_ indiquant quel système utilise quel script.(((&quot;&quot;, startref=&quot;BCnode03&quot;)))(( (&quot;&quot;, startref=&quot;BNcore03&quot;)))
 
@@ -510,9 +510,10 @@ Il faudra un certain temps, peut-être plus d'une journée, pour que le client +
 
 
 
-Dans &lt;<cup_of_coffee>&gt;, (((&quot;cas d'utilisation&quot;, &quot;acheter du café&quot;, id=&quot;alicethree&quot;)))Alice a acheté une tasse de café au Bob's Cafe. Sa transaction a été enregistrée sur la blockchain avec l'identifiant de transaction (+txid+) +0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2+. Utilisons l'API pour récupérer et examiner cette transaction en transmettant l'identifiant de transaction en tant que paramètre :
+Dans &lt;<cup_of_coffee>&gt;, (((&quot;cas d'utilisation&quot;, &quot;acheter du café&quot;, id=&quot;alicethree&quot;)))Alice a acheté une tasse de café au Bob's Cafe. Sa transaction a été enregistrée sur la chaîne de blocs avec l'identifiant de transaction (+txid+) +0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2+. Utilisons l'API pour récupérer et examiner cette transaction en transmettant l'identifiant de transaction en tant que paramètre :
 
-----
+++++
+<pre data-type="programlisting">
 $ bitcoin-cli getrawtransaction 0627052b6f28912f2703066a912ea577f2ce4da4caa5a&#x21b5;
 5fbd8a57286c345c2f2
 
@@ -523,17 +524,19 @@ ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813014&#x
 89d172787ec3457eee41c04f4938de5cc17b4a10fa336a8d752adfffffffff0260e3160000000&#x21b5;
 0001976a914ab68025513c3dbd2f7b92a94e0581f5d50f654e788acd0ef8000000000001976a9&#x21b5;
 147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a888ac00000000
-----
+</pre>
+++++
 
 
 [TIP]
 ====
-(((&quot;identifiant de transaction (txd)&quot;)))(((&quot;malléabilité&quot;)))Un identifiant de transaction ne fait pas autorité tant qu'une transaction n'a pas été confirmée. L'absence d'un hachage de transaction dans la blockchain ne signifie pas que la transaction n'a pas été traitée. C'est ce qu'on appelle la &quot;malléabilité des transactions&quot;, car les hachages de transaction peuvent être modifiés avant la confirmation dans un bloc. Après confirmation, le +txid+ est immuable et fait autorité.
+(((&quot;identifiant de transaction (txd)&quot;)))(((&quot;malléabilité&quot;)))Un identifiant de transaction ne fait pas autorité tant qu'une transaction n'a pas été confirmée. L'absence d'un hachage de transaction dans la chaîne de blocs ne signifie pas que la transaction n'a pas été traitée. C'est ce qu'on appelle la &quot;malléabilité des transactions&quot;, car les hachages de transaction peuvent être modifiés avant la confirmation dans un bloc. Après confirmation, le +txid+ est immuable et fait autorité.
 ====
 
 La commande +getrawtransaction+ renvoie une transaction sérialisée en notation hexadécimale. Pour décoder cela, nous utilisons la commande +decoderawtransaction+, en passant les données hexadécimales en paramètre. Vous pouvez copier l'hex renvoyé par +getrawtransaction+ et le coller en tant que paramètre dans +decoderawtransaction+ :
 
-----
+++++
+<pre data-type="programlisting">
 $ bitcoin-cli decoderawtransaction 0100000001186f9f998a5aa6f048e51dd8419a14d8&#x21b5;
 a0f1a8a2836dd734d2804fe65fa35779000000008b483045022100884d142d86652a3f47ba474&#x21b5;
 6ec719bbfbd040a570b1deccbb6498c75c4ae24cb02204b9f039ff08df09cbe9f6addac960298&#x21b5;
@@ -542,9 +545,12 @@ e0735e7ade8416ab9fe423cc5412336376789d172787ec3457eee41c04f4938de5cc17b4a10fa&#x
 336a8d752adfffffffff0260e31600000000001976a914ab68025513c3dbd2f7b92a94e0581f5&#x21b5;
 d50f654e788acd0ef8000000000001976a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8&#x21b5;
 88ac00000000
-----
 
-----
+</pre>
+++++
+
+++++
+<pre data-type="programlisting" data-code-language="json">
 {
   "txid": "0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2",
   "size": 258,
@@ -590,7 +596,9 @@ d50f654e788acd0ef8000000000001976a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8&#x
     }
   ]
 }
-----
+
+</pre>
+++++
 
 Le décodage de la transaction montre tous les composants de cette transaction, y compris les entrées et les sorties de la transaction. Dans ce cas, nous voyons que la transaction qui a crédité notre nouvelle adresse de 15 millibits a utilisé une entrée et généré deux sorties. L'entrée de cette transaction était la sortie d'une transaction précédemment confirmée (indiquée par +txid+ commençant par +7957a35fe+). Les deux sorties correspondent au crédit de 15 millibits et une sortie avec retour à l'expéditeur.
 
@@ -606,20 +614,24 @@ Nous pouvons explorer davantage la chaîne de blocs en examinant la transaction 
 
 Nous utilisons la commande +getblockhash+, qui prend la hauteur du bloc comme paramètre et renvoie le hachage pour ce bloc :
 
-----
+++++
 <pre data-type="programlisting">
 $ bitcoin-cli getblockhash 277316
 0000000000000001b6b9a13b095e96db41c4a928b97ef2d944a9b31b2cc7bdc4
-----
+</pre>
+++++
 
 Maintenant que nous savons dans quel bloc la transaction d'Alice était incluse, nous pouvons interroger ce bloc. Nous utilisons la commande +getblock+ avec le hachage de bloc comme paramètre :
 
-----
+++++
+<pre data-type="programlisting">
 $ bitcoin-cli getblock 0000000000000001b6b9a13b095e96db41c4a928b97ef2d944a9b3&#x21b5;
 1b2cc7bdc4
-----
+</pre>
+++++
 
-----
+++++
+<pre data-type="programlisting" data-code-language="json">
 {
   "hash": "0000000000000001b6b9a13b095e96db41c4a928b97ef2d944a9b31b2cc7bdc4",
   "confirmations": 37371,
@@ -653,9 +665,10 @@ $ bitcoin-cli getblock 0000000000000001b6b9a13b095e96db41c4a928b97ef2d944a9b3&#x
   "previousblockhash": "0000000000000002a7bbd25a417c0374cc55261021e8a9ca74442b01284f0569",
   "nextblockhash": "000000000000000010236c269dd6ed714dd5db39d36b33959079d78dfd431ba7"
 }
-----
+</pre>
+++++
 
-Le bloc contient 419 transactions et la 64ème transaction répertoriée (+0627052b...+) est le paiement du café d'Alice. L'entrée + hauteur + nous indique qu'il s'agit du 277316e bloc de la blockchain.
+Le bloc contient 419 transactions et la 64ème transaction répertoriée (+0627052b...+) est le paiement du café d'Alice. L'entrée + hauteur + nous indique qu'il s'agit du 277316e bloc de la chaîne de blocs.
 
 ==== Utilisation de l'interface de programmation de Bitcoin Core
 
@@ -754,7 +767,7 @@ https://github.com/jgarzik/picocoin[picocoin]:: Bibliothèque cliente légère e
 
 ==== JavaScript
 https://bcoin.io/[bcoin]:: Une implémentation modulaire et évolutive de nœud complet avec API
-https://bitcore.io/[Bitcore]:: Noeud complet, API et bibliothèque par Bitpay
+https://bitcore.io/[Bitcore]:: Nœud complet, API et bibliothèque par Bitpay
 https://github.com/bitcoinjs/bitcoinjs-lib[BitcoinJS]:: Une pure bibliothèque Bitcoin en JavaScript pour node.js et les navigateurs
 
 ==== Java
