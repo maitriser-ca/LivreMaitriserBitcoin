@@ -55,7 +55,7 @@ Traducteur : <strong>Serafim Dos Santos</strong></p>
 
 ---
 1. [Préface](html/for_use_mastering-bitcoin_preface-open_fr_CA.html)
-2. [Glossaire](html/for_use_mastering-bitcoin_glossary-1_fr_CA.html)
+2. [Glossaire rapide](html/for_use_mastering-bitcoin_glossary-1_fr_CA.html)
 3. [Chapitre 1 - Introduction](html/for_use_mastering-bitcoin_chapter-1_fr_CA.html)
 4. [Chapitre 2 - Comment fonctionne Bitcoin](html/for_use_mastering-bitcoin_chapter-2_fr_CA.html)
 5. [Chapitre 3 - Bitcoin Core: La référence d'implémentation](html/for_use_mastering-bitcoin_chapter-3_fr_CA.html)
