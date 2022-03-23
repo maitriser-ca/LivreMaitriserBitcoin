@@ -420,7 +420,7 @@ Pour faciliter la lecture et l'affichage du numéro d'index, le numéro d'index 
 
 ((("portefeuilles déterministes hiérarchiques (HD)")))Les clés d'un portefeuille HD sont identifiées à l'aide d'une convention de dénomination "chemin", où chaque niveau de l'arborescence est séparé par une barre oblique (/) (voir &lt;<table_4-8>&gt;). Les clés privées dérivées de la clé privée principale commencent par "m". Les clés publiques dérivées de la clé publique principale commencent par « M ». Par conséquent, la première clé privée enfant de la clé privée principale est m/0. La première clé publique enfant est M/0. Le deuxième petit-enfant du premier enfant est m/0/1, et ainsi de suite.
 
-L&#39;"ascendance" d'une clé se lit de droite à gauche, jusqu'à atteindre la clé maîtresse dont elle est issue. Par exemple, l'identifiant m/x/y/z décrit la clé privée qui est le z-ième enfant de la clé privée parent m/x/y, qui est le y-ième enfant de la clé privée parent m/x, qui est le x-ième enfant de la clé privée principale parente m.
+L'"ascendance" d'une clé se lit de droite à gauche, jusqu'à atteindre la clé maîtresse dont elle est issue. Par exemple, l'identifiant m/x/y/z décrit la clé privée qui est le z-ième enfant de la clé privée parent m/x/y, qui est le y-ième enfant de la clé privée parent m/x, qui est le x-ième enfant de la clé privée principale parente m.
 
 [[table_4-8]]
 .Exemples de chemin de portefeuille HD
@@ -429,7 +429,7 @@ L&#39;"ascendance" d'une clé se lit de droite à gauche, jusqu'à atteindre la 
 |Chemin HD | Clé décrite
 | m/0 | La première (0) clé privée enfant de la clé privée maîtresse (m)
 | m/0/0 | La première (0) clé privée enfant du premier enfant (m/0)
-| m/0&#39;/0 | Le premier (0) enfant normal du premier enfant _renforcé_ (m/0&#39;)
+| m/0'/0 | Le premier (0) enfant normal du premier enfant _renforcé_ (m/0')
 | m/1/0 | La première (0) clé privée enfant du deuxième enfant (m/1)
 | M/23/17/0/0 | La première (0) clé publique enfant du premier enfant (M/23/17/0) du 18ème enfant (M/23/17) du 24ème enfant (M/23)
 |=======
@@ -440,15 +440,15 @@ La structure arborescente du portefeuille HD offre une grande flexibilité. Chaq
 
 Deux BIP offrent une solution à cette complexité en créant des propositions de normes pour la structure des arborescences de portefeuille HD. BIP-43 propose l'utilisation du premier index enfant renforcé comme identifiant spécial qui signifie le "but" de la structure arborescente. Basé sur BIP-43, un portefeuille HD ne devrait utiliser qu'une seule branche de niveau 1 de l'arborescence, le numéro d'index identifiant la structure et l'espace de noms du reste de l'arborescence en définissant son objectif. Par exemple, un portefeuille HD utilisant uniquement la branche m/i++'++/ est destiné à signifier un objectif spécifique et cet objectif est identifié par le numéro d'index "i".
 
-En étendant cette spécification, BIP-44 propose une structure multicompte en tant que numéro "d'objet" +44&#39;+ sous BIP-43. Tous les portefeuilles HD suivant la structure BIP-44 sont identifiés par le fait qu'ils n'utilisent qu'une seule branche de l'arborescence : m/44&#39;/.
+En étendant cette spécification, BIP-44 propose une structure multicompte en tant que numéro "d'objet" +44'+ sous BIP-43. Tous les portefeuilles HD suivant la structure BIP-44 sont identifiés par le fait qu'ils n'utilisent qu'une seule branche de l'arborescence : m/44'/.
 
 BIP-44 spécifie la structure comme étant composée de cinq niveaux d'arborescence prédéfinis :
 
 -----
-m / but&#39; / type_monnaie&#39; / compte&#39; / change / index_adresse
+m / but' / type_monnaie' / compte' / change / index_adresse
 -----
 
-Le "but" de premier niveau est toujours réglé sur +44&#39;+. Le "type_monnaie" de deuxième niveau spécifie le type de pièce de cryptomonnaie, permettant des portefeuilles HD multidevises où chaque devise a son propre sous-arbre sous le deuxième niveau. Il y a trois devises définies pour l'instant : Bitcoin est m/44'/0', Bitcoin Testnet est m/44++'++/1++'++, et Litecoin est m/44++'++/2++'++.
+Le "but" de premier niveau est toujours réglé sur +44'+. Le "type_monnaie" de deuxième niveau spécifie le type de pièce de cryptomonnaie, permettant des portefeuilles HD multidevises où chaque devise a son propre sous-arbre sous le deuxième niveau. Il y a trois devises définies pour l'instant : Bitcoin est m/44'/0', Bitcoin Testnet est m/44++'++/1++'++, et Litecoin est m/44++'++/2++'++.
 
 Le troisième niveau de l'arborescence est "compte", qui permet aux utilisateurs de subdiviser leurs portefeuilles en sous-comptes logiques distincts, à des fins comptables ou organisationnelles. Par exemple, un portefeuille HD peut contenir deux "comptes" bitcoin : m/44++'++/0++'++/0++'++ et m/44++'++/0++'++/1++'++. Chaque compte est la racine de sa propre sous-arborescence.
 
@@ -459,9 +459,9 @@ Le troisième niveau de l'arborescence est "compte", qui permet aux utilisateurs
 [options="header"]
 |=======
 |Chemin HD | Clé décrite
-| M/44++&#39;++/0++&#39;++/0++&#39;++/0/2 | La troisième clé publique de réception pour le compte bitcoin principal
-| M/44++&#39;++/0++&#39;++/3++&#39;++/1/14 | La quinzième clé publique de changement d'adresse pour le quatrième compte bitcoin
-| m/44++&#39;++/2++&#39;++/0++&#39;++/0/1 | La deuxième clé privée du compte principal Litecoin, pour la signature des transactions
+| M/44++'++/0++'++/0++'++/0/2 | La troisième clé publique de réception pour le compte bitcoin principal
+| M/44++'++/0++'++/3++'++/1/14 | La quinzième clé publique de changement d'adresse pour le quatrième compte bitcoin
+| m/44++'++/2++'++/0++'++/0/1 | La deuxième clé privée du compte principal Litecoin, pour la signature des transactions
 |=======
 
 ==== Utilisation d'une clé publique étendue sur une boutique en ligne
