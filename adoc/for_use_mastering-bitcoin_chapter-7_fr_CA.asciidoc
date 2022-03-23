@@ -45,7 +45,7 @@ Les deux scripts ensemble formeraient le script de validation combiné :
 Lorsqu'il est exécuté, ce script combiné sera évalué à TRUE si, et seulement si, le script de déverrouillage correspond aux conditions définies par le script de verrouillage. Dans ce cas, la condition est de savoir si le script de déverrouillage possède une signature valide à partir des deux clés privées qui correspondent à deux des trois clés publiques définies comme une charge.
 
 [[multisig_bug]]
-===== Un bogue dans l'exécution de CHECKMULTISIG
+==== Un bogue dans l'exécution de CHECKMULTISIG
 
 ((("scripting", "multisignature scripts", "CHECKMULTISIG bug")))((("CHECKMULTISIG bug workaround")))Il y a un bug dans l'exécution de ++CHECKMULTISIG++ qui nécessite une légère solution de contournement. Lorsque +CHECKMULTISIG+ s'exécute, il doit consommer M+N+2 éléments sur la pile en tant que paramètres. Cependant, en raison du bogue, +CHECKMULTISIG+ affichera une valeur supplémentaire ou une valeur de plus que prévu.
 
