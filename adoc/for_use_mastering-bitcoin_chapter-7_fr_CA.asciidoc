@@ -87,7 +87,7 @@ mais à la place c'est :
 Le script résultant est assez long et ressemble à ceci :
 
 ----
-2 <Clé publique de Mohammed> <Partner1 Public Key> <Partner2 Public Key> <Partner3 Public Key> <Attorney Public Key> 5 CHECKMULTISIG
+2 <Mohammed's Public Key> <Partner1 Public Key> <Partner2 Public Key> <Partner3 Public Key> <Attorney Public Key> 5 CHECKMULTISIG
 ----
 
 Bien que les scripts multisignatures soient une fonctionnalité puissante, ils sont lourds à utiliser. Compte tenu du script précédent, Mohammed devrait communiquer ce script à chaque client avant le paiement. Chaque client devrait utiliser un logiciel spécial de portefeuille bitcoin avec la possibilité de créer des scripts de transaction personnalisés, et chaque client devrait comprendre comment créer une transaction à l'aide de scripts personnalisés. De plus, la transaction résultante serait environ cinq fois plus importante qu'une simple transaction de paiement, car ce script contient des clés publiques très longues. Le fardeau de cette transaction extra-large serait supporté par le client sous la forme de frais. Enfin, un gros script de transaction comme celui-ci serait transporté dans l'UTXO défini dans la RAM de chaque nœud complet, jusqu'à ce qu'il soit dépensé. Tous ces problèmes rendent difficile l'utilisation de scripts de verrouillage complexes dans la pratique.
@@ -118,7 +118,7 @@ Examinons la société de Mohammed, le script multisignature complexe et les scr
 Tout d'abord, le script multisignature que la société de Mohammed utilise pour tous les paiements entrants des clients :
 
 ----
-2 <Clé publique de Mohammed> <Partner1 Public Key> <Partner2 Public Key> <Partner3 Public Key> <Attorney Public Key> 5 CHECKMULTISIG
+2 <Mohammed's Public Key> <Partner1 Public Key> <Partner2 Public Key> <Partner3 Public Key> <Attorney Public Key> 5 CHECKMULTISIG
 ----
 
 Si les espaces réservés sont remplacés par des clés publiques réelles (affichées ici sous forme de nombres de 520 bits commençant par 04), vous pouvez voir que ce script devient très long :

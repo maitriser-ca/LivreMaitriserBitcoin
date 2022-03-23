@@ -484,7 +484,7 @@ $ bitcoin-cli getnetworkinfo
   "connections": 8,
   "networks": [
     ...
-    detailed information about all networks (ipv4, ipv6 or onion)
+    des informations détaillées sur tous les réseaux (ipv4, ipv6 ou onion)
     ...
   ],
   "relayfee": 0.00001000,

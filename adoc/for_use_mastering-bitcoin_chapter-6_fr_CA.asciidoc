@@ -425,7 +425,7 @@ Le langage de script de Bitcoin est appelé un langage basé sur la pile car il 
 
 Le langage de script exécute le script en traitant chaque élément de gauche à droite. Les nombres (constantes de données) sont poussés sur la pile. Les opérateurs poussent ou sortent un ou plusieurs paramètres de la pile, agissent sur eux et peuvent pousser un résultat sur la pile. Par exemple, +OP_ADD+ fera sortir deux éléments de la pile, les ajoutera et poussera la somme résultante sur la pile.
 
-Les opérateurs conditionnels évaluent une condition, produisant un résultat booléen VRAI (TRUE) ou FAUX (FALSE). Par exemple, +OP_EQUAL+ dépile deux éléments de la pile et pousse TRUE (TRUE est représenté par le nombre 1) s'ils sont égaux ou FALSE (représenté par zéro) s'ils ne sont pas égaux. Les scripts de transaction Bitcoin contiennent généralement un opérateur conditionnel, afin qu'ils puissent produire le résultat TRUE qui signifie une transaction valide.
+Les opérateurs conditionnels évaluent une condition, produisant un résultat booléen TRUE (VRAI) ou FALSE (FAUX). Par exemple, +OP_EQUAL+ dépile deux éléments de la pile et pousse TRUE (TRUE est représenté par le nombre 1) s'ils sont égaux ou FALSE (représenté par zéro) s'ils ne sont pas égaux. Les scripts de transaction Bitcoin contiennent généralement un opérateur conditionnel, afin qu'ils puissent produire le résultat TRUE qui signifie une transaction valide.
 
 ===== Un script simple
 
@@ -507,7 +507,7 @@ Les deux scripts ensemble formeraient le script de validation combiné suivant 
 <Cafe Public Key Hash> OP_EQUALVERIFY OP_CHECKSIG
 ----
 
-Lorsqu'il est exécuté, ce script combiné sera évalué à TRUE si, et seulement si, le script de déverrouillage correspond aux conditions définies par le script de verrouillage. En d'autres termes, le résultat sera VRAI si le script de déverrouillage a une signature valide de la clé privée du comptoir qui correspond au hachage de la clé publique défini comme encombrement.
+Lorsqu'il est exécuté, ce script combiné sera évalué à TRUE si, et seulement si, le script de déverrouillage correspond aux conditions définies par le script de verrouillage. En d'autres termes, le résultat sera TRUE si le script de déverrouillage a une signature valide de la clé privée du comptoir qui correspond au hachage de la clé publique défini comme encombrement.
 
 Les figures pass:[<a data-type="xref" href="#P2PubKHash1" data-xrefstyle="select: labelnumber">#P2PubKHash1</a>] et pass:[<a data-type="xref" href="#P2PubKHash2" data-xrefstyle="select: labelnumber">#P2PubKHash2</a>] montrent (en deux parties) une exécution pas à pas du script combiné, qui prouvera qu'il s'agit d'une transaction valide.(((&quot;&quot;, startref=&quot; Tsript06&quot;)))(((&quot;&quot;, startref=&quot;Stransact06&quot;)))
 
@@ -569,7 +569,7 @@ La fonction _F_~_sig_~ produit une signature +Sig+ composée de deux valeurs, co
 Sig = (R, S)
 ----
 
-(((&quot;Distinguished Encoding Rules (DER)&quot;))) Maintenant que les deux valeurs +R+ et +S+ ont été calculées, elles sont sérialisées en un flux d'octets à l'aide d'un schéma de codage standard international appelé _Distinguished Encoding Rules_, ou _DER_ (ou règles d'encodage distingués).
+(((&quot;Distinguished Encoding Rules (DER)&quot;)))Maintenant que les deux valeurs +R+ et +S+ ont été calculées, elles sont sérialisées en un flux d'octets à l'aide d'un schéma de codage standard international appelé _Distinguished Encoding Rules_, ou _DER_ (ou règles d'encodage distingués).
 
 [[seralization_of_signatures_der]]
 ===== Sérialisation des signatures (DER)

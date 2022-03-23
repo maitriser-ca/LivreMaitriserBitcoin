@@ -874,7 +874,7 @@ Prenons un exemple précis. Supposons qu'un mineur ait acheté du matériel de m
 
 ++++
 <ul class="simplelist">
-  <li>P = (14 * 10 <sup>12</sup> / 3 * 10 <sup>18</sup> ) * 210 240 = 0,98</li>
+  <li>P = (14 * 10<sup>12</sup> / 3 * 10<sup>18</sup> ) * 210 240 = 0,98</li>
 </ul>
 ++++
 
