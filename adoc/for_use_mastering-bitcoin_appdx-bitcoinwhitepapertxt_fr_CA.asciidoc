@@ -115,7 +115,7 @@ q~z~ = probabilité que l'attaquant rattrape jamais z blocs derrière
 
 image::images/mbc2_abin08.png["eq1"]
 
-Étant donné notre hypothèse que p &gt; q, la probabilité chute de façon exponentielle à mesure que le nombre de blocs que l'attaquant doit rattraper augmente. Avec les chances contre lui, s'il n'a pas un coup de chance deavant dès le début, ses chances deviennent infiniment petites à mesure qu'il prend du retard.
+Étant donné notre hypothèse que p > q, la probabilité chute de façon exponentielle à mesure que le nombre de blocs que l'attaquant doit rattraper augmente. Avec les chances contre lui, s'il n'a pas un coup de chance deavant dès le début, ses chances deviennent infiniment petites à mesure qu'il prend du retard.
 
 Nous considérons maintenant combien de temps le destinataire d'une nouvelle transaction doit attendre avant d'être suffisamment certain que l'expéditeur ne peut pas modifier la transaction. Nous supposons que l'expéditeur est un attaquant qui veut faire croire au destinataire qu'il l'a payé pendant un certain temps, puis le changer pour se rembourser après un certain temps. Le destinataire sera alerté lorsque cela se produira, mais l'expéditeur espère qu'il sera trop tard.
 

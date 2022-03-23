@@ -17,7 +17,7 @@ Dans cette section, nous résumons les différentes technologies utilisées pour
 
 [TIP]
 ====
-Les portefeuilles Bitcoin contiennent des clés, pas des pièces (ou coins). Chaque utilisateur dispose d'un portefeuille contenant des clés. Les portefeuilles sont en réalité des porte-clés contenant des paires de clés privées/publiques (voir &lt;<private_public_keys>&gt;). Les utilisateurs signent des transactions avec les clés, prouvant ainsi qu'ils sont propriétaires des sorties de transaction (leurs pièces ou monnaies). Les pièces sont stockées sur la chaîne de blocs sous la forme de sorties de transaction (souvent notées vout ou txout).
+Les portefeuilles Bitcoin contiennent des clés, pas des pièces (ou coins). Chaque utilisateur dispose d'un portefeuille contenant des clés. Les portefeuilles sont en réalité des porte-clés contenant des paires de clés privées/publiques (voir <<private_public_keys>>). Les utilisateurs signent des transactions avec les clés, prouvant ainsi qu'ils sont propriétaires des sorties de transaction (leurs pièces ou monnaies). Les pièces sont stockées sur la chaîne de blocs sous la forme de sorties de transaction (souvent notées vout ou txout).
 ====
 
 ((("portefeuilles", "types de", "distinctions primaires")))Il existe deux principaux types de portefeuilles, qui se distinguent par le fait que les clés qu'ils contiennent sont liées les unes aux autres ou non.
@@ -33,7 +33,7 @@ Les prochaines sections présentent chacune de ces technologies à un niveau él
 [[random_wallet]]
 ==== Portefeuilles non déterministes (aléatoires)
 
-((("portefeuilles", "types de", "portefeuilles non déterministes (aléatoires)")))Dans le premier portefeuille bitcoin (maintenant appelé Bitcoin Core), les portefeuilles étaient des collections de clés privées générées aléatoirement. Par exemple, le client Bitcoin Core d'origine prégénère 100 clés privées aléatoires lors du premier démarrage et génère plus de clés si nécessaire, en utilisant chaque clé une seule fois. Ces portefeuilles sont remplacés par des portefeuilles déterministes car ils sont lourds à gérer, à sauvegarder et à importer. L'inconvénient des clés aléatoires est que si vous en générez beaucoup, vous devez conserver des copies de toutes, ce qui signifie que le portefeuille doit être sauvegardé fréquemment. Chaque clé doit être sauvegardée, sinon les fonds qu'elle contrôle sont irrévocablement perdus si le portefeuille devient inaccessible. Cela entre directement en conflit avec le principe d'éviter la réutilisation des adresses, en utilisant chaque adresse Bitcoin pour une seule transaction. La réutilisation des adresses réduit la confidentialité en associant plusieurs transactions et adresses les unes aux autres. Un portefeuille non déterministe de type-0 est un mauvais choix de portefeuille, surtout si vous voulez éviter la réutilisation des adresses car cela implique de gérer de nombreuses clés, ce qui crée le besoin de sauvegardes fréquentes. Bien que le client Bitcoin Core inclue un portefeuille de type 0, l'utilisation de ce portefeuille est déconseillée par les développeurs de Bitcoin Core. &lt;<Type0_wallet>&gt; montre un portefeuille non déterministe, contenant une collection lâche de clés aléatoires.
+((("portefeuilles", "types de", "portefeuilles non déterministes (aléatoires)")))Dans le premier portefeuille bitcoin (maintenant appelé Bitcoin Core), les portefeuilles étaient des collections de clés privées générées aléatoirement. Par exemple, le client Bitcoin Core d'origine prégénère 100 clés privées aléatoires lors du premier démarrage et génère plus de clés si nécessaire, en utilisant chaque clé une seule fois. Ces portefeuilles sont remplacés par des portefeuilles déterministes car ils sont lourds à gérer, à sauvegarder et à importer. L'inconvénient des clés aléatoires est que si vous en générez beaucoup, vous devez conserver des copies de toutes, ce qui signifie que le portefeuille doit être sauvegardé fréquemment. Chaque clé doit être sauvegardée, sinon les fonds qu'elle contrôle sont irrévocablement perdus si le portefeuille devient inaccessible. Cela entre directement en conflit avec le principe d'éviter la réutilisation des adresses, en utilisant chaque adresse Bitcoin pour une seule transaction. La réutilisation des adresses réduit la confidentialité en associant plusieurs transactions et adresses les unes aux autres. Un portefeuille non déterministe de type-0 est un mauvais choix de portefeuille, surtout si vous voulez éviter la réutilisation des adresses car cela implique de gérer de nombreuses clés, ce qui crée le besoin de sauvegardes fréquentes. Bien que le client Bitcoin Core inclue un portefeuille de type 0, l'utilisation de ce portefeuille est déconseillée par les développeurs de Bitcoin Core. <<Type0_wallet>> montre un portefeuille non déterministe, contenant une collection lâche de clés aléatoires.
 
 [TIP]
 ====
@@ -47,7 +47,7 @@ image::images/mbc2_0501.png["Portefeuille non déterministe"]
 
 ==== Portefeuilles déterministes (ensemencés)
 
-((("portefeuilles", "types de", "portefeuilles déterministes (ensemencés)")))Les portefeuilles déterministes ou "ensemencés" sont des portefeuilles qui contiennent des clés privées qui sont toutes dérivées d'une valeur d'amorçage commune, grâce à l'utilisation d'un fonction de hachage à sens unique. La valeur d'amorçage est un nombre généré aléatoirement qui est combiné avec d'autres données, telles qu'un numéro d'index ou un "code de chaîne" (voir &lt;<hd_wallets>&gt;) pour dériver les clés privées. Dans un portefeuille déterministe, la valeur d'amorçage est suffisante pour récupérer toutes les clés dérivées, et donc une seule sauvegarde au moment de la création est suffisante. La valeur d'amorçage est également suffisante pour une exportation ou une importation de portefeuille, permettant une migration facile de toutes les clés de l'utilisateur entre différentes implémentations de portefeuille. &lt;<Type1_wallet>&gt; montre un diagramme logique d'un portefeuille déterministe.
+((("portefeuilles", "types de", "portefeuilles déterministes (ensemencés)")))Les portefeuilles déterministes ou "ensemencés" sont des portefeuilles qui contiennent des clés privées qui sont toutes dérivées d'une valeur d'amorçage commune, grâce à l'utilisation d'un fonction de hachage à sens unique. La valeur d'amorçage est un nombre généré aléatoirement qui est combiné avec d'autres données, telles qu'un numéro d'index ou un "code de chaîne" (voir <<hd_wallets>>) pour dériver les clés privées. Dans un portefeuille déterministe, la valeur d'amorçage est suffisante pour récupérer toutes les clés dérivées, et donc une seule sauvegarde au moment de la création est suffisante. La valeur d'amorçage est également suffisante pour une exportation ou une importation de portefeuille, permettant une migration facile de toutes les clés de l'utilisateur entre différentes implémentations de portefeuille. <<Type1_wallet>> montre un diagramme logique d'un portefeuille déterministe.
 
 [[Type1_wallet]]
 [role="smallersixty"]
@@ -57,7 +57,7 @@ image::images/mbc2_0502.png["Portefeuille déterministe"]
 [[hd_wallets]]
 ==== Portefeuilles HD (BIP-32/BIP-44)
 
-((("portefeuilles", "types de", "portefeuilles déterministes hiérarchiques (HD)")))((("portefeuilles déterministes hiérarchiques (HD)")))((("propositions d'amélioration du bitcoin", "Portefeuilles déterministes hiérarchiques (BIP-32/BIP-44)")))Des portefeuilles déterministes ont été développés pour faciliter la dérivation de nombreuses clés à partir d'une seule "valeur d'amorçage". La forme la plus avancée de portefeuilles déterministes est le portefeuille HD défini par la norme BIP-32. Les portefeuilles HD contiennent des clés dérivées dans une structure arborescente, de sorte qu'une clé parent peut dériver une séquence de clés enfants, chacune pouvant dériver une séquence de clés petits-enfants, et ainsi de suite, jusqu'à une profondeur infinie. Cette arborescence est illustrée dans &lt;<Type2_wallet>&gt;.
+((("portefeuilles", "types de", "portefeuilles déterministes hiérarchiques (HD)")))((("portefeuilles déterministes hiérarchiques (HD)")))((("propositions d'amélioration du bitcoin", "Portefeuilles déterministes hiérarchiques (BIP-32/BIP-44)")))Des portefeuilles déterministes ont été développés pour faciliter la dérivation de nombreuses clés à partir d'une seule "valeur d'amorçage". La forme la plus avancée de portefeuilles déterministes est le portefeuille HD défini par la norme BIP-32. Les portefeuilles HD contiennent des clés dérivées dans une structure arborescente, de sorte qu'une clé parent peut dériver une séquence de clés enfants, chacune pouvant dériver une séquence de clés petits-enfants, et ainsi de suite, jusqu'à une profondeur infinie. Cette arborescence est illustrée dans <<Type2_wallet>>.
 
 [[Type2_wallet]]
 .Portefeuille HD de type-2 : un arbre de clés généré à partir d'une seule valeur d'amorçage
@@ -108,21 +108,21 @@ Si vous implémentez un portefeuille bitcoin, il doit être construit comme un p
 
 ==== Utiliser un portefeuille Bitcoin
 
-((("portefeuilles", "utiliser des portefeuilles bitcoin")))Dans &lt;<user-stories>&gt; nous avons présenté Gabriel, ((("cas d"utilisation", "commerce électronique", id="gabrielfive")))un jeune adolescent entreprenant à Rio de Janeiro, qui gère une simple boutique en ligne qui vend des t-shirts de marque bitcoin, des tasses à café et des autocollants.
+((("portefeuilles", "utiliser des portefeuilles bitcoin")))Dans <<user-stories>> nous avons présenté Gabriel, ((("cas d"utilisation", "commerce électronique", id="gabrielfive")))un jeune adolescent entreprenant à Rio de Janeiro, qui gère une simple boutique en ligne qui vend des t-shirts de marque bitcoin, des tasses à café et des autocollants.
 
-((("portefeuilles", "types de", "portefeuilles matériels")))Gabriel utilise un portefeuille matériel bitcoin Trezor (&lt;<a_trezor_device>&gt;) pour gérer en toute sécurité son bitcoin. Le Trezor est un simple périphérique USB à deux boutons qui stocke les clés (sous la forme d'un portefeuille HD) et signe les transactions. Les portefeuilles Trezor mettent en œuvre toutes les normes de l'industrie abordées dans ce chapitre, de sorte que Gabriel ne dépend d'aucune technologie propriétaire ou d'une solution de fournisseur unique.
+((("portefeuilles", "types de", "portefeuilles matériels")))Gabriel utilise un portefeuille matériel bitcoin Trezor (<<a_trezor_device>>) pour gérer en toute sécurité son bitcoin. Le Trezor est un simple périphérique USB à deux boutons qui stocke les clés (sous la forme d'un portefeuille HD) et signe les transactions. Les portefeuilles Trezor mettent en œuvre toutes les normes de l'industrie abordées dans ce chapitre, de sorte que Gabriel ne dépend d'aucune technologie propriétaire ou d'une solution de fournisseur unique.
 
 [[a_trezor_device]]
 .Un appareil Trezor : un portefeuille bitcoin HD en matériel
 image::images/mbc2_0504.png[alt]
 
-Lorsque Gabriel a utilisé le Trezor pour la première fois, l'appareil a généré une séquence aléatoire (entropie), le mnémonique associé et a dérivé une valeur d'amorçage à partir d'un générateur de nombres aléatoires matériel intégré. Lors de cette phase d'initialisation, le portefeuille affichait à l'écran une séquence de mots numérotés, un par un (voir &lt;<trezor_mnemonic_display>&gt;).
+Lorsque Gabriel a utilisé le Trezor pour la première fois, l'appareil a généré une séquence aléatoire (entropie), le mnémonique associé et a dérivé une valeur d'amorçage à partir d'un générateur de nombres aléatoires matériel intégré. Lors de cette phase d'initialisation, le portefeuille affichait à l'écran une séquence de mots numérotés, un par un (voir <<trezor_mnemonic_display>>).
 
 [[trezor_mnemonic_display]]
 .Trezor affichant un des mots mnémoniques
 image::images/mbc2_0505.png["Vue des mots mnémoniques du portefeuille Trezor"]
 
-En écrivant ce mnémonique, Gabriel a créé une sauvegarde (voir &lt;<mnemonic_paper_backup>&gt;) qui peut être utilisé pour la récupération en cas de perte ou d'endommagement de l'appareil Trezor. Ce mnémonique peut être utilisé pour la récupération dans un nouveau Trezor ou dans l'un des nombreux portefeuilles logiciels ou matériels compatibles. Notez que la séquence des mots est importante, donc les sauvegardes papier mnémotechniques ont des espaces numérotés pour chaque mot. Gabriel a dû enregistrer soigneusement chaque mot dans l'espace numéroté pour préserver la séquence correcte.
+En écrivant ce mnémonique, Gabriel a créé une sauvegarde (voir <<mnemonic_paper_backup>>) qui peut être utilisé pour la récupération en cas de perte ou d'endommagement de l'appareil Trezor. Ce mnémonique peut être utilisé pour la récupération dans un nouveau Trezor ou dans l'un des nombreux portefeuilles logiciels ou matériels compatibles. Notez que la séquence des mots est importante, donc les sauvegardes papier mnémotechniques ont des espaces numérotés pour chaque mot. Gabriel a dû enregistrer soigneusement chaque mot dans l'espace numéroté pour préserver la séquence correcte.
 
 [[mnemonic_paper_backup]]
 .La sauvegarde papier de Gabriel du mnémonique
@@ -138,7 +138,7 @@ En écrivant ce mnémonique, Gabriel a créé une sauvegarde (voir &lt;<mnemonic
 
 [NOTE]
 ====
-Un mnémonique de 12 mots est affiché dans &lt;<mnemonic_paper_backup>&gt;, pour plus de simplicité. En fait, la plupart des portefeuilles matériels génèrent un mnémonique de 24 mots plus sécurisé. Le mnémonique est utilisé exactement de la même manière, quelle que soit sa longueur.
+Un mnémonique de 12 mots est affiché dans <<mnemonic_paper_backup>>, pour plus de simplicité. En fait, la plupart des portefeuilles matériels génèrent un mnémonique de 24 mots plus sécurisé. Le mnémonique est utilisé exactement de la même manière, quelle que soit sa longueur.
 ====
 
 Pour la première implémentation de sa boutique en ligne, Gabriel utilise une seule adresse Bitcoin, générée sur son appareil Trezor. Cette adresse unique est utilisée par tous les clients pour toutes les commandes. Comme nous le verrons, cette approche présente quelques inconvénients et peut être améliorée avec un portefeuille HD.((("", startref="gabrielfive")))
@@ -157,9 +157,9 @@ Examinons maintenant en détail chacune des normes importantes de l'industrie ut
 ((("brainwallets")))Les mots mnémoniques sont souvent confondus avec les "brainwallets". Ils ne sont pas les mêmes. La principale différence est qu'un brainwallet se compose de mots choisis par l'utilisateur, tandis que les mots mnémoniques sont créés de manière aléatoire par le portefeuille et présentés à l'utilisateur. Cette différence importante rend les mots mnémoniques beaucoup plus sûrs, car les humains sont de très mauvaises sources d'aléatoire.
 ====
 
-Les codes mnémoniques sont définis dans le BIP-39 (voir &lt;<appdxbitcoinimpproposals>&gt;). Notez que BIP-39 est une implémentation d'une norme de code mnémonique. ((("portefeuilles Electrum", seealso="wallets")))Il existe une norme différente, avec un ensemble de mots différent, utilisée par le portefeuille Electrum et antérieure à BIP-39. BIP-39 a été proposé par la société à l'origine du portefeuille matériel Trezor et est incompatible avec la mise en œuvre d'Electrum. Cependant, BIP-39 a maintenant obtenu un large soutien de l'industrie à travers des dizaines d'implémentations interopérables et devrait être considéré comme la norme de facto de l'industrie.
+Les codes mnémoniques sont définis dans le BIP-39 (voir <<appdxbitcoinimpproposals>>). Notez que BIP-39 est une implémentation d'une norme de code mnémonique. ((("portefeuilles Electrum", seealso="wallets")))Il existe une norme différente, avec un ensemble de mots différent, utilisée par le portefeuille Electrum et antérieure à BIP-39. BIP-39 a été proposé par la société à l'origine du portefeuille matériel Trezor et est incompatible avec la mise en œuvre d'Electrum. Cependant, BIP-39 a maintenant obtenu un large soutien de l'industrie à travers des dizaines d'implémentations interopérables et devrait être considéré comme la norme de facto de l'industrie.
 
-La BIP-39 définit la création d'un code mnémonique et d'une valeur d'amorçage, que nous décrivons ici en neuf étapes. Pour plus de clarté, le processus est divisé en deux parties: les étapes 1 à 6 sont présentées dans &lt;<generating_mnemonic_words>&gt; et les étapes 7 à 9 sont illustrées dans &lt;<mnemonic_to_seed>&gt;.
+La BIP-39 définit la création d'un code mnémonique et d'une valeur d'amorçage, que nous décrivons ici en neuf étapes. Pour plus de clarté, le processus est divisé en deux parties: les étapes 1 à 6 sont présentées dans <<generating_mnemonic_words>> et les étapes 7 à 9 sont illustrées dans <<mnemonic_to_seed>>.
 
 [[generating_mnemonic_words]]
 ===== Génération de mots mnémoniques
@@ -173,14 +173,14 @@ Les mots mnémoniques sont générés automatiquement par le portefeuille en uti
 5. Associez chaque valeur 11 bits à un mot du dictionnaire prédéfini de 2048 mots.
 6. Le code mnémonique est la séquence de mots.
 
-&lt;<generating_entropy_and_encoding>&gt; montre comment l'entropie est utilisée pour générer des mots mnémoniques.
+<<generating_entropy_and_encoding>> montre comment l'entropie est utilisée pour générer des mots mnémoniques.
 
 [[generating_entropy_and_encoding]]
 [role="smallerseventy"]
 .Génération d'entropie et encodage sous forme de mots mnémoniques
 image::images/mbc2_0506.png["Génération d'entropie et encodage sous forme de mots mnémoniques"]
 
-&lt;<table_4-5>&gt; montre la relation entre la taille des données d'entropie et la longueur des codes mnémoniques en mots.
+<<table_4-5>> montre la relation entre la taille des données d'entropie et la longueur des codes mnémoniques en mots.
 
 [[table_4-5]]
 .Codes mnémoniques : entropie et longueur des mots
@@ -199,9 +199,9 @@ image::images/mbc2_0506.png["Génération d'entropie et encodage sous forme de m
 
 ((("fonction d'étirement de clé")))((("Fonction PBKDF2")))Les mots mnémoniques représentent l'entropie d'une longueur de 128 à 256 bits. L'entropie est ensuite utilisée pour dériver une valeur d'amorçage plus longue (512 bits) grâce à l'utilisation de la fonction d'étirement de clé PBKDF2. La valeur d'amorçage produite est ensuite utilisée pour construire un portefeuille déterministe et en dériver ses clés.
 
-((("sels")))((("Phrases secrètes")))La fonction d'étirement de clé prend deux paramètres : le mnémonique et un _sel_. Le but d'un sel dans une fonction d'étirement de clé est de rendre difficile la construction d'une table de recherche permettant une attaque par force brute. Dans la norme BIP-39, le sel a un autre objectif : il permet l'introduction d'une phrase secrète qui sert de facteur de sécurité supplémentaire protégeant la valeur d'amorçage, comme nous le décrirons plus en détail dans &lt;<mnemonic_passphrase>&gt;.
+((("sels")))((("Phrases secrètes")))La fonction d'étirement de clé prend deux paramètres : le mnémonique et un _sel_. Le but d'un sel dans une fonction d'étirement de clé est de rendre difficile la construction d'une table de recherche permettant une attaque par force brute. Dans la norme BIP-39, le sel a un autre objectif : il permet l'introduction d'une phrase secrète qui sert de facteur de sécurité supplémentaire protégeant la valeur d'amorçage, comme nous le décrirons plus en détail dans <<mnemonic_passphrase>>.
 
-Le processus décrit aux étapes 7 à 9 continue à partir du processus décrit précédemment dans &lt;<generating_mnemonic_words>&gt; :
+Le processus décrit aux étapes 7 à 9 continue à partir du processus décrit précédemment dans <<generating_mnemonic_words>> :
 
 ++++
 <ol start="7">
@@ -211,7 +211,7 @@ Le processus décrit aux étapes 7 à 9 continue à partir du processus décrit 
 </ol>
 ++++
 
-&lt;<fig_5_7>&gt; montre comment un mnémonique est utilisé pour générer une valeur d'amorçage.
+<<fig_5_7>> montre comment un mnémonique est utilisé pour générer une valeur d'amorçage.
 
 [[fig_5_7]]
 .Du mnémonique à la valeur d'amorçage
@@ -304,7 +304,7 @@ https://github.com/libbitcoin/libbitcoin/blob/master/src/wallet/mnemonic.cpp[lib
 
 Chaque clé du portefeuille HD est dérivée de manière déterministe de cette valeur d'amorçage racine, ce qui permet de recréer l'intégralité du portefeuille HD à partir de cette valeur d'amorçage dans n'importe quel portefeuille HD compatible. Cela facilite la sauvegarde, la restauration, l'exportation et l'importation de portefeuilles HD contenant des milliers, voire des millions de clés en transférant simplement uniquement le mnémonique dont la valeur d'amorçage racine est dérivée.
 
-Le processus de création des clés principales et du code de chaîne principal pour un portefeuille HD est illustré dans &lt;<HDWalletFromSeed>&gt;.
+Le processus de création des clés principales et du code de chaîne principal pour un portefeuille HD est illustré dans <<HDWalletFromSeed>>.
 
 [[HDWalletFromSeed]]
 .Création de clés principales et de code de chaîne à partir d'une valeur d'amorçage racine
@@ -312,7 +312,7 @@ image::images/mbc2_0509.png["Valeur d'amorçage racine du portefeuille HD"]
 
 La valeur d'amorçage racine est entrée dans l'algorithme HMAC-SHA512 et le hachage résultant est utilisé pour créer une _clé privée principale_ (m) et un _code de chaîne principal_ (c).
 
-La clé privée principale (m) génère ensuite une clé publique principale correspondante (M) en utilisant le processus normal de multiplication de courbe elliptique +m * G+ que nous avons vu dans &lt;<pubkey>&gt;.
+La clé privée principale (m) génère ensuite une clé publique principale correspondante (M) en utilisant le processus normal de multiplication de courbe elliptique +m * G+ que nous avons vu dans <<pubkey>>.
 
 Le code de chaîne (c) est utilisé pour introduire de l'entropie dans la fonction qui crée des clés enfants à partir des clés parents, comme nous le verrons dans la section suivante.
 
@@ -330,7 +330,7 @@ Le code de chaîne est utilisé pour introduire des données aléatoires déterm
 
 Ces trois éléments (clé parent, code de chaîne et index) sont combinés et hachés pour générer des clés enfants, comme suit.
 
-La clé publique parent, le code de chaîne et le numéro d'index sont combinés et hachés avec l'algorithme HMAC-SHA512 pour produire un hachage de 512 bits. Ce hachage de 512 bits est divisé en deux moitiés de 256 bits. Les 256 bits de la moitié droite de la sortie de hachage deviennent le code de chaîne pour l'enfant. Les 256 bits de la moitié gauche du hachage sont ajoutés à la clé parent pour produire la clé privée enfant. Dans &lt;<CKDpriv>&gt;, nous voyons cela illustré avec l'index mis à 0 pour produire l'enfant "zéro" (premier par index) du parent.
+La clé publique parent, le code de chaîne et le numéro d'index sont combinés et hachés avec l'algorithme HMAC-SHA512 pour produire un hachage de 512 bits. Ce hachage de 512 bits est divisé en deux moitiés de 256 bits. Les 256 bits de la moitié droite de la sortie de hachage deviennent le code de chaîne pour l'enfant. Les 256 bits de la moitié gauche du hachage sont ajoutés à la clé parent pour produire la clé privée enfant. Dans <<CKDpriv>>, nous voyons cela illustré avec l'index mis à 0 pour produire l'enfant "zéro" (premier par index) du parent.
 
 [[CKDpriv]]
 .Étendre une clé privée parent pour créer une clé privée enfant
@@ -355,7 +355,7 @@ Une clé privée enfant, la clé publique correspondante et l'adresse Bitcoin so
 
 ((("clés publiques et privées", "clés étendues")))((("clés étendues")))Comme nous l'avons vu précédemment, la fonction de dérivation de clé peut être utilisée pour créer des enfants à n'importe quel niveau de l'arborescence, en fonction sur les trois entrées : une clé, un code chaîne et l'index de l'enfant souhaité. Les deux ingrédients essentiels sont la clé et le code de chaîne, et combinés, ils s'appellent une _clé étendue_. Le terme "clé étendue" pourrait également être considéré comme une "clé extensible" car une telle clé peut être utilisée pour dériver des enfants.
 
-Les clés étendues sont stockées et représentées simplement comme la concaténation de la clé de 256 bits et du code de chaîne de 256 bits dans une séquence de 512 bits. Il existe deux types de clés étendues. Une clé privée étendue est la combinaison d'une clé privée et d'un code de chaîne et peut être utilisée pour dériver des clés privées enfants (et à partir de celles-ci, des clés publiques enfants). Une clé publique étendue est une clé publique et un code de chaîne, qui peuvent être utilisés pour créer des clés publiques enfants (_public uniquement_), comme décrit dans &lt;<public_key_derivation>&gt;.
+Les clés étendues sont stockées et représentées simplement comme la concaténation de la clé de 256 bits et du code de chaîne de 256 bits dans une séquence de 512 bits. Il existe deux types de clés étendues. Une clé privée étendue est la combinaison d'une clé privée et d'un code de chaîne et peut être utilisée pour dériver des clés privées enfants (et à partir de celles-ci, des clés publiques enfants). Une clé publique étendue est une clé publique et un code de chaîne, qui peuvent être utilisés pour créer des clés publiques enfants (_public uniquement_), comme décrit dans <<public_key_derivation>>.
 
 Considérez une clé étendue comme la racine d'une branche dans l'arborescence du portefeuille HD. Avec la racine de la branche, vous pouvez dériver le reste de la branche. La clé privée étendue peut créer une branche complète, tandis que la clé publique étendue peut créer _uniquement_ une branche de clés publiques.
 
@@ -389,7 +389,7 @@ Ce raccourci peut être utilisé pour créer des déploiements très sécurisés
 
 Une application courante de cette solution consiste à installer une clé publique étendue sur un serveur Web qui sert une application de commerce électronique. Le serveur Web peut utiliser la fonction de dérivation de clé publique pour créer une nouvelle adresse Bitcoin pour chaque transaction (par exemple, pour le panier d'un client). Le serveur Web n'aura aucune clé privée qui serait vulnérable au vol. Sans les portefeuilles HD, la seule façon d'y parvenir est de générer des milliers d'adresses Bitcoin sur un serveur sécurisé séparé, puis de les précharger sur le serveur de commerce électronique. Cette approche est lourde et nécessite une maintenance constante pour s'assurer que le serveur de commerce électronique ne "manque" pas d'adresses.
 
-((("stockage à froid")))((("stockage", "stockage à froid")))((("portefeuilles matériels")))Une autre application courante de cette solution est le stockage à froid ou les portefeuilles matériels. Dans ce scénario, la clé privée étendue peut être stockée sur un portefeuille papier ou un périphérique matériel (tel qu'un portefeuille matériel Trezor), tandis que la clé publique étendue peut être conservée en ligne. L'utilisateur peut créer des adresses "de réception" à volonté, tandis que les clés privées sont stockées en toute sécurité hors ligne. Pour dépenser les fonds, l'utilisateur peut utiliser la clé privée étendue sur un client Bitcoin de signature hors ligne ou signer des transactions sur le périphérique de portefeuille matériel (par exemple, Trezor). &lt;<CKDpub>&gt; illustre le mécanisme d'extension d'une clé publique parent pour dériver des clés publiques enfants.
+((("stockage à froid")))((("stockage", "stockage à froid")))((("portefeuilles matériels")))Une autre application courante de cette solution est le stockage à froid ou les portefeuilles matériels. Dans ce scénario, la clé privée étendue peut être stockée sur un portefeuille papier ou un périphérique matériel (tel qu'un portefeuille matériel Trezor), tandis que la clé publique étendue peut être conservée en ligne. L'utilisateur peut créer des adresses "de réception" à volonté, tandis que les clés privées sont stockées en toute sécurité hors ligne. Pour dépenser les fonds, l'utilisateur peut utiliser la clé privée étendue sur un client Bitcoin de signature hors ligne ou signer des transactions sur le périphérique de portefeuille matériel (par exemple, Trezor). <<CKDpub>> illustre le mécanisme d'extension d'une clé publique parent pour dériver des clés publiques enfants.
 
 [[CKDpub]]
 .Étendre une clé publique parent pour créer une clé publique enfant
@@ -399,7 +399,7 @@ image::images/mbc2_0511.png["Dérivation enfant publique"]
 
 ((("clés publiques et privées", "dérivation de clé enfant renforcée")))((("dérivation renforcée")))La possibilité de dériver une branche de clés publiques à partir d'un xpub est très utile, mais elle est potentiellement risquée. L'accès à une xpub ne donne pas accès aux clés privées enfants. Cependant, étant donné que xpub contient le code de chaîne, si une clé privée enfant est connue ou divulguée d'une manière ou d'une autre, elle peut être utilisée avec le code de chaîne pour dériver toutes les autres clés privées enfants. Une seule clé privée enfant divulguée, associée à un code de chaîne parent, révèle toutes les clés privées de tous les enfants. Pire encore, la clé privée enfant associée à un code de chaîne parent peut être utilisée pour déduire la clé privée parent.
 
-Pour contrer ce risque, les portefeuilles HD utilisent une fonction de dérivation alternative appelée _dérivation renforcée_, qui "casse" la relation entre la clé publique parent et le code de chaîne enfant. La fonction de dérivation renforcée utilise la clé privée parent pour dériver le code de chaîne enfant, au lieu de la clé publique parent. Cela crée un "pare-feu" dans la séquence parent/enfant, avec un code de chaîne qui ne peut pas être utilisé pour compromettre une clé privée parent ou sœur. La fonction de dérivation renforcée semble presque identique à la dérivation de clé privée enfant normale, sauf que la clé privée parent est utilisée comme entrée de la fonction de hachage, au lieu de la clé publique parent, comme indiqué dans le diagramme de &lt;<CKDprime>&gt;.
+Pour contrer ce risque, les portefeuilles HD utilisent une fonction de dérivation alternative appelée _dérivation renforcée_, qui "casse" la relation entre la clé publique parent et le code de chaîne enfant. La fonction de dérivation renforcée utilise la clé privée parent pour dériver le code de chaîne enfant, au lieu de la clé publique parent. Cela crée un "pare-feu" dans la séquence parent/enfant, avec un code de chaîne qui ne peut pas être utilisé pour compromettre une clé privée parent ou sœur. La fonction de dérivation renforcée semble presque identique à la dérivation de clé privée enfant normale, sauf que la clé privée parent est utilisée comme entrée de la fonction de hachage, au lieu de la clé publique parent, comme indiqué dans le diagramme de <<CKDprime>>.
 
 [[CKDprime]]
 .Dérivation renforcée d'une clé enfant ; omet la clé publique parent
@@ -418,7 +418,7 @@ Pour faciliter la lecture et l'affichage du numéro d'index, le numéro d'index 
 
 ===== Identifiant de clé de portefeuille HD (chemin)
 
-((("portefeuilles déterministes hiérarchiques (HD)")))Les clés d'un portefeuille HD sont identifiées à l'aide d'une convention de dénomination "chemin", où chaque niveau de l'arborescence est séparé par une barre oblique (/) (voir &lt;<table_4-8>&gt;). Les clés privées dérivées de la clé privée principale commencent par "m". Les clés publiques dérivées de la clé publique principale commencent par « M ». Par conséquent, la première clé privée enfant de la clé privée principale est m/0. La première clé publique enfant est M/0. Le deuxième petit-enfant du premier enfant est m/0/1, et ainsi de suite.
+((("portefeuilles déterministes hiérarchiques (HD)")))Les clés d'un portefeuille HD sont identifiées à l'aide d'une convention de dénomination "chemin", où chaque niveau de l'arborescence est séparé par une barre oblique (/) (voir <<table_4-8>>). Les clés privées dérivées de la clé privée principale commencent par "m". Les clés publiques dérivées de la clé publique principale commencent par « M ». Par conséquent, la première clé privée enfant de la clé privée principale est m/0. La première clé publique enfant est M/0. Le deuxième petit-enfant du premier enfant est m/0/1, et ainsi de suite.
 
 L'"ascendance" d'une clé se lit de droite à gauche, jusqu'à atteindre la clé maîtresse dont elle est issue. Par exemple, l'identifiant m/x/y/z décrit la clé privée qui est le z-ième enfant de la clé privée parent m/x/y, qui est le y-ième enfant de la clé privée parent m/x, qui est le x-ième enfant de la clé privée principale parente m.
 
@@ -452,7 +452,7 @@ Le "but" de premier niveau est toujours réglé sur +44'+. Le "type_monnaie" de 
 
 Le troisième niveau de l'arborescence est "compte", qui permet aux utilisateurs de subdiviser leurs portefeuilles en sous-comptes logiques distincts, à des fins comptables ou organisationnelles. Par exemple, un portefeuille HD peut contenir deux "comptes" bitcoin : m/44++'++/0++'++/0++'++ et m/44++'++/0++'++/1++'++. Chaque compte est la racine de sa propre sous-arborescence.
 
-((("clés et adresses", see="aussi clés publiques et privées")))Au quatrième niveau, "change", un portefeuille HD a deux sous-arborescences, une pour créer des adresses de réception et une pour créer des adresses de modification. Notez qu'alors que les niveaux précédents utilisaient une dérivation renforcée, ce niveau utilise une dérivation normale. Cela permet à ce niveau de l'arborescence d'exporter des clés publiques étendues pour une utilisation dans un environnement non sécurisé. Les adresses utilisables sont dérivées par le portefeuille HD en tant qu'enfants du quatrième niveau, faisant du cinquième niveau de l'arborescence l'"index_adresse". Par exemple, la troisième adresse de réception pour les paiements en bitcoins dans le compte principal serait M/44++'++/0++'++/0++'++/0/2. &lt;<table_4-9>&gt; montre quelques exemples supplémentaires.
+((("clés et adresses", see="aussi clés publiques et privées")))Au quatrième niveau, "change", un portefeuille HD a deux sous-arborescences, une pour créer des adresses de réception et une pour créer des adresses de modification. Notez qu'alors que les niveaux précédents utilisaient une dérivation renforcée, ce niveau utilise une dérivation normale. Cela permet à ce niveau de l'arborescence d'exporter des clés publiques étendues pour une utilisation dans un environnement non sécurisé. Les adresses utilisables sont dérivées par le portefeuille HD en tant qu'enfants du quatrième niveau, faisant du cinquième niveau de l'arborescence l'"index_adresse". Par exemple, la troisième adresse de réception pour les paiements en bitcoins dans le compte principal serait M/44++'++/0++'++/0++'++/0/2. <<table_4-9>> montre quelques exemples supplémentaires.
 
 [[table_4-9]]
 .Exemples de structure de portefeuille HD BIP-44
@@ -478,7 +478,7 @@ Cependant, la petite boutique en ligne a connu un certain succès et a attiré d
 
 Le portefeuille HD de Gabriel offre une bien meilleure solution grâce à la possibilité de dériver des clés enfants publiques sans connaître les clés privées. Gabriel peut charger une clé publique étendue (xpub) sur son site Web, qui peut être utilisée pour dériver une adresse unique pour chaque commande client. Gabriel peut dépenser les fonds de son Trezor, mais le xpub chargé sur le site Web ne peut que générer des adresses et recevoir des fonds. Cette fonctionnalité des portefeuilles HD est une excellente fonctionnalité de sécurité. Le site Web de Gabriel ne contient aucune clé privée et n'a donc pas besoin de niveaux de sécurité élevés.
 
-Pour exporter le xpub, Gabriel utilise l'application de bureau Trezor Suite en conjonction avec le portefeuille matériel Trezor. L'appareil Trezor doit être branché pour que les clés publiques soient exportées. Notez que les portefeuilles matériels n'exporteront jamais de clés privées, celles-ci restant toujours sur l'appareil. &lt;<export_xpub>&gt; montre ce que Gabriel voit dans Trezor Suite lors de l'exportation du xpub.
+Pour exporter le xpub, Gabriel utilise l'application de bureau Trezor Suite en conjonction avec le portefeuille matériel Trezor. L'appareil Trezor doit être branché pour que les clés publiques soient exportées. Notez que les portefeuilles matériels n'exporteront jamais de clés privées, celles-ci restant toujours sur l'appareil. <<export_xpub>> montre ce que Gabriel voit dans Trezor Suite lors de l'exportation du xpub.
 
 [[export_xpub]]
 .Exportation d'un xpub à partir d'un portefeuille matériel Trezor

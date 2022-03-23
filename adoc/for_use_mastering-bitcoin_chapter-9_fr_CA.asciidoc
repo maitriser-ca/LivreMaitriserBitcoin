@@ -7,7 +7,7 @@
 
 ((("blocs", "hachage de bloc")))((("blocs", "bloc de genèse")))((("blocs", "blocs parents")))((("bloc de genèse")))((("blocs parents")))Chaque bloc de la chaîne de blocs est identifié par un hachage, généré à l'aide de l'algorithme de hachage cryptographique SHA256 sur l'en-tête du bloc. Chaque bloc fait également référence à un bloc précédent, connu sous le nom de bloc _parent_, via le champ "hachage de bloc précédent" dans l'en-tête de bloc. En d'autres termes, chaque bloc contient le hachage de son parent dans sa propre en-tête. La séquence de hachages reliant chaque bloc à son parent crée une chaîne remontant jusqu'au premier bloc jamais créé, connu sous le nom de _bloc de genèse_.
 
-Bien qu'un bloc n'ait qu'un seul parent, il peut temporairement avoir plusieurs enfants. Chacun des enfants fait référence au même bloc que son parent et contient le même hachage (parent) dans le champ "hachage du bloc précédent". Plusieurs enfants apparaissent lors d'une "fourche" de chaîne de blocs, une situation temporaire qui se produit lorsque différents blocs sont découverts presque simultanément par différents mineurs (voir &lt;<forks>&gt;). Finalement, un seul bloc enfant devient une partie de la chaîne de blocs et la "fourche" est résolu. Même si un bloc peut avoir plusieurs enfants, chaque bloc ne peut avoir qu'un seul parent. En effet, un bloc a un seul champ "hachage de bloc précédent" faisant référence à son parent unique.
+Bien qu'un bloc n'ait qu'un seul parent, il peut temporairement avoir plusieurs enfants. Chacun des enfants fait référence au même bloc que son parent et contient le même hachage (parent) dans le champ "hachage du bloc précédent". Plusieurs enfants apparaissent lors d'une "fourche" de chaîne de blocs, une situation temporaire qui se produit lorsque différents blocs sont découverts presque simultanément par différents mineurs (voir <<forks>>). Finalement, un seul bloc enfant devient une partie de la chaîne de blocs et la "fourche" est résolu. Même si un bloc peut avoir plusieurs enfants, chaque bloc ne peut avoir qu'un seul parent. En effet, un bloc a un seul champ "hachage de bloc précédent" faisant référence à son parent unique.
 
 Le champ "hachage du bloc précédent" se trouve à l'intérieur de l'en-tête du bloc et affecte ainsi le hachage du bloc _courant_. La propre identité de l'enfant change si l'identité du parent change. Lorsque le parent est modifié de quelque manière que ce soit, le hachage du parent change. Le hachage modifié du parent nécessite une modification du pointeur "hachage de bloc précédent" de l'enfant. Cela entraîne à son tour la modification du hachage de l'enfant, ce qui nécessite une modification du pointeur du petit-enfant, qui à son tour modifie le petit-enfant, et ainsi de suite. Cet effet de cascade garantit qu'une fois qu'un bloc est suivi de plusieurs générations, il ne peut pas être modifié sans forcer un recalcul de tous les blocs suivants. Parce qu'un tel recalcul nécessiterait un calcul énorme (et donc une consommation d'énergie), l'existence d'une longue chaîne de blocs rend immuable l'historique profond de la chaîne de blocs, ce qui est une caractéristique clé de la sécurité du bitcoin.
 
@@ -15,7 +15,7 @@ Une façon de penser à la chaîne de blocs est comme des couches dans une forma
 
 === Structure d'un bloc
 
-((("blocs", "structure de")))((("chaîne de blocs (la)", "structure de bloc")))Un bloc est une structure de données de conteneur qui agrège les transactions pour les inclure dans le grand livre public, la chaîne de blocs. Le bloc est composé d'un en-tête, contenant des métadonnées, suivi d'une longue liste de transactions qui constituent l'essentiel de sa taille. L'en-tête de bloc est de 80 octets, alors que la transaction moyenne est d'au moins 400 octets et que le bloc moyen contient plus de 1900 transactions. Un bloc complet, avec toutes les transactions, est donc 10 000 fois plus grand que l'en-tête du bloc. &lt;<block_structure1>&gt; décrit la structure d'un bloc.
+((("blocs", "structure de")))((("chaîne de blocs (la)", "structure de bloc")))Un bloc est une structure de données de conteneur qui agrège les transactions pour les inclure dans le grand livre public, la chaîne de blocs. Le bloc est composé d'un en-tête, contenant des métadonnées, suivi d'une longue liste de transactions qui constituent l'essentiel de sa taille. L'en-tête de bloc est de 80 octets, alors que la transaction moyenne est d'au moins 400 octets et que le bloc moyen contient plus de 1900 transactions. Un bloc complet, avec toutes les transactions, est donc 10 000 fois plus grand que l'en-tête du bloc. <<block_structure1>> décrit la structure d'un bloc.
 
 [[block_structure1]]
 [role="pagebreak-before"]
@@ -32,7 +32,7 @@ Une façon de penser à la chaîne de blocs est comme des couches dans une forma
 [[block_header]]
 === En-tête de bloc
 
-((("blocs", "en-têtes")))((("chaîne de blocs (la)", "en-têtes de bloc")))((("en-têtes")))L'en-tête de bloc se compose de trois ensembles de métadonnées de bloc. Tout d'abord, il y a une référence à un hachage de bloc précédent, qui connecte ce bloc au bloc précédent dans la chaîne de blocs. Le deuxième ensemble de métadonnées, à savoir _difficulty_, _timestamp_ et _nonce_, concerne la concurrence minière, comme détaillé dans &lt;<mining>&gt;. La troisième métadonnée est la racine de l'arbre Merkle, une structure de données utilisée pour résumer efficacement toutes les transactions du bloc. &lt;<block_header_structure_ch09>&gt; décrit la structure d'un en-tête de bloc.
+((("blocs", "en-têtes")))((("chaîne de blocs (la)", "en-têtes de bloc")))((("en-têtes")))L'en-tête de bloc se compose de trois ensembles de métadonnées de bloc. Tout d'abord, il y a une référence à un hachage de bloc précédent, qui connecte ce bloc au bloc précédent dans la chaîne de blocs. Le deuxième ensemble de métadonnées, à savoir _difficulty_, _timestamp_ et _nonce_, concerne la concurrence minière, comme détaillé dans <<mining>>. La troisième métadonnée est la racine de l'arbre Merkle, une structure de données utilisée pour résumer efficacement toutes les transactions du bloc. <<block_header_structure_ch09>> décrit la structure d'un en-tête de bloc.
 
 
 [[block_header_structure_ch09]]
@@ -48,7 +48,7 @@ Une façon de penser à la chaîne de blocs est comme des couches dans une forma
 | 4 octets | Nonce | Un compteur utilisé pour l'algorithme de preuve de travail
 |=======
 
-Le nonce, la cible de difficulté et l'horodatage sont utilisés dans le processus d'extraction et seront discutés plus en détail dans &lt;<mining>&gt;.
+Le nonce, la cible de difficulté et l'horodatage sont utilisés dans le processus d'extraction et seront discutés plus en détail dans <<mining>>.
 
 [[block_hash]]
 === Identificateurs de bloc : hachage d'en-tête de bloc et hauteur de bloc
@@ -61,7 +61,7 @@ Une deuxième façon d'identifier un bloc est par sa position dans la chaîne de
 
 De plus, le terme _hauteur de bloc actuelle_ indique la taille de la chaîne de blocs en blocs à un moment donné. Par exemple, la hauteur actuelle du bloc au 1er mars 2021 était d'environ 672 722, ce qui signifie qu'il y avait 672 722 blocs empilés au-dessus du premier bloc créé en janvier 2009.
 
-Contrairement au hachage de bloc, la hauteur de bloc n'est pas un identifiant unique. Bien qu'un seul bloc ait toujours une hauteur de bloc spécifique et invariante, l'inverse n'est pas vrai : la hauteur de bloc n'identifie pas toujours un seul bloc. Deux ou plusieurs blocs peuvent avoir la même hauteur de bloc, en concurrence pour la même position dans la chaîne de blocs. Ce scénario est décrit en détail dans la section &lt;<forks>&gt;. La hauteur de bloc ne fait pas non plus partie de la structure de données du bloc ; il n'est pas stocké dans le bloc. Chaque nœud identifie dynamiquement la position (hauteur) d'un bloc dans la chaîne de blocs lorsqu'il est reçu du réseau Bitcoin. La hauteur de bloc peut également être stockée sous forme de métadonnées dans une table de base de données indexée pour une récupération plus rapide.
+Contrairement au hachage de bloc, la hauteur de bloc n'est pas un identifiant unique. Bien qu'un seul bloc ait toujours une hauteur de bloc spécifique et invariante, l'inverse n'est pas vrai : la hauteur de bloc n'identifie pas toujours un seul bloc. Deux ou plusieurs blocs peuvent avoir la même hauteur de bloc, en concurrence pour la même position dans la chaîne de blocs. Ce scénario est décrit en détail dans la section <<forks>>. La hauteur de bloc ne fait pas non plus partie de la structure de données du bloc ; il n'est pas stocké dans le bloc. Chaque nœud identifie dynamiquement la position (hauteur) d'un bloc dans la chaîne de blocs lorsqu'il est reçu du réseau Bitcoin. La hauteur de bloc peut également être stockée sous forme de métadonnées dans une table de base de données indexée pour une récupération plus rapide.
 
 [TIP]
 ====
@@ -147,7 +147,7 @@ Le nœud Bitcoin reçoit alors un nouveau bloc du réseau, qu'il analyse comme s
 }
 ----
 
-En regardant ce nouveau bloc, le nœud trouve le champ +previousblockhash+, qui contient le hachage de son bloc parent. Il s'agit d'un hachage connu du nœud, celui du dernier bloc de la chaîne à la hauteur 277,314. Par conséquent, ce nouveau bloc est un enfant du dernier bloc de la chaîne et étend la chaîne de blocs existante. Le nœud ajoute ce nouveau bloc à la fin de la chaîne, rendant la chaîne de blocs plus longue avec une nouvelle hauteur de 277 315. &lt;<chain_of_blocks>&gt; montre la chaîne de trois blocs, liés par des références dans le champ +previousblockhash+.
+En regardant ce nouveau bloc, le nœud trouve le champ +previousblockhash+, qui contient le hachage de son bloc parent. Il s'agit d'un hachage connu du nœud, celui du dernier bloc de la chaîne à la hauteur 277,314. Par conséquent, ce nouveau bloc est un enfant du dernier bloc de la chaîne et étend la chaîne de blocs existante. Le nœud ajoute ce nouveau bloc à la fin de la chaîne, rendant la chaîne de blocs plus longue avec une nouvelle hauteur de 277 315. <<chain_of_blocks>> montre la chaîne de trois blocs, liés par des références dans le champ +previousblockhash+.
 
 
 [[merkle_trees]]
@@ -166,7 +166,7 @@ Les arbres de Merkle sont utilisés dans Bitcoin pour résumer toutes les transa
 
 Lorsque N éléments de données sont hachés et résumés dans un arbre de Merkle, vous pouvez vérifier si un élément de données est inclus dans l'arbre avec au plus +2*log~2~(N)+ calculs, ce qui en fait une donnée très efficace structure.
 
-L'arbre de Merkle est construit de bas en haut. Dans l'exemple suivant, nous commençons avec quatre transactions, A, B, C et D, qui forment les _feuilles_ de l'arbre de Merkle, comme indiqué dans &lt;<simple_merkle>&gt;. Les transactions ne sont pas stockées dans l'arborescence de Merkle ; à la place, leurs données sont hachées et le hachage résultant est stocké dans chaque nœud feuille sous la forme H~A~, H~B~, H~C~ et H~D~ :
+L'arbre de Merkle est construit de bas en haut. Dans l'exemple suivant, nous commençons avec quatre transactions, A, B, C et D, qui forment les _feuilles_ de l'arbre de Merkle, comme indiqué dans <<simple_merkle>>. Les transactions ne sont pas stockées dans l'arborescence de Merkle ; à la place, leurs données sont hachées et le hachage résultant est stocké dans chaque nœud feuille sous la forme H~A~, H~B~, H~C~ et H~D~ :
 
 ----
 H<sub>A</sub> = SHA256(SHA256(Transaction A))
@@ -178,19 +178,19 @@ Des paires consécutives de nœuds feuilles sont ensuite résumées dans un nœu
 H<sub>AB</sub> = SHA256(SHA256(H<sub>A</sub> + H<sub>B</sub>))
 ----
 
-Le processus se poursuit jusqu'à ce qu'il n'y ait qu'un seul nœud au sommet, le nœud connu sous le nom de racine de Merkle. Ce hachage de 32 octets est stocké dans l'en-tête du bloc et résume toutes les données des quatre transactions. &lt;<simple_merkle> &gt; montre comment la racine est calculée par hachages par paires des nœuds.
+Le processus se poursuit jusqu'à ce qu'il n'y ait qu'un seul nœud au sommet, le nœud connu sous le nom de racine de Merkle. Ce hachage de 32 octets est stocké dans l'en-tête du bloc et résume toutes les données des quatre transactions. <<simple_merkle>> montre comment la racine est calculée par hachages par paires des nœuds.
 
 [[simple_merkle]]
 .Calcul des nœuds dans un arbre de Merkle
 image::images/mbc2_0902.png["Arbre de Merkle"]
 
-((("arbres équilibrés")))Parce que l'arbre de Merkle est un arbre binaire, il a besoin d'un nombre pair de nœuds feuilles. S'il y a un nombre impair de transactions à résumer, le dernier hachage de transaction sera dupliqué pour créer un nombre pair de nœuds feuilles, également appelés _arbre équilibré_. Ceci est montré dans &lt;<merkle_tree_odd>&gt;, où la transaction C est dupliquée.
+((("arbres équilibrés")))Parce que l'arbre de Merkle est un arbre binaire, il a besoin d'un nombre pair de nœuds feuilles. S'il y a un nombre impair de transactions à résumer, le dernier hachage de transaction sera dupliqué pour créer un nombre pair de nœuds feuilles, également appelés _arbre équilibré_. Ceci est montré dans <<merkle_tree_odd>>, où la transaction C est dupliquée.
 
 [[merkle_tree_odd]]
 .La duplication d'un élément de données permet d'obtenir un nombre pair d'éléments de données
 image::images/mbc2_0903.png["Arbre de Merkle impair"]
 
-La même méthode de construction d'un arbre à partir de quatre transactions peut être généralisée pour construire des arbres de n'importe quelle taille. Dans le Bitcoin, il est courant d'avoir plusieurs centaines à plus d'un millier de transactions dans un seul bloc, qui sont résumées exactement de la même manière, produisant seulement 32 octets de données en tant que racine de Merkle unique. Dans &lt;<merkle_tree_large>&gt;, vous verrez un arbre construit à partir de 16 transactions. Notez que bien que la racine semble plus grande que les nœuds feuilles dans le diagramme, elle a exactement la même taille, seulement 32 octets. Qu'il y ait une transaction ou cent mille transactions dans le bloc, la racine de Merkle les résume toujours en 32 octets.
+La même méthode de construction d'un arbre à partir de quatre transactions peut être généralisée pour construire des arbres de n'importe quelle taille. Dans le Bitcoin, il est courant d'avoir plusieurs centaines à plus d'un millier de transactions dans un seul bloc, qui sont résumées exactement de la même manière, produisant seulement 32 octets de données en tant que racine de Merkle unique. Dans <<merkle_tree_large>>, vous verrez un arbre construit à partir de 16 transactions. Notez que bien que la racine semble plus grande que les nœuds feuilles dans le diagramme, elle a exactement la même taille, seulement 32 octets. Qu'il y ait une transaction ou cent mille transactions dans le bloc, la racine de Merkle les résume toujours en 32 octets.
 
 ((("chemins d'authentification")))Pour prouver qu'une transaction spécifique est incluse dans un bloc, un nœud n'a besoin que de produire +log~2~(N)+ hachages de 32 octets, constituant un _chemin d'authentification_ ou _chemin de Merkle_ se connectant la transaction spécifique à la racine de l'arborescence. Ceci est particulièrement important lorsque le nombre de transactions augmente, car le logarithme en base 2 du nombre de transactions augmente beaucoup plus lentement. Cela permet aux nœuds Bitcoin de produire efficacement des chemins de 10 ou 12 hachages (320 à 384 octets), qui peuvent fournir la preuve d'une seule transaction parmi plus de mille transactions dans un bloc de la taille d'un mégaoctet.
 
@@ -198,14 +198,14 @@ La même méthode de construction d'un arbre à partir de quatre transactions pe
 .Un arbre Merkle résumant de nombreux éléments de données
 image::images/mbc2_0904.png["Grand arbre de Merkle"]
 
-Dans &lt;<merkle_tree_path>&gt;, un nœud peut prouver qu'une transaction K est incluse dans le bloc en produisant un chemin de Merkle qui ne fait que quatre hachages de 32 octets (128 octets au total). Le chemin se compose des quatre hachages (affichés avec un arrière-plan ombré dans &lt;<merkle_tree_path>&gt;) H~L~, H~IJ~, H~MNOP~ et H~ABCDEFGH~. Avec ces quatre hachages fournis comme chemin d'authentification, n'importe quel nœud peut prouver que H~K~ (avec un fond noir au bas du diagramme) est inclus dans la racine de Merkle en calculant quatre hachages supplémentaires par paires H~KL~, H~IJKL~, H~IJKLMNOP~ et la racine de l'arbre de Merkle (indiquée par une ligne pointillée dans le diagramme).
+Dans <<merkle_tree_path>>, un nœud peut prouver qu'une transaction K est incluse dans le bloc en produisant un chemin de Merkle qui ne fait que quatre hachages de 32 octets (128 octets au total). Le chemin se compose des quatre hachages (affichés avec un arrière-plan ombré dans <<merkle_tree_path>>) H~L~, H~IJ~, H~MNOP~ et H~ABCDEFGH~. Avec ces quatre hachages fournis comme chemin d'authentification, n'importe quel nœud peut prouver que H~K~ (avec un fond noir au bas du diagramme) est inclus dans la racine de Merkle en calculant quatre hachages supplémentaires par paires H~KL~, H~IJKL~, H~IJKLMNOP~ et la racine de l'arbre de Merkle (indiquée par une ligne pointillée dans le diagramme).
 
 [[merkle_tree_path]]
 .Un chemin (ou trajet) de Merkle utilisé pour prouver l'inclusion d'un élément de données
 image::images/mbc2_0905.png["Chemin d'arbre de Merkle"]
 
 
-Le code dans &lt;<merkle_example>&gt; illustre le processus de création d'un arbre de Merkle depuis les hachages de nœud feuille jusqu'à la racine, en utilisant la bibliothèque libbitcoin pour certaines fonctions d'assistance.
+Le code dans <<merkle_example>> illustre le processus de création d'un arbre de Merkle depuis les hachages de nœud feuille jusqu'à la racine, en utilisant la bibliothèque libbitcoin pour certaines fonctions d'assistance.
 
 [[merkle_example]]
 [role="pagebreak-before"]
@@ -217,7 +217,7 @@ include::code/merkle.cpp[]
 ----
 ====
 
-&lt;<merkle_example_run>&gt; montre le résultat de la compilation et de l'exécution du code de Merkle.
+<<merkle_example_run>> montre le résultat de la compilation et de l'exécution du code de Merkle.
 
 [[merkle_example_run]]
 .Compilation et exécution de l'exemple de code de Merkle
@@ -240,7 +240,7 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3
 ----
 ====
 
-L'efficacité des arbres de Merkle devient évidente à mesure que l'échelle augmente. &lt;<block_structure2>&gt; montre la quantité de données qui doit être échangée sous forme de chemin de Merkle pour prouver qu'une transaction fait partie d'un bloc.
+L'efficacité des arbres de Merkle devient évidente à mesure que l'échelle augmente. <<block_structure2>> montre la quantité de données qui doit être échangée sous forme de chemin de Merkle pour prouver qu'une transaction fait partie d'un bloc.
 
 [[block_structure2]]
 .Efficacité de l'arbre de Merkle
@@ -259,7 +259,7 @@ Comme vous pouvez le voir dans le tableau, alors que la taille de bloc augmente 
 
 ((("vérification simplifiée des paiements ou Simplified-payment-verification (SPV)")))((("nœuds Bitcoin", "nœuds SPV")))Les arbres Merkle sont largement utilisés par les nœuds SPV. Les nœuds SPV n'ont pas toutes les transactions et ne téléchargent pas les blocs complets, juste les en-têtes de bloc. Afin de vérifier qu'une transaction est incluse dans un bloc, sans avoir à télécharger toutes les transactions du bloc, ils utilisent un chemin d'authentification, ou chemin de Merkle.
 
-Considérons, par exemple, un nœud SPV qui est intéressé par les paiements entrants à une adresse contenue dans son portefeuille. Le nœud SPV établira un filtre de Bloom (voir &lt;<bloom_filters>&gt;) sur ses connexions à des pairs pour limiter les transactions reçues uniquement à celles contenant des adresses d'intérêt. Lorsqu'un pair voit une transaction qui correspond au filtre de Bloom, il enverra ce bloc à l'aide d'un message +merkleblock+. Le message +merkleblock+ contient l'en-tête du bloc ainsi qu'un chemin de Merkle qui relie la transaction d'intérêt à la racine de Merkle dans le bloc. Le nœud SPV peut utiliser ce chemin de Merkle pour connecter la transaction au bloc et vérifier que la transaction est incluse dans le bloc. Le nœud SPV utilise également l'en-tête de bloc pour lier le bloc au reste de la chaîne de blocs. La combinaison de ces deux liens, entre la transaction et le bloc, et entre le bloc et la chaîne de blocs, prouve que la transaction est enregistrée dans la chaîne de blocs. Au total, le nœud SPV aura reçu moins d'un kilo-octet de données pour l'en-tête de bloc et le chemin de Merkle, une quantité de données plus de mille fois inférieure à un bloc complet (environ 1 mégaoctet actuellement).((( "", startref="BCTmerkle09")))((("", startref="merkle09")))
+Considérons, par exemple, un nœud SPV qui est intéressé par les paiements entrants à une adresse contenue dans son portefeuille. Le nœud SPV établira un filtre de Bloom (voir <<bloom_filters>>) sur ses connexions à des pairs pour limiter les transactions reçues uniquement à celles contenant des adresses d'intérêt. Lorsqu'un pair voit une transaction qui correspond au filtre de Bloom, il enverra ce bloc à l'aide d'un message +merkleblock+. Le message +merkleblock+ contient l'en-tête du bloc ainsi qu'un chemin de Merkle qui relie la transaction d'intérêt à la racine de Merkle dans le bloc. Le nœud SPV peut utiliser ce chemin de Merkle pour connecter la transaction au bloc et vérifier que la transaction est incluse dans le bloc. Le nœud SPV utilise également l'en-tête de bloc pour lier le bloc au reste de la chaîne de blocs. La combinaison de ces deux liens, entre la transaction et le bloc, et entre le bloc et la chaîne de blocs, prouve que la transaction est enregistrée dans la chaîne de blocs. Au total, le nœud SPV aura reçu moins d'un kilo-octet de données pour l'en-tête de bloc et le chemin de Merkle, une quantité de données plus de mille fois inférieure à un bloc complet (environ 1 mégaoctet actuellement).((( "", startref="BCTmerkle09")))((("", startref="merkle09")))
 
 === Chaînes de blocs de test de Bitcoin
 
@@ -315,12 +315,12 @@ $ bitcoin-cli -testnet getblockchaininfo
 
 Vous pouvez également exécuter sur testnet3 avec d'autres implémentations de nœud complet, telles que +btcd+ (écrit en Go) et +bcoin+ (écrit en JavaScript), pour expérimenter et apprendre dans d'autres langages et environnements de programmation.
 
-En 2021, testnet3 prend en charge toutes les fonctionnalités du réseau principal, y compris le témoin séparé (voir &lt;<segwit>&gt;). Par conséquent, testnet3 peut également être utilisé pour tester les fonctionnalités de témoin séparé.((("", startref="testnet09")))
+En 2021, testnet3 prend en charge toutes les fonctionnalités du réseau principal, y compris le témoin séparé (voir <<segwit>>). Par conséquent, testnet3 peut également être utilisé pour tester les fonctionnalités de témoin séparé.((("", startref="testnet09")))
 
 ==== Segnet : Le réseau de test des témoins séparés
 
 
-((("segnet")))En 2016, un testnet à usage spécial a été lancé pour aider au développement et aux tests de Segregated Witness ou Témoin séparé (alias segwit; voir &lt;<segwit>&gt;). Cette chaîne de blocs de test s'appelle +segnet+ et peut être rejointe en exécutant une version spéciale (branche) de Bitcoin Core.
+((("segnet")))En 2016, un testnet à usage spécial a été lancé pour aider au développement et aux tests de Segregated Witness ou Témoin séparé (alias segwit; voir <<segwit>>). Cette chaîne de blocs de test s'appelle +segnet+ et peut être rejointe en exécutant une version spéciale (branche) de Bitcoin Core.
 
 ((("segwit (Segregated Witness ou Témoin séparé)")))Depuis que segwit a été ajouté à testnet3, il n'est plus nécessaire d'utiliser segnet pour tester les fonctionnalités de segwit.
 

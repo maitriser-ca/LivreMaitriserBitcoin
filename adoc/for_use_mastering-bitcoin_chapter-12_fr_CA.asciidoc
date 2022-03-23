@@ -7,7 +7,7 @@ Dans ce chapitre, nous examinerons les fonctionnalités offertes par la chaîne 
 
 === Présentation
 
-((("applications chaîne de blocs", "avantages du système Bitcoin")))Le système Bitcoin a été conçu comme un système de monnaie et de paiement décentralisé. Cependant, la plupart de ses fonctionnalités sont dérivées de constructions de niveau beaucoup plus bas qui peuvent être utilisées pour des applications beaucoup plus larges. Bitcoin n'a pas été construit avec des composants tels que des comptes, des utilisateurs, des soldes et des paiements. Au lieu de cela, il utilise un langage de script transactionnel avec des fonctions cryptographiques de bas niveau, comme nous l'avons vu dans &lt;<transactions>&gt;. Tout comme les concepts de niveau supérieur des comptes, des soldes et des paiements peuvent être dérivés de ces primitives de base, il en va de même pour de nombreuses autres applications complexes. Ainsi, la chaîne de blocs Bitcoin peut devenir une plate-forme applicative offrant des services de confiance aux applications, tels que les contrats intelligents, dépassant de loin l'objectif initial de la monnaie numérique et des paiements.
+((("applications chaîne de blocs", "avantages du système Bitcoin")))Le système Bitcoin a été conçu comme un système de monnaie et de paiement décentralisé. Cependant, la plupart de ses fonctionnalités sont dérivées de constructions de niveau beaucoup plus bas qui peuvent être utilisées pour des applications beaucoup plus larges. Bitcoin n'a pas été construit avec des composants tels que des comptes, des utilisateurs, des soldes et des paiements. Au lieu de cela, il utilise un langage de script transactionnel avec des fonctions cryptographiques de bas niveau, comme nous l'avons vu dans <<transactions>>. Tout comme les concepts de niveau supérieur des comptes, des soldes et des paiements peuvent être dérivés de ces primitives de base, il en va de même pour de nombreuses autres applications complexes. Ainsi, la chaîne de blocs Bitcoin peut devenir une plate-forme applicative offrant des services de confiance aux applications, tels que les contrats intelligents, dépassant de loin l'objectif initial de la monnaie numérique et des paiements.
 
 === Structures de base (les primitives)
 
@@ -96,7 +96,7 @@ Enfin, le canal peut être fermé soit de manière coopérative, en soumettant u
 
 Pendant toute la durée de vie de la chaîne, seules deux transactions doivent être soumises pour minage sur la chaîne de blocs: les transactions de financement et de règlement. Entre ces deux états, les deux parties peuvent échanger un nombre illimité de transactions d'engagement qui ne sont jamais vues par personne d'autre, ni soumises à la chaîne de blocs.
 
-&lt;<payment_channel>&gt; illustre un canal de paiement entre Bob et Alice, montrant les transactions de financement, d'engagement et de règlement.((("cas d'utilisation", "acheter un café", startref="alicetwelve")))
+<<payment_channel>> illustre un canal de paiement entre Bob et Alice, montrant les transactions de financement, d'engagement et de règlement.((("cas d'utilisation", "acheter un café", startref="alicetwelve")))
 
 [[payment_channel]]
 .Un canal de paiement entre Bob et Alice, montrant les transactions de financement, d'engagement et de règlement
@@ -106,7 +106,7 @@ image::images/mbc2_1201.png["Un canal de paiement entre Bob et Alice, montrant l
 
 ((("canaux de paiement (d'état)", "exemple de", id="PSCexample12")))Pour expliquer les canaux d'état, nous commençons par un exemple très simple. Nous démontrons un canal à sens unique, ce qui signifie que la valeur ne circule que dans une seule direction. Nous partirons également de l'hypothèse naïve que personne n'essaie de tricher, pour garder les choses simples. Une fois que nous aurons expliqué l'idée de base du canal, nous examinerons ce qu'il faut pour le rendre sans confiance afin qu'aucune des parties ne puisse tricher, même si elle essaie de le faire.
 
-Pour cet exemple, nous supposerons deux participants : Emma et Fabian. Fabian propose un service de diffusion vidéo en continu facturé à la seconde via un canal de micropaiement. Fabian facture 0,01 millibit (0,00001 BTC) par seconde de vidéo, ce qui équivaut à 36 millibits (0,036 BTC) par heure de vidéo. Emma est une utilisatrice qui achète ce service de diffusion vidéo en continu auprès de Fabian. &lt;<emma_fabian_streaming_video>&gt; montre Emma achetant le service de diffusion vidéo en continu de Fabian en utilisant un canal de paiement.
+Pour cet exemple, nous supposerons deux participants : Emma et Fabian. Fabian propose un service de diffusion vidéo en continu facturé à la seconde via un canal de micropaiement. Fabian facture 0,01 millibit (0,00001 BTC) par seconde de vidéo, ce qui équivaut à 36 millibits (0,036 BTC) par heure de vidéo. Emma est une utilisatrice qui achète ce service de diffusion vidéo en continu auprès de Fabian. <<emma_fabian_streaming_video>> montre Emma achetant le service de diffusion vidéo en continu de Fabian en utilisant un canal de paiement.
 
 [[emma_fabian_streaming_video]]
 .Emma achète la vidéo en continu de Fabian avec un canal de paiement, payant pour chaque seconde de vidéo
@@ -128,7 +128,7 @@ De cette manière, le logiciel d'Emma continue d'envoyer des transactions d'enga
 
 Enfin, Emma sélectionne "Stop" pour arrêter le streaming vidéo. Fabian ou Emma peuvent maintenant transmettre la transaction d'état finale pour règlement. Cette dernière transaction est la _transaction de règlement_ et paie Fabian pour toute la vidéo consommée par Emma, remboursant le reste de la transaction de financement à Emma.
 
-&lt;<video_payment_channel>&gt; montre le canal entre Emma et Fabian et les transactions d'engagement qui mettent à jour le solde du canal.
+<<video_payment_channel>> montre le canal entre Emma et Fabian et les transactions d'engagement qui mettent à jour le solde du canal.
 
 Au final, seules deux transactions sont enregistrées sur la chaîne de bocs: la transaction de financement qui établit le canal et une transaction de règlement qui répartit correctement le solde final entre les deux participants.((("", startref="PSCexample12")))
 
@@ -156,7 +156,7 @@ Chaque transaction d'engagement que les parties échangent pendant la durée de 
 
 Par exemple, si la transaction d'engagement #1 est verrouillée dans le temps sur 4320 blocs à l'avenir, alors la transaction d'engagement #2 est verrouillée dans le temps sur 4319 blocs dans le futur. La transaction d'engagement #600 peut être dépensée 600 blocs avant que la transaction d'engagement #1 ne devienne valide.
 
-&lt;<timelocked_commitments>&gt; montre chaque transaction d'engagement définissant un verrou temporel plus court, lui permettant d'être dépensé avant que les engagements précédents ne deviennent valides.
+<<timelocked_commitments>> montre chaque transaction d'engagement définissant un verrou temporel plus court, lui permettant d'être dépensé avant que les engagements précédents ne deviennent valides.
 
 [[timelocked_commitments]]
 .Chaque engagement fixe un délai plus court, ce qui lui permet d'être dépensé avant que les engagements précédents ne deviennent valides
@@ -221,7 +221,7 @@ Output 1 <5 bitcoin>:
 
 De cette façon, chaque partie a une transaction d'engagement, dépensant la sortie de financement 2 sur 2. Cette entrée est signée par l'_autre_ partie. À tout moment, la partie détenant la transaction peut également signer (remplir le 2 sur 2) et diffuser. Cependant, s'ils diffusent la transaction d'engagement, il paie immédiatement l'autre partie alors qu'elle doit attendre l'expiration d'un verrou temporel. En imposant un délai au remboursement de l'une des sorties, nous désavantageons légèrement chaque partie lorsqu'elle choisit de diffuser unilatéralement une opération d'engagement. Mais un délai ne suffit pas à lui seul à encourager une conduite équitable.
 
-&lt;<asymmetric_commitments>&gt; montre deux opérations d'engagement asymétriques, où la sortie payant le titulaire de l'engagement est retardée.
+<<asymmetric_commitments>> montre deux opérations d'engagement asymétriques, où la sortie payant le titulaire de l'engagement est retardée.
 
 [[asymmetric_commitments]]
 .Deux opérations d'engagement asymétriques avec paiement différé pour le titulaire de l'opération
@@ -320,7 +320,7 @@ Le Lightning Network est une possibilité de mise en place de canaux de paiement
 
 Dans cet exemple, nous avons cinq participants : Alice, Bob, Carol, Diana et Eric. Ces cinq participants ont ouvert des canaux de paiement entre eux, par paires. Alice a un canal de paiement avec Bob. Bob est connecté à Carol, Carol à Diana et Diana à Eric. Pour simplifier, supposons que chaque chaîne est financée avec 2 bitcoins par chaque participant, pour une capacité totale de 4 bitcoins dans chaque chaîne.
 
-&lt;<lightning_network_fig>&gt; montre cinq participants dans un Lightning Network, connectés par des canaux de paiement bidirectionnels qui peuvent être liés pour effectuer un paiement d'Alice à Eric (&lt;<lightning_network>&gt;).
+<<lightning_network_fig>> montre cinq participants dans un Lightning Network, connectés par des canaux de paiement bidirectionnels qui peuvent être liés pour effectuer un paiement d'Alice à Eric (<<lightning_network>>).
 
 [[lightning_network_fig]]
 .Une série de canaux de paiement bidirectionnels liés pour former un réseau Lightning qui peut acheminer un paiement d'Alice à Eric
@@ -328,29 +328,29 @@ image::images/mbc2_1206.png["Une série de canaux de paiement bidirectionnels li
 
 Alice veut payer Eric 1 bitcoin. Cependant, Alice n'est pas connectée à Eric par un canal de paiement. La création d'un canal de paiement nécessite une transaction de financement, qui doit être engagée dans la chaîne de blocs Bitcoin. Alice ne veut pas ouvrir un nouveau canal de paiement et engager davantage de ses fonds. Y a-t-il un moyen de payer Eric, indirectement ?
 
-&lt;<ln_payment_process>&gt; montre le processus étape par étape d'acheminement d'un paiement d'Alice à Eric, à travers une série d'engagements HTLC sur les canaux de paiement reliant les participants.
+<<ln_payment_process>> montre le processus étape par étape d'acheminement d'un paiement d'Alice à Eric, à travers une série d'engagements HTLC sur les canaux de paiement reliant les participants.
 
 [[ln_payment_process]]
 .Acheminement des paiements étape par étape via un réseau Lightning
 image::images/mbc2_1207.png["Acheminement des paiements étape par étape via un réseau Lightning"]
 
-Alice exécute un nœud Lightning Network (LN) qui assure le suivi de son canal de paiement vers Bob et a la capacité de découvrir des itinéraires entre les canaux de paiement. Le nœud LN d'Alice a également la capacité de se connecter via Internet au nœud LN d'Eric. Le nœud LN d'Eric crée un +R+ secret à l'aide d'un générateur de nombres aléatoires. Le nœud d'Eric ne révèle ce secret à personne. Au lieu de cela, le nœud d'Eric calcule un hachage +H+ du secret +R+ et transmet ce hachage au nœud d'Alice (voir &lt;<ln_payment_process>&gt; étape 1).
+Alice exécute un nœud Lightning Network (LN) qui assure le suivi de son canal de paiement vers Bob et a la capacité de découvrir des itinéraires entre les canaux de paiement. Le nœud LN d'Alice a également la capacité de se connecter via Internet au nœud LN d'Eric. Le nœud LN d'Eric crée un +R+ secret à l'aide d'un générateur de nombres aléatoires. Le nœud d'Eric ne révèle ce secret à personne. Au lieu de cela, le nœud d'Eric calcule un hachage +H+ du secret +R+ et transmet ce hachage au nœud d'Alice (voir <<ln_payment_process>> étape 1).
 
 Maintenant, le nœud LN d'Alice construit une route entre le nœud LN d'Alice et le nœud LN d'Eric. L'algorithme de routage utilisé sera examiné plus en détail plus tard, mais pour l'instant supposons que le nœud d'Alice puisse trouver une route efficace.
 
-Le nœud d'Alice construit alors un HTLC, payable au hash +H+, avec un délai de remboursement de 10 blocs (bloc actuel + 10), pour un montant de 1,003 bitcoin (voir &lt;<ln_payment_process>&gt; étape 2). Le supplément de 0,003 sera utilisé pour compenser les nœuds intermédiaires pour leur participation à cette voie de paiement. Alice offre ce HTLC à Bob, déduisant 1,003 bitcoin de son solde de canal avec Bob et l'engageant sur le HTLC. Le HTLC a la signification suivante : _"Alice engage 1,003 de son solde de canal à payer à Bob si Bob connaît le secret, ou remboursé sur le solde d'Alice si 10 blocs s'écoulent."_ Le solde de canal entre Alice et Bob est maintenant exprimé par des transactions d'engagement avec trois sorties : solde de 2 bitcoins à Bob, solde de 0,997 bitcoin à Alice, 1,003 bitcoin engagé dans le HTLC d'Alice. Le solde d'Alice est réduit du montant engagé dans le HTLC.
+Le nœud d'Alice construit alors un HTLC, payable au hash +H+, avec un délai de remboursement de 10 blocs (bloc actuel + 10), pour un montant de 1,003 bitcoin (voir <<ln_payment_process>> étape 2). Le supplément de 0,003 sera utilisé pour compenser les nœuds intermédiaires pour leur participation à cette voie de paiement. Alice offre ce HTLC à Bob, déduisant 1,003 bitcoin de son solde de canal avec Bob et l'engageant sur le HTLC. Le HTLC a la signification suivante : _"Alice engage 1,003 de son solde de canal à payer à Bob si Bob connaît le secret, ou remboursé sur le solde d'Alice si 10 blocs s'écoulent."_ Le solde de canal entre Alice et Bob est maintenant exprimé par des transactions d'engagement avec trois sorties : solde de 2 bitcoins à Bob, solde de 0,997 bitcoin à Alice, 1,003 bitcoin engagé dans le HTLC d'Alice. Le solde d'Alice est réduit du montant engagé dans le HTLC.
 
-Bob s'est maintenant engagé à ce que s'il parvient à obtenir le secret + R + dans les 10 prochains blocs, il puisse réclamer les 1,003 verrouillés par Alice. Avec cet engagement en main, le nœud de Bob construit un HTLC sur son canal de paiement avec Carol. Le HTLC de Bob engage 1,002 bitcoin dans le hachage +H+ pendant 9 blocs, que Carol peut échanger si elle a le secret +R+ (voir &lt;<ln_payment_process>&gt; étape 3). Bob sait que si Carol peut réclamer son HTLC, elle doit produire +R+. Si Bob a + R + dans neuf blocs, il peut l'utiliser pour lui réclamer le HTLC d'Alice. Il gagne également 0,001 bitcoin pour avoir engagé le solde de son canal pendant neuf blocs. Si Carol n'est pas en mesure de réclamer son HTLC et qu'il ne peut pas réclamer le HTLC d'Alice, tout revient aux soldes de canal précédents et personne n'est à perte. L'équilibre des canaux entre Bob et Carol est maintenant : 2 pour Carol, 0,998 pour Bob, 1,002 commis par Bob pour le HTLC.
+Bob s'est maintenant engagé à ce que s'il parvient à obtenir le secret + R + dans les 10 prochains blocs, il puisse réclamer les 1,003 verrouillés par Alice. Avec cet engagement en main, le nœud de Bob construit un HTLC sur son canal de paiement avec Carol. Le HTLC de Bob engage 1,002 bitcoin dans le hachage +H+ pendant 9 blocs, que Carol peut échanger si elle a le secret +R+ (voir <<ln_payment_process>> étape 3). Bob sait que si Carol peut réclamer son HTLC, elle doit produire +R+. Si Bob a + R + dans neuf blocs, il peut l'utiliser pour lui réclamer le HTLC d'Alice. Il gagne également 0,001 bitcoin pour avoir engagé le solde de son canal pendant neuf blocs. Si Carol n'est pas en mesure de réclamer son HTLC et qu'il ne peut pas réclamer le HTLC d'Alice, tout revient aux soldes de canal précédents et personne n'est à perte. L'équilibre des canaux entre Bob et Carol est maintenant : 2 pour Carol, 0,998 pour Bob, 1,002 commis par Bob pour le HTLC.
 
-Carol s'est maintenant engagée à ce que si elle obtient +R+ dans les neuf prochains blocs, elle puisse réclamer 1,002 bitcoin verrouillé par Bob. Elle peut désormais s'engager sur HTLC sur sa chaîne avec Diana. Elle engage un HTLC de 1.001 bitcoin au hachage +H+, pour huit blocs, que Diana peut racheter si elle a le secret +R+ (voir &lt;<ln_payment_process>&gt; étape 4). Du point de vue de Carol, si cela fonctionne, elle est plus riche de 0,001 bitcoin et si ce n'est pas le cas, elle ne perd rien. Son HTLC à Diana n'est viable que si +R+ est révélé, auquel cas elle peut réclamer le HTLC à Bob. L'équilibre des canaux entre Carol et Diana est désormais : 2 pour Diana, 0,999 pour Carol, 1,001 commis par Carol pour le HTLC.
+Carol s'est maintenant engagée à ce que si elle obtient +R+ dans les neuf prochains blocs, elle puisse réclamer 1,002 bitcoin verrouillé par Bob. Elle peut désormais s'engager sur HTLC sur sa chaîne avec Diana. Elle engage un HTLC de 1.001 bitcoin au hachage +H+, pour huit blocs, que Diana peut racheter si elle a le secret +R+ (voir <<ln_payment_process>> étape 4). Du point de vue de Carol, si cela fonctionne, elle est plus riche de 0,001 bitcoin et si ce n'est pas le cas, elle ne perd rien. Son HTLC à Diana n'est viable que si +R+ est révélé, auquel cas elle peut réclamer le HTLC à Bob. L'équilibre des canaux entre Carol et Diana est désormais : 2 pour Diana, 0,999 pour Carol, 1,001 commis par Carol pour le HTLC.
 
-Enfin, Diana peut proposer un HTLC à Eric, engageant 1 bitcoin pour sept blocs à hacher +H+ (voir &lt;<ln_payment_process>&gt; étape 5). L'équilibre des canaux entre Diana et Eric est maintenant : 2 à Eric, 1 à Diana, 1 commis par Diana au HTLC.
+Enfin, Diana peut proposer un HTLC à Eric, engageant 1 bitcoin pour sept blocs à hacher +H+ (voir <<ln_payment_process>> étape 5). L'équilibre des canaux entre Diana et Eric est maintenant : 2 à Eric, 1 à Diana, 1 commis par Diana au HTLC.
 
-Cependant, à ce saut dans la route, Eric _a_ le secret +R+. Il peut donc prétendre au HTLC proposé par Diana. Il envoie +R+ à Diana et réclame le 1 bitcoin, l'ajoutant au solde de son canal (voir &lt;<ln_payment_process>&gt; étape 6). L'équilibre des canaux est maintenant : 1 pour Diana, 3 pour Eric.
+Cependant, à ce saut dans la route, Eric _a_ le secret +R+. Il peut donc prétendre au HTLC proposé par Diana. Il envoie +R+ à Diana et réclame le 1 bitcoin, l'ajoutant au solde de son canal (voir <<ln_payment_process>> étape 6). L'équilibre des canaux est maintenant : 1 pour Diana, 3 pour Eric.
 
-Maintenant, Diana a un +R+ secret. Par conséquent, elle peut désormais réclamer le HTLC à Carol. Diana transmet +R+ à Carol et ajoute le bitcoin 1.001 au solde de son canal (voir &lt;<ln_payment_process>&gt; étape 7). Maintenant, l'équilibre des canaux entre Carol et Diana est : 0,999 pour Carol, 3,001 pour Diana. Diana a "gagné" 0,001 pour sa participation à cette voie de paiement.
+Maintenant, Diana a un +R+ secret. Par conséquent, elle peut désormais réclamer le HTLC à Carol. Diana transmet +R+ à Carol et ajoute le bitcoin 1.001 au solde de son canal (voir <<ln_payment_process>> étape 7). Maintenant, l'équilibre des canaux entre Carol et Diana est : 0,999 pour Carol, 3,001 pour Diana. Diana a "gagné" 0,001 pour sa participation à cette voie de paiement.
 
-En revenant sur le parcours, le secret +R+ permet à chaque participant de réclamer les HTLC restants. Carol réclame 1,002 à Bob, fixant le solde sur leur chaîne à : 0,998 à Bob, 3,002 à Carol (voir &lt;<ln_payment_process>&gt; étape 8). Enfin, Bob revendique le HTLC d'Alice (voir &lt;<ln_payment_process>&gt; étape 9). Leur solde de canaux est mis à jour comme suit : 0,997 pour Alice, 3,003 pour Bob.
+En revenant sur le parcours, le secret +R+ permet à chaque participant de réclamer les HTLC restants. Carol réclame 1,002 à Bob, fixant le solde sur leur chaîne à : 0,998 à Bob, 3,002 à Carol (voir <<ln_payment_process>> étape 8). Enfin, Bob revendique le HTLC d'Alice (voir <<ln_payment_process>> étape 9). Leur solde de canaux est mis à jour comme suit : 0,997 pour Alice, 3,003 pour Bob.
 
 Alice a payé Eric 1 bitcoin sans ouvrir de chaîne à Eric. Aucune des parties intermédiaires de la voie de paiement n'avait à se faire confiance. Pour l'engagement à court terme de leurs fonds dans le canal, ils peuvent gagner une petite commission, le seul risque étant un léger retard de remboursement si le canal était fermé ou si le paiement acheminé échouait.
 

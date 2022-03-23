@@ -4,14 +4,14 @@
 ((("licences source libre")))((("Nakamoto, Satoshi")))Bitcoin est un projet _source libre_ et le code source est disponible sous une licence ouverte (MIT), téléchargeable et utilisable à n'importe quelle fin. Source libre signifie plus que simplement libre d'utilisation. Cela signifie également que le bitcoin est développé par une communauté ouverte de bénévoles. Au début, cette communauté se composait uniquement de Satoshi Nakamoto. En 2016, le code source de Bitcoin comptait plus de 400 contributeurs avec une douzaine de développeurs travaillant sur le code presque à temps plein et plusieurs dizaines d'autres à temps partiel. Tout le monde peut contribuer au code, y compris vous !
 
 
-((("livre blanc bitcoin")))((("client Satoshi")))((("implémentation de référence", see="Bitcoin Core")))((("Bitcoin Core", "implémentation de référence")))Lorsque bitcoin a été créé par Satoshi Nakamoto, le logiciel était en fait terminé avant le livre blanc reproduit dans &lt;<satoshi_whitepaper>&gt;. Satoshi voulait s'assurer que cela fonctionnait avant d'écrire à ce sujet. Cette première implémentation, alors simplement connue sous le nom de "Bitcoin" ou "client Satoshi", a été fortement modifiée et améliorée. Il a évolué vers ce qu'on appelle _Bitcoin Core_, pour le différencier des autres implémentations compatibles. Bitcoin Core est la _mise en œuvre de référence_ du système Bitcoin, ce qui signifie qu'il s'agit de la référence faisant autorité sur la manière dont chaque partie de la technologie doit être mise en œuvre. Bitcoin Core implémente tous les aspects du bitcoin, y compris les portefeuilles, un moteur de validation des transactions et des blocs et un nœud de réseau complet dans le réseau Bitcoin pair à pair.
+((("livre blanc bitcoin")))((("client Satoshi")))((("implémentation de référence", see="Bitcoin Core")))((("Bitcoin Core", "implémentation de référence")))Lorsque bitcoin a été créé par Satoshi Nakamoto, le logiciel était en fait terminé avant le livre blanc reproduit dans <<satoshi_whitepaper>>. Satoshi voulait s'assurer que cela fonctionnait avant d'écrire à ce sujet. Cette première implémentation, alors simplement connue sous le nom de "Bitcoin" ou "client Satoshi", a été fortement modifiée et améliorée. Il a évolué vers ce qu'on appelle _Bitcoin Core_, pour le différencier des autres implémentations compatibles. Bitcoin Core est la _mise en œuvre de référence_ du système Bitcoin, ce qui signifie qu'il s'agit de la référence faisant autorité sur la manière dont chaque partie de la technologie doit être mise en œuvre. Bitcoin Core implémente tous les aspects du bitcoin, y compris les portefeuilles, un moteur de validation des transactions et des blocs et un nœud de réseau complet dans le réseau Bitcoin pair à pair.
 
 [WARNING]
 ====
-((("portefeuilles", "meilleures pratiques pour")))((("propositions d'amélioration du bitcoin", "mots de code mnémonique (BIP-39)")))((("propositions d'amélioration du bitcoin", "portefeuilles déterministes hiérarchiques (BIP-32/BIP-44)")))Même si Bitcoin Core inclut une implémentation de référence d'un portefeuille, celui-ci n'est pas destiné à être utilisé comme portefeuille de production pour les utilisateurs ou pour les applications. Il est conseillé aux développeurs d'applications de créer des portefeuilles en utilisant des normes modernes telles que BIP-39 et BIP-32 (voir &lt;<mnemonic_code_words>&gt; et &lt;<hd_wallets>&gt;). BIP signifie _Bitcoin Improvement Proposal_.
+((("portefeuilles", "meilleures pratiques pour")))((("propositions d'amélioration du bitcoin", "mots de code mnémonique (BIP-39)")))((("propositions d'amélioration du bitcoin", "portefeuilles déterministes hiérarchiques (BIP-32/BIP-44)")))Même si Bitcoin Core inclut une implémentation de référence d'un portefeuille, celui-ci n'est pas destiné à être utilisé comme portefeuille de production pour les utilisateurs ou pour les applications. Il est conseillé aux développeurs d'applications de créer des portefeuilles en utilisant des normes modernes telles que BIP-39 et BIP-32 (voir <<mnemonic_code_words>> et <<hd_wallets>>). BIP signifie _Bitcoin Improvement Proposal_.
 ====
 
-&lt;<bitcoin_core_architecture>&gt; montre l'architecture de Bitcoin Core.((("Bitcoin Core", "architecture")))
+<<bitcoin_core_architecture>> montre l'architecture de Bitcoin Core.((("Bitcoin Core", "architecture")))
 
 [[bitcoin_core_architecture]]
 .Architecture Bitcoin Core (Source : Eric Lombrozo)
@@ -222,11 +222,11 @@ $ which bitcoin-cli
 
 ((("Bitcoin Core", "rouler des nœuds cœurs", id="BCnode03")))((("nœuds Bitcoin", "rouler des nœuds cœurs", id="BNcore03")))Le réseau pair à pair de Bitcoin est composé de "nœuds" de réseau, gérés principalement par des bénévoles et certaines des entreprises qui créent des applications bitcoin. Ceux qui exécutent des nœuds Bitcoin ont une vue directe et faisant autorité sur la chaîne de blocs Bitcoin, avec une copie locale de toutes les transactions, validées indépendamment par leur propre système. En exécutant un nœud, vous n'avez pas besoin de faire appel à un tiers pour valider une transaction. De plus, en exécutant un nœud Bitcoin, vous contribuez au réseau Bitcoin en le rendant plus robuste et sécuritaire.
 
-Cependant, l'exécution d'un nœud nécessite un système connecté en permanence avec suffisamment de ressources pour traiter toutes les transactions bitcoin. Selon que vous choisissez d'indexer toutes les transactions et de conserver une copie complète de la chaîne de blocs, vous pouvez également avoir besoin de beaucoup d'espace disque et de mémoire RAM. Au début de 2021, un nœud à index complet a besoin de 2 Go de RAM et d'un minimum de 360 Go d'espace disque (voir https://www.blockchain.com/charts/blocks-size[]). Les nœuds Bitcoin transmettent et reçoivent également des transactions et des blocs Bitcoin, consommant de la bande passante Internet. Si votre connexion Internet est limitée, a un faible plafond de données ou est mesurée (facturée au gigabit), vous ne devriez probablement pas exécuter un nœud Bitcoin, ou l'exécuter d'une manière qui limite sa bande passante (voir &lt;<constrained_resources>&gt;).
+Cependant, l'exécution d'un nœud nécessite un système connecté en permanence avec suffisamment de ressources pour traiter toutes les transactions bitcoin. Selon que vous choisissez d'indexer toutes les transactions et de conserver une copie complète de la chaîne de blocs, vous pouvez également avoir besoin de beaucoup d'espace disque et de mémoire RAM. Au début de 2021, un nœud à index complet a besoin de 2 Go de RAM et d'un minimum de 360 Go d'espace disque (voir https://www.blockchain.com/charts/blocks-size[]). Les nœuds Bitcoin transmettent et reçoivent également des transactions et des blocs Bitcoin, consommant de la bande passante Internet. Si votre connexion Internet est limitée, a un faible plafond de données ou est mesurée (facturée au gigabit), vous ne devriez probablement pas exécuter un nœud Bitcoin, ou l'exécuter d'une manière qui limite sa bande passante (voir <<constrained_resources>>).
 
 [TIP]
 ====
-((("avertissements et mises en garde", "besoins en ressources du nœud principal")))((("besoins en ressources")))Bitcoin Core conserve une copie complète de la chaîne de blocs par défaut, avec chaque transaction qui s'est déjà produite sur le Bitcoin réseau depuis sa création en 2009. Cet ensemble de données a une taille de dizaines de gigaoctets et est téléchargé de manière incrémentielle sur plusieurs jours ou semaines, en fonction de la vitesse de votre CPU et de votre connexion Internet. Bitcoin Core ne pourra pas traiter les transactions ou mettre à jour les soldes des comptes tant que l'ensemble de données complet de la chaîne de blocs n'aura pas été téléchargé. Assurez-vous que vous disposez de suffisamment d'espace disque, de bande passante et de temps pour effectuer la synchronisation initiale. Vous pouvez configurer Bitcoin Core pour réduire la taille de la chaîne de blocs en supprimant les anciens blocs (voir &lt;<constrained_resources>&gt;), mais il téléchargera tout de même l'intégralité de l'ensemble de données avant de les supprimer.
+((("avertissements et mises en garde", "besoins en ressources du nœud principal")))((("besoins en ressources")))Bitcoin Core conserve une copie complète de la chaîne de blocs par défaut, avec chaque transaction qui s'est déjà produite sur le Bitcoin réseau depuis sa création en 2009. Cet ensemble de données a une taille de dizaines de gigaoctets et est téléchargé de manière incrémentielle sur plusieurs jours ou semaines, en fonction de la vitesse de votre CPU et de votre connexion Internet. Bitcoin Core ne pourra pas traiter les transactions ou mettre à jour les soldes des comptes tant que l'ensemble de données complet de la chaîne de blocs n'aura pas été téléchargé. Assurez-vous que vous disposez de suffisamment d'espace disque, de bande passante et de temps pour effectuer la synchronisation initiale. Vous pouvez configurer Bitcoin Core pour réduire la taille de la chaîne de blocs en supprimant les anciens blocs (voir <<constrained_resources>>), mais il téléchargera tout de même l'intégralité de l'ensemble de données avant de les supprimer.
 ====
 
 Malgré ces besoins en ressources, des milliers de bénévoles gèrent des nœuds Bitcoin. Certains fonctionnent sur des systèmes aussi simples qu'un Raspberry Pi (un ordinateur à 35$ US de la taille d'un paquet de cartes). De nombreux volontaires exécutent également des nœuds Bitcoin sur des serveurs loués, généralement une variante de Linux. Une instance de _Virtual Private Server_ (VPS ou serveur virtuel privé) ou _Cloud Computing Server_ (ou serveur en infonuagique) peut être utilisée pour exécuter un nœud Bitcoin. Ces serveurs peuvent être loués pour 25$ à 50$ US par mois auprès de divers fournisseurs.
@@ -258,7 +258,7 @@ Using config file /home/ubuntu/.bitcoin/bitcoin.conf
 ...
 ----
 
-Vous pouvez appuyer sur Ctrl-C pour fermer le nœud une fois que vous avez déterminé l'emplacement du fichier de configuration. Habituellement, le fichier de configuration se trouve dans le répertoire de données _.bitcoin_ sous le répertoire personnel de votre utilisateur. Il n'est pas créé automatiquement, mais vous pouvez créer un fichier de configuration de démarrage en copiant et collant à partir de l'exemple &lt;&lt;#full_index_node&gt;&gt; ci-dessous. Vous pouvez créer ou modifier le fichier de configuration dans votre éditeur préféré.
+Vous pouvez appuyer sur Ctrl-C pour fermer le nœud une fois que vous avez déterminé l'emplacement du fichier de configuration. Habituellement, le fichier de configuration se trouve dans le répertoire de données _.bitcoin_ sous le répertoire personnel de votre utilisateur. Il n'est pas créé automatiquement, mais vous pouvez créer un fichier de configuration de démarrage en copiant et collant à partir de l'exemple <<#full_index_node>> ci-dessous. Vous pouvez créer ou modifier le fichier de configuration dans votre éditeur préféré.
 
 Bitcoin Core propose plus de 100 options de configuration qui modifient le comportement du nœud de réseau, le stockage de la chaîne de blocs et de nombreux autres aspects de son fonctionnement. Pour voir une liste de ces options, exécutez +bitcoind --help+ :
 
@@ -314,10 +314,10 @@ minrelaytxfee:: Définissez le taux de frais minimum pour la transaction que vou
 [[txindex]]
 .Index de la base de données des transactions et option txindex
 ****
-((("Bitcoin Core", "fonction des nœuds cœurs", "database options")))((("transactions", "configuration d'options de base de données")))((("option txindex")))((("option d'indexation complète")))Par défaut, Bitcoin Core construit une base de données contenant _uniquement_ les transactions liées au portefeuille de l'utilisateur. Si vous voulez pouvoir accéder à _n'importe quelle_ transaction avec des commandes comme +getrawtransaction+ (voir &lt;<exploring_and_decoding_transanctions>&gt;), vous devez configurer Bitcoin Core pour créer un index de transaction complet, ce qui peut être réalisé avec l'option +txindex+. Définissez +txindex=1+ dans le fichier de configuration de Bitcoin Core. Si vous ne définissez pas cette option au début et que vous la réglez ensuite sur l'indexation complète, vous devez redémarrer +bitcoind+ avec l'option +-reindex+ et attendre qu'elle reconstruise l'index.
+((("Bitcoin Core", "fonction des nœuds cœurs", "database options")))((("transactions", "configuration d'options de base de données")))((("option txindex")))((("option d'indexation complète")))Par défaut, Bitcoin Core construit une base de données contenant _uniquement_ les transactions liées au portefeuille de l'utilisateur. Si vous voulez pouvoir accéder à _n'importe quelle_ transaction avec des commandes comme +getrawtransaction+ (voir <<exploring_and_decoding_transanctions>>), vous devez configurer Bitcoin Core pour créer un index de transaction complet, ce qui peut être réalisé avec l'option +txindex+. Définissez +txindex=1+ dans le fichier de configuration de Bitcoin Core. Si vous ne définissez pas cette option au début et que vous la réglez ensuite sur l'indexation complète, vous devez redémarrer +bitcoind+ avec l'option +-reindex+ et attendre qu'elle reconstruise l'index.
 ****
 
-&lt;<full_index_node>&gt; montre comment vous pouvez combiner les options précédentes, avec un nœud entièrement indexé, fonctionnant comme un backend API pour une application bitcoin.
+<<full_index_node>> montre comment vous pouvez combiner les options précédentes, avec un nœud entièrement indexé, fonctionnant comme un backend API pour une application bitcoin.
 
 [[full_index_node]]
 .Exemple de configuration d'un nœud à index complet
@@ -329,7 +329,7 @@ index_tx=1
 ----
 ====
 
-&lt;<constrained_resources>&gt; montre un nœud à ressources limitées s'exécutant sur un serveur plus petit.
+<<constrained_resources>> montre un nœud à ressources limitées s'exécutant sur un serveur plus petit.
 
 [[constrained_resources]]
 .Exemple de configuration d'un système à ressources limitées
@@ -510,7 +510,7 @@ Il faudra un certain temps, peut-être plus d'une journée, pour que le client +
 
 
 
-Dans &lt;<cup_of_coffee>&gt;, ((("cas d'utilisation", "acheter du café", id="alicethree")))Alice a acheté une tasse de café au Bob's Cafe. Sa transaction a été enregistrée sur la chaîne de blocs avec l'identifiant de transaction (+txid+) +0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2+. Utilisons l'API pour récupérer et examiner cette transaction en transmettant l'identifiant de transaction en tant que paramètre :
+Dans <<cup_of_coffee>>, ((("cas d'utilisation", "acheter du café", id="alicethree")))Alice a acheté une tasse de café au Bob's Cafe. Sa transaction a été enregistrée sur la chaîne de blocs avec l'identifiant de transaction (+txid+) +0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2+. Utilisons l'API pour récupérer et examiner cette transaction en transmettant l'identifiant de transaction en tant que paramètre :
 
 ----
 $ bitcoin-cli getrawtransaction 0627052b6f28912f2703066a912ea577f2ce4da4caa5a&#x21b5;
@@ -601,7 +601,7 @@ Nous pouvons explorer davantage la chaîne de blocs en examinant la transaction 
 
 ((("Bitcoin Core", "Bitcoin Core API", "exploration de blocs")))((("blocs", "exploration avec Bitcoin Core API")))Commandes : +getblock+, +getblockhash+
 
-((("blocs", "hauteur de bloc")))((("blocs", "hachage de bloc")))L'exploration de blocs est similaire à l'exploration de transactions. Cependant, les blocs peuvent être référencés soit par la _hauteur_ du bloc (_height_), soit par le résultat de _hachage_ (ou _hash_) du bloc. Tout d'abord, trouvons un bloc par sa hauteur. Dans &lt;<cup_of_coffee>&gt;, nous avons vu que la transaction d'Alice était incluse dans le bloc 277316.
+((("blocs", "hauteur de bloc")))((("blocs", "hachage de bloc")))L'exploration de blocs est similaire à l'exploration de transactions. Cependant, les blocs peuvent être référencés soit par la _hauteur_ du bloc (_height_), soit par le résultat de _hachage_ (ou _hash_) du bloc. Tout d'abord, trouvons un bloc par sa hauteur. Dans <<cup_of_coffee>>, nous avons vu que la transaction d'Alice était incluse dans le bloc 277316.
 
 Nous utilisons la commande +getblockhash+, qui prend la hauteur du bloc comme paramètre et renvoie le hachage pour ce bloc :
 
@@ -675,7 +675,7 @@ Si vous implémentez un appel JSON-RPC dans votre propre programme, vous pouvez 
 
 Cependant, il existe des bibliothèques dans la plupart des langages de programmation qui "enveloppent" l'API Bitcoin Core d'une manière qui rend cela beaucoup plus simple. Nous utiliserons la bibliothèque +python-bitcoinlib+ pour simplifier l'accès à l'API. N'oubliez pas que cela nécessite que vous disposiez d'une instance Bitcoin Core en cours d'exécution, qui sera utilisée pour effectuer des appels JSON-RPC.
 
-Le script Python dans &lt;<rpc_example>&gt; effectue un simple appel +getblockchaininfo+ et imprime le paramètre +blocks+ à partir des données renvoyées par Bitcoin Core (nœud complet requis).
+Le script Python dans <<rpc_example>> effectue un simple appel +getblockchaininfo+ et imprime le paramètre +blocks+ à partir des données renvoyées par Bitcoin Core (nœud complet requis).
 
 [[rpc_example]]
 .Exécution de getblockchaininfo via l'API JSON-RPC de Bitcoin Core
@@ -695,7 +695,7 @@ $ python rpc_example.py
 
 Il nous indique que notre nœud local Bitcoin Core a 394075 blocs dans sa chaîne de blocs. Ce n'est pas un résultat spectaculaire, mais cela démontre l'utilisation de base de la bibliothèque en tant qu'interface simplifiée avec l'API JSON-RPC de Bitcoin Core.
 
-Ensuite, utilisons les appels +getrawtransaction+ et +decodetransaction+ pour récupérer les détails du paiement du café d'Alice. Dans &lt;<rpc_transaction>&gt;, nous récupérons la transaction d'Alice et listons les sorties de la transaction. Pour chaque sortie, nous affichons l'adresse et la valeur du destinataire. Pour rappel, la transaction d'Alice avait une sortie pour payer Bob's Cafe et une sortie pour rendre la monnaie à Alice.
+Ensuite, utilisons les appels +getrawtransaction+ et +decodetransaction+ pour récupérer les détails du paiement du café d'Alice. Dans <<rpc_transaction>>, nous récupérons la transaction d'Alice et listons les sorties de la transaction. Pour chaque sortie, nous affichons l'adresse et la valeur du destinataire. Pour rappel, la transaction d'Alice avait une sortie pour payer Bob's Cafe et une sortie pour rendre la monnaie à Alice.
 
 [[rpc_transaction]]
 .Récupérer une transaction et itérer ses sorties
@@ -716,7 +716,7 @@ $ python rpc_transaction.py
 
 Les deux exemples précédents sont assez simples. Vous n'avez pas vraiment besoin d'un programme pour les exécuter ; vous pouvez tout aussi bien utiliser l'assistant +bitcoin-cli+. L'exemple suivant, cependant, nécessite plusieurs centaines d'appels RPC et démontre plus clairement l'utilisation d'une interface de programmation.
 
-Dans &lt;<rpc_block>&gt;, nous récupérons d'abord le bloc 277316, puis récupérons chacune des 419 transactions en référence à chaque identifiant de transaction. Ensuite, nous parcourons chacune des sorties de la transaction et additionnons la valeur.((("", startref="alicethree")))
+Dans <<rpc_block>>, nous récupérons d'abord le bloc 277316, puis récupérons chacune des 419 transactions en référence à chaque identifiant de transaction. Ensuite, nous parcourons chacune des sorties de la transaction et additionnons la valeur.((("", startref="alicethree")))
 
 [[rpc_block]]
 .Récupération d'un bloc et ajout de toutes les sorties de transaction

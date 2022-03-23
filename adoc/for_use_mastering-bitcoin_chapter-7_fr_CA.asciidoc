@@ -14,7 +14,7 @@ Tout d'abord, nous examinerons les scripts _multisignature_. Ensuite, nous exami
 
 ((("transactions", "avancé", "scripts multisignatures")))((("transactions", "avancé", id="Tadv07")))((("scripts", "scripts multisignatures", id="Smulti07")))((("scripts multisignatures")))Les scripts multisignatures définissent une condition dans laquelle N clés publiques sont enregistrées dans le script et au moins M d'entre elles doivent fournir des signatures pour débloquer les fonds. Ceci est également connu sous le nom de schéma M-sur-N, où N est le nombre total de clés et M est le seuil de signatures requises pour la validation. Par exemple, une multisignature 2 sur 3 est celle où trois clés publiques sont répertoriées comme signataires potentiels et au moins deux d'entre elles doivent être utilisées pour créer des signatures pour une transaction valide afin de dépenser les fonds.
 
-À l'heure actuelle, les scripts multisignatures _standard_ sont limités à un maximum de 3 clés publiques répertoriées, ce qui signifie que vous pouvez faire n'importe quoi d'une multisignature 1 sur 1 jusqu'à 3 sur 3 ou toute combinaison dans cette plage. La limitation à 3 clés répertoriées pourrait être levée au moment de la publication de ce livre, alors vérifiez la fonction +IsStandard()+ pour voir ce qui est actuellement accepté par le réseau. Notez que la limite de 3 clés s'applique uniquement aux scripts multisignatures standard (également appelés "nus (bare en anglais)"), et non aux scripts multisignatures enveloppés dans un script Pay-to-Script-Hash (P2SH). Les scripts multisignatures P2SH sont limités à 15 clés, permettant jusqu'à 15 multisignatures sur 15. Cette limitation est également imposée par la fonction +IsStandard()+. Nous en apprendrons davantage sur P2SH dans &lt;<p2sh>&gt;.
+À l'heure actuelle, les scripts multisignatures _standard_ sont limités à un maximum de 3 clés publiques répertoriées, ce qui signifie que vous pouvez faire n'importe quoi d'une multisignature 1 sur 1 jusqu'à 3 sur 3 ou toute combinaison dans cette plage. La limitation à 3 clés répertoriées pourrait être levée au moment de la publication de ce livre, alors vérifiez la fonction +IsStandard()+ pour voir ce qui est actuellement accepté par le réseau. Notez que la limite de 3 clés s'applique uniquement aux scripts multisignatures standard (également appelés "nus (bare en anglais)"), et non aux scripts multisignatures enveloppés dans un script Pay-to-Script-Hash (P2SH). Les scripts multisignatures P2SH sont limités à 15 clés, permettant jusqu'à 15 multisignatures sur 15. Cette limitation est également imposée par la fonction +IsStandard()+. Nous en apprendrons davantage sur P2SH dans <<p2sh>>.
 
 La forme générale d'un script de verrouillage définissant une condition multisignature M-de-N est :
 
@@ -82,7 +82,7 @@ mais à la place c'est :
 
 ((("transactions", "avancé", "Pay-to-Script-Hash")))((("scripting", "Pay-to-Script-Hash", id="Spay07")))Pay- to-Script-Hash (P2SH) a été introduit en 2012 en tant que nouveau type de transaction puissant qui simplifie grandement l'utilisation de scripts de transaction complexes. Pour expliquer le besoin de P2SH, regardons un exemple pratique.
 
-((("cas d'utilisation", "import/export", id="mohamseven")))((("scripting", "Pay-to-Script-Hash", "exemple d'import/export")))(( ("Pay-to-Script-Hash (P2SH)", "exemple d'import/export")))Dans &lt;<ch01_intro_what_is_bitcoin>&gt; nous avons présenté Mohammed, un importateur d'électronique basé à Dubaï. La société de Mohammed utilise largement la fonction multisignature de Bitcoin pour ses comptes d'entreprise. Les scripts multisignatures sont l'une des utilisations les plus courantes des capacités de script avancées de Bitcoin et constituent une fonctionnalité très puissante. ((("comptes recevables")))La société de Mohammed utilise un script multisignature pour tous les paiements des clients, connu en termes comptables sous le nom de "comptes débiteurs ou recevables". Avec le schéma multisignature, tous les paiements effectués par les clients sont verrouillés de telle manière qu'ils nécessitent au moins deux signatures pour être libérés, de Mohammed et de l'un de ses partenaires ou de son avocat qui dispose d'une clé de secours. Un système multisignature comme celui-ci offre des contrôles de gouvernance d'entreprise et protège contre le vol, le détournement de fonds ou la perte.
+((("cas d'utilisation", "import/export", id="mohamseven")))((("scripting", "Pay-to-Script-Hash", "exemple d'import/export")))(( ("Pay-to-Script-Hash (P2SH)", "exemple d'import/export")))Dans <<ch01_intro_what_is_bitcoin>> nous avons présenté Mohammed, un importateur d'électronique basé à Dubaï. La société de Mohammed utilise largement la fonction multisignature de Bitcoin pour ses comptes d'entreprise. Les scripts multisignatures sont l'une des utilisations les plus courantes des capacités de script avancées de Bitcoin et constituent une fonctionnalité très puissante. ((("comptes recevables")))La société de Mohammed utilise un script multisignature pour tous les paiements des clients, connu en termes comptables sous le nom de "comptes débiteurs ou recevables". Avec le schéma multisignature, tous les paiements effectués par les clients sont verrouillés de telle manière qu'ils nécessitent au moins deux signatures pour être libérés, de Mohammed et de l'un de ses partenaires ou de son avocat qui dispose d'une clé de secours. Un système multisignature comme celui-ci offre des contrôles de gouvernance d'entreprise et protège contre le vol, le détournement de fonds ou la perte.
 
 Le script résultant est assez long et ressemble à ceci :
 
@@ -94,7 +94,7 @@ Bien que les scripts multisignatures soient une fonctionnalité puissante, ils s
 
 P2SH a été développé pour résoudre ces difficultés pratiques et rendre l'utilisation de scripts complexes aussi simple qu'un paiement à une adresse Bitcoin. Avec les paiements P2SH, le script de verrouillage complexe est remplacé par son empreinte numérique, un hachage cryptographique. Lorsqu'une transaction tentant de dépenser l'UTXO est présentée ultérieurement, elle doit contenir le script correspondant au hachage, en plus du script de déverrouillage. En termes simples, P2SH signifie "payer à un script correspondant à ce hachage, un script qui sera présenté plus tard lorsque cette sortie sera dépensée".
 
-((("scripts de rachat")))((("scriptage", "scripts de rachat")))Dans les transactions P2SH, le script de verrouillage qui est remplacé par un hachage est appelé _redeem script_ ou _script de rachat_ car il est présenté au système au moment du rachat plutôt que comme un script de verrouillage. &lt;<without_p2sh>&gt; affiche le script sans P2SH et &lt;<with_p2sh>&gt; montre le même script encodé avec P2SH.
+((("scripts de rachat")))((("scriptage", "scripts de rachat")))Dans les transactions P2SH, le script de verrouillage qui est remplacé par un hachage est appelé _redeem script_ ou _script de rachat_ car il est présenté au système au moment du rachat plutôt que comme un script de verrouillage. <<without_p2sh>> affiche le script sans P2SH et <<with_p2sh>> montre le même script encodé avec P2SH.
 
 [[without_p2sh]]
 .Script complexe sans P2SH
@@ -218,7 +218,7 @@ Les adresses P2SH cachent toute la complexité, de sorte que la personne effectu
 
 Depuis la version 0.9.2 du client Bitcoin Core, les transactions P2SH peuvent contenir n'importe quel script valide, ce qui rend la norme P2SH beaucoup plus flexible et permet d'expérimenter de nombreux types de transactions nouveaux et complexes.
 
-Vous ne pouvez pas mettre un P2SH dans un script de rachat P2SH, car la spécification P2SH n'est pas récursive. Aussi, bien qu'il soit techniquement possible d'inclure +RETURN+ (voir &lt;<op_return>&gt;) dans un script de rachat, comme rien dans les règles ne vous empêche de le faire, cela n'a aucune utilité pratique car l'exécution de +RETURN+ lors de la validation entraînera le marquage de la transaction comme invalide.
+Vous ne pouvez pas mettre un P2SH dans un script de rachat P2SH, car la spécification P2SH n'est pas récursive. Aussi, bien qu'il soit techniquement possible d'inclure +RETURN+ (voir <<op_return>>) dans un script de rachat, comme rien dans les règles ne vous empêche de le faire, cela n'a aucune utilité pratique car l'exécution de +RETURN+ lors de la validation entraînera le marquage de la transaction comme invalide.
 
 Notez que, comme le script de rachat n'est pas présenté au réseau tant que vous n'essayez pas de dépenser une sortie P2SH, si vous verrouillez une sortie avec le hachage d'un script de rachat invalide, elle sera traitée malgré tout. L'UTXO sera verrouillé avec succès. Cependant, vous ne pourrez pas le dépenser car la transaction de dépense, qui inclut le script d'échange, ne sera pas acceptée car il s'agit d'un script invalide. Cela crée un risque, car vous pouvez verrouiller des bitcoins dans un P2SH qui ne pourra pas être dépensé plus tard. Le réseau acceptera le script de verrouillage P2SH même s'il correspond à un script de rachat invalide, car le hachage du script ne donne aucune indication sur le script qu'il représente.((("", startref="Spay07")))
 
@@ -303,7 +303,7 @@ L'opcode +CLTV+ prend un paramètre en entrée, exprimé sous la forme d'un nomb
 Pour verrouiller une sortie avec +CLTV+, vous l'insérez dans le script de rachat de la sortie dans la transaction qui crée la sortie. Par exemple, si Alice paie l'adresse de Bob, la sortie contiendra normalement un script P2PKH comme celui-ci :
 
 ----
-DUP HASH160 &lt;Hachage clé publique de Bob&gt; EQUALVERIFY CHECKSIG
+DUP HASH160 <Hachage clé publique de Bob> EQUALVERIFY CHECKSIG
 ----
 
 Pour le verrouiller à un moment, disons dans 3 mois, la transaction serait une transaction P2SH avec un script de rachat comme celui-ci :
@@ -333,7 +333,7 @@ Plus précisément, +CHECKLOCKTIMEVERIFY+ échoue et arrête l'exécution, marqu
 
 Après l'exécution, si +CLTV+ est satisfait, le paramètre de temps qui l'a précédé reste l'élément supérieur de la pile et peut devoir être supprimé, avec +DROP+, pour une exécution correcte des opcodes de script suivants. Vous verrez souvent +CHECKLOCKTIMEVERIFY+ suivi de +DROP+ dans les scripts pour cette raison.
 
-En utilisant +nLocktime+ conjointement avec +CLTV+, le scénario décrit dans &lt;<locktime_limitations>&gt; changements. Alice ne peut plus dépenser l'argent (car il est verrouillé avec la clé de Bob) et Bob ne peut pas le dépenser avant l'expiration du temps de verrouillage de 3 mois.((("", startref="alicesseven")))
+En utilisant +nLocktime+ conjointement avec +CLTV+, le scénario décrit dans <<locktime_limitations>> changements. Alice ne peut plus dépenser l'argent (car il est verrouillé avec la clé de Bob) et Bob ne peut pas le dépenser avant l'expiration du temps de verrouillage de 3 mois.((("", startref="alicesseven")))
 
 En introduisant la fonctionnalité timelock directement dans le langage de script, +CLTV+ nous permet de développer des scripts complexes très intéressants.((("", startref="cltv07")))
 
@@ -343,7 +343,7 @@ La norme est définie dans https://github.com/bitcoin/bips/blob/master/bip-0065.
 
 +nLocktime+ et +CLTV+ sont ((("verrous temporels", "verrous temporels relatifs", id="Trelative07")))((("scriptage", "verrous temporels", "rverrous temporels relatifs")))((("verrous temporels relatifs", id="relativetime07")))les deux _verrous temporels absolus_ en ce sens qu'ils spécifient un point absolu dans le temps. Les deux prochaines fonctionnalités de verrou temporel que nous examinerons sont des _verrous temporels relatifs_ en ce sens qu'elles spécifient, comme condition de dépense d'une sortie, un temps écoulé depuis la confirmation de la sortie dans la chaîne de blocs.
 
-Les verrous temporels relatifs sont utiles car ils permettent de bloquer une chaîne de deux transactions interdépendantes ou plus, tout en imposant une contrainte de temps sur une transaction qui dépend du temps écoulé depuis la confirmation d'une transaction précédente. En d'autres termes, l'horloge ne commence pas à compter tant que l'UTXO n'est pas enregistré sur la chaîne de blocs. Cette fonctionnalité est particulièrement utile dans les canaux d'état bidirectionnels et les réseaux Lightning, comme nous le verrons dans &lt;<state_channels>&gt;.
+Les verrous temporels relatifs sont utiles car ils permettent de bloquer une chaîne de deux transactions interdépendantes ou plus, tout en imposant une contrainte de temps sur une transaction qui dépend du temps écoulé depuis la confirmation d'une transaction précédente. En d'autres termes, l'horloge ne commence pas à compter tant que l'UTXO n'est pas enregistré sur la chaîne de blocs. Cette fonctionnalité est particulièrement utile dans les canaux d'état bidirectionnels et les réseaux Lightning, comme nous le verrons dans <<state_channels>>.
 
 Les verrous temporels relatifs, comme les verrous horaires absolus, sont implémentés à la fois avec une fonctionnalité au niveau de la transaction et un opcode au niveau du script. Le verrouillage temporel relatif au niveau de la transaction est implémenté comme une règle de consensus sur la valeur de +nSequence+, un champ de transaction qui est défini dans chaque entrée de transaction. Les verrous horaires relatifs au niveau du script sont implémentés avec l'opcode +CHECKSEQUENCEVERIFY+ (CSV).
 
@@ -363,15 +363,15 @@ La signification originale de +nSequence+ n'a jamais été correctement impléme
 
 ===== nSequence comme un verrou temporel relatif imposé par consensus
 
-Depuis l'activation de BIP-68, de nouvelles règles de consensus s'appliquent pour toute transaction contenant une entrée dont la valeur +nSequence+ est inférieure à 2^31^ (le bit 1&lt;&lt;31 n'est pas défini). Par programmation, cela signifie que si le bit le plus significatif (bit 1&lt;&lt;31) n'est pas défini, c'est un indicateur qui signifie "temps de verrouillage relatif". Sinon (bit 1&lt;&lt;31 défini), la valeur +nSequence+ est réservée à d'autres utilisations telles que l'activation de +CHECKLOCKTIMEVERIFY+, +nLocktime+, Opt-In-Replace-By-Fee et d'autres développements futurs.
+Depuis l'activation de BIP-68, de nouvelles règles de consensus s'appliquent pour toute transaction contenant une entrée dont la valeur +nSequence+ est inférieure à 2^31^ (le bit 1<<31 n'est pas défini). Par programmation, cela signifie que si le bit le plus significatif (bit 1<<31) n'est pas défini, c'est un indicateur qui signifie "temps de verrouillage relatif". Sinon (bit 1<<31 défini), la valeur +nSequence+ est réservée à d'autres utilisations telles que l'activation de +CHECKLOCKTIMEVERIFY+, +nLocktime+, Opt-In-Replace-By-Fee et d'autres développements futurs.
 
-Les entrées de transaction avec des valeurs +nSequence+ inférieures à 2^31^ sont interprétées comme ayant un verrou temporel relatif. Une telle transaction n'est valide qu'une fois que l'entrée a vieilli du montant relatif du verrou temporel. Par exemple, une transaction avec une entrée et un verrou temporel relatif +nSequence+ de 30 blocs n'est valide que lorsqu'au moins 30 blocs se sont écoulés depuis le moment où l'UTXO référencé dans l'entrée a été extrait. Étant donné que +nSequence+ est un champ par entrée, une transaction peut contenir n'importe quel nombre d'entrées verrouillées dans le temps, qui doivent toutes avoir suffisamment vieilli pour que la transaction soit valide. Une transaction peut inclure à la fois des entrées à verrouillage temporel (+nSequence+ &lt; 2^31^) et des entrées sans verrouillage temporel relatif (+nSequence+ &gt;= 2^31^).
+Les entrées de transaction avec des valeurs +nSequence+ inférieures à 2^31^ sont interprétées comme ayant un verrou temporel relatif. Une telle transaction n'est valide qu'une fois que l'entrée a vieilli du montant relatif du verrou temporel. Par exemple, une transaction avec une entrée et un verrou temporel relatif +nSequence+ de 30 blocs n'est valide que lorsqu'au moins 30 blocs se sont écoulés depuis le moment où l'UTXO référencé dans l'entrée a été extrait. Étant donné que +nSequence+ est un champ par entrée, une transaction peut contenir n'importe quel nombre d'entrées verrouillées dans le temps, qui doivent toutes avoir suffisamment vieilli pour que la transaction soit valide. Une transaction peut inclure à la fois des entrées à verrouillage temporel (+nSequence+ < 2^31^) et des entrées sans verrouillage temporel relatif (+nSequence+ >= 2^31^).
 
-La valeur +nSequence+ est spécifiée en blocs ou en secondes, mais dans un format légèrement différent de celui que nous avons vu utilisé dans +nLocktime+. Un indicateur de type est utilisé pour différencier les valeurs comptant les blocs et les valeurs comptant le temps en secondes. Le drapeau de type est défini dans le 23e bit le moins significatif (c'est-à-dire la valeur 1&lt;&lt;22). Si le type-flag est défini, alors la valeur +nSequence+ est interprétée comme un multiple de 512 secondes. Si le drapeau de type n'est pas défini, la valeur +nSequence+ est interprétée comme un nombre de blocs.
+La valeur +nSequence+ est spécifiée en blocs ou en secondes, mais dans un format légèrement différent de celui que nous avons vu utilisé dans +nLocktime+. Un indicateur de type est utilisé pour différencier les valeurs comptant les blocs et les valeurs comptant le temps en secondes. Le drapeau de type est défini dans le 23e bit le moins significatif (c'est-à-dire la valeur 1<<22). Si le type-flag est défini, alors la valeur +nSequence+ est interprétée comme un multiple de 512 secondes. Si le drapeau de type n'est pas défini, la valeur +nSequence+ est interprétée comme un nombre de blocs.
 
 Lors de l'interprétation de +nSequence+ comme un timelock relatif, seuls les 16 bits les moins significatifs sont pris en compte. Une fois que les drapeaux (bits 32 et 23) sont évalués, la valeur +nSequence+ est généralement "masquée" avec un masque de 16 bits (par exemple, +nSequence+ &amp; 0x0000FFFF).
 
-&lt;<bip_68_def_of_nseq>&gt; montre la disposition binaire de la valeur +nSequence+, telle que définie par BIP-68.
+<<bip_68_def_of_nseq>> montre la disposition binaire de la valeur +nSequence+, telle que définie par BIP-68.
 
 [[bip_68_def_of_nseq]]
 .Définition BIP-68 du codage nSequence (Source : BIP-68)
@@ -390,7 +390,7 @@ L'opcode +CSV+, lorsqu'il est évalué dans le script de remboursement d'un UTXO
 
 Comme pour CLTV, la valeur dans +CSV+ doit correspondre au format de la valeur +nSequence+ correspondante. Si +CSV+ est spécifié en termes de blocs, il doit en être de même pour +nSequence+. Si +CSV+ est spécifié en termes de secondes, alors +nSequence+ doit également l'être.
 
-Les timelocks relatifs avec +CSV+ sont particulièrement utiles lorsque plusieurs transactions (chaînées) sont créées et signées, mais non propagées, lorsqu'elles sont conservées "hors chaîne". Une transaction enfant ne peut pas être utilisée tant que la transaction parent n'a pas été propagée, extraite et vieillie au moment spécifié dans le timelock relatif. Une application de ce cas d'utilisation peut être vue dans &lt;<state_channels>&gt; et &lt;<lightning_network>&gt;.((("", startref="relativetime07")))((("", startref="Trelative07")))
+Les timelocks relatifs avec +CSV+ sont particulièrement utiles lorsque plusieurs transactions (chaînées) sont créées et signées, mais non propagées, lorsqu'elles sont conservées "hors chaîne". Une transaction enfant ne peut pas être utilisée tant que la transaction parent n'a pas été propagée, extraite et vieillie au moment spécifié dans le timelock relatif. Une application de ce cas d'utilisation peut être vue dans <<state_channels>> et <<lightning_network>>.((("", startref="relativetime07")))((("", startref="Trelative07")))
 
 +CSV+ est défini en détail dans https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki[BIP-112, CHECKSEQUENCEVERIFY].
 
@@ -601,7 +601,7 @@ Dans le premier chemin d'exécution, ce script fonctionne comme un simple multis
 
 [TIP]
 ====
-Le +0+ au début de ce script de déverrouillage est dû à un bogue dans +CHECKMULTISIG+ qui extrait une valeur supplémentaire de la pile. La valeur supplémentaire est ignorée par le +CHECKMULTISIG+, mais elle doit être présente ou le script échoue. Pousser +0+ (habituellement) est une solution de contournement au bogue, comme décrit dans &lt;<multisig_bug>&gt;.
+Le +0+ au début de ce script de déverrouillage est dû à un bogue dans +CHECKMULTISIG+ qui extrait une valeur supplémentaire de la pile. La valeur supplémentaire est ignorée par le +CHECKMULTISIG+, mais elle doit être présente ou le script échoue. Pousser +0+ (habituellement) est une solution de contournement au bogue, comme décrit dans <<multisig_bug>>.
 ====
 
 Le deuxième chemin d'exécution ne peut être utilisé qu'après 30 jours à compter de la création de l'UTXO. À ce moment-là, il faut la signature d'Abdul l'avocat et de l'un des trois partenaires (un multisig 1 sur 3). Ceci est réalisé par la ligne 7, qui fixe le quorum pour le multisig à +1+. Pour sélectionner ce chemin d'exécution, le script de déverrouillage se terminerait par +FALSE TRUE+ :
@@ -669,7 +669,7 @@ https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki[BIP-173] :: Forma
 
 Le témoin séparé est un changement architectural qui a plusieurs effets sur l'évolutivité, la sécurité, les incitations économiques et les performances du bitcoin :
 
-Malléabilité de transaction :: En déplaçant le témoin en dehors des données de transaction, le hachage de transaction utilisé comme identifiant n'inclut plus les données de témoin. Étant donné que les données témoins sont la seule partie de la transaction qui peut être modifiée par un tiers (voir &lt;<segwit_txid>&gt;), sa suppression supprime également la possibilité d'attaques de malléabilité des transactions. Avec le témoin séparé, les hachages de transaction deviennent immuables par toute personne autre que le créateur de la transaction, ce qui améliore considérablement la mise en œuvre de nombreux autres protocoles qui reposent sur la construction avancée de transactions bitcoin, tels que les canaux de paiement, les transactions chaînées et les réseaux Lightning.
+Malléabilité de transaction :: En déplaçant le témoin en dehors des données de transaction, le hachage de transaction utilisé comme identifiant n'inclut plus les données de témoin. Étant donné que les données témoins sont la seule partie de la transaction qui peut être modifiée par un tiers (voir <<segwit_txid>>), sa suppression supprime également la possibilité d'attaques de malléabilité des transactions. Avec le témoin séparé, les hachages de transaction deviennent immuables par toute personne autre que le créateur de la transaction, ce qui améliore considérablement la mise en œuvre de nombreux autres protocoles qui reposent sur la construction avancée de transactions bitcoin, tels que les canaux de paiement, les transactions chaînées et les réseaux Lightning.
 
 Gestion des versions de script :: Avec l'introduction des scripts Segregated Witness (témoin séparé), chaque script de verrouillage est précédé d'un numéro de _version de script_, similaire à la façon dont les transactions et les blocs ont des numéros de version. L'ajout d'un numéro de version de script permet au langage de script d'être mis à niveau de manière rétrocompatible (c'est-à-dire en utilisant des mises à niveau d'embranchement convergent) pour introduire de nouvelles opérandes de script, syntaxe ou sémantique. La possibilité de mettre à niveau le langage de script de manière non perturbatrice accélérera considérablement le taux d'innovation dans le bitcoin.
 
@@ -700,7 +700,7 @@ Examinons quelques-uns de nos exemples de transactions et voyons comment ils cha
 [[p2wpkh]]
 ===== Pay-to-Witness-Public-Key-Hash (P2WPKH)
 
-Dans &lt;<cup_of_coffee>&gt;, ((("cas d'utilisation", "acheter du café", id="aliced")))Alice a créé une transaction pour payer Bob pour une tasse de café. Cette transaction a créé une sortie P2PKH d'une valeur de 0,015 BTC pouvant être dépensée par Bob. Le script de sortie ressemble à ceci :
+Dans <<cup_of_coffee>>, ((("cas d'utilisation", "acheter du café", id="aliced")))Alice a créé une transaction pour payer Bob pour une tasse de café. Cette transaction a créé une sortie P2PKH d'une valeur de 0,015 BTC pouvant être dépensée par Bob. Le script de sortie ressemble à ceci :
 
 .Exemple de script de sortie P2PKH
 ----
@@ -758,7 +758,7 @@ P2WPKH doit être construit par le bénéficiaire (destinataire) en convertissan
 [[p2wsh]]
 ===== Pay-to-Witness-Script-Hash (P2WSH)
 
-Le ((("cas d"utilisation", "import/export", id="mohamappd")))deuxième type de programme témoin correspond à un script Pay-to-Script-Hash (P2SH). Nous avons vu ce type de script dans &lt;<p2sh>&gt;. Dans cet exemple, P2SH a été utilisé par la société de Mohammed pour exprimer un script multisignature. Les paiements à l'entreprise de Mohammed étaient encodés avec un script de verrouillage comme celui-ci :
+Le ((("cas d"utilisation", "import/export", id="mohamappd")))deuxième type de programme témoin correspond à un script Pay-to-Script-Hash (P2SH). Nous avons vu ce type de script dans <<p2sh>>. Dans cet exemple, P2SH a été utilisé par la société de Mohammed pour exprimer un script multisignature. Les paiements à l'entreprise de Mohammed étaient encodés avec un script de verrouillage comme celui-ci :
 
 .Exemple de script de sortie P2SH
 ----
@@ -809,7 +809,7 @@ Alors que P2SH utilise le hachage +RIPEMD160(SHA256(script))+ de 20 octets, le p
 
 ===== Différenciation entre P2WPKH et P2WSH
 
-Dans les deux sections précédentes, nous avons présenté deux types de programmes de témoins : &lt;<p2wpkh>&gt; et &lt;<p2wsh>&gt;. Les deux types de programmes témoins se composent d'un numéro de version à un seul octet suivi d'un hachage plus long. Ils se ressemblent beaucoup, mais sont interprétés très différemment : l'un est interprété comme un hachage de clé publique, qui est satisfait par une signature et l'autre comme un hachage de script, qui est satisfait par un script de rachat. La différence critique entre eux est la longueur du hachage :
+Dans les deux sections précédentes, nous avons présenté deux types de programmes de témoins : <<p2wpkh>> et <<p2wsh>>. Les deux types de programmes témoins se composent d'un numéro de version à un seul octet suivi d'un hachage plus long. Ils se ressemblent beaucoup, mais sont interprétés très différemment : l'un est interprété comme un hachage de clé publique, qui est satisfait par une signature et l'autre comme un hachage de script, qui est satisfait par un script de rachat. La différence critique entre eux est la longueur du hachage :
 
 * Le hachage de clé publique dans P2WPKH est de 20 octets
 * Le hachage du script dans P2WSH est de 32 octets
@@ -843,7 +843,7 @@ Les deux formes de scripts témoins, P2WPKH et P2WSH, peuvent être intégrées 
 
 La première forme de script témoin que nous examinerons est P2SH(P2WPKH). Il s'agit d'un programme témoin Pay-to-Witness-Public-Key-Hash, intégré dans un script Pay-to-Script-Hash, afin qu'il puisse être utilisé par un portefeuille qui n'est pas conscient de segwit.
 
-Le portefeuille de Bob construit un programme témoin P2WPKH avec la clé publique de Bob. Ce programme témoin est ensuite haché et le hachage résultant est encodé sous la forme d'un script P2SH. Le script P2SH est converti en une adresse Bitcoin, celle qui commence par un "3", comme nous l'avons vu dans le &lt;<p2sh>&gt; rubrique.
+Le portefeuille de Bob construit un programme témoin P2WPKH avec la clé publique de Bob. Ce programme témoin est ensuite haché et le hachage résultant est encodé sous la forme d'un script P2SH. Le script P2SH est converti en une adresse Bitcoin, celle qui commence par un "3", comme nous l'avons vu dans le <<p2sh>> rubrique.
 
 Le portefeuille de Bob commence par le programme témoin P2WPKH que nous avons vu plus tôt :
 
@@ -890,7 +890,7 @@ Même si le portefeuille d'Alice ne prend pas en charge segwit, le paiement qu'i
 
 De même, un programme témoin P2WSH pour un script multisig ou un autre script compliqué peut être intégré dans un script et une adresse P2SH, permettant à n'importe quel portefeuille d'effectuer des paiements compatibles avec segwit.
 
-Comme nous l'avons vu dans &lt;<p2wsh>&gt;, la société de Mohammed ((("cas d'utilisation", "import/export"))) utilise des paiements de témoins séparés avec des scripts multisignatures. Pour permettre à tout client de payer son entreprise, que ses portefeuilles soient ou non mis à niveau pour segwit, le portefeuille de Mohammed peut intégrer le programme témoin P2WSH dans un script P2SH.
+Comme nous l'avons vu dans <<p2wsh>>, la société de Mohammed ((("cas d'utilisation", "import/export"))) utilise des paiements de témoins séparés avec des scripts multisignatures. Pour permettre à tout client de payer son entreprise, que ses portefeuilles soient ou non mis à niveau pour segwit, le portefeuille de Mohammed peut intégrer le programme témoin P2WSH dans un script P2SH.
 
 Tout d'abord, le portefeuille de Mohammed hache le script de rachat avec SHA256 (une seule fois). Utilisons +bx+ pour faire cela sur la ligne de commande :
 
@@ -975,7 +975,7 @@ La partie données:: Un minimum de 6 caractères alphanumériques, le script té
 
 À l'heure actuelle, seuls quelques portefeuilles acceptent ou produisent des adresses segwit bech32 natives, mais à mesure que l'adoption de segwit augmente, vous les verrez de plus en plus souvent.
 
-&lt;<segwit_addresses>&gt; affiche les adresses bitcoin non-segwit (héritées) et segwit.
+<<segwit_addresses>> affiche les adresses bitcoin non-segwit (héritées) et segwit.
 
 [[segwit_addresses]]
 .Bitcoin non-segwit (hérité) et adresses segwit

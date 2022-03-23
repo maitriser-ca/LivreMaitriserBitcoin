@@ -24,7 +24,7 @@
 
 ==== Prérequis
 
-* NodeJS &gt;= 4.x
+* NodeJS >= 4.x
 
 Si vous utilisez NodeJS et le nœud REPL :
 
