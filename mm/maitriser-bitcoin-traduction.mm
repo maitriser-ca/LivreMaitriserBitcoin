@@ -12,6 +12,43 @@
   </body>
 </html></richcontent>
 <node CREATED="1647766807453" ID="ID_1215745242" MODIFIED="1647767310259" POSITION="left" TEXT="Traduction (fr_CA)">
+<node CREATED="1648045627316" ID="ID_269739844" MODIFIED="1648047969510" TEXT="en tout temps">
+<icon BUILTIN="yes"/>
+<node CREATED="1648045636825" ID="ID_831112442" MODIFIED="1648045646341" TEXT="erreurs de formattage">
+<node CREATED="1648048017249" ID="ID_522393768" MODIFIED="1648048114003" TEXT="retirer ****">
+<node CREATED="1648045648696" ID="ID_252058914" MODIFIED="1648045653659" TEXT="chapitre 1"/>
+</node>
+<node CREATED="1648047992351" ID="ID_313814502" MODIFIED="1648048013569" TEXT="&lt;pre&gt; remplac&#xe9; par ----">
+<node CREATED="1648045668193" ID="ID_1040579247" MODIFIED="1648045673133" TEXT="chapitre 3">
+<node CREATED="1648045734019" ID="ID_1210401208" MODIFIED="1648045741385" TEXT="ligne 515"/>
+<node CREATED="1648045767937" ID="ID_696649408" MODIFIED="1648045770908" TEXT="535"/>
+<node CREATED="1648045796897" ID="ID_1369137139" MODIFIED="1648045799005" TEXT="546"/>
+<node CREATED="1648045821153" ID="ID_51822120" MODIFIED="1648045822751" TEXT="608"/>
+<node CREATED="1648045843488" ID="ID_59730654" MODIFIED="1648045847917" TEXT="615"/>
+<node CREATED="1648045864403" ID="ID_1141607515" MODIFIED="1648045868436" TEXT="620"/>
+</node>
+<node CREATED="1648046155738" ID="ID_1803472220" MODIFIED="1648046159743" TEXT="chapitre 4">
+<node CREATED="1648046174338" ID="ID_424721507" MODIFIED="1648046189598" TEXT="ligne 438"/>
+<node CREATED="1648046243755" ID="ID_1457949037" MODIFIED="1648046246638" TEXT="552"/>
+</node>
+<node CREATED="1648047368610" ID="ID_549309643" MODIFIED="1648047373254" TEXT="chapitre 9">
+<node CREATED="1648047381508" ID="ID_1739875435" MODIFIED="1648047387621" TEXT="171"/>
+<node CREATED="1648047473659" ID="ID_1896178145" MODIFIED="1648047475118" TEXT="177"/>
+</node>
+</node>
+<node CREATED="1648051496313" ID="ID_1566570639" MODIFIED="1648051507341" TEXT="&lt;sub&gt;">
+<node CREATED="1648051509919" ID="ID_1097738155" MODIFIED="1648051514398" TEXT="chapitre 9">
+<node CREATED="1648051517811" ID="ID_1361909211" MODIFIED="1648051520988" TEXT="171"/>
+<node CREATED="1648051527927" ID="ID_478954273" MODIFIED="1648051530780" TEXT="177"/>
+</node>
+</node>
+<node CREATED="1648051918619" ID="ID_330255336" MODIFIED="1648051925775" TEXT="&lt;sup&gt;">
+<node CREATED="1648051928043" ID="ID_887150399" MODIFIED="1648051932046" TEXT="chapitre 8">
+<node CREATED="1648051933426" ID="ID_1883760685" MODIFIED="1648051942238" TEXT="875"/>
+</node>
+</node>
+</node>
+</node>
 <node CREATED="1647766807453" FOLDED="true" ID="ID_1055745671" MODIFIED="1647875032897">
 <richcontent TYPE="NODE"><html>
       <head>
@@ -49,7 +86,7 @@
       </html></richcontent>
 </node>
 </node>
-<node CREATED="1647766807453" FOLDED="true" ID="ID_1268647913" MODIFIED="1647875039525">
+<node CREATED="1647766807453" FOLDED="true" ID="ID_1268647913" MODIFIED="1648044578624">
 <richcontent TYPE="NODE"><html>
       <head>
 
@@ -277,7 +314,7 @@
         </div>
       </body>
     </html></richcontent>
-<node CREATED="1647766807454" ID="ID_23681687" MODIFIED="1647939267075">
+<node CREATED="1647766807454" FOLDED="true" ID="ID_23681687" MODIFIED="1648052468010">
 <richcontent TYPE="NODE"><html>
   <head>
     
@@ -287,8 +324,8 @@
       reviser certains termes
     </div>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
+<icon BUILTIN="info"/>
 <node CREATED="1647766807454" ID="ID_1880962854" MODIFIED="1647767266856">
 <richcontent TYPE="NODE"><html>
           <head>
@@ -460,7 +497,7 @@
 <icon BUILTIN="button_ok"/>
 </node>
 </node>
-<node CREATED="1647766807453" ID="ID_1791522917" MODIFIED="1647767266855">
+<node CREATED="1647766807453" ID="ID_1791522917" MODIFIED="1648052465391">
 <richcontent TYPE="NODE"><html>
           <head>
 
@@ -471,9 +508,11 @@
             </div>
           </body>
         </html></richcontent>
+<icon BUILTIN="button_ok"/>
 </node>
 </node>
 </node>
+<node CREATED="1647943982159" ID="ID_1604065444" MODIFIED="1647945070063" TEXT="localement (vs code)">
 <node CREATED="1647766807453" ID="ID_1975235496" MODIFIED="1647767266854">
 <richcontent TYPE="NODE"><html>
         <head>
@@ -535,6 +574,31 @@
 </node>
 <node CREATED="1647872267726" ID="ID_1973746330" MODIFIED="1647872353065" TEXT="+...+ par `+...+`"/>
 </node>
+<node CREATED="1647875687811" ID="ID_380044869" MODIFIED="1647875725231" TEXT="mettre le glossaire rapide en ordre alphab&#xe9;tique"/>
+<node CREATED="1647766807454" ID="ID_1508149247" MODIFIED="1647767266857">
+<richcontent TYPE="NODE"><html>
+        <head>
+
+        </head>
+        <body>
+          <div style="text-align: left">
+            liens r&#233;f&#233;rences (#headings) [r&#233;f&#233;rence]
+          </div>
+        </body>
+      </html></richcontent>
+</node>
+<node CREATED="1647766807454" ID="ID_931440283" MODIFIED="1647767266857">
+<richcontent TYPE="NODE"><html>
+        <head>
+
+        </head>
+        <body>
+          <div style="text-align: left">
+            [latexmath]
+          </div>
+        </body>
+      </html></richcontent>
+</node>
 <node CREATED="1647766807454" ID="ID_299730914" MODIFIED="1647767266857">
 <richcontent TYPE="NODE"><html>
         <head>
@@ -559,31 +623,7 @@
         </html></richcontent>
 </node>
 </node>
-<node CREATED="1647766807454" ID="ID_931440283" MODIFIED="1647767266857">
-<richcontent TYPE="NODE"><html>
-        <head>
-
-        </head>
-        <body>
-          <div style="text-align: left">
-            [latexmath]
-          </div>
-        </body>
-      </html></richcontent>
 </node>
-<node CREATED="1647766807454" ID="ID_1508149247" MODIFIED="1647767266857">
-<richcontent TYPE="NODE"><html>
-        <head>
-
-        </head>
-        <body>
-          <div style="text-align: left">
-            liens r&#233;f&#233;rences (#headings) [r&#233;f&#233;rence]
-          </div>
-        </body>
-      </html></richcontent>
-</node>
-<node CREATED="1647875687811" ID="ID_380044869" MODIFIED="1647875725231" TEXT="mettre le glossaire rapide en ordre alphab&#xe9;tique"/>
 </node>
 <node CREATED="1647766807454" ID="ID_1925956969" MODIFIED="1647767266858">
 <richcontent TYPE="NODE"><html>
