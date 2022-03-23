@@ -1,5 +1,5 @@
 [[ch04_keys_addresses]]
-== Clés, Adresses
+== Clés et adresses
 
 (((&quot;cryptographie&quot;, &quot;défini&quot;)))(((&quot;cryptographie&quot;, see=&quot;aussi clés et adresses&quot;)))Vous avez peut-être entendu dire que le bitcoin est basé sur la _cryptographie_, qui est une branche des mathématiques largement utilisée en sécurité informatique. La cryptographie signifie &quot;écriture secrète&quot; en grec, mais la science de la cryptographie englobe plus que la simple écriture secrète, appelée cryptage. La cryptographie peut également être utilisée pour prouver la connaissance d'un secret sans révéler ce secret (signature numérique), ou prouver l'authenticité des données (empreinte numérique). Ces types de preuves cryptographiques sont les outils mathématiques essentiels au bitcoin et largement utilisés dans les applications bitcoin. (((&quot;cryptage&quot;)))(((&quot;cryptage&quot;, see=&quot;aussi clés et adresses&quot;)))Ironiquement, le cryptage n'est pas une partie importante du bitcoin, car ses communications et ses données de transaction ne sont pas cryptées et ne doivent être chiffrés pour protéger les fonds. Dans ce chapitre, nous présenterons une partie de la cryptographie utilisée dans le bitcoin pour contrôler la propriété des fonds, sous la forme de clés, d'adresses et de portefeuilles.
 
@@ -435,12 +435,10 @@ y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB
 
 Voici la même clé publique affichée sous la forme d'un nombre de 520 bits (130 chiffres hexadécimaux) avec le préfixe +04+ suivi de +x+ puis des coordonnées +y+, sous la forme +04 x y+ :
 
-++++
-<pre data-type="programlisting">
+----
 K = 04F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A&#x21b5;
 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB
-</pre>
-++++
+----
 
 [[comp_pub]]
 ===== Clés publiques compressées
@@ -551,8 +549,7 @@ include::code/key-to-address-ecc-example.py[]
 [[key-to-address_script_run]]
 .Exécution de key-to-address-ecc-example.py
 ====
-++++
-<pre data-type="programlisting">
+----
 $ python key-to-address-ecc-example.py
 Private Key (hex) is:
  3aba4162c7251c891207b747840551a71939b0de081f85c4e44cf7c13e41daa6
@@ -576,8 +573,7 @@ Bitcoin Address (b58check) is:
  1thMirt546nngXqyPEz532S8fLwbozud8
 Compressed Bitcoin Address (b58check) is:
  14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
-</pre>
-++++
+----
 ====
 
 

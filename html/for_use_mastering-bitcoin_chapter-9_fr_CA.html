@@ -714,61 +714,65 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph data-line-169">
 <p>L&#8217;arbre de Merkle est construit de bas en haut. Dans l&#8217;exemple suivant, nous commençons avec quatre transactions, A, B, C et D, qui forment les <em>feuilles</em> de l&#8217;arbre de Merkle, comme indiqué dans <a href="#simple_merkle">Calcul des nœuds dans un arbre de Merkle</a>. Les transactions ne sont pas stockées dans l&#8217;arborescence de Merkle ; à la place, leurs données sont hachées et le hachage résultant est stocké dans chaque nœud feuille sous la forme H<sub>A</sub>, H<sub>B</sub>, H<sub>C</sub> et H<sub>D</sub> :</p>
 </div>
-<pre data-type="codelisting">
-H<sub>A</sub> = SHA256(SHA256(Transaction A))
-</pre>
-<div class="paragraph data-line-177">
+<div class="listingblock data-line-171">
+<div class="content">
+<pre>H&lt;sub&gt;A&lt;/sub&gt; = SHA256(SHA256(Transaction A))</pre>
+</div>
+</div>
+<div class="paragraph data-line-175">
 <p>Des paires consécutives de nœuds feuilles sont ensuite résumées dans un nœud parent, en concaténant les deux hachages et en les hachant ensemble. Par exemple, pour construire le nœud parent H<sub>AB</sub>, les deux hachages de 32 octets des enfants sont concaténés pour créer une chaîne de 64 octets. Cette chaîne est ensuite doublement hachée pour produire le hachage du nœud parent :</p>
 </div>
-<pre data-type="codelisting">
-H<sub>AB</sub> = SHA256(SHA256(H<sub>A</sub> + H<sub>B</sub>))
-</pre>
-<div class="paragraph data-line-185">
+<div class="listingblock data-line-177">
+<div class="content">
+<pre>H&lt;sub&gt;AB&lt;/sub&gt; = SHA256(SHA256(H&lt;sub&gt;A&lt;/sub&gt; + H&lt;sub&gt;B&lt;/sub&gt;))</pre>
+</div>
+</div>
+<div class="paragraph data-line-181">
 <p>Le processus se poursuit jusqu&#8217;à ce qu&#8217;il n&#8217;y ait qu&#8217;un seul nœud au sommet, le nœud connu sous le nom de racine de Merkle. Ce hachage de 32 octets est stocké dans l&#8217;en-tête du bloc et résume toutes les données des quatre transactions. &lt;&lt;simple_merkle&gt; &gt; montre comment la racine est calculée par hachages par paires des nœuds.</p>
 </div>
-<div id="simple_merkle" class="imageblock data-line-189">
+<div id="simple_merkle" class="imageblock data-line-185">
 <div class="content">
 <img src="images/mbc2_0902.png" alt="Arbre de Merkle">
 </div>
 <div class="title">Figure 2. Calcul des nœuds dans un arbre de Merkle</div>
 </div>
-<div class="paragraph data-line-191">
+<div class="paragraph data-line-187">
 <p>Parce que l&#8217;arbre de Merkle est un arbre binaire, il a besoin d&#8217;un nombre pair de nœuds feuilles. S&#8217;il y a un nombre impair de transactions à résumer, le dernier hachage de transaction sera dupliqué pour créer un nombre pair de nœuds feuilles, également appelés <em>arbre équilibré</em>. Ceci est montré dans <a href="#merkle_tree_odd">La duplication d&#8217;un élément de données permet d&#8217;obtenir un nombre pair d&#8217;éléments de données</a>, où la transaction C est dupliquée.</p>
 </div>
-<div id="merkle_tree_odd" class="imageblock data-line-195">
+<div id="merkle_tree_odd" class="imageblock data-line-191">
 <div class="content">
 <img src="images/mbc2_0903.png" alt="Arbre de Merkle impair">
 </div>
 <div class="title">Figure 3. La duplication d&#8217;un élément de données permet d&#8217;obtenir un nombre pair d&#8217;éléments de données</div>
 </div>
-<div class="paragraph data-line-197">
+<div class="paragraph data-line-193">
 <p>La même méthode de construction d&#8217;un arbre à partir de quatre transactions peut être généralisée pour construire des arbres de n&#8217;importe quelle taille. Dans le Bitcoin, il est courant d&#8217;avoir plusieurs centaines à plus d&#8217;un millier de transactions dans un seul bloc, qui sont résumées exactement de la même manière, produisant seulement 32 octets de données en tant que racine de Merkle unique. Dans <a href="#merkle_tree_large">Un arbre Merkle résumant de nombreux éléments de données</a>, vous verrez un arbre construit à partir de 16 transactions. Notez que bien que la racine semble plus grande que les nœuds feuilles dans le diagramme, elle a exactement la même taille, seulement 32 octets. Qu&#8217;il y ait une transaction ou cent mille transactions dans le bloc, la racine de Merkle les résume toujours en 32 octets.</p>
 </div>
-<div class="paragraph data-line-199">
+<div class="paragraph data-line-195">
 <p>Pour prouver qu&#8217;une transaction spécifique est incluse dans un bloc, un nœud n&#8217;a besoin que de produire log~2~(N) hachages de 32 octets, constituant un <em>chemin d&#8217;authentification</em> ou <em>chemin de Merkle</em> se connectant la transaction spécifique à la racine de l&#8217;arborescence. Ceci est particulièrement important lorsque le nombre de transactions augmente, car le logarithme en base 2 du nombre de transactions augmente beaucoup plus lentement. Cela permet aux nœuds Bitcoin de produire efficacement des chemins de 10 ou 12 hachages (320 à 384 octets), qui peuvent fournir la preuve d&#8217;une seule transaction parmi plus de mille transactions dans un bloc de la taille d&#8217;un mégaoctet.</p>
 </div>
-<div id="merkle_tree_large" class="imageblock data-line-203">
+<div id="merkle_tree_large" class="imageblock data-line-199">
 <div class="content">
 <img src="images/mbc2_0904.png" alt="Grand arbre de Merkle">
 </div>
 <div class="title">Figure 4. Un arbre Merkle résumant de nombreux éléments de données</div>
 </div>
-<div class="paragraph data-line-205">
+<div class="paragraph data-line-201">
 <p>Dans <a href="#merkle_tree_path">Un chemin (ou trajet) de Merkle utilisé pour prouver l&#8217;inclusion d&#8217;un élément de données</a>, un nœud peut prouver qu&#8217;une transaction K est incluse dans le bloc en produisant un chemin de Merkle qui ne fait que quatre hachages de 32 octets (128 octets au total). Le chemin se compose des quatre hachages (affichés avec un arrière-plan ombré dans <a href="#merkle_tree_path">Un chemin (ou trajet) de Merkle utilisé pour prouver l&#8217;inclusion d&#8217;un élément de données</a>) H<sub>L</sub>, H<sub>IJ</sub>, H<sub>MNOP</sub> et H<sub>ABCDEFGH</sub>. Avec ces quatre hachages fournis comme chemin d&#8217;authentification, n&#8217;importe quel nœud peut prouver que H<sub>K</sub> (avec un fond noir au bas du diagramme) est inclus dans la racine de Merkle en calculant quatre hachages supplémentaires par paires H<sub>KL</sub>, H<sub>IJKL</sub>, H<sub>IJKLMNOP</sub> et la racine de l&#8217;arbre de Merkle (indiquée par une ligne pointillée dans le diagramme).</p>
 </div>
-<div id="merkle_tree_path" class="imageblock data-line-209">
+<div id="merkle_tree_path" class="imageblock data-line-205">
 <div class="content">
 <img src="images/mbc2_0905.png" alt="Chemin d&#8217;arbre de Merkle">
 </div>
 <div class="title">Figure 5. Un chemin (ou trajet) de Merkle utilisé pour prouver l&#8217;inclusion d&#8217;un élément de données</div>
 </div>
-<div class="paragraph data-line-212">
+<div class="paragraph data-line-208">
 <p>Le code dans <a href="#merkle_example">Construire un arbre de Merkle</a> illustre le processus de création d&#8217;un arbre de Merkle depuis les hachages de nœud feuille jusqu&#8217;à la racine, en utilisant la bibliothèque libbitcoin pour certaines fonctions d&#8217;assistance.</p>
 </div>
-<div id="merkle_example" class="exampleblock pagebreak-before data-line-217">
+<div id="merkle_example" class="exampleblock pagebreak-before data-line-213">
 <div class="title">Example 1. Construire un arbre de Merkle</div>
 <div class="content">
-<div class="listingblock data-line-219">
+<div class="listingblock data-line-215">
 <div class="content">
 <pre class="highlight"><code class="language-cpp" data-lang="cpp">#include &lt;bitcoin/bitcoin.hpp&gt;
 
@@ -835,13 +839,13 @@ int main()
 </div>
 </div>
 </div>
-<div class="paragraph data-line-224">
+<div class="paragraph data-line-220">
 <p><a href="#merkle_example_run">Compilation et exécution de l&#8217;exemple de code de Merkle</a> montre le résultat de la compilation et de l&#8217;exécution du code de Merkle.</p>
 </div>
-<div id="merkle_example_run" class="exampleblock data-line-228">
+<div id="merkle_example_run" class="exampleblock data-line-224">
 <div class="title">Example 2. Compilation et exécution de l&#8217;exemple de code de Merkle</div>
 <div class="content">
-<div class="listingblock data-line-230">
+<div class="listingblock data-line-226">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash"># Compiler le code merkle.cpp
 $ g++ -o merkle merkle.cpp $(pkg-config --cflags --libs libbitcoin)
@@ -859,10 +863,10 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
 </div>
 </div>
 </div>
-<div class="paragraph data-line-247">
+<div class="paragraph data-line-243">
 <p>L&#8217;efficacité des arbres de Merkle devient évidente à mesure que l&#8217;échelle augmente. <a href="#block_structure2">Efficacité de l&#8217;arbre de Merkle</a> montre la quantité de données qui doit être échangée sous forme de chemin de Merkle pour prouver qu&#8217;une transaction fait partie d&#8217;un bloc.</p>
 </div>
-<table id="block_structure2" class="tableblock frame-all grid-all stretch data-line-252">
+<table id="block_structure2" class="tableblock frame-all grid-all stretch data-line-248">
 <caption class="title">Table 3. Efficacité de l&#8217;arbre de Merkle</caption>
 <colgroup>
 <col style="width: 25%;">
@@ -905,66 +909,66 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
 </tr>
 </tbody>
 </table>
-<div class="paragraph data-line-260">
+<div class="paragraph data-line-256">
 <p>Comme vous pouvez le voir dans le tableau, alors que la taille de bloc augmente rapidement, de 4 Ko avec 16 transactions à une taille de bloc de 16 Mo pour 65 535 transactions, le chemin de Merkle requis pour prouver l&#8217;inclusion d&#8217;une transaction augmente beaucoup plus lentement, de 128 octets à seulement 512 octets. Avec les arbres de Merkle, un nœud peut télécharger uniquement les en-têtes de bloc (80 octets par bloc) et être toujours en mesure d&#8217;identifier l&#8217;inclusion d&#8217;une transaction dans un bloc en récupérant un petit chemin Merkle à partir d&#8217;un nœud complet, sans stocker ni transmettre la grande majorité des chaînes de blocs, qui peut avoir une taille de plusieurs gigaoctets. Les nœuds qui ne maintiennent pas une chaîne de blocs complète, appelés nœuds de vérification simplifiée des paiements (SPV), utilisent des chemins de Merkle pour vérifier les transactions sans télécharger des blocs complets.</p>
 </div>
 </div>
-<div class="sect2 data-line-262">
+<div class="sect2 data-line-258">
 <h3 id="_arbres_de_merkle_et_vérification_simplifiée_des_paiements_spv">Arbres de Merkle et vérification simplifiée des paiements (SPV)</h3>
-<div class="paragraph data-line-264">
+<div class="paragraph data-line-260">
 <p>Les arbres Merkle sont largement utilisés par les nœuds SPV. Les nœuds SPV n&#8217;ont pas toutes les transactions et ne téléchargent pas les blocs complets, juste les en-têtes de bloc. Afin de vérifier qu&#8217;une transaction est incluse dans un bloc, sans avoir à télécharger toutes les transactions du bloc, ils utilisent un chemin d&#8217;authentification, ou chemin de Merkle.</p>
 </div>
-<div class="paragraph data-line-266">
+<div class="paragraph data-line-262">
 <p>Considérons, par exemple, un nœud SPV qui est intéressé par les paiements entrants à une adresse contenue dans son portefeuille. Le nœud SPV établira un filtre de Bloom (voir <a href="#bloom_filters">[bloom_filters]</a>) sur ses connexions à des pairs pour limiter les transactions reçues uniquement à celles contenant des adresses d&#8217;intérêt. Lorsqu&#8217;un pair voit une transaction qui correspond au filtre de Bloom, il enverra ce bloc à l&#8217;aide d&#8217;un message merkleblock. Le message merkleblock contient l&#8217;en-tête du bloc ainsi qu&#8217;un chemin de Merkle qui relie la transaction d&#8217;intérêt à la racine de Merkle dans le bloc. Le nœud SPV peut utiliser ce chemin de Merkle pour connecter la transaction au bloc et vérifier que la transaction est incluse dans le bloc. Le nœud SPV utilise également l&#8217;en-tête de bloc pour lier le bloc au reste de la chaîne de blocs. La combinaison de ces deux liens, entre la transaction et le bloc, et entre le bloc et la chaîne de blocs, prouve que la transaction est enregistrée dans la chaîne de blocs. Au total, le nœud SPV aura reçu moins d&#8217;un kilo-octet de données pour l&#8217;en-tête de bloc et le chemin de Merkle, une quantité de données plus de mille fois inférieure à un bloc complet (environ 1 mégaoctet actuellement).</p>
 </div>
 </div>
-<div class="sect2 data-line-268">
+<div class="sect2 data-line-264">
 <h3 id="_chaînes_de_blocs_de_test_de_bitcoin">Chaînes de blocs de test de Bitcoin</h3>
-<div class="paragraph data-line-270">
+<div class="paragraph data-line-266">
 <p>Vous pourriez être surpris d&#8217;apprendre qu&#8217;il existe plus d&#8217;une chaîne de blocs Bitcoin. La chaîne de blocs Bitcoin &quot;principale&quot;, celle créée par Satoshi Nakamoto le 3 janvier 2009, celle avec le bloc de genèse que nous avons étudié dans ce chapitre, s&#8217;appelle <em>mainnet</em>. Il existe d&#8217;autres chaînes de blocs Bitcoin qui sont utilisées à des fins de test : actuellement <em>testnet</em>, <em>segnet</em> et <em>regtest</em>. Regardons chacun à son tour.</p>
 </div>
-<div class="sect3 data-line-273">
+<div class="sect3 data-line-269">
 <h4 id="_testnet_le_terrain_de_test_de_bitcoin">Testnet : Le terrain de test de Bitcoin</h4>
-<div class="paragraph data-line-275">
+<div class="paragraph data-line-271">
 <p>Testnet est le nom de la chaîne de blocs, du réseau et de la devise de test utilisés à des fins de test. Le testnet est un réseau P2P en direct complet, avec des portefeuilles, des bitcoins de test (pièces de testnet), l&#8217;exploitation minière et toutes les autres fonctionnalités du réseau principal. Il n&#8217;y a vraiment que deux différences : les pièces testnet sont censées être sans valeur et la difficulté d&#8217;extraction doit être suffisamment faible pour que n&#8217;importe qui puisse extraire des pièces testnet relativement facilement (en les gardant sans valeur).</p>
 </div>
-<div class="paragraph data-line-277">
+<div class="paragraph data-line-273">
 <p>Tout développement logiciel destiné à une utilisation en production sur le réseau principal de Bitcoin doit d&#8217;abord être testé sur testnet avec des pièces de test. Cela protège à la fois les développeurs des pertes financières dues aux bogues et le réseau des comportements involontaires dus aux bogues.</p>
 </div>
-<div class="paragraph data-line-279">
+<div class="paragraph data-line-275">
 <p>Garder les pièces sans valeur et l&#8217;exploitation minière facile, cependant, n&#8217;est pas facile. Malgré les appels des développeurs, certaines personnes utilisent des équipements de minage avancés (GPU et ASIC) pour miner sur testnet. Cela augmente la difficulté, rend impossible l&#8217;extraction avec un processeur et rend finalement assez difficile l&#8217;obtention de pièces de test pour que les gens commencent à les évaluer, de sorte qu&#8217;elles ne sont pas sans valeur. En conséquence, de temps en temps, le testnet doit être supprimé et redémarré à partir d&#8217;un nouveau bloc de genèse, réinitialisant la difficulté.</p>
 </div>
-<div class="paragraph data-line-281">
+<div class="paragraph data-line-277">
 <p>Le testnet actuel s&#8217;appelle <em>testnet3</em>, la troisième itération de testnet, redémarré en février 2011 pour réinitialiser la difficulté du testnet précédent.</p>
 </div>
-<div class="paragraph data-line-283">
+<div class="paragraph data-line-279">
 <p>Gardez à l&#8217;esprit que testnet3 est une grande chaîne de blocs, dépassant 25 Go en 2021. Il faudra environ un jour pour se synchroniser complètement et utiliser les ressources de votre ordinateur. Pas autant que le réseau principal, mais pas exactement &quot;léger&quot; non plus. Une bonne façon d&#8217;exécuter un nœud testnet est d&#8217;utiliser une image de machine virtuelle (par exemple, VirtualBox, Docker, Cloud Server, etc.) dédiée à cet effet.</p>
 </div>
-<div class="sect4 data-line-285">
+<div class="sect4 data-line-281">
 <h5 id="_utiliser_testnet">Utiliser testnet</h5>
-<div class="paragraph data-line-287">
+<div class="paragraph data-line-283">
 <p>Bitcoin Core, comme presque tous les autres logiciels bitcoin, prend entièrement en charge le fonctionnement sur testnet au lieu du réseau principal. Toutes les fonctions de Bitcoin Core fonctionnent sur testnet, y compris le portefeuille, l&#8217;extraction de pièces testnet et la synchronisation d&#8217;un nœud testnet complet.</p>
 </div>
-<div class="paragraph data-line-289">
+<div class="paragraph data-line-285">
 <p>Pour démarrer Bitcoin Core sur testnet au lieu du réseau principal, vous utilisez le commutateur testnet :</p>
 </div>
-<div class="listingblock data-line-291">
+<div class="listingblock data-line-287">
 <div class="content">
 <pre>$ bitcoind -testnet</pre>
 </div>
 </div>
-<div class="paragraph data-line-295">
+<div class="paragraph data-line-291">
 <p>Dans les journaux, vous devriez voir que bitcoind construit une nouvelle chaîne de blocs dans le sous-répertoire testnet3 du répertoire bitcoind par défaut :</p>
 </div>
-<div class="listingblock data-line-297">
+<div class="listingblock data-line-293">
 <div class="content">
 <pre>bitcoind : Utilisation du répertoire de données /home/username/.bitcoin/testnet3</pre>
 </div>
 </div>
-<div class="paragraph data-line-301">
+<div class="paragraph data-line-297">
 <p>Pour vous connecter à bitcoind, vous utilisez l&#8217;outil de ligne de commande bitcoin-cli, mais vous devez également le passer en mode testnet :</p>
 </div>
-<div class="listingblock data-line-303">
+<div class="listingblock data-line-299">
 <div class="content">
 <pre>$ bitcoin-cli -testnet getblockchaininfo
 {
@@ -982,51 +986,51 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
   [...]</pre>
 </div>
 </div>
-<div class="paragraph data-line-320">
+<div class="paragraph data-line-316">
 <p>Vous pouvez également exécuter sur testnet3 avec d&#8217;autres implémentations de nœud complet, telles que btcd (écrit en Go) et bcoin (écrit en JavaScript), pour expérimenter et apprendre dans d&#8217;autres langages et environnements de programmation.</p>
 </div>
-<div class="paragraph data-line-322">
+<div class="paragraph data-line-318">
 <p>En 2021, testnet3 prend en charge toutes les fonctionnalités du réseau principal, y compris le témoin séparé (voir <a href="#segwit">[segwit]</a>). Par conséquent, testnet3 peut également être utilisé pour tester les fonctionnalités de témoin séparé.</p>
 </div>
 </div>
 </div>
-<div class="sect3 data-line-324">
+<div class="sect3 data-line-320">
 <h4 id="_segnet_le_réseau_de_test_des_témoins_séparés">Segnet : Le réseau de test des témoins séparés</h4>
-<div class="paragraph data-line-327">
+<div class="paragraph data-line-323">
 <p>En 2016, un testnet à usage spécial a été lancé pour aider au développement et aux tests de Segregated Witness ou Témoin séparé (alias segwit; voir <a href="#segwit">[segwit]</a>). Cette chaîne de blocs de test s&#8217;appelle segnet et peut être rejointe en exécutant une version spéciale (branche) de Bitcoin Core.</p>
 </div>
-<div class="paragraph data-line-329">
+<div class="paragraph data-line-325">
 <p>Depuis que segwit a été ajouté à testnet3, il n&#8217;est plus nécessaire d&#8217;utiliser segnet pour tester les fonctionnalités de segwit.</p>
 </div>
-<div class="paragraph data-line-331">
+<div class="paragraph data-line-327">
 <p>À l&#8217;avenir, il est probable que nous verrons d&#8217;autres chaînes de blocs testnet spécialement conçues pour tester une seule fonctionnalité ou un changement architectural majeur, comme segnet.</p>
 </div>
 </div>
-<div class="sect3 data-line-333">
+<div class="sect3 data-line-329">
 <h4 id="_regtest_la_chaîne_de_blocs_locale">Regtest : La chaîne de blocs locale</h4>
-<div class="paragraph data-line-335">
+<div class="paragraph data-line-331">
 <p>Regtest, qui signifie &quot;Regression Testing&quot;, (ou tests de régressions) est une fonctionnalité de Bitcoin Core qui vous permet de créer une chaîne de blocs locale à des fins de test. Contrairement à testnet3, qui est une chaîne de blocs de test publique et partagée, les chaînes de blocs regtest sont destinées à être exécutées comme des systèmes fermés pour les tests locaux. Vous lancez une chaîne de blocs regtest à partir de zéro, en créant un bloc de genèse local. Vous pouvez ajouter d&#8217;autres nœuds au réseau ou l&#8217;exécuter avec un seul nœud uniquement pour tester le logiciel Bitcoin Core.</p>
 </div>
-<div class="paragraph data-line-337">
+<div class="paragraph data-line-333">
 <p>Pour démarrer Bitcoin Core en mode regtest, vous utilisez le drapeau regtest :</p>
 </div>
-<div class="listingblock data-line-339">
+<div class="listingblock data-line-335">
 <div class="content">
 <pre>$ bitcoind -regtest</pre>
 </div>
 </div>
-<div class="paragraph data-line-343">
+<div class="paragraph data-line-339">
 <p>Tout comme avec testnet, Bitcoin Core initialisera une nouvelle chaîne de blocs sous le sous-répertoire <em>regtest</em> de votre répertoire par défaut bitcoind :</p>
 </div>
-<div class="listingblock data-line-345">
+<div class="listingblock data-line-341">
 <div class="content">
 <pre>bitcoind: Using data directory /home/username/.bitcoin/regtest</pre>
 </div>
 </div>
-<div class="paragraph data-line-349">
+<div class="paragraph data-line-345">
 <p>Pour utiliser l&#8217;outil de ligne de commande, vous devez également spécifier l&#8217;indicateur regtest. Essayons la commande getblockchaininfo pour inspecter la chaîne de blocs regtest :</p>
 </div>
-<div class="listingblock data-line-351">
+<div class="listingblock data-line-347">
 <div class="content">
 <pre>$ bitcoin-cli -regtest getblockchaininfo
 {
@@ -1042,10 +1046,10 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
   [...]</pre>
 </div>
 </div>
-<div class="paragraph data-line-366">
+<div class="paragraph data-line-362">
 <p>Comme vous pouvez le voir, il n&#8217;y a pas encore de blocs. Exploitons-en quelques-uns (500 blocs) et gagnons la récompense :</p>
 </div>
-<div class="listingblock data-line-368">
+<div class="listingblock data-line-364">
 <div class="content">
 <pre>$ bitcoin-cli -regtest generate 500
 [
@@ -1059,10 +1063,10 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
 ]</pre>
 </div>
 </div>
-<div class="paragraph data-line-381">
+<div class="paragraph data-line-377">
 <p>Cela ne prendra que quelques secondes pour miner tous ces blocs, ce qui facilite certainement les tests. Si vous vérifiez le solde de votre portefeuille, vous verrez que vous avez gagné une récompense pour les 400 premiers blocs (les récompenses coinbase doivent avoir une profondeur de 100 blocs avant que vous puissiez les dépenser) :</p>
 </div>
-<div class="listingblock data-line-383">
+<div class="listingblock data-line-379">
 <div class="content">
 <pre>$ bitcoin-cli -regtest getbalance
 12462.50000000</pre>
@@ -1070,12 +1074,12 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
 </div>
 </div>
 </div>
-<div class="sect2 data-line-388">
+<div class="sect2 data-line-384">
 <h3 id="_utiliser_des_chaînes_de_blocs_de_test_pour_le_développement">Utiliser des chaînes de blocs de test pour le développement</h3>
-<div class="paragraph data-line-390">
+<div class="paragraph data-line-386">
 <p>Les différentes chaînes de blocs de Bitcoin (regtest, segnet, testnet3, mainnet) offrent une gamme d&#8217;environnements de test pour le développement de bitcoin. Utilisez les chaînes de blocs de test, que vous développiez pour Bitcoin Core ou un autre client de consensus à nœud complet ; une application telle qu&#8217;un portefeuille, un échange, un site de commerce électronique ; ou même développer de nouveaux contrats intelligents et des scripts complexes.</p>
 </div>
-<div class="paragraph data-line-392">
+<div class="paragraph data-line-388">
 <p>Vous pouvez utiliser les chaînes de blocs de test pour établir un pipeline de développement. Testez votre code localement sur un regtest au fur et à mesure que vous le développez. Une fois que vous êtes prêt à l&#8217;essayer sur un réseau public, passez à testnet pour exposer votre code à un environnement plus dynamique avec plus de diversité de code et d&#8217;applications. Enfin, une fois que vous êtes sûr que votre code fonctionne comme prévu, passez à mainnet pour le déployer en production. Au fur et à mesure que vous apportez des modifications, des améliorations, des corrections de bogues, etc., redémarrez le pipeline, en déployant d&#8217;abord chaque modification sur regtest, puis sur testnet, et enfin en production.</p>
 </div>
 </div>
@@ -1084,7 +1088,7 @@ Result: d47780c084bad3830bcdaf6eace035e4c6cbf646d103795d22104fb105014ba3</code><
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-22 06:27:41 -0400
+Last updated 2022-03-23 11:03:04 -0400
 </div>
 </div>
 </body>

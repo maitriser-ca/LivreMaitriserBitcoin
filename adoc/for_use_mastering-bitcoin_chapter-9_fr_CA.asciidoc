@@ -168,19 +168,15 @@ Lorsque N éléments de données sont hachés et résumés dans un arbre de Merk
 
 L'arbre de Merkle est construit de bas en haut. Dans l'exemple suivant, nous commençons avec quatre transactions, A, B, C et D, qui forment les _feuilles_ de l'arbre de Merkle, comme indiqué dans &lt;<simple_merkle>&gt;. Les transactions ne sont pas stockées dans l'arborescence de Merkle ; à la place, leurs données sont hachées et le hachage résultant est stocké dans chaque nœud feuille sous la forme H~A~, H~B~, H~C~ et H~D~ :
 
-++++
-<pre data-type="codelisting">
+----
 H<sub>A</sub> = SHA256(SHA256(Transaction A))
-</pre>
-++++
+----
 
 Des paires consécutives de nœuds feuilles sont ensuite résumées dans un nœud parent, en concaténant les deux hachages et en les hachant ensemble. Par exemple, pour construire le nœud parent H~AB~, les deux hachages de 32 octets des enfants sont concaténés pour créer une chaîne de 64 octets. Cette chaîne est ensuite doublement hachée pour produire le hachage du nœud parent :
 
-++++
-<pre data-type="codelisting">
+----
 H<sub>AB</sub> = SHA256(SHA256(H<sub>A</sub> + H<sub>B</sub>))
-</pre>
-++++
+----
 
 Le processus se poursuit jusqu'à ce qu'il n'y ait qu'un seul nœud au sommet, le nœud connu sous le nom de racine de Merkle. Ce hachage de 32 octets est stocké dans l'en-tête du bloc et résume toutes les données des quatre transactions. &lt;<simple_merkle> &gt; montre comment la racine est calculée par hachages par paires des nœuds.
 
