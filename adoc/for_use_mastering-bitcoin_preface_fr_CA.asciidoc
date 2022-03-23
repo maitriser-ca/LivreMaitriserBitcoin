@@ -3,27 +3,27 @@
 
 === Écrire le livre sur Bitcoin
 
-(((&quot;bitcoin&quot;, &quot;bénéfices de&quot;, id=&quot;BCbasicbenefits0&quot;)))(((&quot;systèmes décentralisés&quot;, &quot;bitcoin comme&quot;)))Je suis tombé sur bitcoin pour la première fois à la mi-2011. Ma réaction immédiate a été plus ou moins &quot;Pfft ! Nerd money !&quot; et je l'ai ignoré pendant encore six mois, n'en saisissant pas l'importance. C'est une réaction que j'ai vue se répéter chez bon nombre des personnes les plus intelligentes que je connaisse, ce qui me réconforte un peu. La deuxième fois que je suis tombé sur bitcoin, lors d'une discussion sur une liste de diffusion, j'ai décidé de lire le livre blanc écrit par Satoshi Nakamoto pour étudier la source faisant autorité et voir de quoi il s'agissait. (((&quot;monnaies numériques&quot;, &quot;bitcoin vs. autres&quot;)))Je me souviens encore du moment où j'ai fini de lire ces neuf pages, quand j'ai réalisé que le bitcoin n'était pas simplement une monnaie numérique, mais un réseau de confiance qui pouvait aussi fournir la base de bien plus que de simples devises. La prise de conscience que &quot;ce n'est pas de l'argent, c'est un réseau de confiance décentralisé&quot;, m'a lancé dans un voyage de quatre mois pour dévorer toutes les informations sur le bitcoin que j'ai pu trouver. Je suis devenu obsédé et captivé, passant 12 heures ou plus par jour collé à un écran, lisant, écrivant, codant et apprenant autant que possible. Je suis sorti de cet état de fugue, plus de 20 livres en moins à cause du manque de repas réguliers, déterminé à me consacrer au travail sur le bitcoin.
+((("bitcoin", "bénéfices de", id="BCbasicbenefits0")))((("systèmes décentralisés", "bitcoin comme")))Je suis tombé sur bitcoin pour la première fois à la mi-2011. Ma réaction immédiate a été plus ou moins "Pfft ! Nerd money !" et je l'ai ignoré pendant encore six mois, n'en saisissant pas l'importance. C'est une réaction que j'ai vue se répéter chez bon nombre des personnes les plus intelligentes que je connaisse, ce qui me réconforte un peu. La deuxième fois que je suis tombé sur bitcoin, lors d'une discussion sur une liste de diffusion, j'ai décidé de lire le livre blanc écrit par Satoshi Nakamoto pour étudier la source faisant autorité et voir de quoi il s'agissait. ((("monnaies numériques", "bitcoin vs. autres")))Je me souviens encore du moment où j'ai fini de lire ces neuf pages, quand j'ai réalisé que le bitcoin n'était pas simplement une monnaie numérique, mais un réseau de confiance qui pouvait aussi fournir la base de bien plus que de simples devises. La prise de conscience que "ce n'est pas de l'argent, c'est un réseau de confiance décentralisé", m'a lancé dans un voyage de quatre mois pour dévorer toutes les informations sur le bitcoin que j'ai pu trouver. Je suis devenu obsédé et captivé, passant 12 heures ou plus par jour collé à un écran, lisant, écrivant, codant et apprenant autant que possible. Je suis sorti de cet état de fugue, plus de 20 livres en moins à cause du manque de repas réguliers, déterminé à me consacrer au travail sur le bitcoin.
 
 Deux ans plus tard, après avoir créé un certain nombre de petites entreprises en démarrage (start-ups) pour explorer divers services et produits liés au bitcoin, j'ai décidé qu'il était temps d'écrire mon premier livre. Bitcoin était le sujet qui m'avait poussé dans une frénésie de créativité et consommé mes pensées; c'était la technologie la plus excitante que j'avais rencontrée depuis Internet. Il était maintenant temps de partager ma passion pour cette technologie incroyable avec un public plus large.
 
 === Public visé
 
-(((&quot;audience visée&quot;)))Ce livre est principalement destiné aux codeurs. Si vous pouvez utiliser un langage de programmation, ce livre vous apprendra comment fonctionnent les monnaies cryptographiques, comment les utiliser et comment développer des logiciels qui fonctionnent avec elles. Les premiers chapitres conviennent également comme une introduction approfondie au bitcoin pour les non-codeurs, tel ceux qui veulent comprendre le fonctionnement interne du bitcoin et des cryptomonnaies.
+((("audience visée")))Ce livre est principalement destiné aux codeurs. Si vous pouvez utiliser un langage de programmation, ce livre vous apprendra comment fonctionnent les monnaies cryptographiques, comment les utiliser et comment développer des logiciels qui fonctionnent avec elles. Les premiers chapitres conviennent également comme une introduction approfondie au bitcoin pour les non-codeurs, tel ceux qui veulent comprendre le fonctionnement interne du bitcoin et des cryptomonnaies.
 
 === Pourquoi y a-t-il des insectes sur la couverture ?
 
-(((&quot;systèmes décentralisés&quot;, &quot;dans la nature&quot;)))La fourmi coupeuse de feuilles est une espèce qui présente un comportement très complexe dans un super-organisme de colonie, mais chaque fourmi individuelle fonctionne selon un ensemble de règles simples dictées par l'interaction sociale et l'échange d'odeurs chimiques (phéromones). Par Wikipedia : &quot;À côté des humains, les fourmis coupeuses de feuilles forment les sociétés animales les plus grandes et les plus complexes sur Terre.&quot; Les fourmis coupeuses de feuilles ne mangent pas réellement les feuilles, mais les utilisent plutôt pour cultiver un champignon, qui est la principale source de nourriture de la colonie. Imaginez, ces fourmis cultivent !
+((("systèmes décentralisés", "dans la nature")))La fourmi coupeuse de feuilles est une espèce qui présente un comportement très complexe dans un super-organisme de colonie, mais chaque fourmi individuelle fonctionne selon un ensemble de règles simples dictées par l'interaction sociale et l'échange d'odeurs chimiques (phéromones). Par Wikipedia : "À côté des humains, les fourmis coupeuses de feuilles forment les sociétés animales les plus grandes et les plus complexes sur Terre." Les fourmis coupeuses de feuilles ne mangent pas réellement les feuilles, mais les utilisent plutôt pour cultiver un champignon, qui est la principale source de nourriture de la colonie. Imaginez, ces fourmis cultivent !
 
 Bien que les fourmis forment une société basée sur les castes et aient une reine pour produire une progéniture, il n'y a pas d'autorité centrale ou de chef dans une colonie de fourmis. Le comportement hautement intelligent et sophistiqué présenté par une colonie de plusieurs millions de membres est une propriété émergente de l'interaction des individus dans un réseau social.
 
 La nature démontre que les systèmes décentralisés peuvent être résilients et peuvent produire une complexité émergente et une sophistication incroyable sans avoir besoin d'une autorité centrale, d'une hiérarchie ou de parties complexes.
 
-(((&quot;systèmes décentralisés&quot;, &quot;avantages de&quot;)))Bitcoin est un réseau de confiance décentralisé hautement sophistiqué qui peut prendre en charge une myriade de processus financiers. Pourtant, chaque nœud du réseau Bitcoin suit quelques règles mathématiques simples. L'interaction entre de nombreux nœuds est ce qui conduit à l'émergence du comportement sophistiqué, et non une complexité inhérente ou une confiance dans un seul nœud. Comme une colonie de fourmis, le réseau Bitcoin est un réseau résilient de nœuds simples suivant des règles simples qui, ensemble, peuvent faire des choses incroyables sans aucune coordination centrale.(((&quot;&quot;, startref=&quot;BCbasicbenefits0&quot;)))
+((("systèmes décentralisés", "avantages de")))Bitcoin est un réseau de confiance décentralisé hautement sophistiqué qui peut prendre en charge une myriade de processus financiers. Pourtant, chaque nœud du réseau Bitcoin suit quelques règles mathématiques simples. L'interaction entre de nombreux nœuds est ce qui conduit à l'émergence du comportement sophistiqué, et non une complexité inhérente ou une confiance dans un seul nœud. Comme une colonie de fourmis, le réseau Bitcoin est un réseau résilient de nœuds simples suivant des règles simples qui, ensemble, peuvent faire des choses incroyables sans aucune coordination centrale.((("", startref="BCbasicbenefits0")))
 
 === Conventions utilisées dans ce livre
 
-(((&quot;conventions typographiques&quot;)))Les conventions typographiques suivantes sont utilisées dans ce livre :
+((("conventions typographiques")))Les conventions typographiques suivantes sont utilisées dans ce livre :
 
 _Italique_:: Indique de nouveaux termes, URL, adresses e-mail, noms de fichiers et extensions de fichiers.
 
@@ -51,7 +51,7 @@ Cette icône indique un avertissement ou une mise en garde.
 
 === Exemples de codes
 
-(((&quot;exemples de code, obtention et utilisation&quot;, id=&quot;codeuse00&quot;)))Les exemples sont illustrés en Python, C++, et en utilisant la ligne de commande d'un système d'exploitation de type Unix tel que Linux ou macOS. Tous les extraits de code sont disponibles dans le référentiel GitHub (https://github.com/bitcoinbook/bitcoinbook[https://github.com/bitcoinbook/bitcoinbook]) dans le sous-répertoire _code_ du référentiel principal. Fourchez le code du livre, essayez les exemples de code ou soumettez des corrections via GitHub.
+((("exemples de code, obtention et utilisation", id="codeuse00")))Les exemples sont illustrés en Python, C++, et en utilisant la ligne de commande d'un système d'exploitation de type Unix tel que Linux ou macOS. Tous les extraits de code sont disponibles dans le référentiel GitHub (https://github.com/bitcoinbook/bitcoinbook[https://github.com/bitcoinbook/bitcoinbook]) dans le sous-répertoire _code_ du référentiel principal. Fourchez le code du livre, essayez les exemples de code ou soumettez des corrections via GitHub.
 
 Tous les extraits de code peuvent être répliqués sur la plupart des systèmes d'exploitation avec une installation minimale de compilateurs et d'interpréteurs pour les langages correspondants. Si nécessaire, nous fournissons des instructions d'installation de base et des exemples étape par étape de la sortie de ces instructions.
 
@@ -63,21 +63,21 @@ Tous les extraits de code utilisent des valeurs réelles et des calculs lorsque 
 
 Ce livre est là pour vous aider à faire votre travail. En général, si un exemple de code est proposé avec ce livre, vous pouvez l'utiliser dans vos programmes et votre documentation. Vous n'avez pas besoin de nous contacter pour obtenir une autorisation, sauf si vous reproduisez une partie importante du code. Par exemple, écrire un programme qui utilise plusieurs morceaux de code de ce livre ne nécessite pas d'autorisation. La vente ou la distribution d'un CD-ROM d'exemples tirés des livres d'O'Reilly nécessite une autorisation. Répondre à une question en citant ce livre et en citant un exemple de code ne nécessite pas d'autorisation. L'incorporation d'une quantité importante d'exemples de code de ce livre dans la documentation de votre produit nécessite une autorisation.
 
-(((&quot;attribution&quot;)))Nous apprécions, mais n'exigeons pas, l'attribution. Une attribution comprend généralement le titre, l'auteur, l'éditeur et l'ISBN. Par exemple : « _Mastering Bitcoin_ par Andreas M. Antonopoulos (O'Reilly). Copyright 2017 Andreas M. Antonopoulos, 978-1-491-95438-6.
+((("attribution")))Nous apprécions, mais n'exigeons pas, l'attribution. Une attribution comprend généralement le titre, l'auteur, l'éditeur et l'ISBN. Par exemple : « _Mastering Bitcoin_ par Andreas M. Antonopoulos (O'Reilly). Copyright 2017 Andreas M. Antonopoulos, 978-1-491-95438-6.
 
-(((&quot;licences de sources libres&quot;)))Certaines éditions de ce livre sont proposées sous une licence de source libre, comme https://creativecommons.org/licenses/by-nc/4.0/[CC-BY-NC], auquel cas les termes de cette licence s'appliquent.
+((("licences de sources libres")))Certaines éditions de ce livre sont proposées sous une licence de source libre, comme https://creativecommons.org/licenses/by-nc/4.0/[CC-BY-NC], auquel cas les termes de cette licence s'appliquent.
 
 Si vous pensez que votre utilisation d'exemples de code ne respecte pas l'utilisation équitable ou l'autorisation donnée ci-dessus, n'hésitez pas à nous contacter à pass:[<a href="mailto:permissions@oreilly.com">permissions@oreilly.com</a>].
 
 === Adresses et transactions Bitcoin dans ce livre
 
-(((&quot;pour commencer&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;avertissements et mises en garde&quot;, &quot;éviter d'envoyer de l'argent aux adresses figurant dans le livre&quot;)))(((&quot;clés et adresses&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;transactions&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;applications chaîne de blocs&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;codes QR&quot;, &quot;avertissements et mises en garde&quot;)))Les adresses Bitcoin, les transactions, les clés, les codes QR et les données de chaîne de blocs utilisées dans ce livre sont, pour la plupart, réelles. Cela signifie que vous pouvez parcourir la chaîne de blocs, regarder les transactions proposées en exemple, les récupérer avec vos propres scripts ou programmes, etc.
+((("pour commencer", "avertissements et mises en garde")))((("avertissements et mises en garde", "éviter d'envoyer de l'argent aux adresses figurant dans le livre")))((("clés et adresses", "avertissements et mises en garde")))((("transactions", "avertissements et mises en garde")))((("applications chaîne de blocs", "avertissements et mises en garde")))((("codes QR", "avertissements et mises en garde")))Les adresses Bitcoin, les transactions, les clés, les codes QR et les données de chaîne de blocs utilisées dans ce livre sont, pour la plupart, réelles. Cela signifie que vous pouvez parcourir la chaîne de blocs, regarder les transactions proposées en exemple, les récupérer avec vos propres scripts ou programmes, etc.
 
-Cependant, notez que les clés privées utilisées pour construire les adresses sont soit imprimées dans ce livre, soit ont été &quot;radiées&quot;. Cela signifie que si vous envoyez de l'argent à l'une de ces adresses, l'argent sera perdu pour toujours ou, dans certains cas, tous ceux qui peuvent lire ce livre peuvent le prendre en utilisant les clés privées imprimées dans celui-ci.
+Cependant, notez que les clés privées utilisées pour construire les adresses sont soit imprimées dans ce livre, soit ont été "radiées". Cela signifie que si vous envoyez de l'argent à l'une de ces adresses, l'argent sera perdu pour toujours ou, dans certains cas, tous ceux qui peuvent lire ce livre peuvent le prendre en utilisant les clés privées imprimées dans celui-ci.
 
 [WARNING]
 ====
-N'ENVOYEZ PAS D'ARGENT AUX ADRESSES DANS CE LIVRE. Votre argent sera pris par un autre lecteur, ou perdu à jamais.(((&quot;&quot;, startref=&quot;codeuse00&quot;)))
+N'ENVOYEZ PAS D'ARGENT AUX ADRESSES DANS CE LIVRE. Votre argent sera pris par un autre lecteur, ou perdu à jamais.((("", startref="codeuse00")))
 ====
 
 === O'Reilly Safari
@@ -94,7 +94,7 @@ Pour plus d'informations, rendez-vous sur pass:[<a href="https://oreilly.com/saf
 
 === Comment nous contacter
 
-(((&quot;commentaires et questions&quot;)))(((&quot;coordonnées&quot;)))Veuillez adresser vos commentaires et questions concernant ce livre à l'éditeur :
+((("commentaires et questions")))((("coordonnées")))Veuillez adresser vos commentaires et questions concernant ce livre à l'éditeur :
 
 ++++
 <ul class="simplelist">
@@ -140,7 +140,7 @@ link:$$https://patreon.com/aantonop$$[]
 
 === Remerciements
 
-(((&quot;reconnaissances&quot;, id=&quot;acknowledge0&quot;)))Ce livre représente les efforts et les contributions de nombreuses personnes. Je suis reconnaissant pour toute l'aide que j'ai reçue d'amis, de collègues et même de parfaits inconnus, qui m'ont rejoint dans cet effort pour écrire le livre technique définitif sur les crypto-monnaies et le bitcoin.
+((("reconnaissances", id="acknowledge0")))Ce livre représente les efforts et les contributions de nombreuses personnes. Je suis reconnaissant pour toute l'aide que j'ai reçue d'amis, de collègues et même de parfaits inconnus, qui m'ont rejoint dans cet effort pour écrire le livre technique définitif sur les crypto-monnaies et le bitcoin.
 
 Il est impossible de faire une distinction entre la technologie bitcoin et la communauté bitcoin, et ce livre est autant un produit de cette communauté qu'un livre sur la technologie. Mon travail sur ce livre a été encouragé, applaudi, soutenu et récompensé par toute la communauté bitcoin du tout début jusqu'à la toute fin. Plus que tout, ce livre m'a permis de faire partie d'une merveilleuse communauté pendant deux ans et je ne vous remercierai jamais assez de m'avoir accepté dans cette communauté. Il y a beaucoup trop de personnes à mentionner par leur nom - des personnes que j'ai rencontrées lors de conférences, d'événements, de séminaires, de rencontres, de pizzas et de petits rassemblements privés, ainsi que beaucoup qui ont communiqué avec moi par Twitter, sur reddit, sur bitcointalk. org, et sur GitHub qui ont eu un impact sur ce livre. Chaque idée, analogie, question, réponse et explication que vous trouverez dans ce livre a été à un moment donné inspirée, testée ou améliorée grâce à mes interactions avec la communauté. Merci à tous pour votre soutien; sans vous ce livre n'aurait pas vu le jour. Je suis éternellement reconnaissant.
 

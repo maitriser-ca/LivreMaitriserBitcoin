@@ -7,7 +7,7 @@ adresse::
     Une adresse Bitcoin ressemble à +1DSrfJdB2AnWaFNgSbv3MZC2m74996JafV+. Il se compose d'une suite de lettres et de chiffres. Il s'agit en réalité d'une version codée en base58check d'un résultat de hachage à clé publique de 160 bits. Tout comme vous demandez aux autres d'envoyer un courriel à l'adresse de celle-ci, vous demanderez aux autres de vous envoyer des bitcoins à l'une de vos adresses Bitcoin.
 
 adresse P2SH::
-    Les adresses P2SH sont des encodages Base58Check du résultat de hachage de 20 octets d'un script. Ils utilisent le préfixe de version &quot;5&quot;, ce qui donne des adresses encodées en Base58Check qui commencent par un &quot;3&quot;. Les adresses P2SH cachent toute la complexité, de sorte que la personne effectuant un paiement ne voit pas le script.
+    Les adresses P2SH sont des encodages Base58Check du résultat de hachage de 20 octets d'un script. Ils utilisent le préfixe de version "5", ce qui donne des adresses encodées en Base58Check qui commencent par un "3". Les adresses P2SH cachent toute la complexité, de sorte que la personne effectuant un paiement ne voit pas le script.
 
 arbre de Merkle::
     Un arbre construit en hachant des données appariées (les feuilles), puis en appariant et en hachant les résultats jusqu'à ce qu'il ne reste qu'un seul résultat de hachage, la racine de Merkle. En bitcoin, les feuilles sont presque toujours des transactions d'un seul bloc.
@@ -59,7 +59,7 @@ coinbase (ou unité de monnaie primaire du bloc) (alias donnée coinbase)::
 	À ne pas confondre avec la "transaction coinbase" ou la "récompense coinbase".
 
 complétude de Turing::
-    Un langage de programmation est appelé &quot;Turing complet&quot; s'il peut exécuter n'importe quel programme qu'une machine de Turing peut exécuter, avec suffisamment de temps et de mémoire.
+    Un langage de programmation est appelé "Turing complet" s'il peut exécuter n'importe quel programme qu'une machine de Turing peut exécuter, avec suffisamment de temps et de mémoire.
 
 confirmations::
 	Une fois qu'une transaction est incluse dans un bloc, elle a une confirmation. Dès qu'un autre bloc est miné sur la même chaîne de blocs, la transaction a deux confirmations, et ainsi de suite. Six confirmations ou plus sont considérées comme une preuve suffisante qu'une transaction ne peut pas être annulée.
@@ -122,7 +122,7 @@ multisignature::
     La multisignature (multisig) fait référence à l'exigence d'un nombre minimum (M) de clés (N) pour autoriser une transaction M-sur-N.
 
 nombre aléatoire explicite (ou nonce)::
-    Le &quot;nombre aléatoire explicite&quot; (ou nonce) dans un bloc bitcoin est un champ de 32 bits (4 octets) dont la valeur est définie de manière à ce que le résultat de hachage du bloc contienne une série de zéros non significatifs. Les autres champs ne peuvent pas être modifiés, car ils ont une signification définie.
+    Le "nombre aléatoire explicite" (ou nonce) dans un bloc bitcoin est un champ de 32 bits (4 octets) dont la valeur est définie de manière à ce que le résultat de hachage du bloc contienne une série de zéros non significatifs. Les autres champs ne peuvent pas être modifiés, car ils ont une signification définie.
 
 nombre aléatoire explicite supplémentaire::
     Au fur et à mesure que la difficulté augmentait, les mineurs parcouraient souvent les 4 milliards de nombres aléatoires explicites (nonce) sans trouver de bloc. Étant donné que le script coinbase peut stocker entre 2 et 100 octets de données, les mineurs ont commencé à utiliser cet espace comme espace pour un nombre aléatoire explicite supplémentaire, leur permettant d'explorer une gamme beaucoup plus large de valeurs d'en-tête de bloc pour trouver des blocs valides.
@@ -134,7 +134,7 @@ OP_RETURN::
     Un opcode (ou code d'opération) utilisé dans l'une des sorties d'une transaction OP_RETURN. A ne pas confondre avec la transaction OP_RETURN.
 
 phrase secrète::
-    Une phrase secrète (ou phrase de passe) est une chaîne de caractères facultative créée par l'utilisateur qui sert de facteur de sécurité supplémentaire protégeant la valeur d'amorçage, même lorsque la valeur d'amorçage est compromise par un voleur. Il peut également être utilisé comme une forme de pot de miel, où une phrase de passe choisie (une adresse bitcoin, un URL ou autre) mène à un portefeuille avec une petite quantité de fonds utilisée pour distraire un attaquant du &quot;vrai&quot; portefeuille qui contient la majorité des fonds.
+    Une phrase secrète (ou phrase de passe) est une chaîne de caractères facultative créée par l'utilisateur qui sert de facteur de sécurité supplémentaire protégeant la valeur d'amorçage, même lorsque la valeur d'amorçage est compromise par un voleur. Il peut également être utilisé comme une forme de pot de miel, où une phrase de passe choisie (une adresse bitcoin, un URL ou autre) mène à un portefeuille avec une petite quantité de fonds utilisée pour distraire un attaquant du "vrai" portefeuille qui contient la majorité des fonds.
     
 portefeuille::
     Logiciel qui contient toutes vos adresses Bitcoin et clés secrètes. Utilisez-le pour envoyer, recevoir et stocker vos bitcoins.
@@ -209,7 +209,7 @@ RIPEMD-160::
 
 
 satoshi::
-    Un satoshi est la plus petite dénomination de bitcoin pouvant être enregistrée sur la chaîne de blocs. Il équivaut à 0,00000001 bitcoin et porte le nom du créateur du bitcoin, Satoshi Nakamoto. (((&quot;satoshi&quot;)))
+    Un satoshi est la plus petite dénomination de bitcoin pouvant être enregistrée sur la chaîne de blocs. Il équivaut à 0,00000001 bitcoin et porte le nom du créateur du bitcoin, Satoshi Nakamoto. ((("satoshi")))
 
 Satoshi Nakamoto::
     Satoshi Nakamoto est le nom utilisé par la ou les personnes qui ont conçu le bitcoin et créé son implémentation de référence originale, Bitcoin Core. Dans le cadre de la mise en œuvre, ils ont également conçu la première base de données chaîne de blocs. Dans le processus, ils ont été les premiers à résoudre le problème de la double dépense pour la monnaie numérique. Leur véritable identité reste inconnue.
@@ -235,7 +235,7 @@ sortie de transaction non dépensée (UTXO ou unspent transaction output)::
 stockage à froid::
 	Fait référence à la conservation d'une réserve de bitcoins hors ligne. Le stockage à froid est réalisé lorsque les clés privées bitcoin sont créées et stockées dans un environnement hors ligne sécurisé. Le stockage à froid est important pour quiconque possède des avoirs en bitcoins. Les ordinateurs en ligne sont vulnérables aux pirates et ne doivent pas être utilisés pour stocker une quantité importante de bitcoins. (note du traducteur: l'auteur est un peu paranoïde; les nœuds sont en ligne. Si les nœuds sont insécures, c'est la fin de ce système et de ce livre.) ;)
 témoin séparé::
-    Le témoin séparé est une mise à niveau du protocole Bitcoin dans laquelle les données de signature (&quot;témoin&quot;) sont séparées des données de l'expéditeur/destinataire pour optimiser davantage la structure des transactions. Le témoin Séparé a été implémenté comme un embranchement convergent ; un changement qui rend techniquement les règles du protocole de bitcoin plus restrictives.
+    Le témoin séparé est une mise à niveau du protocole Bitcoin dans laquelle les données de signature ("témoin") sont séparées des données de l'expéditeur/destinataire pour optimiser davantage la structure des transactions. Le témoin Séparé a été implémenté comme un embranchement convergent ; un changement qui rend techniquement les règles du protocole de bitcoin plus restrictives.
 
 transaction::
     En termes simples, un transfert de bitcoin d'une adresse à une autre. Plus précisément, une transaction est une structure de données signée exprimant un transfert de valeur. Les transactions sont transmises sur le réseau Bitcoin, collectées par les mineurs et incluses dans des blocs, rendus permanents sur la chaîne de blocs.

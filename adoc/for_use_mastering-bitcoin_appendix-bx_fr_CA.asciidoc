@@ -3,7 +3,7 @@
 
 == Commandes de l'explorateur Bitcoin (bx)
 
-(((&quot;Commandes &quot;Bitcoin Explorer (bx)&quot;, id=&quot;BX18_1&quot;, range=&quot;startofrange&quot;)))Bitcoin Explorer (bx) est un outil en ligne de commande qui offre une variété de commandes pour la gestion des clés et la construction de transactions. Il fait partie de la bibliothèque Bitcoin libbitcoin.
+((("Commandes "Bitcoin Explorer (bx)", id="BX18_1", range="startofrange")))Bitcoin Explorer (bx) est un outil en ligne de commande qui offre une variété de commandes pour la gestion des clés et la construction de transactions. Il fait partie de la bibliothèque Bitcoin libbitcoin.
 
 ----
 Usage: bx COMMAND [--help]
@@ -91,7 +91,7 @@ Pour plus d'informations, consultez la https://github.com/libbitcoin/libbitcoin-
 
 Regardons quelques exemples d'utilisation des commandes Bitcoin Explorer pour expérimenter avec des clés et des adresses.
 
-Générez une &quot;valeur d'amorçage&quot; aléatoire à l'aide de la commande +seed+, qui utilise le générateur de nombres aléatoires du système d'exploitation. Transmettez la valeur à la commande +ec-new+ pour générer une nouvelle clé privée. Nous sauvegardons la sortie standard dans le fichier _private_key_ :
+Générez une "valeur d'amorçage" aléatoire à l'aide de la commande +seed+, qui utilise le générateur de nombres aléatoires du système d'exploitation. Transmettez la valeur à la commande +ec-new+ pour générer une nouvelle clé privée. Nous sauvegardons la sortie standard dans le fichier _private_key_ :
 
 ----
 $ bx seed | bx ec-new > private_key
@@ -114,7 +114,7 @@ $ bx ec-to-address < public_key
 17re1S4Q8ZHyCP8Kw7xQad1Lr6XUzWUnkG
 ----
 
-Les clés générées de cette manière produisent un portefeuille non déterministe de type 0. Cela signifie que chaque clé est générée à partir d'une valeur d'amorçage indépendante. Les commandes de Bitcoin Explorer peuvent également générer des clés de manière déterministe, conformément au BIP-32. Dans ce cas, une clé &quot;maître&quot; est créée à partir d'une valeur d'amorçage, puis étendue de manière déterministe pour produire un arbre de sous-clés, résultant en un portefeuille déterministe de type 2.
+Les clés générées de cette manière produisent un portefeuille non déterministe de type 0. Cela signifie que chaque clé est générée à partir d'une valeur d'amorçage indépendante. Les commandes de Bitcoin Explorer peuvent également générer des clés de manière déterministe, conformément au BIP-32. Dans ce cas, une clé "maître" est créée à partir d'une valeur d'amorçage, puis étendue de manière déterministe pour produire un arbre de sous-clés, résultant en un portefeuille déterministe de type 2.
 
 Tout d'abord, nous utilisons les commandes +seed+ et +hd-new+ pour générer une clé principale qui servira de base pour dériver une hiérarchie de clés :
 
@@ -128,7 +128,7 @@ $ cat master
 xprv9s21ZrQH143K2BEhMYpNQoUvAgiEjArAVaZaCTgsaGe6LsAnwubeiTcDzd23mAoyizm9cApe51gNfLMkBqkYoWWMCRwzfuJk8RwF1SVEpAQ
 ----
 
-Nous utilisons maintenant la commande +hd-private+ pour générer une clé de &quot;compte&quot; renforcée et une séquence de deux clés privées au sein du compte :
+Nous utilisons maintenant la commande +hd-private+ pour générer une clé de "compte" renforcée et une séquence de deux clés privées au sein du compte :
 
 ----
 $ bx hd-private --hard < master > account
@@ -178,4 +178,4 @@ $ bx mnemonic-decode < words
 eb68ee9f3df6bd4441a9feadec179ff1
 ----
 
-L'encodage mnémonique peut faciliter l'enregistrement et même la mémorisation de la valeur d'amorçage.(((range=&quot;endofrange&quot;, startref=&quot;BX18_1&quot;)))
+L'encodage mnémonique peut faciliter l'enregistrement et même la mémorisation de la valeur d'amorçage.(((range="endofrange", startref="BX18_1")))
