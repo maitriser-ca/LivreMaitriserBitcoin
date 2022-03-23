@@ -436,102 +436,102 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article data-line-1">
+<body class="article">
 <div id="header">
 </div>
 <div id="content">
-<div class="sect1 data-line-4">
+<div class="sect1">
 <h2 id="appdx_bitcore">Appendix A: Bitcore</h2>
 <div class="sectionbody">
-<div class="paragraph data-line-7">
-<p>Bitcore est une suite d&#8217;outils fournis par BitPay. Son objectif est de fournir des outils faciles à utiliser pour les développeurs Bitcoin. Presque tout le code de Bitcore est écrit en JavaScript. Il existe des modules écrits spécifiquement pour NodeJS. Enfin, le module &quot;node&quot; de Bitcore inclut le code C++ de Bitcoin Core. Veuillez consulter <a href="https://bitcore.io" class="undefined" data-href="https://bitcore.io">https://bitcore.io</a> pour plus d&#8217;informations.</p>
+<div class="paragraph">
+<p>Bitcore est une suite d&#8217;outils fournis par BitPay. Son objectif est de fournir des outils faciles à utiliser pour les développeurs Bitcoin. Presque tout le code de Bitcore est écrit en JavaScript. Il existe des modules écrits spécifiquement pour NodeJS. Enfin, le module "node" de Bitcore inclut le code C++ de Bitcoin Core. Veuillez consulter <a href="https://bitcore.io" class="bare">https://bitcore.io</a> pour plus d&#8217;informations.</p>
 </div>
-<div class="sect2 data-line-9">
+<div class="sect2">
 <h3 id="_liste_des_fonctionnalités_de_bitcore">Liste des fonctionnalités de Bitcore</h3>
-<div class="ulist data-line-11">
+<div class="ulist">
 <ul>
-<li class="data-line-11">
+<li>
 <p>Nœud complet Bitcoin (nœud bitcore)</p>
 </li>
-<li class="data-line-12">
+<li>
 <p>Explorateur de blocs (aperçu)</p>
 </li>
-<li class="data-line-13">
+<li>
 <p>Utilitaires de bloc, de transaction et de portefeuille (bitcore-lib)</p>
 </li>
-<li class="data-line-14">
+<li>
 <p>Communiquer directement avec le réseau P2P de Bitcoin (bitcore-p2p)</p>
 </li>
-<li class="data-line-15">
+<li>
 <p>Génération mnémonique d&#8217;entropie de valeur d&#8217;amorçage (bitcore-mnémonique)</p>
 </li>
-<li class="data-line-16">
+<li>
 <p>Protocole de paiement (bitcore-payment-protocol)</p>
 </li>
-<li class="data-line-17">
+<li>
 <p>Vérification et signature des messages (bitcore-message)</p>
 </li>
-<li class="data-line-18">
+<li>
 <p>Schéma de chiffrement intégré à courbe elliptique (bitcore-ecies)</p>
 </li>
-<li class="data-line-19">
+<li>
 <p>Service de portefeuille (bitcore-wallet-service)</p>
 </li>
-<li class="data-line-20">
+<li>
 <p>Client de portefeuille (bitcore-wallet-client)</p>
 </li>
-<li class="data-line-21">
+<li>
 <p>Intégration des services directement avec Bitcoin Core (bitcore-node)</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2 data-line-23">
+<div class="sect2">
 <h3 id="_exemples_de_bibliothèque_bitcore">Exemples de bibliothèque Bitcore</h3>
-<div class="sect3 data-line-25">
+<div class="sect3">
 <h4 id="_prérequis">Prérequis</h4>
-<div class="ulist data-line-27">
+<div class="ulist">
 <ul>
-<li class="data-line-27">
+<li>
 <p>NodeJS &gt;= 4.x</p>
 </li>
 </ul>
 </div>
-<div class="paragraph data-line-29">
+<div class="paragraph">
 <p>Si vous utilisez NodeJS et le nœud REPL :</p>
 </div>
-<div class="listingblock data-line-32">
+<div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ npm install -g bitcore-lib bitcore-p2p</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3 data-line-36">
+<div class="sect3">
 <h4 id="_exemples_de_portefeuille_utilisant_bitcore_lib">Exemples de portefeuille utilisant bitcore-lib</h4>
-<div class="paragraph data-line-38">
+<div class="paragraph">
 <p>Création d&#8217;une nouvelle adresse Bitcoin avec clé privée associée :</p>
 </div>
-<div class="listingblock data-line-40">
+<div class="listingblock">
 <div class="content">
 <pre>&gt; bitcore = require('bitcore-lib')
 &gt; privateKey = new bitcore.PrivateKey()
 &gt; address = privateKey.toAddress().toString()</pre>
 </div>
 </div>
-<div class="paragraph data-line-46">
+<div class="paragraph">
 <p>Création d&#8217;une clé privée déterministe hiérarchique et d&#8217;une adresse :</p>
 </div>
-<div class="listingblock data-line-48">
+<div class="listingblock">
 <div class="content">
 <pre>&gt; hdPrivateKey = bitcore.HDPrivateKey()
 &gt; hdPublicKey = bitcore.HDPublicKey(hdPrivateKey)
 &gt; hdAddress = new bitcore.Address(hdPublicKey.publicKey).toString()</pre>
 </div>
 </div>
-<div class="paragraph data-line-54">
+<div class="paragraph">
 <p>Création et signature d&#8217;une transaction depuis un UTXO :</p>
 </div>
-<div class="listingblock data-line-56">
+<div class="listingblock">
 <div class="content">
 <pre>&gt; utxo = {
 txId: txId, // identifiant de transaction contenant une sortie non dépensée
@@ -549,10 +549,10 @@ satoshis: satoshis // montant envoyé à l'adresse
         .sign(privateKeyOfUtxo)</pre>
 </div>
 </div>
-<div class="paragraph data-line-73">
+<div class="paragraph">
 <p>Remplacer la dernière transaction dans le mempool (replace-by-fee) :</p>
 </div>
-<div class="listingblock data-line-75">
+<div class="listingblock">
 <div class="content">
 <pre>&gt; rbfTx = new Transaction()
            .from(utxo)
@@ -564,27 +564,27 @@ satoshis: satoshis // montant envoyé à l'adresse
 &gt; rbfTx.serialize();</pre>
 </div>
 </div>
-<div class="paragraph data-line-86">
+<div class="paragraph">
 <p>Diffuser une transaction sur le réseau Bitcoin
-(remarque : ne diffusez que des transactions valides ; reportez-vous à <a href="https://bitnodes.21.co/nodes" class="undefined" data-href="https://bitnodes.21.co/nodes">https://bitnodes.21.co/nodes</a> pour les hôtes homologues) :</p>
+(remarque : ne diffusez que des transactions valides ; reportez-vous à <a href="https://bitnodes.21.co/nodes" class="bare">https://bitnodes.21.co/nodes</a> pour les hôtes homologues) :</p>
 </div>
-<div class="olist arabic data-line-89">
+<div class="olist arabic">
 <ol class="arabic">
-<li class="data-line-89">
+<li>
 <p>Copiez le code ci-dessous dans un fichier appelé <em>broadcast.js</em>.</p>
 </li>
-<li class="data-line-90">
+<li>
 <p>Les variables tx et rbfTx sont la sortie de tx.serialize() et rbfTx.serialize(), respectivement.</p>
 </li>
-<li class="data-line-91">
+<li>
 <p>Afin de remplacer par des frais, l&#8217;homologue doit prendre en charge l&#8217;option bitcoind mempoolreplace et la définir sur 1.</p>
 </li>
-<li class="data-line-92">
+<li>
 <p>Exécutez le nœud de fichier <em>broadcast.js</em> :</p>
 </li>
 </ol>
 </div>
-<div class="listingblock data-line-94">
+<div class="listingblock">
 <div class="content">
 <pre>var p2p = require('bitcore-p2p');
 var bitcore = require('bitcore-lib');
@@ -616,7 +616,7 @@ peer.connect();</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-21 10:52:49 -0400
+Last updated 2022-03-23 18:55:36 -0400
 </div>
 </div>
 </body>

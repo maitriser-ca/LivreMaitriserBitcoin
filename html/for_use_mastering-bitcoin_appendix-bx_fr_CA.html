@@ -436,17 +436,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article data-line-1">
+<body class="article">
 <div id="header">
 </div>
 <div id="content">
-<div class="sect1 data-line-4">
+<div class="sect1">
 <h2 id="appdx_bx">Appendix A: Commandes de l&#8217;explorateur Bitcoin (bx)</h2>
 <div class="sectionbody">
-<div class="paragraph data-line-6">
+<div class="paragraph">
 <p>Bitcoin Explorer (bx) est un outil en ligne de commande qui offre une variété de commandes pour la gestion des clés et la construction de transactions. Il fait partie de la bibliothèque Bitcoin libbitcoin.</p>
 </div>
-<div class="listingblock data-line-8">
+<div class="listingblock">
 <div class="content">
 <pre>Usage: bx COMMAND [--help]
 
@@ -527,50 +527,50 @@ wrap-decode
 wrap-encode</pre>
 </div>
 </div>
-<div class="paragraph data-line-88">
-<p>Pour plus d&#8217;informations, consultez la <a href="https://github.com/libbitcoin/libbitcoin-explorer" data-href="https://github.com/libbitcoin/libbitcoin-explorer">page d&#8217;accueil Bitcoin Explorer</a> et <a href="https://github.com/libbitcoin/libbitcoin-explorer/wiki" data-href="https://github.com/libbitcoin/libbitcoin-explorer/wiki">guide d&#8217;usage Bitcoin Explorer</a>.</p>
+<div class="paragraph">
+<p>Pour plus d&#8217;informations, consultez la <a href="https://github.com/libbitcoin/libbitcoin-explorer">page d&#8217;accueil Bitcoin Explorer</a> et <a href="https://github.com/libbitcoin/libbitcoin-explorer/wiki">guide d&#8217;usage Bitcoin Explorer</a>.</p>
 </div>
-<div class="sect2 data-line-90">
+<div class="sect2">
 <h3 id="_exemples_dutilisation_de_la_commande_bx">Exemples d&#8217;utilisation de la commande bx</h3>
-<div class="paragraph data-line-92">
+<div class="paragraph">
 <p>Regardons quelques exemples d&#8217;utilisation des commandes Bitcoin Explorer pour expérimenter avec des clés et des adresses.</p>
 </div>
-<div class="paragraph data-line-94">
-<p>Générez une &quot;valeur d&#8217;amorçage&quot; aléatoire à l&#8217;aide de la commande seed, qui utilise le générateur de nombres aléatoires du système d&#8217;exploitation. Transmettez la valeur à la commande ec-new pour générer une nouvelle clé privée. Nous sauvegardons la sortie standard dans le fichier <em>private_key</em> :</p>
+<div class="paragraph">
+<p>Générez une "valeur d&#8217;amorçage" aléatoire à l&#8217;aide de la commande seed, qui utilise le générateur de nombres aléatoires du système d&#8217;exploitation. Transmettez la valeur à la commande ec-new pour générer une nouvelle clé privée. Nous sauvegardons la sortie standard dans le fichier <em>private_key</em> :</p>
 </div>
-<div class="listingblock data-line-96">
+<div class="listingblock">
 <div class="content">
 <pre>$ bx seed | bx ec-new &gt; private_key
 $ cat private_key
 73096ed11ab9f1db6135857958ece7d73ea7c30862145bcc4bbc7649075de474</pre>
 </div>
 </div>
-<div class="paragraph data-line-102">
+<div class="paragraph">
 <p>Maintenant, générez la clé publique à partir de cette clé privée à l&#8217;aide de la commande ec-to-public. Nous passons le fichier <em>private_key</em> dans l&#8217;entrée standard et enregistrons la sortie standard de la commande dans un nouveau fichier <em>public_key</em> :</p>
 </div>
-<div class="listingblock data-line-104">
+<div class="listingblock">
 <div class="content">
 <pre>$ bx ec-to-public &lt; private_key &gt; public_key
 $ cat public_key
 02fca46a6006a62dfdd2dbb2149359d0d97a04f430f12a7626dd409256c12be500</pre>
 </div>
 </div>
-<div class="paragraph data-line-110">
+<div class="paragraph">
 <p>Nous pouvons reformater la public_key en tant qu&#8217;adresse à l&#8217;aide de la commande ec-to-address. Nous passons le fichier <em>public_key</em> dans l&#8217;entrée standard :</p>
 </div>
-<div class="listingblock data-line-112">
+<div class="listingblock">
 <div class="content">
 <pre>$ bx ec-to-address &lt; public_key
 17re1S4Q8ZHyCP8Kw7xQad1Lr6XUzWUnkG</pre>
 </div>
 </div>
-<div class="paragraph data-line-117">
-<p>Les clés générées de cette manière produisent un portefeuille non déterministe de type 0. Cela signifie que chaque clé est générée à partir d&#8217;une valeur d&#8217;amorçage indépendante. Les commandes de Bitcoin Explorer peuvent également générer des clés de manière déterministe, conformément au BIP-32. Dans ce cas, une clé &quot;maître&quot; est créée à partir d&#8217;une valeur d&#8217;amorçage, puis étendue de manière déterministe pour produire un arbre de sous-clés, résultant en un portefeuille déterministe de type 2.</p>
+<div class="paragraph">
+<p>Les clés générées de cette manière produisent un portefeuille non déterministe de type 0. Cela signifie que chaque clé est générée à partir d&#8217;une valeur d&#8217;amorçage indépendante. Les commandes de Bitcoin Explorer peuvent également générer des clés de manière déterministe, conformément au BIP-32. Dans ce cas, une clé "maître" est créée à partir d&#8217;une valeur d&#8217;amorçage, puis étendue de manière déterministe pour produire un arbre de sous-clés, résultant en un portefeuille déterministe de type 2.</p>
 </div>
-<div class="paragraph data-line-119">
+<div class="paragraph">
 <p>Tout d&#8217;abord, nous utilisons les commandes seed et hd-new pour générer une clé principale qui servira de base pour dériver une hiérarchie de clés :</p>
 </div>
-<div class="listingblock data-line-121">
+<div class="listingblock">
 <div class="content">
 <pre>$ bx seed &gt; seed
 $ cat seed
@@ -581,10 +581,10 @@ $ cat master
 xprv9s21ZrQH143K2BEhMYpNQoUvAgiEjArAVaZaCTgsaGe6LsAnwubeiTcDzd23mAoyizm9cApe51gNfLMkBqkYoWWMCRwzfuJk8RwF1SVEpAQ</pre>
 </div>
 </div>
-<div class="paragraph data-line-131">
-<p>Nous utilisons maintenant la commande hd-private pour générer une clé de &quot;compte&quot; renforcée et une séquence de deux clés privées au sein du compte :</p>
+<div class="paragraph">
+<p>Nous utilisons maintenant la commande hd-private pour générer une clé de "compte" renforcée et une séquence de deux clés privées au sein du compte :</p>
 </div>
-<div class="listingblock data-line-133">
+<div class="listingblock">
 <div class="content">
 <pre>$ bx hd-private --hard &lt; master &gt; account
 $ cat account
@@ -597,10 +597,10 @@ $ bx hd-private --index 1 &lt; account
 xprv9xHfb6w1vX9xjc8XbN4GN86jzNAZ6xHEqYxzbLB4fzHFd6VqCLPGRZFsdjsuMVERadbgDbziCRJru9n6tzEWrASVpEdrZrFidt1RDfn4yA3</pre>
 </div>
 </div>
-<div class="paragraph data-line-145">
+<div class="paragraph">
 <p>Ensuite, nous utilisons la commande hd-public pour générer la séquence correspondante de deux clés publiques :</p>
 </div>
-<div class="listingblock data-line-147">
+<div class="listingblock">
 <div class="content">
 <pre>$ bx hd-public --index 0 &lt; account
 xpub6BH1zcTuktiFu43rUZ2gXqLgzu5F3tLEeTQ5t6iE3aQtM2VMTxMcyLN9fYHiGhGpQe9QQYmqL2eYPFJ3vezHz5wzaSW4FiGrseNDR4LKqTy
@@ -609,10 +609,10 @@ $ bx hd-public --index 1 &lt; account
 xpub6BH1zcTuktiFx6CzhPbGjG3UYQ13WR16CmtbPiagEKpEVtpyjshWyMaMV1cn7nUPUkgQHPVXJVqsrA8xWbGQDhohEcDFTEYMvYzwRD7Juf8</pre>
 </div>
 </div>
-<div class="paragraph data-line-155">
+<div class="paragraph">
 <p>Les clés publiques peuvent également être dérivées de leurs clés privées correspondantes à l&#8217;aide de la commande hd-to-public :</p>
 </div>
-<div class="listingblock data-line-157">
+<div class="listingblock">
 <div class="content">
 <pre>$ bx hd-private --index 0 &lt; account | bx hd-to-public
 xpub6BH1zcTuktiFu43rUZ2gXqLgzu5F3tLEeTQ5t6iE3aQtM2VMTxMcyLN9fYHiGhGpQe9QQYmqL2eYPFJ3vezHz5wzaSW4FiGrseNDR4LKqTy
@@ -621,28 +621,28 @@ $ bx hd-private --index 1 &lt; account | bx hd-to-public
 xpub6BH1zcTuktiFx6CzhPbGjG3UYQ13WR16CmtbPiagEKpEVtpyjshWyMaMV1cn7nUPUkgQHPVXJVqsrA8xWbGQDhohEcDFTEYMvYzwRD7Juf8</pre>
 </div>
 </div>
-<div class="paragraph data-line-165">
+<div class="paragraph">
 <p>Nous pouvons générer un nombre pratiquement illimité de clés dans une chaîne déterministe, toutes dérivées d&#8217;une seule valeur d&#8217;amorçage. Cette technique est utilisée dans de nombreuses applications de portefeuille pour générer des clés qui peuvent être sauvegardées et restaurées avec une seule valeur de départ. C&#8217;est plus facile que d&#8217;avoir à sauvegarder le portefeuille avec toutes ses clés générées de manière aléatoire à chaque fois qu&#8217;une nouvelle clé est créée.</p>
 </div>
-<div class="paragraph data-line-167">
+<div class="paragraph">
 <p>La valeur d&#8217;amorçage peut être encodée à l&#8217;aide de la commande mnemonic-encode :</p>
 </div>
-<div class="listingblock data-line-169">
+<div class="listingblock">
 <div class="content">
 <pre>$ bx hd-mnemonic &lt; seed &gt; words
 adore repeat vision worst especially veil inch woman cast recall dwell appreciate</pre>
 </div>
 </div>
-<div class="paragraph data-line-174">
+<div class="paragraph">
 <p>La valeur d&#8217;amorçage peut ensuite être décodée à l&#8217;aide de la commande mnemonic-decode :</p>
 </div>
-<div class="listingblock data-line-176">
+<div class="listingblock">
 <div class="content">
 <pre>$ bx mnemonic-decode &lt; words
 eb68ee9f3df6bd4441a9feadec179ff1</pre>
 </div>
 </div>
-<div class="paragraph data-line-181">
+<div class="paragraph">
 <p>L&#8217;encodage mnémonique peut faciliter l&#8217;enregistrement et même la mémorisation de la valeur d&#8217;amorçage.</p>
 </div>
 </div>
@@ -651,7 +651,7 @@ eb68ee9f3df6bd4441a9feadec179ff1</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-21 09:19:34 -0400
+Last updated 2022-03-23 18:40:04 -0400
 </div>
 </div>
 </body>
