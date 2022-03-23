@@ -447,7 +447,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Bitcoin est un projet <em>source libre</em> et le code source est disponible sous une licence ouverte (MIT), téléchargeable et utilisable à n&#8217;importe quelle fin. Source libre signifie plus que simplement libre d&#8217;utilisation. Cela signifie également que le bitcoin est développé par une communauté ouverte de bénévoles. Au début, cette communauté se composait uniquement de Satoshi Nakamoto. En 2016, le code source de Bitcoin comptait plus de 400 contributeurs avec une douzaine de développeurs travaillant sur le code presque à temps plein et plusieurs dizaines d&#8217;autres à temps partiel. Tout le monde peut contribuer au code, y compris vous !</p>
 </div>
 <div class="paragraph data-line-7">
-<p>Lorsque bitcoin a été créé par Satoshi Nakamoto, le logiciel était en fait terminé avant le livre blanc reproduit dans <a href="#satoshi_whitepaper">[satoshi_whitepaper]</a>. Satoshi voulait s&#8217;assurer que cela fonctionnait avant d&#8217;écrire à ce sujet. Cette première implémentation, alors simplement connue sous le nom de &quot;Bitcoin&quot; ou &quot;client Satoshi&quot;, a été fortement modifiée et améliorée. Il a évolué vers ce qu&#8217;on appelle <em>Bitcoin Core</em>, pour le différencier des autres implémentations compatibles. Bitcoin Core est la <em>mise en œuvre de référence</em> du système Bitcoin, ce qui signifie qu&#8217;il s&#8217;agit de la référence faisant autorité sur la manière dont chaque partie de la technologie doit être mise en œuvre. Bitcoin Core implémente tous les aspects du bitcoin, y compris les portefeuilles, un moteur de validation des transactions et des blocs et un nœud de réseau complet dans le réseau Bitcoin pair à pair.</p>
+<p>Lorsque bitcoin a été créé par Satoshi Nakamoto, le logiciel était en fait terminé avant le livre blanc reproduit dans <a href="#satoshi_whitepaper">[satoshi_whitepaper]</a>. Satoshi voulait s&#8217;assurer que cela fonctionnait avant d&#8217;écrire à ce sujet. Cette première implémentation, alors simplement connue sous le nom de "Bitcoin" ou "client Satoshi", a été fortement modifiée et améliorée. Il a évolué vers ce qu&#8217;on appelle <em>Bitcoin Core</em>, pour le différencier des autres implémentations compatibles. Bitcoin Core est la <em>mise en œuvre de référence</em> du système Bitcoin, ce qui signifie qu&#8217;il s&#8217;agit de la référence faisant autorité sur la manière dont chaque partie de la technologie doit être mise en œuvre. Bitcoin Core implémente tous les aspects du bitcoin, y compris les portefeuilles, un moteur de validation des transactions et des blocs et un nœud de réseau complet dans le réseau Bitcoin pair à pair.</p>
 </div>
 <div class="admonitionblock warning data-line-10">
 <table>
@@ -468,7 +468,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="bitcoin_core_architecture" class="imageblock data-line-18">
 <div class="content">
-<img src="images/mbc2_0301.png" alt="&quot;Architecture de base Bitcoin&quot;">
+<img src="images/mbc2_0301.png" alt="Architecture de base Bitcoin">
 </div>
 <div class="title">Figure 1. Architecture Bitcoin Core (Source : Eric Lombrozo)</div>
 </div>
@@ -491,14 +491,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </td>
 <td class="content">
 <div class="paragraph data-line-32">
-<p>Dans de nombreux exemples de ce chapitre, nous utiliserons l&#8217;interface de de commande du système d&#8217;exploitation ( également appelé &quot;shell&quot; ou &quot;interface système&quot; ou &quot;coque logicielle&quot;), accessible via une application &quot;terminal&quot;. L&#8217;interface système affichera une invite; vous tapez une commande; et l&#8217;interface système répond avec du texte et une nouvelle invite pour votre prochaine commande. L&#8217;invite peut sembler différente sur votre système, mais dans les exemples suivants, elle est indiquée par un symbole $. Dans les exemples, lorsque vous voyez du texte après un symbole $, ne tapez pas le symbole $ mais tapez la commande qui le suit immédiatement, puis appuyez sur Entrée pour exécuter la commande. Dans les exemples, les lignes sous chaque commande sont les réponses du système d&#8217;exploitation à cette commande. Lorsque vous verrez le prochain préfixe $, vous saurez qu&#8217;il s&#8217;agit d&#8217;une nouvelle commande et vous devrez répéter le processus.</p>
+<p>Dans de nombreux exemples de ce chapitre, nous utiliserons l&#8217;interface de de commande du système d&#8217;exploitation ( également appelé "shell" ou "interface système" ou "coque logicielle"), accessible via une application "terminal". L&#8217;interface système affichera une invite; vous tapez une commande; et l&#8217;interface système répond avec du texte et une nouvelle invite pour votre prochaine commande. L&#8217;invite peut sembler différente sur votre système, mais dans les exemples suivants, elle est indiquée par un symbole $. Dans les exemples, lorsque vous voyez du texte après un symbole $, ne tapez pas le symbole $ mais tapez la commande qui le suit immédiatement, puis appuyez sur Entrée pour exécuter la commande. Dans les exemples, les lignes sous chaque commande sont les réponses du système d&#8217;exploitation à cette commande. Lorsque vous verrez le prochain préfixe $, vous saurez qu&#8217;il s&#8217;agit d&#8217;une nouvelle commande et vous devrez répéter le processus.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph data-line-35">
-<p> Dans cet exemple, nous utilisons la commande git pour créer une copie locale (un &quot;clone&quot;) du code source :</p>
+<p> Dans cet exemple, nous utilisons la commande git pour créer une copie locale (un "clone") du code source :</p>
 </div>
 <div class="listingblock data-line-37">
 <div class="content">
@@ -555,7 +555,7 @@ v0.12.0rc2
 </div>
 </div>
 <div class="paragraph data-line-76">
-<p>La liste des balises montre toutes les versions publiées de bitcoin. Par convention, les <em>release candidates</em> (ou <em>versions d&#8217;évaluations</em>), qui sont destinées aux tests, ont le suffixe &quot;rc&quot;. Les versions stables pouvant être exécutées sur des systèmes de production n&#8217;ont pas de suffixe. Dans la liste précédente, sélectionnez la version la plus élevée, qui au moment de la rédaction était v0.15.0. Pour synchroniser le code local avec cette version, utilisez la commande git checkout :</p>
+<p>La liste des balises montre toutes les versions publiées de bitcoin. Par convention, les <em>release candidates</em> (ou <em>versions d&#8217;évaluations</em>), qui sont destinées aux tests, ont le suffixe "rc". Les versions stables pouvant être exécutées sur des systèmes de production n&#8217;ont pas de suffixe. Dans la liste précédente, sélectionnez la version la plus élevée, qui au moment de la rédaction était v0.15.0. Pour synchroniser le code local avec cette version, utilisez la commande git checkout :</p>
 </div>
 <div class="listingblock data-line-78">
 <div class="content">
@@ -564,7 +564,7 @@ HEAD is now at 3751912... Merge #11295: doc: Old fee_estimates.dat are discarded
 </div>
 </div>
 <div class="paragraph data-line-83">
-<p>Vous pouvez confirmer que vous avez la version souhaitée &quot;extraite&quot; en lançant la commande git status :</p>
+<p>Vous pouvez confirmer que vous avez la version souhaitée "extraite" en lançant la commande git status :</p>
 </div>
 <div class="listingblock data-line-85">
 <div class="content">
@@ -722,7 +722,7 @@ $ which bitcoin-cli
 <div class="sect2 data-line-221">
 <h3 id="_exécution_dun_nœud_bitcoin_core">Exécution d&#8217;un nœud Bitcoin Core</h3>
 <div class="paragraph data-line-223">
-<p>Le réseau pair à pair de Bitcoin est composé de &quot;nœuds&quot; de réseau, gérés principalement par des bénévoles et certaines des entreprises qui créent des applications bitcoin. Ceux qui exécutent des nœuds Bitcoin ont une vue directe et faisant autorité sur la chaîne de blocs Bitcoin, avec une copie locale de toutes les transactions, validées indépendamment par leur propre système. En exécutant un nœud, vous n&#8217;avez pas besoin de faire appel à un tiers pour valider une transaction. De plus, en exécutant un nœud Bitcoin, vous contribuez au réseau Bitcoin en le rendant plus robuste et sécuritaire.</p>
+<p>Le réseau pair à pair de Bitcoin est composé de "nœuds" de réseau, gérés principalement par des bénévoles et certaines des entreprises qui créent des applications bitcoin. Ceux qui exécutent des nœuds Bitcoin ont une vue directe et faisant autorité sur la chaîne de blocs Bitcoin, avec une copie locale de toutes les transactions, validées indépendamment par leur propre système. En exécutant un nœud, vous n&#8217;avez pas besoin de faire appel à un tiers pour valider une transaction. De plus, en exécutant un nœud Bitcoin, vous contribuez au réseau Bitcoin en le rendant plus robuste et sécuritaire.</p>
 </div>
 <div class="paragraph data-line-225">
 <p>Cependant, l&#8217;exécution d&#8217;un nœud nécessite un système connecté en permanence avec suffisamment de ressources pour traiter toutes les transactions bitcoin. Selon que vous choisissez d&#8217;indexer toutes les transactions et de conserver une copie complète de la chaîne de blocs, vous pouvez également avoir besoin de beaucoup d&#8217;espace disque et de mémoire RAM. Au début de 2021, un nœud à index complet a besoin de 2 Go de RAM et d&#8217;un minimum de 360 Go d&#8217;espace disque (voir <a href="https://www.blockchain.com/charts/blocks-size" class="undefined" data-href="https://www.blockchain.com/charts/blocks-size">https://www.blockchain.com/charts/blocks-size</a>). Les nœuds Bitcoin transmettent et reçoivent également des transactions et des blocs Bitcoin, consommant de la bande passante Internet. Si votre connexion Internet est limitée, a un faible plafond de données ou est mesurée (facturée au gigabit), vous ne devriez probablement pas exécuter un nœud Bitcoin, ou l&#8217;exécuter d&#8217;une manière qui limite sa bande passante (voir <a href="#constrained_resources">Exemple de configuration d&#8217;un système à ressources limitées</a>).</p>
@@ -769,7 +769,7 @@ $ which bitcoin-cli
 <div class="sect3 data-line-246">
 <h4 id="_configuration_du_nœud_bitcoin_core">Configuration du nœud Bitcoin Core</h4>
 <div class="paragraph data-line-248">
-<p>( &quot;sécurité&quot;, &quot;mots de passe&quot;)Bitcoin Core recherchera un fichier de configuration dans son répertoire de données à chaque démarrage. Dans cette section, nous examinerons les différentes options de configuration et créerons un fichier de configuration. Pour localiser le fichier de configuration, exécutez bitcoind -printtoconsole dans votre terminal et recherchez les deux premières lignes.</p>
+<p>( "sécurité", "mots de passe")Bitcoin Core recherchera un fichier de configuration dans son répertoire de données à chaque démarrage. Dans cette section, nous examinerons les différentes options de configuration et créerons un fichier de configuration. Pour localiser le fichier de configuration, exécutez bitcoind -printtoconsole dans votre terminal et recherchez les deux premières lignes.</p>
 </div>
 <div class="listingblock data-line-250">
 <div class="content">
@@ -879,7 +879,7 @@ Options:
 <div class="content">
 <div class="listingblock data-line-325">
 <div class="content">
-<pre>alertnotify=myemailscript.sh &amp;quot;Alerte : %s&amp;quot;
+<pre>alertnotify=myemailscript.sh "Alerte : %s"
 datadir=/lotsofspace/bitcoin
 index_tx=1</pre>
 </div>
@@ -894,7 +894,7 @@ index_tx=1</pre>
 <div class="content">
 <div class="listingblock data-line-337">
 <div class="content">
-<pre>alertnotify=myemailscript.sh &amp;quot;Alerte : %s&amp;quot;
+<pre>alertnotify=myemailscript.sh "Alerte : %s"
 maxconnexions=15
 prune=5000
 dbcache=150
@@ -977,7 +977,7 @@ Opened LevelDB successfully
 <p>Cela montre un nœud avec une hauteur de chaîne de blocs de 0 blocs et 83999 en-têtes. Le nœud récupère actuellement les en-têtes de bloc de la meilleure chaîne et continue ensuite à télécharger les blocs complets.</p>
 </div>
 <div class="paragraph data-line-412">
-<p>Une fois que vous êtes satisfait des options de configuration que vous avez sélectionnées, vous devez ajouter <em>bitcoin</em> aux scripts de démarrage de votre système d&#8217;exploitation, afin qu&#8217;il s&#8217;exécute en continu et au redémarrage du système d&#8217;exploitation. Vous trouverez un certain nombre d&#8217;exemples de scripts de démarrage pour différents systèmes d&#8217;exploitation dans le répertoire source de bitcoin sous <em>contrib/init</em> et un fichier <em>README.md</em> indiquant quel système utilise quel script.(&quot;&quot;, startref=&quot;BNcore03&quot;)</p>
+<p>Une fois que vous êtes satisfait des options de configuration que vous avez sélectionnées, vous devez ajouter <em>bitcoin</em> aux scripts de démarrage de votre système d&#8217;exploitation, afin qu&#8217;il s&#8217;exécute en continu et au redémarrage du système d&#8217;exploitation. Vous trouverez un certain nombre d&#8217;exemples de scripts de démarrage pour différents systèmes d&#8217;exploitation dans le répertoire source de bitcoin sous <em>contrib/init</em> et un fichier <em>README.md</em> indiquant quel système utilise quel script.("", startref="BNcore03")</p>
 </div>
 </div>
 </div>
@@ -1064,7 +1064,7 @@ Examples:
   "connections": 8,
   "networks": [
     ...
-    detailed information about all networks (ipv4, ipv6 or onion)
+    des informations détaillées sur tous les réseaux (ipv4, ipv6 ou onion)
     ...
   ],
   "relayfee": 0.00001000,
@@ -1076,7 +1076,7 @@ Examples:
 </div>
 </div>
 <div class="paragraph data-line-499">
-<p>Les données sont renvoyées en JavaScript Object Notation (JSON), un format qui peut facilement être &quot;consommé&quot; par tous les langages de programmation mais qui est également assez lisible par l&#8217;homme. Parmi ces données, nous voyons les numéros de version du client logiciel bitcoin (150000) et du protocole Bitcoin (70015). On y voit le nombre actuel de connexions (8) et diverses informations sur le réseau Bitcoin et les paramètres liés à ce client.</p>
+<p>Les données sont renvoyées en JavaScript Object Notation (JSON), un format qui peut facilement être "consommé" par tous les langages de programmation mais qui est également assez lisible par l&#8217;homme. Parmi ces données, nous voyons les numéros de version du client logiciel bitcoin (150000) et du protocole Bitcoin (70015). On y voit le nombre actuel de connexions (8) et diverses informations sur le réseau Bitcoin et les paramètres liés à ce client.</p>
 </div>
 <div class="admonitionblock tip data-line-502">
 <table>
@@ -1086,7 +1086,7 @@ Examples:
 </td>
 <td class="content">
 <div class="paragraph data-line-503">
-<p>Il faudra un certain temps, peut-être plus d&#8217;une journée, pour que le client bitcoind &quot;rattrape&quot; la hauteur actuelle de la chaîne de blocs lorsqu&#8217;il télécharge des blocs d&#8217;autres clients Bitcoin. Vous pouvez vérifier sa progression en utilisant getblockchaininfo pour voir le nombre de blocs connus.</p>
+<p>Il faudra un certain temps, peut-être plus d&#8217;une journée, pour que le client bitcoind "rattrape" la hauteur actuelle de la chaîne de blocs lorsqu&#8217;il télécharge des blocs d&#8217;autres clients Bitcoin. Vous pouvez vérifier sa progression en utilisant getblockchaininfo pour voir le nombre de blocs connus.</p>
 </div>
 </td>
 </tr>
@@ -1123,7 +1123,7 @@ ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813014&am
 </td>
 <td class="content">
 <div class="paragraph data-line-530">
-<p>Un identifiant de transaction ne fait pas autorité tant qu&#8217;une transaction n&#8217;a pas été confirmée. L&#8217;absence d&#8217;un hachage de transaction dans la chaîne de blocs ne signifie pas que la transaction n&#8217;a pas été traitée. C&#8217;est ce qu&#8217;on appelle la &quot;malléabilité des transactions&quot;, car les hachages de transaction peuvent être modifiés avant la confirmation dans un bloc. Après confirmation, le txid est immuable et fait autorité.</p>
+<p>Un identifiant de transaction ne fait pas autorité tant qu&#8217;une transaction n&#8217;a pas été confirmée. L&#8217;absence d&#8217;un hachage de transaction dans la chaîne de blocs ne signifie pas que la transaction n&#8217;a pas été traitée. C&#8217;est ce qu&#8217;on appelle la "malléabilité des transactions", car les hachages de transaction peuvent être modifiés avant la confirmation dans un bloc. Après confirmation, le txid est immuable et fait autorité.</p>
 </div>
 </td>
 </tr>
@@ -1293,7 +1293,7 @@ d50f654e788acd0ef8000000000001976a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8&am
 <p>Si vous implémentez un appel JSON-RPC dans votre propre programme, vous pouvez utiliser une bibliothèque HTTP générique pour construire l&#8217;appel, similaire à ce qui est montré dans l&#8217;exemple curl précédent.</p>
 </div>
 <div class="paragraph data-line-676">
-<p>Cependant, il existe des bibliothèques dans la plupart des langages de programmation qui &quot;enveloppent&quot; l&#8217;API Bitcoin Core d&#8217;une manière qui rend cela beaucoup plus simple. Nous utiliserons la bibliothèque python-bitcoinlib pour simplifier l&#8217;accès à l&#8217;API. N&#8217;oubliez pas que cela nécessite que vous disposiez d&#8217;une instance Bitcoin Core en cours d&#8217;exécution, qui sera utilisée pour effectuer des appels JSON-RPC.</p>
+<p>Cependant, il existe des bibliothèques dans la plupart des langages de programmation qui "enveloppent" l&#8217;API Bitcoin Core d&#8217;une manière qui rend cela beaucoup plus simple. Nous utiliserons la bibliothèque python-bitcoinlib pour simplifier l&#8217;accès à l&#8217;API. N&#8217;oubliez pas que cela nécessite que vous disposiez d&#8217;une instance Bitcoin Core en cours d&#8217;exécution, qui sera utilisée pour effectuer des appels JSON-RPC.</p>
 </div>
 <div class="paragraph data-line-678">
 <p>Le script Python dans <a href="#rpc_example">Exécution de getblockchaininfo via l&#8217;API JSON-RPC de Bitcoin Core</a> effectue un simple appel getblockchaininfo et imprime le paramètre blocks à partir des données renvoyées par Bitcoin Core (nœud complet requis).</p>
@@ -1586,7 +1586,7 @@ print("Total value in block: ", block_value)</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-23 11:02:36 -0400
+Last updated 2022-03-23 18:49:58 -0400
 </div>
 </div>
 </body>

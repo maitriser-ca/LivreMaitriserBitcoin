@@ -444,13 +444,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="ch05_wallets">Portefeuilles</h2>
 <div class="sectionbody">
 <div class="paragraph data-line-4">
-<p>Le mot &quot;portefeuille&quot; est utilisé pour décrire différentes choses dans le bitcoin.</p>
+<p>Le mot "portefeuille" est utilisé pour décrire différentes choses dans le bitcoin.</p>
 </div>
 <div class="paragraph data-line-6">
 <p>À un niveau élevé, un portefeuille est une application qui sert d&#8217;interface utilisateur principale. Le portefeuille contrôle l&#8217;accès à l&#8217;argent d&#8217;un utilisateur, gère les clés et les adresses, le solde et crée et signe des transactions.</p>
 </div>
 <div class="paragraph data-line-8">
-<p>Plus précisément, du point de vue d&#8217;un programmeur, le mot &quot;portefeuille&quot; fait référence à la structure de données utilisée pour stocker et gérer les clés d&#8217;un utilisateur.</p>
+<p>Plus précisément, du point de vue d&#8217;un programmeur, le mot "portefeuille" fait référence à la structure de données utilisée pour stocker et gérer les clés d&#8217;un utilisateur.</p>
 </div>
 <div class="paragraph data-line-10">
 <p>Dans ce chapitre, nous examinerons la deuxième signification, où les portefeuilles sont des conteneurs de clés privées, généralement implémentés sous forme de fichiers structurés ou de simples bases de données.</p>
@@ -461,7 +461,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Dans cette section, nous résumons les différentes technologies utilisées pour construire des portefeuilles Bitcoin conviviaux, sécurisés et flexibles.</p>
 </div>
 <div class="paragraph data-line-16">
-<p> Une idée faussement courante à propos du bitcoin est que les portefeuilles bitcoin contiennent du bitcoin. En fait, le portefeuille ne contient que des clés. Les &quot;monnaies ou coins&quot; sont enregistrés dans la chaîne de blocs sur le réseau Bitcoin. Les utilisateurs contrôlent les pièces sur le réseau en signant des transactions avec les clés de leur portefeuille. Dans un sens, un portefeuille bitcoin est un <em>porte-clés</em>.</p>
+<p> Une idée faussement courante à propos du bitcoin est que les portefeuilles bitcoin contiennent du bitcoin. En fait, le portefeuille ne contient que des clés. Les "monnaies ou coins" sont enregistrés dans la chaîne de blocs sur le réseau Bitcoin. Les utilisateurs contrôlent les pièces sur le réseau en signant des transactions avec les clés de leur portefeuille. Dans un sens, un portefeuille bitcoin est un <em>porte-clés</em>.</p>
 </div>
 <div class="admonitionblock tip data-line-19">
 <table>
@@ -481,7 +481,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Il existe deux principaux types de portefeuilles, qui se distinguent par le fait que les clés qu&#8217;ils contiennent sont liées les unes aux autres ou non.</p>
 </div>
 <div class="paragraph data-line-25">
-<p>Le premier type est un <em>portefeuille non déterministe</em>, où chaque clé est générée indépendamment à partir d&#8217;un nombre aléatoire. Les clés ne sont pas liées les unes aux autres. Ce type de portefeuille est également connu sous le nom de portefeuille JBOK à partir de l&#8217;expression &quot;Just a Bunch Of Keys&quot; (juste une poignées de clés).</p>
+<p>Le premier type est un <em>portefeuille non déterministe</em>, où chaque clé est générée indépendamment à partir d&#8217;un nombre aléatoire. Les clés ne sont pas liées les unes aux autres. Ce type de portefeuille est également connu sous le nom de portefeuille JBOK à partir de l&#8217;expression "Just a Bunch Of Keys" (juste une poignées de clés).</p>
 </div>
 <div class="paragraph data-line-27">
 <p>Le deuxième type de portefeuille est un <em>portefeuille déterministe</em>, où toutes les clés sont dérivées d&#8217;une seule clé principale, connue sous le nom de <em>seed</em> (ou valeur d&#8217;amorçage). Toutes les clés de ce type de portefeuille sont liées les unes aux autres et peuvent être générées à nouveau si l&#8217;on dispose de la valeur d&#8217;amorçage d&#8217;origine.  Il existe un certain nombre de méthodes différentes de <em>dérivation de clé</em> utilisées dans les portefeuilles déterministes. La méthode de dérivation la plus couramment utilisée utilise une structure arborescente et est connue sous le nom de portefeuille <em>déterministe hiérarchique</em> ou <em>HD</em>.</p>
@@ -505,7 +505,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </td>
 <td class="content">
 <div class="paragraph data-line-40">
-<p>L&#8217;utilisation de portefeuilles non déterministes est déconseillée pour autre chose que de simples tests. Ils sont tout simplement trop lourds à sauvegarder et à utiliser. À la place, utilisez un <em>portefeuille HD</em> standard de l&#8217;industrie avec une séquence aléatoire <em>mnémonique</em> (entropie, ou &quot;valeur d&#8217;amorçage&quot;) pour la sauvegarde.</p>
+<p>L&#8217;utilisation de portefeuilles non déterministes est déconseillée pour autre chose que de simples tests. Ils sont tout simplement trop lourds à sauvegarder et à utiliser. À la place, utilisez un <em>portefeuille HD</em> standard de l&#8217;industrie avec une séquence aléatoire <em>mnémonique</em> (entropie, ou "valeur d&#8217;amorçage") pour la sauvegarde.</p>
 </div>
 </td>
 </tr>
@@ -513,7 +513,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="Type0_wallet" class="imageblock smallersixty data-line-46">
 <div class="content">
-<img src="images/mbc2_0501.png" alt="&quot;Portefeuille non déterministe&quot;">
+<img src="images/mbc2_0501.png" alt="Portefeuille non déterministe">
 </div>
 <div class="title">Figure 1. Portefeuille non déterministe (aléatoire) de type-0 : une collection de clés générées aléatoirement</div>
 </div>
@@ -521,7 +521,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect3 data-line-48">
 <h4 id="_portefeuilles_déterministes_ensemencés">Portefeuilles déterministes (ensemencés)</h4>
 <div class="paragraph data-line-50">
-<p>Les portefeuilles déterministes ou &quot;ensemencés&quot; sont des portefeuilles qui contiennent des clés privées qui sont toutes dérivées d&#8217;une valeur d&#8217;amorçage commune, grâce à l&#8217;utilisation d&#8217;un fonction de hachage à sens unique. La valeur d&#8217;amorçage est un nombre généré aléatoirement qui est combiné avec d&#8217;autres données, telles qu&#8217;un numéro d&#8217;index ou un &quot;code de chaîne&quot; (voir <a href="#hd_wallets">Portefeuilles HD (BIP-32/BIP-44)</a>) pour dériver les clés privées. Dans un portefeuille déterministe, la valeur d&#8217;amorçage est suffisante pour récupérer toutes les clés dérivées, et donc une seule sauvegarde au moment de la création est suffisante. La valeur d&#8217;amorçage est également suffisante pour une exportation ou une importation de portefeuille, permettant une migration facile de toutes les clés de l&#8217;utilisateur entre différentes implémentations de portefeuille. <a href="#Type1_wallet">Portefeuille déterministe (ensemencé) de type-1 : une séquence déterministe de clés dérivée d&#8217;une valeur d&#8217;amorçage</a> montre un diagramme logique d&#8217;un portefeuille déterministe.</p>
+<p>Les portefeuilles déterministes ou "ensemencés" sont des portefeuilles qui contiennent des clés privées qui sont toutes dérivées d&#8217;une valeur d&#8217;amorçage commune, grâce à l&#8217;utilisation d&#8217;un fonction de hachage à sens unique. La valeur d&#8217;amorçage est un nombre généré aléatoirement qui est combiné avec d&#8217;autres données, telles qu&#8217;un numéro d&#8217;index ou un "code de chaîne" (voir <a href="#hd_wallets">Portefeuilles HD (BIP-32/BIP-44)</a>) pour dériver les clés privées. Dans un portefeuille déterministe, la valeur d&#8217;amorçage est suffisante pour récupérer toutes les clés dérivées, et donc une seule sauvegarde au moment de la création est suffisante. La valeur d&#8217;amorçage est également suffisante pour une exportation ou une importation de portefeuille, permettant une migration facile de toutes les clés de l&#8217;utilisateur entre différentes implémentations de portefeuille. <a href="#Type1_wallet">Portefeuille déterministe (ensemencé) de type-1 : une séquence déterministe de clés dérivée d&#8217;une valeur d&#8217;amorçage</a> montre un diagramme logique d&#8217;un portefeuille déterministe.</p>
 </div>
 <div id="Type1_wallet" class="imageblock smallersixty data-line-55">
 <div class="content">
@@ -533,7 +533,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect3 data-line-58">
 <h4 id="hd_wallets">Portefeuilles HD (BIP-32/BIP-44)</h4>
 <div class="paragraph data-line-60">
-<p>Des portefeuilles déterministes ont été développés pour faciliter la dérivation de nombreuses clés à partir d&#8217;une seule &quot;valeur d&#8217;amorçage&quot;. La forme la plus avancée de portefeuilles déterministes est le portefeuille HD défini par la norme BIP-32. Les portefeuilles HD contiennent des clés dérivées dans une structure arborescente, de sorte qu&#8217;une clé parent peut dériver une séquence de clés enfants, chacune pouvant dériver une séquence de clés petits-enfants, et ainsi de suite, jusqu&#8217;à une profondeur infinie. Cette arborescence est illustrée dans <a href="#Type2_wallet">Portefeuille HD de type-2 : un arbre de clés généré à partir d&#8217;une seule valeur d&#8217;amorçage</a>.</p>
+<p>Des portefeuilles déterministes ont été développés pour faciliter la dérivation de nombreuses clés à partir d&#8217;une seule "valeur d&#8217;amorçage". La forme la plus avancée de portefeuilles déterministes est le portefeuille HD défini par la norme BIP-32. Les portefeuilles HD contiennent des clés dérivées dans une structure arborescente, de sorte qu&#8217;une clé parent peut dériver une séquence de clés enfants, chacune pouvant dériver une séquence de clés petits-enfants, et ainsi de suite, jusqu&#8217;à une profondeur infinie. Cette arborescence est illustrée dans <a href="#Type2_wallet">Portefeuille HD de type-2 : un arbre de clés généré à partir d&#8217;une seule valeur d&#8217;amorçage</a>.</p>
 </div>
 <div id="Type2_wallet" class="imageblock data-line-64">
 <div class="content">
@@ -728,7 +728,7 @@ garbage claim echo media make crunch</pre>
 </td>
 <td class="content">
 <div class="paragraph data-line-157">
-<p>Les mots mnémoniques sont souvent confondus avec les &quot;brainwallets&quot;. Ils ne sont pas les mêmes. La principale différence est qu&#8217;un brainwallet se compose de mots choisis par l&#8217;utilisateur, tandis que les mots mnémoniques sont créés de manière aléatoire par le portefeuille et présentés à l&#8217;utilisateur. Cette différence importante rend les mots mnémoniques beaucoup plus sûrs, car les humains sont de très mauvaises sources d&#8217;aléatoire.</p>
+<p>Les mots mnémoniques sont souvent confondus avec les "brainwallets". Ils ne sont pas les mêmes. La principale différence est qu&#8217;un brainwallet se compose de mots choisis par l&#8217;utilisateur, tandis que les mots mnémoniques sont créés de manière aléatoire par le portefeuille et présentés à l&#8217;utilisateur. Cette différence importante rend les mots mnémoniques beaucoup plus sûrs, car les humains sont de très mauvaises sources d&#8217;aléatoire.</p>
 </div>
 </td>
 </tr>
@@ -772,7 +772,7 @@ garbage claim echo media make crunch</pre>
 </div>
 <div id="generating_entropy_and_encoding" class="imageblock smallerseventy data-line-181">
 <div class="content">
-<img src="images/mbc2_0506.png" alt="&quot;Génération d&#8217;entropie et encodage sous forme de mots mnémoniques&quot;">
+<img src="images/mbc2_0506.png" alt="Génération d&#8217;entropie et encodage sous forme de mots mnémoniques">
 </div>
 <div class="title">Figure 6. Génération d&#8217;entropie et encodage sous forme de mots mnémoniques</div>
 </div>
@@ -842,7 +842,7 @@ garbage claim echo media make crunch</pre>
 </div>
 <ol start="7">
 	<li>Le premier paramètre de la fonction d'étirement de clé PBKDF2 est le <em>mnémonique</em> produit à partir de l'étape 6.</li>
-	<li>Le deuxième paramètre de la fonction d'étirement de clé PBKDF2 est un <em>sel</em> . Le sel est composé de la constante de chaîne &quot;<code>mnemonique</code>&quot; concaténée avec une phrase secrète facultative fournie par l'utilisateur.</li>
+	<li>Le deuxième paramètre de la fonction d'étirement de clé PBKDF2 est un <em>sel</em> . Le sel est composé de la constante de chaîne "<code>mnemonique</code>" concaténée avec une phrase secrète facultative fournie par l'utilisateur.</li>
 	<li>PBKDF2 étend les paramètres mnémoniques et le sel en utilisant 2048 cycles de hachage avec l'algorithme HMAC-SHA512, produisant une valeur de 512 bits comme sortie finale. Cette valeur de 512 bits est la valeur d'amorçage.</li>
 </ol>
 <div class="paragraph data-line-214">
@@ -850,7 +850,7 @@ garbage claim echo media make crunch</pre>
 </div>
 <div id="fig_5_7" class="imageblock data-line-218">
 <div class="content">
-<img src="images/mbc2_0507.png" alt="&quot;Du mnémonique à la valeur d&#8217;amorçage&quot;">
+<img src="images/mbc2_0507.png" alt="Du mnémonique à la valeur d&#8217;amorçage">
 </div>
 <div class="title">Figure 7. Du mnémonique à la valeur d&#8217;amorçage</div>
 </div>
@@ -862,7 +862,7 @@ garbage claim echo media make crunch</pre>
 </td>
 <td class="content">
 <div class="paragraph data-line-222">
-<p>La fonction d&#8217;étirement de clé, avec ses 2048 tours de hachage, est une protection très efficace contre les attaques par force brute contre le mnémonique ou la phrase secrète. Cela rend extrêmement coûteux (en calcul) d&#8217;essayer plus de quelques milliers de combinaisons de mots de passe et de mnémoniques, alors que le nombre de valeurs d&#8217;amorçage dérivées possibles est vaste (2 ^ 512 ^).</p>
+<p>La fonction d&#8217;étirement de clé, avec ses 2048 tours de hachage, est une protection très efficace contre les attaques par force brute contre le mnémonique ou la phrase secrète. Cela rend extrêmement coûteux (en calcul) d&#8217;essayer plus de quelques milliers de combinaisons de mots de passe et de mnémoniques, alors que le nombre de valeurs d&#8217;amorçage dérivées possibles est vaste (2<sup>512</sup>).</p>
 </div>
 </td>
 </tr>
@@ -968,7 +968,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 <div class="sect4 data-line-268">
 <h5 id="mnemonic_passphrase">Phrase secrète facultative dans BIP-39</h5>
 <div class="paragraph data-line-270">
-<p>La norme BIP-39 permet l&#8217;utilisation d&#8217;une phrase secrète facultative dans la dérivation de la valeur d&#8217;amorçage. Si aucune phrase secrète n&#8217;est utilisée, le mnémonique est étiré avec un sel constitué de la chaîne constante &amp;quot;mnémonique&amp;quot;, produisant une valeur d&#8217;amorçage spécifique de 512 bits à partir de n&#8217;importe quel mnémonique donné. Si une phrase secrète est utilisée, la fonction d&#8217;étirement produit une valeur d&#8217;amorçage <em>différente</em> à partir de ce même mnémonique. En fait, étant donné un seul mnémonique, chaque phrases secrètes possible conduit à une valeurs d&#8217;amorçage différente. Essentiellement, il n&#8217;y a pas de &quot;mauvaise&quot; phrase secrète. Toutes les phrases secrètes sont valides et mènent toutes à des valeurs d&#8217;amorçage différentes, formant un vaste ensemble de portefeuilles non initialisés possibles. L&#8217;ensemble des portefeuilles possibles est si grand (2 <sup>512</sup>) qu&#8217;il n&#8217;y a aucune possibilité pratique de forcer brutalement ou de deviner accidentellement celui qui est utilisé.</p>
+<p>La norme BIP-39 permet l&#8217;utilisation d&#8217;une phrase secrète facultative dans la dérivation de la valeur d&#8217;amorçage. Si aucune phrase secrète n&#8217;est utilisée, le mnémonique est étiré avec un sel constitué de la chaîne constante "mnémonique", produisant une valeur d&#8217;amorçage spécifique de 512 bits à partir de n&#8217;importe quel mnémonique donné. Si une phrase secrète est utilisée, la fonction d&#8217;étirement produit une valeur d&#8217;amorçage <em>différente</em> à partir de ce même mnémonique. En fait, étant donné un seul mnémonique, chaque phrases secrètes possible conduit à une valeurs d&#8217;amorçage différente. Essentiellement, il n&#8217;y a pas de "mauvaise" phrase secrète. Toutes les phrases secrètes sont valides et mènent toutes à des valeurs d&#8217;amorçage différentes, formant un vaste ensemble de portefeuilles non initialisés possibles. L&#8217;ensemble des portefeuilles possibles est si grand (2<sup>512</sup>) qu&#8217;il n&#8217;y a aucune possibilité pratique de forcer brutalement ou de deviner accidentellement celui qui est utilisé.</p>
 </div>
 <div class="admonitionblock tip data-line-273">
 <table>
@@ -978,7 +978,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 </td>
 <td class="content">
 <div class="paragraph data-line-274">
-<p>Il n&#8217;y a pas de &quot;mauvaises&quot; phrases secrètes dans BIP-39. Chaque phrase secrète mène à un portefeuille qui, à moins qu&#8217;il n&#8217;ait été utilisé auparavant, sera vide.</p>
+<p>Il n&#8217;y a pas de "mauvaises" phrases secrètes dans BIP-39. Chaque phrase secrète mène à un portefeuille qui, à moins qu&#8217;il n&#8217;ait été utilisé auparavant, sera vide.</p>
 </div>
 </td>
 </tr>
@@ -993,7 +993,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 <p>Un deuxième facteur (quelque chose de mémorisé) qui rend un mnémonique inutile par lui-même, protégeant les sauvegardes mnémoniques de la compromission par un voleur.</p>
 </li>
 <li class="data-line-281">
-<p>Une forme de déni plausible ou &quot;portefeuille sous contrainte&quot;, où une phrase secrète choisie mène à un portefeuille avec une petite quantité de fonds utilisée pour distraire un attaquant du &quot;vrai&quot; portefeuille qui contient la majorité des fonds.</p>
+<p>Une forme de déni plausible ou "portefeuille sous contrainte", où une phrase secrète choisie mène à un portefeuille avec une petite quantité de fonds utilisée pour distraire un attaquant du "vrai" portefeuille qui contient la majorité des fonds.</p>
 </li>
 </ul>
 </div>
@@ -1091,7 +1091,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 <p>Ces trois éléments (clé parent, code de chaîne et index) sont combinés et hachés pour générer des clés enfants, comme suit.</p>
 </div>
 <div class="paragraph data-line-333">
-<p>La clé publique parent, le code de chaîne et le numéro d&#8217;index sont combinés et hachés avec l&#8217;algorithme HMAC-SHA512 pour produire un hachage de 512 bits. Ce hachage de 512 bits est divisé en deux moitiés de 256 bits. Les 256 bits de la moitié droite de la sortie de hachage deviennent le code de chaîne pour l&#8217;enfant. Les 256 bits de la moitié gauche du hachage sont ajoutés à la clé parent pour produire la clé privée enfant. Dans <a href="#CKDpriv">Étendre une clé privée parent pour créer une clé privée enfant</a>, nous voyons cela illustré avec l&#8217;index mis à 0 pour produire l&#8217;enfant &quot;zéro&quot; (premier par index) du parent.</p>
+<p>La clé publique parent, le code de chaîne et le numéro d&#8217;index sont combinés et hachés avec l&#8217;algorithme HMAC-SHA512 pour produire un hachage de 512 bits. Ce hachage de 512 bits est divisé en deux moitiés de 256 bits. Les 256 bits de la moitié droite de la sortie de hachage deviennent le code de chaîne pour l&#8217;enfant. Les 256 bits de la moitié gauche du hachage sont ajoutés à la clé parent pour produire la clé privée enfant. Dans <a href="#CKDpriv">Étendre une clé privée parent pour créer une clé privée enfant</a>, nous voyons cela illustré avec l&#8217;index mis à 0 pour produire l&#8217;enfant "zéro" (premier par index) du parent.</p>
 </div>
 <div id="CKDpriv" class="imageblock data-line-337">
 <div class="content">
@@ -1122,7 +1122,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 </td>
 <td class="content">
 <div class="paragraph data-line-351">
-<p>Une clé privée enfant, la clé publique correspondante et l&#8217;adresse Bitcoin sont toutes indiscernables des clés et des adresses créées au hasard. Le fait qu&#8217;ils fassent partie d&#8217;une séquence n&#8217;est pas visible en dehors de la fonction de portefeuille HD qui les a créés. Une fois créées, elles fonctionnent exactement comme des clés &quot;normales&quot;.</p>
+<p>Une clé privée enfant, la clé publique correspondante et l&#8217;adresse Bitcoin sont toutes indiscernables des clés et des adresses créées au hasard. Le fait qu&#8217;ils fassent partie d&#8217;une séquence n&#8217;est pas visible en dehors de la fonction de portefeuille HD qui les a créés. Une fois créées, elles fonctionnent exactement comme des clés "normales".</p>
 </div>
 </td>
 </tr>
@@ -1132,7 +1132,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 <div class="sect4 data-line-354">
 <h5 id="_touches_étendues">Touches étendues</h5>
 <div class="paragraph data-line-356">
-<p>Comme nous l&#8217;avons vu précédemment, la fonction de dérivation de clé peut être utilisée pour créer des enfants à n&#8217;importe quel niveau de l&#8217;arborescence, en fonction sur les trois entrées : une clé, un code chaîne et l&#8217;index de l&#8217;enfant souhaité. Les deux ingrédients essentiels sont la clé et le code de chaîne, et combinés, ils s&#8217;appellent une <em>clé étendue</em>. Le terme &quot;clé étendue&quot; pourrait également être considéré comme une &quot;clé extensible&quot; car une telle clé peut être utilisée pour dériver des enfants.</p>
+<p>Comme nous l&#8217;avons vu précédemment, la fonction de dérivation de clé peut être utilisée pour créer des enfants à n&#8217;importe quel niveau de l&#8217;arborescence, en fonction sur les trois entrées : une clé, un code chaîne et l&#8217;index de l&#8217;enfant souhaité. Les deux ingrédients essentiels sont la clé et le code de chaîne, et combinés, ils s&#8217;appellent une <em>clé étendue</em>. Le terme "clé étendue" pourrait également être considéré comme une "clé extensible" car une telle clé peut être utilisée pour dériver des enfants.</p>
 </div>
 <div class="paragraph data-line-358">
 <p>Les clés étendues sont stockées et représentées simplement comme la concaténation de la clé de 256 bits et du code de chaîne de 256 bits dans une séquence de 512 bits. Il existe deux types de clés étendues. Une clé privée étendue est la combinaison d&#8217;une clé privée et d&#8217;un code de chaîne et peut être utilisée pour dériver des clés privées enfants (et à partir de celles-ci, des clés publiques enfants). Une clé publique étendue est une clé publique et un code de chaîne, qui peuvent être utilisés pour créer des clés publiques enfants (<em>public uniquement</em>), comme décrit dans <a href="#public_key_derivation">[public_key_derivation]</a>.</p>
@@ -1155,7 +1155,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 </table>
 </div>
 <div class="paragraph data-line-367">
-<p>Les clés étendues sont encodées à l&#8217;aide de Base58Check, pour exporter et importer facilement entre différents portefeuilles compatibles BIP-32. Le codage Base58Check pour les clés étendues utilise une somme de contrôle qui se traduit par le préfixe &quot;xprv&quot; et &quot;xpub&quot; lorsqu&#8217;il est codé en caractères Base58 pour les rendre facilement reconnaissables. Étant donné que la clé étendue est de 512 ou 513 bits, elle est également beaucoup plus longue que les autres chaînes codées en Base58Check que nous avons vues précédemment.</p>
+<p>Les clés étendues sont encodées à l&#8217;aide de Base58Check, pour exporter et importer facilement entre différents portefeuilles compatibles BIP-32. Le codage Base58Check pour les clés étendues utilise une somme de contrôle qui se traduit par le préfixe "xprv" et "xpub" lorsqu&#8217;il est codé en caractères Base58 pour les rendre facilement reconnaissables. Étant donné que la clé étendue est de 512 ou 513 bits, elle est également beaucoup plus longue que les autres chaînes codées en Base58Check que nous avons vues précédemment.</p>
 </div>
 <div class="paragraph data-line-369">
 <p>Voici un exemple de clé <em>privée</em> étendue, codée en Base58Check :</p>
@@ -1186,10 +1186,10 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 <p>Ce raccourci peut être utilisé pour créer des déploiements très sécurisés à clé publique uniquement dans lesquels un serveur ou une application possède une copie d&#8217;une clé publique étendue et aucune clé privée. Ce type de déploiement peut produire un nombre infini de clés publiques et d&#8217;adresses Bitcoin, mais ce type de déploiement ne permet pas dépenser l&#8217;argent envoyé à ces adresses. Pendant ce temps, sur un autre serveur plus sécurisé, la clé privée étendue peut dériver toutes les clés privées correspondantes pour signer des transactions et dépenser de l&#8217;argent.</p>
 </div>
 <div class="paragraph data-line-390">
-<p>Une application courante de cette solution consiste à installer une clé publique étendue sur un serveur Web qui sert une application de commerce électronique. Le serveur Web peut utiliser la fonction de dérivation de clé publique pour créer une nouvelle adresse Bitcoin pour chaque transaction (par exemple, pour le panier d&#8217;un client). Le serveur Web n&#8217;aura aucune clé privée qui serait vulnérable au vol. Sans les portefeuilles HD, la seule façon d&#8217;y parvenir est de générer des milliers d&#8217;adresses Bitcoin sur un serveur sécurisé séparé, puis de les précharger sur le serveur de commerce électronique. Cette approche est lourde et nécessite une maintenance constante pour s&#8217;assurer que le serveur de commerce électronique ne &quot;manque&quot; pas d&#8217;adresses.</p>
+<p>Une application courante de cette solution consiste à installer une clé publique étendue sur un serveur Web qui sert une application de commerce électronique. Le serveur Web peut utiliser la fonction de dérivation de clé publique pour créer une nouvelle adresse Bitcoin pour chaque transaction (par exemple, pour le panier d&#8217;un client). Le serveur Web n&#8217;aura aucune clé privée qui serait vulnérable au vol. Sans les portefeuilles HD, la seule façon d&#8217;y parvenir est de générer des milliers d&#8217;adresses Bitcoin sur un serveur sécurisé séparé, puis de les précharger sur le serveur de commerce électronique. Cette approche est lourde et nécessite une maintenance constante pour s&#8217;assurer que le serveur de commerce électronique ne "manque" pas d&#8217;adresses.</p>
 </div>
 <div class="paragraph data-line-392">
-<p>Une autre application courante de cette solution est le stockage à froid ou les portefeuilles matériels. Dans ce scénario, la clé privée étendue peut être stockée sur un portefeuille papier ou un périphérique matériel (tel qu&#8217;un portefeuille matériel Trezor), tandis que la clé publique étendue peut être conservée en ligne. L&#8217;utilisateur peut créer des adresses &quot;de réception&quot; à volonté, tandis que les clés privées sont stockées en toute sécurité hors ligne. Pour dépenser les fonds, l&#8217;utilisateur peut utiliser la clé privée étendue sur un client Bitcoin de signature hors ligne ou signer des transactions sur le périphérique de portefeuille matériel (par exemple, Trezor). <a href="#CKDpub">Étendre une clé publique parent pour créer une clé publique enfant</a> illustre le mécanisme d&#8217;extension d&#8217;une clé publique parent pour dériver des clés publiques enfants.</p>
+<p>Une autre application courante de cette solution est le stockage à froid ou les portefeuilles matériels. Dans ce scénario, la clé privée étendue peut être stockée sur un portefeuille papier ou un périphérique matériel (tel qu&#8217;un portefeuille matériel Trezor), tandis que la clé publique étendue peut être conservée en ligne. L&#8217;utilisateur peut créer des adresses "de réception" à volonté, tandis que les clés privées sont stockées en toute sécurité hors ligne. Pour dépenser les fonds, l&#8217;utilisateur peut utiliser la clé privée étendue sur un client Bitcoin de signature hors ligne ou signer des transactions sur le périphérique de portefeuille matériel (par exemple, Trezor). <a href="#CKDpub">Étendre une clé publique parent pour créer une clé publique enfant</a> illustre le mécanisme d&#8217;extension d&#8217;une clé publique parent pour dériver des clés publiques enfants.</p>
 </div>
 <div id="CKDpub" class="imageblock data-line-396">
 <div class="content">
@@ -1204,7 +1204,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 <p>La possibilité de dériver une branche de clés publiques à partir d&#8217;un xpub est très utile, mais elle est potentiellement risquée. L&#8217;accès à une xpub ne donne pas accès aux clés privées enfants. Cependant, étant donné que xpub contient le code de chaîne, si une clé privée enfant est connue ou divulguée d&#8217;une manière ou d&#8217;une autre, elle peut être utilisée avec le code de chaîne pour dériver toutes les autres clés privées enfants. Une seule clé privée enfant divulguée, associée à un code de chaîne parent, révèle toutes les clés privées de tous les enfants. Pire encore, la clé privée enfant associée à un code de chaîne parent peut être utilisée pour déduire la clé privée parent.</p>
 </div>
 <div class="paragraph data-line-402">
-<p>Pour contrer ce risque, les portefeuilles HD utilisent une fonction de dérivation alternative appelée <em>dérivation renforcée</em>, qui &quot;casse&quot; la relation entre la clé publique parent et le code de chaîne enfant. La fonction de dérivation renforcée utilise la clé privée parent pour dériver le code de chaîne enfant, au lieu de la clé publique parent. Cela crée un &quot;pare-feu&quot; dans la séquence parent/enfant, avec un code de chaîne qui ne peut pas être utilisé pour compromettre une clé privée parent ou sœur. La fonction de dérivation renforcée semble presque identique à la dérivation de clé privée enfant normale, sauf que la clé privée parent est utilisée comme entrée de la fonction de hachage, au lieu de la clé publique parent, comme indiqué dans le diagramme de <a href="#CKDprime">Dérivation renforcée d&#8217;une clé enfant ; omet la clé publique parent</a>.</p>
+<p>Pour contrer ce risque, les portefeuilles HD utilisent une fonction de dérivation alternative appelée <em>dérivation renforcée</em>, qui "casse" la relation entre la clé publique parent et le code de chaîne enfant. La fonction de dérivation renforcée utilise la clé privée parent pour dériver le code de chaîne enfant, au lieu de la clé publique parent. Cela crée un "pare-feu" dans la séquence parent/enfant, avec un code de chaîne qui ne peut pas être utilisé pour compromettre une clé privée parent ou sœur. La fonction de dérivation renforcée semble presque identique à la dérivation de clé privée enfant normale, sauf que la clé privée parent est utilisée comme entrée de la fonction de hachage, au lieu de la clé publique parent, comme indiqué dans le diagramme de <a href="#CKDprime">Dérivation renforcée d&#8217;une clé enfant ; omet la clé publique parent</a>.</p>
 </div>
 <div id="CKDprime" class="imageblock data-line-406">
 <div class="content">
@@ -1213,7 +1213,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 <div class="title">Figure 11. Dérivation renforcée d&#8217;une clé enfant ; omet la clé publique parent</div>
 </div>
 <div class="paragraph pagebreak-before data-line-409">
-<p>Lorsque la fonction de dérivation privée renforcée est utilisée, la clé privée enfant et le code de chaîne résultants sont complètement différents de ce qui résulterait de la fonction de dérivation normale. La &quot;branche&quot; de clés résultante peut être utilisée pour produire des clés publiques étendues qui ne sont pas vulnérables, car le code de chaîne qu&#8217;elles contiennent ne peut pas être exploité pour révéler des clés privées. La dérivation renforcée est donc utilisée pour créer un &quot;trou&quot; dans l&#8217;arborescence au-dessus du niveau où les clés publiques étendues sont utilisées.</p>
+<p>Lorsque la fonction de dérivation privée renforcée est utilisée, la clé privée enfant et le code de chaîne résultants sont complètement différents de ce qui résulterait de la fonction de dérivation normale. La "branche" de clés résultante peut être utilisée pour produire des clés publiques étendues qui ne sont pas vulnérables, car le code de chaîne qu&#8217;elles contiennent ne peut pas être exploité pour révéler des clés privées. La dérivation renforcée est donc utilisée pour créer un "trou" dans l&#8217;arborescence au-dessus du niveau où les clés publiques étendues sont utilisées.</p>
 </div>
 <div class="paragraph data-line-411">
 <p>En termes simples, si vous souhaitez utiliser la commodité d&#8217;un xpub pour dériver des branches de clés publiques, sans vous exposer au risque d&#8217;une fuite de code de chaîne, vous devez le dériver d&#8217;une clé parent renforcée, plutôt que d&#8217;une clé normale (non-renforcée) clé parent. En tant que meilleure pratique, les enfants de niveau 1 des clés principales sont toujours dérivés via la dérivation renforcée, pour éviter la compromission des clés principales.</p>
@@ -1231,10 +1231,10 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 <div class="sect4 data-line-419">
 <h5 id="_identifiant_de_clé_de_portefeuille_hd_chemin">Identifiant de clé de portefeuille HD (chemin)</h5>
 <div class="paragraph data-line-421">
-<p>Les clés d&#8217;un portefeuille HD sont identifiées à l&#8217;aide d&#8217;une convention de dénomination &quot;chemin&quot;, où chaque niveau de l&#8217;arborescence est séparé par une barre oblique (/) (voir <a href="#table_4-8">Exemples de chemin de portefeuille HD</a>). Les clés privées dérivées de la clé privée principale commencent par &quot;m&quot;. Les clés publiques dérivées de la clé publique principale commencent par « M ». Par conséquent, la première clé privée enfant de la clé privée principale est m/0. La première clé publique enfant est M/0. Le deuxième petit-enfant du premier enfant est m/0/1, et ainsi de suite.</p>
+<p>Les clés d&#8217;un portefeuille HD sont identifiées à l&#8217;aide d&#8217;une convention de dénomination "chemin", où chaque niveau de l&#8217;arborescence est séparé par une barre oblique (/) (voir <a href="#table_4-8">Exemples de chemin de portefeuille HD</a>). Les clés privées dérivées de la clé privée principale commencent par "m". Les clés publiques dérivées de la clé publique principale commencent par « M ». Par conséquent, la première clé privée enfant de la clé privée principale est m/0. La première clé publique enfant est M/0. Le deuxième petit-enfant du premier enfant est m/0/1, et ainsi de suite.</p>
 </div>
 <div class="paragraph data-line-423">
-<p>L&#39;&quot;ascendance&quot; d&#8217;une clé se lit de droite à gauche, jusqu&#8217;à atteindre la clé maîtresse dont elle est issue. Par exemple, l&#8217;identifiant m/x/y/z décrit la clé privée qui est le z-ième enfant de la clé privée parent m/x/y, qui est le y-ième enfant de la clé privée parent m/x, qui est le x-ième enfant de la clé privée principale parente m.</p>
+<p>L'"ascendance" d&#8217;une clé se lit de droite à gauche, jusqu&#8217;à atteindre la clé maîtresse dont elle est issue. Par exemple, l&#8217;identifiant m/x/y/z décrit la clé privée qui est le z-ième enfant de la clé privée parent m/x/y, qui est le y-ième enfant de la clé privée parent m/x, qui est le x-ième enfant de la clé privée principale parente m.</p>
 </div>
 <table id="table_4-8" class="tableblock frame-all grid-all stretch data-line-428">
 <caption class="title">Table 6. Exemples de chemin de portefeuille HD</caption>
@@ -1258,8 +1258,8 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 <td class="tableblock halign-left valign-top"><p class="tableblock">La première (0) clé privée enfant du premier enfant (m/0)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">m/0&#39;/0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Le premier (0) enfant normal du premier enfant <em>renforcé</em> (m/0&#39;)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m/0'/0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le premier (0) enfant normal du premier enfant <em>renforcé</em> (m/0')</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m/1/0</p></td>
@@ -1278,27 +1278,27 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 <p>La structure arborescente du portefeuille HD offre une grande flexibilité. Chaque clé étendue parent peut avoir 4 milliards d&#8217;enfants : 2 milliards d&#8217;enfants normaux et 2 milliards d&#8217;enfants renforcés. Chacun de ces enfants peut avoir 4 milliards d&#8217;enfants supplémentaires, et ainsi de suite. L&#8217;arbre peut être aussi profond que vous le souhaitez, avec un nombre infini de générations. Avec toute cette flexibilité, cependant, il devient assez difficile de naviguer dans cet arbre infini. Il est particulièrement difficile de transférer des portefeuilles HD entre les implémentations, car les possibilités d&#8217;organisation interne en succursales et sous-succursales sont infinies.</p>
 </div>
 <div class="paragraph data-line-441">
-<p>Deux BIP offrent une solution à cette complexité en créant des propositions de normes pour la structure des arborescences de portefeuille HD. BIP-43 propose l&#8217;utilisation du premier index enfant renforcé comme identifiant spécial qui signifie le &quot;but&quot; de la structure arborescente. Basé sur BIP-43, un portefeuille HD ne devrait utiliser qu&#8217;une seule branche de niveau 1 de l&#8217;arborescence, le numéro d&#8217;index identifiant la structure et l&#8217;espace de noms du reste de l&#8217;arborescence en définissant son objectif. Par exemple, un portefeuille HD utilisant uniquement la branche m/i&amp;#x27;/ est destiné à signifier un objectif spécifique et cet objectif est identifié par le numéro d&#8217;index &quot;i&quot;.</p>
+<p>Deux BIP offrent une solution à cette complexité en créant des propositions de normes pour la structure des arborescences de portefeuille HD. BIP-43 propose l&#8217;utilisation du premier index enfant renforcé comme identifiant spécial qui signifie le "but" de la structure arborescente. Basé sur BIP-43, un portefeuille HD ne devrait utiliser qu&#8217;une seule branche de niveau 1 de l&#8217;arborescence, le numéro d&#8217;index identifiant la structure et l&#8217;espace de noms du reste de l&#8217;arborescence en définissant son objectif. Par exemple, un portefeuille HD utilisant uniquement la branche m/i'/ est destiné à signifier un objectif spécifique et cet objectif est identifié par le numéro d&#8217;index "i".</p>
 </div>
 <div class="paragraph data-line-443">
-<p>En étendant cette spécification, BIP-44 propose une structure multicompte en tant que numéro &quot;d&#8217;objet&quot; 44&amp;#39; sous BIP-43. Tous les portefeuilles HD suivant la structure BIP-44 sont identifiés par le fait qu&#8217;ils n&#8217;utilisent qu&#8217;une seule branche de l&#8217;arborescence : m/44&#39;/.</p>
+<p>En étendant cette spécification, BIP-44 propose une structure multicompte en tant que numéro "d&#8217;objet" 44' sous BIP-43. Tous les portefeuilles HD suivant la structure BIP-44 sont identifiés par le fait qu&#8217;ils n&#8217;utilisent qu&#8217;une seule branche de l&#8217;arborescence : m/44'/.</p>
 </div>
 <div class="paragraph data-line-445">
 <p>BIP-44 spécifie la structure comme étant composée de cinq niveaux d&#8217;arborescence prédéfinis :</p>
 </div>
 <div class="listingblock data-line-447">
 <div class="content">
-<pre>m / but&amp;#39; / type_monnaie&amp;#39; / compte&amp;#39; / change / index_adresse</pre>
+<pre>m / but' / type_monnaie' / compte' / change / index_adresse</pre>
 </div>
 </div>
 <div class="paragraph data-line-451">
-<p>Le &quot;but&quot; de premier niveau est toujours réglé sur 44&amp;#39;. Le &quot;type_monnaie&quot; de deuxième niveau spécifie le type de pièce de cryptomonnaie, permettant des portefeuilles HD multidevises où chaque devise a son propre sous-arbre sous le deuxième niveau. Il y a trois devises définies pour l&#8217;instant : Bitcoin est m/44&#x27;/0&#x27;, Bitcoin Testnet est m/44&amp;#x27;/1&amp;#x27;, et Litecoin est m/44&amp;#x27;/2&amp;#x27;.</p>
+<p>Le "but" de premier niveau est toujours réglé sur 44'. Le "type_monnaie" de deuxième niveau spécifie le type de pièce de cryptomonnaie, permettant des portefeuilles HD multidevises où chaque devise a son propre sous-arbre sous le deuxième niveau. Il y a trois devises définies pour l&#8217;instant : Bitcoin est m/44'/0', Bitcoin Testnet est m/44'/1', et Litecoin est m/44'/2'.</p>
 </div>
 <div class="paragraph data-line-453">
-<p>Le troisième niveau de l&#8217;arborescence est &quot;compte&quot;, qui permet aux utilisateurs de subdiviser leurs portefeuilles en sous-comptes logiques distincts, à des fins comptables ou organisationnelles. Par exemple, un portefeuille HD peut contenir deux &quot;comptes&quot; bitcoin : m/44&amp;#x27;/0&amp;#x27;/0&amp;#x27; et m/44&amp;#x27;/0&amp;#x27;/1&amp;#x27;. Chaque compte est la racine de sa propre sous-arborescence.</p>
+<p>Le troisième niveau de l&#8217;arborescence est "compte", qui permet aux utilisateurs de subdiviser leurs portefeuilles en sous-comptes logiques distincts, à des fins comptables ou organisationnelles. Par exemple, un portefeuille HD peut contenir deux "comptes" bitcoin : m/44'/0'/0' et m/44'/0'/1'. Chaque compte est la racine de sa propre sous-arborescence.</p>
 </div>
 <div class="paragraph data-line-455">
-<p>Au quatrième niveau, &quot;change&quot;, un portefeuille HD a deux sous-arborescences, une pour créer des adresses de réception et une pour créer des adresses de modification. Notez qu&#8217;alors que les niveaux précédents utilisaient une dérivation renforcée, ce niveau utilise une dérivation normale. Cela permet à ce niveau de l&#8217;arborescence d&#8217;exporter des clés publiques étendues pour une utilisation dans un environnement non sécurisé. Les adresses utilisables sont dérivées par le portefeuille HD en tant qu&#8217;enfants du quatrième niveau, faisant du cinquième niveau de l&#8217;arborescence l'&quot;index_adresse&quot;. Par exemple, la troisième adresse de réception pour les paiements en bitcoins dans le compte principal serait M/44&amp;#x27;/0&amp;#x27;/0&amp;#x27;/0/2. <a href="#table_4-9">Exemples de structure de portefeuille HD BIP-44</a> montre quelques exemples supplémentaires.</p>
+<p>Au quatrième niveau, "change", un portefeuille HD a deux sous-arborescences, une pour créer des adresses de réception et une pour créer des adresses de modification. Notez qu&#8217;alors que les niveaux précédents utilisaient une dérivation renforcée, ce niveau utilise une dérivation normale. Cela permet à ce niveau de l&#8217;arborescence d&#8217;exporter des clés publiques étendues pour une utilisation dans un environnement non sécurisé. Les adresses utilisables sont dérivées par le portefeuille HD en tant qu&#8217;enfants du quatrième niveau, faisant du cinquième niveau de l&#8217;arborescence l'"index_adresse". Par exemple, la troisième adresse de réception pour les paiements en bitcoins dans le compte principal serait M/44'/0'/0'/0/2. <a href="#table_4-9">Exemples de structure de portefeuille HD BIP-44</a> montre quelques exemples supplémentaires.</p>
 </div>
 <table id="table_4-9" class="tableblock frame-all grid-all stretch data-line-460">
 <caption class="title">Table 7. Exemples de structure de portefeuille HD BIP-44</caption>
@@ -1314,15 +1314,15 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">M/44&amp;#39;/0&amp;#39;/0&amp;#39;/0/2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M/44'/0'/0'/0/2</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">La troisième clé publique de réception pour le compte bitcoin principal</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">M/44&amp;#39;/0&amp;#39;/3&amp;#39;/1/14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M/44'/0'/3'/1/14</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">La quinzième clé publique de changement d&#8217;adresse pour le quatrième compte bitcoin</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">m/44&amp;#39;/2&amp;#39;/0&amp;#39;/0/1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m/44'/2'/0'/0/1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">La deuxième clé privée du compte principal Litecoin, pour la signature des transactions</p></td>
 </tr>
 </tbody>
@@ -1354,7 +1354,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 </div>
 <div id="export_xpub" class="imageblock data-line-485">
 <div class="content">
-<img src="images/mbc2_0512.png" alt="&quot;Exporter le xpub du Trezor&quot;">
+<img src="images/mbc2_0512.png" alt="Exporter le xpub du Trezor">
 </div>
 <div class="title">Figure 12. Exportation d&#8217;un xpub à partir d&#8217;un portefeuille matériel Trezor</div>
 </div>
@@ -1364,7 +1364,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 <div class="sect4 data-line-489">
 <h5 id="_découverte_et_gestion_de_compte">Découverte et gestion de compte</h5>
 <div class="paragraph data-line-491">
-<p>L&#8217;entreprise de Gabriel est florissante. Il a fourni sa clé publique étendue (xpub) à <em>BTCPay Server</em>, qui génère des adresses uniques pour les clients de son site Web. Chaque fois qu&#8217;un client du site Web de Gabriel clique sur le bouton &quot;Commander&quot; avec une modalité de paiement spécifiée (dans ce cas, bitcoin), <em>BTCPay Server</em> génère une nouvelle adresse pour ce client. Plus précisément, <em>BTCPay Server</em> itère sur l&#8217;arborescence <em>address_index</em> pour créer une nouvelle adresse à afficher au client, comme défini par BIP-44. Si le client décide de changer de méthode de paiement ou d&#8217;abandonner complètement la transaction, cette adresse Bitcoin n&#8217;est pas utilisée et ne sera pas utilisée pour un autre client tout de suite.</p>
+<p>L&#8217;entreprise de Gabriel est florissante. Il a fourni sa clé publique étendue (xpub) à <em>BTCPay Server</em>, qui génère des adresses uniques pour les clients de son site Web. Chaque fois qu&#8217;un client du site Web de Gabriel clique sur le bouton "Commander" avec une modalité de paiement spécifiée (dans ce cas, bitcoin), <em>BTCPay Server</em> génère une nouvelle adresse pour ce client. Plus précisément, <em>BTCPay Server</em> itère sur l&#8217;arborescence <em>address_index</em> pour créer une nouvelle adresse à afficher au client, comme défini par BIP-44. Si le client décide de changer de méthode de paiement ou d&#8217;abandonner complètement la transaction, cette adresse Bitcoin n&#8217;est pas utilisée et ne sera pas utilisée pour un autre client tout de suite.</p>
 </div>
 <div class="paragraph data-line-493">
 <p>À un moment donné, le site Web de Gabriel peut avoir un grand nombre d&#8217;adresses en attente pour les clients effectuant des achats, dont certaines peuvent rester inutilisées et éventuellement expirer. Une fois ces adresses expirées, <em>BTCPay Server</em> réutilisera ces adresses pour combler le vide dans l'<em>index_adresse</em>, mais il devient clair qu&#8217;il peut y avoir des vides entre les feuilles d'<em>index_adresse</em> de l&#8217;arbre déterministe hiérarchique où se trouve réellement l&#8217;argent.</p>
@@ -1394,7 +1394,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige</p
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-22 06:27:22 -0400
+Last updated 2022-03-23 18:49:15 -0400
 </div>
 </div>
 </body>

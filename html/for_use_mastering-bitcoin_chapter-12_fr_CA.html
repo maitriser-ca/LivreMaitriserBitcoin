@@ -444,7 +444,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="ch12">Applications pour les chaînes de blocs</h2>
 <div class="sectionbody">
 <div class="paragraph data-line-4">
-<p>Appuyons-nous maintenant sur notre compréhension du bitcoin en le considérant comme une <em>plate-forme d&#8217;application</em>. De nos jours, de nombreuses personnes utilisent le terme &quot;chaîne de blocs&quot; ou &quot;chaîne de blocs&quot; pour désigner toute plate-forme d&#8217;application qui partage les principes de conception du bitcoin. Le terme est souvent mal utilisé et appliqué à de nombreuses choses qui ne fournissent pas les principales fonctionnalités fournies par la chaîne de blocs de Bitcoin.</p>
+<p>Appuyons-nous maintenant sur notre compréhension du bitcoin en le considérant comme une <em>plate-forme d&#8217;application</em>. De nos jours, de nombreuses personnes utilisent le terme "chaîne de blocs" ou "chaîne de blocs" pour désigner toute plate-forme d&#8217;application qui partage les principes de conception du bitcoin. Le terme est souvent mal utilisé et appliqué à de nombreuses choses qui ne fournissent pas les principales fonctionnalités fournies par la chaîne de blocs de Bitcoin.</p>
 </div>
 <div class="paragraph data-line-6">
 <p>Dans ce chapitre, nous examinerons les fonctionnalités offertes par la chaîne de blocs Bitcoin, en tant que plate-forme d&#8217;application. Nous considérerons les <em>primitives</em> de construction d&#8217;applications, qui forment les blocs de construction de toute application chaîne de blocs. Nous examinerons plusieurs applications importantes qui utilisent ces primitives, telles que les canaux de paiement (état) et les canaux de paiement routés (Lightning Network).</p>
@@ -557,7 +557,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </dd>
 <dt class="hdlist1">Canaux de paiement</dt>
 <dd>
-<p>Quorum de contrôle + Verrou temporel + Pas de double dépense + Non-expiration + Résistance à la censure + Autorisation. Un multisig 2-of-2 (Quorum) avec un verrou temporel (Verrou temporel) utilisé comme transaction de &quot;règlement&quot; d&#8217;un canal de paiement peut être détenu (Non-expiration) et dépensé à tout moment (Résistance à la censure) par l&#8217;une ou l&#8217;autre des parties (Autorisation). Les deux parties peuvent alors créer des transactions d&#8217;engagement qui doublent (Pas de double dépense) le règlement sur un verrou temporel plus court (Verrou temporel).</p>
+<p>Quorum de contrôle + Verrou temporel + Pas de double dépense + Non-expiration + Résistance à la censure + Autorisation. Un multisig 2-of-2 (Quorum) avec un verrou temporel (Verrou temporel) utilisé comme transaction de "règlement" d&#8217;un canal de paiement peut être détenu (Non-expiration) et dépensé à tout moment (Résistance à la censure) par l&#8217;une ou l&#8217;autre des parties (Autorisation). Les deux parties peuvent alors créer des transactions d&#8217;engagement qui doublent (Pas de double dépense) le règlement sur un verrou temporel plus court (Verrou temporel).</p>
 </dd>
 </dl>
 </div>
@@ -583,10 +583,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><em>Les canaux de paiement</em> sont un mécanisme sans confiance pour échanger des bitcoins transactions entre deux parties, en dehors de la chaîne de blocs Bitcoin. Ces transactions, qui seraient valides si elles étaient réglées sur la chaîne de blocs Bitcoin, sont plutôt détenues hors chaîne, agissant comme des <em>billets à ordre</em> pour un éventuel règlement par lots. Étant donné que les transactions ne sont pas réglées, elles peuvent être échangées sans la latence de règlement habituelle, ce qui permet un débit de transaction extrêmement élevé, une latence faible (inférieure à la milliseconde) et une granularité fine (niveau satoshi).</p>
 </div>
 <div class="paragraph data-line-79">
-<p>En fait, le terme <em>canal</em> est une métaphore. Les canaux d&#8217;état sont des constructions virtuelles représentées par l&#8217;échange d&#8217;état entre deux parties, en dehors de la chaîne de blocs. Il n&#8217;y a pas de &quot;canaux&quot; en soi et le mécanisme de transport de données sous-jacent n&#8217;est pas le canal. Nous utilisons le terme canal pour représenter la relation et l&#8217;état partagé entre deux parties, en dehors de la chaîne de blocs.</p>
+<p>En fait, le terme <em>canal</em> est une métaphore. Les canaux d&#8217;état sont des constructions virtuelles représentées par l&#8217;échange d&#8217;état entre deux parties, en dehors de la chaîne de blocs. Il n&#8217;y a pas de "canaux" en soi et le mécanisme de transport de données sous-jacent n&#8217;est pas le canal. Nous utilisons le terme canal pour représenter la relation et l&#8217;état partagé entre deux parties, en dehors de la chaîne de blocs.</p>
 </div>
 <div class="paragraph data-line-81">
-<p>Pour expliquer davantage ce concept, pensez à un flux TCP. Du point de vue des protocoles de niveau supérieur, il s&#8217;agit d&#8217;une &quot;interface de connexion&quot; connectant deux applications sur Internet. Mais si vous regardez le trafic réseau, un flux TCP n&#8217;est qu&#8217;un canal virtuel sur des paquets IP. Chaque extrémité du flux TCP séquence et assemble les paquets IP pour créer l&#8217;illusion d&#8217;un flux d&#8217;octets. En dessous, ce sont tous les paquets déconnectés. De même, un canal de paiement n&#8217;est qu&#8217;une série de transactions. S&#8217;ils sont correctement séquencés et connectés, ils créent des obligations remboursables auxquelles vous pouvez faire confiance même si vous ne faites pas confiance à l&#8217;autre côté du canal.</p>
+<p>Pour expliquer davantage ce concept, pensez à un flux TCP. Du point de vue des protocoles de niveau supérieur, il s&#8217;agit d&#8217;une "interface de connexion" connectant deux applications sur Internet. Mais si vous regardez le trafic réseau, un flux TCP n&#8217;est qu&#8217;un canal virtuel sur des paquets IP. Chaque extrémité du flux TCP séquence et assemble les paquets IP pour créer l&#8217;illusion d&#8217;un flux d&#8217;octets. En dessous, ce sont tous les paquets déconnectés. De même, un canal de paiement n&#8217;est qu&#8217;une série de transactions. S&#8217;ils sont correctement séquencés et connectés, ils créent des obligations remboursables auxquelles vous pouvez faire confiance même si vous ne faites pas confiance à l&#8217;autre côté du canal.</p>
 </div>
 <div class="paragraph data-line-83">
 <p>Dans cette section, nous examinerons différentes formes de canaux de paiement. Premièrement, nous examinerons les mécanismes utilisés pour construire un canal de paiement unidirectionnel (unidirectionnel) pour un service de micropaiement mesuré, tel que le streaming vidéo. Ensuite, nous développerons ce mécanisme et introduirons des canaux de paiement bidirectionnels. Enfin, nous verrons comment des canaux bidirectionnels peuvent être connectés de bout en bout pour former des canaux multisauts dans un réseau routé, d&#8217;abord proposé sous le nom de <em>Lightning Network</em>.</p>
@@ -616,7 +616,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="payment_channel" class="imageblock data-line-103">
 <div class="content">
-<img src="images/mbc2_1201.png" alt="&quot;Un canal de paiement entre Bob et Alice" width="montrant les transactions de financement" height="d'engagement et de règlement&quot;">
+<img src="images/mbc2_1201.png" alt="Un canal de paiement entre Bob et Alice, montrant les transactions de financement, d&#8217;engagement et de règlement">
 </div>
 <div class="title">Figure 1. Un canal de paiement entre Bob et Alice, montrant les transactions de financement, d&#8217;engagement et de règlement</div>
 </div>
@@ -631,15 +631,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="emma_fabian_streaming_video" class="imageblock data-line-113">
 <div class="content">
-<img src="images/mbc2_1202.png" alt="&quot;Emma achète la diffusion vidéo en continu de Fabian avec un canal de paiement" width="payant pour chaque seconde de vidéo&quot;">
+<img src="images/mbc2_1202.png" alt="Emma achète la diffusion vidéo en continu de Fabian avec un canal de paiement, payant pour chaque seconde de vidéo">
 </div>
 <div class="title">Figure 2. Emma achète la vidéo en continu de Fabian avec un canal de paiement, payant pour chaque seconde de vidéo</div>
 </div>
 <div class="paragraph data-line-115">
-<p>Dans cet exemple, Fabian et Emma utilisent un logiciel spécial qui gère à la fois le canal de paiement et la diffusion vidéo en continu. Emma exécute le logiciel dans son navigateur, Fabian l&#8217;exécute sur un serveur. Le logiciel inclut les fonctionnalités de base du portefeuille bitcoin et peut créer et signer des transactions bitcoin. Le concept et le terme &quot;canal de paiement&quot; sont complètement cachés aux utilisateurs. Ce qu&#8217;ils voient, c&#8217;est une vidéo payée à la seconde.</p>
+<p>Dans cet exemple, Fabian et Emma utilisent un logiciel spécial qui gère à la fois le canal de paiement et la diffusion vidéo en continu. Emma exécute le logiciel dans son navigateur, Fabian l&#8217;exécute sur un serveur. Le logiciel inclut les fonctionnalités de base du portefeuille bitcoin et peut créer et signer des transactions bitcoin. Le concept et le terme "canal de paiement" sont complètement cachés aux utilisateurs. Ce qu&#8217;ils voient, c&#8217;est une vidéo payée à la seconde.</p>
 </div>
 <div class="paragraph data-line-117">
-<p>Pour mettre en place le canal de paiement, Emma et Fabian établissent une adresse multisignature 2 sur 2, chacun d&#8217;eux détenant l&#8217;une des clés. Du point de vue d&#8217;Emma, le logiciel de son navigateur présente un code QR avec une adresse P2SH (commençant par &quot;3&quot;) et lui demande de soumettre un &quot;dépôt&quot; pour jusqu&#8217;à 1 heure de vidéo. L&#8217;adresse est alors financée par Emma. La transaction d&#8217;Emma, payant à l&#8217;adresse multisignature, est la transaction de financement ou d&#8217;ancrage pour le canal de paiement.</p>
+<p>Pour mettre en place le canal de paiement, Emma et Fabian établissent une adresse multisignature 2 sur 2, chacun d&#8217;eux détenant l&#8217;une des clés. Du point de vue d&#8217;Emma, le logiciel de son navigateur présente un code QR avec une adresse P2SH (commençant par "3") et lui demande de soumettre un "dépôt" pour jusqu&#8217;à 1 heure de vidéo. L&#8217;adresse est alors financée par Emma. La transaction d&#8217;Emma, payant à l&#8217;adresse multisignature, est la transaction de financement ou d&#8217;ancrage pour le canal de paiement.</p>
 </div>
 <div class="paragraph data-line-119">
 <p>Pour cet exemple, disons qu&#8217;Emma finance la chaîne avec 36 millibits (0,036 BTC). Cela permettra à Emma de consommer <em>jusqu&#8217;à</em> 1 heure de diffusion vidéo en continu. La transaction de financement dans ce cas fixe le montant maximum qui peut être transmis dans ce canal, en définissant la <em>capacité du canal</em>.</p>
@@ -657,7 +657,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>De cette manière, le logiciel d&#8217;Emma continue d&#8217;envoyer des transactions d&#8217;engagement au serveur de Fabian en échange de diffusion vidéo en continu. Le solde de la chaîne s&#8217;accumule progressivement en faveur de Fabian, car Emma consomme plus de secondes de vidéo. Disons qu&#8217;Emma regarde 600 secondes (10 minutes) de vidéo, créant et signant 600 transactions d&#8217;engagement. La dernière transaction d&#8217;engagement (#600) aura deux sorties, divisant le solde de la chaîne, 6 millibits pour Fabian et 30 millibits pour Emma.</p>
 </div>
 <div class="paragraph data-line-129">
-<p>Enfin, Emma sélectionne &quot;Stop&quot; pour arrêter le streaming vidéo. Fabian ou Emma peuvent maintenant transmettre la transaction d&#8217;état finale pour règlement. Cette dernière transaction est la <em>transaction de règlement</em> et paie Fabian pour toute la vidéo consommée par Emma, remboursant le reste de la transaction de financement à Emma.</p>
+<p>Enfin, Emma sélectionne "Stop" pour arrêter le streaming vidéo. Fabian ou Emma peuvent maintenant transmettre la transaction d&#8217;état finale pour règlement. Cette dernière transaction est la <em>transaction de règlement</em> et paie Fabian pour toute la vidéo consommée par Emma, remboursant le reste de la transaction de financement à Emma.</p>
 </div>
 <div class="paragraph data-line-131">
 <p><a href="#video_payment_channel">Le canal de paiement d&#8217;Emma avec Fabian, montrant les transactions d&#8217;engagement qui mettent à jour le solde du canal</a> montre le canal entre Emma et Fabian et les transactions d&#8217;engagement qui mettent à jour le solde du canal.</p>
@@ -667,7 +667,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="video_payment_channel" class="imageblock data-line-137">
 <div class="content">
-<img src="images/mbc2_1203.png" alt="&quot;Le canal de paiement d&#8217;Emma avec Fabian" width="montrant les transactions d'engagement qui mettent à jour le solde du canal&quot;">
+<img src="images/mbc2_1203.png" alt="Le canal de paiement d&#8217;Emma avec Fabian, montrant les transactions d&#8217;engagement qui mettent à jour le solde du canal">
 </div>
 <div class="title">Figure 3. Le canal de paiement d&#8217;Emma avec Fabian, montrant les transactions d&#8217;engagement qui mettent à jour le solde du canal</div>
 </div>
@@ -710,7 +710,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="timelocked_commitments" class="imageblock data-line-163">
 <div class="content">
-<img src="images/mbc2_1204.png" alt="&quot;Chaque engagement fixe un délai plus court" width="ce qui lui permet d'être dépensé avant que les engagements précédents ne deviennent valides&quot;">
+<img src="images/mbc2_1204.png" alt="Chaque engagement fixe un délai plus court, ce qui lui permet d&#8217;être dépensé avant que les engagements précédents ne deviennent valides">
 </div>
 <div class="title">Figure 4. Chaque engagement fixe un délai plus court, ce qui lui permet d&#8217;être dépensé avant que les engagements précédents ne deviennent valides</div>
 </div>
@@ -796,7 +796,7 @@ Output 1 &lt;5 bitcoin&gt;:
 </div>
 <div id="asymmetric_commitments" class="imageblock data-line-228">
 <div class="content">
-<img src="images/mbc2_1205.png" alt="&quot;Deux opérations d&#8217;engagement asymétriques avec retard de paiement pour le porteur de l&#8217;opération&quot;">
+<img src="images/mbc2_1205.png" alt="Deux opérations d&#8217;engagement asymétriques avec retard de paiement pour le porteur de l&#8217;opération">
 </div>
 <div class="title">Figure 5. Deux opérations d&#8217;engagement asymétriques avec paiement différé pour le titulaire de l&#8217;opération</div>
 </div>
@@ -810,7 +810,7 @@ Output 1 &lt;5 bitcoin&gt;:
 <p>À chaque tour, les deux parties révèlent leur moitié du secret de révocation à l&#8217;autre partie, donnant ainsi à l&#8217;autre partie (qui a maintenant les deux moitiés) les moyens de réclamer la sortie de pénalité si cette transaction révoquée est jamais diffusée.</p>
 </div>
 <div class="paragraph data-line-236">
-<p>Chacune des transactions d&#8217;engagement a une sortie &quot;retardée&quot;. Le script de rachat pour cette sortie permet à une partie de la racheter après 1000 blocs, <em>ou</em> à l&#8217;autre partie de la racheter si elle a une clé de révocation, pénalisant la transmission d&#8217;un engagement révoqué.</p>
+<p>Chacune des transactions d&#8217;engagement a une sortie "retardée". Le script de rachat pour cette sortie permet à une partie de la racheter après 1000 blocs, <em>ou</em> à l&#8217;autre partie de la racheter si elle a une clé de révocation, pénalisant la transmission d&#8217;un engagement révoqué.</p>
 </div>
 <div class="paragraph data-line-238">
 <p>Ainsi, lorsque Hitesh crée une transaction d&#8217;engagement pour Irene à signer, il rend la deuxième sortie payable à lui-même après 1000 blocs, ou à la clé publique de révocation (dont il ne connaît que la moitié du secret). Hitesh construit cette transaction. Il ne révélera sa moitié du secret de révocation à Irène que lorsqu&#8217;il sera prêt à passer à un nouvel état de canal et qu&#8217;il voudra révoquer cet engagement.</p>
@@ -864,7 +864,7 @@ CHECKSIG</pre>
 <p>Les canaux de paiement peuvent être encore étendus avec un type spécial de contrat intelligent qui permet aux participants d&#8217;engager des fonds dans un secret remboursable, avec un délai d&#8217;expiration. Cette fonctionnalité est appelée <em>contrats de verrouillage du temps de hachage</em> (<em>Hash Time Lock Contract</em>), ou <em>HTLC</em>, et est utilisée à la fois dans les canaux de paiement bidirectionnels et routés.</p>
 </div>
 <div class="paragraph data-line-277">
-<p>Expliquons d&#8217;abord la partie &quot;hachage&quot; du HTLC. Pour créer un HTLC, le destinataire prévu du paiement créera d&#8217;abord un R secret. Ils calculent ensuite le hash de ce secret H :</p>
+<p>Expliquons d&#8217;abord la partie "hachage" du HTLC. Pour créer un HTLC, le destinataire prévu du paiement créera d&#8217;abord un R secret. Ils calculent ensuite le hash de ce secret H :</p>
 </div>
 <div class="listingblock data-line-279">
 <div class="content">
@@ -875,7 +875,7 @@ CHECKSIG</pre>
 <p>Cela produit un hachage H qui peut être inclus dans le script de verrouillage d&#8217;une sortie. Celui qui connaît le secret peut l&#8217;utiliser pour racheter la sortie. Le secret R est également appelé <em>préimage</em> pour la fonction de hachage. La préimage est simplement la donnée utilisée comme entrée dans une fonction de hachage.</p>
 </div>
 <div class="paragraph data-line-285">
-<p>La deuxième partie d&#8217;un HTLC est le composant &quot;verrou temporel&quot;. Si le secret n&#8217;est pas révélé, le payeur du HTLC peut obtenir un &quot;remboursement&quot; après un certain temps. Ceci est réalisé avec un verrouillage temporel absolu à l&#8217;aide de CHECKLOCKTIMEVERIFY.</p>
+<p>La deuxième partie d&#8217;un HTLC est le composant "verrou temporel". Si le secret n&#8217;est pas révélé, le payeur du HTLC peut obtenir un "remboursement" après un certain temps. Ceci est réalisé avec un verrouillage temporel absolu à l&#8217;aide de CHECKLOCKTIMEVERIFY.</p>
 </div>
 <div class="paragraph data-line-287">
 <p>Le script implémentant un HTLC pourrait ressembler à ceci :</p>
@@ -909,7 +909,7 @@ ENDIF</pre>
 <p> Le Lightning Network est un réseau routé proposé de canaux de paiement bidirectionnels connectés de bout en bout. Un tel réseau peut permettre à n&#8217;importe quel participant d&#8217;acheminer un paiement d&#8217;un canal à l&#8217;autre sans faire confiance à aucun des intermédiaires. Le Lightning Network était <a href="https://lightning.network/lightning-network-paper.pdf" data-href="https://lightning.network/lightning-network-paper.pdf">décrit pour la première fois par Joseph Poon et Thadeus Dryja en février 2015</a>, s&#8217;appuyant sur le concept de canaux de paiement tel que proposé et élaboré par de nombreux autres.</p>
 </div>
 <div class="paragraph data-line-311">
-<p>Le &quot;Lightning Network&quot; fait référence à une conception spécifique pour un réseau de canaux de paiement routés, qui a maintenant été mis en œuvre par au moins cinq équipes de sources libres différentes. Les implémentations indépendantes sont coordonnées par un ensemble de normes d&#8217;interopérabilité décrites dans le <a href="https://bit.ly/2rBHeoL" data-href="https://bit.ly/2rBHeoL">document <em>Basics of Lightning Technology (BOLT)</em></a>.</p>
+<p>Le "Lightning Network" fait référence à une conception spécifique pour un réseau de canaux de paiement routés, qui a maintenant été mis en œuvre par au moins cinq équipes de sources libres différentes. Les implémentations indépendantes sont coordonnées par un ensemble de normes d&#8217;interopérabilité décrites dans le <a href="https://bit.ly/2rBHeoL" data-href="https://bit.ly/2rBHeoL">document <em>Basics of Lightning Technology (BOLT)</em></a>.</p>
 </div>
 <div class="paragraph data-line-313">
 <p>Des implémentations prototypes du Lightning Network ont été publiées par plusieurs équipes.</p>
@@ -930,7 +930,7 @@ ENDIF</pre>
 </div>
 <div id="lightning_network_fig" class="imageblock data-line-327">
 <div class="content">
-<img src="images/mbc2_1206.png" alt="&quot;Une série de canaux de paiement bidirectionnels liés pour former un Lightning Network&quot;">
+<img src="images/mbc2_1206.png" alt="Une série de canaux de paiement bidirectionnels liés pour former un Lightning Network">
 </div>
 <div class="title">Figure 6. Une série de canaux de paiement bidirectionnels liés pour former un réseau Lightning qui peut acheminer un paiement d&#8217;Alice à Eric</div>
 </div>
@@ -942,7 +942,7 @@ ENDIF</pre>
 </div>
 <div id="ln_payment_process" class="imageblock data-line-335">
 <div class="content">
-<img src="images/mbc2_1207.png" alt="&quot;Acheminement des paiements étape par étape via un réseau Lightning&quot;">
+<img src="images/mbc2_1207.png" alt="Acheminement des paiements étape par étape via un réseau Lightning">
 </div>
 <div class="title">Figure 7. Acheminement des paiements étape par étape via un réseau Lightning</div>
 </div>
@@ -953,7 +953,7 @@ ENDIF</pre>
 <p>Maintenant, le nœud LN d&#8217;Alice construit une route entre le nœud LN d&#8217;Alice et le nœud LN d&#8217;Eric. L&#8217;algorithme de routage utilisé sera examiné plus en détail plus tard, mais pour l&#8217;instant supposons que le nœud d&#8217;Alice puisse trouver une route efficace.</p>
 </div>
 <div class="paragraph data-line-341">
-<p>Le nœud d&#8217;Alice construit alors un HTLC, payable au hash H, avec un délai de remboursement de 10 blocs (bloc actuel + 10), pour un montant de 1,003 bitcoin (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 2). Le supplément de 0,003 sera utilisé pour compenser les nœuds intermédiaires pour leur participation à cette voie de paiement. Alice offre ce HTLC à Bob, déduisant 1,003 bitcoin de son solde de canal avec Bob et l&#8217;engageant sur le HTLC. Le HTLC a la signification suivante : <em>"Alice engage 1,003 de son solde de canal à payer à Bob si Bob connaît le secret, ou remboursé sur le solde d&#8217;Alice si 10 blocs s&#8217;écoulent.&quot;</em> Le solde de canal entre Alice et Bob est maintenant exprimé par des transactions d&#8217;engagement avec trois sorties : solde de 2 bitcoins à Bob, solde de 0,997 bitcoin à Alice, 1,003 bitcoin engagé dans le HTLC d&#8217;Alice. Le solde d&#8217;Alice est réduit du montant engagé dans le HTLC.</p>
+<p>Le nœud d&#8217;Alice construit alors un HTLC, payable au hash H, avec un délai de remboursement de 10 blocs (bloc actuel + 10), pour un montant de 1,003 bitcoin (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 2). Le supplément de 0,003 sera utilisé pour compenser les nœuds intermédiaires pour leur participation à cette voie de paiement. Alice offre ce HTLC à Bob, déduisant 1,003 bitcoin de son solde de canal avec Bob et l&#8217;engageant sur le HTLC. Le HTLC a la signification suivante : <em>"Alice engage 1,003 de son solde de canal à payer à Bob si Bob connaît le secret, ou remboursé sur le solde d&#8217;Alice si 10 blocs s&#8217;écoulent."</em> Le solde de canal entre Alice et Bob est maintenant exprimé par des transactions d&#8217;engagement avec trois sorties : solde de 2 bitcoins à Bob, solde de 0,997 bitcoin à Alice, 1,003 bitcoin engagé dans le HTLC d&#8217;Alice. Le solde d&#8217;Alice est réduit du montant engagé dans le HTLC.</p>
 </div>
 <div class="paragraph data-line-343">
 <p>Bob s&#8217;est maintenant engagé à ce que s&#8217;il parvient à obtenir le secret + R + dans les 10 prochains blocs, il puisse réclamer les 1,003 verrouillés par Alice. Avec cet engagement en main, le nœud de Bob construit un HTLC sur son canal de paiement avec Carol. Le HTLC de Bob engage 1,002 bitcoin dans le hachage H pendant 9 blocs, que Carol peut échanger si elle a le secret R (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 3). Bob sait que si Carol peut réclamer son HTLC, elle doit produire R. Si Bob a + R + dans neuf blocs, il peut l&#8217;utiliser pour lui réclamer le HTLC d&#8217;Alice. Il gagne également 0,001 bitcoin pour avoir engagé le solde de son canal pendant neuf blocs. Si Carol n&#8217;est pas en mesure de réclamer son HTLC et qu&#8217;il ne peut pas réclamer le HTLC d&#8217;Alice, tout revient aux soldes de canal précédents et personne n&#8217;est à perte. L&#8217;équilibre des canaux entre Bob et Carol est maintenant : 2 pour Carol, 0,998 pour Bob, 1,002 commis par Bob pour le HTLC.</p>
@@ -968,7 +968,7 @@ ENDIF</pre>
 <p>Cependant, à ce saut dans la route, Eric <em>a</em> le secret R. Il peut donc prétendre au HTLC proposé par Diana. Il envoie R à Diana et réclame le 1 bitcoin, l&#8217;ajoutant au solde de son canal (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 6). L&#8217;équilibre des canaux est maintenant : 1 pour Diana, 3 pour Eric.</p>
 </div>
 <div class="paragraph data-line-351">
-<p>Maintenant, Diana a un R secret. Par conséquent, elle peut désormais réclamer le HTLC à Carol. Diana transmet R à Carol et ajoute le bitcoin 1.001 au solde de son canal (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 7). Maintenant, l&#8217;équilibre des canaux entre Carol et Diana est : 0,999 pour Carol, 3,001 pour Diana. Diana a &quot;gagné&quot; 0,001 pour sa participation à cette voie de paiement.</p>
+<p>Maintenant, Diana a un R secret. Par conséquent, elle peut désormais réclamer le HTLC à Carol. Diana transmet R à Carol et ajoute le bitcoin 1.001 au solde de son canal (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 7). Maintenant, l&#8217;équilibre des canaux entre Carol et Diana est : 0,999 pour Carol, 3,001 pour Diana. Diana a "gagné" 0,001 pour sa participation à cette voie de paiement.</p>
 </div>
 <div class="paragraph data-line-353">
 <p>En revenant sur le parcours, le secret R permet à chaque participant de réclamer les HTLC restants. Carol réclame 1,002 à Bob, fixant le solde sur leur chaîne à : 0,998 à Bob, 3,002 à Carol (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 8). Enfin, Bob revendique le HTLC d&#8217;Alice (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 9). Leur solde de canaux est mis à jour comme suit : 0,997 pour Alice, 3,003 pour Bob.</p>
@@ -983,7 +983,7 @@ ENDIF</pre>
 <p>Toutes les communications entre les nœuds LN sont cryptées point à point. De plus, les nœuds ont une clé publique à long terme qu&#8217;ils utilisent comme identifiant et pour s&#8217;authentifier les uns les autres.</p>
 </div>
 <div class="paragraph data-line-361">
-<p>Chaque fois qu&#8217;un nœud souhaite envoyer un paiement à un autre nœud, il doit d&#8217;abord construire un <em>chemin</em> à travers le réseau en connectant des canaux de paiement avec une capacité suffisante. Les nœuds annoncent les informations de routage, y compris les canaux qu&#8217;ils ont ouverts, la capacité de chaque canal et les frais qu&#8217;ils facturent pour acheminer les paiements. Les informations de routage peuvent être partagées de diverses manières et différents protocoles de routage sont susceptibles d&#8217;émerger à mesure que la technologie Lightning Network progresse. Certaines implémentations de Lightning Network utilisent le protocole IRC comme mécanisme pratique permettant aux nœuds d&#8217;annoncer les informations de routage. Une autre implémentation de la découverte de route utilise un modèle P2P où les nœuds propagent les annonces de canal à leurs pairs, dans un modèle d'&quot;inondation&quot;, similaire à la façon dont bitcoin propage les transactions. Les plans futurs incluent une proposition appelée <a href="https://bit.ly/2r5TACm" data-href="https://bit.ly/2r5TACm">Flare</a>, qui est un modèle de routage hybride avec des &quot;quartiers&quot; de nœuds locaux et des nœuds de balise à plus longue portée.</p>
+<p>Chaque fois qu&#8217;un nœud souhaite envoyer un paiement à un autre nœud, il doit d&#8217;abord construire un <em>chemin</em> à travers le réseau en connectant des canaux de paiement avec une capacité suffisante. Les nœuds annoncent les informations de routage, y compris les canaux qu&#8217;ils ont ouverts, la capacité de chaque canal et les frais qu&#8217;ils facturent pour acheminer les paiements. Les informations de routage peuvent être partagées de diverses manières et différents protocoles de routage sont susceptibles d&#8217;émerger à mesure que la technologie Lightning Network progresse. Certaines implémentations de Lightning Network utilisent le protocole IRC comme mécanisme pratique permettant aux nœuds d&#8217;annoncer les informations de routage. Une autre implémentation de la découverte de route utilise un modèle P2P où les nœuds propagent les annonces de canal à leurs pairs, dans un modèle d'"inondation", similaire à la façon dont bitcoin propage les transactions. Les plans futurs incluent une proposition appelée <a href="https://bit.ly/2r5TACm" data-href="https://bit.ly/2r5TACm">Flare</a>, qui est un modèle de routage hybride avec des "quartiers" de nœuds locaux et des nœuds de balise à plus longue portée.</p>
 </div>
 <div class="paragraph data-line-363">
 <p>Dans notre exemple précédent, le nœud d&#8217;Alice utilise l&#8217;un de ces mécanismes de découverte de route pour trouver un ou plusieurs chemins reliant son nœud au nœud d&#8217;Eric. Une fois que le nœud d&#8217;Alice a construit un chemin, elle initialisera ce chemin à travers le réseau, en propageant une série d&#8217;instructions cryptées et imbriquées pour connecter chacun des canaux de paiement adjacents.</p>
@@ -1012,12 +1012,12 @@ ENDIF</pre>
 <p>Chaque partie du chemin est cryptée de telle manière qu&#8217;un attaquant au niveau du réseau ne peut pas associer les paquets de différentes parties du chemin les uns aux autres.</p>
 </li>
 <li class="data-line-379">
-<p>Contrairement à Tor (un protocole d&#8217;anonymisation routé par couches d&#8217;oignon sur Internet), il n&#8217;y a pas de &quot;nœuds de sortie&quot; qui peuvent être placés sous surveillance. Les paiements n&#8217;ont pas besoin d&#8217;être transmis à la chaîne de blocs Bitcoin ; les nœuds mettent simplement à jour les soldes des canaux.</p>
+<p>Contrairement à Tor (un protocole d&#8217;anonymisation routé par couches d&#8217;oignon sur Internet), il n&#8217;y a pas de "nœuds de sortie" qui peuvent être placés sous surveillance. Les paiements n&#8217;ont pas besoin d&#8217;être transmis à la chaîne de blocs Bitcoin ; les nœuds mettent simplement à jour les soldes des canaux.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph data-line-381">
-<p>En utilisant ce protocole routé en couches d&#8217;oignon, Alice enveloppe chaque élément du chemin dans une couche de cryptage, en commençant par la fin et en remontant. Elle crypte un message à Eric avec la clé publique d&#8217;Eric. Ce message est enveloppé dans un message crypté pour Diana, identifiant Eric comme le prochain destinataire. Le message à Diana est enveloppé dans un message crypté avec la clé publique de Carol et identifiant Diana comme le prochain destinataire. Le message à Carol est crypté avec la clé de Bob. Ainsi, Alice a construit cet &quot;oignon&quot; multicouche chiffré de messages. Elle l&#8217;envoie à Bob, qui ne peut que déchiffrer et déballer la couche externe. À l&#8217;intérieur, Bob trouve un message adressé à Carol qu&#8217;il peut transmettre à Carol mais ne peut pas se déchiffrer. En suivant le chemin, les messages sont transférés, décryptés, transférés, etc., jusqu&#8217;à Eric. Chaque participant ne connaît que le nœud précédent et suivant dans chaque saut.</p>
+<p>En utilisant ce protocole routé en couches d&#8217;oignon, Alice enveloppe chaque élément du chemin dans une couche de cryptage, en commençant par la fin et en remontant. Elle crypte un message à Eric avec la clé publique d&#8217;Eric. Ce message est enveloppé dans un message crypté pour Diana, identifiant Eric comme le prochain destinataire. Le message à Diana est enveloppé dans un message crypté avec la clé publique de Carol et identifiant Diana comme le prochain destinataire. Le message à Carol est crypté avec la clé de Bob. Ainsi, Alice a construit cet "oignon" multicouche chiffré de messages. Elle l&#8217;envoie à Bob, qui ne peut que déchiffrer et déballer la couche externe. À l&#8217;intérieur, Bob trouve un message adressé à Carol qu&#8217;il peut transmettre à Carol mais ne peut pas se déchiffrer. En suivant le chemin, les messages sont transférés, décryptés, transférés, etc., jusqu&#8217;à Eric. Chaque participant ne connaît que le nœud précédent et suivant dans chaque saut.</p>
 </div>
 <div class="paragraph data-line-383">
 <p>Chaque élément du chemin contient des informations sur le HTLC qui doivent être étendues au saut suivant, le montant qui est envoyé, les frais à inclure et l&#8217;expiration du temps de verrouillage CLTV (en blocs) du HTLC. Au fur et à mesure que les informations de route se propagent, les nœuds effectuent des engagements HTLC jusqu&#8217;au saut suivant.</p>
@@ -1050,7 +1050,7 @@ ENDIF</pre>
 </dd>
 <dt class="hdlist1">Granularité</dt>
 <dd>
-<p>Un réseau Lightning peut permettre des paiements au moins aussi petits que la limite de &quot;poussière&quot; de bitcoin, peut-être même plus petite. Certaines propositions permettent des incréments subsatoshi.</p>
+<p>Un réseau Lightning peut permettre des paiements au moins aussi petits que la limite de "poussière" de bitcoin, peut-être même plus petite. Certaines propositions permettent des incréments subsatoshi.</p>
 </dd>
 <dt class="hdlist1">Capacité</dt>
 <dd>
@@ -1078,7 +1078,7 @@ ENDIF</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-22 06:27:50 -0400
+Last updated 2022-03-23 18:49:45 -0400
 </div>
 </div>
 </body>

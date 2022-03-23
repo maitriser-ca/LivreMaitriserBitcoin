@@ -449,7 +449,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Les transactions sont la partie la plus importante du système Bitcoin. Tout le reste dans le bitcoin est conçu pour garantir que les transactions peuvent être créées, propagées sur le réseau, validées et finalement ajoutées au grand livre mondial des transactions (la chaîne de blocs). Les transactions sont des structures de données qui encodent le transfert de valeur entre les participants au système Bitcoin. Chaque transaction est une entrée publique dans la chaîne de blocs de bitcoin, le grand livre comptable mondial en partie double.</p>
 </div>
 <div class="paragraph data-line-12">
-<p>Dans ce chapitre, nous examinerons toutes les différentes formes de transactions, ce qu&#8217;elles contiennent, comment les créer, comment elles sont vérifiées et comment elles deviennent partie intégrante de l&#8217;enregistrement permanent de toutes les transactions. Lorsque nous utilisons le terme &quot;portefeuille&quot; dans ce chapitre, nous faisons référence au logiciel qui construit les transactions, et pas seulement à la base de données des clés.</p>
+<p>Dans ce chapitre, nous examinerons toutes les différentes formes de transactions, ce qu&#8217;elles contiennent, comment les créer, comment elles sont vérifiées et comment elles deviennent partie intégrante de l&#8217;enregistrement permanent de toutes les transactions. Lorsque nous utilisons le terme "portefeuille" dans ce chapitre, nous faisons référence au logiciel qui construit les transactions, et pas seulement à la base de données des clés.</p>
 </div>
 </div>
 <div class="sect2 data-line-15">
@@ -458,7 +458,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Dans <a href="#ch02_bitcoin_overview">[ch02_bitcoin_overview]</a>, nous avons examiné la transaction utilisée par Alice pour payer un café au comptoir à café de Bob à l&#8217;aide d&#8217;un explorateur de blocs (<a href="#alices_transactions_to_bobs_cafe">Transaction d&#8217;Alice au Bob&#8217;s Café</a>).</p>
 </div>
 <div class="paragraph data-line-19">
-<p>L&#8217;application de l&#8217;explorateur de blocs montre une transaction de &quot;l&#8217;adresse&quot; d&#8217;Alice à &quot;l&#8217;adresse&quot; de Bob. Il s&#8217;agit d&#8217;une vue très simplifiée de ce qui est contenu dans une transaction. En fait, comme nous le verrons dans ce chapitre, une grande partie des informations affichées sont construites par l&#8217;explorateur de blocs et ne se trouvent pas réellement dans la transaction.</p>
+<p>L&#8217;application de l&#8217;explorateur de blocs montre une transaction de "l&#8217;adresse" d&#8217;Alice à "l&#8217;adresse" de Bob. Il s&#8217;agit d&#8217;une vue très simplifiée de ce qui est contenu dans une transaction. En fait, comme nous le verrons dans ce chapitre, une grande partie des informations affichées sont construites par l&#8217;explorateur de blocs et ne se trouvent pas réellement dans la transaction.</p>
 </div>
 <div id="alices_transactions_to_bobs_cafe" class="imageblock data-line-23">
 <div class="content">
@@ -472,7 +472,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p> Dans les coulisses, une transaction réelle est très différente d&#8217;une transaction fournie par un explorateur de blocs typique. En fait, la plupart des constructions de haut niveau que nous voyons dans les différentes interfaces utilisateur des applications bitcoin <em>n&#8217;existent pas réellement</em> dans le système Bitcoin.</p>
 </div>
 <div class="paragraph data-line-30">
-<p>Nous pouvons utiliser l&#8217;interface de ligne de commande de Bitcoin Core (getrawtransaction et decoderawtransaction) pour récupérer la transaction &quot;brute&quot; d&#8217;Alice, la décoder et voir ce qu&#8217;elle contient. Le résultat ressemble à ceci :</p>
+<p>Nous pouvons utiliser l&#8217;interface de ligne de commande de Bitcoin Core (getrawtransaction et decoderawtransaction) pour récupérer la transaction "brute" d&#8217;Alice, la décoder et voir ce qu&#8217;elle contient. Le résultat ressemble à ceci :</p>
 </div>
 <div id="alice_tx" class="listingblock data-line-35">
 <div class="title">La transaction d&#8217;Alice décodée</div>
@@ -502,7 +502,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="paragraph data-line-60">
-<p>Vous remarquerez peut-être certaines choses à propos de cette transaction, principalement les choses qui manquent ! Où est l&#8217;adresse d&#8217;Alice ? Où est l&#8217;adresse de Bob ? Où est l&#8217;entrée 0.1 &quot;envoyée&quot; par Alice ? En bitcoin, il n&#8217;y a pas de pièces, pas d&#8217;expéditeurs, pas de destinataires, pas de soldes, pas de comptes et pas d&#8217;adresses. Toutes ces choses sont construites à un niveau supérieur pour le bénéfice de l&#8217;utilisateur, pour rendre les choses plus faciles à comprendre.</p>
+<p>Vous remarquerez peut-être certaines choses à propos de cette transaction, principalement les choses qui manquent ! Où est l&#8217;adresse d&#8217;Alice ? Où est l&#8217;adresse de Bob ? Où est l&#8217;entrée 0.1 "envoyée" par Alice ? En bitcoin, il n&#8217;y a pas de pièces, pas d&#8217;expéditeurs, pas de destinataires, pas de soldes, pas de comptes et pas d&#8217;adresses. Toutes ces choses sont construites à un niveau supérieur pour le bénéfice de l&#8217;utilisateur, pour rendre les choses plus faciles à comprendre.</p>
 </div>
 <div class="paragraph data-line-62">
 <p>Vous pouvez également remarquer de nombreux champs étranges et indéchiffrables et des chaînes hexadécimales. Ne vous inquiétez pas, nous expliquerons en détail chaque champ affiché ici dans ce chapitre.</p>
@@ -515,14 +515,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>La base fondamentale d&#8217;une transaction bitcoin est une <em>sortie de transaction</em>. Les sorties de transaction sont des morceaux indivisibles de monnaie bitcoin, enregistrés sur la chaîne de blocs et reconnus comme valides par l&#8217;ensemble du réseau. Les nœuds complets Bitcoin suivent toutes les sorties disponibles et utilisables, appelées <em>sorties de transaction non dépensées</em>, ou <em>UTXO</em>. La collection de tous les UTXO est connue sous le nom d'<em>ensemble UTXO</em> et compte actuellement des millions d&#8217;UTXO. L&#8217;ensemble UTXO augmente à mesure que de nouveaux UTXO sont créés et diminue lorsque UTXO est consommé. Chaque transaction représente un changement (transition d&#8217;état) dans l&#8217;ensemble UTXO.</p>
 </div>
 <div class="paragraph data-line-69">
-<p>Lorsque nous disons que le portefeuille d&#8217;un utilisateur a &quot;reçu&quot; du bitcoin, nous voulons dire que le portefeuille a détecté sur la chaîne de blocs un UTXO pouvant être dépensé avec l&#8217;une des clés contrôlées par ce portefeuille. Ainsi, le &quot;solde&quot; de bitcoins d&#8217;un utilisateur est la somme de tous les UTXO que le portefeuille de l&#8217;utilisateur peut dépenser et qui peuvent être dispersés parmi des centaines de transactions et des centaines de blocs. Le concept de solde est créé par l&#8217;application de portefeuille. Le portefeuille calcule le solde de l&#8217;utilisateur en scannant la chaîne de blocs et en agrégeant la valeur de tout UTXO que le portefeuille peut dépenser avec les clés qu&#8217;il contrôle. La plupart des portefeuilles maintiennent une base de données ou utilisent un service de base de données pour stocker un ensemble de référence rapide de tous les UTXO qu&#8217;ils peuvent dépenser avec les clés qu&#8217;ils contrôlent.</p>
+<p>Lorsque nous disons que le portefeuille d&#8217;un utilisateur a "reçu" du bitcoin, nous voulons dire que le portefeuille a détecté sur la chaîne de blocs un UTXO pouvant être dépensé avec l&#8217;une des clés contrôlées par ce portefeuille. Ainsi, le "solde" de bitcoins d&#8217;un utilisateur est la somme de tous les UTXO que le portefeuille de l&#8217;utilisateur peut dépenser et qui peuvent être dispersés parmi des centaines de transactions et des centaines de blocs. Le concept de solde est créé par l&#8217;application de portefeuille. Le portefeuille calcule le solde de l&#8217;utilisateur en scannant la chaîne de blocs et en agrégeant la valeur de tout UTXO que le portefeuille peut dépenser avec les clés qu&#8217;il contrôle. La plupart des portefeuilles maintiennent une base de données ou utilisent un service de base de données pour stocker un ensemble de référence rapide de tous les UTXO qu&#8217;ils peuvent dépenser avec les clés qu&#8217;ils contrôlent.</p>
 </div>
 <div class="paragraph data-line-71">
 <p><a href="#utxo-stxo">Chaîne de transaction de Joe à Gopesh en cours de construction sur la chaîne de blocs</a> affiche la chaîne de blocs à trois moments différents, alors que la chaîne de transaction de Joe à Gopesh est en cours de construction. Remarquez comment chaque transaction dépense un UTXO qui a été créé dans une transaction précédente, le transformant en une <em>sortie de transaction dépensée</em>, ou <em>STXO</em>. Puisque la transaction #1 (de Joe à Alice) dépense un seul UTXO (de Joe) et crée un seul UTXO (à Alice), elle ne modifie pas la taille de l&#8217;ensemble UTXO. D&#8217;autre part, les transactions #2 et #3 créent toutes deux des sorties de change à l&#8217;expéditeur, dépensant un seul UTXO et créant deux UTXO (le paiement et la sortie de change). Par conséquent, chacun d&#8217;eux augmente la taille de l&#8217;ensemble UTXO de 1.</p>
 </div>
 <div id="utxo-stxo" class="imageblock data-line-75">
 <div class="content">
-<img src="images/mbc2_0609.png" alt="&quot;Chaîne de transaction de Joe à Gopesh en cours de construction sur la chaîne de blocs&quot;">
+<img src="images/mbc2_0609.png" alt="Chaîne de transaction de Joe à Gopesh en cours de construction sur la chaîne de blocs">
 </div>
 <div class="title">Figure 2. Chaîne de transaction de Joe à Gopesh en cours de construction sur la chaîne de blocs</div>
 </div>
@@ -545,7 +545,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Une transaction consomme des sorties de transaction non dépensées précédemment enregistrées et crée de nouvelles sorties de transaction qui peuvent être consommées par une transaction future. De cette façon, des morceaux de valeur bitcoin passent d&#8217;un propriétaire à l&#8217;autre dans une chaîne de transactions consommant et créant des UTXO.</p>
 </div>
 <div class="paragraph data-line-89">
-<p>L&#8217;exception à la chaîne de sortie et d&#8217;entrée est une type spécial de transaction appelé transaction <em>coinbase</em>, qui est la première transaction de chaque bloc. Cette transaction y est placée par le mineur &quot;gagnant&quot; et crée un tout nouveau bitcoin payable à ce mineur en récompense de l&#8217;exploitation minière. Cette transaction coinbase spéciale ne consomme pas d&#8217;UTXO ; à la place, il a un type spécial d&#8217;entrée appelé &quot;coinbase&quot;. C&#8217;est ainsi que la masse monétaire du bitcoin est créée pendant le processus de minage, comme nous le verrons dans <a href="#mining">[mining]</a>.</p>
+<p>L&#8217;exception à la chaîne de sortie et d&#8217;entrée est une type spécial de transaction appelé transaction <em>coinbase</em>, qui est la première transaction de chaque bloc. Cette transaction y est placée par le mineur "gagnant" et crée un tout nouveau bitcoin payable à ce mineur en récompense de l&#8217;exploitation minière. Cette transaction coinbase spéciale ne consomme pas d&#8217;UTXO ; à la place, il a un type spécial d&#8217;entrée appelé "coinbase". C&#8217;est ainsi que la masse monétaire du bitcoin est créée pendant le processus de minage, comme nous le verrons dans <a href="#mining">[mining]</a>.</p>
 </div>
 <div class="admonitionblock tip data-line-92">
 <table>
@@ -777,7 +777,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 </div>
 </div>
 <div class="paragraph data-line-235">
-<p>On voit que cet UTXO a une valeur de 0.1 BTC et qu&#8217;il a un script de verrouillage (scriptPubKey) qui contient &quot;OP_DUP OP_HASH160&#8230;&#8203;&quot;.</p>
+<p>On voit que cet UTXO a une valeur de 0.1 BTC et qu&#8217;il a un script de verrouillage (scriptPubKey) qui contient "OP_DUP OP_HASH160&#8230;&#8203;".</p>
 </div>
 <div class="admonitionblock tip data-line-238">
 <table>
@@ -973,7 +973,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 </td>
 <td class="content">
 <div class="paragraph data-line-332">
-<p>Les frais statiques ne sont plus viables sur le réseau Bitcoin. Les portefeuilles qui fixent des frais statiques produiront une mauvaise expérience utilisateur car les transactions seront souvent &quot;bloquées&quot; et resteront non confirmées. Les utilisateurs qui ne comprennent pas les transactions et les frais en bitcoins sont consternés par les transactions &quot;bloquées&quot; car ils pensent avoir perdu leur argent.</p>
+<p>Les frais statiques ne sont plus viables sur le réseau Bitcoin. Les portefeuilles qui fixent des frais statiques produiront une mauvaise expérience utilisateur car les transactions seront souvent "bloquées" et resteront non confirmées. Les utilisateurs qui ne comprennent pas les transactions et les frais en bitcoins sont consternés par les transactions "bloquées" car ils pensent avoir perdu leur argent.</p>
 </div>
 </td>
 </tr>
@@ -998,7 +998,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 </div>
 <div id="bitcoinfeesearncom" class="imageblock data-line-350">
 <div class="content">
-<img src="images/mbc2_0602.png" alt="&quot;Service d&#8217;estimation des frais bitcoinfees.earn.com&quot;">
+<img src="images/mbc2_0602.png" alt="Service d&#8217;estimation des frais bitcoinfees.earn.com">
 </div>
 <div class="title">Figure 3. Service d&#8217;estimation des frais bitcoinfees.earn.com</div>
 </div>
@@ -1018,7 +1018,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 <p>Il s&#8217;agit d&#8217;un élément quelque peu déroutant des transactions et d&#8217;un point important à comprendre, car si vous construisez vos propres transactions, vous devez vous assurer de ne pas inclure par inadvertance des frais très importants en sous-dépensant les intrants. Cela signifie que vous devez comptabiliser toutes les entrées, si nécessaire en créant du change, ou vous finirez par donner un très gros pourboire aux mineurs !</p>
 </div>
 <div class="paragraph data-line-364">
-<p>Par exemple, si vous consommez un UTXO de 20 bitcoins pour effectuer un paiement de 1 bitcoin, vous devez inclure une sortie de modification de 19 bitcoins dans votre portefeuille. Sinon, le &quot;reste&quot; de 19 bitcoins sera compté comme des frais de transaction et sera collecté par le mineur qui exploite votre transaction dans un bloc. Bien que vous receviez un traitement prioritaire et rendiez un mineur très heureux, ce n&#8217;est probablement pas ce que vous vouliez.</p>
+<p>Par exemple, si vous consommez un UTXO de 20 bitcoins pour effectuer un paiement de 1 bitcoin, vous devez inclure une sortie de modification de 19 bitcoins dans votre portefeuille. Sinon, le "reste" de 19 bitcoins sera compté comme des frais de transaction et sera collecté par le mineur qui exploite votre transaction dans un bloc. Bien que vous receviez un traitement prioritaire et rendiez un mineur très heureux, ce n&#8217;est probablement pas ce que vous vouliez.</p>
 </div>
 <div class="admonitionblock warning data-line-367">
 <table>
@@ -1028,7 +1028,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 </td>
 <td class="content">
 <div class="paragraph data-line-368">
-<p> Si vous oubliez d&#8217;ajouter une sortie de modification dans une transaction construite manuellement, vous paierez la modification en tant que frais de transaction. Dire &quot;Gardez la monnaie !&quot; au mineur n&#8217;est peut-être pas ce que vous vouliez vraiment.</p>
+<p> Si vous oubliez d&#8217;ajouter une sortie de modification dans une transaction construite manuellement, vous paierez la modification en tant que frais de transaction. Dire "Gardez la monnaie !" au mineur n&#8217;est peut-être pas ce que vous vouliez vraiment.</p>
 </div>
 </td>
 </tr>
@@ -1057,7 +1057,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 <p>Script est un langage très simple qui a été conçu pour être limité dans sa portée et être exécutable sur une gamme de matériel et peut être aussi simple qu&#8217;un périphérique intégré. Il nécessite un traitement minimal et ne peut pas faire la plupart des choses fantaisistes que les langages de programmation modernes peuvent faire. Pour son utilisation dans la validation de monnaie programmable, il s&#8217;agit d&#8217;une fonction de sécurité délibérée.</p>
 </div>
 <div class="paragraph data-line-387">
-<p>Aujourd&#8217;hui, la plupart des transactions traitées via le réseau Bitcoin ont la forme &quot;Paiement à l&#8217;adresse Bitcoin de Bob&quot; et sont basées sur un script appelé Pay-to-Script Public-Key-Hash. Cependant, les transactions bitcoin ne se limitent pas au script &quot;Paiement à l&#8217;adresse Bitcoin de Bob&quot;. En fait, les scripts de verrouillage peuvent être écrits pour exprimer une grande variété de conditions complexes. Afin de comprendre ces scripts plus complexes, nous devons d&#8217;abord comprendre les bases des scripts de transaction et du langage de script.</p>
+<p>Aujourd&#8217;hui, la plupart des transactions traitées via le réseau Bitcoin ont la forme "Paiement à l&#8217;adresse Bitcoin de Bob" et sont basées sur un script appelé Pay-to-Script Public-Key-Hash. Cependant, les transactions bitcoin ne se limitent pas au script "Paiement à l&#8217;adresse Bitcoin de Bob". En fait, les scripts de verrouillage peuvent être écrits pour exprimer une grande variété de conditions complexes. Afin de comprendre ces scripts plus complexes, nous devons d&#8217;abord comprendre les bases des scripts de transaction et du langage de script.</p>
 </div>
 <div class="paragraph data-line-389">
 <p>Dans cette section, nous démontrerons les composants de base du langage de script de transaction bitcoin et montrerons comment il peut être utilisé pour exprimer des conditions simples de dépenses et comment ces conditions peuvent être satisfaites en déverrouillant des scripts.</p>
@@ -1070,7 +1070,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 </td>
 <td class="content">
 <div class="paragraph data-line-393">
-<p>La validation des transactions Bitcoin n&#8217;est pas basée sur un modèle statique, mais est plutôt obtenue grâce à l&#8217;exécution d&#8217;un langage de script. Ce langage permet d&#8217;exprimer une variété presque infinie de conditions. C&#8217;est ainsi que le bitcoin obtient le pouvoir de &quot;l&#8217;argent programmable&quot;.</p>
+<p>La validation des transactions Bitcoin n&#8217;est pas basée sur un modèle statique, mais est plutôt obtenue grâce à l&#8217;exécution d&#8217;un langage de script. Ce langage permet d&#8217;exprimer une variété presque infinie de conditions. C&#8217;est ainsi que le bitcoin obtient le pouvoir de "l&#8217;argent programmable".</p>
 </div>
 </td>
 </tr>
@@ -1079,7 +1079,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 <div class="sect3 data-line-397">
 <h4 id="_incomplétude_de_turing">Incomplétude de Turing</h4>
 <div class="paragraph data-line-399">
-<p>Le langage de script de transaction bitcoin contient de nombreux opérateurs, mais est délibérément limité d&#8217;une manière importante : il n&#8217;y a pas de boucles ou de capacités de contrôle de flux complexes autres que le contrôle de flux conditionnel. Cela garantit que le langage n&#8217;est pas <em>Turing complet</em>, ce qui signifie que les scripts ont une complexité limitée et des temps d&#8217;exécution prévisibles. Le script n&#8217;est pas un langage universel. Ces limitations garantissent que le langage ne peut pas être utilisé pour créer une boucle infinie ou une autre forme de &quot;bombe logique&quot; qui pourrait être intégrée dans une transaction de manière à provoquer une attaque par déni de service contre le réseau Bitcoin. N&#8217;oubliez pas que chaque transaction est validée par chaque nœud complet du réseau Bitcoin. Un langage limité empêche le mécanisme de validation des transactions d&#8217;être utilisé comme une vulnérabilité.</p>
+<p>Le langage de script de transaction bitcoin contient de nombreux opérateurs, mais est délibérément limité d&#8217;une manière importante : il n&#8217;y a pas de boucles ou de capacités de contrôle de flux complexes autres que le contrôle de flux conditionnel. Cela garantit que le langage n&#8217;est pas <em>Turing complet</em>, ce qui signifie que les scripts ont une complexité limitée et des temps d&#8217;exécution prévisibles. Le script n&#8217;est pas un langage universel. Ces limitations garantissent que le langage ne peut pas être utilisé pour créer une boucle infinie ou une autre forme de "bombe logique" qui pourrait être intégrée dans une transaction de manière à provoquer une attaque par déni de service contre le réseau Bitcoin. N&#8217;oubliez pas que chaque transaction est validée par chaque nœud complet du réseau Bitcoin. Un langage limité empêche le mécanisme de validation des transactions d&#8217;être utilisé comme une vulnérabilité.</p>
 </div>
 </div>
 <div class="sect3 data-line-401">
@@ -1094,30 +1094,30 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 <p>Le moteur de validation des transactions de Bitcoin s&#8217;appuie sur deux types de scripts pour valider les transactions : un script de verrouillage et un script de déverrouillage.</p>
 </div>
 <div class="paragraph data-line-410">
-<p>Un script de verrouillage est une condition de dépense placée sur une sortie : il spécifie les conditions qui doivent être remplies pour dépenser la production à l&#8217;avenir. Historiquement, le script de verrouillage était appelé <em>scriptPubKey</em>, car il contenait généralement une clé publique ou une adresse Bitcoin (hachage de clé publique). Dans ce livre, nous l&#8217;appelons un &quot;script de verrouillage&quot; pour reconnaître l&#8217;éventail de possibilités beaucoup plus large de cette technologie de script. Dans la plupart des applications bitcoin, ce que nous appelons un script de verrouillage apparaîtra dans le code source sous la forme scriptPubKey. Vous verrez également le script de verrouillage appelé <em>script de témoin</em> (voir <a href="#segwit">[segwit]</a>) ou plus généralement comme un <em>casse-tête cryptographique</em>. Ces termes signifient tous la même chose, à différents niveaux d&#8217;abstraction.</p>
+<p>Un script de verrouillage est une condition de dépense placée sur une sortie : il spécifie les conditions qui doivent être remplies pour dépenser la production à l&#8217;avenir. Historiquement, le script de verrouillage était appelé <em>scriptPubKey</em>, car il contenait généralement une clé publique ou une adresse Bitcoin (hachage de clé publique). Dans ce livre, nous l&#8217;appelons un "script de verrouillage" pour reconnaître l&#8217;éventail de possibilités beaucoup plus large de cette technologie de script. Dans la plupart des applications bitcoin, ce que nous appelons un script de verrouillage apparaîtra dans le code source sous la forme scriptPubKey. Vous verrez également le script de verrouillage appelé <em>script de témoin</em> (voir <a href="#segwit">[segwit]</a>) ou plus généralement comme un <em>casse-tête cryptographique</em>. Ces termes signifient tous la même chose, à différents niveaux d&#8217;abstraction.</p>
 </div>
 <div class="paragraph data-line-412">
-<p>Un script de déverrouillage est un script qui « résout », ou satisfait, les conditions placées sur une sortie par un script de verrouillage et permet à la sortie d&#8217;être dépensée. Les scripts de déverrouillage font partie de chaque entrée de transaction. Ils contiennent la plupart du temps une signature numérique produite par le portefeuille de l&#8217;utilisateur à partir de sa clé privée. Historiquement, le script de déverrouillage s&#8217;appelait <em>scriptSig</em>, car il contenait généralement une signature numérique. Dans la plupart des applications bitcoin, le code source fait référence au script de déverrouillage sous la forme scriptSig. Vous verrez également le script de déverrouillage appelé <em>témoin</em> (voir <a href="#segwit">[segwit]</a>). Dans ce livre, nous l&#8217;appelons un &quot;script de déverrouillage&quot; pour reconnaître la gamme beaucoup plus large d&#8217;exigences de script de verrouillage, car ce n&#8217;est pas tous les scripts de déverrouillage qui doivent contenir des signatures.</p>
+<p>Un script de déverrouillage est un script qui « résout », ou satisfait, les conditions placées sur une sortie par un script de verrouillage et permet à la sortie d&#8217;être dépensée. Les scripts de déverrouillage font partie de chaque entrée de transaction. Ils contiennent la plupart du temps une signature numérique produite par le portefeuille de l&#8217;utilisateur à partir de sa clé privée. Historiquement, le script de déverrouillage s&#8217;appelait <em>scriptSig</em>, car il contenait généralement une signature numérique. Dans la plupart des applications bitcoin, le code source fait référence au script de déverrouillage sous la forme scriptSig. Vous verrez également le script de déverrouillage appelé <em>témoin</em> (voir <a href="#segwit">[segwit]</a>). Dans ce livre, nous l&#8217;appelons un "script de déverrouillage" pour reconnaître la gamme beaucoup plus large d&#8217;exigences de script de verrouillage, car ce n&#8217;est pas tous les scripts de déverrouillage qui doivent contenir des signatures.</p>
 </div>
 <div class="paragraph data-line-414">
 <p>Chaque nœud de validation Bitcoin validera les transactions en exécutant les scripts de verrouillage et de déverrouillage ensemble. Chaque entrée contient un script de déverrouillage et fait référence à un UTXO existant précédemment. Le logiciel de validation copiera le script de déverrouillage, récupérera l&#8217;UTXO référencé par l&#8217;entrée et copiera le script de verrouillage à partir de cet UTXO. Les scripts de déverrouillage et de verrouillage sont ensuite exécutés en séquence. L&#8217;entrée est valide si le script de déverrouillage satisfait les conditions du script de verrouillage (voir <a href="#script_exec">Exécution séparée des scripts de déverrouillage et de verrouillage</a>). Toutes les entrées sont validées indépendamment, dans le cadre de la validation globale de la transaction.</p>
 </div>
 <div class="paragraph data-line-416">
-<p>Notez que l&#8217;UTXO est enregistré en permanence dans la chaîne de blocs, et est donc invariable et n&#8217;est pas affecté par les tentatives infructueuses de le dépenser par référence dans une nouvelle transaction. Seule une transaction valide qui satisfait correctement les conditions de la sortie entraîne que la sortie est considérée comme &quot;dépensée&quot; et retirée de l&#8217;ensemble des sorties de transaction non dépensées (ensemble UTXO).</p>
+<p>Notez que l&#8217;UTXO est enregistré en permanence dans la chaîne de blocs, et est donc invariable et n&#8217;est pas affecté par les tentatives infructueuses de le dépenser par référence dans une nouvelle transaction. Seule une transaction valide qui satisfait correctement les conditions de la sortie entraîne que la sortie est considérée comme "dépensée" et retirée de l&#8217;ensemble des sorties de transaction non dépensées (ensemble UTXO).</p>
 </div>
 <div class="paragraph data-line-418">
 <p><a href="#scriptSig_and_scriptPubKey">Combiner scriptSig et scriptPubKey pour évaluer un script de transaction</a> est un exemple des scripts de déverrouillage et de verrouillage pour le type de transaction bitcoin le plus courant (un paiement à un hachage de clé publique), montrant le script combiné résultant de la concaténation des scripts de déverrouillage et de verrouillage avant la validation du script.</p>
 </div>
 <div id="scriptSig_and_scriptPubKey" class="imageblock data-line-422">
 <div class="content">
-<img src="images/mbc2_0603.png" alt="&quot;scriptSig et scriptPubKey&quot;">
+<img src="images/mbc2_0603.png" alt="scriptSig et scriptPubKey">
 </div>
 <div class="title">Figure 4. Combiner scriptSig et scriptPubKey pour évaluer un script de transaction</div>
 </div>
 <div class="sect4 data-line-424">
 <h5 id="_la_pile_dexécution_de_script">La pile d&#8217;exécution de script</h5>
 <div class="paragraph data-line-426">
-<p>Le langage de script de Bitcoin est appelé un langage basé sur la pile car il utilise une structure de données appelée <em>pile</em>. Une pile est une structure de données très simple qui peut être visualisée comme une pile de cartes. Une pile permet deux opérations : push et pop. Push ajoute un élément au sommet de la pile. Pop supprime l&#8217;élément du haut de la pile. Les opérations sur une pile ne peuvent agir que sur l&#8217;élément le plus haut de la pile. Une structure de données de pile est également appelée file d&#8217;attente Last-In-First-Out (dernier entré, premier sorti), ou &quot;LIFO&quot;.</p>
+<p>Le langage de script de Bitcoin est appelé un langage basé sur la pile car il utilise une structure de données appelée <em>pile</em>. Une pile est une structure de données très simple qui peut être visualisée comme une pile de cartes. Une pile permet deux opérations : push et pop. Push ajoute un élément au sommet de la pile. Pop supprime l&#8217;élément du haut de la pile. Les opérations sur une pile ne peuvent agir que sur l&#8217;élément le plus haut de la pile. Une structure de données de pile est également appelée file d&#8217;attente Last-In-First-Out (dernier entré, premier sorti), ou "LIFO".</p>
 </div>
 <div class="paragraph data-line-428">
 <p>Le langage de script exécute le script en traitant chaque élément de gauche à droite. Les nombres (constantes de données) sont poussés sur la pile. Les opérateurs poussent ou sortent un ou plusieurs paramètres de la pile, agissent sur eux et peuvent pousser un résultat sur la pile. Par exemple, OP_ADD fera sortir deux éléments de la pile, les ajoutera et poussera la somme résultante sur la pile.</p>
@@ -1180,7 +1180,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 </div>
 <div id="simplemath_script" class="imageblock data-line-467">
 <div class="content">
-<img src="images/mbc2_0604.png" alt="&quot;Exemple mathématique simple du TxScript&quot;">
+<img src="images/mbc2_0604.png" alt="Exemple mathématique simple du TxScript">
 </div>
 <div class="title">Figure 5. La validation du script Bitcoin en calculs simples</div>
 </div>
@@ -1202,14 +1202,14 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 <p>Dans le client Bitcoin d&#8217;origine, les scripts de déverrouillage et de verrouillage étaient concaténés et exécutés en séquence. Pour des raisons de sécurité, cela a été modifié en 2010, en raison d&#8217;une vulnérabilité qui permettait à un script de déverrouillage malformé de pousser des données sur la pile et de corrompre le script de verrouillage. Dans l&#8217;implémentation actuelle, les scripts sont exécutés séparément avec la pile transférée entre les deux exécutions, comme décrit ci-après.</p>
 </div>
 <div class="paragraph data-line-483">
-<p>Tout d&#8217;abord, le script de déverrouillage est exécuté à l&#8217;aide du moteur d&#8217;exécution de la pile. Si le script de déverrouillage est exécuté sans erreur (par exemple, s&#8217;il ne reste plus de pointeurs &quot; pendants&quot;), la pile principale est copiée et le script de verrouillage est exécuté. Si le résultat de l&#8217;exécution du script de verrouillage avec les données de la pile copiées à partir du script de déverrouillage est &quot;TRUE&quot;, le script de déverrouillage a réussi à résoudre les conditions imposées par le script de verrouillage et, par conséquent, l&#8217;entrée est une autorisation valide de dépenser l&#8217;UTXO. S&#8217;il reste un résultat autre que &quot;TRUE&quot; après l&#8217;exécution du script combiné, l&#8217;entrée est invalide car elle n&#8217;a pas satisfait aux conditions de dépenses placées sur l&#8217;UTXO.</p>
+<p>Tout d&#8217;abord, le script de déverrouillage est exécuté à l&#8217;aide du moteur d&#8217;exécution de la pile. Si le script de déverrouillage est exécuté sans erreur (par exemple, s&#8217;il ne reste plus de pointeurs " pendants"), la pile principale est copiée et le script de verrouillage est exécuté. Si le résultat de l&#8217;exécution du script de verrouillage avec les données de la pile copiées à partir du script de déverrouillage est "TRUE", le script de déverrouillage a réussi à résoudre les conditions imposées par le script de verrouillage et, par conséquent, l&#8217;entrée est une autorisation valide de dépenser l&#8217;UTXO. S&#8217;il reste un résultat autre que "TRUE" après l&#8217;exécution du script combiné, l&#8217;entrée est invalide car elle n&#8217;a pas satisfait aux conditions de dépenses placées sur l&#8217;UTXO.</p>
 </div>
 </div>
 </div>
 <div class="sect3 data-line-487">
 <h4 id="p2pkh">Pay-to-Public-Key-Hash (P2PKH)</h4>
 <div class="paragraph data-line-489">
-<p>La grande majorité des transactions traitées sur le réseau Bitcoin dépensent des sorties verrouillées avec un script Pay-to-Public-Key-Hash ou &quot;P2PKH&quot;. Ces sorties contiennent un script de verrouillage qui verrouille la sortie sur un hachage de clé publique, plus communément appelé adresse Bitcoin. Une sortie verrouillée par un script P2PKH peut être déverrouillée (passée) en présentant une clé publique et une signature numérique créée par la clé privée correspondante (voir <a href="#digital_sigs">Signatures numériques (ECDSA)</a>).</p>
+<p>La grande majorité des transactions traitées sur le réseau Bitcoin dépensent des sorties verrouillées avec un script Pay-to-Public-Key-Hash ou "P2PKH". Ces sorties contiennent un script de verrouillage qui verrouille la sortie sur un hachage de clé publique, plus communément appelé adresse Bitcoin. Une sortie verrouillée par un script P2PKH peut être déverrouillée (passée) en présentant une clé publique et une signature numérique créée par la clé privée correspondante (voir <a href="#digital_sigs">Signatures numériques (ECDSA)</a>).</p>
 </div>
 <div class="paragraph data-line-491">
 <p>Par exemple, regardons à nouveau le paiement d&#8217;Alice au comptoir à café de Bob. Alice a effectué un paiement de 0,015 bitcoin à l&#8217;adresse Bitcoin du comptoir. Cette sortie de transaction aurait un script de verrouillage de la forme :</p>
@@ -1220,7 +1220,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 </div>
 </div>
 <div class="paragraph data-line-497">
-<p>Le Cafe Public Key Hash équivaut à l&#8217;adresse Bitcoin du café, sans l&#8217;encodage Base58Check. La plupart des applications afficheraient le <em>hachage de la clé publique</em> en codage hexadécimal et non le format familier de l&#8217;adresse Bitcoin Base58Check qui commence par un &quot;1&quot;.</p>
+<p>Le Cafe Public Key Hash équivaut à l&#8217;adresse Bitcoin du café, sans l&#8217;encodage Base58Check. La plupart des applications afficheraient le <em>hachage de la clé publique</em> en codage hexadécimal et non le format familier de l&#8217;adresse Bitcoin Base58Check qui commence par un "1".</p>
 </div>
 <div class="paragraph data-line-499">
 <p>Le script de verrouillage précédent peut se contenter d&#8217;un script de déverrouillage de la forme :</p>
@@ -1262,7 +1262,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 <div class="sect2 data-line-525">
 <h3 id="digital_sigs">Signatures numériques (ECDSA)</h3>
 <div class="paragraph data-line-527">
-<p>Jusqu&#8217;à présent, nous n&#8217;avons approfondi aucun détail sur les &quot;signatures numériques&quot;. Dans cette section, nous examinons le fonctionnement des signatures numériques et comment elles peuvent présenter la preuve de la propriété d&#8217;une clé privée sans révéler cette clé privée.</p>
+<p>Jusqu&#8217;à présent, nous n&#8217;avons approfondi aucun détail sur les "signatures numériques". Dans cette section, nous examinons le fonctionnement des signatures numériques et comment elles peuvent présenter la preuve de la propriété d&#8217;une clé privée sans révéler cette clé privée.</p>
 </div>
 <div class="paragraph data-line-529">
 <p>L&#8217;algorithme de signature numérique utilisé dans le bitcoin est l'<em>Elliptic Curve Digital Signature Algorithm</em>, ou <em>ECDSA</em>. ECDSA est l&#8217;algorithme utilisé pour les signatures numériques basées sur des paires de clés privées/publiques à courbe elliptique, comme décrit dans <a href="#elliptic_curve">[elliptic_curve]</a>. ECDSA est utilisé par les fonctions de script OP_CHECKSIG, OP_CHECKSIGVERIFY, OP_CHECKMULTISIG et OP_CHECKMULTISIGVERIFY. Chaque fois que vous les voyez dans un script de verrouillage, le script de déverrouillage doit contenir une signature ECDSA.</p>
@@ -1271,7 +1271,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 <p> Une signature numérique a trois objectifs en bitcoin. Premièrement, la signature prouve que le propriétaire de la clé privée, qui est implicitement le propriétaire des fonds, a <em>autorisé</em> la dépense de ces fonds. Deuxièmement, la preuve de l&#8217;autorisation est <em>indéniable</em> (non-répudiable). Troisièmement, la signature prouve que la transaction (ou des parties spécifiques de la transaction) n&#8217;a pas et <em>ne peut pas être modifiée</em> par qui que ce soit après avoir été signée.</p>
 </div>
 <div class="paragraph data-line-533">
-<p>Notez que chaque entrée de transaction est signée indépendamment. Ceci est essentiel, car ni les signatures ni les entrées ne doivent appartenir ou être appliquées par les mêmes &quot;propriétaires&quot;. En fait, un schéma de transaction spécifique appelé &quot;CoinJoin&quot; utilise ce fait pour créer des transactions multipartites pour la confidentialité.</p>
+<p>Notez que chaque entrée de transaction est signée indépendamment. Ceci est essentiel, car ni les signatures ni les entrées ne doivent appartenir ou être appliquées par les mêmes "propriétaires". En fait, un schéma de transaction spécifique appelé "CoinJoin" utilise ce fait pour créer des transactions multipartites pour la confidentialité.</p>
 </div>
 <div class="admonitionblock note data-line-536">
 <table>
@@ -1289,7 +1289,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 </div>
 <div id="digital_signature_definition" class="sidebarblock data-line-542">
 <div class="content">
-<div class="title">Définition de Wikipedia d&#8217;une &quot;signature numérique&quot;</div>
+<div class="title">Définition de Wikipedia d&#8217;une "signature numérique"</div>
 <div class="paragraph data-line-543">
 <p>Une signature numérique est un schéma mathématique permettant de démontrer l&#8217;authenticité d&#8217;un message ou de documents numériques. Une signature numérique valide donne au destinataire des raisons de croire que le message a été créé par un expéditeur connu (authentification), que l&#8217;expéditeur ne peut pas nier avoir envoyé le message (non-répudiable) et que le message n&#8217;a pas été altéré en transit (intégrité).</p>
 </div>
@@ -1306,7 +1306,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 <div class="sect4 data-line-552">
 <h5 id="_création_dune_signature_numérique">Création d&#8217;une signature numérique</h5>
 <div class="paragraph data-line-554">
-<p>Dans l&#8217;implémentation de l&#8217;algorithme ECDSA par bitcoin, le &quot;message&quot; signé est la transaction, ou plus précisément un hachage d&#8217;un sous-ensemble spécifique des données de la transaction (voir <a href="#sighash_types">Types de hachage de signature (SIGHASH)</a>). La clé de signature est la clé privée de l&#8217;utilisateur. Le résultat est la signature :</p>
+<p>Dans l&#8217;implémentation de l&#8217;algorithme ECDSA par bitcoin, le "message" signé est la transaction, ou plus précisément un hachage d&#8217;un sous-ensemble spécifique des données de la transaction (voir <a href="#sighash_types">Types de hachage de signature (SIGHASH)</a>). La clé de signature est la clé privée de l&#8217;utilisateur. Le résultat est la signature :</p>
 </div>
 <div class="paragraph data-line-556">
 <p>\(Sig = F_{sig}(F_{hash}(m), dA)\)</p>
@@ -1400,7 +1400,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 <div class="sect3 data-line-599">
 <h4 id="_vérification_de_la_signature">Vérification de la signature</h4>
 <div class="paragraph data-line-601">
-<p>Pour vérifier la signature, il faut avoir la signature (R et S), la transaction sérialisée, et la clé publique (qui correspond à la clé privée utilisée pour créer la signature). Essentiellement, la vérification d&#8217;une signature signifie &quot;Seul le propriétaire de la clé privée qui a généré cette clé publique pourrait avoir produit cette signature sur cette transaction.&quot;</p>
+<p>Pour vérifier la signature, il faut avoir la signature (R et S), la transaction sérialisée, et la clé publique (qui correspond à la clé privée utilisée pour créer la signature). Essentiellement, la vérification d&#8217;une signature signifie "Seul le propriétaire de la clé privée qui a généré cette clé publique pourrait avoir produit cette signature sur cette transaction."</p>
 </div>
 <div class="paragraph data-line-603">
 <p>L&#8217;algorithme de vérification de signature prend le message (un hachage de la transaction ou de parties de celui-ci), la clé publique du signataire et la signature (valeurs R et S), et renvoie TRUE si la signature est valide pour ce message et cette clé publique.</p>
@@ -1415,7 +1415,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 <p>Les signatures Bitcoin ont un moyen d&#8217;indiquer quelle partie des données d&#8217;une transaction est incluse dans le hachage signé par la clé privée à l&#8217;aide d&#8217;un drapeau SIGHASH. Le drapeau SIGHASH est un octet unique ajouté à la signature. Chaque signature a un drapeau SIGHASH et le drapeau peut être différent d&#8217;une entrée à l&#8217;autre. Une transaction avec trois entrées signées peut avoir trois signatures avec des drapeaux SIGHASH différents, chaque signature signant (committant) différentes parties de la transaction.</p>
 </div>
 <div class="paragraph data-line-612">
-<p>N&#8217;oubliez pas que chaque entrée peut contenir une signature dans son script de déverrouillage. Par conséquent, une transaction qui contient plusieurs entrées peut avoir des signatures avec différents indicateurs SIGHASH qui valident différentes parties de la transaction dans chacune des entrées. Notez également que les transactions bitcoin peuvent contenir des entrées de différents &quot;propriétaires&quot;, qui ne peuvent signer qu&#8217;une seule entrée dans une transaction partiellement construite (et invalide), collaborant avec d&#8217;autres pour rassembler toutes les signatures nécessaires pour effectuer une transaction valide. De nombreux types d&#8217;indicateurs SIGHASH n&#8217;ont de sens que si vous pensez à plusieurs participants collaborant en dehors du réseau Bitcoin et mettant à jour une transaction partiellement signée.</p>
+<p>N&#8217;oubliez pas que chaque entrée peut contenir une signature dans son script de déverrouillage. Par conséquent, une transaction qui contient plusieurs entrées peut avoir des signatures avec différents indicateurs SIGHASH qui valident différentes parties de la transaction dans chacune des entrées. Notez également que les transactions bitcoin peuvent contenir des entrées de différents "propriétaires", qui ne peuvent signer qu&#8217;une seule entrée dans une transaction partiellement construite (et invalide), collaborant avec d&#8217;autres pour rassembler toutes les signatures nécessaires pour effectuer une transaction valide. De nombreux types d&#8217;indicateurs SIGHASH n&#8217;ont de sens que si vous pensez à plusieurs participants collaborant en dehors du réseau Bitcoin et mettant à jour une transaction partiellement signée.</p>
 </div>
 <div class="paragraph pagebreak-before data-line-615">
 <p>Il existe trois indicateurs SIGHASH : ALL, NONE et SINGLE, comme indiqué dans <a href="#sighash_types_and_their">Types SIGHASH et leurs significations</a>.</p>
@@ -1492,12 +1492,12 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 </div>
 <div id="sighash_combinations" class="imageblock data-line-643">
 <div class="content">
-<img src="images/sighash_combinations.png" alt="&quot;Résumé des différentes combinaisons de drapeaux SIGHASH&quot;">
+<img src="images/sighash_combinations.png" alt="Résumé des différentes combinaisons de drapeaux SIGHASH">
 </div>
 <div class="title">Figure 8. Résumé des différentes combinaisons de sighash</div>
 </div>
 <div class="paragraph data-line-645">
-<p>La façon dont les drapeaux SIGHASH sont appliqués lors de la signature et de la vérification est qu&#8217;une copie de la transaction est faite et que certains champs à l&#8217;intérieur sont tronqués (mis à zéro et vidés). La transaction résultante est sérialisée. Le drapeau SIGHASH est ajouté à la fin de la transaction sérialisée et le résultat est haché. Le hachage lui-même est le &quot;message&quot; qui est signé. Selon l&#8217;indicateur SIGHASH utilisé, différentes parties de la transaction sont tronquées. Le hachage résultant dépend de différents sous-ensembles de données dans la transaction. En incluant le SIGHASH comme dernière étape avant le hachage, la signature valide également le type SIGHASH, de sorte qu&#8217;il ne peut pas être modifié (par exemple, par un mineur).</p>
+<p>La façon dont les drapeaux SIGHASH sont appliqués lors de la signature et de la vérification est qu&#8217;une copie de la transaction est faite et que certains champs à l&#8217;intérieur sont tronqués (mis à zéro et vidés). La transaction résultante est sérialisée. Le drapeau SIGHASH est ajouté à la fin de la transaction sérialisée et le résultat est haché. Le hachage lui-même est le "message" qui est signé. Selon l&#8217;indicateur SIGHASH utilisé, différentes parties de la transaction sont tronquées. Le hachage résultant dépend de différents sous-ensembles de données dans la transaction. En incluant le SIGHASH comme dernière étape avant le hachage, la signature valide également le type SIGHASH, de sorte qu&#8217;il ne peut pas être modifié (par exemple, par un mineur).</p>
 </div>
 <div class="admonitionblock note data-line-648">
 <table>
@@ -1523,20 +1523,20 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 <dl>
 <dt class="hdlist1">ALL|ANYONECANPAY </dt>
 <dd>
-<p>Cette construction peut être utilisée pour effectuer une transaction de type &quot;financement participatif&quot;. les fonds peuvent construire une transaction avec une seule sortie. La sortie unique paie le montant &quot;objectif&quot; à la collecte de fonds. Une telle transaction n&#8217;est évidemment pas valide, car elle n&#8217;a pas d&#8217;entrées. Cependant, d&#8217;autres peuvent maintenant la modifier en ajoutant une entrée de leur propre, en tant que don. Ils signent leur propre entrée avec ALL|ANYONECANPAY. À moins que suffisamment d&#8217;entrées ne soient rassemblées pour atteindre la valeur de la sortie, la transaction n&#8217;est pas valide. Chaque don est un &quot;engagement&quot;, qui ne peut pas être collecté par le collecteur de fonds jusqu&#8217;à ce que le montant total de l&#8217;objectif soit atteint.</p>
+<p>Cette construction peut être utilisée pour effectuer une transaction de type "financement participatif". les fonds peuvent construire une transaction avec une seule sortie. La sortie unique paie le montant "objectif" à la collecte de fonds. Une telle transaction n&#8217;est évidemment pas valide, car elle n&#8217;a pas d&#8217;entrées. Cependant, d&#8217;autres peuvent maintenant la modifier en ajoutant une entrée de leur propre, en tant que don. Ils signent leur propre entrée avec ALL|ANYONECANPAY. À moins que suffisamment d&#8217;entrées ne soient rassemblées pour atteindre la valeur de la sortie, la transaction n&#8217;est pas valide. Chaque don est un "engagement", qui ne peut pas être collecté par le collecteur de fonds jusqu&#8217;à ce que le montant total de l&#8217;objectif soit atteint.</p>
 </dd>
 <dt class="hdlist1">NONE </dt>
 <dd>
-<p>Cette construction peut être utilisée pour créer un &quot;chèque au porteur&quot; ou un &quot;chèque en blanc&quot; d&#8217;un montant spécifique. Il s&#8217;engage sur l&#8217;entrée, mais permet de modifier le script de verrouillage de sortie. N&#8217;importe qui peut écrire sa propre adresse Bitcoin dans le script de verrouillage de sortie et racheter la transaction. Cependant, la valeur de sortie elle-même est verrouillée par la signature.</p>
+<p>Cette construction peut être utilisée pour créer un "chèque au porteur" ou un "chèque en blanc" d&#8217;un montant spécifique. Il s&#8217;engage sur l&#8217;entrée, mais permet de modifier le script de verrouillage de sortie. N&#8217;importe qui peut écrire sa propre adresse Bitcoin dans le script de verrouillage de sortie et racheter la transaction. Cependant, la valeur de sortie elle-même est verrouillée par la signature.</p>
 </dd>
 <dt class="hdlist1">NONE|ANYONECANPAY </dt>
 <dd>
-<p>Cette construction peut être utilisée pour construire un &quot;collecteur de poussière&quot;. Les utilisateurs qui ont de minuscules UTXO dans leur portefeuille ne peuvent pas les dépenser car le coût des frais dépasse la valeur de la poussière. Avec ce type de signature, la poussière UTXO peut être donnée à quiconque pour l&#8217;agréger et la dépenser quand il le souhaite.</p>
+<p>Cette construction peut être utilisée pour construire un "collecteur de poussière". Les utilisateurs qui ont de minuscules UTXO dans leur portefeuille ne peuvent pas les dépenser car le coût des frais dépasse la valeur de la poussière. Avec ce type de signature, la poussière UTXO peut être donnée à quiconque pour l&#8217;agréger et la dépenser quand il le souhaite.</p>
 </dd>
 </dl>
 </div>
 <div class="paragraph data-line-662">
-<p>Il y a quelques propositions pour modifier ou étendre le système SIGHASH. L&#8217;une de ces propositions est <em>Bitmask Sighash Modes</em> de Glenn Willen de Blockstream, dans le cadre du projet Elements. Cela vise à créer un remplacement flexible pour les types SIGHASH qui permet &quot;des masques de bits arbitraires et réinscriptibles par des mineurs d&#8217;entrées et de sorties&quot; qui peuvent exprimer &quot;des schémas de pré-engagement contractuels plus complexes, tels que des offres signées avec changement dans un échange d&#8217;actifs distribué&quot;.</p>
+<p>Il y a quelques propositions pour modifier ou étendre le système SIGHASH. L&#8217;une de ces propositions est <em>Bitmask Sighash Modes</em> de Glenn Willen de Blockstream, dans le cadre du projet Elements. Cela vise à créer un remplacement flexible pour les types SIGHASH qui permet "des masques de bits arbitraires et réinscriptibles par des mineurs d&#8217;entrées et de sorties" qui peuvent exprimer "des schémas de pré-engagement contractuels plus complexes, tels que des offres signées avec changement dans un échange d&#8217;actifs distribué".</p>
 </div>
 <div class="admonitionblock note data-line-665">
 <table>
@@ -1631,7 +1631,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 </td>
 <td class="content">
 <div class="paragraph data-line-707">
-<p>ECDSA est nécessairement un calcul assez compliqué; une explication complète est au-delà de la portée de ce livre. Un certain nombre d&#8217;excellents guides en ligne vous guident étape par étape : recherchez &quot;ECDSA expliqué&quot; ou essayez celui-ci : <a href="https://bit.ly/2r0HhGB" class="undefined" data-href="https://bit.ly/2r0HhGB">https://bit.ly/2r0HhGB</a>.</p>
+<p>ECDSA est nécessairement un calcul assez compliqué; une explication complète est au-delà de la portée de ce livre. Un certain nombre d&#8217;excellents guides en ligne vous guident étape par étape : recherchez "ECDSA expliqué" ou essayez celui-ci : <a href="https://bit.ly/2r0HhGB" class="undefined" data-href="https://bit.ly/2r0HhGB">https://bit.ly/2r0HhGB</a>.</p>
 </div>
 </td>
 </tr>
@@ -1671,7 +1671,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 <div class="sect2 data-line-725">
 <h3 id="_adresses_bitcoin_soldes_et_autres_abstractions">Adresses Bitcoin, soldes et autres abstractions</h3>
 <div class="paragraph data-line-727">
-<p>Nous avons commencé ce chapitre avec la découverte que les transactions sont très différentes &quot;dans les coulisses&quot; de la façon dont elles sont présentées dans les portefeuilles, les explorateurs de chaîne de blocs, et d&#8217;autres applications destinées aux utilisateurs. De nombreux concepts simplistes et familiers des chapitres précédents, tels que les adresses et les soldes Bitcoin, semblent être absents de la structure de transaction. Nous avons vu que les transactions ne contiennent pas d&#8217;adresses Bitcoin en soi, mais fonctionnent plutôt via des scripts qui verrouillent et déverrouillent des valeurs discrètes de bitcoin. Les soldes ne sont présents nulle part dans ce système et pourtant, chaque application de portefeuille affiche bien en évidence le solde du portefeuille de l&#8217;utilisateur.</p>
+<p>Nous avons commencé ce chapitre avec la découverte que les transactions sont très différentes "dans les coulisses" de la façon dont elles sont présentées dans les portefeuilles, les explorateurs de chaîne de blocs, et d&#8217;autres applications destinées aux utilisateurs. De nombreux concepts simplistes et familiers des chapitres précédents, tels que les adresses et les soldes Bitcoin, semblent être absents de la structure de transaction. Nous avons vu que les transactions ne contiennent pas d&#8217;adresses Bitcoin en soi, mais fonctionnent plutôt via des scripts qui verrouillent et déverrouillent des valeurs discrètes de bitcoin. Les soldes ne sont présents nulle part dans ce système et pourtant, chaque application de portefeuille affiche bien en évidence le solde du portefeuille de l&#8217;utilisateur.</p>
 </div>
 <div class="paragraph data-line-729">
 <p>Maintenant que nous avons exploré ce qui est réellement inclus dans une transaction bitcoin, nous pouvons examiner comment les abstractions de niveau supérieur sont dérivées des composants apparemment primitifs de la transaction.</p>
@@ -1686,7 +1686,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 <div class="title">Figure 9. Transaction d&#8217;Alice au Bob&#8217;s Café</div>
 </div>
 <div class="paragraph data-line-737">
-<p>Sur le côté gauche de la transaction, l&#8217;explorateur de explorateur de chaîne de blocs affiche l&#8217;adresse Bitcoin d&#8217;Alice comme &quot;expéditeur&quot;. En fait, cette information n&#8217;est pas dans la transaction elle-même. Lorsque l&#8217;explorateur de chaîne de blocs fait référence à la transaction, il fait également référence à la transaction précédente associée à l&#8217;entrée et extrait la première sortie de cette transaction plus ancienne. Dans cette sortie se trouve un script de verrouillage qui verrouille l&#8217;UTXO sur le hachage de la clé publique d&#8217;Alice (un script P2PKH). L&#8217;explorateur de chaîne de blocs a extrait le hachage de la clé publique et l&#8217;a encodé à l&#8217;aide de l&#8217;encodage Base58Check pour produire et afficher l&#8217;adresse Bitcoin qui représente cette clé publique.</p>
+<p>Sur le côté gauche de la transaction, l&#8217;explorateur de explorateur de chaîne de blocs affiche l&#8217;adresse Bitcoin d&#8217;Alice comme "expéditeur". En fait, cette information n&#8217;est pas dans la transaction elle-même. Lorsque l&#8217;explorateur de chaîne de blocs fait référence à la transaction, il fait également référence à la transaction précédente associée à l&#8217;entrée et extrait la première sortie de cette transaction plus ancienne. Dans cette sortie se trouve un script de verrouillage qui verrouille l&#8217;UTXO sur le hachage de la clé publique d&#8217;Alice (un script P2PKH). L&#8217;explorateur de chaîne de blocs a extrait le hachage de la clé publique et l&#8217;a encodé à l&#8217;aide de l&#8217;encodage Base58Check pour produire et afficher l&#8217;adresse Bitcoin qui représente cette clé publique.</p>
 </div>
 <div class="paragraph data-line-739">
 <p>De même, sur le côté droit, l&#8217;explorateur de chaîne de blocs affiche les deux sorties ; le premier à l&#8217;adresse Bitcoin de Bob et le second à l&#8217;adresse Bitcoin d&#8217;Alice (comme change). Encore une fois, pour créer ces adresses Bitcoin, l&#8217;explorateur de chaîne de blocs a extrait le script de verrouillage de chaque sortie, l&#8217;a reconnu comme un script P2PKH et a extrait le hachage de clé publique de l&#8217;intérieur. Enfin, l&#8217;explorateur de chaîne de blocs a réencodé chaque hachage de clé publique avec Base58Check pour produire et afficher les adresses Bitcoin.</p>
@@ -1696,24 +1696,24 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 </div>
 <div id="the_balance_of_bobs_bitcoin_address" class="imageblock data-line-745">
 <div class="content">
-<img src="images/mbc2_0608.png" alt="&quot;Le solde de l&#8217;adresse Bitcoin de Bob&quot;">
+<img src="images/mbc2_0608.png" alt="Le solde de l&#8217;adresse Bitcoin de Bob">
 </div>
 <div class="title">Figure 10. Le solde de l&#8217;adresse Bitcoin de Bob</div>
 </div>
 <div class="paragraph data-line-747">
-<p>L&#8217;explorateur de la chaîne de blocs affiche le solde de l&#8217;adresse Bitcoin de Bob. Mais nulle part dans le système Bitcoin il n&#8217;y a un concept de &quot;solde&quot;. Au lieu de cela, les valeurs affichées ici sont construites par l&#8217;explorateur de explorateur de chaîne de blocs comme suit.</p>
+<p>L&#8217;explorateur de la chaîne de blocs affiche le solde de l&#8217;adresse Bitcoin de Bob. Mais nulle part dans le système Bitcoin il n&#8217;y a un concept de "solde". Au lieu de cela, les valeurs affichées ici sont construites par l&#8217;explorateur de explorateur de chaîne de blocs comme suit.</p>
 </div>
 <div class="paragraph data-line-749">
-<p>Pour construire le montant &quot;Total reçu&quot;, l&#8217;explorateur de explorateur de la chaîne de blocs décodera d&#8217;abord l&#8217;encodage Base58Check de l&#8217;adresse Bitcoin pour récupérer le hachage 160 bits de la clé publique de Bob qui est encodé dans l&#8217;adresse. Ensuite, l&#8217;explorateur de chaîne de blocs recherchera dans la base de données des transactions, à la recherche de sorties avec des scripts de verrouillage P2PKH contenant le hachage de la clé publique de Bob. En additionnant la valeur de toutes les sorties, l&#8217;explorateur de la chaîne de blocs peut produire la valeur totale reçue.</p>
+<p>Pour construire le montant "Total reçu", l&#8217;explorateur de explorateur de la chaîne de blocs décodera d&#8217;abord l&#8217;encodage Base58Check de l&#8217;adresse Bitcoin pour récupérer le hachage 160 bits de la clé publique de Bob qui est encodé dans l&#8217;adresse. Ensuite, l&#8217;explorateur de chaîne de blocs recherchera dans la base de données des transactions, à la recherche de sorties avec des scripts de verrouillage P2PKH contenant le hachage de la clé publique de Bob. En additionnant la valeur de toutes les sorties, l&#8217;explorateur de la chaîne de blocs peut produire la valeur totale reçue.</p>
 </div>
 <div class="paragraph data-line-751">
-<p>Construire le solde actuel (affiché comme &quot;Solde final&quot;) nécessite un peu plus de travail. L&#8217;explorateur de la chaîne de blocs conserve une base de données distincte des sorties actuellement non dépensées, l&#8217;ensemble UTXO. Pour maintenir cette base de données, l&#8217;explorateur de la chaîne de blocs doit surveiller le réseau Bitcoin, ajouter les UTXO nouvellement créés et supprimer les UTXO dépensés, en temps réel, tels qu&#8217;ils apparaissent dans les transactions non confirmées. Il s&#8217;agit d&#8217;un processus compliqué qui dépend du suivi des transactions au fur et à mesure qu&#8217;elles se propagent, ainsi que du maintien d&#8217;un consensus avec le réseau Bitcoin pour s&#8217;assurer que la chaîne correcte est suivie. Parfois, l&#8217;explorateur de la chaîne de blocs est désynchronisé et sa perspective de l&#8217;ensemble UTXO est incomplète ou incorrecte.</p>
+<p>Construire le solde actuel (affiché comme "Solde final") nécessite un peu plus de travail. L&#8217;explorateur de la chaîne de blocs conserve une base de données distincte des sorties actuellement non dépensées, l&#8217;ensemble UTXO. Pour maintenir cette base de données, l&#8217;explorateur de la chaîne de blocs doit surveiller le réseau Bitcoin, ajouter les UTXO nouvellement créés et supprimer les UTXO dépensés, en temps réel, tels qu&#8217;ils apparaissent dans les transactions non confirmées. Il s&#8217;agit d&#8217;un processus compliqué qui dépend du suivi des transactions au fur et à mesure qu&#8217;elles se propagent, ainsi que du maintien d&#8217;un consensus avec le réseau Bitcoin pour s&#8217;assurer que la chaîne correcte est suivie. Parfois, l&#8217;explorateur de la chaîne de blocs est désynchronisé et sa perspective de l&#8217;ensemble UTXO est incomplète ou incorrecte.</p>
 </div>
 <div class="paragraph data-line-753">
-<p>À partir de l&#8217;ensemble UTXO, l&#8217;explorateur de la chaîne de blocs résume la valeur de toutes les sorties non dépensées faisant référence au hachage de la clé publique de Bob et produit le numéro &quot;Solde final&quot; affiché à l&#8217;utilisateur.</p>
+<p>À partir de l&#8217;ensemble UTXO, l&#8217;explorateur de la chaîne de blocs résume la valeur de toutes les sorties non dépensées faisant référence au hachage de la clé publique de Bob et produit le numéro "Solde final" affiché à l&#8217;utilisateur.</p>
 </div>
 <div class="paragraph data-line-755">
-<p>Afin de produire cette image unique, avec ces deux &quot;soldes&quot;, l&#8217;explorateur de la chaîne de blocs doit indexer et rechercher parmi des dizaines, des centaines, voire des centaines de milliers de transactions.</p>
+<p>Afin de produire cette image unique, avec ces deux "soldes", l&#8217;explorateur de la chaîne de blocs doit indexer et rechercher parmi des dizaines, des centaines, voire des centaines de milliers de transactions.</p>
 </div>
 <div class="paragraph data-line-757">
 <p>En résumé, les informations présentées aux utilisateurs via les applications de portefeuille, les explorateurs de chaînes de blocs et d&#8217;autres interfaces utilisateur Bitcoin sont souvent composées d&#8217;abstractions de niveau supérieur qui sont dérivées en recherchant de nombreuses transactions différentes, en inspectant leur contenu et en manipulant les données qu&#8217;elles contiennent. En présentant cette vision simpliste des transactions bitcoin qui ressemblent à des chèques bancaires d&#8217;un expéditeur à un destinataire, ces applications doivent extraire de nombreux détails sous-jacents. Ils se concentrent principalement sur les types de transactions courants : P2PKH avec des signatures SIGHASH_ALL sur chaque entrée. Ainsi, alors que les applications bitcoin peuvent présenter plus de 80% de toutes les transactions de manière facile à lire, elles sont parfois bloquées par des transactions qui s&#8217;écartent de la norme. Les transactions qui contiennent des scripts de verrouillage plus complexes, ou différents indicateurs SIGHASH, ou de nombreuses entrées et sorties, démontrent la simplicité et la faiblesse de ces abstractions.</p>
@@ -1730,7 +1730,7 @@ ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-23 16:47:21 -0400
+Last updated 2022-03-23 18:49:19 -0400
 </div>
 </div>
 <script type="text/x-mathjax-config">
