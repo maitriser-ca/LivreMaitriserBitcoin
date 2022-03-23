@@ -1,3 +1,5 @@
+:stem: latexmath
+
 [[ch06]]
 [[transactions]]
 == Opérations
@@ -551,7 +553,7 @@ _Source: https://en.wikipedia.org/wiki/Digital_signature_
 
 Dans l'implémentation de l'algorithme ECDSA par bitcoin, le &quot;message&quot; signé est la transaction, ou plus précisément un hachage d'un sous-ensemble spécifique des données de la transaction (voir &lt;<sighash_types>&gt;). La clé de signature est la clé privée de l'utilisateur. Le résultat est la signature :
 
-latexmath:[\(Sig = F_{sig}(F_{hash}(m), dA)\)]
+latexmath:[Sig = F_{sig}(F_{hash}(m), dA)]
 
 où:
 

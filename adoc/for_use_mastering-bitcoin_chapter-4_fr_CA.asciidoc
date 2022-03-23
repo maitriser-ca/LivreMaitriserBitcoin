@@ -1,3 +1,5 @@
+:stem: latexmath
+
 [[ch04_keys_addresses]]
 == Clés et adresses
 
@@ -143,7 +145,7 @@ ou
 \end{equation}
 ++++
 
-Le _mod p_ (modulo nombre premier p) indique que cette courbe est sur un corps fini d'ordre premier _p_, également écrit comme latexmath:[\( \mathbb{F}_p \)], où p = 2^256^ – 2^32^ – 2^9^ – 2^8^ – 2^7^ – 2^6^ – 2^4^ – 1, un très grand nombre premier.
+Le _mod p_ (modulo nombre premier p) indique que cette courbe est sur un corps fini d'ordre premier _p_, également écrit comme latexmath:[\mathbb{F}_p], où p = 2^256^ – 2^32^ – 2^9^ – 2^8^ – 2^7^ – 2^6^ – 2^4^ – 1, un très grand nombre premier.
 
 Parce que cette courbe est définie sur un champ fini d'ordre premier au lieu de sur les nombres réels, elle ressemble à un motif de points dispersés en deux dimensions, ce qui la rend difficile à visualiser. Cependant, le calcul est identique à celui d'une courbe elliptique sur des nombres réels. A titre d'exemple, &lt;<ecc-over-F17-math>&gt; montre la même courbe elliptique sur un champ fini beaucoup plus petit d'ordre premier 17, montrant un motif de points sur une grille. La courbe elliptique du bitcoin +secp256k1+ peut être considérée comme un motif beaucoup plus complexe de points sur une grille insondable.
 
