@@ -159,7 +159,7 @@ Examinons maintenant en détail chacune des normes importantes de l'industrie ut
 
 Les codes mnémoniques sont définis dans le BIP-39 (voir <<appdxbitcoinimpproposals>>). Notez que BIP-39 est une implémentation d'une norme de code mnémonique. ((("portefeuilles Electrum", seealso="wallets")))Il existe une norme différente, avec un ensemble de mots différent, utilisée par le portefeuille Electrum et antérieure à BIP-39. BIP-39 a été proposé par la société à l'origine du portefeuille matériel Trezor et est incompatible avec la mise en œuvre d'Electrum. Cependant, BIP-39 a maintenant obtenu un large soutien de l'industrie à travers des dizaines d'implémentations interopérables et devrait être considéré comme la norme de facto de l'industrie.
 
-La BIP-39 définit la création d'un code mnémonique et d'une valeur d'amorçage, que nous décrivons ici en neuf étapes. Pour plus de clarté, le processus est divisé en deux parties: les étapes 1 à 6 sont présentées dans <<generating_mnemonic_words>> et les étapes 7 à 9 sont illustrées dans <<mnemonic_to_seed>>.
+La BIP-39 définit la création d'un code mnémonique et d'une valeur d'amorçage, que nous décrivons ici en neuf étapes. Pour plus de clarté, le processus est divisé en deux parties : les étapes 1 à 6 sont présentées dans <<generating_mnemonic_words>> et les étapes 7 à 9 sont illustrées dans <<mnemonic_to_seed>>.
 
 [[generating_mnemonic_words]]
 ===== Génération de mots mnémoniques
@@ -183,7 +183,7 @@ image::images/mbc2_0506.png["Génération d'entropie et encodage sous forme de m
 <<table_4-5>> montre la relation entre la taille des données d'entropie et la longueur des codes mnémoniques en mots.
 
 [[table_4-5]]
-.Codes mnémoniques : entropie et longueur des mots
+.Codes mnémoniques : entropie et longueur des mots
 [options="header"]
 |=======
 |Entropie (bits) | Somme de contrôle (bits) | Somme de contrôle d'entropie *+* (bits) | Longueur mnémonique (mots)
@@ -199,7 +199,7 @@ image::images/mbc2_0506.png["Génération d'entropie et encodage sous forme de m
 
 ((("fonction d'étirement de clé")))((("Fonction PBKDF2")))Les mots mnémoniques représentent l'entropie d'une longueur de 128 à 256 bits. L'entropie est ensuite utilisée pour dériver une valeur d'amorçage plus longue (512 bits) grâce à l'utilisation de la fonction d'étirement de clé PBKDF2. La valeur d'amorçage produite est ensuite utilisée pour construire un portefeuille déterministe et en dériver ses clés.
 
-((("sels")))((("Phrases secrètes")))La fonction d'étirement de clé prend deux paramètres : le mnémonique et un _sel_. Le but d'un sel dans une fonction d'étirement de clé est de rendre difficile la construction d'une table de recherche permettant une attaque par force brute. Dans la norme BIP-39, le sel a un autre objectif : il permet l'introduction d'une phrase secrète qui sert de facteur de sécurité supplémentaire protégeant la valeur d'amorçage, comme nous le décrirons plus en détail dans <<mnemonic_passphrase>>.
+((("sels")))((("Phrases secrètes")))La fonction d'étirement de clé prend deux paramètres : le mnémonique et un _sel_. Le but d'un sel dans une fonction d'étirement de clé est de rendre difficile la construction d'une table de recherche permettant une attaque par force brute. Dans la norme BIP-39, le sel a un autre objectif : il permet l'introduction d'une phrase secrète qui sert de facteur de sécurité supplémentaire protégeant la valeur d'amorçage, comme nous le décrirons plus en détail dans <<mnemonic_passphrase>>.
 
 Le processus décrit aux étapes 7 à 9 continue à partir du processus décrit précédemment dans <<generating_mnemonic_words>> :
 
@@ -353,7 +353,7 @@ Une clé privée enfant, la clé publique correspondante et l'adresse Bitcoin so
 
 ===== Touches étendues
 
-((("clés publiques et privées", "clés étendues")))((("clés étendues")))Comme nous l'avons vu précédemment, la fonction de dérivation de clé peut être utilisée pour créer des enfants à n'importe quel niveau de l'arborescence, en fonction sur les trois entrées : une clé, un code chaîne et l'index de l'enfant souhaité. Les deux ingrédients essentiels sont la clé et le code de chaîne, et combinés, ils s'appellent une _clé étendue_. Le terme "clé étendue" pourrait également être considéré comme une "clé extensible" car une telle clé peut être utilisée pour dériver des enfants.
+((("clés publiques et privées", "clés étendues")))((("clés étendues")))Comme nous l'avons vu précédemment, la fonction de dérivation de clé peut être utilisée pour créer des enfants à n'importe quel niveau de l'arborescence, en fonction sur les trois entrées : une clé, un code chaîne et l'index de l'enfant souhaité. Les deux ingrédients essentiels sont la clé et le code de chaîne, et combinés, ils s'appellent une _clé étendue_. Le terme "clé étendue" pourrait également être considéré comme une "clé extensible" car une telle clé peut être utilisée pour dériver des enfants.
 
 Les clés étendues sont stockées et représentées simplement comme la concaténation de la clé de 256 bits et du code de chaîne de 256 bits dans une séquence de 512 bits. Il existe deux types de clés étendues. Une clé privée étendue est la combinaison d'une clé privée et d'un code de chaîne et peut être utilisée pour dériver des clés privées enfants (et à partir de celles-ci, des clés publiques enfants). Une clé publique étendue est une clé publique et un code de chaîne, qui peuvent être utilisés pour créer des clés publiques enfants (_public uniquement_), comme décrit dans <<public_key_derivation>>.
 
@@ -436,11 +436,11 @@ L'"ascendance" d'une clé se lit de droite à gauche, jusqu'à atteindre la clé
 
 ===== Naviguer dans l'arborescence du portefeuille HD
 
-La structure arborescente du portefeuille HD offre une grande flexibilité. Chaque clé étendue parent peut avoir 4 milliards d'enfants : 2 milliards d'enfants normaux et 2 milliards d'enfants renforcés. Chacun de ces enfants peut avoir 4 milliards d'enfants supplémentaires, et ainsi de suite. L'arbre peut être aussi profond que vous le souhaitez, avec un nombre infini de générations. Avec toute cette flexibilité, cependant, il devient assez difficile de naviguer dans cet arbre infini. Il est particulièrement difficile de transférer des portefeuilles HD entre les implémentations, car les possibilités d'organisation interne en succursales et sous-succursales sont infinies.
+La structure arborescente du portefeuille HD offre une grande flexibilité. Chaque clé étendue parent peut avoir 4 milliards d'enfants : 2 milliards d'enfants normaux et 2 milliards d'enfants renforcés. Chacun de ces enfants peut avoir 4 milliards d'enfants supplémentaires, et ainsi de suite. L'arbre peut être aussi profond que vous le souhaitez, avec un nombre infini de générations. Avec toute cette flexibilité, cependant, il devient assez difficile de naviguer dans cet arbre infini. Il est particulièrement difficile de transférer des portefeuilles HD entre les implémentations, car les possibilités d'organisation interne en succursales et sous-succursales sont infinies.
 
 Deux BIP offrent une solution à cette complexité en créant des propositions de normes pour la structure des arborescences de portefeuille HD. BIP-43 propose l'utilisation du premier index enfant renforcé comme identifiant spécial qui signifie le "but" de la structure arborescente. Basé sur BIP-43, un portefeuille HD ne devrait utiliser qu'une seule branche de niveau 1 de l'arborescence, le numéro d'index identifiant la structure et l'espace de noms du reste de l'arborescence en définissant son objectif. Par exemple, un portefeuille HD utilisant uniquement la branche m/i++'++/ est destiné à signifier un objectif spécifique et cet objectif est identifié par le numéro d'index "i".
 
-En étendant cette spécification, BIP-44 propose une structure multicompte en tant que numéro "d'objet" +44'+ sous BIP-43. Tous les portefeuilles HD suivant la structure BIP-44 sont identifiés par le fait qu'ils n'utilisent qu'une seule branche de l'arborescence : m/44'/.
+En étendant cette spécification, BIP-44 propose une structure multicompte en tant que numéro "d'objet" +44'+ sous BIP-43. Tous les portefeuilles HD suivant la structure BIP-44 sont identifiés par le fait qu'ils n'utilisent qu'une seule branche de l'arborescence : m/44'/.
 
 BIP-44 spécifie la structure comme étant composée de cinq niveaux d'arborescence prédéfinis :
 
@@ -448,7 +448,7 @@ BIP-44 spécifie la structure comme étant composée de cinq niveaux d'arboresce
 m / but' / type_monnaie' / compte' / change / index_adresse
 -----
 
-Le "but" de premier niveau est toujours réglé sur +44'+. Le "type_monnaie" de deuxième niveau spécifie le type de pièce de cryptomonnaie, permettant des portefeuilles HD multidevises où chaque devise a son propre sous-arbre sous le deuxième niveau. Il y a trois devises définies pour l'instant : Bitcoin est m/44'/0', Bitcoin Testnet est m/44++'++/1++'++, et Litecoin est m/44++'++/2++'++.
+Le "but" de premier niveau est toujours réglé sur +44'+. Le "type_monnaie" de deuxième niveau spécifie le type de pièce de cryptomonnaie, permettant des portefeuilles HD multidevises où chaque devise a son propre sous-arbre sous le deuxième niveau. Il y a trois devises définies pour l'instant : Bitcoin est m/44'/0', Bitcoin Testnet est m/44++'++/1++'++, et Litecoin est m/44++'++/2++'++.
 
 Le troisième niveau de l'arborescence est "compte", qui permet aux utilisateurs de subdiviser leurs portefeuilles en sous-comptes logiques distincts, à des fins comptables ou organisationnelles. Par exemple, un portefeuille HD peut contenir deux "comptes" bitcoin : m/44++'++/0++'++/0++'++ et m/44++'++/0++'++/1++'++. Chaque compte est la racine de sa propre sous-arborescence.
 

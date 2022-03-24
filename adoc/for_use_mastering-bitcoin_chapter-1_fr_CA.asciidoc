@@ -87,7 +87,7 @@ Importation/Exportation::
 ((("cas d'utilisation", "importation/exportation")))Mohammed est un importateur d'électronique à Dubaï. Il essaie d'utiliser Bitcoin pour acheter des appareils électroniques aux États-Unis et en Chine pour les importer aux Émirats arabes unis afin d'accélérer le processus de paiement des importations. Cette histoire montrera comment Bitcoin peut être utilisé pour d'importants paiements internationaux interentreprises liés à des biens physiques.
 
 Miner des bitcoins::
-((("cas d'utilisation", "miner le bitcoin")))Jing est un étudiant en génie informatique à Shanghai. Il a construit une plate-forme «minière» pour exploiter le bitcoin en utilisant ses compétences en ingénierie pour compléter ses revenus. Cette histoire examinera la base "industrielle" de Bitcoin : l'équipement spécialisé utilisé pour sécuriser le réseau Bitcoin et émettre de nouvelles devises.
+((("cas d'utilisation", "miner le bitcoin")))Jing est un étudiant en génie informatique à Shanghai. Il a construit une plate-forme «minière» pour exploiter le bitcoin en utilisant ses compétences en ingénierie pour compléter ses revenus. Cette histoire examinera la base "industrielle" de Bitcoin : l'équipement spécialisé utilisé pour sécuriser le réseau Bitcoin et émettre de nouvelles devises.
 
 Chacune de ces histoires est basée sur de vraies personnes et de vraies industries utilisant actuellement Bitcoin pour créer de nouveaux marchés, de nouvelles industries et des solutions innovantes aux problèmes économiques mondiaux.((("", startref="GSuses01")))
 
@@ -187,7 +187,7 @@ Alice a été initiée au bitcoin par un ami, elle a donc un moyen facile d'acqu
 [[bitcoin_price]]
 ==== Trouver le prix actuel du Bitcoin
 
-((("commencer", "taux de change")))((("taux de change", "déterminer")))Avant qu'Alice puisse acheter du bitcoin à Joe, ils doivent s'entendre sur le _taux de change_ entre le bitcoin et le dollar américain . Cela soulève une question courante pour ceux qui découvrent le bitcoin : "Qui fixe le prix du bitcoin ?" La réponse courte est que le prix est fixé par les marchés.
+((("commencer", "taux de change")))((("taux de change", "déterminer")))Avant qu'Alice puisse acheter du bitcoin à Joe, ils doivent s'entendre sur le _taux de change_ entre le bitcoin et le dollar américain . Cela soulève une question courante pour ceux qui découvrent le bitcoin : "Qui fixe le prix du bitcoin ?" La réponse courte est que le prix est fixé par les marchés.
 
 ((("taux de change", "flottant")))((("cours du change flottant")))Le bitcoin, comme la plupart des autres devises, a un _cours du change flottant_. Cela signifie que la valeur du bitcoin vis-à-vis de toute autre devise fluctue en fonction de l'offre et de la demande sur les différents marchés où il est négocié. Par exemple, le « prix » du bitcoin en dollars américains est calculé sur chaque marché en fonction de la transaction la plus récente de bitcoin et de dollars américains. En tant que tel, le prix a tendance à fluctuer minutieusement plusieurs fois par seconde. Un service de tarification regroupera les prix de plusieurs marchés et calculera une moyenne pondérée en fonction du volume représentant le taux de change général du marché d'une paire de devises (par exemple, BTC/USD).
 
@@ -202,7 +202,7 @@ En plus de ces différents sites et applications, la plupart des portefeuilles b
 [[sending_receiving]]
 ==== Envoi et réception de Bitcoin
 
-((("commencer", "envoyer et recevoir des bitcoins", id="GSsend01")))((("dépenser des bitcoins", "exemple de démarrage rapide du portefeuille bitcoin")))((("dépenser des bitcoins", see="également des transactions")))Alice a décidé d'échanger 10 dollars américains contre des bitcoins, afin de ne pas risquer trop d'argent sur cette nouvelle technologie. Elle donne à Joe 10 $ en espèces, ouvre son application de portefeuille mobile Bluewallet et sélectionne Recevoir. Cela affiche un code QR avec la première adresse Bitcoin d'Alice.
+((("commencer", "envoyer et recevoir des bitcoins", id="GSsend01")))((("dépenser des bitcoins", "exemple de démarrage rapide du portefeuille bitcoin")))((("dépenser des bitcoins", see="également des transactions")))Alice a décidé d'échanger 10 dollars américains contre des bitcoins, afin de ne pas risquer trop d'argent sur cette nouvelle technologie. Elle donne à Joe 10 $ en espèces, ouvre son application de portefeuille mobile Bluewallet et sélectionne Recevoir. Cela affiche un code QR avec la première adresse Bitcoin d'Alice.
 
 Joe sélectionne ensuite _Envoyer_ sur son portefeuille de smartphone Bluewallet et un écran contenant les entrées suivantes s'affiche :
 

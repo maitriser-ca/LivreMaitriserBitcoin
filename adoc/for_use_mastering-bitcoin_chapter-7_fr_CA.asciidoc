@@ -525,7 +525,7 @@ ELSE
 ENDIF
 ----
 
-En regardant ce script de rachat, vous vous demandez peut-être : "Où est la condition ? Il n'y a rien qui précède la clause +IF+ !"
+En regardant ce script de rachat, vous vous demandez peut-être : "Où est la condition ? Il n'y a rien qui précède la clause +IF+ !"
 
 La condition ne fait pas partie du script de rachat. Au lieu de cela, la condition sera proposée dans le script de déverrouillage, permettant à Alice et Bob de "choisir" le chemin d'exécution qu'ils souhaitent.
 
@@ -784,7 +784,7 @@ Maintenant, regardons comment cet exemple entier serait mis à niveau vers segwi
 0 a9b7b38d972cabc7961dbfbcb841ad4508d133c47ba87457b4a0e8aae86dbb89
 ----
 
-Encore une fois, comme dans l'exemple de P2WPKH, vous pouvez voir que le script équivalent Segregated Witness est beaucoup plus simple et omet les différents opérandes de script que vous voyez dans les scripts P2SH. Au lieu de cela, le programme de témoignage séparé se compose de deux valeurs poussées vers la pile : une version témoin (0) et le hachage SHA256 de 32 octets du script de rachat.
+Encore une fois, comme dans l'exemple de P2WPKH, vous pouvez voir que le script équivalent Segregated Witness est beaucoup plus simple et omet les différents opérandes de script que vous voyez dans les scripts P2SH. Au lieu de cela, le programme de témoignage séparé se compose de deux valeurs poussées vers la pile : une version témoin (0) et le hachage SHA256 de 32 octets du script de rachat.
 
 La société de Mohammed peut dépenser la sortie P2WSH en présentant le bon script de rachat et suffisamment de signatures pour le satisfaire. Le script de rachat et les signatures seraient séparés _en dehors_ des données de transaction de dépenses dans le cadre des données de témoin. Dans l'entrée de transaction, le portefeuille de Mohammed ((("", startref="mohamappd")))mettrait un +scriptSig+ vide :
 
@@ -1051,14 +1051,14 @@ Examinons un exemple des incitations créées par le calcul des frais de transac
 <dl>
 <dt>Sans témoin séparé</dt>
 <dd>
-<p>Frais de transaction A : 28 590 satoshi</p>
-<p>Frais de transaction B : 20 760 satoshi</p>
+<p>Frais de transaction A : 28 590 satoshi</p>
+<p>Frais de transaction B : 20 760 satoshi</p>
 </dd>
 
 <dt>Avec témoin séparé</dt>
 <dd>
-<p>Frais de transaction A : 12 255 satoshi</p>
-<p>Frais de transaction B : 10 425 satoshi</p>
+<p>Frais de transaction A : 12 255 satoshi</p>
+<p>Frais de transaction B : 10 425 satoshi</p>
 </dd>
 </dl>
 ++++

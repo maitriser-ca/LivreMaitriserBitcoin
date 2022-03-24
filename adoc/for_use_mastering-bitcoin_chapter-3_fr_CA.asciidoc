@@ -1,5 +1,5 @@
 [[ch03_bitcoin_client]]
-== Bitcoin Core : La référence d'implémentation
+== Bitcoin Core : La référence d'implémentation
 
 ((("licences source libre")))((("Nakamoto, Satoshi")))Bitcoin est un projet _source libre_ et le code source est disponible sous une licence ouverte (MIT), téléchargeable et utilisable à n'importe quelle fin. Source libre signifie plus que simplement libre d'utilisation. Cela signifie également que le bitcoin est développé par une communauté ouverte de bénévoles. Au début, cette communauté se composait uniquement de Satoshi Nakamoto. En 2016, le code source de Bitcoin comptait plus de 400 contributeurs avec une douzaine de développeurs travaillant sur le code presque à temps plein et plusieurs dizaines d'autres à temps partiel. Tout le monde peut contribuer au code, y compris vous !
 
@@ -14,7 +14,7 @@
 <<bitcoin_core_architecture>> montre l'architecture de Bitcoin Core.((("Bitcoin Core", "architecture")))
 
 [[bitcoin_core_architecture]]
-.Architecture Bitcoin Core (Source : Eric Lombrozo)
+.Architecture Bitcoin Core (Source : Eric Lombrozo)
 image::images/mbc2_0301.png["Architecture de base Bitcoin"]
 
 
@@ -229,7 +229,7 @@ Cependant, l'exécution d'un nœud nécessite un système connecté en permanenc
 ((("avertissements et mises en garde", "besoins en ressources du nœud principal")))((("besoins en ressources")))Bitcoin Core conserve une copie complète de la chaîne de blocs par défaut, avec chaque transaction qui s'est déjà produite sur le Bitcoin réseau depuis sa création en 2009. Cet ensemble de données a une taille de dizaines de gigaoctets et est téléchargé de manière incrémentielle sur plusieurs jours ou semaines, en fonction de la vitesse de votre CPU et de votre connexion Internet. Bitcoin Core ne pourra pas traiter les transactions ou mettre à jour les soldes des comptes tant que l'ensemble de données complet de la chaîne de blocs n'aura pas été téléchargé. Assurez-vous que vous disposez de suffisamment d'espace disque, de bande passante et de temps pour effectuer la synchronisation initiale. Vous pouvez configurer Bitcoin Core pour réduire la taille de la chaîne de blocs en supprimant les anciens blocs (voir <<constrained_resources>>), mais il téléchargera tout de même l'intégralité de l'ensemble de données avant de les supprimer.
 ====
 
-Malgré ces besoins en ressources, des milliers de bénévoles gèrent des nœuds Bitcoin. Certains fonctionnent sur des systèmes aussi simples qu'un Raspberry Pi (un ordinateur à 35$ US de la taille d'un paquet de cartes). De nombreux volontaires exécutent également des nœuds Bitcoin sur des serveurs loués, généralement une variante de Linux. Une instance de _Virtual Private Server_ (VPS ou serveur virtuel privé) ou _Cloud Computing Server_ (ou serveur en infonuagique) peut être utilisée pour exécuter un nœud Bitcoin. Ces serveurs peuvent être loués pour 25$ à 50$ US par mois auprès de divers fournisseurs.
+Malgré ces besoins en ressources, des milliers de bénévoles gèrent des nœuds Bitcoin. Certains fonctionnent sur des systèmes aussi simples qu'un Raspberry Pi (un ordinateur à 35 $ US de la taille d'un paquet de cartes). De nombreux volontaires exécutent également des nœuds Bitcoin sur des serveurs loués, généralement une variante de Linux. Une instance de _Virtual Private Server_ (VPS ou serveur virtuel privé) ou _Cloud Computing Server_ (ou serveur en infonuagique) peut être utilisée pour exécuter un nœud Bitcoin. Ces serveurs peuvent être loués pour 25 $ à 50 $ US par mois auprès de divers fournisseurs.
 
 Pourquoi voudriez-vous exécuter un nœud ? Voici quelques-unes des raisons les plus courantes :
 

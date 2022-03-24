@@ -57,11 +57,11 @@ Le nonce, la cible de difficulté et l'horodatage sont utilisés dans le process
 
 Notez que le hachage de bloc n'est pas réellement inclus dans la structure de données du bloc, ni lorsque le bloc est transmis sur le réseau, ni lorsqu'il est stocké sur le stockage de persistance d'un nœud dans le cadre de la chaîne de blocs. Au lieu de cela, le hachage du bloc est calculé par chaque nœud lorsque le bloc est reçu du réseau. Le hachage de bloc peut être stocké dans une table de base de données distincte dans le cadre des métadonnées du bloc, pour faciliter l'indexation et une récupération plus rapide des blocs à partir du disque.
 
-Une deuxième façon d'identifier un bloc est par sa position dans la chaîne de blocs, appelée le pass:[<span role="keep-together"><em>hauteur de bloc</em>. Le premier bloc jamais créé est à la hauteur de bloc 0 (zéro) et est le</span>] pass:[<span role="keep-together">même bloc qui était précédemment référencé par le hachage de bloc suivant</span>] +000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f+. Un bloc peut ainsi être identifié de deux manières : en référençant le hachage du bloc ou en référençant la hauteur du bloc. Chaque bloc suivant ajouté "au-dessus" de ce premier bloc est une position "plus élevée" dans la chaîne de blocs, comme des boîtes empilées les unes sur les autres.
+Une deuxième façon d'identifier un bloc est par sa position dans la chaîne de blocs, appelée le pass:[<span role="keep-together"><em>hauteur de bloc</em>. Le premier bloc jamais créé est à la hauteur de bloc 0 (zéro) et est le</span>] pass:[<span role="keep-together">même bloc qui était précédemment référencé par le hachage de bloc suivant</span>] +000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f+. Un bloc peut ainsi être identifié de deux manières : en référençant le hachage du bloc ou en référençant la hauteur du bloc. Chaque bloc suivant ajouté "au-dessus" de ce premier bloc est une position "plus élevée" dans la chaîne de blocs, comme des boîtes empilées les unes sur les autres.
 
 De plus, le terme _hauteur de bloc actuelle_ indique la taille de la chaîne de blocs en blocs à un moment donné. Par exemple, la hauteur actuelle du bloc au 1er mars 2021 était d'environ 672 722, ce qui signifie qu'il y avait 672 722 blocs empilés au-dessus du premier bloc créé en janvier 2009.
 
-Contrairement au hachage de bloc, la hauteur de bloc n'est pas un identifiant unique. Bien qu'un seul bloc ait toujours une hauteur de bloc spécifique et invariante, l'inverse n'est pas vrai : la hauteur de bloc n'identifie pas toujours un seul bloc. Deux ou plusieurs blocs peuvent avoir la même hauteur de bloc, en concurrence pour la même position dans la chaîne de blocs. Ce scénario est décrit en détail dans la section <<forks>>. La hauteur de bloc ne fait pas non plus partie de la structure de données du bloc ; il n'est pas stocké dans le bloc. Chaque nœud identifie dynamiquement la position (hauteur) d'un bloc dans la chaîne de blocs lorsqu'il est reçu du réseau Bitcoin. La hauteur de bloc peut également être stockée sous forme de métadonnées dans une table de base de données indexée pour une récupération plus rapide.
+Contrairement au hachage de bloc, la hauteur de bloc n'est pas un identifiant unique. Bien qu'un seul bloc ait toujours une hauteur de bloc spécifique et invariante, l'inverse n'est pas vrai : la hauteur de bloc n'identifie pas toujours un seul bloc. Deux ou plusieurs blocs peuvent avoir la même hauteur de bloc, en concurrence pour la même position dans la chaîne de blocs. Ce scénario est décrit en détail dans la section <<forks>>. La hauteur de bloc ne fait pas non plus partie de la structure de données du bloc ; il n'est pas stocké dans le bloc. Chaque nœud identifie dynamiquement la position (hauteur) d'un bloc dans la chaîne de blocs lorsqu'il est reçu du réseau Bitcoin. La hauteur de bloc peut également être stockée sous forme de métadonnées dans une table de base de données indexée pour une récupération plus rapide.
 
 [TIP]
 ====
@@ -266,9 +266,9 @@ Considérons, par exemple, un nœud SPV qui est intéressé par les paiements en
 ((("chaîne de blocs (la)", "chaînes de blocs test", id="BCTtest09")))((("mainnet", seealso="chaîne de blocs (la)")))Vous pourriez être surpris d'apprendre qu'il existe plus d'une chaîne de blocs Bitcoin. La chaîne de blocs Bitcoin "principale", celle créée par Satoshi Nakamoto le 3 janvier 2009, celle avec le bloc de genèse que nous avons étudié dans ce chapitre, s'appelle _mainnet_. Il existe d'autres chaînes de blocs Bitcoin qui sont utilisées à des fins de test : actuellement _testnet_, _segnet_ et _regtest_. Regardons chacun à son tour.((("testnet", id="testnet09")))
 
 
-==== Testnet : Le terrain de test de Bitcoin
+==== Testnet : Le terrain de test de Bitcoin
 
-Testnet est le nom de la chaîne de blocs, du réseau et de la devise de test utilisés à des fins de test. Le testnet est un réseau P2P en direct complet, avec des portefeuilles, des bitcoins de test (pièces de testnet), l'exploitation minière et toutes les autres fonctionnalités du réseau principal. Il n'y a vraiment que deux différences : les pièces testnet sont censées être sans valeur et la difficulté d'extraction doit être suffisamment faible pour que n'importe qui puisse extraire des pièces testnet relativement facilement (en les gardant sans valeur).
+Testnet est le nom de la chaîne de blocs, du réseau et de la devise de test utilisés à des fins de test. Le testnet est un réseau P2P en direct complet, avec des portefeuilles, des bitcoins de test (pièces de testnet), l'exploitation minière et toutes les autres fonctionnalités du réseau principal. Il n'y a vraiment que deux différences : les pièces testnet sont censées être sans valeur et la difficulté d'extraction doit être suffisamment faible pour que n'importe qui puisse extraire des pièces testnet relativement facilement (en les gardant sans valeur).
 
 Tout développement logiciel destiné à une utilisation en production sur le réseau principal de Bitcoin doit d'abord être testé sur testnet avec des pièces de test. Cela protège à la fois les développeurs des pertes financières dues aux bogues et le réseau des comportements involontaires dus aux bogues.
 
@@ -291,7 +291,7 @@ $ bitcoind -testnet
 Dans les journaux, vous devriez voir que bitcoind construit une nouvelle chaîne de blocs dans le sous-répertoire +testnet3+ du répertoire bitcoind par défaut :
 
 ----
-bitcoind : Utilisation du répertoire de données /home/username/.bitcoin/testnet3
+bitcoind : Utilisation du répertoire de données /home/username/.bitcoin/testnet3
 ----
 
 Pour vous connecter à bitcoind, vous utilisez l'outil de ligne de commande +bitcoin-cli+, mais vous devez également le passer en mode testnet :
@@ -317,7 +317,7 @@ Vous pouvez également exécuter sur testnet3 avec d'autres implémentations de 
 
 En 2021, testnet3 prend en charge toutes les fonctionnalités du réseau principal, y compris le témoin séparé (voir <<segwit>>). Par conséquent, testnet3 peut également être utilisé pour tester les fonctionnalités de témoin séparé.((("", startref="testnet09")))
 
-==== Segnet : Le réseau de test des témoins séparés
+==== Segnet : Le réseau de test des témoins séparés
 
 
 ((("segnet")))En 2016, un testnet à usage spécial a été lancé pour aider au développement et aux tests de Segregated Witness ou Témoin séparé (alias segwit; voir <<segwit>>). Cette chaîne de blocs de test s'appelle +segnet+ et peut être rejointe en exécutant une version spéciale (branche) de Bitcoin Core.
@@ -326,7 +326,7 @@ En 2021, testnet3 prend en charge toutes les fonctionnalités du réseau princip
 
 À l'avenir, il est probable que nous verrons d'autres chaînes de blocs testnet spécialement conçues pour tester une seule fonctionnalité ou un changement architectural majeur, comme segnet.
 
-==== Regtest : La chaîne de blocs locale
+==== Regtest : La chaîne de blocs locale
 
 ((("regtest (Regression Testing ou tests de régression)")))Regtest, qui signifie "Regression Testing", (ou tests de régressions) est une fonctionnalité de Bitcoin Core qui vous permet de créer une chaîne de blocs locale à des fins de test. Contrairement à testnet3, qui est une chaîne de blocs de test publique et partagée, les chaînes de blocs regtest sont destinées à être exécutées comme des systèmes fermés pour les tests locaux. Vous lancez une chaîne de blocs regtest à partir de zéro, en créant un bloc de genèse local. Vous pouvez ajouter d'autres nœuds au réseau ou l'exécuter avec un seul nœud uniquement pour tester le logiciel Bitcoin Core.
 

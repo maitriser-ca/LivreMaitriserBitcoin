@@ -23,7 +23,7 @@ L'application de l'explorateur de blocs montre une transaction de "l'adresse" d'
 image::images/mbc2_0208.png["Alice Coffee Transaction"]
 
 [[transactions_behind_the_scenes]]
-==== Transactions: Dans les coulisses
+==== Transactions : Dans les coulisses
 
 ((("transactions", "détails des coulisses de"))) Dans les coulisses, une transaction réelle est très différente d'une transaction fournie par un explorateur de blocs typique. En fait, la plupart des constructions de haut niveau que nous voyons dans les différentes interfaces utilisateur des applications bitcoin _n'existent pas réellement_ dans le système Bitcoin.
 
@@ -76,9 +76,9 @@ image::images/mbc2_0609.png["Chaîne de transaction de Joe à Gopesh en cours de
 
 ((("satoshis")))Une sortie de transaction peut avoir une valeur arbitraire (entière) libellée comme un multiple de satoshis. Tout comme les dollars peuvent être divisés jusqu'à deux décimales sous forme de cents, le bitcoin peut être divisé jusqu'à huit décimales sous forme de satoshis. Bien qu'une sortie puisse avoir n'importe quelle valeur arbitraire, une fois créée, elle est indivisible. Il s'agit d'une caractéristique importante des sorties qui doit être soulignée : les sorties sont des unités de valeur _discrètes_ et _indivisibles_, libellées en satoshis entiers. Une production non dépensée ne peut être consommée dans son intégralité que par une transaction.
 
-((("change, faire")))Si un UTXO est supérieur à la valeur souhaitée d'une transaction, il doit toujours être consommé dans son intégralité et le changement doit être généré dans la transaction. En d'autres termes, si vous avez un UTXO d'une valeur de 20 bitcoins et que vous souhaitez payer seulement 1 bitcoin, votre transaction doit consommer l'intégralité de l'UTXO de 20 bitcoins et produire deux sorties : une payant 1 bitcoin au destinataire souhaité et une autre payant 19 bitcoin en échange. retour dans votre portefeuille. En raison de la nature indivisible des sorties de transaction, la plupart des transactions bitcoin devront générer du change.
+((("change, faire")))Si un UTXO est supérieur à la valeur souhaitée d'une transaction, il doit toujours être consommé dans son intégralité et le changement doit être généré dans la transaction. En d'autres termes, si vous avez un UTXO d'une valeur de 20 bitcoins et que vous souhaitez payer seulement 1 bitcoin, votre transaction doit consommer l'intégralité de l'UTXO de 20 bitcoins et produire deux sorties : une payant 1 bitcoin au destinataire souhaité et une autre payant 19 bitcoin en échange. retour dans votre portefeuille. En raison de la nature indivisible des sorties de transaction, la plupart des transactions bitcoin devront générer du change.
 
-Imaginez une cliente qui achète une boisson à 1,50 $, puise dans son portefeuille et essaie de trouver une combinaison de pièces et de billets de banque pour couvrir le coût de 1,50 $. L'acheteur choisira la monnaie exacte si disponible, par exemple un billet d'un dollar et deux quarts (un quart vaut 0,25 $), ou une combinaison de coupures plus petites (six quarts), ou si nécessaire, une unité plus grande comme un billet de 5 $. Si elle remet trop d'argent, disons 5 $, au propriétaire du magasin, elle s'attendra à 3,50 $ de monnaie, qu'elle remettra dans son portefeuille et qu'elle disposera pour de futures transactions.
+Imaginez une cliente qui achète une boisson à 1,50 $, puise dans son portefeuille et essaie de trouver une combinaison de pièces et de billets de banque pour couvrir le coût de 1,50 $. L'acheteur choisira la monnaie exacte si disponible, par exemple un billet d'un dollar et deux quarts (un quart vaut 0,25 $), ou une combinaison de coupures plus petites (six quarts), ou si nécessaire, une unité plus grande comme un billet de 5 $. Si elle remet trop d'argent, disons 5 $, au propriétaire du magasin, elle s'attendra à 3,50 $ de monnaie, qu'elle remettra dans son portefeuille et qu'elle disposera pour de futures transactions.
 
 De même, une transaction bitcoin doit être créée à partir de l'UTXO d'un utilisateur dans toutes les dénominations disponibles pour cet utilisateur. Les utilisateurs ne peuvent pas couper un UTXO en deux, pas plus qu'ils ne peuvent couper un billet d'un dollar en deux et l'utiliser comme monnaie. L'application de portefeuille de l'utilisateur sélectionne généralement à partir de l'UTXO disponible de l'utilisateur pour composer un montant supérieur ou égal au montant de transaction souhaité.
 
@@ -130,7 +130,7 @@ Comme vous pouvez le voir, la transaction contient deux sorties. Chaque sortie e
 
 Le sujet du verrouillage et du déverrouillage de l'UTXO sera abordé plus tard, dans <<tx_lock_unlock>>. Le langage de script utilisé pour le script dans +scriptPubKey+ est décrit dans <<tx_script>>. Mais avant d'approfondir ces sujets, nous devons comprendre la structure globale des entrées et sorties des transactions.
 
-===== Sérialisation des transactions: sorties
+===== Sérialisation des transactions : sorties
 
 ((("transactions", "sorties et entrées", "structure de")))((("sorties et entrées", "structure de")))((("sérialisation", "sorties")))Lorsque les transactions sont transmises sur le réseau ou échangées entre applications, elles sont _sérialisées_. La sérialisation est le processus de conversion de la représentation interne d'une structure de données dans un format qui peut être transmis un octet à la fois, également appelé flux d'octets. La sérialisation est le plus souvent utilisée pour coder des structures de données à transmettre sur un réseau ou à stocker dans un fichier. Le format de sérialisation d'une sortie de transaction est affiché dans <<tx_out_structure>>.
 
@@ -239,7 +239,7 @@ On voit que cet UTXO a une valeur de 0.1 BTC et qu'il a un script de verrouillag
 Pour bien comprendre la transaction d'Alice, nous avons dû récupérer la transaction précédente référencée en entrée. Une fonction qui récupère les transactions précédentes et les sorties de transaction non dépensées est très courante et existe dans presque toutes les bibliothèques et API Bitcoin.
 ====
 
-===== Sérialisation des transactions: entrées
+===== Sérialisation des transactions : entrées
 
 ((("sérialisation", "entrées")))((("transactions", "sorties et entrées", "sérialisation des entrées")))((("sorties et entrées", "sérialisation des entrées")))Lorsque les transactions sont sérialisées pour être transmises sur le réseau, leurs entrées sont codées dans un flux d'octets comme indiqué dans <<tx_in_structure>>.
 
@@ -405,7 +405,7 @@ Dans cette section, nous démontrerons les composants de base du langage de scri
 [[tx_lock_unlock]]
 ==== Construction du script (Verrouiller + Déverrouiller)
 
-Le moteur de validation des transactions de Bitcoin s'appuie sur deux types de scripts pour valider les transactions : un script de verrouillage et un script de déverrouillage.
+Le moteur de validation des transactions de Bitcoin s'appuie sur deux types de scripts pour valider les transactions : un script de verrouillage et un script de déverrouillage.
 
 ((("scripts de verouillage")))((("scripts de déverouillage")))((("scriptage", "scripts de déverouillage")))Un script de verrouillage est une condition de dépense placée sur une sortie : il spécifie les conditions qui doivent être remplies pour dépenser la production à l'avenir. ((("scriptPubKey")))Historiquement, le script de verrouillage était appelé _scriptPubKey_, car il contenait généralement une clé publique ou une adresse Bitcoin (hachage de clé publique). Dans ce livre, nous l'appelons un "script de verrouillage" pour reconnaître l'éventail de possibilités beaucoup plus large de cette technologie de script. Dans la plupart des applications bitcoin, ce que nous appelons un script de verrouillage apparaîtra dans le code source sous la forme +scriptPubKey+. ((("témoins")))((("énigmes cryptographiques")))Vous verrez également le script de verrouillage appelé _script de témoin_ (voir <<segwit>>) ou plus généralement comme un _casse-tête cryptographique_. Ces termes signifient tous la même chose, à différents niveaux d'abstraction.
 
@@ -423,7 +423,7 @@ image::images/mbc2_0603.png["scriptSig et scriptPubKey"]
 
 ===== La pile d'exécution de script
 
-Le langage de script de Bitcoin est appelé un langage basé sur la pile car il utilise une structure de données appelée _pile_. Une pile est une structure de données très simple qui peut être visualisée comme une pile de cartes. Une pile permet deux opérations : push et pop. Push ajoute un élément au sommet de la pile. Pop supprime l'élément du haut de la pile. Les opérations sur une pile ne peuvent agir que sur l'élément le plus haut de la pile. Une structure de données de pile est également appelée file d'attente Last-In-First-Out (dernier entré, premier sorti), ou "LIFO".
+Le langage de script de Bitcoin est appelé un langage basé sur la pile car il utilise une structure de données appelée _pile_. Une pile est une structure de données très simple qui peut être visualisée comme une pile de cartes. Une pile permet deux opérations : push et pop. Push ajoute un élément au sommet de la pile. Pop supprime l'élément du haut de la pile. Les opérations sur une pile ne peuvent agir que sur l'élément le plus haut de la pile. Une structure de données de pile est également appelée file d'attente Last-In-First-Out (dernier entré, premier sorti), ou "LIFO".
 
 Le langage de script exécute le script en traitant chaque élément de gauche à droite. Les nombres (constantes de données) sont poussés sur la pile. Les opérateurs poussent ou sortent un ou plusieurs paramètres de la pile, agissent sur eux et peuvent pousser un résultat sur la pile. Par exemple, +OP_ADD+ fera sortir deux éléments de la pile, les ajoutera et poussera la somme résultante sur la pile.
 
@@ -542,7 +542,7 @@ Chaque entrée de transaction et toute signature qu'elle peut contenir est _comp
 ****
 ((("signatures numériques", "défini")))Une signature numérique est un schéma mathématique permettant de démontrer l'authenticité d'un message ou de documents numériques. Une signature numérique valide donne au destinataire des raisons de croire que le message a été créé par un expéditeur connu (authentification), que l'expéditeur ne peut pas nier avoir envoyé le message (non-répudiable) et que le message n'a pas été altéré en transit (intégrité).
 
-_Source: https://en.wikipedia.org/wiki/Digital_signature_
+_Source : https://en.wikipedia.org/wiki/Digital_signature_
 ****
 
 ==== Comment fonctionnent les signatures numériques
@@ -754,7 +754,7 @@ Construire le solde actuel (affiché comme "Solde final") nécessite un peu plus
 
 Afin de produire cette image unique, avec ces deux "soldes", l'explorateur de la chaîne de blocs doit indexer et rechercher parmi des dizaines, des centaines, voire des centaines de milliers de transactions.
 
-En résumé, les informations présentées aux utilisateurs via les applications de portefeuille, les explorateurs de chaînes de blocs et d'autres interfaces utilisateur Bitcoin sont souvent composées d'abstractions de niveau supérieur qui sont dérivées en recherchant de nombreuses transactions différentes, en inspectant leur contenu et en manipulant les données qu'elles contiennent. En présentant cette vision simpliste des transactions bitcoin qui ressemblent à des chèques bancaires d'un expéditeur à un destinataire, ces applications doivent extraire de nombreux détails sous-jacents. Ils se concentrent principalement sur les types de transactions courants : P2PKH avec des signatures SIGHASH_ALL sur chaque entrée. Ainsi, alors que les applications bitcoin peuvent présenter plus de 80% de toutes les transactions de manière facile à lire, elles sont parfois bloquées par des transactions qui s'écartent de la norme. Les transactions qui contiennent des scripts de verrouillage plus complexes, ou différents indicateurs SIGHASH, ou de nombreuses entrées et sorties, démontrent la simplicité et la faiblesse de ces abstractions.
+En résumé, les informations présentées aux utilisateurs via les applications de portefeuille, les explorateurs de chaînes de blocs et d'autres interfaces utilisateur Bitcoin sont souvent composées d'abstractions de niveau supérieur qui sont dérivées en recherchant de nombreuses transactions différentes, en inspectant leur contenu et en manipulant les données qu'elles contiennent. En présentant cette vision simpliste des transactions bitcoin qui ressemblent à des chèques bancaires d'un expéditeur à un destinataire, ces applications doivent extraire de nombreux détails sous-jacents. Ils se concentrent principalement sur les types de transactions courants : P2PKH avec des signatures SIGHASH_ALL sur chaque entrée. Ainsi, alors que les applications bitcoin peuvent présenter plus de 80 % de toutes les transactions de manière facile à lire, elles sont parfois bloquées par des transactions qui s'écartent de la norme. Les transactions qui contiennent des scripts de verrouillage plus complexes, ou différents indicateurs SIGHASH, ou de nombreuses entrées et sorties, démontrent la simplicité et la faiblesse de ces abstractions.
 
 Chaque jour, des centaines de transactions qui ne contiennent pas de sorties P2PKH sont confirmées sur la chaîne de blocs. Les explorateurs de chaîne de blocs les présentent souvent avec des messages d'avertissement rouges indiquant qu'ils ne peuvent pas décoder une adresse.
 

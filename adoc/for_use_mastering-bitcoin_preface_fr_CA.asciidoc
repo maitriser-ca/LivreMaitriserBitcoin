@@ -13,7 +13,7 @@ Deux ans plus tard, après avoir créé un certain nombre de petites entreprises
 
 === Pourquoi y a-t-il des insectes sur la couverture ?
 
-((("systèmes décentralisés", "dans la nature")))La fourmi coupeuse de feuilles est une espèce qui présente un comportement très complexe dans un super-organisme de colonie, mais chaque fourmi individuelle fonctionne selon un ensemble de règles simples dictées par l'interaction sociale et l'échange d'odeurs chimiques (phéromones). Par Wikipedia : "À côté des humains, les fourmis coupeuses de feuilles forment les sociétés animales les plus grandes et les plus complexes sur Terre." Les fourmis coupeuses de feuilles ne mangent pas réellement les feuilles, mais les utilisent plutôt pour cultiver un champignon, qui est la principale source de nourriture de la colonie. Imaginez, ces fourmis cultivent !
+((("systèmes décentralisés", "dans la nature")))La fourmi coupeuse de feuilles est une espèce qui présente un comportement très complexe dans un super-organisme de colonie, mais chaque fourmi individuelle fonctionne selon un ensemble de règles simples dictées par l'interaction sociale et l'échange d'odeurs chimiques (phéromones). Par Wikipedia : "À côté des humains, les fourmis coupeuses de feuilles forment les sociétés animales les plus grandes et les plus complexes sur Terre." Les fourmis coupeuses de feuilles ne mangent pas réellement les feuilles, mais les utilisent plutôt pour cultiver un champignon, qui est la principale source de nourriture de la colonie. Imaginez, ces fourmis cultivent !
 
 Bien que les fourmis forment une société basée sur les castes et aient une reine pour produire une progéniture, il n'y a pas d'autorité centrale ou de chef dans une colonie de fourmis. Le comportement hautement intelligent et sophistiqué présenté par une colonie de plusieurs millions de membres est une propriété émergente de l'interaction des individus dans un réseau social.
 
@@ -63,7 +63,7 @@ Tous les extraits de code utilisent des valeurs réelles et des calculs lorsque 
 
 Ce livre est là pour vous aider à faire votre travail. En général, si un exemple de code est proposé avec ce livre, vous pouvez l'utiliser dans vos programmes et votre documentation. Vous n'avez pas besoin de nous contacter pour obtenir une autorisation, sauf si vous reproduisez une partie importante du code. Par exemple, écrire un programme qui utilise plusieurs morceaux de code de ce livre ne nécessite pas d'autorisation. La vente ou la distribution d'un CD-ROM d'exemples tirés des livres d'O'Reilly nécessite une autorisation. Répondre à une question en citant ce livre et en citant un exemple de code ne nécessite pas d'autorisation. L'incorporation d'une quantité importante d'exemples de code de ce livre dans la documentation de votre produit nécessite une autorisation.
 
-((("attribution")))Nous apprécions, mais n'exigeons pas, l'attribution. Une attribution comprend généralement le titre, l'auteur, l'éditeur et l'ISBN. Par exemple : « _Mastering Bitcoin_ par Andreas M. Antonopoulos (O'Reilly). Copyright 2017 Andreas M. Antonopoulos, 978-1-491-95438-6.
+((("attribution")))Nous apprécions, mais n'exigeons pas, l'attribution. Une attribution comprend généralement le titre, l'auteur, l'éditeur et l'ISBN. Par exemple : « _Mastering Bitcoin_ par Andreas M. Antonopoulos (O'Reilly). Copyright 2017 Andreas M. Antonopoulos, 978-1-491-95438-6.
 
 ((("licences de sources libres")))Certaines éditions de ce livre sont proposées sous une licence de source libre, comme https://creativecommons.org/licenses/by-nc/4.0/[CC-BY-NC], auquel cas les termes de cette licence s'appliquent.
 
@@ -111,11 +111,11 @@ Pour commenter ou poser des questions techniques sur ce livre, envoyez un courri
 
 Pour plus d'informations sur nos livres, cours, conférences et actualités, consultez notre site Web au link:$$https://www.oreilly.com$$[].
 
-Retrouvez-nous sur Facebook : link:$$https://facebook.com/oreilly$$[]
+Retrouvez-nous sur Facebook : link:$$https://facebook.com/oreilly$$[]
 
-Suivez-nous sur Twitter : link:$$https://twitter.com/oreillymedia$$[]
+Suivez-nous sur Twitter : link:$$https://twitter.com/oreillymedia$$[]
 
-Regardez-nous sur YouTube : link:$$https://www.youtube.com/oreillymedia$$[]
+Regardez-nous sur YouTube : link:$$https://www.youtube.com/oreillymedia$$[]
 
 [role="pagebreak-before"]
 === Contacter l'auteur

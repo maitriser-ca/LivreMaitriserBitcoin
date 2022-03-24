@@ -192,7 +192,7 @@ récompense minière::
     Les récompense que les mineurs reçoivent en échange de la sécurité fournie par l'exploitation minière, comprend les nouvelles pièces bitcoin créées avec chaque nouveau bloc, également appelées récompense de bloc ou récompense coinbase, et les frais de transaction de toutes les transactions incluses dans le bloc.
 
 réduction de moitié (ou halving)::
-    Un événement de réduction de moitié se produit lorsque la récompense de bloc est réduite de moitié, ce qui se produit environ tous les quatre ans (ou précisément tous les 210 000 blocs). Bitcoin a déjà connu trois événements de réduction de moitié : en 2012 (de 50 à 25 BTC), en 2016 (de 25 à 12,5 BTC) et en 2020 (de 12,5 à 6,25 BTC).
+    Un événement de réduction de moitié se produit lorsque la récompense de bloc est réduite de moitié, ce qui se produit environ tous les quatre ans (ou précisément tous les 210 000 blocs). Bitcoin a déjà connu trois événements de réduction de moitié : en 2012 (de 50 à 25 BTC), en 2016 (de 25 à 12,5 BTC) et en 2020 (de 12,5 à 6,25 BTC).
 
 règles de consensus::
     Les règles de validation de bloc que les nœuds complets suivent pour rester en consensus avec les autres nœuds.
@@ -233,7 +233,7 @@ sortie de transaction non dépensée (UTXO ou unspent transaction output)::
     UTXO est une sortie de transaction non dépensée qui peut être dépensée comme entrée dans une nouvelle transaction.
 
 stockage à froid::
-	Fait référence à la conservation d'une réserve de bitcoins hors ligne. Le stockage à froid est réalisé lorsque les clés privées bitcoin sont créées et stockées dans un environnement hors ligne sécurisé. Le stockage à froid est important pour quiconque possède des avoirs en bitcoins. Les ordinateurs en ligne sont vulnérables aux pirates et ne doivent pas être utilisés pour stocker une quantité importante de bitcoins. (note du traducteur: l'auteur est un peu paranoïde; les nœuds sont en ligne. Si les nœuds sont insécures, c'est la fin de ce système et de ce livre.) ;)
+	Fait référence à la conservation d'une réserve de bitcoins hors ligne. Le stockage à froid est réalisé lorsque les clés privées bitcoin sont créées et stockées dans un environnement hors ligne sécurisé. Le stockage à froid est important pour quiconque possède des avoirs en bitcoins. Les ordinateurs en ligne sont vulnérables aux pirates et ne doivent pas être utilisés pour stocker une quantité importante de bitcoins. (note du traducteur : l'auteur est un peu paranoïde; les nœuds sont en ligne. Si les nœuds sont insécures, c'est la fin de ce système et de ce livre.) ;)
 témoin séparé::
     Le témoin séparé est une mise à niveau du protocole Bitcoin dans laquelle les données de signature ("témoin") sont séparées des données de l'expéditeur/destinataire pour optimiser davantage la structure des transactions. Le témoin Séparé a été implémenté comme un embranchement convergent ; un changement qui rend techniquement les règles du protocole de bitcoin plus restrictives.
 

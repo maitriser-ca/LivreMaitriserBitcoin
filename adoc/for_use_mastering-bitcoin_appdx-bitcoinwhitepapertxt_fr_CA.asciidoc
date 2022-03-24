@@ -47,7 +47,7 @@ Pour compenser l'augmentation de la vitesse matérielle et l'intérêt variable 
 
 ==== Réseau
 
-Les étapes pour exécuter le réseau sont les suivantes :
+Les étapes pour exécuter le réseau sont les suivantes : 
 
 1. Les nouvelles transactions sont diffusées à tous les nœuds.
 2. Chaque nœud collecte les nouvelles transactions dans un bloc.
@@ -85,14 +85,14 @@ image::images/mbc2_abin05.png["spv"]
 Ainsi, la vérification est fiable tant que des nœuds honnêtes contrôlent le réseau, mais est plus vulnérable si le réseau est maîtrisé par un attaquant. Alors que les nœuds du réseau peuvent vérifier les transactions par eux-mêmes, la méthode simplifiée peut être trompée par les transactions fabriquées par un attaquant, tant que l'attaquant peut continuer à maîtriser le réseau. Une stratégie de protection contre cela consisterait à accepter les alertes des nœuds du réseau lorsqu'ils détectent un bloc invalide, incitant le logiciel de l'utilisateur à télécharger le bloc complet et les transactions alertées pour confirmer l'incohérence. Les entreprises qui reçoivent des paiements fréquents voudront probablement toujours exécuter leurs propres nœuds pour une sécurité plus indépendante et une vérification plus rapide.
 
 ==== Combiner et diviser la valeur
-Bien qu'il soit possible de gérer les pièces individuellement, il serait difficile d'effectuer une transaction distincte pour chaque centime d'un transfert. Pour permettre à la valeur d'être fractionnée et combinée, les transactions contiennent plusieurs entrées et sorties. Normalement, il y aura soit une seule entrée provenant d'une transaction précédente plus importante, soit plusieurs entrées combinant des montants plus petits, et au plus deux sorties : une pour le paiement et une renvoyant la monnaie, le cas échéant, à l'expéditeur.
+Bien qu'il soit possible de gérer les pièces individuellement, il serait difficile d'effectuer une transaction distincte pour chaque centime d'un transfert. Pour permettre à la valeur d'être fractionnée et combinée, les transactions contiennent plusieurs entrées et sorties. Normalement, il y aura soit une seule entrée provenant d'une transaction précédente plus importante, soit plusieurs entrées combinant des montants plus petits, et au plus deux sorties  : une pour le paiement et une renvoyant la monnaie, le cas échéant, à l'expéditeur.
 
 image::images/mbc2_abin06.png["séparateur de combinaison"]
 
 Il convient de noter que la diffusion, où une transaction dépend de plusieurs transactions, et ces transactions dépendent de beaucoup d'autres, n'est pas un problème ici. Il n'est jamais nécessaire d'extraire une copie autonome complète de l'historique d'une transaction.
 
 ==== Confidentialité
-Le modèle bancaire traditionnel atteint un niveau de confidentialité en limitant l'accès aux informations des parties concernées et au tierce partie de confiance. La nécessité d'annoncer publiquement toutes les transactions exclut cette méthode, mais la confidentialité peut toujours être préservée en interrompant le flux d'informations à un autre endroit : en gardant les clés publiques anonymes. Le public peut voir que quelqu'un envoie un montant à quelqu'un d'autre, mais sans information liant la transaction à qui que ce soit. Ceci est similaire au niveau d'information publié par les bourses, où l'heure et la taille des transactions individuelles, la "bande", sont rendues publiques, mais sans dire qui étaient les parties.
+Le modèle bancaire traditionnel atteint un niveau de confidentialité en limitant l'accès aux informations des parties concernées et au tierce partie de confiance. La nécessité d'annoncer publiquement toutes les transactions exclut cette méthode, mais la confidentialité peut toujours être préservée en interrompant le flux d'informations à un autre endroit  : en gardant les clés publiques anonymes. Le public peut voir que quelqu'un envoie un montant à quelqu'un d'autre, mais sans information liant la transaction à qui que ce soit. Ceci est similaire au niveau d'information publié par les bourses, où l'heure et la taille des transactions individuelles, la "bande", sont rendues publiques, mais sans dire qui étaient les parties.
 
 image::images/mbc2_abin07.png["vie privée"]
 
@@ -121,11 +121,11 @@ Nous considérons maintenant combien de temps le destinataire d'une nouvelle tra
 
 Le récepteur génère une nouvelle paire de clés et donne la clé publique à l'expéditeur peu de temps avant la signature. Cela évite à l'expéditeur de préparer une chaîne de blocs à l'avance en y travaillant continuellement jusqu'à ce qu'il ait la chance d'aller assez loin, puis d'exécuter la transaction à ce moment-là. Une fois la transaction envoyée, l'expéditeur malhonnête commence à travailler en secret sur une chaîne parallèle contenant une version alternative de sa transaction.
 
-Le destinataire attend que la transaction ait été ajoutée à un bloc et que z blocs aient été liés après celle-ci. Il ne connaît pas la progression exacte de l'attaquant, mais en supposant que les blocs honnêtes ont pris le temps moyen attendu par bloc, la progression potentielle de l'attaquant sera une distribution de Poisson avec une valeur attendue :
+Le destinataire attend que la transaction ait été ajoutée à un bloc et que z blocs aient été liés après celle-ci. Il ne connaît pas la progression exacte de l'attaquant, mais en supposant que les blocs honnêtes ont pris le temps moyen attendu par bloc, la progression potentielle de l'attaquant sera une distribution de Poisson avec une valeur attendue : 
 
 image::images/mbc2_abin09.png["eq2"]
 
-Pour obtenir la probabilité que l'attaquant puisse encore rattraper maintenant, nous multiplions la densité de Poisson pour chaque quantité de progrès qu'il aurait pu faire par la probabilité qu'il puisse rattraper à partir de ce point :
+Pour obtenir la probabilité que l'attaquant puisse encore rattraper maintenant, nous multiplions la densité de Poisson pour chaque quantité de progrès qu'il aurait pu faire par la probabilité qu'il puisse rattraper à partir de ce point : 
 
 image::images/mbc2_abin10.png["eq3"]
 
@@ -213,7 +213,7 @@ Nous avons proposé un système de transactions électroniques sans reposer sur 
 </p>
 
 <p>
-<span id="ref_four">[4]</span> D. Bayer, S. Haber, W.S. Stornetta, "Improving the efficiency and reliability of digital time-stamping," In Sequences II: Methods in Communication, Security and Computer Science, pages 329-334, 1993.
+<span id="ref_four">[4]</span> D. Bayer, S. Haber, W.S. Stornetta, "Improving the efficiency and reliability of digital time-stamping," In Sequences II : Methods in Communication, Security and Computer Science, pages 329-334, 1993.
 </p>
 
 <p>
@@ -235,7 +235,7 @@ Nous avons proposé un système de transactions électroniques sans reposer sur 
 
 === Licence
 
-((("licences source libre")))Ce livre blanc a été publié en octobre 2008 par Satoshi Nakamoto. Il a ensuite été (2009) ajouté comme documentation de support au logiciel bitcoin, qui porte la même licence MIT. Il a été reproduit dans ce livre, sans modification autre que la mise en forme, selon les termes de la licence MIT :
+((("licences source libre")))Ce livre blanc a été publié en octobre 2008 par Satoshi Nakamoto. Il a ensuite été (2009) ajouté comme documentation de support au logiciel bitcoin, qui porte la même licence MIT. Il a été reproduit dans ce livre, sans modification autre que la mise en forme, selon les termes de la licence MIT : 
 
 The MIT License (MIT)
 Copyright (c) 2008 Satoshi Nakamoto
