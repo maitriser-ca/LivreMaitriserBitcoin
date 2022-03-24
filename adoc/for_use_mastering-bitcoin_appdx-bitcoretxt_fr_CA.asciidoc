@@ -87,8 +87,8 @@ Diffuser une transaction sur le réseau Bitcoin
 (remarque : ne diffusez que des transactions valides ; reportez-vous à https://bitnodes.21.co/nodes[] pour les hôtes homologues) :
 
 1. Copiez le code ci-dessous dans un fichier appelé _broadcast.js_.
-2. Les variables +tx+ et +rbfTx+ sont la sortie de +tx.serialize()+ et +rbfTx.serialize()+, respectivement.
-3. Afin de remplacer par des frais, l'homologue doit prendre en charge l'option bitcoind +mempoolreplace+ et la définir sur +1+.
+2. Les variables `tx` et `rbfTx` sont la sortie de `tx.serialize()` et +rbfTx.serialize()+, respectivement.
+3. Afin de remplacer par des frais, l'homologue doit prendre en charge l'option bitcoind `mempoolreplace` et la définir sur +1+.
 4. Exécutez le nœud de fichier _broadcast.js_((("", startref="bitcore16"))) :
 
 ----
@@ -104,7 +104,7 @@ peer.on('ready', function() {
   var index = 0;
   var interval = setInterval(function() {
     peer.sendMessage(txs[index++]);
-    console.log('tx: ' + index + ' sent');
+    console.log('tx: ' ` index ` ' sent');
     if (index === txs.length) {
       clearInterval(interval);
       console.log('disconnecting from peer: ' + host);

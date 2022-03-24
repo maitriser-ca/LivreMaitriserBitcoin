@@ -533,51 +533,51 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Lorsqu&#8217;un nouveau nœud démarre, il doit découvrir d&#8217;autres nœuds Bitcoin sur le réseau afin de participer. Pour démarrer ce processus, un nouveau nœud doit découvrir au moins un nœud existant sur le réseau et s&#8217;y connecter. L&#8217;emplacement géographique des autres nœuds n&#8217;est pas pertinent ; la topologie du réseau Bitcoin n&#8217;est pas définie géographiquement. Par conséquent, tous les nœuds Bitcoin existants peuvent être sélectionnés au hasard.</p>
 </div>
 <div class="paragraph">
-<p>Pour se connecter à un pair connu, les nœuds établissent une connexion TCP, généralement au port 8333 (le port généralement connu comme celui utilisé par bitcoin), ou un autre port s&#8217;il en existe un. Lors de l&#8217;établissement d&#8217;une connexion, le nœud commencera une "prise de contact" (voir <a href="#network_handshake">La poignée de main initiale entre pairs</a>) en transmettant un message version, qui contient des informations d&#8217;identification de base, notamment :</p>
+<p>Pour se connecter à un pair connu, les nœuds établissent une connexion TCP, généralement au port 8333 (le port généralement connu comme celui utilisé par bitcoin), ou un autre port s&#8217;il en existe un. Lors de l&#8217;établissement d&#8217;une connexion, le nœud commencera une "prise de contact" (voir <a href="#network_handshake">La poignée de main initiale entre pairs</a>) en transmettant un message <code>version</code>, qui contient des informations d&#8217;identification de base, notamment :</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">nVersion</dt>
+<dt class="hdlist1"><code>nVersion</code></dt>
 <dd>
 <p>La version du protocole bitcoin P2P que le client "parle" (par exemple, 70002)</p>
 </dd>
-<dt class="hdlist1">nLocalServices</dt>
+<dt class="hdlist1"><code>nLocalServices</code></dt>
 <dd>
-<p>Une liste des services locaux pris en charge par le nœud, actuellement uniquement NODE_NETWORK</p>
+<p>Une liste des services locaux pris en charge par le nœud, actuellement uniquement <code>NODE_NETWORK</code></p>
 </dd>
-<dt class="hdlist1">nTime</dt>
+<dt class="hdlist1"><code>nTime</code></dt>
 <dd>
 <p>L&#8217;heure actuelle</p>
 </dd>
-<dt class="hdlist1">addrYou</dt>
+<dt class="hdlist1"><code>addrYou</code></dt>
 <dd>
 <p>L&#8217;adresse IP du nœud distant vue depuis ce nœud</p>
 </dd>
-<dt class="hdlist1">addrMe</dt>
+<dt class="hdlist1"><code>addrMe</code></dt>
 <dd>
 <p>L&#8217;adresse IP du nœud local, telle que découverte par le nœud local</p>
 </dd>
-<dt class="hdlist1">subver</dt>
+<dt class="hdlist1"><code>subver</code></dt>
 <dd>
 <p>Une sous-version indiquant le type de logiciel exécuté sur ce nœud (par exemple, <span class="keep-together"><code>/Satoshi:0.9.2.1/</code></span>)</p>
 </dd>
-<dt class="hdlist1">BestHeight</dt>
+<dt class="hdlist1"><code>BestHeight</code></dt>
 <dd>
 <p>La hauteur de bloc de la chaîne de blocs de ce nœud</p>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>(Voir <a href="https://bit.ly/1qlsC7w">GitHub</a> pour un exemple du message de version du réseau.)</p>
+<p>(Voir <a href="https://bit.ly/1qlsC7w">GitHub</a> pour un exemple du message de <code>version</code> du réseau.)</p>
 </div>
 <div class="paragraph">
-<p>Le message version est toujours le premier message envoyé par un pair à un autre pair. L&#8217;homologue local recevant un message version examinera la nVersion signalée par l&#8217;homologue distant et décidera si l&#8217;homologue distant est compatible. Si le pair distant est compatible, le pair local accusera réception du message version et établira une connexion en envoyant un message verack.</p>
+<p>Le message <code>version</code> est toujours le premier message envoyé par un pair à un autre pair. L&#8217;homologue local recevant un message <code>version</code> examinera la <code>nVersion</code> signalée par l&#8217;homologue distant et décidera si l&#8217;homologue distant est compatible. Si le pair distant est compatible, le pair local accusera réception du message <code>version</code> et établira une connexion en envoyant un message <code>verack</code>.</p>
 </div>
 <div class="paragraph">
-<p>Comment un nouveau nœud trouve-t-il des pairs ? La première méthode consiste à interroger les DNS à l&#8217;aide d&#8217;un certain nombre de d'"indexes DNS", qui sont des serveurs DNS fournissant une liste d&#8217;adresses IP de nœuds Bitcoin. Certaines de ces indexes DNS fournissent une liste statique d&#8217;adresses IP de nœuds d&#8217;écoute bitcoin stables. Certaines des indexes DNS sont des implémentations personnalisées de BIND (Berkeley Internet Name Daemon) qui renvoient un sous-ensemble aléatoire à partir d&#8217;une liste d&#8217;adresses de nœuds Bitcoin collectées par un robot ou un nœud Bitcoin de longue durée. Le client Bitcoin Core contient les noms de neuf sources DNS différentes. La diversité de propriété et la diversité de mise en œuvre des différentes sources DNS offrent un haut niveau de fiabilité pour le processus d&#8217;amorçage initial. Dans le client Bitcoin Core, l&#8217;option d&#8217;utilisation des indexes DNS est contrôlée par le commutateur d&#8217;option -dnsseed (réglé sur 1 par défaut, pour utiliser la source DNS).</p>
+<p>Comment un nouveau nœud trouve-t-il des pairs ? La première méthode consiste à interroger les DNS à l&#8217;aide d&#8217;un certain nombre de d'"indexes DNS", qui sont des serveurs DNS fournissant une liste d&#8217;adresses IP de nœuds Bitcoin. Certaines de ces indexes DNS fournissent une liste statique d&#8217;adresses IP de nœuds d&#8217;écoute bitcoin stables. Certaines des indexes DNS sont des implémentations personnalisées de BIND (Berkeley Internet Name Daemon) qui renvoient un sous-ensemble aléatoire à partir d&#8217;une liste d&#8217;adresses de nœuds Bitcoin collectées par un robot ou un nœud Bitcoin de longue durée. Le client Bitcoin Core contient les noms de neuf sources DNS différentes. La diversité de propriété et la diversité de mise en œuvre des différentes sources DNS offrent un haut niveau de fiabilité pour le processus d&#8217;amorçage initial. Dans le client Bitcoin Core, l&#8217;option d&#8217;utilisation des indexes DNS est contrôlée par le commutateur d&#8217;option <code>-dnsseed</code> (réglé sur 1 par défaut, pour utiliser la source DNS).</p>
 </div>
 <div class="paragraph">
-<p>Alternativement, un nœud d&#8217;amorçage qui ne sait rien du réseau doit recevoir l&#8217;adresse IP d&#8217;au moins un nœud Bitcoin, après quoi il peut établir des connexions via d&#8217;autres introductions. L&#8217;argument de ligne de commande -seednode peut être utilisé pour se connecter à un nœud uniquement pour les introductions en l&#8217;utilisant comme source. Une fois que le nœud de départ initial a été utilisé pour former des présentations, le client s&#8217;en déconnecte et utilise les pairs nouvellement découverts.</p>
+<p>Alternativement, un nœud d&#8217;amorçage qui ne sait rien du réseau doit recevoir l&#8217;adresse IP d&#8217;au moins un nœud Bitcoin, après quoi il peut établir des connexions via d&#8217;autres introductions. L&#8217;argument de ligne de commande <code>-seednode</code> peut être utilisé pour se connecter à un nœud uniquement pour les introductions en l&#8217;utilisant comme source. Une fois que le nœud de départ initial a été utilisé pour former des présentations, le client s&#8217;en déconnecte et utilise les pairs nouvellement découverts.</p>
 </div>
 <div id="network_handshake" class="imageblock">
 <div class="content">
@@ -586,7 +586,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="title">Figure 4. La poignée de main initiale entre pairs</div>
 </div>
 <div class="paragraph">
-<p>Une fois qu&#8217;une ou plusieurs connexions sont établies, le nouveau nœud enverra un message addr contenant sa propre adresse IP à ses voisins. Les voisins transmettront à leur tour le message addr à leurs voisins, garantissant que le nœud nouvellement connecté devient bien connu et mieux connecté. De plus, le nœud nouvellement connecté peut envoyer getaddr aux voisins, leur demandant de renvoyer une liste d&#8217;adresses IP d&#8217;autres pairs. De cette façon, un nœud peut trouver des pairs auxquels se connecter et annoncer son existence sur le réseau pour que d&#8217;autres nœuds le trouvent. <a href="#address_propagation">Propagation et découverte d&#8217;adresses</a>  montre le protocole de découverte d&#8217;adresse.</p>
+<p>Une fois qu&#8217;une ou plusieurs connexions sont établies, le nouveau nœud enverra un message <code>addr</code> contenant sa propre adresse IP à ses voisins. Les voisins transmettront à leur tour le message <code>addr</code> à leurs voisins, garantissant que le nœud nouvellement connecté devient bien connu et mieux connecté. De plus, le nœud nouvellement connecté peut envoyer <code>getaddr</code> aux voisins, leur demandant de renvoyer une liste d&#8217;adresses IP d&#8217;autres pairs. De cette façon, un nœud peut trouver des pairs auxquels se connecter et annoncer son existence sur le réseau pour que d&#8217;autres nœuds le trouvent. <a href="#address_propagation">Propagation et découverte d&#8217;adresses</a>  montre le protocole de découverte d&#8217;adresse.</p>
 </div>
 <div id="address_propagation" class="imageblock">
 <div class="content">
@@ -598,7 +598,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Un nœud doit se connecter à quelques pairs différents afin d&#8217;établir divers chemins dans le réseau Bitcoin. Les chemins ne sont pas persistants, les nœuds vont et viennent, et le nœud doit donc continuer à découvrir de nouveaux nœuds à mesure qu&#8217;il perd d&#8217;anciennes connexions et à aider les autres nœuds lors de leur démarrage. Une seule connexion est nécessaire pour démarrer, car le premier nœud peut proposer des introductions à ses nœuds pairs et ces pairs peuvent proposer d&#8217;autres introductions. Il est également inutile et gaspilleur de se connecter à plus d&#8217;une poignée de nœuds. Après le démarrage, un nœud se souviendra de ses dernières connexions homologues réussies, de sorte que s&#8217;il est redémarré, il peut rapidement rétablir les connexions avec son ancien réseau homologue. Si aucun des anciens pairs ne répond à sa demande de connexion, le nœud peut utiliser les nœuds de départ pour redémarrer.</p>
 </div>
 <div class="paragraph">
-<p>Sur un nœud exécutant le client Bitcoin Core, vous pouvez lister les connexions homologues avec la commande getpeerinfo :</p>
+<p>Sur un nœud exécutant le client Bitcoin Core, vous pouvez lister les connexions homologues avec la commande <code>getpeerinfo</code> :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -644,7 +644,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="paragraph">
-<p>Pour outrepasser la gestion automatique des pairs et spécifier une liste d&#8217;adresses IP, les utilisateurs peuvent fournir l&#8217;option -connect=&lt;IPAddress&gt; et spécifiez une ou plusieurs adresses IP. Si cette option est utilisée, le nœud se connectera uniquement aux adresses IP sélectionnées, au lieu de découvrir et de maintenir automatiquement les connexions homologues.</p>
+<p>Pour outrepasser la gestion automatique des pairs et spécifier une liste d&#8217;adresses IP, les utilisateurs peuvent fournir l&#8217;option <code>-connect=&lt;IPAddress&gt;</code> et spécifiez une ou plusieurs adresses IP. Si cette option est utilisée, le nœud se connectera uniquement aux adresses IP sélectionnées, au lieu de découvrir et de maintenir automatiquement les connexions homologues.</p>
 </div>
 <div class="paragraph">
 <p>S&#8217;il n&#8217;y a pas de trafic sur une connexion, les nœuds enverront périodiquement un message pour maintenir la connexion. Si un nœud n&#8217;a pas communiqué sur une connexion pendant plus de 90 minutes, il est supposé être déconnecté et un nouveau pair sera recherché. Ainsi, le réseau s&#8217;adapte dynamiquement aux nœuds transitoires et aux problèmes de réseau, et peut croître et rétrécir de manière organique selon les besoins sans aucun contrôle central.</p>
@@ -662,7 +662,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>L&#8217;exécution d&#8217;un nœud de chaîne de blocs complet vous offre l&#8217;expérience bitcoin pure : une vérification indépendante de toutes les transactions sans avoir besoin de s&#8217;appuyer sur, ou de faire confiance, à d&#8217;autres systèmes. Il est facile de savoir si vous exécutez un nœud complet car il nécessite plus de cent gigaoctets de stockage persistant (espace disque) pour stocker la chaîne de blocs complète. Si vous avez besoin de beaucoup de disque et que la synchronisation avec le réseau prend deux à trois jours, vous exécutez un nœud complet. C&#8217;est le prix d&#8217;une indépendance totale et de la liberté vis-à-vis de l&#8217;autorité centrale.</p>
 </div>
 <div class="paragraph">
-<p>Il existe quelques implémentations alternatives de clients Bitcoin à chaîne complète, construites à l&#8217;aide de différents langages de programmation et architectures logicielles. Cependant, l&#8217;implémentation la plus courante est le client de référence Bitcoin Core, également connu sous le nom de client Satoshi. Plus de 75 % des nœuds du réseau Bitcoin exécutent différentes versions de Bitcoin Core. Il est identifié comme « Satoshi » dans la chaîne de sous-version envoyée dans le message version et affiché par la commande getpeerinfo comme nous l&#8217;avons vu précédemment ; par exemple, /Satoshi:0.8.6/.</p>
+<p>Il existe quelques implémentations alternatives de clients Bitcoin à chaîne complète, construites à l&#8217;aide de différents langages de programmation et architectures logicielles. Cependant, l&#8217;implémentation la plus courante est le client de référence Bitcoin Core, également connu sous le nom de client Satoshi. Plus de 75 % des nœuds du réseau Bitcoin exécutent différentes versions de Bitcoin Core. Il est identifié comme « Satoshi » dans la chaîne de sous-version envoyée dans le message <code>version</code> et affiché par la commande <code>getpeerinfo</code> comme nous l&#8217;avons vu précédemment ; par exemple, <code>/Satoshi:0.8.6/</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -671,16 +671,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>La première chose qu&#8217;un nœud complet fera une fois qu&#8217;il se connecte à des pairs est d&#8217;essayer de construire une chaîne de blocs complète. S&#8217;il s&#8217;agit d&#8217;un tout nouveau nœud et qu&#8217;il n&#8217;a aucune chaîne de blocs, il ne connaît qu&#8217;un seul bloc, le bloc de genèse, qui est intégré de manière statique dans le logiciel client. En commençant par le bloc #0 (le bloc de genèse), le nouveau nœud devra télécharger des centaines de milliers de blocs pour se synchroniser avec le réseau et rétablir la chaîne de blocs complète.</p>
 </div>
 <div class="paragraph">
-<p>Le processus de synchronisation de la chaîne de blocs commence par le message version, car il contient BestHeight, l&#8217;hauteur actuelle d&#8217;un nœud (nombre de blocs) de la chaîne de blocs. Un nœud verra les messages version de ses pairs, saura combien de blocs ils ont chacun et pourra comparer avec le nombre de blocs qu&#8217;il a dans sa propre chaîne de blocs. Les nœuds appairés échangeront un message getblocks contenant le hachage (empreinte digitale) du bloc supérieur sur leur chaîne de blocs locale. L&#8217;un des pairs pourra identifier le résultat d&#8217;hachage reçu comme appartenant à un bloc qui n&#8217;est pas au sommet, mais appartient plutôt à un bloc plus ancien, en déduisant ainsi que sa propre chaîne de blocs locale est plus longue que celle de son pair.</p>
+<p>Le processus de synchronisation de la chaîne de blocs commence par le message <code>version</code>, car il contient <code>BestHeight</code>, l&#8217;hauteur actuelle d&#8217;un nœud (nombre de blocs) de la chaîne de blocs. Un nœud verra les messages <code>version</code> de ses pairs, saura combien de blocs ils ont chacun et pourra comparer avec le nombre de blocs qu&#8217;il a dans sa propre chaîne de blocs. Les nœuds appairés échangeront un message <code>getblocks</code> contenant le hachage (empreinte digitale) du bloc supérieur sur leur chaîne de blocs locale. L&#8217;un des pairs pourra identifier le résultat d&#8217;hachage reçu comme appartenant à un bloc qui n&#8217;est pas au sommet, mais appartient plutôt à un bloc plus ancien, en déduisant ainsi que sa propre chaîne de blocs locale est plus longue que celle de son pair.</p>
 </div>
 <div class="paragraph">
-<p>Le pair qui a la chaîne de blocs la plus longue a plus de blocs que l&#8217;autre nœud et peut identifier les blocs dont l&#8217;autre nœud a besoin pour "rattraper son retard". Il identifiera les 500 premiers blocs à partager et transmettra leurs hachages à l&#8217;aide d&#8217;un message inv (inventaire). Le nœud manquant ces blocs les récupérera ensuite, en émettant une série de messages getdata demandant les données complètes du bloc et en identifiant les blocs demandés à l&#8217;aide des hachages du message inv.</p>
+<p>Le pair qui a la chaîne de blocs la plus longue a plus de blocs que l&#8217;autre nœud et peut identifier les blocs dont l&#8217;autre nœud a besoin pour "rattraper son retard". Il identifiera les 500 premiers blocs à partager et transmettra leurs hachages à l&#8217;aide d&#8217;un message <code>inv</code> (inventaire). Le nœud manquant ces blocs les récupérera ensuite, en émettant une série de messages <code>getdata</code> demandant les données complètes du bloc et en identifiant les blocs demandés à l&#8217;aide des hachages du message <code>inv</code>.</p>
 </div>
 <div class="paragraph">
-<p>Supposons, par exemple, qu&#8217;un nœud n&#8217;ait que le bloc de genèse. Il recevra alors un message inv de ses pairs contenant les hachages des 500 prochains blocs de la chaîne. Il commencera à demander des blocs à tous ses pairs connectés, répartissant la charge et s&#8217;assurant qu&#8217;il ne submerge aucun pair de demandes. Le nœud garde une trace du nombre de blocs "en transit" par connexion homologue, c&#8217;est-à-dire des blocs qu&#8217;il a demandés mais non reçus, en vérifiant qu&#8217;il ne dépasse pas une limite (MAX_BLOCKS_IN_TRANSIT_PER_PEER). De cette façon, s&#8217;il a besoin de beaucoup de blocs, il n&#8217;en demandera de nouveaux que lorsque les demandes précédentes seront satisfaites, permettant aux pairs de contrôler le rythme des mises à jour et de ne pas submerger le réseau. Au fur et à mesure que chaque bloc est reçu, il est ajouté à la chaîne de blocs, comme nous le verrons dans <a href="#blockchain">[blockchain]</a>. Au fur et à mesure que la chaîne de blocs locale se construit, davantage de blocs sont demandés et reçus, et le processus se poursuit jusqu&#8217;à ce que le nœud rattrape le reste du réseau.</p>
+<p>Supposons, par exemple, qu&#8217;un nœud n&#8217;ait que le bloc de genèse. Il recevra alors un message <code>inv</code> de ses pairs contenant les hachages des 500 prochains blocs de la chaîne. Il commencera à demander des blocs à tous ses pairs connectés, répartissant la charge et s&#8217;assurant qu&#8217;il ne submerge aucun pair de demandes. Le nœud garde une trace du nombre de blocs "en transit" par connexion homologue, c&#8217;est-à-dire des blocs qu&#8217;il a demandés mais non reçus, en vérifiant qu&#8217;il ne dépasse pas une limite (<code>MAX_BLOCKS_IN_TRANSIT_PER_PEER</code>). De cette façon, s&#8217;il a besoin de beaucoup de blocs, il n&#8217;en demandera de nouveaux que lorsque les demandes précédentes seront satisfaites, permettant aux pairs de contrôler le rythme des mises à jour et de ne pas submerger le réseau. Au fur et à mesure que chaque bloc est reçu, il est ajouté à la chaîne de blocs, comme nous le verrons dans <a href="#blockchain">[blockchain]</a>. Au fur et à mesure que la chaîne de blocs locale se construit, davantage de blocs sont demandés et reçus, et le processus se poursuit jusqu&#8217;à ce que le nœud rattrape le reste du réseau.</p>
 </div>
 <div class="paragraph">
-<p>Ce processus de comparaison de la chaîne de blocs locale avec les pairs et de récupération des blocs manquants se produit chaque fois qu&#8217;un nœud se déconnecte pendant une période donnée. Qu&#8217;un nœud soit hors ligne depuis quelques minutes et qu&#8217;il manque quelques blocs, ou un mois et qu&#8217;il manque quelques milliers de blocs, il commence par envoyer getblocks, reçoit une réponse inv et commence à télécharger les blocs manquants. <a href="#inventory_synchronization">Nœud synchronisant la chaîne de blocs en récupérant les blocs d&#8217;un pair</a> affiche l&#8217;inventaire et le protocole de propagation des blocs.</p>
+<p>Ce processus de comparaison de la chaîne de blocs locale avec les pairs et de récupération des blocs manquants se produit chaque fois qu&#8217;un nœud se déconnecte pendant une période donnée. Qu&#8217;un nœud soit hors ligne depuis quelques minutes et qu&#8217;il manque quelques blocs, ou un mois et qu&#8217;il manque quelques milliers de blocs, il commence par envoyer <code>getblocks</code>, reçoit une réponse <code>inv</code> et commence à télécharger les blocs manquants. <a href="#inventory_synchronization">Nœud synchronisant la chaîne de blocs en récupérant les blocs d&#8217;un pair</a> affiche l&#8217;inventaire et le protocole de propagation des blocs.</p>
 </div>
 <div id="inventory_synchronization" class="imageblock smallerfifty">
 <div class="content">
@@ -727,7 +727,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="paragraph">
-<p>Pour obtenir les en-têtes de bloc, les nœuds SPV utilisent un message getheaders au lieu de getblocks. L&#8217;homologue qui répond enverra jusqu&#8217;à 2 000 en-têtes de bloc à l&#8217;aide d&#8217;un seul message headers. Le processus est par ailleurs le même que celui utilisé par un nœud complet pour récupérer des blocs complets. Les nœuds SPV définissent également un filtre sur la connexion aux pairs, pour filtrer le flux des futurs blocs et transactions envoyés par les pairs. Toutes les transactions intéressantes sont récupérées à l&#8217;aide d&#8217;une requête getdata. Le pair génère un message tx contenant les transactions, en réponse. <a href="#spv_synchronization">Nœud SPV synchronisant les en-têtes de bloc</a> montre la synchronisation des en-têtes de bloc.</p>
+<p>Pour obtenir les en-têtes de bloc, les nœuds SPV utilisent un message <code>getheaders</code> au lieu de <code>getblocks</code>. L&#8217;homologue qui répond enverra jusqu&#8217;à 2 000 en-têtes de bloc à l&#8217;aide d&#8217;un seul message <code>headers</code>. Le processus est par ailleurs le même que celui utilisé par un nœud complet pour récupérer des blocs complets. Les nœuds SPV définissent également un filtre sur la connexion aux pairs, pour filtrer le flux des futurs blocs et transactions envoyés par les pairs. Toutes les transactions intéressantes sont récupérées à l&#8217;aide d&#8217;une requête <code>getdata</code>. Le pair génère un message <code>tx</code> contenant les transactions, en réponse. <a href="#spv_synchronization">Nœud SPV synchronisant les en-têtes de bloc</a> montre la synchronisation des en-têtes de bloc.</p>
 </div>
 <div class="paragraph">
 <p>Étant donné que les nœuds SPV doivent récupérer des transactions spécifiques afin de les vérifier de manière sélective, ils créent également un risque pour la confidentialité. Contrairement aux nœuds de chaîne de blocs complets, qui collectent toutes les transactions au sein de chaque bloc, les demandes de données spécifiques du nœud SPV peuvent révéler par inadvertance les adresses de leur portefeuille. Par exemple, un tiers surveillant un réseau pourrait suivre toutes les transactions demandées par un portefeuille sur un nœud SPV et les utiliser pour associer des adresses Bitcoin à l&#8217;utilisateur de ce portefeuille, détruisant ainsi la vie privée de l&#8217;utilisateur.</p>
@@ -768,13 +768,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="title">Figure 8. Un exemple de filtre de Bloom simpliste, avec un champ 16 bits et trois fonctions de hachage</div>
 </div>
 <div class="paragraph">
-<p>Le filtre de Bloom est initialisé de sorte que le tableau de bits ne soit que des zéros. Pour ajouter un motif au filtre de Bloom, le motif est haché tour à tour par chaque fonction de hachage. L&#8217;application de la première fonction de hachage à l&#8217;entrée donne un nombre compris entre 1 et N. Le bit correspondant dans le tableau (indexé de 1 à N) est trouvé et défini sur 1, enregistrant ainsi la sortie de la fonction de hachage. Ensuite, la fonction de hachage suivante est utilisée pour définir un autre bit et ainsi de suite. Une fois que toutes les fonctions de hachage M ont été appliquées, le modèle de recherche sera "enregistré" dans le filtre de Bloom sous forme de M bits qui ont été modifiés de 0 à 1.</p>
+<p>Le filtre de Bloom est initialisé de sorte que le tableau de bits ne soit que des zéros. Pour ajouter un motif au filtre de Bloom, le motif est haché tour à tour par chaque fonction de hachage. L&#8217;application de la première fonction de hachage à l&#8217;entrée donne un nombre compris entre 1 et N. Le bit correspondant dans le tableau (indexé de 1 à N) est trouvé et défini sur <code>1</code>, enregistrant ainsi la sortie de la fonction de hachage. Ensuite, la fonction de hachage suivante est utilisée pour définir un autre bit et ainsi de suite. Une fois que toutes les fonctions de hachage M ont été appliquées, le modèle de recherche sera "enregistré" dans le filtre de Bloom sous forme de M bits qui ont été modifiés de <code>0</code> à <code>1</code>.</p>
 </div>
 <div class="paragraph">
 <p><a href="#bloom2">Ajout d&#8217;un motif "A" à notre filtre de Bloom simple</a> est un exemple d&#8217;ajout d&#8217;un motif "A" au filtre de Bloom simple illustré dans <a href="#bloom1">Un exemple de filtre de Bloom simpliste, avec un champ 16 bits et trois fonctions de hachage</a>.</p>
 </div>
 <div class="paragraph">
-<p>L&#8217;ajout d&#8217;un deuxième motif est aussi simple que de répéter ce processus. Le motif est haché par chaque fonction de hachage tour à tour et le résultat est enregistré en réglant les bits sur 1. Notez qu&#8217;à mesure qu&#8217;un filtre bloom est rempli de plusieurs modèles, le résultat d&#8217;une fonction de hachage peut coïncider avec un bit déjà défini sur 1, auquel cas le bit n&#8217;est pas modifié. Essentiellement, à mesure que davantage de motifs sont enregistrés sur des bits qui se chevauchent, le filtre de bloom commence à être saturé avec davantage de bits réglés sur 1 et la précision du filtre diminue. C&#8217;est pourquoi le filtre est une structure de données probabiliste - il devient moins précis à mesure que d&#8217;autres modèles sont ajoutés. La précision dépend du nombre de motifs ajoutés par rapport à la taille du tableau de bits (N) et du nombre de fonctions de hachage (M). Un tableau de bits plus grand et plus de fonctions de hachage peuvent enregistrer plus de modèles avec une plus grande précision. Un tableau de bits plus petit ou moins de fonctions de hachage enregistrera moins de modèles et produira moins de précision.</p>
+<p>L&#8217;ajout d&#8217;un deuxième motif est aussi simple que de répéter ce processus. Le motif est haché par chaque fonction de hachage tour à tour et le résultat est enregistré en réglant les bits sur <code>1</code>. Notez qu&#8217;à mesure qu&#8217;un filtre bloom est rempli de plusieurs modèles, le résultat d&#8217;une fonction de hachage peut coïncider avec un bit déjà défini sur <code>1</code>, auquel cas le bit n&#8217;est pas modifié. Essentiellement, à mesure que davantage de motifs sont enregistrés sur des bits qui se chevauchent, le filtre de bloom commence à être saturé avec davantage de bits réglés sur <code>1</code> et la précision du filtre diminue. C&#8217;est pourquoi le filtre est une structure de données probabiliste - il devient moins précis à mesure que d&#8217;autres modèles sont ajoutés. La précision dépend du nombre de motifs ajoutés par rapport à la taille du tableau de bits (N) et du nombre de fonctions de hachage (M). Un tableau de bits plus grand et plus de fonctions de hachage peuvent enregistrer plus de modèles avec une plus grande précision. Un tableau de bits plus petit ou moins de fonctions de hachage enregistrera moins de modèles et produira moins de précision.</p>
 </div>
 <div id="bloom2" class="imageblock">
 <div class="content">
@@ -792,10 +792,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="title">Figure 10. Ajout d&#8217;un deuxième motif "B" à notre filtre de Bloom simple</div>
 </div>
 <div class="paragraph">
-<p>Pour tester si un motif fait partie d&#8217;un filtre de Bloom, le motif est haché par chaque fonction de hachage et le motif de bits résultant est testé par rapport au tableau de bits. Si tous les bits indexés par les fonctions de hachage sont mis à 1, alors le motif est <em>probablement</em> enregistré dans le filtre de Bloom. Étant donné que les bits peuvent être définis en raison du chevauchement de plusieurs modèles, la réponse n&#8217;est pas certaine, mais plutôt probabiliste. En termes simples, une correspondance positive du filtre de Bloom est un "Peut-être, Oui".</p>
+<p>Pour tester si un motif fait partie d&#8217;un filtre de Bloom, le motif est haché par chaque fonction de hachage et le motif de bits résultant est testé par rapport au tableau de bits. Si tous les bits indexés par les fonctions de hachage sont mis à <code>1</code>, alors le motif est <em>probablement</em> enregistré dans le filtre de Bloom. Étant donné que les bits peuvent être définis en raison du chevauchement de plusieurs modèles, la réponse n&#8217;est pas certaine, mais plutôt probabiliste. En termes simples, une correspondance positive du filtre de Bloom est un "Peut-être, Oui".</p>
 </div>
 <div class="paragraph">
-<p><a href="#bloom4">Tester l&#8217;existence du motif "X" dans le filtre de Bloom. Le résultat est une correspondance positive probabiliste, ce qui signifie "Peut-être".</a> est un exemple de test de l&#8217;existence du motif "X" dans le filtre de Bloom simple. Les bits correspondants sont définis sur 1, donc le motif est probablement une correspondance.</p>
+<p><a href="#bloom4">Tester l&#8217;existence du motif "X" dans le filtre de Bloom. Le résultat est une correspondance positive probabiliste, ce qui signifie "Peut-être".</a> est un exemple de test de l&#8217;existence du motif "X" dans le filtre de Bloom simple. Les bits correspondants sont définis sur <code>1</code>, donc le motif est probablement une correspondance.</p>
 </div>
 <div id="bloom4" class="imageblock smallereighty">
 <div class="content">
@@ -804,10 +804,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="title">Figure 11. Tester l&#8217;existence du motif "X" dans le filtre de Bloom. Le résultat est une correspondance positive probabiliste, ce qui signifie "Peut-être".</div>
 </div>
 <div class="paragraph">
-<p>Au contraire, si un motif est testé par rapport au filtre bloom et que l&#8217;un des bits est mis à 0, cela prouve que le motif n&#8217;a pas été enregistré dans le filtre de Bloom. Un résultat négatif n&#8217;est pas une probabilité, c&#8217;est une certitude. En termes simples, une correspondance négative sur un filtre de Bloom est un "Définitivement pas!"</p>
+<p>Au contraire, si un motif est testé par rapport au filtre bloom et que l&#8217;un des bits est mis à <code>0</code>, cela prouve que le motif n&#8217;a pas été enregistré dans le filtre de Bloom. Un résultat négatif n&#8217;est pas une probabilité, c&#8217;est une certitude. En termes simples, une correspondance négative sur un filtre de Bloom est un "Définitivement pas!"</p>
 </div>
 <div class="paragraph">
-<p><a href="#bloom5">Tester l&#8217;existence du motif "Y" dans le filtre de Bloom. Le résultat est une correspondance négative définitive, ce qui signifie "Définitivement pas !"</a> est un exemple de test de l&#8217;existence du motif "Y" dans le filtre de Bloom simple. L&#8217;un des bits correspondants est défini sur 0, donc le motif n&#8217;est certainement pas une correspondance.</p>
+<p><a href="#bloom5">Tester l&#8217;existence du motif "Y" dans le filtre de Bloom. Le résultat est une correspondance négative définitive, ce qui signifie "Définitivement pas !"</a> est un exemple de test de l&#8217;existence du motif "Y" dans le filtre de Bloom simple. L&#8217;un des bits correspondants est défini sur <code>0</code>, donc le motif n&#8217;est certainement pas une correspondance.</p>
 </div>
 <div id="bloom5" class="imageblock">
 <div class="content">
@@ -826,7 +826,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Un nœud SPV initialisera un filtre de Bloom comme "vide" ; dans cet état, le filtre de Bloom ne correspondra à aucun motif. Le nœud SPV établira ensuite une liste de toutes les adresses, clés et hachages qui l&#8217;intéressent. Il le fera en extrayant le hachage de clé publique et le hachage de script et les ID de transaction de tout UTXO contrôlé par son portefeuille. Le nœud SPV ajoute ensuite chacun d&#8217;entre eux au filtre de Bloom, de sorte que le filtre de Bloom "correspondra" si ces modèles sont présents dans une transaction, sans révéler les modèles eux-mêmes.</p>
 </div>
 <div class="paragraph">
-<p>Le nœud SPV enverra alors un message filterload au pair, contenant le filtres de Bloom à utiliser sur la connexion. Sur le pair, les filtres de Bloom sont vérifiés par rapport à chaque transaction entrante. Le nœud complet vérifie plusieurs parties de la transaction par rapport au filtre de Bloom, à la recherche d&#8217;une correspondance, notamment :</p>
+<p>Le nœud SPV enverra alors un message <code>filterload</code> au pair, contenant le filtres de Bloom à utiliser sur la connexion. Sur le pair, les filtres de Bloom sont vérifiés par rapport à chaque transaction entrante. Le nœud complet vérifie plusieurs parties de la transaction par rapport au filtre de Bloom, à la recherche d&#8217;une correspondance, notamment :</p>
 </div>
 <div class="ulist">
 <ul>
@@ -845,19 +845,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p>En comparant tous ces composants, les filtres Bloom peuvent être utilisés pour faire correspondre les hachages de clés publiques, les scripts, les valeurs OP_RETURN, les clés publiques dans les signatures ou tout futur composant d&#8217;un contrat intelligent ou d&#8217;un script complexe.</p>
+<p>En comparant tous ces composants, les filtres Bloom peuvent être utilisés pour faire correspondre les hachages de clés publiques, les scripts, les valeurs <code>OP_RETURN</code>, les clés publiques dans les signatures ou tout futur composant d&#8217;un contrat intelligent ou d&#8217;un script complexe.</p>
 </div>
 <div class="paragraph">
 <p>Une fois qu&#8217;un filtre est établi, le pair teste ensuite la sortie de chaque transaction par rapport au filtre Bloom. Seules les transactions qui correspondent au filtre sont envoyées au nœud.</p>
 </div>
 <div class="paragraph">
-<p>En réponse à un message getdata du nœud, les pairs enverront un message merkleblock qui ne contient que des en-têtes de bloc pour les blocs correspondant au filtre et un chemin Merkle (voir <a href="#merkle_trees">[merkle_trees]</a>) pour chaque transaction correspondante. Le pair enverra alors également des messages tx contenant les transactions mises en correspondance par le filtre.</p>
+<p>En réponse à un message <code>getdata</code> du nœud, les pairs enverront un message <code>merkleblock</code> qui ne contient que des en-têtes de bloc pour les blocs correspondant au filtre et un chemin Merkle (voir <a href="#merkle_trees">[merkle_trees]</a>) pour chaque transaction correspondante. Le pair enverra alors également des messages <code>tx</code> contenant les transactions mises en correspondance par le filtre.</p>
 </div>
 <div class="paragraph">
 <p>Lorsque le nœud complet envoie des transactions au nœud SPV, le nœud SPV rejette tous les faux positifs et utilise les transactions correctement appariées pour mettre à jour son ensemble UTXO et le solde de son portefeuille. Au fur et à mesure qu&#8217;il met à jour sa propre vue de l&#8217;ensemble UTXO, il modifie également le filtre de Bloom pour correspondre à toutes les transactions futures faisant référence à l&#8217;UTXO qu&#8217;il vient de trouver. Le nœud complet utilise ensuite le nouveau filtre de Bloom pour faire correspondre les nouvelles transactions et l&#8217;ensemble du processus se répète.</p>
 </div>
 <div class="paragraph">
-<p>Le nœud définissant le filtre de Bloom peut ajouter de manière interactive des motifs au filtre en envoyant un message filteradd. Pour effacer le filtre de Bloom, le nœud peut envoyer un message filterclear. Puisqu&#8217;il n&#8217;est pas possible de supprimer un modèle d&#8217;un filtre de Bloom, un nœud doit effacer et renvoyer un nouveau filtre de Bloom si un modèle n&#8217;est plus souhaité.</p>
+<p>Le nœud définissant le filtre de Bloom peut ajouter de manière interactive des motifs au filtre en envoyant un message <code>filteradd</code>. Pour effacer le filtre de Bloom, le nœud peut envoyer un message <code>filterclear</code>. Puisqu&#8217;il n&#8217;est pas possible de supprimer un modèle d&#8217;un filtre de Bloom, un nœud doit effacer et renvoyer un nouveau filtre de Bloom si un modèle n&#8217;est plus souhaité.</p>
 </div>
 <div class="paragraph">
 <p>Le protocole réseau et le mécanisme de filtre de Bloom pour les nœuds SPV sont définis dans <a href="https://bit.ly/1x6qCiO">BIP-37 (Peer Services)</a>.</p>
@@ -889,7 +889,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Bitcoin Core offre plusieurs options de configuration qui vous permettent d&#8217;exécuter un nœud Bitcoin avec son trafic transporté sur le réseau Tor. De plus, Bitcoin Core peut également offrir un service caché Tor permettant à d&#8217;autres nœuds Tor de se connecter à votre nœud directement via Tor.</p>
 </div>
 <div class="paragraph">
-<p>À partir de la version 0.12 de Bitcoin Core, un nœud proposera automatiquement un service Tor caché s&#8217;il est capable de se connecter à un service Tor local. Si vous avez installé Tor et que le processus Bitcoin Core s&#8217;exécute en tant qu&#8217;utilisateur disposant des autorisations adéquates pour accéder au cookie d&#8217;authentification Tor, il devrait fonctionner automatiquement. Utilisez le drapeau debug pour activer le débogage de Bitcoin Core pour le service Tor comme ceci :</p>
+<p>À partir de la version 0.12 de Bitcoin Core, un nœud proposera automatiquement un service Tor caché s&#8217;il est capable de se connecter à un service Tor local. Si vous avez installé Tor et que le processus Bitcoin Core s&#8217;exécute en tant qu&#8217;utilisateur disposant des autorisations adéquates pour accéder au cookie d&#8217;authentification Tor, il devrait fonctionner automatiquement. Utilisez le drapeau <code>debug</code> pour activer le débogage de Bitcoin Core pour le service Tor comme ceci :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -940,7 +940,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Le bassin de transactions et le bassin orphelin (le cas échéant) sont stockés dans la mémoire locale et ne sont pas enregistrés sur le stockage persistant ; ils sont plutôt renseignés dynamiquement à partir des messages réseau entrants. Lorsqu&#8217;un nœud démarre, les deux bassins sont vides et se remplissent progressivement avec les nouvelles transactions reçues sur le réseau.</p>
 </div>
 <div class="paragraph">
-<p>Certaines implémentations du client Bitcoin maintiennent également une base de données ou un bassin UTXO, qui est l&#8217;ensemble de toutes les sorties non dépensées sur la chaîne de blocs. Les utilisateurs de Bitcoin Core le trouveront dans le dossier chainstate/ du répertoire de données de leur client. Bien que le nom "bassin UTXO" ressemble au bassin de transactions, il représente un ensemble de données différent. Contrairement aux bassins de transactions et orphelins, le bassin UTXO n&#8217;est pas initialisé vide mais contient à la place des millions d&#8217;entrées de sorties de transactions non dépensées, tout ce qui n&#8217;est pas dépensé depuis le bloc de genèse. Le bassin UTXO peut être hébergé dans la mémoire locale ou sous la forme d&#8217;une table de base de données indexée sur un stockage persistant.</p>
+<p>Certaines implémentations du client Bitcoin maintiennent également une base de données ou un bassin UTXO, qui est l&#8217;ensemble de toutes les sorties non dépensées sur la chaîne de blocs. Les utilisateurs de Bitcoin Core le trouveront dans le dossier <code>chainstate/</code> du répertoire de données de leur client. Bien que le nom "bassin UTXO" ressemble au bassin de transactions, il représente un ensemble de données différent. Contrairement aux bassins de transactions et orphelins, le bassin UTXO n&#8217;est pas initialisé vide mais contient à la place des millions d&#8217;entrées de sorties de transactions non dépensées, tout ce qui n&#8217;est pas dépensé depuis le bloc de genèse. Le bassin UTXO peut être hébergé dans la mémoire locale ou sous la forme d&#8217;une table de base de données indexée sur un stockage persistant.</p>
 </div>
 <div class="paragraph">
 <p>Alors que les bassins de transactions et orphelins représentent la perspective locale d&#8217;un seul nœud et peuvent varier considérablement d&#8217;un nœud à l&#8217;autre en fonction du moment où le nœud a été démarré ou redémarré, le bassin UTXO représente le consensus émergent du réseau et variera donc peu entre les nœuds. De plus, les bassins de transactions et orphelins ne contiennent que des transactions non confirmées, tandis que le pool UTXO ne contient que des sorties confirmées.</p>
@@ -951,7 +951,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-23 18:57:04 -0400
+Last updated 2022-03-23 22:25:24 -0400
 </div>
 </div>
 </body>

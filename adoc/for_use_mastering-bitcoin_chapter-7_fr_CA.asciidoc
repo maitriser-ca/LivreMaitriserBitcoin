@@ -14,7 +14,7 @@ Tout d'abord, nous examinerons les scripts _multisignature_. Ensuite, nous exami
 
 ((("transactions", "avancé", "scripts multisignatures")))((("transactions", "avancé", id="Tadv07")))((("scripts", "scripts multisignatures", id="Smulti07")))((("scripts multisignatures")))Les scripts multisignatures définissent une condition dans laquelle N clés publiques sont enregistrées dans le script et au moins M d'entre elles doivent fournir des signatures pour débloquer les fonds. Ceci est également connu sous le nom de schéma M-sur-N, où N est le nombre total de clés et M est le seuil de signatures requises pour la validation. Par exemple, une multisignature 2 sur 3 est celle où trois clés publiques sont répertoriées comme signataires potentiels et au moins deux d'entre elles doivent être utilisées pour créer des signatures pour une transaction valide afin de dépenser les fonds.
 
-À l'heure actuelle, les scripts multisignatures _standard_ sont limités à un maximum de 3 clés publiques répertoriées, ce qui signifie que vous pouvez faire n'importe quoi d'une multisignature 1 sur 1 jusqu'à 3 sur 3 ou toute combinaison dans cette plage. La limitation à 3 clés répertoriées pourrait être levée au moment de la publication de ce livre, alors vérifiez la fonction +IsStandard()+ pour voir ce qui est actuellement accepté par le réseau. Notez que la limite de 3 clés s'applique uniquement aux scripts multisignatures standard (également appelés "nus (bare en anglais)"), et non aux scripts multisignatures enveloppés dans un script Pay-to-Script-Hash (P2SH). Les scripts multisignatures P2SH sont limités à 15 clés, permettant jusqu'à 15 multisignatures sur 15. Cette limitation est également imposée par la fonction +IsStandard()+. Nous en apprendrons davantage sur P2SH dans <<p2sh>>.
+À l'heure actuelle, les scripts multisignatures _standard_ sont limités à un maximum de 3 clés publiques répertoriées, ce qui signifie que vous pouvez faire n'importe quoi d'une multisignature 1 sur 1 jusqu'à 3 sur 3 ou toute combinaison dans cette plage. La limitation à 3 clés répertoriées pourrait être levée au moment de la publication de ce livre, alors vérifiez la fonction `IsStandard()` pour voir ce qui est actuellement accepté par le réseau. Notez que la limite de 3 clés s'applique uniquement aux scripts multisignatures standard (également appelés "nus (bare en anglais)"), et non aux scripts multisignatures enveloppés dans un script Pay-to-Script-Hash (P2SH). Les scripts multisignatures P2SH sont limités à 15 clés, permettant jusqu'à 15 multisignatures sur 15. Cette limitation est également imposée par la fonction `IsStandard()`. Nous en apprendrons davantage sur P2SH dans <<p2sh>>.
 
 La forme générale d'un script de verrouillage définissant une condition multisignature M-de-N est :
 
@@ -47,7 +47,7 @@ Lorsqu'il est exécuté, ce script combiné sera évalué à TRUE si, et seuleme
 [[multisig_bug]]
 ==== Un bogue dans l'exécution de CHECKMULTISIG
 
-((("scripting", "multisignature scripts", "CHECKMULTISIG bug")))((("CHECKMULTISIG bug workaround")))Il y a un bug dans l'exécution de ++CHECKMULTISIG++ qui nécessite une légère solution de contournement. Lorsque +CHECKMULTISIG+ s'exécute, il doit consommer M+N+2 éléments sur la pile en tant que paramètres. Cependant, en raison du bogue, +CHECKMULTISIG+ affichera une valeur supplémentaire ou une valeur de plus que prévu.
+((("scripting", "multisignature scripts", "CHECKMULTISIG bug")))((("CHECKMULTISIG bug workaround")))Il y a un bug dans l'exécution de `CHECKMULTISIG` qui nécessite une légère solution de contournement. Lorsque `CHECKMULTISIG` s'exécute, il doit consommer M`N`2 éléments sur la pile en tant que paramètres. Cependant, en raison du bogue, `CHECKMULTISIG` affichera une valeur supplémentaire ou une valeur de plus que prévu.
 
 Examinons cela plus en détail à l'aide de l'exemple de validation précédent :
 
@@ -55,7 +55,7 @@ Examinons cela plus en détail à l'aide de l'exemple de validation précédent�
 <Signature B> <Signature C> 2 <Public Key A> <Public Key B> <Public Key C> 3 CHECKMULTISIG
 ----
 
-Tout d'abord, +CHECKMULTISIG+ affiche l'élément supérieur, qui est +N+ (dans cet exemple "3"). Ensuite, il affiche +N+ éléments, qui sont les clés publiques pouvant signer. Dans cet exemple, les clés publiques A, B et C. Ensuite, un élément apparaît, qui est +M+, le quorum (combien de signatures sont nécessaires). Ici M = 2. À ce stade, +CHECKMULTISIG+ devrait faire apparaître les éléments finaux +M+, qui sont les signatures, et voir s'ils sont valides. Cependant, malheureusement, un bogue dans l'implémentation fait que +CHECKMULTISIG+ affiche un élément de plus (M+1 total) qu'il ne le devrait. L'élément supplémentaire n'est pas pris en compte lors de la vérification des signatures, il n'a donc aucun effet direct sur +CHECKMULTISIG+ lui-même. Cependant, une valeur supplémentaire doit être présente car si elle n'est pas présente, lorsque +CHECKMULTISIG+ tente d'apparaître sur une pile vide, cela provoquera une erreur de pile et un échec du script (marquant la transaction comme invalide). Comme l'élément supplémentaire n'est pas pris en compte, il peut s'agir de n'importe quoi, mais habituellement +0+ est utilisé.
+Tout d'abord, `CHECKMULTISIG` affiche l'élément supérieur, qui est `N` (dans cet exemple "3"). Ensuite, il affiche `N` éléments, qui sont les clés publiques pouvant signer. Dans cet exemple, les clés publiques A, B et C. Ensuite, un élément apparaît, qui est `M`, le quorum (combien de signatures sont nécessaires). Ici M = 2. À ce stade, `CHECKMULTISIG` devrait faire apparaître les éléments finaux `M`, qui sont les signatures, et voir s'ils sont valides. Cependant, malheureusement, un bogue dans l'implémentation fait que `CHECKMULTISIG` affiche un élément de plus (M+1 total) qu'il ne le devrait. L'élément supplémentaire n'est pas pris en compte lors de la vérification des signatures, il n'a donc aucun effet direct sur `CHECKMULTISIG` lui-même. Cependant, une valeur supplémentaire doit être présente car si elle n'est pas présente, lorsque `CHECKMULTISIG` tente d'apparaître sur une pile vide, cela provoquera une erreur de pile et un échec du script (marquant la transaction comme invalide). Comme l'élément supplémentaire n'est pas pris en compte, il peut s'agir de n'importe quoi, mais habituellement `0` est utilisé.
 
 Parce que ce bogue est devenu une partie des règles de consensus, il doit maintenant être répliqué pour toujours. Par conséquent, la validation correcte du script ressemblerait à ceci :
 
@@ -75,7 +75,7 @@ mais à la place c'est :
 0 <Signature B> <Signature C>
 ----
 
-À partir de maintenant, si vous voyez un script de déverrouillage multisig, vous devriez vous attendre à voir un +0+ supplémentaire au début, dont le seul but est de contourner un bogue qui est accidentellement devenu une règle de consensus.((("", startref="Smulti07")))
+À partir de maintenant, si vous voyez un script de déverrouillage multisig, vous devriez vous attendre à voir un `0` supplémentaire au début, dont le seul but est de contourner un bogue qui est accidentellement devenu une règle de consensus.((("", startref="Smulti07")))
 
 [[p2sh]]
 === Pay-to-Script-Hash (P2SH)
@@ -130,7 +130,7 @@ Si les espaces réservés sont remplacés par des clés publiques réelles (affi
 
 Ce script entier peut à la place être représenté par un hachage cryptographique de 20 octets, en appliquant d'abord l'algorithme de hachage SHA256, puis en appliquant l'algorithme RIPEMD160 sur le résultat.
 
-Nous utilisons +libbitcoin-explorer+ (+bx+) sur la ligne de commande pour produire le hachage du script, comme suit :
+Nous utilisons `libbitcoin-explorer` (+bx+) sur la ligne de commande pour produire le hachage du script, comme suit :
 
 ----
 echo \
@@ -145,7 +145,7 @@ echo \
 54c557e07dde5bb6cb791c7a540e0a4796f5e97e
 ----
 
-La série de commandes ci-dessus encode d'abord le script de rachat multisig de Mohammed en tant que script bitcoin sérialisé encodé en hexadécimal. La commande +bx+ suivante calcule le hachage SHA256 de cela. La prochaine commande +bx+ hache à nouveau avec RIPEMD160, produisant le hachage de script final :
+La série de commandes ci-dessus encode d'abord le script de rachat multisig de Mohammed en tant que script bitcoin sérialisé encodé en hexadécimal. La commande `bx` suivante calcule le hachage SHA256 de cela. La prochaine commande `bx` hache à nouveau avec RIPEMD160, produisant le hachage de script final :
 
 Le hachage de 20 octets du script de rachat de Mohammed est :
 
@@ -176,11 +176,11 @@ Si le hachage du script de rachat correspond, le script de déverrouillage est e
 <Sig1> <Sig2> 2 PK1 PK2 PK3 PK4 PK5 5 CHECKMULTISIG
 ----
 
-Presque tous les scripts décrits dans ce chapitre ne peuvent être implémentés qu'en tant que scripts P2SH. Par exemple, un script de verrouillage multisignature standard 2 sur 5 ne peut pas être utilisé directement dans le script de verrouillage d'un UTXO, car +IsStandard()+ invaliderait la transaction. Pour se conformer, un script de verrouillage P2SH peut être utilisé à la place, comme vu ci-dessus. Une transaction qui comprend alors un script de déverrouillage P2SH peut être utilisée pour racheter cet UTXO et sera valide tant qu'elle ne contient pas plus de 15 clés publiques. ((("", startref="mohamseven")))
+Presque tous les scripts décrits dans ce chapitre ne peuvent être implémentés qu'en tant que scripts P2SH. Par exemple, un script de verrouillage multisignature standard 2 sur 5 ne peut pas être utilisé directement dans le script de verrouillage d'un UTXO, car `IsStandard()` invaliderait la transaction. Pour se conformer, un script de verrouillage P2SH peut être utilisé à la place, comme vu ci-dessus. Une transaction qui comprend alors un script de déverrouillage P2SH peut être utilisée pour racheter cet UTXO et sera valide tant qu'elle ne contient pas plus de 15 clés publiques. ((("", startref="mohamseven")))
 
 [TIP]
 ====
-N'oubliez pas qu'en raison de la politique définie par la fonction +IsStandard()+ au moment de la rédaction de cet article, les scripts multisignatures standard sont limités à 3 clés publiques répertoriées au maximum, tandis que les scripts P2SH sont limités à 15 clés publiques répertoriées au maximum. Les scripts multisignatures standard peuvent invalider les transactions au moyen de leur script de verrouillage _ou_ de déverrouillage, tandis que les scripts P2SH peuvent invalider les transactions au moyen de leur script de déverrouillage _uniquement_. En effet, +IsStandard()+ n'a aucun moyen de savoir si un hachage d'un script de rachat dans un script de verrouillage inclut plus de signatures que la limite de taille actuellement imposée, il ne peut donc observer que les scripts de déverrouillage dans les entrées de transaction. 
+N'oubliez pas qu'en raison de la politique définie par la fonction `IsStandard()` au moment de la rédaction de cet article, les scripts multisignatures standard sont limités à 3 clés publiques répertoriées au maximum, tandis que les scripts P2SH sont limités à 15 clés publiques répertoriées au maximum. Les scripts multisignatures standard peuvent invalider les transactions au moyen de leur script de verrouillage _ou_ de déverrouillage, tandis que les scripts P2SH peuvent invalider les transactions au moyen de leur script de déverrouillage _uniquement_. En effet, `IsStandard()` n'a aucun moyen de savoir si un hachage d'un script de rachat dans un script de verrouillage inclut plus de signatures que la limite de taille actuellement imposée, il ne peut donc observer que les scripts de déverrouillage dans les entrées de transaction. 
 ====
 
 ==== Adresses P2SH
@@ -218,7 +218,7 @@ Les adresses P2SH cachent toute la complexité, de sorte que la personne effectu
 
 Depuis la version 0.9.2 du client Bitcoin Core, les transactions P2SH peuvent contenir n'importe quel script valide, ce qui rend la norme P2SH beaucoup plus flexible et permet d'expérimenter de nombreux types de transactions nouveaux et complexes.
 
-Vous ne pouvez pas mettre un P2SH dans un script de rachat P2SH, car la spécification P2SH n'est pas récursive. Aussi, bien qu'il soit techniquement possible d'inclure +RETURN+ (voir <<op_return>>) dans un script de rachat, comme rien dans les règles ne vous empêche de le faire, cela n'a aucune utilité pratique car l'exécution de +RETURN+ lors de la validation entraînera le marquage de la transaction comme invalide.
+Vous ne pouvez pas mettre un P2SH dans un script de rachat P2SH, car la spécification P2SH n'est pas récursive. Aussi, bien qu'il soit techniquement possible d'inclure `RETURN` (voir <<op_return>>) dans un script de rachat, comme rien dans les règles ne vous empêche de le faire, cela n'a aucune utilité pratique car l'exécution de `RETURN` lors de la validation entraînera le marquage de la transaction comme invalide.
 
 Notez que, comme le script de rachat n'est pas présenté au réseau tant que vous n'essayez pas de dépenser une sortie P2SH, si vous verrouillez une sortie avec le hachage d'un script de rachat invalide, elle sera traitée malgré tout. L'UTXO sera verrouillé avec succès. Cependant, vous ne pourrez pas le dépenser car la transaction de dépense, qui inclut le script d'échange, ne sera pas acceptée car il s'agit d'un script invalide. Cela crée un risque, car vous pouvez verrouiller des bitcoins dans un P2SH qui ne pourra pas être dépensé plus tard. Le réseau acceptera le script de verrouillage P2SH même s'il correspond à un script de rachat invalide, car le hachage du script ne donne aucune indication sur le script qu'il représente.((("", startref="Spay07")))
 
@@ -236,44 +236,44 @@ Notez que, comme le script de rachat n'est pas présenté au réseau tant que vo
 
 ((("gonflement de la chaîne de blocs")))((("gonflement")))((("sorties de transaction non dépensées (UTXO)")))((("UTXO sets")))L'utilisation de la chaîne de blocs de Bitcoin pour stocker les données non liées aux paiements en bitcoins sont un sujet controversé. De nombreux développeurs considèrent cette utilisation abusive et veulent la décourager. D'autres y voient une démonstration des puissantes capacités de la technologie chaîne de blocs et souhaitent encourager une telle expérimentation. Ceux qui s'opposent à l'inclusion de données de non-paiement soutiennent que cela provoque un "gonflement de la chaîne de blocs", ce qui impose à ceux qui exécutent des nœuds Bitcoin complets de supporter le coût du stockage sur disque pour les données que la chaîne de blocs n'était pas destinée à transporter. De plus, de telles transactions créent des UTXO qui ne peuvent pas être dépensés, en utilisant l'adresse Bitcoin de destination comme un champ libre de 20 octets. Parce que l'adresse est utilisée pour les données, elle ne correspond pas à une clé privée et l'UTXO résultant ne peut _jamais_ être dépensé ; c'est un faux paiement. Ces transactions qui ne peuvent jamais être dépensées ne sont donc jamais supprimées de l'ensemble UTXO et entraînent une augmentation permanente de la taille de la base de données UTXO, ou un "gonflement".
 
-Dans la version 0.9 du client Bitcoin Core, un compromis a été trouvé avec l'introduction de l'opérateur +RETURN+. +RETURN+ permet aux développeurs d'ajouter 80 octets de données de non-paiement à une sortie de transaction. Cependant, contrairement à l'utilisation de "faux" UTXO, l'opérateur +RETURN+ crée une sortie explicitement et _manifestement indépensable_, qui n'a pas besoin d'être stockée dans l'ensemble UTXO. Les sorties +RETURN+ sont enregistrées sur la chaîne de blocs, elles consomment donc de l'espace disque et contribuent à l'augmentation de la taille de la chaîne de blocs, mais elles ne sont pas stockées dans l'ensemble UTXO et ne gonflent donc pas le bassin de mémoire UTXO et ne surchargent pas les nœuds complets avec plus de dépenses en RAM.
+Dans la version 0.9 du client Bitcoin Core, un compromis a été trouvé avec l'introduction de l'opérateur +RETURN+. `RETURN` permet aux développeurs d'ajouter 80 octets de données de non-paiement à une sortie de transaction. Cependant, contrairement à l'utilisation de "faux" UTXO, l'opérateur `RETURN` crée une sortie explicitement et _manifestement indépensable_, qui n'a pas besoin d'être stockée dans l'ensemble UTXO. Les sorties `RETURN` sont enregistrées sur la chaîne de blocs, elles consomment donc de l'espace disque et contribuent à l'augmentation de la taille de la chaîne de blocs, mais elles ne sont pas stockées dans l'ensemble UTXO et ne gonflent donc pas le bassin de mémoire UTXO et ne surchargent pas les nœuds complets avec plus de dépenses en RAM.
 
-Les scripts +RETURN+ ressemblent à ceci :
+Les scripts `RETURN` ressemblent à ceci :
 
 ----
 RETURN <data>
 ----
 
-((("Preuve d'existence")))((("Préfixe DOCPROOF")))La portion de données est limitée à 80 octets et représente le plus souvent un hachage, comme la sortie de l'algorithme SHA256 (32 octets). De nombreuses applications mettent un préfixe devant les données pour aider à identifier l'application. Par exemple, le service de notarisation numérique https://proofofexistence.com[Preuve d'existence] utilise le préfixe de 8 octets +DOCPROOF+, qui est encodé en ASCII sous la forme +44 4f 43 50 52 4f 4f 46+ en hexadécimal.
+((("Preuve d'existence")))((("Préfixe DOCPROOF")))La portion de données est limitée à 80 octets et représente le plus souvent un hachage, comme la sortie de l'algorithme SHA256 (32 octets). De nombreuses applications mettent un préfixe devant les données pour aider à identifier l'application. Par exemple, le service de notarisation numérique https://proofofexistence.com[Preuve d'existence] utilise le préfixe de 8 octets +DOCPROOF+, qui est encodé en ASCII sous la forme `44 4f 43 50 52 4f 4f 46` en hexadécimal.
 
-Gardez à l'esprit qu'il n'y a pas de "script de déverrouillage" correspondant à +RETURN+ qui pourrait éventuellement être utilisé pour "passer" une sortie +RETURN+. L'intérêt de +RETURN+ est que vous ne pouvez pas dépenser l'argent bloqué dans cette sortie, et donc il n'a pas besoin d'être conservé dans l'ensemble UTXO comme potentiellement dépensable - +RETURN+ est _manifestement indépensable_. +RETURN+ est généralement une sortie avec un montant de zéro bitcoin, car tout bitcoin attribué à une telle sortie est effectivement perdu à jamais. Si un +RETURN+ est référencé comme entrée dans une transaction, le moteur de validation de script arrêtera l'exécution du script de validation et marquera la transaction comme invalide. L'exécution de +RETURN+ provoque essentiellement le script "RETURN" avec un +FALSE+ et s'arrête. Ainsi, si vous référencez accidentellement une sortie +RETURN+ comme entrée dans une transaction, cette transaction n'est pas valide.
+Gardez à l'esprit qu'il n'y a pas de "script de déverrouillage" correspondant à `RETURN` qui pourrait éventuellement être utilisé pour "passer" une sortie +RETURN+. L'intérêt de `RETURN` est que vous ne pouvez pas dépenser l'argent bloqué dans cette sortie, et donc il n'a pas besoin d'être conservé dans l'ensemble UTXO comme potentiellement dépensable - `RETURN` est _manifestement indépensable_. `RETURN` est généralement une sortie avec un montant de zéro bitcoin, car tout bitcoin attribué à une telle sortie est effectivement perdu à jamais. Si un `RETURN` est référencé comme entrée dans une transaction, le moteur de validation de script arrêtera l'exécution du script de validation et marquera la transaction comme invalide. L'exécution de `RETURN` provoque essentiellement le script "RETURN" avec un `FALSE` et s'arrête. Ainsi, si vous référencez accidentellement une sortie `RETURN` comme entrée dans une transaction, cette transaction n'est pas valide.
 
-Une transaction standard (c'est-à-dire conforme aux vérifications +IsStandard()+) ne peut avoir qu'une seule sortie +RETURN+. Cependant, une seule sortie +RETURN+ peut être combinée dans une transaction avec des sorties de tout autre type.
+Une transaction standard (c'est-à-dire conforme aux vérifications +IsStandard()+) ne peut avoir qu'une seule sortie +RETURN+. Cependant, une seule sortie `RETURN` peut être combinée dans une transaction avec des sorties de tout autre type.
 
-Deux nouvelles options de ligne de commande ont été ajoutées dans Bitcoin Core à partir de la version 0.10. L'option +datacarrier+ contrôle le relais et l'exploration des transactions +RETURN+, avec la valeur par défaut définie à "1" pour les autoriser. L'option +datacarriersize+ prend un argument numérique spécifiant la taille maximale en octets du script +RETURN+, 83 octets par défaut, ce qui permet un maximum de 80 octets de données +RETURN+ plus un octet d'opcode +RETURN+ et deux octets de +Opcode PUSHDATA+.
+Deux nouvelles options de ligne de commande ont été ajoutées dans Bitcoin Core à partir de la version 0.10. L'option `datacarrier` contrôle le relais et l'exploration des transactions +RETURN+, avec la valeur par défaut définie à "1" pour les autoriser. L'option `datacarriersize` prend un argument numérique spécifiant la taille maximale en octets du script +RETURN+, 83 octets par défaut, ce qui permet un maximum de 80 octets de données `RETURN` plus un octet d'opcode `RETURN` et deux octets de +Opcode PUSHDATA+.
 
 [NOTE]
 ====
-+RETURN+ a été initialement proposé avec une limite de 80 octets, mais la limite a été réduite à 40 octets lorsque la fonctionnalité a été publiée. En février 2015, dans la version 0.10 de Bitcoin Core, la limite a été relevée à 80 octets. Les nœuds peuvent choisir de ne pas relayer ou exploiter +RETURN+, ou uniquement de relayer et d'exploiter +RETURN+ contenant moins de 80 octets de données.
++RETURN+ a été initialement proposé avec une limite de 80 octets, mais la limite a été réduite à 40 octets lorsque la fonctionnalité a été publiée. En février 2015, dans la version 0.10 de Bitcoin Core, la limite a été relevée à 80 octets. Les nœuds peuvent choisir de ne pas relayer ou exploiter +RETURN+, ou uniquement de relayer et d'exploiter `RETURN` contenant moins de 80 octets de données.
 ====
 
 === Verrous temporels
 
-((("transactions", "avancé", "verrous temporels")))((("scriptage", "verrous temporels", id="Stimelock07")))((("champ nLocktime")))((("scriptage", "verrous temporels", "utilisation pour")))((("verrous temporels", "utilisation pour")))Les verrous temporels (ou timelocks) sont des restrictions sur les transactions ou les sorties qui ne permettent de dépenser qu'après un certain temps. Bitcoin a eu une fonction de verrouillage du temps au niveau de la transaction depuis le début. Il est implémenté par le champ +nLocktime+ dans une transaction. Deux nouvelles fonctionnalités de verrou temporel ont été introduites fin 2015 et mi-2016 qui offrent des verrous temporels de niveau UTXO. Ce sont +CHECKLOCKTIMEVERIFY+ et +CHECKSEQUENCEVERIFY+.
+((("transactions", "avancé", "verrous temporels")))((("scriptage", "verrous temporels", id="Stimelock07")))((("champ nLocktime")))((("scriptage", "verrous temporels", "utilisation pour")))((("verrous temporels", "utilisation pour")))Les verrous temporels (ou timelocks) sont des restrictions sur les transactions ou les sorties qui ne permettent de dépenser qu'après un certain temps. Bitcoin a eu une fonction de verrouillage du temps au niveau de la transaction depuis le début. Il est implémenté par le champ `nLocktime` dans une transaction. Deux nouvelles fonctionnalités de verrou temporel ont été introduites fin 2015 et mi-2016 qui offrent des verrous temporels de niveau UTXO. Ce sont `CHECKLOCKTIMEVERIFY` et +CHECKSEQUENCEVERIFY+.
 
 Les verrous temporels sont utiles pour postdater les transactions et verrouiller les fonds à une date future. Plus important encore, les verrous temporels étendent les scripts bitcoin dans la dimension du temps, ouvrant la porte à des contrats intelligents complexes en plusieurs étapes.
 
 [[transaction_locktime_nlocktime]]
 ==== Temps de verrouillage des transactions (nLocktime)
 
-((("scriptage", "verrous temporels", "nLocktime")))((("verrous temporels", "nLocktime")))Depuis le début, Bitcoin a eu une fonction de timelock au niveau de la transaction. L'heure de verrouillage de la transaction est un paramètre au niveau de la transaction (un champ dans la structure des données de la transaction) qui définit la première heure à laquelle une transaction est valide et peut être relayée sur le réseau ou ajoutée à la chaîne de blocs. Le verrou temporel est également connu sous le nom de +nLocktime+ à partir du nom de variable utilisé dans la base de code Bitcoin Core. Il est défini sur zéro dans la plupart des transactions pour indiquer une propagation et une exécution immédiates. Si +nLocktime+ est différent de zéro et inférieur à 500 millions, il est interprété comme une hauteur de bloc, ce qui signifie que la transaction n'est pas valide et n'est pas relayée ou incluse dans la chaîne de blocs avant la hauteur de bloc spécifiée. S'il est supérieur ou égal à 500 millions, il est interprété comme un horodatage Unix Epoch (secondes depuis le 1er janvier 1970) et la transaction n'est pas valide avant l'heure spécifiée. Les transactions avec +nLocktime+ spécifiant un bloc ou une heure future doivent être conservées par le système d'origine et transmises au réseau Bitcoin uniquement après leur validité. Si une transaction est transmise au réseau avant le +nLocktime+ spécifié, la transaction sera rejetée par le premier nœud comme invalide et ne sera pas relayée vers les autres nœuds. L'utilisation de +nLocktime+ équivaut à postdater un chèque papier.
+((("scriptage", "verrous temporels", "nLocktime")))((("verrous temporels", "nLocktime")))Depuis le début, Bitcoin a eu une fonction de timelock au niveau de la transaction. L'heure de verrouillage de la transaction est un paramètre au niveau de la transaction (un champ dans la structure des données de la transaction) qui définit la première heure à laquelle une transaction est valide et peut être relayée sur le réseau ou ajoutée à la chaîne de blocs. Le verrou temporel est également connu sous le nom de `nLocktime` à partir du nom de variable utilisé dans la base de code Bitcoin Core. Il est défini sur zéro dans la plupart des transactions pour indiquer une propagation et une exécution immédiates. Si `nLocktime` est différent de zéro et inférieur à 500 millions, il est interprété comme une hauteur de bloc, ce qui signifie que la transaction n'est pas valide et n'est pas relayée ou incluse dans la chaîne de blocs avant la hauteur de bloc spécifiée. S'il est supérieur ou égal à 500 millions, il est interprété comme un horodatage Unix Epoch (secondes depuis le 1er janvier 1970) et la transaction n'est pas valide avant l'heure spécifiée. Les transactions avec `nLocktime` spécifiant un bloc ou une heure future doivent être conservées par le système d'origine et transmises au réseau Bitcoin uniquement après leur validité. Si une transaction est transmise au réseau avant le `nLocktime` spécifié, la transaction sera rejetée par le premier nœud comme invalide et ne sera pas relayée vers les autres nœuds. L'utilisation de `nLocktime` équivaut à postdater un chèque papier.
 
 [[locktime_limitations]]
 ===== Limitations du temps de verrouillage des transactions
 
 +nLocktime+ a la limitation que s'il permet de dépenser certaines sorties dans le futur, il ne rend pas impossible de les dépenser jusqu'à ce moment-là. Expliquons cela avec l'exemple suivant.
 
-((("cas d'utilisation", "acheter un café", id="aliceseven")))Alice signe une transaction en dépensant l'une de ses sorties à l'adresse de Bob, et fixe la transaction +nLocktime+ à 3 mois dans le futur. Alice envoie cette transaction à Bob pour la conserver. Avec cette transaction, Alice et Bob savent que :
+((("cas d'utilisation", "acheter un café", id="aliceseven")))Alice signe une transaction en dépensant l'une de ses sorties à l'adresse de Bob, et fixe la transaction `nLocktime` à 3 mois dans le futur. Alice envoie cette transaction à Bob pour la conserver. Avec cette transaction, Alice et Bob savent que :
 
 * Bob ne peut pas transmettre la transaction pour racheter les fonds avant que 3 mois ne se soient écoulés.
 * Bob peut transmettre la transaction après 3 mois.
@@ -287,18 +287,18 @@ Il est important de comprendre les limites de la transaction +nLocktime+. La seu
 
 ==== Vérifier l'heure de verrouillage (CLTV)
 
-((("Vérification de l'heure de verrouillage (CLTV)", id="cltv07")))((("timelocks", "Vérification de l'heure de verrouillage (CLTV)")))((("scriptage", "timelocks" , "Check Lock Time Verify (CLTV)")))((("propositions d'amélioration du bitcoin", "CHECKLOCKTIMEVERIFY (BIP-65)")))En décembre 2015, une nouvelle forme de verrou temporel a été introduite dans le bitcoin en tant qu'embranchement convergent (soft fork) amélioré. Basé sur une spécification dans BIP-65, le nouvel opérateur de script appelé _CHECKLOCKTIMEVERIFY_ (_CLTV_) a été ajouté au langage de script. +CLTV+ et est un verrou temporel par sortie, plutôt qu'un verrou temporel par transaction comme c'est le cas avec +nLocktime+. Cela permet une plus grande flexibilité dans la manière dont les verrous temporels sont appliqués.
+((("Vérification de l'heure de verrouillage (CLTV)", id="cltv07")))((("timelocks", "Vérification de l'heure de verrouillage (CLTV)")))((("scriptage", "timelocks" , "Check Lock Time Verify (CLTV)")))((("propositions d'amélioration du bitcoin", "CHECKLOCKTIMEVERIFY (BIP-65)")))En décembre 2015, une nouvelle forme de verrou temporel a été introduite dans le bitcoin en tant qu'embranchement convergent (soft fork) amélioré. Basé sur une spécification dans BIP-65, le nouvel opérateur de script appelé _CHECKLOCKTIMEVERIFY_ (_CLTV_) a été ajouté au langage de script. `CLTV` et est un verrou temporel par sortie, plutôt qu'un verrou temporel par transaction comme c'est le cas avec +nLocktime+. Cela permet une plus grande flexibilité dans la manière dont les verrous temporels sont appliqués.
 
-En termes simples, en ajoutant l'opcode +CLTV+ dans le script de rachat d'une sortie, cela restreint la sortie, de sorte qu'elle ne peut être dépensée qu'une fois le temps spécifié écoulé.
+En termes simples, en ajoutant l'opcode `CLTV` dans le script de rachat d'une sortie, cela restreint la sortie, de sorte qu'elle ne peut être dépensée qu'une fois le temps spécifié écoulé.
 
 [TIP]
 ====
-Alors que +nLocktime+ est un timelock au niveau de la transaction, +CLTV+ est un timelock basé sur la sortie.
+Alors que `nLocktime` est un timelock au niveau de la transaction, `CLTV` est un timelock basé sur la sortie.
 ====
 
-+CLTV+ ne remplace pas +nLocktime+, mais restreint plutôt des UTXO spécifiques de sorte qu'ils ne peuvent être dépensés que dans une future transaction avec +nLocktime+ défini sur une valeur supérieure ou égale.
++CLTV+ ne remplace pas +nLocktime+, mais restreint plutôt des UTXO spécifiques de sorte qu'ils ne peuvent être dépensés que dans une future transaction avec `nLocktime` défini sur une valeur supérieure ou égale.
 
-L'opcode +CLTV+ prend un paramètre en entrée, exprimé sous la forme d'un nombre au même format que +nLocktime+ (soit une hauteur de bloc, soit un temps d'époque Unix). Comme indiqué par le suffixe +VERIFY+, +CLTV+ est le type d'opcode qui arrête l'exécution du script si le résultat est +FALSE+. Si le résultat est TRUE, l'exécution continue.
+L'opcode `CLTV` prend un paramètre en entrée, exprimé sous la forme d'un nombre au même format que `nLocktime` (soit une hauteur de bloc, soit un temps d'époque Unix). Comme indiqué par le suffixe +VERIFY+, `CLTV` est le type d'opcode qui arrête l'exécution du script si le résultat est +FALSE+. Si le résultat est TRUE, l'exécution continue.
 
 Pour verrouiller une sortie avec +CLTV+, vous l'insérez dans le script de rachat de la sortie dans la transaction qui crée la sortie. Par exemple, si Alice paie l'adresse de Bob, la sortie contiendra normalement un script P2PKH comme celui-ci :
 
@@ -312,40 +312,40 @@ Pour le verrouiller à un moment, disons dans 3 mois, la transaction serait une 
 <now + 3 months> CHECKLOCKTIMEVERIFY DROP DUP HASH160<Bob's Public Key Hash> EQUALVERIFIER CHECKSIG
 ----
 
-où +<now {plus} 3 months>+ est une hauteur de bloc ou une valeur temporelle estimée à 3 mois à partir du moment où la transaction est extraite : hauteur de bloc actuelle {plus} 12 960 (blocs) ou heure d'époque Unix actuelle {plus} 7 760 000 (secondes). Pour l'instant, ne vous inquiétez pas de l'opcode +DROP+ qui suit +CHECKLOCKTIMEVERIFY+ ; cela sera expliqué sous peu.
+où `<now {plus} 3 months>` est une hauteur de bloc ou une valeur temporelle estimée à 3 mois à partir du moment où la transaction est extraite : hauteur de bloc actuelle {plus} 12 960 (blocs) ou heure d'époque Unix actuelle {plus} 7 760 000 (secondes). Pour l'instant, ne vous inquiétez pas de l'opcode `DROP` qui suit +CHECKLOCKTIMEVERIFY+ ; cela sera expliqué sous peu.
 
-Lorsque Bob essaie de dépenser cet UTXO, il construit une transaction qui fait référence à l'UTXO comme entrée. Il utilise sa signature et sa clé publique dans le script de déverrouillage de cette entrée et définit la transaction +nLocktime+ pour qu'elle soit égale ou supérieure au verrouillage temporel dans l'ensemble +CHECKLOCKTIMEVERIFY+ Alice. Bob diffuse ensuite la transaction sur le réseau Bitcoin.
+Lorsque Bob essaie de dépenser cet UTXO, il construit une transaction qui fait référence à l'UTXO comme entrée. Il utilise sa signature et sa clé publique dans le script de déverrouillage de cette entrée et définit la transaction `nLocktime` pour qu'elle soit égale ou supérieure au verrouillage temporel dans l'ensemble `CHECKLOCKTIMEVERIFY` Alice. Bob diffuse ensuite la transaction sur le réseau Bitcoin.
 
-La transaction de Bob est évaluée comme suit. Si le paramètre +CHECKLOCKTIMEVERIFY+ défini par Alice est inférieur ou égal au +nLocktime+ de la transaction dépensière, l'exécution du script continue (agit comme si un opcode "no operation" ou NOP était exécuté). Sinon, l'exécution du script s'arrête et la transaction est considérée comme invalide.
+La transaction de Bob est évaluée comme suit. Si le paramètre `CHECKLOCKTIMEVERIFY` défini par Alice est inférieur ou égal au `nLocktime` de la transaction dépensière, l'exécution du script continue (agit comme si un opcode "no operation" ou NOP était exécuté). Sinon, l'exécution du script s'arrête et la transaction est considérée comme invalide.
 
-Plus précisément, +CHECKLOCKTIMEVERIFY+ échoue et arrête l'exécution, marquant la transaction invalide si (source : BIP-65) :
+Plus précisément, `CHECKLOCKTIMEVERIFY` échoue et arrête l'exécution, marquant la transaction invalide si (source : BIP-65) :
 
 1. la pile est vide ; ou
 2. l'élément du haut de la pile est inférieur à 0 ; ou
-3. le type de verrou temporel (hauteur versus horodatage) de l'élément de la pile supérieure et le champ +nLocktime+ ne sont pas les mêmes ; ou
-4. l'élément supérieur de la pile est supérieur au champ +nLocktime+ de la transaction ; ou
-5. le champ +nSequence+ de l'entrée est 0xffffffff.
+3. le type de verrou temporel (hauteur versus horodatage) de l'élément de la pile supérieure et le champ `nLocktime` ne sont pas les mêmes ; ou
+4. l'élément supérieur de la pile est supérieur au champ `nLocktime` de la transaction ; ou
+5. le champ `nSequence` de l'entrée est 0xffffffff.
 
 [NOTE]
 ====
-+CLTV+ et +nLocktime+ utilisent le même format pour décrire les verrous temporels, soit une hauteur de bloc, soit le temps écoulé en secondes depuis l'époque Unix. De manière critique, lorsqu'ils sont utilisés ensemble, le format de +nLocktime+ doit correspondre à celui de +CLTV+ dans les sorties - ils doivent tous deux référencer soit la hauteur de bloc, soit le temps en secondes.
++CLTV+ et `nLocktime` utilisent le même format pour décrire les verrous temporels, soit une hauteur de bloc, soit le temps écoulé en secondes depuis l'époque Unix. De manière critique, lorsqu'ils sont utilisés ensemble, le format de `nLocktime` doit correspondre à celui de `CLTV` dans les sorties - ils doivent tous deux référencer soit la hauteur de bloc, soit le temps en secondes.
 ====
 
-Après l'exécution, si +CLTV+ est satisfait, le paramètre de temps qui l'a précédé reste l'élément supérieur de la pile et peut devoir être supprimé, avec +DROP+, pour une exécution correcte des opcodes de script suivants. Vous verrez souvent +CHECKLOCKTIMEVERIFY+ suivi de +DROP+ dans les scripts pour cette raison.
+Après l'exécution, si `CLTV` est satisfait, le paramètre de temps qui l'a précédé reste l'élément supérieur de la pile et peut devoir être supprimé, avec +DROP+, pour une exécution correcte des opcodes de script suivants. Vous verrez souvent `CHECKLOCKTIMEVERIFY` suivi de `DROP` dans les scripts pour cette raison.
 
-En utilisant +nLocktime+ conjointement avec +CLTV+, le scénario décrit dans <<locktime_limitations>> changements. Alice ne peut plus dépenser l'argent (car il est verrouillé avec la clé de Bob) et Bob ne peut pas le dépenser avant l'expiration du temps de verrouillage de 3 mois.((("", startref="alicesseven")))
+En utilisant `nLocktime` conjointement avec +CLTV+, le scénario décrit dans <<locktime_limitations>> changements. Alice ne peut plus dépenser l'argent (car il est verrouillé avec la clé de Bob) et Bob ne peut pas le dépenser avant l'expiration du temps de verrouillage de 3 mois.((("", startref="alicesseven")))
 
-En introduisant la fonctionnalité timelock directement dans le langage de script, +CLTV+ nous permet de développer des scripts complexes très intéressants.((("", startref="cltv07")))
+En introduisant la fonctionnalité timelock directement dans le langage de script, `CLTV` nous permet de développer des scripts complexes très intéressants.((("", startref="cltv07")))
 
 La norme est définie dans https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki[BIP-65 (CHECKLOCKTIMEVERIFY)].
 
 ==== Verrous temporels relatifs
 
-+nLocktime+ et +CLTV+ sont ((("verrous temporels", "verrous temporels relatifs", id="Trelative07")))((("scriptage", "verrous temporels", "rverrous temporels relatifs")))((("verrous temporels relatifs", id="relativetime07")))les deux _verrous temporels absolus_ en ce sens qu'ils spécifient un point absolu dans le temps. Les deux prochaines fonctionnalités de verrou temporel que nous examinerons sont des _verrous temporels relatifs_ en ce sens qu'elles spécifient, comme condition de dépense d'une sortie, un temps écoulé depuis la confirmation de la sortie dans la chaîne de blocs.
++nLocktime+ et `CLTV` sont ((("verrous temporels", "verrous temporels relatifs", id="Trelative07")))((("scriptage", "verrous temporels", "rverrous temporels relatifs")))((("verrous temporels relatifs", id="relativetime07")))les deux _verrous temporels absolus_ en ce sens qu'ils spécifient un point absolu dans le temps. Les deux prochaines fonctionnalités de verrou temporel que nous examinerons sont des _verrous temporels relatifs_ en ce sens qu'elles spécifient, comme condition de dépense d'une sortie, un temps écoulé depuis la confirmation de la sortie dans la chaîne de blocs.
 
 Les verrous temporels relatifs sont utiles car ils permettent de bloquer une chaîne de deux transactions interdépendantes ou plus, tout en imposant une contrainte de temps sur une transaction qui dépend du temps écoulé depuis la confirmation d'une transaction précédente. En d'autres termes, l'horloge ne commence pas à compter tant que l'UTXO n'est pas enregistré sur la chaîne de blocs. Cette fonctionnalité est particulièrement utile dans les canaux d'état bidirectionnels et les réseaux Lightning, comme nous le verrons dans <<state_channels>>.
 
-Les verrous temporels relatifs, comme les verrous horaires absolus, sont implémentés à la fois avec une fonctionnalité au niveau de la transaction et un opcode au niveau du script. Le verrouillage temporel relatif au niveau de la transaction est implémenté comme une règle de consensus sur la valeur de +nSequence+, un champ de transaction qui est défini dans chaque entrée de transaction. Les verrous horaires relatifs au niveau du script sont implémentés avec l'opcode +CHECKSEQUENCEVERIFY+ (CSV).
+Les verrous temporels relatifs, comme les verrous horaires absolus, sont implémentés à la fois avec une fonctionnalité au niveau de la transaction et un opcode au niveau du script. Le verrouillage temporel relatif au niveau de la transaction est implémenté comme une règle de consensus sur la valeur de +nSequence+, un champ de transaction qui est défini dans chaque entrée de transaction. Les verrous horaires relatifs au niveau du script sont implémentés avec l'opcode `CHECKSEQUENCEVERIFY` (CSV).
 
 ((("Propositions d'amélioration de bitcoin", "Temps de verrouillage relatif utilisant des numéros de séquence imposés par consensus (BIP-68)")))((("Propositions d'amélioration de bitcoin", "CHECKSEQUENCEVERIFY (BIP-112)")))Les verrous temporels relatifs sont implémentés conformément aux spécifications de https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki[BIP-68, Relative lock-time using consensus-enforced sequence numbers] et https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki[BIP-112, CHECKSEQUENCEVERIFY].
 
@@ -353,23 +353,23 @@ BIP-68 et BIP-112 ont été activés en mai 2016 en tant que mise à niveau soft
 
 ==== Verrous temporels relatifs avec nSequence
 
-((("champ nSequence")))((("scripting", "verrous temporels", "verrous temporels relatifs avec nSequence")))Des verrous temporels relatifs peuvent être définis sur chaque entrée d'une transaction, en définissant le champ +nSequence+ dans chaque contribution.
+((("champ nSequence")))((("scripting", "verrous temporels", "verrous temporels relatifs avec nSequence")))Des verrous temporels relatifs peuvent être définis sur chaque entrée d'une transaction, en définissant le champ `nSequence` dans chaque contribution.
 
 ===== Signification originale de nSequence
 
-Le champ +nSequence+ était à l'origine destiné (mais jamais correctement implémenté) à permettre la modification des transactions dans le mempool. Dans cette utilisation, une transaction contenant des entrées avec une valeur +nSequence+ inférieure à 2^32^ - 1 (0xFFFFFFFF) indiquait une transaction qui n'était pas encore "finalisée". Une telle transaction serait conservée dans le mempool jusqu'à ce qu'elle soit remplacée par une autre transaction dépensant les mêmes entrées avec une valeur +nSequence+ plus élevée. Une fois qu'une transaction a été reçue dont les entrées avaient une valeur +nSequence+ de 0xFFFFFFFF, elle serait considérée comme "finalisée" et minée.
+Le champ `nSequence` était à l'origine destiné (mais jamais correctement implémenté) à permettre la modification des transactions dans le mempool. Dans cette utilisation, une transaction contenant des entrées avec une valeur `nSequence` inférieure à 2^32^ - 1 (0xFFFFFFFF) indiquait une transaction qui n'était pas encore "finalisée". Une telle transaction serait conservée dans le mempool jusqu'à ce qu'elle soit remplacée par une autre transaction dépensant les mêmes entrées avec une valeur `nSequence` plus élevée. Une fois qu'une transaction a été reçue dont les entrées avaient une valeur `nSequence` de 0xFFFFFFFF, elle serait considérée comme "finalisée" et minée.
 
-La signification originale de +nSequence+ n'a jamais été correctement implémentée et la valeur de +nSequence+ est habituellement définie sur 0xFFFFFFFF dans les transactions qui n'utilisent pas de verrous temporels. Pour les transactions avec +nLocktime+ ou +CHECKLOCKTIMEVERIFY+, la valeur +nSequence+ doit être inférieure à 2^31^ pour que les gardes de verrou temporel aient un effet, comme expliqué ci-dessous.
+La signification originale de `nSequence` n'a jamais été correctement implémentée et la valeur de `nSequence` est habituellement définie sur 0xFFFFFFFF dans les transactions qui n'utilisent pas de verrous temporels. Pour les transactions avec `nLocktime` ou +CHECKLOCKTIMEVERIFY+, la valeur `nSequence` doit être inférieure à 2^31^ pour que les gardes de verrou temporel aient un effet, comme expliqué ci-dessous.
 
 ===== nSequence comme un verrou temporel relatif imposé par consensus
 
-Depuis l'activation de BIP-68, de nouvelles règles de consensus s'appliquent pour toute transaction contenant une entrée dont la valeur +nSequence+ est inférieure à 2^31^ (le bit 1<<31 n'est pas défini). Par programmation, cela signifie que si le bit le plus significatif (bit 1<<31) n'est pas défini, c'est un indicateur qui signifie "temps de verrouillage relatif". Sinon (bit 1<<31 défini), la valeur +nSequence+ est réservée à d'autres utilisations telles que l'activation de +CHECKLOCKTIMEVERIFY+, +nLocktime+, Opt-In-Replace-By-Fee et d'autres développements futurs.
+Depuis l'activation de BIP-68, de nouvelles règles de consensus s'appliquent pour toute transaction contenant une entrée dont la valeur `nSequence` est inférieure à 2^31^ (le bit 1<<31 n'est pas défini). Par programmation, cela signifie que si le bit le plus significatif (bit 1<<31) n'est pas défini, c'est un indicateur qui signifie "temps de verrouillage relatif". Sinon (bit 1<<31 défini), la valeur `nSequence` est réservée à d'autres utilisations telles que l'activation de +CHECKLOCKTIMEVERIFY+, +nLocktime+, Opt-In-Replace-By-Fee et d'autres développements futurs.
 
-Les entrées de transaction avec des valeurs +nSequence+ inférieures à 2^31^ sont interprétées comme ayant un verrou temporel relatif. Une telle transaction n'est valide qu'une fois que l'entrée a vieilli du montant relatif du verrou temporel. Par exemple, une transaction avec une entrée et un verrou temporel relatif +nSequence+ de 30 blocs n'est valide que lorsqu'au moins 30 blocs se sont écoulés depuis le moment où l'UTXO référencé dans l'entrée a été extrait. Étant donné que +nSequence+ est un champ par entrée, une transaction peut contenir n'importe quel nombre d'entrées verrouillées dans le temps, qui doivent toutes avoir suffisamment vieilli pour que la transaction soit valide. Une transaction peut inclure à la fois des entrées à verrouillage temporel (+nSequence+ < 2^31^) et des entrées sans verrouillage temporel relatif (+nSequence+ >= 2^31^).
+Les entrées de transaction avec des valeurs `nSequence` inférieures à 2^31^ sont interprétées comme ayant un verrou temporel relatif. Une telle transaction n'est valide qu'une fois que l'entrée a vieilli du montant relatif du verrou temporel. Par exemple, une transaction avec une entrée et un verrou temporel relatif `nSequence` de 30 blocs n'est valide que lorsqu'au moins 30 blocs se sont écoulés depuis le moment où l'UTXO référencé dans l'entrée a été extrait. Étant donné que `nSequence` est un champ par entrée, une transaction peut contenir n'importe quel nombre d'entrées verrouillées dans le temps, qui doivent toutes avoir suffisamment vieilli pour que la transaction soit valide. Une transaction peut inclure à la fois des entrées à verrouillage temporel (+nSequence+ < 2^31^) et des entrées sans verrouillage temporel relatif (+nSequence+ >= 2^31^).
 
-La valeur +nSequence+ est spécifiée en blocs ou en secondes, mais dans un format légèrement différent de celui que nous avons vu utilisé dans +nLocktime+. Un indicateur de type est utilisé pour différencier les valeurs comptant les blocs et les valeurs comptant le temps en secondes. Le drapeau de type est défini dans le 23e bit le moins significatif (c'est-à-dire la valeur 1<<22). Si le type-flag est défini, alors la valeur +nSequence+ est interprétée comme un multiple de 512 secondes. Si le drapeau de type n'est pas défini, la valeur +nSequence+ est interprétée comme un nombre de blocs.
+La valeur `nSequence` est spécifiée en blocs ou en secondes, mais dans un format légèrement différent de celui que nous avons vu utilisé dans +nLocktime+. Un indicateur de type est utilisé pour différencier les valeurs comptant les blocs et les valeurs comptant le temps en secondes. Le drapeau de type est défini dans le 23e bit le moins significatif (c'est-à-dire la valeur 1<<22). Si le type-flag est défini, alors la valeur `nSequence` est interprétée comme un multiple de 512 secondes. Si le drapeau de type n'est pas défini, la valeur `nSequence` est interprétée comme un nombre de blocs.
 
-Lors de l'interprétation de +nSequence+ comme un timelock relatif, seuls les 16 bits les moins significatifs sont pris en compte. Une fois que les drapeaux (bits 32 et 23) sont évalués, la valeur +nSequence+ est généralement "masquée" avec un masque de 16 bits (par exemple, +nSequence+ &amp; 0x0000FFFF).
+Lors de l'interprétation de `nSequence` comme un timelock relatif, seuls les 16 bits les moins significatifs sont pris en compte. Une fois que les drapeaux (bits 32 et 23) sont évalués, la valeur `nSequence` est généralement "masquée" avec un masque de 16 bits (par exemple, `nSequence` &amp; 0x0000FFFF).
 
 <<bip_68_def_of_nseq>> montre la disposition binaire de la valeur +nSequence+, telle que définie par BIP-68.
 
@@ -378,19 +378,19 @@ Lors de l'interprétation de +nSequence+ comme un timelock relatif, seuls les 16
 image::images/mbc2_0701.png["Définition BIP-68 du codage nSequence"]
 
 
-Les verrous temporels relatifs basés sur l'application consensuelle de la valeur +nSequence+ sont définis dans BIP-68.
+Les verrous temporels relatifs basés sur l'application consensuelle de la valeur `nSequence` sont définis dans BIP-68.
 
 La norme est définie dans https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki[BIP-68, Relative lock-time using consensus-enforced sequence numbers].
 
 ==== Verrous temporels relatifs avec CSV
 
-((("scriptage", "verrous temporels", "verrous temporels relatifs avec CHECKSEQUENCEVERIFY")))((("CHECKSEQUENCEVERIFY (CSV)")))Tout comme CLTV et +nLocktime+, il existe un opcode de script pour les verrous temporels relatifs qui exploite le Valeur +nSequence+ dans les scripts. Cet opcode est +CHECKSEQUENCEVERIFY+, communément appelé +CSV+ en abrégé.
+((("scriptage", "verrous temporels", "verrous temporels relatifs avec CHECKSEQUENCEVERIFY")))((("CHECKSEQUENCEVERIFY (CSV)")))Tout comme CLTV et +nLocktime+, il existe un opcode de script pour les verrous temporels relatifs qui exploite le Valeur `nSequence` dans les scripts. Cet opcode est +CHECKSEQUENCEVERIFY+, communément appelé `CSV` en abrégé.
 
-L'opcode +CSV+, lorsqu'il est évalué dans le script de remboursement d'un UTXO, permet de dépenser uniquement dans une transaction dont la valeur d'entrée +nSequence+ est supérieure ou égale au paramètre +CSV+. Essentiellement, cela limite la dépense de l'UTXO jusqu'à ce qu'un certain nombre de blocs ou de secondes se soient écoulés par rapport au moment où l'UTXO a été miné.
+L'opcode +CSV+, lorsqu'il est évalué dans le script de remboursement d'un UTXO, permet de dépenser uniquement dans une transaction dont la valeur d'entrée `nSequence` est supérieure ou égale au paramètre +CSV+. Essentiellement, cela limite la dépense de l'UTXO jusqu'à ce qu'un certain nombre de blocs ou de secondes se soient écoulés par rapport au moment où l'UTXO a été miné.
 
-Comme pour CLTV, la valeur dans +CSV+ doit correspondre au format de la valeur +nSequence+ correspondante. Si +CSV+ est spécifié en termes de blocs, il doit en être de même pour +nSequence+. Si +CSV+ est spécifié en termes de secondes, alors +nSequence+ doit également l'être.
+Comme pour CLTV, la valeur dans `CSV` doit correspondre au format de la valeur `nSequence` correspondante. Si `CSV` est spécifié en termes de blocs, il doit en être de même pour +nSequence+. Si `CSV` est spécifié en termes de secondes, alors `nSequence` doit également l'être.
 
-Les timelocks relatifs avec +CSV+ sont particulièrement utiles lorsque plusieurs transactions (chaînées) sont créées et signées, mais non propagées, lorsqu'elles sont conservées "hors chaîne". Une transaction enfant ne peut pas être utilisée tant que la transaction parent n'a pas été propagée, extraite et vieillie au moment spécifié dans le timelock relatif. Une application de ce cas d'utilisation peut être vue dans <<state_channels>> et <<lightning_network>>.((("", startref="relativetime07")))((("", startref="Trelative07")))
+Les timelocks relatifs avec `CSV` sont particulièrement utiles lorsque plusieurs transactions (chaînées) sont créées et signées, mais non propagées, lorsqu'elles sont conservées "hors chaîne". Une transaction enfant ne peut pas être utilisée tant que la transaction parent n'a pas été propagée, extraite et vieillie au moment spécifié dans le timelock relatif. Une application de ce cas d'utilisation peut être vue dans <<state_channels>> et <<lightning_network>>.((("", startref="relativetime07")))((("", startref="Trelative07")))
 
 +CSV+ est défini en détail dans https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki[BIP-112, CHECKSEQUENCEVERIFY].
 
@@ -405,7 +405,7 @@ Pour supprimer l'incitation au mensonge et renforcer la sécurité des verrous t
 
 Le Median-Time-Past est calculé en prenant les horodatages des 11 derniers blocs et en trouvant la médiane. Ce temps médian devient alors le temps de consensus et est utilisé pour tous les calculs de verrou temporel. En prenant le point médian d'environ deux heures dans le passé, l'influence de l'horodatage de n'importe quel bloc est réduite. En incorporant 11 blocs, aucun mineur ne peut influencer les horodatages afin de gagner des frais sur les transactions avec un verrou temporel qui n'est pas encore arrivé à échéance.
 
-Median-Time-Past modifie l'implémentation des calculs de temps pour +nLocktime+, +CLTV+, +nSequence+ et +CSV+. L'heure de consensus calculée par Median-Time-Past est toujours d'environ une heure en retard sur l'heure de l'horloge murale. Si vous créez des transactions avec verrou temporel, vous devez en tenir compte lors de l'estimation de la valeur souhaitée à encoder dans +nLocktime+, +nSequence+, +CLTV+ et +CSV+.
+Median-Time-Past modifie l'implémentation des calculs de temps pour +nLocktime+, +CLTV+, `nSequence` et +CSV+. L'heure de consensus calculée par Median-Time-Past est toujours d'environ une heure en retard sur l'heure de l'horloge murale. Si vous créez des transactions avec verrou temporel, vous devez en tenir compte lors de l'estimation de la valeur souhaitée à encoder dans +nLocktime+, +nSequence+, `CLTV` et +CSV+.
 
 Median-Time-Past est spécifié dans https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki[BIP-113].
 
@@ -418,11 +418,11 @@ Par exemple, disons que le bloc le plus élevé existant est le bloc #100 000. S
 
 Aujourd'hui, cette attaque n'est pas très lucrative, car la récompense de bloc est bien supérieure au total des frais par bloc. Mais à un moment donné dans le futur, les frais de transaction représenteront la majorité de la récompense minière (ou même l'intégralité de la récompense minière). A ce moment-là, ce scénario devient inévitable.
 
-Pour éviter le "ciblage de frais", lorsque Bitcoin Core crée des transactions, il utilise +nLocktime+ pour les limiter au "bloc suivant", par défaut. Dans notre scénario, Bitcoin Core définirait +nLocktime+ sur 100 001 sur toute transaction créée. Dans des circonstances normales, ce +nLocktime+ n'a aucun effet - les transactions ne peuvent être incluses que dans le bloc #100 001 de toute façon ; c'est le bloc suivant.
+Pour éviter le "ciblage de frais", lorsque Bitcoin Core crée des transactions, il utilise `nLocktime` pour les limiter au "bloc suivant", par défaut. Dans notre scénario, Bitcoin Core définirait `nLocktime` sur 100 001 sur toute transaction créée. Dans des circonstances normales, ce `nLocktime` n'a aucun effet - les transactions ne peuvent être incluses que dans le bloc #100 001 de toute façon ; c'est le bloc suivant.
 
 Mais dans le cadre d'une attaque enfourchement de la chaîne de blocs/double dépense, les mineurs ne seraient pas en mesure d'extraire des transactions à frais élevés du mempool, car toutes ces transactions seraient bloquées dans le temps pour bloquer #100 001. Ils ne peuvent reminer que #100 000 avec les transactions valides à ce moment-là, ne gagnant essentiellement aucun nouveau frais.
 
-Pour ce faire, Bitcoin Core définit le +nLocktime+ sur toutes les nouvelles transactions à <current block # + 1> et définit la +nSequence+ sur toutes les entrées à 0xFFFFFFFE pour activer +nLocktime+.((("", startref="Stimelock07")))
+Pour ce faire, Bitcoin Core définit le `nLocktime` sur toutes les nouvelles transactions à <current block # + 1> et définit la `nSequence` sur toutes les entrées à 0xFFFFFFFE pour activer +nLocktime+.((("", startref="Stimelock07")))
 
 === Scripts avec contrôle de flux (clauses conditionnelles)
 
@@ -432,9 +432,9 @@ Pour ce faire, Bitcoin Core définit le +nLocktime+ sur toutes les nouvelles tra
 
 De plus, les expressions conditionnelles Bitcoin peuvent être "imbriquées" indéfiniment, ce qui signifie qu'une clause conditionnelle peut en contenir une autre, qui en contient une autre, etc. Le contrôle de flux Bitcoin Script peut être utilisé pour construire des scripts très complexes avec des centaines voire des milliers de chemins d'exécution possibles. Il n'y a pas de limite à l'imbrication, mais les règles de consensus imposent une limite à la taille maximale, en octets, d'un script.
 
-Bitcoin implémente le contrôle de flux à l'aide des opcodes +IF+, +ELSE+, +ENDIF+ et +NOTIF+. De plus, les expressions conditionnelles peuvent contenir des opérateurs booléens tels que +BOOLAND+, +BOOLOR+ et +NOT+.
+Bitcoin implémente le contrôle de flux à l'aide des opcodes +IF+, +ELSE+, `ENDIF` et +NOTIF+. De plus, les expressions conditionnelles peuvent contenir des opérateurs booléens tels que +BOOLAND+, `BOOLOR` et +NOT+.
 
-À première vue, vous pouvez trouver les scripts de contrôle de flux du bitcoin déroutants. En effet, Bitcoin Script est un langage de pile. De la même manière que +1 {plus} 1+ semble "renversé" lorsqu'il est exprimé comme +1 1 ADD+, les clauses de contrôle de flux dans bitcoin semblent également "renversés".
+À première vue, vous pouvez trouver les scripts de contrôle de flux du bitcoin déroutants. En effet, Bitcoin Script est un langage de pile. De la même manière que `1 {plus} 1` semble "renversé" lorsqu'il est exprimé comme +1 1 ADD+, les clauses de contrôle de flux dans bitcoin semblent également "renversés".
 
 Dans la plupart des langages de programmation traditionnels (procéduraux), le contrôle de flux ressemble à ceci :
 
@@ -464,9 +464,9 @@ Lors de la lecture du script Bitcoin, rappelez-vous que la condition évaluée v
 
 ==== Clauses conditionnelles avec les opcodes VERIFY
 
-((("opcodes VERIFY")))((("clauses IF")))((("opcodes", "VERIFY")))Une autre forme de conditionnel dans Bitcoin Script est tout opcode qui se termine par +VERIFY+. Le suffixe +VERIFY+ signifie que si la condition évaluée n'est pas +TRUE+, l'exécution du script se termine immédiatement et la transaction est considérée comme invalide.
+((("opcodes VERIFY")))((("clauses IF")))((("opcodes", "VERIFY")))Une autre forme de conditionnel dans Bitcoin Script est tout opcode qui se termine par +VERIFY+. Le suffixe `VERIFY` signifie que si la condition évaluée n'est pas +TRUE+, l'exécution du script se termine immédiatement et la transaction est considérée comme invalide.
 
-((("clauses de garde")))Contrairement à une clause +IF+, qui offre des chemins d'exécution alternatifs, le suffixe +VERIFY+ agit comme une _clause de garde_, ne continuant que si une condition préalable est remplie.
+((("clauses de garde")))Contrairement à une clause +IF+, qui offre des chemins d'exécution alternatifs, le suffixe `VERIFY` agit comme une _clause de garde_, ne continuant que si une condition préalable est remplie.
 
 Par exemple, le script suivant nécessite la signature de Bob et une pré-image (secret) qui produit un hachage spécifique. Les deux conditions doivent être remplies pour le déverrouiller :
 
@@ -485,7 +485,7 @@ Pour racheter cela, Bob doit construire un script de déverrouillage qui présen
 Sans présenter la pré-image, Bob ne peut pas accéder à la partie du script qui vérifie sa signature.
 
 [role="pagebreak-after"]
-Ce script peut être écrit avec un +IF+ à la place :
+Ce script peut être écrit avec un `IF` à la place :
 
 .Un script de rachat avec une clause de garde +IF+
 ----
@@ -502,13 +502,13 @@ Le script de déverrouillage de Bob est identique :
 <Bob's Sig> <hash pre-image>
 ----
 
-Le script avec +IF+ fait la même chose que d'utiliser un opcode avec un suffixe +VERIFY+ ; elles fonctionnent toutes deux comme des clauses de garde. Cependant, la construction +VERIFY+ est plus efficace, utilisant deux opcodes de moins.
+Le script avec `IF` fait la même chose que d'utiliser un opcode avec un suffixe `VERIFY` ; elles fonctionnent toutes deux comme des clauses de garde. Cependant, la construction `VERIFY` est plus efficace, utilisant deux opcodes de moins.
 
-Alors, quand utilisons-nous +VERIFY+ et quand utilisons-nous +IF+ ? Si tout ce que nous essayons de faire est d'attacher une condition préalable (clause de garde), alors +VERIFY+ est préférable. Si, toutefois, nous voulons avoir plus d'un chemin d'exécution (contrôle de flux), nous avons besoin d'une clause de contrôle de flux +IF...ELSE+.
+Alors, quand utilisons-nous `VERIFY` et quand utilisons-nous +IF+ ? Si tout ce que nous essayons de faire est d'attacher une condition préalable (clause de garde), alors `VERIFY` est préférable. Si, toutefois, nous voulons avoir plus d'un chemin d'exécution (contrôle de flux), nous avons besoin d'une clause de contrôle de flux +IF...ELSE+.
 
 [TIP]
 ====
-((("OPCODE EQUAL")))((("opcodes", "EQUAL")))((("OPCODE EQUALVERIFY")))((("opcodes", "EQUALVERIFY")))Un opcode tel que +EQUAL+ poussera le résultat (+TRUE+/+FALSE+) sur la pile, le laissant là pour évaluation par les opcodes suivants. En revanche, le suffixe de l'opcode +EQUALVERIFY+ ne laisse rien sur la pile. Les opcodes qui se terminent par +VERIFY+ ne laissent pas le résultat sur la pile.
+((("OPCODE EQUAL")))((("opcodes", "EQUAL")))((("OPCODE EQUALVERIFY")))((("opcodes", "EQUALVERIFY")))Un opcode tel que `EQUAL` poussera le résultat (+TRUE+/+FALSE+) sur la pile, le laissant là pour évaluation par les opcodes suivants. En revanche, le suffixe de l'opcode `EQUALVERIFY` ne laisse rien sur la pile. Les opcodes qui se terminent par `VERIFY` ne laissent pas le résultat sur la pile.
 ====
 
 ==== Utilisation du contrôle de flux dans les scripts
@@ -525,7 +525,7 @@ ELSE
 ENDIF
 ----
 
-En regardant ce script de rachat, vous vous demandez peut-être : "Où est la condition ? Il n'y a rien qui précède la clause +IF+ !"
+En regardant ce script de rachat, vous vous demandez peut-être : "Où est la condition ? Il n'y a rien qui précède la clause `IF` !"
 
 La condition ne fait pas partie du script de rachat. Au lieu de cela, la condition sera proposée dans le script de déverrouillage, permettant à Alice et Bob de "choisir" le chemin d'exécution qu'ils souhaitent.
 
@@ -534,17 +534,17 @@ Alice rachète cela avec le script de déverrouillage :
 <Alice's Sig> 1
 ----
 
-Le +1+ à la fin sert de condition (+TRUE+) qui fera que la clause +IF+ exécutera le premier chemin de rachat pour lequel Alice a une signature.
+Le `1` à la fin sert de condition (+TRUE+) qui fera que la clause `IF` exécutera le premier chemin de rachat pour lequel Alice a une signature.
 
-Pour que Bob puisse racheter cela, il devrait choisir le deuxième chemin d'exécution en donnant une valeur +FALSE+ à la clause +IF+ :
+Pour que Bob puisse racheter cela, il devrait choisir le deuxième chemin d'exécution en donnant une valeur `FALSE` à la clause +IF+ :
 
 ----
 <Bob's Sig> 0
 ----
 
-Le script de déverrouillage de Bob place un +0+ sur la pile, ce qui oblige la clause +IF+ à exécuter le deuxième script (+ELSE+), qui nécessite la signature de Bob.
+Le script de déverrouillage de Bob place un `0` sur la pile, ce qui oblige la clause `IF` à exécuter le deuxième script (+ELSE+), qui nécessite la signature de Bob.
 
-Puisque les clauses +IF+ peuvent être imbriquées, nous pouvons créer un "labyrinthe" de chemins d'exécution. Le script de déverrouillage peut fournir une "carte" sélectionnant le chemin d'exécution réellement exécuté :
+Puisque les clauses `IF` peuvent être imbriquées, nous pouvons créer un "labyrinthe" de chemins d'exécution. Le script de déverrouillage peut fournir une "carte" sélectionnant le chemin d'exécution réellement exécuté :
 
 ----
 IF
@@ -558,9 +558,9 @@ ELSE
 ENDIF
 ----
 
-Dans ce scénario, il existe trois chemins d'exécution (+script A+, +script B+ et +script C+). Le script de déverrouillage fournit un chemin sous la forme d'une séquence de valeurs +TRUE+ ou +FALSE+. Pour sélectionner le chemin +script B+, par exemple, le script de déverrouillage doit se terminer par +1 0+ (+TRUE+, +FALSE+). Ces valeurs seront poussées sur la pile, de sorte que la deuxième valeur (+FALSE+) se retrouve en haut de la pile. La clause +IF+ externe extrait la valeur +FALSE+ et exécute la première clause +ELSE+. Ensuite, la valeur +TRUE+ se déplace vers le haut de la pile et est évaluée par le +IF+ interne (imbriqué), en sélectionnant le chemin d'exécution +B+.
+Dans ce scénario, il existe trois chemins d'exécution (+script A+, `script B` et +script C+). Le script de déverrouillage fournit un chemin sous la forme d'une séquence de valeurs `TRUE` ou +FALSE+. Pour sélectionner le chemin +script B+, par exemple, le script de déverrouillage doit se terminer par `1 0` (+TRUE+, +FALSE+). Ces valeurs seront poussées sur la pile, de sorte que la deuxième valeur (+FALSE+) se retrouve en haut de la pile. La clause `IF` externe extrait la valeur `FALSE` et exécute la première clause +ELSE+. Ensuite, la valeur `TRUE` se déplace vers le haut de la pile et est évaluée par le `IF` interne (imbriqué), en sélectionnant le chemin d'exécution +B+.
 
-En utilisant cette construction, nous pouvons créer des scripts de rachat avec des dizaines ou des centaines de chemins d'exécution, chacun offrant une manière différente de racheter l'UTXO. Pour dépenser, nous construisons un script de déverrouillage qui navigue dans le chemin d'exécution en plaçant les valeurs +TRUE+ et +FALSE+ appropriées sur la pile à chaque point de contrôle de flux.((("", startref="Sflow07")))(((" ", startref="flux07")))((("", startref="condition07")))
+En utilisant cette construction, nous pouvons créer des scripts de rachat avec des dizaines ou des centaines de chemins d'exécution, chacun offrant une manière différente de racheter l'UTXO. Pour dépenser, nous construisons un script de déverrouillage qui navigue dans le chemin d'exécution en plaçant les valeurs `TRUE` et `FALSE` appropriées sur la pile à chaque point de contrôle de flux.((("", startref="Sflow07")))(((" ", startref="flux07")))((("", startref="condition07")))
 
 === Exemple de script complexe
 
@@ -591,7 +591,7 @@ Voici le script de rachat que Mohammed conçoit pour y parvenir (préfixe de num
 
 Le script de Mohammed implémente trois chemins d'exécution à l'aide de clauses de contrôle de flux imbriquées +IF...ELSE+.
 
-Dans le premier chemin d'exécution, ce script fonctionne comme un simple multisig 2 sur 3 avec les trois partenaires. Ce chemin d'exécution se compose des lignes 3 et 9. La ligne 3 définit le quorum du multisig à +2+ (2-de-3). Ce chemin d'exécution peut être sélectionné en mettant +TRUE TRUE+ à la fin du script de déverrouillage :
+Dans le premier chemin d'exécution, ce script fonctionne comme un simple multisig 2 sur 3 avec les trois partenaires. Ce chemin d'exécution se compose des lignes 3 et 9. La ligne 3 définit le quorum du multisig à `2` (2-de-3). Ce chemin d'exécution peut être sélectionné en mettant `TRUE TRUE` à la fin du script de déverrouillage :
 
 .Script de déverrouillage pour le premier chemin d'exécution (2-de-3 multisig)
 ----
@@ -601,7 +601,7 @@ Dans le premier chemin d'exécution, ce script fonctionne comme un simple multis
 
 [TIP]
 ====
-Le +0+ au début de ce script de déverrouillage est dû à un bogue dans +CHECKMULTISIG+ qui extrait une valeur supplémentaire de la pile. La valeur supplémentaire est ignorée par le +CHECKMULTISIG+, mais elle doit être présente ou le script échoue. Pousser +0+ (habituellement) est une solution de contournement au bogue, comme décrit dans <<multisig_bug>>.
+Le `0` au début de ce script de déverrouillage est dû à un bogue dans `CHECKMULTISIG` qui extrait une valeur supplémentaire de la pile. La valeur supplémentaire est ignorée par le +CHECKMULTISIG+, mais elle doit être présente ou le script échoue. Pousser `0` (habituellement) est une solution de contournement au bogue, comme décrit dans <<multisig_bug>>.
 ====
 
 Le deuxième chemin d'exécution ne peut être utilisé qu'après 30 jours à compter de la création de l'UTXO. À ce moment-là, il faut la signature d'Abdul l'avocat et de l'un des trois partenaires (un multisig 1 sur 3). Ceci est réalisé par la ligne 7, qui fixe le quorum pour le multisig à +1+. Pour sélectionner ce chemin d'exécution, le script de déverrouillage se terminerait par +FALSE TRUE+ :
@@ -613,7 +613,7 @@ Le deuxième chemin d'exécution ne peut être utilisé qu'après 30 jours à co
 
 [TIP]
 ====
-Pourquoi +FAUX VRAI+ ? N'est-ce pas à l'envers ? Parce que les deux valeurs sont poussées sur la pile, avec +FALSE+ poussé en premier, puis +TRUE+ poussé en second. +TRUE+ est donc dépilé _premier_ par le premier opcode +IF+.
+Pourquoi +FAUX VRAI+ ? N'est-ce pas à l'envers ? Parce que les deux valeurs sont poussées sur la pile, avec `FALSE` poussé en premier, puis `TRUE` poussé en second. `TRUE` est donc dépilé _premier_ par le premier opcode +IF+.
 ====
 
 Enfin, la troisième voie d'exécution permet à Abdul l'avocat de dépenser les fonds seul, mais seulement après 90 jours. Pour sélectionner ce chemin d'exécution, le script de déverrouillage doit se terminer par +FALSE+ :
@@ -627,7 +627,7 @@ Essayez d'exécuter le script sur papier pour voir comment il se comporte sur la
 
 Quelques éléments supplémentaires à prendre en compte lors de la lecture de cet exemple. Voyez si vous pouvez trouver les réponses :
 
-* Pourquoi l'avocat ne peut-il pas racheter le troisième chemin d'exécution à tout moment en le sélectionnant avec +FALSE+ sur le script de déverrouillage ?
+* Pourquoi l'avocat ne peut-il pas racheter le troisième chemin d'exécution à tout moment en le sélectionnant avec `FALSE` sur le script de déverrouillage ?
 
 * Combien de chemins d'exécution peuvent être utilisés 5, 35 et 105 jours, respectivement, après le minage de l'UTXO ?
 
@@ -635,7 +635,7 @@ Quelques éléments supplémentaires à prendre en compte lors de la lecture de 
 
 * Comment les associés « remettent-ils à zéro » l'horloge tous les 29 ou 89 jours pour empêcher l'avocat d'accéder aux fonds ?
 
-* Pourquoi certains opcodes +CHECKSIG+ dans ce script ont-ils le suffixe +VERIFY+ alors que d'autres non ?((("", startref="Scomplex07")))((("", startref="mohamseventwo")))
+* Pourquoi certains opcodes `CHECKSIG` dans ce script ont-ils le suffixe `VERIFY` alors que d'autres non ?((("", startref="Scomplex07")))((("", startref="mohamseventwo")))
 
 [[segwit]]
 === Témoin séparé
@@ -648,7 +648,7 @@ Dans le contexte du bitcoin, une signature numérique est _un type de témoin_, 
 
 Avant l'introduction de segwit, chaque entrée d'une transaction était suivie des données témoins qui la déverrouillaient. Les données témoins ont été intégrées à la transaction dans le cadre de chaque entrée. Le terme _témoin séparé_, ou _segwit_ en abrégé, signifie simplement séparer la signature ou le script de déverrouillage d'une sortie spécifique. Pensez "scriptSig séparé" ou "signature séparée" dans sa forme la plus simple.
 
-Le témoin séparé (Segregated Witness) est donc une modification architecturale du bitcoin qui vise à déplacer les données témoins du champ +scriptSig+ (script de déverrouillage) d'une transaction vers une structure de données _témoin_ distincte qui accompagne une transaction. Les clients peuvent demander des données de transaction avec ou sans les données de témoin qui les accompagnent.
+Le témoin séparé (Segregated Witness) est donc une modification architecturale du bitcoin qui vise à déplacer les données témoins du champ `scriptSig` (script de déverrouillage) d'une transaction vers une structure de données _témoin_ distincte qui accompagne une transaction. Les clients peuvent demander des données de transaction avec ou sans les données de témoin qui les accompagnent.
 
 Dans cette section, nous examinerons certains des avantages du témoin séparé, décrirons le mécanisme utilisé pour déployer et mettre en œuvre ce changement d'architecture et démontrerons l'utilisation du témoin séparé dans les transactions et les adresses.
 
@@ -729,7 +729,7 @@ Examinons maintenant la transaction correspondante que Bob utilise pour dépense
 [...]
 ----
 
-Cependant, pour passer la sortie du témoin séparé, la transaction n'a pas de signature dans la partie d'entrée. Au lieu de cela, la transaction de Bob a un +scriptSig+ vide dans les données de transaction (la première partie d'une transaction, qui inclut la partie d'entrée) et inclut sa signature dans les données témoins (la deuxième partie d'une transaction, qui est séparée des données de transaction ):
+Cependant, pour passer la sortie du témoin séparé, la transaction n'a pas de signature dans la partie d'entrée. Au lieu de cela, la transaction de Bob a un `scriptSig` vide dans les données de transaction (la première partie d'une transaction, qui inclut la partie d'entrée) et inclut sa signature dans les données témoins (la deuxième partie d'une transaction, qui est séparée des données de transaction ):
 
 .Transaction décodée montrant une sortie P2WPKH dépensée avec des données témoins séparées
 ----
@@ -786,7 +786,7 @@ Maintenant, regardons comment cet exemple entier serait mis à niveau vers segwi
 
 Encore une fois, comme dans l'exemple de P2WPKH, vous pouvez voir que le script équivalent Segregated Witness est beaucoup plus simple et omet les différents opérandes de script que vous voyez dans les scripts P2SH. Au lieu de cela, le programme de témoignage séparé se compose de deux valeurs poussées vers la pile : une version témoin (0) et le hachage SHA256 de 32 octets du script de rachat.
 
-La société de Mohammed peut dépenser la sortie P2WSH en présentant le bon script de rachat et suffisamment de signatures pour le satisfaire. Le script de rachat et les signatures seraient séparés _en dehors_ des données de transaction de dépenses dans le cadre des données de témoin. Dans l'entrée de transaction, le portefeuille de Mohammed ((("", startref="mohamappd")))mettrait un +scriptSig+ vide :
+La société de Mohammed peut dépenser la sortie P2WSH en présentant le bon script de rachat et suffisamment de signatures pour le satisfaire. Le script de rachat et les signatures seraient séparés _en dehors_ des données de transaction de dépenses dans le cadre des données de témoin. Dans l'entrée de transaction, le portefeuille de Mohammed ((("", startref="mohamappd")))mettrait un `scriptSig` vide :
 
 .Transaction décodée montrant une sortie P2WSH dépensée avec des données témoins séparées
 ----
@@ -803,7 +803,7 @@ La société de Mohammed peut dépenser la sortie P2WSH en présentant le bon sc
 
 [TIP]
 ====
-Alors que P2SH utilise le hachage +RIPEMD160(SHA256(script))+ de 20 octets, le programme témoin P2WSH utilise un hachage +SHA256(script)+ de 32 octets. Cette différence dans le choix de l'algorithme de hachage est délibérée et offre une sécurité renforcée à P2WSH (128 bits de sécurité dans P2WSH contre 80 bits de sécurité dans P2SH). Il est également utilisé pour différencier les deux types de programmes témoins (P2WPKH et P2WSH) en utilisant la longueur du hachage (voir ci-dessous).
+Alors que P2SH utilise le hachage `RIPEMD160(SHA256(script))` de 20 octets, le programme témoin P2WSH utilise un hachage `SHA256(script)` de 32 octets. Cette différence dans le choix de l'algorithme de hachage est délibérée et offre une sécurité renforcée à P2WSH (128 bits de sécurité dans P2WSH contre 80 bits de sécurité dans P2SH). Il est également utilisé pour différencier les deux types de programmes témoins (P2WPKH et P2WSH) en utilisant la longueur du hachage (voir ci-dessous).
 
 ====
 
@@ -856,7 +856,7 @@ Le programme témoin P2WPKH se compose de la version témoin et du hachage de cl
 
 Le portefeuille de Bob hache ensuite le programme témoin précédent, d'abord avec SHA256, puis avec RIPEMD160, produisant un autre hachage de 20 octets.
 
-Utilisons +bx+ sur la ligne de commande pour répliquer cela :
+Utilisons `bx` sur la ligne de commande pour répliquer cela :
 
 .HASH160 du programme témoin P2WPKH
 ----
@@ -867,7 +867,7 @@ echo \
 ----
 
 
-Ensuite, le hachage du script de rachat est converti en une adresse Bitcoin. Utilisons à nouveau +bx+ sur la ligne de commande :
+Ensuite, le hachage du script de rachat est converti en une adresse Bitcoin. Utilisons à nouveau `bx` sur la ligne de commande :
 
 .Adresse P2SH
 ----
@@ -892,7 +892,7 @@ De même, un programme témoin P2WSH pour un script multisig ou un autre script 
 
 Comme nous l'avons vu dans <<p2wsh>>, la société de Mohammed ((("cas d'utilisation", "import/export"))) utilise des paiements de témoins séparés avec des scripts multisignatures. Pour permettre à tout client de payer son entreprise, que ses portefeuilles soient ou non mis à niveau pour segwit, le portefeuille de Mohammed peut intégrer le programme témoin P2WSH dans un script P2SH.
 
-Tout d'abord, le portefeuille de Mohammed hache le script de rachat avec SHA256 (une seule fois). Utilisons +bx+ pour faire cela sur la ligne de commande :
+Tout d'abord, le portefeuille de Mohammed hache le script de rachat avec SHA256 (une seule fois). Utilisons `bx` pour faire cela sur la ligne de commande :
 
 .Le portefeuille de Mohammed crée un programme témoin P2WSH
 ----
@@ -913,7 +913,7 @@ Ensuite, le script de rachat haché est transformé en un programme témoin P2WS
 0 9592d601848d04b172905e0ddb0adde59f1590f1e553ffc81ddc4b0ed927dd73
 ----
 
-Ensuite, le programme témoin lui-même est haché avec SHA256 et RIPEMD160, produisant un nouveau hachage de 20 octets, tel qu'utilisé dans le P2SH traditionnel. Utilisons +bx+ sur la ligne de commande pour faire cela :
+Ensuite, le programme témoin lui-même est haché avec SHA256 et RIPEMD160, produisant un nouveau hachage de 20 octets, tel qu'utilisé dans le P2SH traditionnel. Utilisons `bx` sur la ligne de commande pour faire cela :
 
 .Le HASH160 du programme témoin P2WSH
 ----
@@ -923,7 +923,7 @@ Ensuite, le programme témoin lui-même est haché avec SHA256 et RIPEMD160, pro
 86762607e8fe87c0c37740cddee880988b9455b2
 ----
 
-Ensuite, le portefeuille construit une adresse Bitcoin P2SH à partir de ce hachage. Encore une fois, nous utilisons +bx+ pour calculer sur la ligne de commande :
+Ensuite, le portefeuille construit une adresse Bitcoin P2SH à partir de ce hachage. Encore une fois, nous utilisons `bx` pour calculer sur la ligne de commande :
 
 .P2SH Adresse bitcoin
 ----
@@ -1000,22 +1000,22 @@ La partie données:: Un minimum de 6 caractères alphanumériques, le script té
 
 Avant segwit, les transactions pouvaient voir leurs signatures subtilement modifiées par des tiers, changeant leur ID de transaction (hachage) sans changer aucune propriété fondamentale (entrées, sorties, montants). Cela a créé des opportunités d'attaques par déni de service ainsi que des attaques contre des logiciels de portefeuille mal écrits qui supposaient que les hachages de transaction non confirmés étaient immuables.
 
-Avec l'introduction des témoins séparés, les transactions ont deux identifiants, +txid+ et +wtxid+. L'identifiant de transaction traditionnel +txid+ est le hachage double SHA256 de la transaction sérialisée, sans les données témoins. Une transaction +wtxid+ est le hachage double SHA256 du nouveau format de sérialisation de la transaction avec des données témoins.
+Avec l'introduction des témoins séparés, les transactions ont deux identifiants, `txid` et +wtxid+. L'identifiant de transaction traditionnel `txid` est le hachage double SHA256 de la transaction sérialisée, sans les données témoins. Une transaction `wtxid` est le hachage double SHA256 du nouveau format de sérialisation de la transaction avec des données témoins.
 
-Le +txid+ traditionnel est calculé exactement de la même manière qu'avec une transaction non segwit. Cependant, étant donné qu'une transaction segwit pure (une transaction qui ne contient que des entrées segwit) a des ++scriptSig++ vides dans chaque entrée, aucune partie de la transaction ne peut être modifiée par un tiers. Par conséquent, dans une transaction segwit pure, le +txid+ est immuable par un tiers, même lorsque la transaction n'est pas confirmée.
+Le `txid` traditionnel est calculé exactement de la même manière qu'avec une transaction non segwit. Cependant, étant donné qu'une transaction segwit pure (une transaction qui ne contient que des entrées segwit) a des `scriptSig` vides dans chaque entrée, aucune partie de la transaction ne peut être modifiée par un tiers. Par conséquent, dans une transaction segwit pure, le `txid` est immuable par un tiers, même lorsque la transaction n'est pas confirmée.
 
-Le +wtxid+ est comme un identifiant "étendu", en ce que le hachage incorpore également les données du témoin. Si une transaction est transmise sans données témoins, alors le +wtxid+ et le +txid+ sont identiques. Notez que puisque le +wtxid+ inclut des données témoins (signatures) et que les données témoins peuvent être malléables, le +wtxid+ doit être considéré comme malléable jusqu'à ce que la transaction soit confirmée. Seul le +txid+ d'une pure transaction segwit peut être considéré comme immuable par des tiers.
+Le `wtxid` est comme un identifiant "étendu", en ce que le hachage incorpore également les données du témoin. Si une transaction est transmise sans données témoins, alors le `wtxid` et le `txid` sont identiques. Notez que puisque le `wtxid` inclut des données témoins (signatures) et que les données témoins peuvent être malléables, le `wtxid` doit être considéré comme malléable jusqu'à ce que la transaction soit confirmée. Seul le `txid` d'une pure transaction segwit peut être considéré comme immuable par des tiers.
 
 [TIP]
 ====
-Les transactions de témoin séparé ont deux identifiants : +txid+ et +wtxid+. Le +txid+ est le hachage de la transaction sans les données témoins et le +wtxid+ est le hachage incluant les données témoins. Seules les transactions segwit pures (transactions qui ne contiennent que des entrées segwit) ont un +txid+ qui n'est pas sensible à la malléabilité des transactions tierces.
+Les transactions de témoin séparé ont deux identifiants : `txid` et +wtxid+. Le `txid` est le hachage de la transaction sans les données témoins et le `wtxid` est le hachage incluant les données témoins. Seules les transactions segwit pures (transactions qui ne contiennent que des entrées segwit) ont un `txid` qui n'est pas sensible à la malléabilité des transactions tierces.
 ====
 
 ==== Nouvel algorithme de signature des témoins séparés
 
-Le témoin séparé modifie la sémantique des quatre fonctions de vérification de signature (+CHECKSIG+, +CHECKSIGVERIFY+, +CHECKMULTISIG+ et +CHECKMULTISIGVERIFY+), changeant la façon dont un hachage d'engagement de transaction est calculé.
+Le témoin séparé modifie la sémantique des quatre fonctions de vérification de signature (+CHECKSIG+, +CHECKSIGVERIFY+, `CHECKMULTISIG` et +CHECKMULTISIGVERIFY+), changeant la façon dont un hachage d'engagement de transaction est calculé.
 
-Les signatures dans les transactions bitcoin sont appliquées sur un _hachage d'engagement_, qui est calculé à partir des données de transaction, verrouillant des parties spécifiques des données indiquant l'engagement du signataire envers ces valeurs. Par exemple, dans une signature de type +SIGHASH_ALL+ simple, le hachage d'engagement inclut toutes les entrées et sorties.
+Les signatures dans les transactions bitcoin sont appliquées sur un _hachage d'engagement_, qui est calculé à partir des données de transaction, verrouillant des parties spécifiques des données indiquant l'engagement du signataire envers ces valeurs. Par exemple, dans une signature de type `SIGHASH_ALL` simple, le hachage d'engagement inclut toutes les entrées et sorties.
 
 Malheureusement, la façon dont le hachage d'engagement a été calculé a introduit la possibilité qu'un nœud vérifiant la signature puisse être forcé d'effectuer un nombre important de calculs de hachage. Plus précisément, les opérations de hachage augmentent en O(n^2^) par rapport au nombre d'opérations de signature dans la transaction. Un attaquant pourrait donc créer une transaction avec un très grand nombre d'opérations de signature, obligeant l'ensemble du réseau Bitcoin à effectuer des centaines ou des milliers d'opérations de hachage pour vérifier la transaction.
 

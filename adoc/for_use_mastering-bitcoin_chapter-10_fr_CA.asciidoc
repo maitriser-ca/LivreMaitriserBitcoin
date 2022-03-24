@@ -110,21 +110,21 @@ Chaque nœud vérifie chaque transaction par rapport à une longue liste de crit
 * La taille de la transaction est inférieure à la taille maximale autorisée pour un bloc excluant les données témoins, comme indiqué dans https://bit.ly/3t623VL[_tx_check.cpp_].
 * Chaque valeur de sortie, ainsi que le total, doit être dans la plage de valeurs autorisée (moins de 21 millions de pièces, plus que le seuil de _poussière_).
 * Aucune des entrées n'a hash=0, N=–1 (les transactions coinbase ne doivent pas être relayées).
-* +nLocktime+ est égal à +INT_MAX+, ou les valeurs +nLocktime+ et +nSequence+ sont satisfaites selon +MedianTimePast+.
+* `nLocktime` est égal à `INT_MAX`, ou les valeurs `nLocktime` et `nSequence` sont satisfaites selon `MedianTimePast`.
 * La taille de la transaction en octets est supérieure ou égale à 82.
 * Le nombre d'opérations de signature (SIGOPS) contenues dans la transaction est inférieur à la limite d'opérations de signature.
-* Le script de déverrouillage (+scriptSig+) ne peut pousser que des nombres sur la pile, et le script de verrouillage (+scriptPubkey+) doit correspondre aux formes +IsStandard+ (cela rejette les transactions "non standard").
+* Le script de déverrouillage (`scriptSig`) ne peut pousser que des nombres sur la pile, et le script de verrouillage (`scriptPubkey`) doit correspondre aux formes `IsStandard` (cela rejette les transactions "non standard").
 * Une transaction correspondante dans le bassin ou dans un bloc de la branche principale doit exister.
 * Pour chaque entrée, si la sortie référencée existe dans une autre transaction du bassin, la transaction doit être rejetée.
 * Pour chaque entrée, regardez dans la branche principale et le bassin de transactions pour trouver sa transaction parente. Si la transaction parent est manquante pour une entrée, il s'agira d'une transaction orpheline. Ajouter au bassin de transactions orphelines, si une transaction correspondante n'est pas déjà dans le bassin.
-* Pour chaque entrée, si sa transaction parente est une transaction coinbase, elle doit avoir au moins +COINBASE_MATURITY+ (100) confirmations.
+* Pour chaque entrée, si sa transaction parente est une transaction coinbase, elle doit avoir au moins `COINBASE_MATURITY` (100) confirmations.
 * Pour chaque entrée, la sortie référencée doit exister et ne peut pas déjà être dépensée.
 * En utilisant les transactions parentes pour obtenir les valeurs d'entrée, vérifiez que chaque valeur d'entrée, ainsi que la somme, se situent dans la plage de valeurs autorisée (moins de 21 millions de pièces, plus de 0).
 * Rejeter si la somme des valeurs d'entrée est inférieure à la somme des valeurs de sortie.
-* Rejeter si les frais de transaction seraient trop bas (+minRelayTxFee+) pour entrer dans un bloc vide.
+* Rejeter si les frais de transaction seraient trop bas (`minRelayTxFee`) pour entrer dans un bloc vide.
 * Les scripts de déverrouillage pour chaque entrée doivent être validés par rapport aux scripts de verrouillage de sortie correspondants.
 
-Ces conditions peuvent être vues en détail dans les fonctions +AcceptToMemoryPool+, +CheckTransaction+ et +CheckInputs+ dans Bitcoin Core. Notez que les conditions changent avec le temps, pour faire face à de nouveaux types d'attaques par déni de service ou parfois pour assouplir les règles afin d'inclure davantage de types de transactions.
+Ces conditions peuvent être vues en détail dans les fonctions `AcceptToMemoryPool`, `CheckTransaction` et `CheckInputs` dans Bitcoin Core. Notez que les conditions changent avec le temps, pour faire face à de nouveaux types d'attaques par déni de service ou parfois pour assouplir les règles afin d'inclure davantage de types de transactions.
 
 En vérifiant indépendamment chaque transaction lors de sa réception et avant de la propager, chaque nœud crée un bassin de transactions valides (mais non confirmées) connu sous le nom de _bassin de transaction_, _bassin de mémoire_ ou _mempool_.
 
@@ -240,7 +240,7 @@ $ bitcoin-cli getrawtransaction d5ada064c6417ca25c4308bd158c34b77e1c0eca2a73cda1
 ----
 ====
 
-Contrairement aux transactions régulières, la transaction coinbase ne consomme pas (ne dépense pas) d'UTXO comme entrées. Au lieu de cela, il n'a qu'une seule entrée, appelée _coinbase_, qui crée du bitcoin à partir de rien. La transaction coinbase a une sortie, payable à la propre adresse Bitcoin du mineur. La sortie de la transaction coinbase envoie la valeur de 25,09094928 bitcoin à l'adresse Bitcoin du mineur ; dans ce cas c'est +1MxTkeEP2PmHSMze5tUZ1hAV3YTKu2Gh1N+.
+Contrairement aux transactions régulières, la transaction coinbase ne consomme pas (ne dépense pas) d'UTXO comme entrées. Au lieu de cela, il n'a qu'une seule entrée, appelée _coinbase_, qui crée du bitcoin à partir de rien. La transaction coinbase a une sortie, payable à la propre adresse Bitcoin du mineur. La sortie de la transaction coinbase envoie la valeur de 25,09094928 bitcoin à l'adresse Bitcoin du mineur ; dans ce cas c'est `1MxTkeEP2PmHSMze5tUZ1hAV3YTKu2Gh1N`.
 
 ==== Récompense et frais coinbase
 
@@ -254,7 +254,7 @@ Dans le bloc 277 316, le total des frais de transaction est de 0,09094928 bitcoi
 
 Ensuite, le nœud de Jing calcule la récompense correcte pour le nouveau bloc. La récompense est calculée en fonction de la hauteur du bloc, à partir de 50 bitcoins par bloc et réduite de moitié tous les 210 000 blocs. Parce que ce bloc est à la hauteur 277 316, la récompense correcte est de 25 bitcoins.
 
-Le calcul peut être vu dans la fonction +GetBlockSubsidy+ dans le client Bitcoin Core, comme indiqué dans <<getblocksubsidy_source>>.
+Le calcul peut être vu dans la fonction `GetBlockSubsidy` dans le client Bitcoin Core, comme indiqué dans <<getblocksubsidy_source>>.
 
 [[getblocksubsidy_source]]
 .Calcul de la récompense de bloc—Fonction GetBlockSubsidy, Client Bitcoin Core, main.cpp
@@ -277,15 +277,15 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 ----
 ====
 
-La subvention initiale est calculée en satoshis en multipliant 50 par la constante +COIN+ (100 000 000 satoshis). Cela fixe la récompense initiale (+nSubsidy+) à 5 milliards de satoshis.
+La subvention initiale est calculée en satoshis en multipliant 50 par la constante `COIN` (100 000 000 satoshis). Cela fixe la récompense initiale (`nSubsidy`) à 5 milliards de satoshis.
 
-((("réduction de moitié")))Ensuite, la fonction calcule le nombre de +halvings+ qui se sont produits en divisant la hauteur actuelle du bloc par l'intervalle de halving (ou réduction de moitié) (+SubsidyHalvingInterval+). Dans le cas du bloc 277 316, avec un intervalle de moitié tous les 210 000 blocs, le résultat est 1 moitié.
+((("réduction de moitié")))Ensuite, la fonction calcule le nombre de `halvings` qui se sont produits en divisant la hauteur actuelle du bloc par l'intervalle de halving (ou réduction de moitié) (`SubsidyHalvingInterval`). Dans le cas du bloc 277 316, avec un intervalle de moitié tous les 210 000 blocs, le résultat est 1 moitié.
 
 Le nombre maximum de moitiés autorisé est de 64, donc le code impose une récompense nulle (ne renvoie que les frais) si les 64 moitiés sont dépassées.
 
-Ensuite, la fonction utilise l'opérateur binaire de décalage vers la droite pour diviser la récompense (+nSubsidy+) par deux pour chaque cycle de réduction de moitié. Dans le cas du bloc 277 316, cela entraînerait un décalage binaire vers la droite de la récompense de 5 milliards de satoshis une fois (une réduction de moitié) et donnerait 2,5 milliards de satoshis, soit 25 bitcoins. L'opérateur de décalage binaire vers la droite est utilisé car il est plus efficace que plusieurs divisions répétées. Pour éviter un bogue potentiel, l'opération de décalage est ignorée après 63 moitiés et la subvention est définie sur 0.
+Ensuite, la fonction utilise l'opérateur binaire de décalage vers la droite pour diviser la récompense (`nSubsidy`) par deux pour chaque cycle de réduction de moitié. Dans le cas du bloc 277 316, cela entraînerait un décalage binaire vers la droite de la récompense de 5 milliards de satoshis une fois (une réduction de moitié) et donnerait 2,5 milliards de satoshis, soit 25 bitcoins. L'opérateur de décalage binaire vers la droite est utilisé car il est plus efficace que plusieurs divisions répétées. Pour éviter un bogue potentiel, l'opération de décalage est ignorée après 63 moitiés et la subvention est définie sur 0.
 
-Enfin, la récompense coinbase (+nSubsidy+) est ajoutée aux frais de transaction (+nFees+), et la somme est restituée.
+Enfin, la récompense coinbase (`nSubsidy`) est ajoutée aux frais de transaction (`nFees`), et la somme est restituée.
 
 [TIP]
 ====
@@ -322,23 +322,23 @@ Comme vous pouvez le voir dans <<generation_tx_example>>, la transaction coinbas
 | 4 octets | Numéro de séquence | Réglé sur 0xFFFFFFFF
 |=======
 
-Dans une transaction coinbase, les deux premiers champs sont définis sur des valeurs qui ne représentent pas une référence UTXO. Au lieu d'un "hachage de transaction", le premier champ est rempli de 32 octets tous mis à zéro. "L'index de sortie" est rempli de 4 octets tous mis à 0xFF (255 décimal). Le "script de déverrouillage" (+scriptSig+) est remplacé par les données coinbase, un champ de données utilisé par les mineurs, comme nous le verrons ensuite.
+Dans une transaction coinbase, les deux premiers champs sont définis sur des valeurs qui ne représentent pas une référence UTXO. Au lieu d'un "hachage de transaction", le premier champ est rempli de 32 octets tous mis à zéro. "L'index de sortie" est rempli de 4 octets tous mis à 0xFF (255 décimal). Le "script de déverrouillage" (`scriptSig`) est remplacé par les données coinbase, un champ de données utilisé par les mineurs, comme nous le verrons ensuite.
 
 ==== Données coinbase
 
-((("transactions coinbase", "données coinbase")))Les transactions coinbase n'ont pas de champ de script de déverrouillage (aka, +scriptSig+). Au lieu de cela, ce champ est remplacé par des données coinbase, qui doivent être comprises entre 2 et 100 octets. À l'exception des premiers octets, le reste des données de coinbase peut être utilisé par les mineurs comme ils le souhaitent ; ce sont des données arbitraires.
+((("transactions coinbase", "données coinbase")))Les transactions coinbase n'ont pas de champ de script de déverrouillage (aka, `scriptSig`). Au lieu de cela, ce champ est remplacé par des données coinbase, qui doivent être comprises entre 2 et 100 octets. À l'exception des premiers octets, le reste des données de coinbase peut être utilisé par les mineurs comme ils le souhaitent ; ce sont des données arbitraires.
 
 ((("valeurs nonce")))((("blocs", "bloc de genèse")))((("chaîne de blocs (la)", "bloc de genèse")))((("bloc de genèse")))Dans le bloc de genèse, par exemple, Satoshi Nakamoto a ajouté le texte "The Times 03/Jan/2009 Chancellor on bound of second bailout for banks" dans les données coinbase, l'utilisant comme preuve de la date et pour transmettre un message. Actuellement, les mineurs utilisent les données coinbase pour inclure des valeurs nonce supplémentaires et des chaînes identifiant le bassin de minage.
 
 Les premiers octets de la coinbase étaient auparavant arbitraires, mais ce n'est plus le cas. Conformément à BIP-34, les blocs de version 2 (blocs avec le champ de version défini sur 2) doivent contenir l'index de hauteur de bloc en tant qu'opération "push" (pousser) de script au début du champ coinbase.
 
-Dans le bloc 277 316, nous voyons que le coinbase (voir <<generation_tx_example>>), qui se trouve dans le script de déverrouillage ou le champ +scriptSig+ de l'entrée de transaction, contient la valeur hexadécimale +03443b0403858402062f503253482f+. Décodons cette valeur.
+Dans le bloc 277 316, nous voyons que le coinbase (voir <<generation_tx_example>>), qui se trouve dans le script de déverrouillage ou le champ `scriptSig` de l'entrée de transaction, contient la valeur hexadécimale `03443b0403858402062f503253482f`. Décodons cette valeur.
 
-Le premier octet, +03+, indique au moteur d'exécution de script de pousser les trois octets suivants sur la pile de script (voir <<tx_script_ops_table_pushdata>>). Les trois octets suivants, +0x443b04+, sont la hauteur de bloc encodée au format little-endian (petit-boutiste, octet le moins significatif en premier). Inversez l'ordre des octets et le résultat est +0x043b44+, soit 277 316 en décimal.
+Le premier octet, `03`, indique au moteur d'exécution de script de pousser les trois octets suivants sur la pile de script (voir <<tx_script_ops_table_pushdata>>). Les trois octets suivants, `0x443b04`, sont la hauteur de bloc encodée au format little-endian (petit-boutiste, octet le moins significatif en premier). Inversez l'ordre des octets et le résultat est `0x043b44`, soit 277 316 en décimal.
 
-Les quelques chiffres hexadécimaux suivants (+0385840206+) sont utilisés pour coder un _nonce_ supplémentaire (voir <<extra_nonce>>), ou valeur aléatoire, utilisée pour trouver une solution de preuve de travail appropriée.
+Les quelques chiffres hexadécimaux suivants (`0385840206`) sont utilisés pour coder un _nonce_ supplémentaire (voir <<extra_nonce>>), ou valeur aléatoire, utilisée pour trouver une solution de preuve de travail appropriée.
 
-((("propositions d'amélioration de bitcoin", "Pay to Script Hash (BIP-16)")))((("propositions d'amélioration de bitcoin", "CHECKHASHVERIFY (BIP-17)")))((("CHECKHASHVERIFY (CHV )")))((("Pay-to-Script-Hash (P2SH)", "données coinbase")))La partie finale de la donnée coinbase (+2f503253482f+) est une chaîne de caractères ASCII encodées pass:[<span class="keep-together"><code>/P2SH/</code></span>], ce qui indique que le nœud de minage qui a miné ce bloc prend en charge l'amélioration P2SH définie dans BIP-16. L'introduction de la capacité P2SH a nécessité une signalisation par les mineurs pour approuver le BIP-16 ou le BIP-17. Ceux qui approuvaient la mise en œuvre du BIP-16 devaient inclure la chaîne +/P2SH/+ dans leurs données coinbase. Ceux qui approuvaient l'implémentation BIP-17 de P2SH devaient inclure la chaîne +p2sh/CHV+ dans leurs données coinbase. Enfin, le BIP-16 a été élu vainqueur, et de nombreux mineurs ont continué à inclure la chaîne +/P2SH/+ dans leur coinbase pour indiquer qu'ils prennent en charge cette fonctionnalité.
+((("propositions d'amélioration de bitcoin", "Pay to Script Hash (BIP-16)")))((("propositions d'amélioration de bitcoin", "CHECKHASHVERIFY (BIP-17)")))((("CHECKHASHVERIFY (CHV )")))((("Pay-to-Script-Hash (P2SH)", "données coinbase")))La partie finale de la donnée coinbase (`2f503253482f`) est une chaîne de caractères ASCII encodées pass:[<span class="keep-together"><code>/P2SH/</code></span>], ce qui indique que le nœud de minage qui a miné ce bloc prend en charge l'amélioration P2SH définie dans BIP-16. L'introduction de la capacité P2SH a nécessité une signalisation par les mineurs pour approuver le BIP-16 ou le BIP-17. Ceux qui approuvaient la mise en œuvre du BIP-16 devaient inclure la chaîne `/P2SH/` dans leurs données coinbase. Ceux qui approuvaient l'implémentation BIP-17 de P2SH devaient inclure la chaîne `p2sh/CHV` dans leurs données coinbase. Enfin, le BIP-16 a été élu vainqueur, et de nombreux mineurs ont continué à inclure la chaîne `/P2SH/` dans leur coinbase pour indiquer qu'ils prennent en charge cette fonctionnalité.
 
 <<satoshi_words>> utilise la bibliothèque libbitcoin introduite dans <<alt_libraries>> pour extraire les données coinbase du bloc de genèse, affichant le message de Satoshi. Notez que la bibliothèque libbitcoin contient une copie statique du bloc de genèse, de sorte que l'exemple de code peut récupérer le bloc de genèse directement à partir de la bibliothèque.
 
@@ -383,9 +383,9 @@ $ ./satoshi-words
 | 4 octets | Nonce | Un compteur utilisé pour l'algorithme de preuve de travail
 |=======
 
-Au moment où le bloc 277 316 a été miné, le numéro de version décrivant la structure du bloc est la version 2, qui est codée au format petit-boutiste sur 4 octets sous la forme +0x02000000+.
+Au moment où le bloc 277 316 a été miné, le numéro de version décrivant la structure du bloc est la version 2, qui est codée au format petit-boutiste sur 4 octets sous la forme `0x02000000`.
 
-((("blocs", "blocs parent")))((("blocs parent")))Ensuite, le nœud de minage doit ajouter le "Previous Block Hash" (hachage de bloc précédent, également appelé +prevhash+). C'est le hachage de l'en-tête de bloc du bloc 277,315, le bloc précédent reçu du réseau, que le nœud de Jing a accepté et sélectionné comme _parent_ du bloc candidat 277,316. Le hachage d'en-tête de bloc pour le bloc 277 315 est :
+((("blocs", "blocs parent")))((("blocs parent")))Ensuite, le nœud de minage doit ajouter le "Previous Block Hash" (hachage de bloc précédent, également appelé `prevhash`). C'est le hachage de l'en-tête de bloc du bloc 277,315, le bloc précédent reçu du réseau, que le nœud de Jing a accepté et sélectionné comme _parent_ du bloc candidat 277,316. Le hachage d'en-tête de bloc pour le bloc 277 315 est :
 
 ----
 0000000000000002a7bbd25a417c0374cc55261021e8a9ca74442b01284f0569
@@ -402,9 +402,9 @@ En sélectionnant le bloc _parent_ spécifique, indiqué par le champ Hash du bl
 c91c008c26e50763e9f548bb8b2fc323735f73577effbc55502c51eb4cc7cf2e
 ----
 
-Le nœud minier de Jing ajoutera alors un horodatage de 4 octets, codé comme un horodatage "d'époque" Unix, qui est basé sur le nombre de secondes écoulées depuis minuit UTC, le jeudi 1er janvier 1970. L'heure +1388185914+ est égale à vendredi , 27 décembre 2013, 23:11:54 UTC.
+Le nœud minier de Jing ajoutera alors un horodatage de 4 octets, codé comme un horodatage "d'époque" Unix, qui est basé sur le nombre de secondes écoulées depuis minuit UTC, le jeudi 1er janvier 1970. L'heure `1388185914` est égale à vendredi , 27 décembre 2013, 23:11:54 UTC.
 
-Le nœud de Jing remplit ensuite la cible, qui définit la preuve de travail requise pour en faire un bloc valide. La cible est stockée dans le bloc en tant que métrique de "bits cibles", qui est un codage d'exposant de mantisse de la cible. Le codage a un exposant de 1 octet, suivi d'une mantisse de 3 octets (coefficient). Dans le bloc 277 316, par exemple, la valeur des bits cibles est +0x1903a30c+. La première partie +0x19+ est un exposant hexadécimal, tandis que la partie suivante, +0x03a30c+, est le coefficient. Le concept de cible est expliqué dans <<target>> et la représentation des "bits cibles" est expliquée dans <<target_bits>>.
+Le nœud de Jing remplit ensuite la cible, qui définit la preuve de travail requise pour en faire un bloc valide. La cible est stockée dans le bloc en tant que métrique de "bits cibles", qui est un codage d'exposant de mantisse de la cible. Le codage a un exposant de 1 octet, suivi d'une mantisse de 3 octets (coefficient). Dans le bloc 277 316, par exemple, la valeur des bits cibles est `0x1903a30c`. La première partie `0x19` est un exposant hexadécimal, tandis que la partie suivante, `0x03a30c`, est le coefficient. Le concept de cible est expliqué dans <<target>> et la représentation des "bits cibles" est expliquée dans <<target_bits>>.
 
 Le dernier champ est le nonce, qui est initialisé à zéro.
 
@@ -438,7 +438,7 @@ Python 3.7.3
 ----
 ====
 
-<<sha256_example1>> montre le résultat du calcul du hachage de +"Je suis Satoshi Nakamoto"+ : +5d7c7ba21cbbcd75d14800b100252d5b428e5b1213d27c385bc141ca6b47989e+. Ce nombre de 256 bits est le résultat de _hachage_ ou _prétraitement_ de la phrase et dépend de chaque partie de la phrase. L'ajout d'une seule lettre, d'un signe de ponctuation ou de tout autre caractère produira un hachage différent.
+<<sha256_example1>> montre le résultat du calcul du hachage de `"Je suis Satoshi Nakamoto"` : `5d7c7ba21cbbcd75d14800b100252d5b428e5b1213d27c385bc141ca6b47989e`. Ce nombre de 256 bits est le résultat de _hachage_ ou _prétraitement_ de la phrase et dépend de chaque partie de la phrase. L'ajout d'une seule lettre, d'un signe de ponctuation ou de tout autre caractère produira un hachage différent.
 
 Maintenant, si nous changeons la phrase, nous devrions nous attendre à voir des hachages complètement différents. Essayons cela en ajoutant un nombre à la fin de notre phrase, en utilisant le script Python simple dans <<sha256_example_generator>>.
 
@@ -490,7 +490,7 @@ Chaque phrase produit un résultat de hachage complètement différent. Ils semb
 
 Le nombre utilisé comme variable dans un tel scénario est appelé un _nonce_ (ou nombre aléatoire). Le nonce est utilisé pour faire varier la sortie d'une fonction cryptographique, dans ce cas pour faire varier l'empreinte SHA256 de la phrase.
 
-Pour relever le défi de cet algorithme, fixons-nous un objectif : trouver une phrase qui produit un hachage hexadécimal commençant par un zéro. Heureusement, ce n'est pas difficile ! <<sha256_example_generator_output>> montre que la phrase "I am Satoshi Nakamoto13" produit le hash +0ebc56d59a34f5082aaef3d66b37a661696c2b618e62432727216ba9531041a5+, ce qui correspond à nos critères. Il a fallu 13 tentatives pour le trouver. En termes de probabilités, si la sortie de la fonction de hachage est uniformément distribuée, nous nous attendrions à trouver un résultat avec un 0 comme préfixe hexadécimal une fois tous les 16 hachages (un sur 16 chiffres hexadécimaux de 0 à F). En termes numériques, cela signifie trouver une valeur de hachage inférieure à +0x100000000000000000000000000000000000000000000000000000000000+. Nous appelons ce seuil la _cible_ et le but est de trouver un hachage qui est numériquement égal ou inférieur à la cible. Si nous diminuons la cible, la tâche de trouver un hachage inférieur à la cible devient de plus en plus difficile.
+Pour relever le défi de cet algorithme, fixons-nous un objectif : trouver une phrase qui produit un hachage hexadécimal commençant par un zéro. Heureusement, ce n'est pas difficile ! <<sha256_example_generator_output>> montre que la phrase "I am Satoshi Nakamoto13" produit le hash `0ebc56d59a34f5082aaef3d66b37a661696c2b618e62432727216ba9531041a5`, ce qui correspond à nos critères. Il a fallu 13 tentatives pour le trouver. En termes de probabilités, si la sortie de la fonction de hachage est uniformément distribuée, nous nous attendrions à trouver un résultat avec un 0 comme préfixe hexadécimal une fois tous les 16 hachages (un sur 16 chiffres hexadécimaux de 0 à F). En termes numériques, cela signifie trouver une valeur de hachage inférieure à `0x100000000000000000000000000000000000000000000000000000000000`. Nous appelons ce seuil la _cible_ et le but est de trouver un hachage qui est numériquement égal ou inférieur à la cible. Si nous diminuons la cible, la tâche de trouver un hachage inférieur à la cible devient de plus en plus difficile.
 
 Pour donner une analogie simple, imaginez un jeu où les joueurs lancent une paire de dés à plusieurs reprises, en essayant de lancer autant ou moins qu'une cible spécifiée. Au premier tour, l'objectif est de 11. À moins que vous ne lanciez un double-six, vous gagnez. Au tour suivant, l'objectif est de 10. Les joueurs doivent lancer 10 ou moins pour gagner, encore une fois une tâche facile. Disons que quelques tours plus tard, l'objectif est tombé à 5. Maintenant, plus de la moitié des lancers de dés dépasseront l'objectif et seront donc invalides. Il faut exponentiellement plus de lancers de dés pour gagner, plus la cible est basse. Finalement, lorsque l'objectif est de 2 (le minimum possible), un seul lancer sur 36, soit 2 % d'entre eux, produira un résultat gagnant.
 
@@ -601,7 +601,7 @@ Comme vous pouvez le voir, il y a beaucoup de zéros au début de cette cible, c
 [[target_bits]]
 ==== Représentation cible
 
-((("minage et consensus", "minage du bloc", "représentation cible")))((("cibles", id="cibles10")))Dans <<block277316>>, nous avons vu que le bloc contient la cible, dans une notation appelée "bits cible" ou simplement "bits", qui dans le bloc 277 316 a la valeur +0x1903a30c+. Cette notation exprime la cible de preuve de travail sous la forme d'un format coefficient/exposant, avec les deux premiers chiffres hexadécimaux pour l'exposant et les six chiffres hexadécimaux suivants pour le coefficient. Dans ce bloc, par conséquent, l'exposant est +0x19+ et le coefficient est +0x03a30c+.
+((("minage et consensus", "minage du bloc", "représentation cible")))((("cibles", id="cibles10")))Dans <<block277316>>, nous avons vu que le bloc contient la cible, dans une notation appelée "bits cible" ou simplement "bits", qui dans le bloc 277 316 a la valeur `0x1903a30c`. Cette notation exprime la cible de preuve de travail sous la forme d'un format coefficient/exposant, avec les deux premiers chiffres hexadécimaux pour l'exposant et les six chiffres hexadécimaux suivants pour le coefficient. Dans ce bloc, par conséquent, l'exposant est `0x19` et le coefficient est `0x03a30c`.
 
 La formule pour calculer la cible de difficulté à partir de cette représentation est :
 
@@ -692,7 +692,7 @@ Bien que l'étalonnage cible se produise tous les 2 016 blocs, en raison d'une e
 ====
 
 
-Les paramètres +Interval+ (2 016 blocs) et +TargetTimespan+ (deux semaines en 1 209 600 secondes) sont définis dans _chainparams.cpp_.
+Les paramètres `Interval` (2 016 blocs) et `TargetTimespan` (deux semaines en 1 209 600 secondes) sont définis dans _chainparams.cpp_.
 
 Pour éviter une volatilité extrême de la difficulté, l'ajustement de reciblage doit être inférieur à un facteur quatre (4) par cycle. Si l'ajustement cible requis est supérieur à un facteur de quatre, il sera ajusté d'un facteur de 4 et pas plus. Tout autre ajustement sera effectué au cours de la prochaine période de reciblage, car le déséquilibre persistera au cours des 2 016 prochains blocs. Par conséquent, des écarts importants entre la puissance de hachage et la difficulté peuvent nécessiter plusieurs cycles de blocs de 2 016 pour s'équilibrer.
 
@@ -731,7 +731,7 @@ Dans la section suivante, nous examinerons le processus utilisé par chaque nœu
 
 ((("minage et consensus", "validation d'un nouveau bloc")))((("blocs", "validation d'un nouveau bloc")))((("validation")))La troisième étape du mécanisme de consensus de bitcoin est l'indépendante validation de chaque nouveau bloc par chaque nœud du réseau. Au fur et à mesure que le bloc nouvellement résolu se déplace sur le réseau, chaque nœud effectue une série de tests pour le valider avant de le propager à ses pairs. Cela garantit que seuls les blocs valides sont propagés sur le réseau. La validation indépendante garantit également que les mineurs qui agissent honnêtement obtiennent leurs blocs incorporés dans la chaîne de blocs, gagnant ainsi la récompense. Les mineurs qui agissent de manière malhonnête voient leurs blocs rejetés et non seulement perdent la récompense, mais gaspillent également les efforts déployés pour trouver une solution de preuve de travail, encourant ainsi le coût de l'électricité sans compensation.
 
-Lorsqu'un nœud reçoit un nouveau bloc, il valide le bloc en le comparant à une longue liste de critères qui doivent tous être remplis ; sinon, le bloc est rejeté. Ces critères peuvent être vus dans le client Bitcoin Core dans les fonctions +CheckBlock+ et +CheckBlockHeader+ et incluent :
+Lorsqu'un nœud reçoit un nouveau bloc, il valide le bloc en le comparant à une longue liste de critères qui doivent tous être remplis ; sinon, le bloc est rejeté. Ces critères peuvent être vus dans le client Bitcoin Core dans les fonctions `CheckBlock` et `CheckBlockHeader` et incluent :
 
 * La structure de données du bloc est syntaxiquement valide
 * Le hachage de l'en-tête de bloc est égal ou inférieur à la cible (applique la preuve de travail)
@@ -1020,7 +1020,7 @@ Les embranchements convergents peuvent être implémentés de plusieurs façons 
 
 ((("opcodes", "redéfinition par embranchement convergent")))((("embranchements convergents", "redéfinition des codes NOP")))Un certain nombre de embranchements convergents ont été implémentés dans bitcoin, sur la base de la réinterprétation d'opcodes NOP. Bitcoin Script avait dix opcodes réservés pour une utilisation future, NOP1 à NOP10. Selon les règles de consensus, la présence de ces opcodes dans un script est interprétée comme un opérateur nul, ce qui signifie qu'ils n'ont aucun effet. L'exécution continue après l'opcode NOP comme s'il n'était pas là.
 
-Un embranchement convergent peut donc modifier la sémantique d'un code NOP pour lui donner un nouveau sens. Par exemple, BIP-65 (+CHECKLOCKTIMEVERIFY+) a réinterprété l'opcode NOP2. Les clients implémentant BIP-65 interprètent NOP2 comme +OP_CHECKLOCKTIMEVERIFY+ et imposent une règle de consensus de verrouillage absolu sur UTXO qui contient cet opcode dans leurs scripts de verrouillage. Ce changement est un embranchement convergent car une transaction valide sous BIP-65 est également valide sur tout client qui n'implémente pas (ignore) BIP-65. Pour les anciens clients, le script contient un code NOP, qui est ignoré.
+Un embranchement convergent peut donc modifier la sémantique d'un code NOP pour lui donner un nouveau sens. Par exemple, BIP-65 (`CHECKLOCKTIMEVERIFY`) a réinterprété l'opcode NOP2. Les clients implémentant BIP-65 interprètent NOP2 comme `OP_CHECKLOCKTIMEVERIFY` et imposent une règle de consensus de verrouillage absolu sur UTXO qui contient cet opcode dans leurs scripts de verrouillage. Ce changement est un embranchement convergent car une transaction valide sous BIP-65 est également valide sur tout client qui n'implémente pas (ignore) BIP-65. Pour les anciens clients, le script contient un code NOP, qui est ignoré.
 
 ===== Autres façons de mettre à niveau l'embranchement convergent
 
@@ -1063,7 +1063,7 @@ Après une signalisation et une activation réussies selon les règles BIP-34, c
 
 * https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki[BIP-66] Le codage DER strict des signatures a été activé par une signalisation de style BIP-34 avec une version de bloc "3" et invalidant la version "2" des blocs.
 
-* https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki[BIP-65] +CHECKLOCKTIMEVERIFY+ a été activé par la signalisation de style BIP-34 avec une version de bloc "4" et invalidant la version "3" des blocs.
+* https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki[BIP-65] `CHECKLOCKTIMEVERIFY` a été activé par la signalisation de style BIP-34 avec une version de bloc "4" et invalidant la version "3" des blocs.
 
 Après l'activation de BIP-65, le mécanisme de signalisation et d'activation de BIP-34 a été retiré et remplacé par le mécanisme de signalisation BIP-9 décrit ci-après.
 
@@ -1083,9 +1083,9 @@ Le BIP-9 a été proposé pour surmonter ces défis et améliorer le rythme et l
 
 BIP-9 interprète la version de bloc comme un champ de bits au lieu d'un entier. Étant donné que la version de bloc était à l'origine utilisée comme entier, versions 1 à 4, seuls 29 bits restent disponibles pour être utilisés comme champ de bits. Cela laisse 29 bits qui peuvent être utilisés pour signaler indépendamment et simultanément la disponibilité sur 29 propositions différentes.
 
-BIP-9 fixe également un temps maximum pour la signalisation et l'activation. De cette façon, les mineurs n'ont pas besoin de signaler indéfiniment. Si une proposition n'est pas activée dans le délai +TIMEOUT+ (défini dans la proposition), la proposition est considérée comme rejetée. La proposition peut être soumise à nouveau pour signalisation avec un bit différent, renouvelant la période d'activation.
+BIP-9 fixe également un temps maximum pour la signalisation et l'activation. De cette façon, les mineurs n'ont pas besoin de signaler indéfiniment. Si une proposition n'est pas activée dans le délai `TIMEOUT` (défini dans la proposition), la proposition est considérée comme rejetée. La proposition peut être soumise à nouveau pour signalisation avec un bit différent, renouvelant la période d'activation.
 
-De plus, après que le +TIMEOUT+ est passé et qu'une fonctionnalité a été activée ou rejetée, le bit de signalisation peut être réutilisé pour une autre fonctionnalité sans confusion. Ainsi, jusqu'à 29 changements peuvent être signalés en parallèle et après +TIMEOUT+ les bits peuvent être "recyclés" pour proposer de nouveaux changements.
+De plus, après que le `TIMEOUT` est passé et qu'une fonctionnalité a été activée ou rejetée, le bit de signalisation peut être réutilisé pour une autre fonctionnalité sans confusion. Ainsi, jusqu'à 29 changements peuvent être signalés en parallèle et après `TIMEOUT` les bits peuvent être "recyclés" pour proposer de nouveaux changements.
 
 [NOTE]
 ====
@@ -1106,13 +1106,13 @@ Contrairement à BIP-34, BIP-9 compte la signalisation d'activation dans des int
 
 BIP-9 propose un diagramme d'état de proposition pour illustrer les différentes étapes et transitions d'une proposition, comme indiqué dans <<bip9states>>.
 
-Les propositions commencent dans l'état +DEFINED+, une fois que leurs paramètres sont connus (définis) dans le logiciel bitcoin. Pour les blocs avec MTP après l'heure de début, l'état de la proposition passe à +STARTED+. Si le seuil de vote est dépassé dans une période de reciblage et que le délai d'attente n'a pas été dépassé, l'état de la proposition passe à +LOCKED_IN+. Une période de reciblage plus tard, la proposition devient +ACTIVE+. Les propositions restent perpétuellement dans l'état +ACTIVE+ une fois qu'elles atteignent cet état. Si le délai d'attente s'est écoulé avant que le seuil de vote n'ait été atteint, l'état de la proposition passe à +FAILED+, indiquant une proposition rejetée. Les propositions +FAILED+ restent perpétuellement dans cet état.
+Les propositions commencent dans l'état `DEFINED`, une fois que leurs paramètres sont connus (définis) dans le logiciel bitcoin. Pour les blocs avec MTP après l'heure de début, l'état de la proposition passe à `STARTED`. Si le seuil de vote est dépassé dans une période de reciblage et que le délai d'attente n'a pas été dépassé, l'état de la proposition passe à `LOCKED_IN`. Une période de reciblage plus tard, la proposition devient `ACTIVE`. Les propositions restent perpétuellement dans l'état `ACTIVE` une fois qu'elles atteignent cet état. Si le délai d'attente s'est écoulé avant que le seuil de vote n'ait été atteint, l'état de la proposition passe à `FAILED`, indiquant une proposition rejetée. Les propositions `FAILED` restent perpétuellement dans cet état.
 
 [[bip9states]]
 .BIP-9 diagramme de transition d'état
 image::images/mbc2_1010.png["Diagramme de transition d'état de la proposition BIP-9"]
 
-BIP-9 a d'abord été implémenté pour l'activation de +CHECKSEQUENCEVERIFY+ et des BIP associés (68, 112, 113). La proposition nommée "csv" a été activée avec succès en juillet 2016.((("", startref="forks10a")))
+BIP-9 a d'abord été implémenté pour l'activation de `CHECKSEQUENCEVERIFY` et des BIP associés (68, 112, 113). La proposition nommée "csv" a été activée avec succès en juillet 2016.((("", startref="forks10a")))
 
 La norme est définie dans https://github.com/bitcoin/bips/blob/master/bip-0009.mediawiki[BIP-9 (Version bits with timeout and delay)].
 

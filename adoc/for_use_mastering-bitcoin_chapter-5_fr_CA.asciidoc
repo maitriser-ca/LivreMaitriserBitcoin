@@ -312,7 +312,7 @@ image::images/mbc2_0509.png["Valeur d'amorçage racine du portefeuille HD"]
 
 La valeur d'amorçage racine est entrée dans l'algorithme HMAC-SHA512 et le hachage résultant est utilisé pour créer une _clé privée principale_ (m) et un _code de chaîne principal_ (c).
 
-La clé privée principale (m) génère ensuite une clé publique principale correspondante (M) en utilisant le processus normal de multiplication de courbe elliptique +m * G+ que nous avons vu dans <<pubkey>>.
+La clé privée principale (m) génère ensuite une clé publique principale correspondante (M) en utilisant le processus normal de multiplication de courbe elliptique `m * G` que nous avons vu dans <<pubkey>>.
 
 Le code de chaîne (c) est utilisé pour introduire de l'entropie dans la fonction qui crée des clés enfants à partir des clés parents, comme nous le verrons dans la section suivante.
 
@@ -414,7 +414,7 @@ En termes simples, si vous souhaitez utiliser la commodité d'un xpub pour déri
 
 Le numéro d'index utilisé dans la fonction de dérivation est un entier de 32 bits. Pour distinguer facilement les clés dérivées par la fonction de dérivation normale des clés dérivées par dérivation renforcée, ce numéro d'index est divisé en deux plages. Les numéros d'index entre 0 et 2^31^–1 (0x0 à 0x7FFFFFFF) sont utilisés _uniquement_ pour la dérivation normale. Les numéros d'index entre 2^31^ et 2^32^–1 (0x80000000 à 0xFFFFFFFF) sont utilisés _uniquement_ pour la dérivation renforcée. Donc, si l'indice est inférieur à 2^31^, l'enfant est normal, alors que si l'indice est égal ou supérieur à 2^31^, l'enfant est renforcé.
 
-Pour faciliter la lecture et l'affichage du numéro d'index, le numéro d'index pour les enfants renforcés est affiché à partir de zéro, mais avec un symbole prime. La première clé enfant normale s'affiche donc sous la forme 0, tandis que la première clé enfant renforcée (index 0x80000000) s'affiche sous la forme 0++'++. Dans l'ordre, la deuxième clé renforcée aurait l'index 0x80000001 et serait affichée sous la forme 1++'++, et ainsi de suite. Lorsque vous voyez un index de portefeuille HD i++'++, cela signifie 2^31^+i.
+Pour faciliter la lecture et l'affichage du numéro d'index, le numéro d'index pour les enfants renforcés est affiché à partir de zéro, mais avec un symbole prime. La première clé enfant normale s'affiche donc sous la forme 0, tandis que la première clé enfant renforcée (index 0x80000000) s'affiche sous la forme 0 `*'*` . Dans l'ordre, la deuxième clé renforcée aurait l'index 0x80000001 et serait affichée sous la forme 1 `*'*` , et ainsi de suite. Lorsque vous voyez un index de portefeuille HD i `*'*` , cela signifie 2^31^+i.
 
 ===== Identifiant de clé de portefeuille HD (chemin)
 
@@ -438,9 +438,9 @@ L'"ascendance" d'une clé se lit de droite à gauche, jusqu'à atteindre la clé
 
 La structure arborescente du portefeuille HD offre une grande flexibilité. Chaque clé étendue parent peut avoir 4 milliards d'enfants : 2 milliards d'enfants normaux et 2 milliards d'enfants renforcés. Chacun de ces enfants peut avoir 4 milliards d'enfants supplémentaires, et ainsi de suite. L'arbre peut être aussi profond que vous le souhaitez, avec un nombre infini de générations. Avec toute cette flexibilité, cependant, il devient assez difficile de naviguer dans cet arbre infini. Il est particulièrement difficile de transférer des portefeuilles HD entre les implémentations, car les possibilités d'organisation interne en succursales et sous-succursales sont infinies.
 
-Deux BIP offrent une solution à cette complexité en créant des propositions de normes pour la structure des arborescences de portefeuille HD. BIP-43 propose l'utilisation du premier index enfant renforcé comme identifiant spécial qui signifie le "but" de la structure arborescente. Basé sur BIP-43, un portefeuille HD ne devrait utiliser qu'une seule branche de niveau 1 de l'arborescence, le numéro d'index identifiant la structure et l'espace de noms du reste de l'arborescence en définissant son objectif. Par exemple, un portefeuille HD utilisant uniquement la branche m/i++'++/ est destiné à signifier un objectif spécifique et cet objectif est identifié par le numéro d'index "i".
+Deux BIP offrent une solution à cette complexité en créant des propositions de normes pour la structure des arborescences de portefeuille HD. BIP-43 propose l'utilisation du premier index enfant renforcé comme identifiant spécial qui signifie le "but" de la structure arborescente. Basé sur BIP-43, un portefeuille HD ne devrait utiliser qu'une seule branche de niveau 1 de l'arborescence, le numéro d'index identifiant la structure et l'espace de noms du reste de l'arborescence en définissant son objectif. Par exemple, un portefeuille HD utilisant uniquement la branche m/i `*'*` / est destiné à signifier un objectif spécifique et cet objectif est identifié par le numéro d'index "i".
 
-En étendant cette spécification, BIP-44 propose une structure multicompte en tant que numéro "d'objet" +44'+ sous BIP-43. Tous les portefeuilles HD suivant la structure BIP-44 sont identifiés par le fait qu'ils n'utilisent qu'une seule branche de l'arborescence : m/44'/.
+En étendant cette spécification, BIP-44 propose une structure multicompte en tant que numéro "d'objet" `44'` sous BIP-43. Tous les portefeuilles HD suivant la structure BIP-44 sont identifiés par le fait qu'ils n'utilisent qu'une seule branche de l'arborescence : m/44'/.
 
 BIP-44 spécifie la structure comme étant composée de cinq niveaux d'arborescence prédéfinis :
 
@@ -448,20 +448,20 @@ BIP-44 spécifie la structure comme étant composée de cinq niveaux d'arboresce
 m / but' / type_monnaie' / compte' / change / index_adresse
 -----
 
-Le "but" de premier niveau est toujours réglé sur +44'+. Le "type_monnaie" de deuxième niveau spécifie le type de pièce de cryptomonnaie, permettant des portefeuilles HD multidevises où chaque devise a son propre sous-arbre sous le deuxième niveau. Il y a trois devises définies pour l'instant : Bitcoin est m/44'/0', Bitcoin Testnet est m/44++'++/1++'++, et Litecoin est m/44++'++/2++'++.
+Le "but" de premier niveau est toujours réglé sur +44'+. Le "type_monnaie" de deuxième niveau spécifie le type de pièce de cryptomonnaie, permettant des portefeuilles HD multidevises où chaque devise a son propre sous-arbre sous le deuxième niveau. Il y a trois devises définies pour l'instant : Bitcoin est m/44'/0', Bitcoin Testnet est m/44 `*'*` /1 `*'*` , et Litecoin est m/44 `*'*` /2 `*'*` .
 
-Le troisième niveau de l'arborescence est "compte", qui permet aux utilisateurs de subdiviser leurs portefeuilles en sous-comptes logiques distincts, à des fins comptables ou organisationnelles. Par exemple, un portefeuille HD peut contenir deux "comptes" bitcoin : m/44++'++/0++'++/0++'++ et m/44++'++/0++'++/1++'++. Chaque compte est la racine de sa propre sous-arborescence.
+Le troisième niveau de l'arborescence est "compte", qui permet aux utilisateurs de subdiviser leurs portefeuilles en sous-comptes logiques distincts, à des fins comptables ou organisationnelles. Par exemple, un portefeuille HD peut contenir deux "comptes" bitcoin : m/44 `*'*` /0 `*'*` /0 `*'*`  et m/44 `*'*` /0 `*'*` /1 `*'*` . Chaque compte est la racine de sa propre sous-arborescence.
 
-((("clés et adresses", see="aussi clés publiques et privées")))Au quatrième niveau, "change", un portefeuille HD a deux sous-arborescences, une pour créer des adresses de réception et une pour créer des adresses de modification. Notez qu'alors que les niveaux précédents utilisaient une dérivation renforcée, ce niveau utilise une dérivation normale. Cela permet à ce niveau de l'arborescence d'exporter des clés publiques étendues pour une utilisation dans un environnement non sécurisé. Les adresses utilisables sont dérivées par le portefeuille HD en tant qu'enfants du quatrième niveau, faisant du cinquième niveau de l'arborescence l'"index_adresse". Par exemple, la troisième adresse de réception pour les paiements en bitcoins dans le compte principal serait M/44++'++/0++'++/0++'++/0/2. <<table_4-9>> montre quelques exemples supplémentaires.
+((("clés et adresses", see="aussi clés publiques et privées")))Au quatrième niveau, "change", un portefeuille HD a deux sous-arborescences, une pour créer des adresses de réception et une pour créer des adresses de modification. Notez qu'alors que les niveaux précédents utilisaient une dérivation renforcée, ce niveau utilise une dérivation normale. Cela permet à ce niveau de l'arborescence d'exporter des clés publiques étendues pour une utilisation dans un environnement non sécurisé. Les adresses utilisables sont dérivées par le portefeuille HD en tant qu'enfants du quatrième niveau, faisant du cinquième niveau de l'arborescence l'"index_adresse". Par exemple, la troisième adresse de réception pour les paiements en bitcoins dans le compte principal serait M/44 `*'*` /0 `*'*` /0 `*'*` /0/2. <<table_4-9>> montre quelques exemples supplémentaires.
 
 [[table_4-9]]
 .Exemples de structure de portefeuille HD BIP-44
 [options="header"]
 |=======
 |Chemin HD | Clé décrite
-| M/44++'++/0++'++/0++'++/0/2 | La troisième clé publique de réception pour le compte bitcoin principal
-| M/44++'++/0++'++/3++'++/1/14 | La quinzième clé publique de changement d'adresse pour le quatrième compte bitcoin
-| m/44++'++/2++'++/0++'++/0/1 | La deuxième clé privée du compte principal Litecoin, pour la signature des transactions
+| M/44 `*'*` /0 `*'*` /0 `*'*` /0/2 | La troisième clé publique de réception pour le compte bitcoin principal
+| M/44 `*'*` /0 `*'*` /3 `*'*` /1/14 | La quinzième clé publique de changement d'adresse pour le quatrième compte bitcoin
+| m/44 `*'*` /2 `*'*` /0 `*'*` /0/1 | La deuxième clé privée du compte principal Litecoin, pour la signature des transactions
 |=======
 
 ==== Utilisation d'une clé publique étendue sur une boutique en ligne

@@ -172,4 +172,4 @@ Voici une liste des contributeurs notables de GitHub :
 ////
 Remerciements des contributeurs Github dans un nouveau fichier...
 ////
-include::github_contrib.asciidoc[]
+include::for_use_mastering-bitcoin_githubcontrib_fr_CA.asciidoc[]

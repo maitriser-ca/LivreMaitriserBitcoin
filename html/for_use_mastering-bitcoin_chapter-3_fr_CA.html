@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
-<title>Bitcoin Core : La référence d&#8217;implémentation</title>
+<title>Bitcoin Core : La référence d&#8217;implémentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -441,7 +441,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="ch03_bitcoin_client">Bitcoin Core : La référence d&#8217;implémentation</h2>
+<h2 id="ch03_bitcoin_client">Bitcoin Core : La référence d&#8217;implémentation</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Bitcoin est un projet <em>source libre</em> et le code source est disponible sous une licence ouverte (MIT), téléchargeable et utilisable à n&#8217;importe quelle fin. Source libre signifie plus que simplement libre d&#8217;utilisation. Cela signifie également que le bitcoin est développé par une communauté ouverte de bénévoles. Au début, cette communauté se composait uniquement de Satoshi Nakamoto. En 2016, le code source de Bitcoin comptait plus de 400 contributeurs avec une douzaine de développeurs travaillant sur le code presque à temps plein et plusieurs dizaines d&#8217;autres à temps partiel. Tout le monde peut contribuer au code, y compris vous !</p>
@@ -464,13 +464,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="paragraph">
-<p><a href="#bitcoin_core_architecture">Architecture Bitcoin Core (Source : Eric Lombrozo)</a> montre l&#8217;architecture de Bitcoin Core.</p>
+<p><a href="#bitcoin_core_architecture">Architecture Bitcoin Core (Source : Eric Lombrozo)</a> montre l&#8217;architecture de Bitcoin Core.</p>
 </div>
 <div id="bitcoin_core_architecture" class="imageblock">
 <div class="content">
 <img src="images/mbc2_0301.png" alt="Architecture de base Bitcoin">
 </div>
-<div class="title">Figure 1. Architecture Bitcoin Core (Source : Eric Lombrozo)</div>
+<div class="title">Figure 1. Architecture Bitcoin Core (Source : Eric Lombrozo)</div>
 </div>
 <div class="sect2">
 <h3 id="_environnement_de_développement_bitcoin">Environnement de développement Bitcoin</h3>
@@ -491,14 +491,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Dans de nombreux exemples de ce chapitre, nous utiliserons l&#8217;interface de de commande du système d&#8217;exploitation ( également appelé "shell" ou "interface système" ou "coque logicielle"), accessible via une application "terminal". L&#8217;interface système affichera une invite; vous tapez une commande; et l&#8217;interface système répond avec du texte et une nouvelle invite pour votre prochaine commande. L&#8217;invite peut sembler différente sur votre système, mais dans les exemples suivants, elle est indiquée par un symbole $. Dans les exemples, lorsque vous voyez du texte après un symbole $, ne tapez pas le symbole $ mais tapez la commande qui le suit immédiatement, puis appuyez sur Entrée pour exécuter la commande. Dans les exemples, les lignes sous chaque commande sont les réponses du système d&#8217;exploitation à cette commande. Lorsque vous verrez le prochain préfixe $, vous saurez qu&#8217;il s&#8217;agit d&#8217;une nouvelle commande et vous devrez répéter le processus.</p>
+<p>Dans de nombreux exemples de ce chapitre, nous utiliserons l&#8217;interface de de commande du système d&#8217;exploitation ( également appelé "shell" ou "interface système" ou "coque logicielle"), accessible via une application "terminal". L&#8217;interface système affichera une invite; vous tapez une commande; et l&#8217;interface système répond avec du texte et une nouvelle invite pour votre prochaine commande. L&#8217;invite peut sembler différente sur votre système, mais dans les exemples suivants, elle est indiquée par un symbole $. Dans les exemples, lorsque vous voyez du texte après un symbole $, ne tapez pas le symbole <code>$</code> mais tapez la commande qui le suit immédiatement, puis appuyez sur Entrée pour exécuter la commande. Dans les exemples, les lignes sous chaque commande sont les réponses du système d&#8217;exploitation à cette commande. Lorsque vous verrez le prochain préfixe $, vous saurez qu&#8217;il s&#8217;agit d&#8217;une nouvelle commande et vous devrez répéter le processus.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p> Dans cet exemple, nous utilisons la commande git pour créer une copie locale (un "clone") du code source :</p>
+<p> Dans cet exemple, nous utilisons la commande <code>git</code> pour créer une copie locale (un "clone") du code source :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -528,7 +528,7 @@ $</pre>
 </table>
 </div>
 <div class="paragraph">
-<p>Une fois l&#8217;opération de clonage git terminée, vous aurez une copie locale complète du référentiel de code source dans le répertoire <em>bitcoin</em>. Accédez à ce répertoire en tapant **cd bitcoin** à l&#8217;invite :</p>
+<p>Une fois l&#8217;opération de clonage git terminée, vous aurez une copie locale complète du référentiel de code source dans le répertoire <em>bitcoin</em>. Accédez à ce répertoire en tapant <code><strong>cd bitcoin</strong></code> à l&#8217;invite :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -577,7 +577,7 @@ nothing to commit, working directory clean</pre>
 <div class="sect3">
 <h4 id="_configuration_de_la_construction_de_bitcoin_core">Configuration de la construction de Bitcoin Core</h4>
 <div class="paragraph">
-<p>Le code source inclut la documentation, qui peut être trouvée dans un certain nombre de fichiers. Passez en revue la documentation principale située dans <em>README.md</em> dans le répertoire <em>bitcoin</em> en tapant **more README.md** à l&#8217;invite et en utilisant la barre d&#8217;espace pour passer à la page suivante. Dans ce chapitre, nous allons construire le client Bitcoin en ligne de commande, également connu sous le nom de bitcoind sous Linux. Passez en revue les instructions pour compiler le client de ligne de commande bitcoind sur votre plate-forme en tapant **more doc/build-unix.md**. Des instructions alternatives pour macOS et Windows peuvent être trouvées dans le répertoire <em>doc</em>, comme <em>build-osx.md</em> ou <em>build-windows.md</em>, respectivement.</p>
+<p>Le code source inclut la documentation, qui peut être trouvée dans un certain nombre de fichiers. Passez en revue la documentation principale située dans <em>README.md</em> dans le répertoire <em>bitcoin</em> en tapant <code><strong>more README.md</strong></code> à l&#8217;invite et en utilisant la barre d&#8217;espace pour passer à la page suivante. Dans ce chapitre, nous allons construire le client Bitcoin en ligne de commande, également connu sous le nom de <code>bitcoind</code> sous Linux. Passez en revue les instructions pour compiler le client de ligne de commande <code>bitcoind</code> sur votre plate-forme en tapant <code><strong>more doc/build-unix.md</strong></code>. Des instructions alternatives pour macOS et Windows peuvent être trouvées dans le répertoire <em>doc</em>, comme <em>build-osx.md</em> ou <em>build-windows.md</em>, respectivement.</p>
 </div>
 <div class="paragraph">
 <p>Examinez attentivement les prérequis de construction, qui se trouvent dans la première partie de la documentation de construction. Ce sont des bibliothèques qui doivent être présentes sur votre système avant de pouvoir commencer à compiler Bitcoin. Si ces conditions préalables sont manquantes, le processus de génération échouera avec une erreur. Si cela se produit parce que vous avez manqué une condition préalable, vous pouvez l&#8217;installer, puis reprendre le processus de génération là où vous l&#8217;avez laissé. En supposant que les prérequis sont installés, vous démarrez le processus de génération en générant un ensemble de scripts de génération à l&#8217;aide du script <em>autogen.sh</em>.</p>
@@ -601,7 +601,7 @@ Makefile.am: installing 'build-aux/depcomp'
 </div>
 </div>
 <div class="paragraph">
-<p>Le script <em>autogen.sh</em> crée un ensemble de scripts de configuration automatique qui interrogeront votre système pour découvrir les paramètres corrects et s&#8217;assurer que vous disposez de toutes les bibliothèques nécessaires pour compiler le code. Le plus important d&#8217;entre eux est le script configure qui offre un certain nombre d&#8217;options différentes pour personnaliser le processus de construction. Tapez **./configure --help** pour voir les différentes options:</p>
+<p>Le script <em>autogen.sh</em> crée un ensemble de scripts de configuration automatique qui interrogeront votre système pour découvrir les paramètres corrects et s&#8217;assurer que vous disposez de toutes les bibliothèques nécessaires pour compiler le code. Le plus important d&#8217;entre eux est le script <code>configure</code> qui offre un certain nombre d&#8217;options différentes pour personnaliser le processus de construction. Tapez <code><strong>./configure --help</strong></code> pour voir les différentes options:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -623,7 +623,7 @@ Optional Features:
 </div>
 </div>
 <div class="paragraph">
-<p>Le script configure vous permet d&#8217;activer ou de désactiver certaines fonctionnalités de bitcoind grâce à l&#8217;utilisation des drapeaux --enable-FEATURE et --disable-FEATURE, où <span class="keep-together"><code>FEATURE</code></span> est remplacé par le nom de la fonctionnalité, comme indiqué dans la sortie d&#8217;aide. Dans ce chapitre, nous allons construire le client bitcoind avec toutes les fonctionnalités par défaut. Nous n&#8217;utiliserons pas les indicateurs de configuration, mais vous devriez les consulter pour comprendre quelles fonctionnalités facultatives font partie du client. Si vous êtes dans un environnement universitaire, les restrictions du laboratoire informatique peuvent vous obliger à installer des applications dans votre répertoire personnel (par exemple, en utilisant --prefix=$HOME).</p>
+<p>Le script <code>configure</code> vous permet d&#8217;activer ou de désactiver certaines fonctionnalités de <code>bitcoind</code> grâce à l&#8217;utilisation des drapeaux <code>--enable-FEATURE</code> et --disable-FEATURE, où <span class="keep-together"><code>FEATURE</code></span> est remplacé par le nom de la fonctionnalité, comme indiqué dans la sortie d&#8217;aide. Dans ce chapitre, nous allons construire le client <code>bitcoind</code> avec toutes les fonctionnalités par défaut. Nous n&#8217;utiliserons pas les indicateurs de configuration, mais vous devriez les consulter pour comprendre quelles fonctionnalités facultatives font partie du client. Si vous êtes dans un environnement universitaire, les restrictions du laboratoire informatique peuvent vous obliger à installer des applications dans votre répertoire personnel (par exemple, en utilisant --prefix=$HOME).</p>
 </div>
 <div class="paragraph">
 <p>Voici quelques options utiles qui remplacent le comportement par défaut du script configure:</p>
@@ -642,7 +642,7 @@ Optional Features:
 <dd><p>Ne construisez pas l'interface utilisateur graphique, qui nécessite la bibliothèque Qt. Cela construit uniquement le bitcoin du serveur et de la ligne de commande.</p></dd>
 </dl>
 <div class="paragraph">
-<p>Ensuite, exécutez le script configure pour découvrir automatiquement toutes les bibliothèques nécessaires et créer un script de construction personnalisé pour votre système :</p>
+<p>Ensuite, exécutez le script <code>configure</code> pour découvrir automatiquement toutes les bibliothèques nécessaires et créer un script de construction personnalisé pour votre système :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -661,13 +661,13 @@ $</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Si tout s&#8217;est bien passé, la commande configure se terminera par la création des scripts de construction personnalisés qui nous permettront de compiler bitcoind. S&#8217;il y a des bibliothèques manquantes ou des erreurs, la commande configure se terminera par une erreur au lieu de créer les scripts de construction. Si une erreur se produit, elle est probablement due à une bibliothèque manquante ou incompatible. Relisez à nouveau la documentation de build et assurez-vous d&#8217;installer les prérequis manquants. Ensuite, exécutez à nouveau configure et voyez si cela corrige l&#8217;erreur.</p>
+<p>Si tout s&#8217;est bien passé, la commande <code>configure</code> se terminera par la création des scripts de construction personnalisés qui nous permettront de compiler bitcoind. S&#8217;il y a des bibliothèques manquantes ou des erreurs, la commande <code>configure</code> se terminera par une erreur au lieu de créer les scripts de construction. Si une erreur se produit, elle est probablement due à une bibliothèque manquante ou incompatible. Relisez à nouveau la documentation de build et assurez-vous d&#8217;installer les prérequis manquants. Ensuite, exécutez à nouveau <code>configure</code> et voyez si cela corrige l&#8217;erreur.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_construire_les_exécutables_bitcoin_core">Construire les exécutables Bitcoin Core</h4>
 <div class="paragraph">
-<p> Ensuite, vous allez compiler le code source, un processus qui peut prendre jusqu&#8217;à une heure, en fonction de la vitesse de votre processeur et de la mémoire disponible. Pendant le processus de compilation, vous devriez voir une sortie toutes les quelques secondes ou toutes les quelques minutes, ou une erreur si quelque chose ne va pas. Si une erreur se produit ou si le processus de compilation est interrompu, il peut être repris à tout moment en tapant à nouveau make. Tapez **make** pour lancer la compilation de l&#8217;application exécutable :</p>
+<p> Ensuite, vous allez compiler le code source, un processus qui peut prendre jusqu&#8217;à une heure, en fonction de la vitesse de votre processeur et de la mémoire disponible. Pendant le processus de compilation, vous devriez voir une sortie toutes les quelques secondes ou toutes les quelques minutes, ou une erreur si quelque chose ne va pas. Si une erreur se produit ou si le processus de compilation est interrompu, il peut être repris à tout moment en tapant à nouveau make. Tapez <code><strong>make</strong></code> pour lancer la compilation de l&#8217;application exécutable :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -690,7 +690,7 @@ $</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Sur un système rapide avec plusieurs processeurs, vous souhaiterez peut-être définir le nombre de tâches de compilation parallèles. Par exemple, make -j 2 utilisera deux cœurs s&#8217;ils sont disponibles. Si tout se passe bien, Bitcoin Core est maintenant compilé. Vous devez exécuter la suite de tests unitaires avec make check pour vous assurer que les bibliothèques liées ne sont pas cassées de manière évidente. La dernière étape consiste à installer les différents exécutables sur votre système à l&#8217;aide de la commande make install. Vous serez peut-être invité à saisir votre mot de passe utilisateur, car cette étape nécessite des privilèges d&#8217;administrateur:</p>
+<p>Sur un système rapide avec plusieurs processeurs, vous souhaiterez peut-être définir le nombre de tâches de compilation parallèles. Par exemple, <code>make -j 2</code> utilisera deux cœurs s&#8217;ils sont disponibles. Si tout se passe bien, Bitcoin Core est maintenant compilé. Vous devez exécuter la suite de tests unitaires avec <code>make check</code> pour vous assurer que les bibliothèques liées ne sont pas cassées de manière évidente. La dernière étape consiste à installer les différents exécutables sur votre système à l&#8217;aide de la commande make install. Vous serez peut-être invité à saisir votre mot de passe utilisateur, car cette étape nécessite des privilèges d&#8217;administrateur:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -706,7 +706,7 @@ $</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>L&#8217;installation par défaut de bitcoind le place dans <em>/usr/local/bin</em>. Vous pouvez confirmer que Bitcoin Core est correctement installé en demandant au système le chemin des exécutables, comme suit:</p>
+<p>L&#8217;installation par défaut de <code>bitcoind</code> le place dans <em>/usr/local/bin</em>. Vous pouvez confirmer que Bitcoin Core est correctement installé en demandant au système le chemin des exécutables, comme suit:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -742,7 +742,7 @@ $ which bitcoin-cli
 </table>
 </div>
 <div class="paragraph">
-<p>Malgré ces besoins en ressources, des milliers de bénévoles gèrent des nœuds Bitcoin. Certains fonctionnent sur des systèmes aussi simples qu&#8217;un Raspberry Pi (un ordinateur à 35$ US de la taille d&#8217;un paquet de cartes). De nombreux volontaires exécutent également des nœuds Bitcoin sur des serveurs loués, généralement une variante de Linux. Une instance de <em>Virtual Private Server</em> (VPS ou serveur virtuel privé) ou <em>Cloud Computing Server</em> (ou serveur en infonuagique) peut être utilisée pour exécuter un nœud Bitcoin. Ces serveurs peuvent être loués pour 25$ à 50$ US par mois auprès de divers fournisseurs.</p>
+<p>Malgré ces besoins en ressources, des milliers de bénévoles gèrent des nœuds Bitcoin. Certains fonctionnent sur des systèmes aussi simples qu&#8217;un Raspberry Pi (un ordinateur à 35 $ US de la taille d&#8217;un paquet de cartes). De nombreux volontaires exécutent également des nœuds Bitcoin sur des serveurs loués, généralement une variante de Linux. Une instance de <em>Virtual Private Server</em> (VPS ou serveur virtuel privé) ou <em>Cloud Computing Server</em> (ou serveur en infonuagique) peut être utilisée pour exécuter un nœud Bitcoin. Ces serveurs peuvent être loués pour 25 $ à 50 $ US par mois auprès de divers fournisseurs.</p>
 </div>
 <div class="paragraph">
 <p>Pourquoi voudriez-vous exécuter un nœud ? Voici quelques-unes des raisons les plus courantes :</p>
@@ -769,7 +769,7 @@ $ which bitcoin-cli
 <div class="sect3">
 <h4 id="_configuration_du_nœud_bitcoin_core">Configuration du nœud Bitcoin Core</h4>
 <div class="paragraph">
-<p>( "sécurité", "mots de passe")Bitcoin Core recherchera un fichier de configuration dans son répertoire de données à chaque démarrage. Dans cette section, nous examinerons les différentes options de configuration et créerons un fichier de configuration. Pour localiser le fichier de configuration, exécutez bitcoind -printtoconsole dans votre terminal et recherchez les deux premières lignes.</p>
+<p>( "sécurité", "mots de passe")Bitcoin Core recherchera un fichier de configuration dans son répertoire de données à chaque démarrage. Dans cette section, nous examinerons les différentes options de configuration et créerons un fichier de configuration. Pour localiser le fichier de configuration, exécutez <code>bitcoind -printtoconsole</code> dans votre terminal et recherchez les deux premières lignes.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -867,7 +867,7 @@ Options:
 <div class="content">
 <div class="title">Index de la base de données des transactions et option txindex</div>
 <div class="paragraph">
-<p>Par défaut, Bitcoin Core construit une base de données contenant <em>uniquement</em> les transactions liées au portefeuille de l&#8217;utilisateur. Si vous voulez pouvoir accéder à <em>n&#8217;importe quelle</em> transaction avec des commandes comme getrawtransaction (voir <a href="#exploring_and_decoding_transanctions">Explorer et décoder les transactions</a>), vous devez configurer Bitcoin Core pour créer un index de transaction complet, ce qui peut être réalisé avec l&#8217;option txindex. Définissez txindex=1 dans le fichier de configuration de Bitcoin Core. Si vous ne définissez pas cette option au début et que vous la réglez ensuite sur l&#8217;indexation complète, vous devez redémarrer bitcoind avec l&#8217;option -reindex et attendre qu&#8217;elle reconstruise l&#8217;index.</p>
+<p>Par défaut, Bitcoin Core construit une base de données contenant <em>uniquement</em> les transactions liées au portefeuille de l&#8217;utilisateur. Si vous voulez pouvoir accéder à <em>n&#8217;importe quelle</em> transaction avec des commandes comme <code>getrawtransaction</code> (voir <a href="#exploring_and_decoding_transanctions">Explorer et décoder les transactions</a>), vous devez configurer Bitcoin Core pour créer un index de transaction complet, ce qui peut être réalisé avec l&#8217;option txindex. Définissez <code>txindex=1</code> dans le fichier de configuration de Bitcoin Core. Si vous ne définissez pas cette option au début et que vous la réglez ensuite sur l&#8217;indexation complète, vous devez redémarrer <code>bitcoind</code> avec l&#8217;option <code>-reindex</code> et attendre qu&#8217;elle reconstruise l&#8217;index.</p>
 </div>
 </div>
 </div>
@@ -906,7 +906,7 @@ maxsendbuffer=500</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Une fois que vous avez modifié le fichier de configuration et défini les options qui représentent le mieux vos besoins, vous pouvez tester bitcoind avec cette configuration. Exécutez Bitcoin Core avec l&#8217;option printtoconsole pour s&#8217;exécuter au premier plan avec une sortie vers la console :</p>
+<p>Une fois que vous avez modifié le fichier de configuration et défini les options qui représentent le mieux vos besoins, vous pouvez tester <code>bitcoind</code> avec cette configuration. Exécutez Bitcoin Core avec l&#8217;option <code>printtoconsole</code> pour s&#8217;exécuter au premier plan avec une sortie vers la console :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -984,7 +984,7 @@ Opened LevelDB successfully
 <div class="sect2">
 <h3 id="_interface_de_programmation_dapplication_api_de_base_bitcoin">Interface de programmation d&#8217;application (API) de base Bitcoin</h3>
 <div class="paragraph">
-<p>Le client Bitcoin Core implémente une interface JSON-RPC accessible également à l&#8217;aide de l&#8217;assistant de ligne de commande bitcoin-cli. La ligne de commande nous permet d&#8217;expérimenter de manière interactive les fonctionnalités qui sont également disponibles par programmation via l&#8217;API. Pour commencer, appelez la commande help pour voir une liste des commandes RPC bitcoin disponibles :</p>
+<p>Le client Bitcoin Core implémente une interface JSON-RPC accessible également à l&#8217;aide de l&#8217;assistant de ligne de commande bitcoin-cli. La ligne de commande nous permet d&#8217;expérimenter de manière interactive les fonctionnalités qui sont également disponibles par programmation via l&#8217;API. Pour commencer, appelez la commande <code>help</code> pour voir une liste des commandes RPC bitcoin disponibles :</p>
 </div>
 <div id="bitcoind_commands" class="listingblock">
 <div class="content">
@@ -1004,7 +1004,7 @@ walletpassphrasechange "oldpassphrase" "newpassphrase"</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Chacune de ces commandes peut prendre un certain nombre de paramètres. Pour obtenir une aide supplémentaire, une description détaillée et des informations sur les paramètres, ajoutez le nom de la commande après help. Par exemple, pour voir l&#8217;aide sur la commande getblockhash RPC :</p>
+<p>Chacune de ces commandes peut prendre un certain nombre de paramètres. Pour obtenir une aide supplémentaire, une description détaillée et des informations sur les paramètres, ajoutez le nom de la commande après help. Par exemple, pour voir l&#8217;aide sur la commande <code>getblockhash</code> RPC :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1025,7 +1025,7 @@ Examples:
 </div>
 </div>
 <div class="paragraph">
-<p>À la fin des informations d&#8217;aide, vous verrez deux exemples de la commande RPC, utilisant l&#8217;assistant bitcoin-cli ou le client HTTP curl. Ces exemples montrent comment vous pouvez appeler la commande. Copiez le premier exemple et voyez le résultat :</p>
+<p>À la fin des informations d&#8217;aide, vous verrez deux exemples de la commande RPC, utilisant l&#8217;assistant <code>bitcoin-cli</code> ou le client HTTP curl. Ces exemples montrent comment vous pouvez appeler la commande. Copiez le premier exemple et voyez le résultat :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1042,10 +1042,10 @@ Examples:
 <div class="sect3">
 <h4 id="_obtenir_des_informations_sur_létat_du_client_bitcoin_core">Obtenir des informations sur l&#8217;état du client Bitcoin Core</h4>
 <div class="paragraph">
-<p>Bitcoin Core fournit des rapports d&#8217;état sur différents modules via l&#8217;interface JSON-RPC. Les commandes les plus importantes incluent getblockchaininfo, getmempoolinfo, getnetworkinfo et getwalletinfo.</p>
+<p>Bitcoin Core fournit des rapports d&#8217;état sur différents modules via l&#8217;interface JSON-RPC. Les commandes les plus importantes incluent getblockchaininfo, getmempoolinfo, <code>getnetworkinfo</code> et getwalletinfo.</p>
 </div>
 <div class="paragraph">
-<p>La commande getblockchaininfo RPC de Bitcoin a été introduite plus tôt. La commande getnetworkinfo affiche des informations de base sur l&#8217;état du nœud de réseau Bitcoin. Utilisez bitcoin-cli pour l&#8217;exécuter :</p>
+<p>La commande <code>getblockchaininfo</code> RPC de Bitcoin a été introduite plus tôt. La commande <code>getnetworkinfo</code> affiche des informations de base sur l&#8217;état du nœud de réseau Bitcoin. Utilisez <code>bitcoin-cli</code> pour l&#8217;exécuter :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1086,7 +1086,7 @@ Examples:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Il faudra un certain temps, peut-être plus d&#8217;une journée, pour que le client bitcoind "rattrape" la hauteur actuelle de la chaîne de blocs lorsqu&#8217;il télécharge des blocs d&#8217;autres clients Bitcoin. Vous pouvez vérifier sa progression en utilisant getblockchaininfo pour voir le nombre de blocs connus.</p>
+<p>Il faudra un certain temps, peut-être plus d&#8217;une journée, pour que le client <code>bitcoind</code> "rattrape" la hauteur actuelle de la chaîne de blocs lorsqu&#8217;il télécharge des blocs d&#8217;autres clients Bitcoin. Vous pouvez vérifier sa progression en utilisant <code>getblockchaininfo</code> pour voir le nombre de blocs connus.</p>
 </div>
 </td>
 </tr>
@@ -1123,14 +1123,14 @@ ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813014&am
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Un identifiant de transaction ne fait pas autorité tant qu&#8217;une transaction n&#8217;a pas été confirmée. L&#8217;absence d&#8217;un hachage de transaction dans la chaîne de blocs ne signifie pas que la transaction n&#8217;a pas été traitée. C&#8217;est ce qu&#8217;on appelle la "malléabilité des transactions", car les hachages de transaction peuvent être modifiés avant la confirmation dans un bloc. Après confirmation, le txid est immuable et fait autorité.</p>
+<p>Un identifiant de transaction ne fait pas autorité tant qu&#8217;une transaction n&#8217;a pas été confirmée. L&#8217;absence d&#8217;un hachage de transaction dans la chaîne de blocs ne signifie pas que la transaction n&#8217;a pas été traitée. C&#8217;est ce qu&#8217;on appelle la "malléabilité des transactions", car les hachages de transaction peuvent être modifiés avant la confirmation dans un bloc. Après confirmation, le <code>txid</code> est immuable et fait autorité.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>La commande getrawtransaction renvoie une transaction sérialisée en notation hexadécimale. Pour décoder cela, nous utilisons la commande decoderawtransaction, en passant les données hexadécimales en paramètre. Vous pouvez copier l&#8217;hex renvoyé par getrawtransaction et le coller en tant que paramètre dans decoderawtransaction :</p>
+<p>La commande <code>getrawtransaction</code> renvoie une transaction sérialisée en notation hexadécimale. Pour décoder cela, nous utilisons la commande decoderawtransaction, en passant les données hexadécimales en paramètre. Vous pouvez copier l&#8217;hex renvoyé par <code>getrawtransaction</code> et le coller en tant que paramètre dans decoderawtransaction :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1194,10 +1194,10 @@ d50f654e788acd0ef8000000000001976a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8&am
 </div>
 </div>
 <div class="paragraph">
-<p>Le décodage de la transaction montre tous les composants de cette transaction, y compris les entrées et les sorties de la transaction. Dans ce cas, nous voyons que la transaction qui a crédité notre nouvelle adresse de 15 millibits a utilisé une entrée et généré deux sorties. L&#8217;entrée de cette transaction était la sortie d&#8217;une transaction précédemment confirmée (indiquée par txid commençant par 7957a35fe). Les deux sorties correspondent au crédit de 15 millibits et une sortie avec retour à l&#8217;expéditeur.</p>
+<p>Le décodage de la transaction montre tous les composants de cette transaction, y compris les entrées et les sorties de la transaction. Dans ce cas, nous voyons que la transaction qui a crédité notre nouvelle adresse de 15 millibits a utilisé une entrée et généré deux sorties. L&#8217;entrée de cette transaction était la sortie d&#8217;une transaction précédemment confirmée (indiquée par <code>txid</code> commençant par 7957a35fe). Les deux sorties correspondent au crédit de 15 millibits et une sortie avec retour à l&#8217;expéditeur.</p>
 </div>
 <div class="paragraph">
-<p>Nous pouvons explorer davantage la chaîne de blocs en examinant la transaction précédente référencée par son txid dans cette transaction en utilisant les mêmes commandes (par exemple, getrawtransaction). En sautant d&#8217;une transaction à l&#8217;autre, nous pouvons suivre une chaîne de transactions à mesure que les pièces sont transmises d&#8217;adresse de propriétaire à adresse de propriétaire.</p>
+<p>Nous pouvons explorer davantage la chaîne de blocs en examinant la transaction précédente référencée par son <code>txid</code> dans cette transaction en utilisant les mêmes commandes (par exemple, getrawtransaction). En sautant d&#8217;une transaction à l&#8217;autre, nous pouvons suivre une chaîne de transactions à mesure que les pièces sont transmises d&#8217;adresse de propriétaire à adresse de propriétaire.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1218,7 +1218,7 @@ d50f654e788acd0ef8000000000001976a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8&am
 </div>
 </div>
 <div class="paragraph">
-<p>Maintenant que nous savons dans quel bloc la transaction d&#8217;Alice était incluse, nous pouvons interroger ce bloc. Nous utilisons la commande getblock avec le hachage de bloc comme paramètre :</p>
+<p>Maintenant que nous savons dans quel bloc la transaction d&#8217;Alice était incluse, nous pouvons interroger ce bloc. Nous utilisons la commande <code>getblock</code> avec le hachage de bloc comme paramètre :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1264,19 +1264,19 @@ d50f654e788acd0ef8000000000001976a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8&am
 </div>
 </div>
 <div class="paragraph">
-<p>Le bloc contient 419 transactions et la 64ème transaction répertoriée (0627052b...) est le paiement du café d&#8217;Alice. L&#8217;entrée + hauteur + nous indique qu&#8217;il s&#8217;agit du 277316e bloc de la chaîne de blocs.</p>
+<p>Le bloc contient 419 transactions et la 64ème transaction répertoriée (0627052b...) est le paiement du café d&#8217;Alice. L&#8217;entrée ` hauteur ` nous indique qu&#8217;il s&#8217;agit du 277316e bloc de la chaîne de blocs.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_utilisation_de_linterface_de_programmation_de_bitcoin_core">Utilisation de l&#8217;interface de programmation de Bitcoin Core</h4>
 <div class="paragraph">
-<p>L&#8217;assistant bitcoin-cli est très utile pour explorer la bibliothèue (API) Bitcoin Core et les fonctions de test. Mais tout l&#8217;intérêt d&#8217;une interface de programmation d&#8217;application est d&#8217;accéder aux fonctions par programmation. Dans cette section, nous montrerons comment accéder à Bitcoin Core à partir d&#8217;un autre programme.</p>
+<p>L&#8217;assistant <code>bitcoin-cli</code> est très utile pour explorer la bibliothèue (API) Bitcoin Core et les fonctions de test. Mais tout l&#8217;intérêt d&#8217;une interface de programmation d&#8217;application est d&#8217;accéder aux fonctions par programmation. Dans cette section, nous montrerons comment accéder à Bitcoin Core à partir d&#8217;un autre programme.</p>
 </div>
 <div class="paragraph">
 <p>L&#8217;API de Bitcoin Core est une interface JSON-RPC. JSON signifie JavaScript Object Notation et c&#8217;est un moyen très pratique de présenter des données que les humains et les programmes peuvent facilement lire. RPC signifie Remote Procedure Call (ou appel de procédure à distance), ce qui signifie que nous appelons des procédures (fonctions) distantes (sur le nœud Bitcoin Core) via un protocole réseau. Dans ce cas, le protocole réseau est HTTP ou HTTPS (pour les connexions cryptées).</p>
 </div>
 <div class="paragraph">
-<p>Lorsque nous avons utilisé la commande bitcoin-cli pour obtenir de l&#8217;aide sur une commande, elle nous a montré un exemple d&#8217;utilisation de curl, le client HTTP polyvalent en ligne de commande pour construire l&#8217;un de ces appels JSON-RPC :</p>
+<p>Lorsque nous avons utilisé la commande <code>bitcoin-cli</code> pour obtenir de l&#8217;aide sur une commande, elle nous a montré un exemple d&#8217;utilisation de curl, le client HTTP polyvalent en ligne de commande pour construire l&#8217;un de ces appels JSON-RPC :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1284,19 +1284,19 @@ d50f654e788acd0ef8000000000001976a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8&am
 </div>
 </div>
 <div class="paragraph">
-<p>Cette commande montre que curl soumet une requête HTTP à l&#8217;hôte local (127.0.0.1), se connecte au port bitcoin par défaut (8332) et soumet une requête jsonrpc pour la méthode getblockchaininfo en utilisant l&#8217;encodage text/plain.</p>
+<p>Cette commande montre que <code>curl</code> soumet une requête HTTP à l&#8217;hôte local (127.0.0.1), se connecte au port bitcoin par défaut (8332) et soumet une requête <code>jsonrpc</code> pour la méthode <code>getblockchaininfo</code> en utilisant l&#8217;encodage text/plain.</p>
 </div>
 <div class="paragraph">
-<p>Vous remarquerez peut-être que curl demandera que les informations d&#8217;identification soient envoyées avec la demande. Bitcoin Core créera un mot de passe aléatoire à chaque démarrage et le placera dans le répertoire de données sous le nom .cookie. L&#8217;assistant bitcoin-cli peut lire ce fichier de mots de passe étant donné le répertoire de données. De même, vous pouvez copier le mot de passe et le transmettre à curl (ou à tout wrapper Bitcoin Core RPC de niveau supérieur). Alternativement, vous pouvez créer un mot de passe statique avec le script d&#8217;assistance fourni dans <em>./share/rpcauth/rpcauth.py</em> dans le répertoire source de Bitcoin Core.</p>
+<p>Vous remarquerez peut-être que curl demandera que les informations d&#8217;identification soient envoyées avec la demande. Bitcoin Core créera un mot de passe aléatoire à chaque démarrage et le placera dans le répertoire de données sous le nom .cookie. L&#8217;assistant <code>bitcoin-cli</code> peut lire ce fichier de mots de passe étant donné le répertoire de données. De même, vous pouvez copier le mot de passe et le transmettre à curl (ou à tout wrapper Bitcoin Core RPC de niveau supérieur). Alternativement, vous pouvez créer un mot de passe statique avec le script d&#8217;assistance fourni dans <em>./share/rpcauth/rpcauth.py</em> dans le répertoire source de Bitcoin Core.</p>
 </div>
 <div class="paragraph">
-<p>Si vous implémentez un appel JSON-RPC dans votre propre programme, vous pouvez utiliser une bibliothèque HTTP générique pour construire l&#8217;appel, similaire à ce qui est montré dans l&#8217;exemple curl précédent.</p>
+<p>Si vous implémentez un appel JSON-RPC dans votre propre programme, vous pouvez utiliser une bibliothèque HTTP générique pour construire l&#8217;appel, similaire à ce qui est montré dans l&#8217;exemple <code>curl</code> précédent.</p>
 </div>
 <div class="paragraph">
-<p>Cependant, il existe des bibliothèques dans la plupart des langages de programmation qui "enveloppent" l&#8217;API Bitcoin Core d&#8217;une manière qui rend cela beaucoup plus simple. Nous utiliserons la bibliothèque python-bitcoinlib pour simplifier l&#8217;accès à l&#8217;API. N&#8217;oubliez pas que cela nécessite que vous disposiez d&#8217;une instance Bitcoin Core en cours d&#8217;exécution, qui sera utilisée pour effectuer des appels JSON-RPC.</p>
+<p>Cependant, il existe des bibliothèques dans la plupart des langages de programmation qui "enveloppent" l&#8217;API Bitcoin Core d&#8217;une manière qui rend cela beaucoup plus simple. Nous utiliserons la bibliothèque <code>python-bitcoinlib</code> pour simplifier l&#8217;accès à l&#8217;API. N&#8217;oubliez pas que cela nécessite que vous disposiez d&#8217;une instance Bitcoin Core en cours d&#8217;exécution, qui sera utilisée pour effectuer des appels JSON-RPC.</p>
 </div>
 <div class="paragraph">
-<p>Le script Python dans <a href="#rpc_example">Exécution de getblockchaininfo via l&#8217;API JSON-RPC de Bitcoin Core</a> effectue un simple appel getblockchaininfo et imprime le paramètre blocks à partir des données renvoyées par Bitcoin Core (nœud complet requis).</p>
+<p>Le script Python dans <a href="#rpc_example">Exécution de getblockchaininfo via l&#8217;API JSON-RPC de Bitcoin Core</a> effectue un simple appel <code>getblockchaininfo</code> et imprime le paramètre <code>blocks</code> à partir des données renvoyées par Bitcoin Core (nœud complet requis).</p>
 </div>
 <div id="rpc_example" class="exampleblock">
 <div class="title">Example 3. Exécution de getblockchaininfo via l&#8217;API JSON-RPC de Bitcoin Core</div>
@@ -1330,7 +1330,7 @@ print(info['blocks'])</code></pre>
 <p>Il nous indique que notre nœud local Bitcoin Core a 394075 blocs dans sa chaîne de blocs. Ce n&#8217;est pas un résultat spectaculaire, mais cela démontre l&#8217;utilisation de base de la bibliothèque en tant qu&#8217;interface simplifiée avec l&#8217;API JSON-RPC de Bitcoin Core.</p>
 </div>
 <div class="paragraph">
-<p>Ensuite, utilisons les appels getrawtransaction et decodetransaction pour récupérer les détails du paiement du café d&#8217;Alice. Dans <a href="#rpc_transaction">Récupérer une transaction et itérer ses sorties</a>, nous récupérons la transaction d&#8217;Alice et listons les sorties de la transaction. Pour chaque sortie, nous affichons l&#8217;adresse et la valeur du destinataire. Pour rappel, la transaction d&#8217;Alice avait une sortie pour payer Bob&#8217;s Cafe et une sortie pour rendre la monnaie à Alice.</p>
+<p>Ensuite, utilisons les appels <code>getrawtransaction</code> et <code>decodetransaction</code> pour récupérer les détails du paiement du café d&#8217;Alice. Dans <a href="#rpc_transaction">Récupérer une transaction et itérer ses sorties</a>, nous récupérons la transaction d&#8217;Alice et listons les sorties de la transaction. Pour chaque sortie, nous affichons l&#8217;adresse et la valeur du destinataire. Pour rappel, la transaction d&#8217;Alice avait une sortie pour payer Bob&#8217;s Cafe et une sortie pour rendre la monnaie à Alice.</p>
 </div>
 <div id="rpc_transaction" class="exampleblock">
 <div class="title">Example 4. Récupérer une transaction et itérer ses sorties</div>
@@ -1586,7 +1586,7 @@ print("Total value in block: ", block_value)</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-23 18:57:04 -0400
+Last updated 2022-03-23 22:47:31 -0400
 </div>
 </div>
 </body>

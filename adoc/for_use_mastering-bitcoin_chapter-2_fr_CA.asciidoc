@@ -71,7 +71,7 @@ Une étiquette pour l'adresse du destinataire : "Bob's Cafe"
 Une description du paiement : "Purchase at Bob's Cafe"
 ----
 
-Alice utilise son smartphone pour scanner le code-barres affiché. Son smartphone affiche un paiement de +0,0150 BTC+ à +Bob's Cafe+ et elle sélectionne Envoyer pour autoriser le paiement. En quelques secondes (environ le même temps qu'une autorisation de carte de crédit), Bob voit la transaction sur le registre, complétant la transaction.
+Alice utilise son smartphone pour scanner le code-barres affiché. Son smartphone affiche un paiement de `0,0150 BTC` à `Bob's Cafe` et elle sélectionne Envoyer pour autoriser le paiement. En quelques secondes (environ le même temps qu'une autorisation de carte de crédit), Bob voit la transaction sur le registre, complétant la transaction.
 
 Dans les sections suivantes, nous examinerons cette transaction plus en détail. Nous verrons comment le portefeuille d'Alice l'a construit, comment il s'est propagé sur le réseau, comment il a été vérifié et enfin, comment Bob peut dépenser ce montant lors de transactions ultérieures.
 

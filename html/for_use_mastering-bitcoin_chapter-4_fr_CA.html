@@ -458,10 +458,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Les clés sont fournies par paires constituées d&#8217;une clé privée (secrète) et une clé publique. Considérez la clé publique comme similaire à un numéro de compte bancaire et la clé privée comme similaire au code PIN secret, ou à la signature d&#8217;un chèque, qui permet de contrôler le compte. Ces clés numériques sont très rarement vues par les utilisateurs de bitcoin. Pour la plupart, ils sont stockés dans le fichier du portefeuille et gérés par le logiciel du portefeuille bitcoin.</p>
 </div>
 <div class="paragraph">
-<p>Dans la partie paiement d&#8217;une transaction bitcoin, la clé publique du destinataire est représentée par son empreinte numérique, appelée <em>adresse Bitcoin</em>, qui est utilisée de la même manière que le nom du bénéficiaire sur un chèque (c&#8217;est-à-dire "Payer à l&#8217;ordre de") . Dans la plupart des cas, une adresse Bitcoin correspond et est générée à partir d&#8217;une clé publique. Cependant, toutes les adresses Bitcoin ne représentent pas des clés publiques ; ils peuvent également représenter d&#8217;autres bénéficiaires tels que des scripts, comme nous le verrons plus loin dans ce chapitre. De cette manière, les adresses Bitcoin font abstraction du destinataire des fonds, ce qui rend les destinations de transaction flexibles, similaires aux chèques papier : un instrument de paiement unique qui peut être utilisé pour payer les comptes des personnes, payer les comptes de l&#8217;entreprise, payer des factures ou payer en espèces. L&#8217;adresse Bitcoin est la seule représentation des clés que les utilisateurs verront régulièrement, car c&#8217;est la partie qu&#8217;ils doivent partager avec le monde.</p>
+<p>Dans la partie paiement d&#8217;une transaction bitcoin, la clé publique du destinataire est représentée par son empreinte numérique, appelée <em>adresse Bitcoin</em>, qui est utilisée de la même manière que le nom du bénéficiaire sur un chèque (c&#8217;est-à-dire "Payer à l&#8217;ordre de") . Dans la plupart des cas, une adresse Bitcoin correspond et est générée à partir d&#8217;une clé publique. Cependant, toutes les adresses Bitcoin ne représentent pas des clés publiques ; ils peuvent également représenter d&#8217;autres bénéficiaires tels que des scripts, comme nous le verrons plus loin dans ce chapitre. De cette manière, les adresses Bitcoin font abstraction du destinataire des fonds, ce qui rend les destinations de transaction flexibles, similaires aux chèques papier : un instrument de paiement unique qui peut être utilisé pour payer les comptes des personnes, payer les comptes de l&#8217;entreprise, payer des factures ou payer en espèces. L&#8217;adresse Bitcoin est la seule représentation des clés que les utilisateurs verront régulièrement, car c&#8217;est la partie qu&#8217;ils doivent partager avec le monde.</p>
 </div>
 <div class="paragraph">
-<p>Tout d&#8217;abord, nous présenterons la cryptographie et expliquerons les mathématiques utilisées dans le bitcoin. Ensuite, nous verrons comment les clés sont générées, stockées et gérées. Nous passerons en revue les différents formats de codage utilisés pour représenter les clés privées et publiques, les adresses et les adresses de script. Enfin, nous nous pencherons sur l&#8217;utilisation avancée des clés et des adresses : adresses personnalisées, multisignatures, scripts et portefeuilles papier.</p>
+<p>Tout d&#8217;abord, nous présenterons la cryptographie et expliquerons les mathématiques utilisées dans le bitcoin. Ensuite, nous verrons comment les clés sont générées, stockées et gérées. Nous passerons en revue les différents formats de codage utilisés pour représenter les clés privées et publiques, les adresses et les adresses de script. Enfin, nous nous pencherons sur l&#8217;utilisation avancée des clés et des adresses : adresses personnalisées, multisignatures, scripts et portefeuilles papier.</p>
 </div>
 <div class="sect3">
 <h4 id="_cryptographie_à_clé_publique_et_cryptomonnaie">Cryptographie à clé publique et cryptomonnaie</h4>
@@ -528,7 +528,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </td>
 <td class="content">
 <div class="paragraph">
-<p>La clé privée bitcoin n&#8217;est qu&#8217;un nombre. Vous pouvez choisir vos clés privées au hasard en utilisant simplement une pièce de monnaie, un crayon et du papier : lancez une pièce 256 fois et vous avez les chiffres binaires d&#8217;une clé privée aléatoire que vous pouvez utiliser dans un portefeuille bitcoin. La clé publique peut alors être générée à partir de la clé privée.</p>
+<p>La clé privée bitcoin n&#8217;est qu&#8217;un nombre. Vous pouvez choisir vos clés privées au hasard en utilisant simplement une pièce de monnaie, un crayon et du papier : lancez une pièce 256 fois et vous avez les chiffres binaires d&#8217;une clé privée aléatoire que vous pouvez utiliser dans un portefeuille bitcoin. La clé publique peut alors être générée à partir de la clé privée.</p>
 </div>
 </td>
 </tr>
@@ -540,7 +540,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>La première et la plus importante étape de la génération de clés consiste à trouver une source sécurisée d&#8217;entropie ou de caractère aléatoire. La création d&#8217;une clé bitcoin est essentiellement la même que "Choisissez un nombre entre 1 et 2<sup>256</sup>". La méthode exacte que vous utilisez pour choisir ce nombre n&#8217;a pas d&#8217;importance tant qu&#8217;elle n&#8217;est pas prévisible ou reproductible. Le logiciel Bitcoin utilise les générateurs de nombres aléatoires du système d&#8217;exploitation sous-jacent pour produire 256 bits d&#8217;entropie (aléatoire). Habituellement, le générateur de nombres aléatoires du système d&#8217;exploitation est initialisé par une source humaine d&#8217;aléatoire, c&#8217;est pourquoi il peut vous être demandé de remuer votre souris pendant quelques secondes.</p>
 </div>
 <div class="paragraph">
-<p>Plus précisément, la clé privée peut être n&#8217;importe quel nombre compris entre 0 et n - 1 inclus, où n est une constante (n = 1,1578 * 10<sup>77</sup>, légèrement inférieure à 2<sup>256</sup>) définie comme l&#8217;ordre de la courbe elliptique utilisée dans le bitcoin (voir <a href="#elliptic_curve">La cryptographie à courbe elliptique expliquée</a>). Pour créer une telle clé, nous choisissons au hasard un nombre de 256 bits et vérifions qu&#8217;il est inférieur à n. En termes de programmation, cela est généralement réalisé en alimentant une plus grande chaîne de bits aléatoires, collectés à partir d&#8217;une source aléatoire sécurisée par cryptographie, dans l&#8217;algorithme de hachage SHA256, qui produira commodément un nombre de 256 bits. Si le résultat est inférieur à n, nous avons une clé privée appropriée. Sinon, nous réessayons simplement avec un autre nombre aléatoire.</p>
+<p>Plus précisément, la clé privée peut être n&#8217;importe quel nombre compris entre <code>0</code> et <code>n - 1</code> inclus, où n est une constante (n = 1,1578 * 10<sup>77</sup>, légèrement inférieure à 2<sup>256</sup>) définie comme l&#8217;ordre de la courbe elliptique utilisée dans le bitcoin (voir <a href="#elliptic_curve">La cryptographie à courbe elliptique expliquée</a>). Pour créer une telle clé, nous choisissons au hasard un nombre de 256 bits et vérifions qu&#8217;il est inférieur à n. En termes de programmation, cela est généralement réalisé en alimentant une plus grande chaîne de bits aléatoires, collectés à partir d&#8217;une source aléatoire sécurisée par cryptographie, dans l&#8217;algorithme de hachage SHA256, qui produira commodément un nombre de 256 bits. Si le résultat est inférieur à n, nous avons une clé privée appropriée. Sinon, nous réessayons simplement avec un autre nombre aléatoire.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -579,7 +579,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="paragraph">
-<p>Pour générer une nouvelle clé avec le client Bitcoin Core (voir <a href="#ch03_bitcoin_client">[ch03_bitcoin_client]</a>), utilisez la commande getnewaddress. Pour des raisons de sécurité, il affiche uniquement l&#8217;adresse, pas la clé privée. Pour demander à bitcoind d&#8217;exposer la clé privée, utilisez la commande dumpprivkey. La commande dumpprivkey affiche la clé privée dans un format de somme de contrôle Base58 appelé <em>Wallet Import Format</em> (WIF ou format d&#8217;importation de portefeuille), que nous examinerons plus en détail dans <a href="#priv_formats">Formats de clé privée</a>. Voici un exemple de génération et d&#8217;affichage d&#8217;une clé privée à l&#8217;aide de ces deux commandes :</p>
+<p>Pour générer une nouvelle clé avec le client Bitcoin Core (voir <a href="#ch03_bitcoin_client">[ch03_bitcoin_client]</a>), utilisez la commande getnewaddress. Pour des raisons de sécurité, il affiche uniquement l&#8217;adresse, pas la clé privée. Pour demander à <code>bitcoind</code> d&#8217;exposer la clé privée, utilisez la commande dumpprivkey. La commande <code>dumpprivkey</code> affiche la clé privée dans un format de somme de contrôle Base58 appelé <em>Wallet Import Format</em> (WIF ou format d&#8217;importation de portefeuille), que nous examinerons plus en détail dans <a href="#priv_formats">Formats de clé privée</a>. Voici un exemple de génération et d&#8217;affichage d&#8217;une clé privée à l&#8217;aide de ces deux commandes :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -590,7 +590,7 @@ KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>La commande dumpprivkey ouvre le portefeuille et extrait la clé privée qui a été générée par la commande getnewaddress. Il n&#8217;est pas possible pour bitcoind de connaître la clé privée à partir de l&#8217;adresse à moins qu&#8217;elles ne soient toutes deux stockées dans le portefeuille.</p>
+<p>La commande <code>dumpprivkey</code> ouvre le portefeuille et extrait la clé privée qui a été générée par la commande getnewaddress. Il n&#8217;est pas possible pour <code>bitcoind</code> de connaître la clé privée à partir de l&#8217;adresse à moins qu&#8217;elles ne soient toutes deux stockées dans le portefeuille.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -600,14 +600,14 @@ KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>La commande dumpprivkey ne génère pas de clé privée à partir d&#8217;une adresse, car cela est impossible. La commande révèle simplement la clé privée qui est déjà connue du portefeuille et qui a été générée par la commande getnewaddress.</p>
+<p>La commande <code>dumpprivkey</code> ne génère pas de clé privée à partir d&#8217;une adresse, car cela est impossible. La commande révèle simplement la clé privée qui est déjà connue du portefeuille et qui a été générée par la commande getnewaddress.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph pagebreak-before">
-<p>Vous pouvez également utiliser l&#8217;outil de ligne de commande Bitcoin Explorer (voir <a href="#appdx_bx">[appdx_bx]</a>) pour générer et afficher des clés privées avec les commandes seed, ec-new et ec-to-wif :</p>
+<p>Vous pouvez également utiliser l&#8217;outil de ligne de commande Bitcoin Explorer (voir <a href="#appdx_bx">[appdx_bx]</a>) pour générer et afficher des clés privées avec les commandes seed, <code>ec-new</code> et ec-to-wif :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -630,7 +630,7 @@ KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>La multiplication de courbe elliptique est un type de fonction que les cryptographes appellent une fonction « à sens unique » : elle est facile à faire dans un sens (multiplication) et impossible à faire dans le sens inverse (« division », ou trouver le logarithme discret). Le propriétaire de la clé privée peut facilement créer la clé publique, puis la partager avec le monde entier, sachant que personne ne peut inverser la fonction et calculer la clé privée à partir de la clé publique. Cette astuce mathématique devient la base de signatures numériques infalsifiables et sécurisées qui prouvent la propriété des fonds bitcoin.</p>
+<p>La multiplication de courbe elliptique est un type de fonction que les cryptographes appellent une fonction « à sens unique » : elle est facile à faire dans un sens (multiplication) et impossible à faire dans le sens inverse (« division », ou trouver le logarithme discret). Le propriétaire de la clé privée peut facilement créer la clé publique, puis la partager avec le monde entier, sachant que personne ne peut inverser la fonction et calculer la clé privée à partir de la clé publique. Cette astuce mathématique devient la base de signatures numériques infalsifiables et sécurisées qui prouvent la propriété des fonds bitcoin.</p>
 </div>
 </td>
 </tr>
@@ -652,7 +652,7 @@ KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ</pre>
 <div class="title">Figure 2. Une courbe elliptique</div>
 </div>
 <div class="paragraph">
-<p>Bitcoin utilise une courbe elliptique spécifique et un ensemble de constantes mathématiques, telles que définies dans une norme appelée secp256k1, établie par le National Institute of Standards and Technology (NIST). La courbe secp256k1 est définie par la fonction suivante, qui produit une courbe elliptique :</p>
+<p>Bitcoin utilise une courbe elliptique spécifique et un ensemble de constantes mathématiques, telles que définies dans une norme appelée secp256k1, établie par le National Institute of Standards and Technology (NIST). La courbe <code>secp256k1</code> est définie par la fonction suivante, qui produit une courbe elliptique :</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -675,13 +675,13 @@ KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ</pre>
 <p>Le <em>mod p</em> (modulo nombre premier p) indique que cette courbe est sur un corps fini d&#8217;ordre premier <em>p</em>, également écrit comme \(\mathbb{F}_p\), où p = 2<sup>256</sup> – 2<sup>32</sup> – 2<sup>9</sup> – 2<sup>8</sup> – 2<sup>7</sup> – 2<sup>6</sup> – 2<sup>4</sup> – 1, un très grand nombre premier.</p>
 </div>
 <div class="paragraph">
-<p>Parce que cette courbe est définie sur un champ fini d&#8217;ordre premier au lieu de sur les nombres réels, elle ressemble à un motif de points dispersés en deux dimensions, ce qui la rend difficile à visualiser. Cependant, le calcul est identique à celui d&#8217;une courbe elliptique sur des nombres réels. A titre d&#8217;exemple, <a href="#ecc-over-F17-math">Cryptographie sur courbe elliptique : visualisation d&#8217;une courbe elliptique sur F(p), avec p=17</a> montre la même courbe elliptique sur un champ fini beaucoup plus petit d&#8217;ordre premier 17, montrant un motif de points sur une grille. La courbe elliptique du bitcoin secp256k1 peut être considérée comme un motif beaucoup plus complexe de points sur une grille insondable.</p>
+<p>Parce que cette courbe est définie sur un champ fini d&#8217;ordre premier au lieu de sur les nombres réels, elle ressemble à un motif de points dispersés en deux dimensions, ce qui la rend difficile à visualiser. Cependant, le calcul est identique à celui d&#8217;une courbe elliptique sur des nombres réels. A titre d&#8217;exemple, <a href="#ecc-over-F17-math">Cryptographie sur courbe elliptique : visualisation d&#8217;une courbe elliptique sur F(p), avec p=17</a> montre la même courbe elliptique sur un champ fini beaucoup plus petit d&#8217;ordre premier 17, montrant un motif de points sur une grille. La courbe elliptique du bitcoin <code>secp256k1</code> peut être considérée comme un motif beaucoup plus complexe de points sur une grille insondable.</p>
 </div>
 <div id="ecc-over-F17-math" class="imageblock smallersixty">
 <div class="content">
 <img src="images/mbc2_0403.png" alt="ecc sur mathématiques F17">
 </div>
-<div class="title">Figure 3. Cryptographie sur courbe elliptique : visualisation d&#8217;une courbe elliptique sur F(p), avec p=17</div>
+<div class="title">Figure 3. Cryptographie sur courbe elliptique : visualisation d&#8217;une courbe elliptique sur F(p), avec p=17</div>
 </div>
 <div class="paragraph">
 <p>Ainsi, par exemple, ce qui suit est un point P de coordonnées (x,y) qui est un point sur la courbe secp256k1 :</p>
@@ -730,19 +730,19 @@ Type "help", "copyright", "credits" or "license" for more information.
 <p>Dans certains cas (par exemple, si P<sub>1</sub> et P<sub>2</sub> ont les mêmes valeurs x mais des valeurs y différentes), la ligne entre P<sub>1</sub> et P<sub>2</sub> sera exactement verticale, auquel cas P<sub>3</sub> = "point à l&#8217;infini."</p>
 </div>
 <div class="paragraph">
-<p>Si P<sub>1</sub> est le "point à l&#8217;infini", alors P<sub>1</sub> + P<sub>2</sub> = P<sub>2</sub>. De même, si P<sub>2</sub> est le point à l&#8217;infini, alors P<sub>1</sub> + P<sub>2</sub> = P<sub>1</sub>. Cela montre comment le point à l&#8217;infini joue le rôle de zéro.</p>
+<p>Si P<sub>1</sub> est le "point à l&#8217;infini", alors P<sub>1</sub> ` P<sub>2</sub> = P<sub>2</sub>. De même, si P<sub>2</sub> est le point à l&#8217;infini, alors P<sub>1</sub> ` P<sub>2</sub> = P<sub>1</sub>. Cela montre comment le point à l&#8217;infini joue le rôle de zéro.</p>
 </div>
 <div class="paragraph">
 <p>Il s&#8217;avère que + est associatif, ce qui signifie que (A + B) + C = A + (B + C). Cela signifie que nous pouvons écrire A + B + C sans parenthèses et sans ambiguïté.</p>
 </div>
 <div class="paragraph">
-<p>Maintenant que nous avons défini l&#8217;addition, nous pouvons définir la multiplication de la manière standard qui extensionne l&#8217;addition. Pour un point P sur la courbe elliptique, si k est un nombre entier, alors kP = P + P + P + &#8230;&#8203; + P (k fois). Notez que k est parfois appelé un "exposant" dans ce cas.</p>
+<p>Maintenant que nous avons défini l&#8217;addition, nous pouvons définir la multiplication de la manière standard qui extensionne l&#8217;addition. Pour un point P sur la courbe elliptique, si k est un nombre entier, alors kP = P ` P ` P ` &#8230;&#8203; ` P (k fois). Notez que k est parfois appelé un "exposant" dans ce cas.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="public_key_derivation">Génération d&#8217;une clé publique</h4>
 <div class="paragraph">
-<p>En partant d&#8217;une clé privée sous la forme d&#8217;un nombre généré aléatoirement <em>k</em>, nous la multiplions par un point prédéterminé sur la courbe appelé <em>point générateur</em> <em>G</em> pour produire un autre point ailleurs sur la courbe, qui est la clé publique correspondante <em>K</em>. Le point générateur est spécifié dans le cadre de la norme secp256k1 et est toujours le même pour toutes les clés en bitcoin :</p>
+<p>En partant d&#8217;une clé privée sous la forme d&#8217;un nombre généré aléatoirement <em>k</em>, nous la multiplions par un point prédéterminé sur la courbe appelé <em>point générateur</em> <em>G</em> pour produire un autre point ailleurs sur la courbe, qui est la clé publique correspondante <em>K</em>. Le point générateur est spécifié dans le cadre de la norme <code>secp256k1</code> et est toujours le même pour toutes les clés en bitcoin :</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -793,7 +793,7 @@ y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</pre>
 <p>Pour visualiser la multiplication d&#8217;un point avec un nombre entier, nous utiliserons la courbe elliptique plus simple sur des nombres réels - rappelez-vous, le calcul est le même. Notre objectif est de trouver le multiple <em>kG</em> du point générateur <em>G</em>, ce qui revient à ajouter <em>G</em> à lui-même, <em>k</em> fois de suite. Dans les courbes elliptiques, l&#8217;ajout d&#8217;un point à lui-même équivaut à tracer une ligne tangente sur le point et à trouver à nouveau l&#8217;endroit où il coupe la courbe, puis à refléter ce point sur l&#8217;axe des x.</p>
 </div>
 <div class="paragraph">
-<p><a href="#ecc_illustrated">Cryptographie sur courbe elliptique : visualisation de la multiplication d&#8217;un point G par un entier k sur une courbe elliptique</a> montre le processus de dérivation de <em>G</em>, <em>2G</em>, <em>4G</em> et <em>8G</em> en tant qu&#8217;opération géométrique sur la courbe.</p>
+<p><a href="#ecc_illustrated">Cryptographie sur courbe elliptique : visualisation de la multiplication d&#8217;un point G par un entier k sur une courbe elliptique</a> montre le processus de dérivation de <em>G</em>, <em>2G</em>, <em>4G</em> et <em>8G</em> en tant qu&#8217;opération géométrique sur la courbe.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -813,7 +813,7 @@ y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</pre>
 <div class="content">
 <img src="images/mbc2_0404.png" alt="illustration d&#8217;ecc">
 </div>
-<div class="title">Figure 4. Cryptographie sur courbe elliptique : visualisation de la multiplication d&#8217;un point G par un entier k sur une courbe elliptique</div>
+<div class="title">Figure 4. Cryptographie sur courbe elliptique : visualisation de la multiplication d&#8217;un point G par un entier k sur une courbe elliptique</div>
 </div>
 </div>
 </div>
@@ -831,7 +831,7 @@ y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</pre>
 <p>L&#8217;adresse Bitcoin est ce qui apparaît le plus souvent dans une transaction en tant que "destinataire" des fonds. Si nous comparons une transaction bitcoin à un chèque papier, l&#8217;adresse Bitcoin est le bénéficiaire, c&#8217;est ce que nous écrivons sur la ligne après "Payer à l&#8217;ordre de". Sur un chèque papier, ce bénéficiaire peut parfois être le nom d&#8217;un titulaire de compte bancaire, mais peut également inclure des sociétés, des institutions ou même des espèces. Étant donné que les chèques papier n&#8217;ont pas besoin de spécifier un compte, mais utilisent plutôt un nom abstrait en tant que destinataire des fonds, ce sont des instruments de paiement très flexibles. Les transactions Bitcoin utilisent une abstraction similaire, l&#8217;adresse Bitcoin, pour les rendre très flexibles. Une adresse Bitcoin peut représenter le propriétaire d&#8217;une paire de clés privée/publique, ou elle peut représenter autre chose, comme un script de paiement, comme nous le verrons dans <a href="#p2sh">[p2sh]</a>. Pour l&#8217;instant, examinons le cas simple; une adresse Bitcoin qui représente et est dérivée d&#8217;une clé publique.</p>
 </div>
 <div class="paragraph">
-<p>L&#8217;adresse Bitcoin est dérivée de la clé publique grâce à l&#8217;utilisation d&#8217;un hachage cryptographique unidirectionnel. Un "algorithme de hachage" ou simplement "algorithme de hachage" est une fonction à sens unique qui produit une empreinte digitale ou un "hachage" (ou un "résultat de hachage") d&#8217;une entrée de taille arbitraire. Les fonctions de hachage cryptographiques sont largement utilisées dans le bitcoin : dans les adresses Bitcoin, dans les adresses de script et dans l&#8217;algorithme de minage de preuve de travail. Les algorithmes utilisés pour créer une adresse Bitcoin à partir d&#8217;une clé publique sont le Secure Hash Algorithm (SHA) et le RACE Integrity Primitives Evaluation Message Digest (RIPEMD), ou plus précisément SHA256 et RIPEMD160.</p>
+<p>L&#8217;adresse Bitcoin est dérivée de la clé publique grâce à l&#8217;utilisation d&#8217;un hachage cryptographique unidirectionnel. Un "algorithme de hachage" ou simplement "algorithme de hachage" est une fonction à sens unique qui produit une empreinte digitale ou un "hachage" (ou un "résultat de hachage") d&#8217;une entrée de taille arbitraire. Les fonctions de hachage cryptographiques sont largement utilisées dans le bitcoin : dans les adresses Bitcoin, dans les adresses de script et dans l&#8217;algorithme de minage de preuve de travail. Les algorithmes utilisés pour créer une adresse Bitcoin à partir d&#8217;une clé publique sont le Secure Hash Algorithm (SHA) et le RACE Integrity Primitives Evaluation Message Digest (RIPEMD), ou plus précisément SHA256 et RIPEMD160.</p>
 </div>
 <div class="paragraph">
 <p>En commençant par la clé publique <em>K</em>, nous calculons le hachage SHA256, puis calculons le hachage RIPEMD160 du résultat, produisant un nombre de 160 bits (20 octets) :</p>
@@ -861,13 +861,13 @@ y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</pre>
 </table>
 </div>
 <div class="paragraph">
-<p>Les adresses Bitcoin sont presque toujours encodées en "Base58Check" (voir <a href="#base58">Encodage Base58 et Base58Check</a>), qui utilise 58 caractères (un système de numérotation Base58) et une somme de contrôle pour faciliter la lisibilité humaine, éviter toute ambiguïté et protéger contre les erreurs de transcription et de saisie d&#8217;adresse. Base58Check est également utilisé de nombreuses autres manières dans Bitcoin, par exemple lorsque chaque fois qu&#8217;un utilisateur a besoin de lire et de transcrire correctement un numéro, tel qu&#8217;une adresse Bitcoin, une clé privée, une clé cryptée ou un hachage de script. Dans la section suivante, nous examinerons les mécanismes d&#8217;encodage et de décodage Base58Check et les représentations qui en résultent. <a href="#pubkey_to_address">Clé publique vers adresse Bitcoin : conversion d&#8217;une clé publique en adresse Bitcoin</a> illustre la conversion d&#8217;une clé publique en une adresse Bitcoin.</p>
+<p>Les adresses Bitcoin sont presque toujours encodées en "Base58Check" (voir <a href="#base58">Encodage Base58 et Base58Check</a>), qui utilise 58 caractères (un système de numérotation Base58) et une somme de contrôle pour faciliter la lisibilité humaine, éviter toute ambiguïté et protéger contre les erreurs de transcription et de saisie d&#8217;adresse. Base58Check est également utilisé de nombreuses autres manières dans Bitcoin, par exemple lorsque chaque fois qu&#8217;un utilisateur a besoin de lire et de transcrire correctement un numéro, tel qu&#8217;une adresse Bitcoin, une clé privée, une clé cryptée ou un hachage de script. Dans la section suivante, nous examinerons les mécanismes d&#8217;encodage et de décodage Base58Check et les représentations qui en résultent. <a href="#pubkey_to_address">Clé publique vers adresse Bitcoin : conversion d&#8217;une clé publique en adresse Bitcoin</a> illustre la conversion d&#8217;une clé publique en une adresse Bitcoin.</p>
 </div>
 <div id="pubkey_to_address" class="imageblock">
 <div class="content">
 <img src="images/mbc2_0405.png" alt="pubkey à adresse">
 </div>
-<div class="title">Figure 5. Clé publique vers adresse Bitcoin : conversion d&#8217;une clé publique en adresse Bitcoin</div>
+<div class="title">Figure 5. Clé publique vers adresse Bitcoin : conversion d&#8217;une clé publique en adresse Bitcoin</div>
 </div>
 <div class="sect3">
 <h4 id="base58">Encodage Base58 et Base58Check</h4>
@@ -902,7 +902,7 @@ y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</pre>
 <p>À partir du hachage de 32 octets résultant (hachage-d&#8217;un-hachage), nous ne prenons que les quatre premiers octets. Ces quatre octets servent de code de contrôle d&#8217;erreur ou de somme de contrôle (checksum). La somme de contrôle est concaténée (ajoutée) à la fin.</p>
 </div>
 <div class="paragraph">
-<p>Le résultat est composé de trois éléments : un préfixe, les données et une somme de contrôle. Ce résultat est encodé en utilisant l&#8217;alphabet Base58 décrit précédemment. <a href="#base58check_encoding">Encodage Base58Check : un format Base58, versionné et à somme de contrôle pour encoder sans ambiguïté les données bitcoin</a> illustre le processus d&#8217;encodage Base58Check.</p>
+<p>Le résultat est composé de trois éléments : un préfixe, les données et une somme de contrôle. Ce résultat est encodé en utilisant l&#8217;alphabet Base58 décrit précédemment. <a href="#base58check_encoding">Encodage Base58Check : un format Base58, versionné et à somme de contrôle pour encoder sans ambiguïté les données bitcoin</a> illustre le processus d&#8217;encodage Base58Check.</p>
 </div>
 <div id="base58check_encoding" class="imageblock">
 <div class="content">
@@ -1042,7 +1042,7 @@ y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</pre>
 <p>Toutes ces représentations sont des manières différentes de montrer le même numéro, la même clé privée. Ils semblent différents, mais n&#8217;importe quel format peut facilement être converti en n&#8217;importe quel autre format. Notez que le "binaire brut" n&#8217;est pas affiché dans <a href="#table_4-3">Exemple : même clé, différents formats</a> car tout encodage à afficher ici ne serait, par définition, pas une donnée binaire brute.</p>
 </div>
 <div class="paragraph">
-<p>Nous utilisons la commande wif-to-ec de Bitcoin Explorer (voir <a href="#appdx_bx">[appdx_bx]</a>) pour montrer que les deux clés WIF représentent la même clé privée :</p>
+<p>Nous utilisons la commande <code>wif-to-ec</code> de Bitcoin Explorer (voir <a href="#appdx_bx">[appdx_bx]</a>) pour montrer que les deux clés WIF représentent la même clé privée :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1060,7 +1060,7 @@ $ bx wif-to-ec KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ
 <p>Les commandes de Bitcoin Explorer (voir <a href="#appdx_bx">[appdx_bx]</a>) facilitent l&#8217;écriture de scripts interface système (ou shell) à l&#8217;aide d'"opérateurs de transfert de données" en ligne de commande (ou "command-line pipes") qui manipulent les clés, les adresses et les transactions bitcoin. Vous pouvez utiliser Bitcoin Explorer pour décoder le format Base58Check sur la ligne de commande.</p>
 </div>
 <div class="paragraph">
-<p>Nous utilisons la commande base58check-decode pour décoder la clé non compressée :</p>
+<p>Nous utilisons la commande <code>base58check-decode</code> pour décoder la clé non compressée :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1094,7 +1094,7 @@ wrapper
 <div class="sect4">
 <h5 id="_encoder_de_lhex_vers_base58check">Encoder de l&#8217;hex vers Base58Check</h5>
 <div class="paragraph">
-<p>Pour encoder en Base58Check (l&#8217;inverse de la commande précédente), nous utilisons la commande base58check-encode de Bitcoin Explorer (voir <a href="#appdx_bx">[appdx_bx]</a>) et indiquez la clé privée hexadécimale, suivie du préfixe de version WIF 128 :</p>
+<p>Pour encoder en Base58Check (l&#8217;inverse de la commande précédente), nous utilisons la commande <code>base58check-encode</code> de Bitcoin Explorer (voir <a href="#appdx_bx">[appdx_bx]</a>) et indiquez la clé privée hexadécimale, suivie du préfixe de version WIF 128 :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1106,7 +1106,7 @@ wrapper
 <div class="sect4">
 <h5 id="_encoder_de_lhex_clé_compressée_à_base58check">Encoder de l&#8217;hex (clé compressée) à Base58Check</h5>
 <div class="paragraph">
-<p>Pour encoder dans Base58Check comme une clé privée "compressée" (voir <a href="#comp_priv">Clés privées compressées</a>), nous ajoutons le suffixe 01 à la clé hexadécimale puis encodons comme dans la section précédente :</p>
+<p>Pour encoder dans Base58Check comme une clé privée "compressée" (voir <a href="#comp_priv">Clés privées compressées</a>), nous ajoutons le suffixe <code>01</code> à la clé hexadécimale puis encodons comme dans la section précédente :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1124,10 +1124,10 @@ KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ</pre>
 <p>Les clés publiques sont également présentées de différentes manières, généralement sous forme de clés publiques <em>compressées</em> ou <em>non compressées</em>.</p>
 </div>
 <div class="paragraph">
-<p>Comme nous l&#8217;avons vu précédemment, la clé publique est un point de la courbe elliptique constitué d&#8217;un couple de coordonnées (x,y). Il est généralement présenté avec le préfixe 04 suivi de deux nombres de 256 bits : un pour la coordonnée <em>x</em> du point, l&#8217;autre pour la coordonnée <em>y</em>. Le préfixe 04 est utilisé pour distinguer les clés publiques non compressées des clés publiques compressées qui commencent par un 02 ou un 03.</p>
+<p>Comme nous l&#8217;avons vu précédemment, la clé publique est un point de la courbe elliptique constitué d&#8217;un couple de coordonnées (x,y). Il est généralement présenté avec le préfixe <code>04</code> suivi de deux nombres de 256 bits : un pour la coordonnée <em>x</em> du point, l&#8217;autre pour la coordonnée <em>y</em>. Le préfixe <code>04</code> est utilisé pour distinguer les clés publiques non compressées des clés publiques compressées qui commencent par un <code>02</code> ou un 03.</p>
 </div>
 <div class="paragraph">
-<p>Voici la clé publique générée par la clé privée que nous avons créée précédemment, indiquée par les coordonnées x et y :</p>
+<p>Voici la clé publique générée par la clé privée que nous avons créée précédemment, indiquée par les coordonnées <code>x</code> et y :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1136,7 +1136,7 @@ y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Voici la même clé publique affichée sous la forme d&#8217;un nombre de 520 bits (130 chiffres hexadécimaux) avec le préfixe 04 suivi de x puis des coordonnées y, sous la forme 04 x y :</p>
+<p>Voici la même clé publique affichée sous la forme d&#8217;un nombre de 520 bits (130 chiffres hexadécimaux) avec le préfixe <code>04</code> suivi de <code>x</code> puis des coordonnées y, sous la forme 04 x y :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1148,16 +1148,16 @@ y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</pre>
 <div class="sect4">
 <h5 id="comp_pub">Clés publiques compressées</h5>
 <div class="paragraph">
-<p>Des clés publiques compressées ont été introduites dans le bitcoin pour réduire la taille des transactions et économiser de l&#8217;espace disque sur les nœuds qui stockent la base de données de la chaîne de blocs Bitcoin. La plupart des transactions incluent la clé publique, qui est nécessaire pour valider les informations d&#8217;identification du propriétaire et dépenser le bitcoin. Chaque clé publique nécessite 520 bits (préfixe + x + y), ce qui, multiplié par plusieurs centaines de transactions par bloc, soit des dizaines de milliers de transactions par jour, ajoute une quantité importante de données à la chaîne de blocs.</p>
+<p>Des clés publiques compressées ont été introduites dans le bitcoin pour réduire la taille des transactions et économiser de l&#8217;espace disque sur les nœuds qui stockent la base de données de la chaîne de blocs Bitcoin. La plupart des transactions incluent la clé publique, qui est nécessaire pour valider les informations d&#8217;identification du propriétaire et dépenser le bitcoin. Chaque clé publique nécessite 520 bits (préfixe ` x ` y), ce qui, multiplié par plusieurs centaines de transactions par bloc, soit des dizaines de milliers de transactions par jour, ajoute une quantité importante de données à la chaîne de blocs.</p>
 </div>
 <div class="paragraph">
 <p>Comme nous l&#8217;avons vu dans la section <a href="#pubkey">Clés publiques</a>, une clé publique est un point (x,y) sur une courbe elliptique. Parce que la courbe exprime une fonction mathématique, un point sur la courbe représente une solution à l&#8217;équation et, par conséquent, si nous connaissons la coordonnée <em>x</em>, nous pouvons calculer la coordonnée <em>y</em> en résolvant l&#8217;équation y<sup>2</sup> mod p = (x<sup>3</sup> + 7) mod p. Cela nous permet de stocker uniquement la coordonnée <em>x</em> du point de clé publique, en omettant la coordonnée <em>y</em> et en réduisant la taille de la clé et l&#8217;espace requis pour la stocker de 256 bits. Une réduction de près de 50 % de la taille de chaque transaction représente une grande quantité de données enregistrées au fil du temps !</p>
 </div>
 <div class="paragraph">
-<p>Alors que les clés publiques non compressées ont un préfixe de 04, les clés publiques compressées commencent par un préfixe 02 ou 03. Regardons pourquoi il y a deux préfixes possibles : parce que le côté gauche de l&#8217;équation est <em>y</em><sup>2</sup>, la solution pour <em>y</em> est une racine carrée, qui peut avoir une valeur positive ou négative. Visuellement, cela signifie que la coordonnée <em>y</em> résultante peut être au-dessus ou au-dessous de l&#8217;axe des x. Comme vous pouvez le voir sur le graphique de la courbe elliptique en <a href="#ecc-curve">Une courbe elliptique</a>, la courbe est symétrique, c&#8217;est-à-dire qu&#8217;elle est réfléchie comme par un miroir à l&#8217;axe des abscisses. Ainsi, bien que nous puissions omettre la coordonnée <em>y</em>, nous devons stocker le <em>signe</em> de <em>y</em> (positif ou négatif) ; ou en d&#8217;autres termes, nous devons nous rappeler si c&#8217;était au-dessus ou au-dessous de l&#8217;axe des x parce que chacune de ces options représente un point différent et une clé publique différente. Lors du calcul de la courbe elliptique en arithmétique binaire sur le corps fini d&#8217;ordre premier p, la coordonnée <em>y</em> est paire ou impaire, ce qui correspond au signe positif/négatif comme expliqué précédemment. Ainsi, pour distinguer les deux valeurs possibles de <em>y</em>, on stocke une clé publique compressée avec le préfixe 02 si le <em>y</em> est pair, et 03 s&#8217;il est impair, permettant au logiciel de déduire correctement la coordonnée <em>y</em> de la coordonnée <em>x</em> et de décompresser la clé publique aux coordonnées complètes du point. La compression de clé publique est illustrée dans <a href="#pubkey_compression">Compression de clé publique</a>.</p>
+<p>Alors que les clés publiques non compressées ont un préfixe de 04, les clés publiques compressées commencent par un préfixe <code>02</code> ou 03. Regardons pourquoi il y a deux préfixes possibles : parce que le côté gauche de l&#8217;équation est <em>y</em><sup>2</sup>, la solution pour <em>y</em> est une racine carrée, qui peut avoir une valeur positive ou négative. Visuellement, cela signifie que la coordonnée <em>y</em> résultante peut être au-dessus ou au-dessous de l&#8217;axe des x. Comme vous pouvez le voir sur le graphique de la courbe elliptique en <a href="#ecc-curve">Une courbe elliptique</a>, la courbe est symétrique, c&#8217;est-à-dire qu&#8217;elle est réfléchie comme par un miroir à l&#8217;axe des abscisses. Ainsi, bien que nous puissions omettre la coordonnée <em>y</em>, nous devons stocker le <em>signe</em> de <em>y</em> (positif ou négatif) ; ou en d&#8217;autres termes, nous devons nous rappeler si c&#8217;était au-dessus ou au-dessous de l&#8217;axe des x parce que chacune de ces options représente un point différent et une clé publique différente. Lors du calcul de la courbe elliptique en arithmétique binaire sur le corps fini d&#8217;ordre premier p, la coordonnée <em>y</em> est paire ou impaire, ce qui correspond au signe positif/négatif comme expliqué précédemment. Ainsi, pour distinguer les deux valeurs possibles de <em>y</em>, on stocke une clé publique compressée avec le préfixe <code>02</code> si le <em>y</em> est pair, et <code>03</code> s&#8217;il est impair, permettant au logiciel de déduire correctement la coordonnée <em>y</em> de la coordonnée <em>x</em> et de décompresser la clé publique aux coordonnées complètes du point. La compression de clé publique est illustrée dans <a href="#pubkey_compression">Compression de clé publique</a>.</p>
 </div>
 <div class="paragraph">
-<p>Voici la même clé publique générée précédemment, présentée sous la forme d&#8217;une clé publique compressée stockée sur 264 bits (66 chiffres hexadécimaux) avec le préfixe 03 indiquant que la coordonnée <em>y</em> est impaire :</p>
+<p>Voici la même clé publique générée précédemment, présentée sous la forme d&#8217;une clé publique compressée stockée sur 264 bits (66 chiffres hexadécimaux) avec le préfixe <code>03</code> indiquant que la coordonnée <em>y</em> est impaire :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1226,7 +1226,7 @@ y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</pre>
 <p>N&#8217;oubliez pas que ces formats ne sont <em>pas</em> utilisés de manière interchangeable. Dans un portefeuille plus récent qui implémente des clés publiques compressées, les clés privées ne seront exportées qu&#8217;au format WIF compressé (avec un préfixe <em>K</em> ou <em>L</em>). Si le portefeuille est une implémentation plus ancienne et n&#8217;utilise pas de clés publiques compressées, les clés privées ne seront exportées qu&#8217;au format WIF (avec un préfixe 5). Le but ici est de signaler au portefeuille qui importe ces clés privées s&#8217;il doit rechercher dans la chaîne de blocs des clés et des adresses publiques compressées ou non.</p>
 </div>
 <div class="paragraph">
-<p>Si un portefeuille bitcoin est capable d&#8217;implémenter des clés publiques compressées, il les utilisera dans toutes les transactions. Les clés privées du portefeuille seront utilisées pour dériver les points de clé publique sur la courbe, qui seront compressés. Les clés publiques compressées seront utilisées pour produire des adresses Bitcoin et celles-ci seront utilisées dans les transactions. Lors de l&#8217;exportation de clés privées à partir d&#8217;un nouveau portefeuille qui implémente des clés publiques compressées, le WIF est modifié, avec l&#8217;ajout d&#8217;un suffixe d&#8217;un octet 01 à la clé privée. La clé privée encodée en Base58Check qui en résulte est appelée "WIF compressé" et commence par la lettre <em>K</em> ou <em>L</em>, au lieu de commencer par "5" comme c&#8217;est le cas avec les clés encodées en WIF (non compressées) des portefeuilles plus anciens.</p>
+<p>Si un portefeuille bitcoin est capable d&#8217;implémenter des clés publiques compressées, il les utilisera dans toutes les transactions. Les clés privées du portefeuille seront utilisées pour dériver les points de clé publique sur la courbe, qui seront compressés. Les clés publiques compressées seront utilisées pour produire des adresses Bitcoin et celles-ci seront utilisées dans les transactions. Lors de l&#8217;exportation de clés privées à partir d&#8217;un nouveau portefeuille qui implémente des clés publiques compressées, le WIF est modifié, avec l&#8217;ajout d&#8217;un suffixe d&#8217;un octet <code>01</code> à la clé privée. La clé privée encodée en Base58Check qui en résulte est appelée "WIF compressé" et commence par la lettre <em>K</em> ou <em>L</em>, au lieu de commencer par "5" comme c&#8217;est le cas avec les clés encodées en WIF (non compressées) des portefeuilles plus anciens.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1236,7 +1236,7 @@ y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>"Clés privées compressées" est un terme impropre ! Ils ne sont pas compressés ; au lieu de cela, WIF-compressé signifie que les clés ne doivent être utilisées que pour dériver des clés publiques compressées et leurs adresses Bitcoin correspondantes. Ironiquement, une clé privée codée "compressée en WIF" est plus longue d&#8217;un octet car elle a le suffixe 01 ajouté pour la distinguer d&#8217;une clé "non compressée".</p>
+<p>"Clés privées compressées" est un terme impropre ! Ils ne sont pas compressés ; au lieu de cela, WIF-compressé signifie que les clés ne doivent être utilisées que pour dériver des clés publiques compressées et leurs adresses Bitcoin correspondantes. Ironiquement, une clé privée codée "compressée en WIF" est plus longue d&#8217;un octet car elle a le suffixe <code>01</code> ajouté pour la distinguer d&#8217;une clé "non compressée".</p>
 </div>
 </td>
 </tr>
@@ -1514,7 +1514,7 @@ assert point1 == point</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p><a href="#ec_math">Un script démontrant les mathématiques de la courbe elliptique utilisées pour les clés bitcoin</a> utilise os.urandom, qui reflète un générateur de nombres aléatoires cryptographiquement sécurisé (CSRNG) fourni par le système d&#8217;exploitation sous-jacent. Attention : Selon le système d&#8217;exploitation, os.urandom peut <em>ne pas</em> être implémenté avec une sécurité suffisante ou correctement amorcé et peut <em>ne pas</em> être approprié pour générer des clés bitcoin de qualité production.</p>
+<p><a href="#ec_math">Un script démontrant les mathématiques de la courbe elliptique utilisées pour les clés bitcoin</a> utilise os.urandom, qui reflète un générateur de nombres aléatoires cryptographiquement sécurisé (CSRNG) fourni par le système d&#8217;exploitation sous-jacent. Attention : Selon le système d&#8217;exploitation, <code>os.urandom</code> peut <em>ne pas</em> être implémenté avec une sécurité suffisante ou correctement amorcé et peut <em>ne pas</em> être approprié pour générer des clés bitcoin de qualité production.</p>
 </div>
 </td>
 </tr>
@@ -1561,7 +1561,7 @@ BTC public key: 029ade3effb0a67d5c8609850d797366af428f4a0d5194cb221d807770a15228
 </div>
 </div>
 <div class="paragraph">
-<p>Le "hachage de script" résultant est encodé avec Base58Check avec un préfixe de version de 5, ce qui donne une adresse encodée commençant par un 3. Un exemple d&#8217;adresse P2SH est 3F6i6kwkevjR7AsAd4te2YB2zZyASEm1HM, qui peut être dérivée à l&#8217;aide des commandes Bitcoin Explorer script-encode, sha256, ripemd160 et base58check-encode (voir <a href="#appdx_bx">[appdx_bx]</a>) comme suit :</p>
+<p>Le "hachage de script" résultant est encodé avec Base58Check avec un préfixe de version de 5, ce qui donne une adresse encodée commençant par un 3. Un exemple d&#8217;adresse P2SH est 3F6i6kwkevjR7AsAd4te2YB2zZyASEm1HM, qui peut être dérivée à l&#8217;aide des commandes Bitcoin Explorer script-encode, sha256, <code>ripemd160</code> et <code>base58check-encode</code> (voir <a href="#appdx_bx">[appdx_bx]</a>) comme suit :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1599,7 +1599,7 @@ $ bx script-encode &lt; script | bx sha256 | bx ripemd160 \
 <div class="sect3">
 <h4 id="_adresses_personnalisées">Adresses personnalisées</h4>
 <div class="paragraph">
-<p>Les adresses personnalisées sont des adresses Bitcoin valides qui contiennent des messages lisibles par l&#8217;homme. Par exemple, 1LoveBPzzD72PUXLzCkYAtGFYmK5vYNR33 est une adresse valide qui contient les lettres formant le mot "Love" comme les quatre premières lettres Base58. Les adresses personnalisées nécessitent de générer et de tester des milliards de clés privées candidates, jusqu&#8217;à ce qu&#8217;une adresse Bitcoin avec le modèle souhaité soit trouvée. Bien qu&#8217;il y ait quelques optimisations dans l&#8217;algorithme de génération de vanité, le processus consiste essentiellement à choisir une clé privée au hasard, à dériver la clé publique, à dériver l&#8217;adresse Bitcoin et à vérifier si elle correspond au modèle de vanité souhaité, en répétant des milliards de fois jusqu&#8217;à ce qu&#8217;un correspondance est trouvée.</p>
+<p>Les adresses personnalisées sont des adresses Bitcoin valides qui contiennent des messages lisibles par l&#8217;homme. Par exemple, <code>1LoveBPzzD72PUXLzCkYAtGFYmK5vYNR33</code> est une adresse valide qui contient les lettres formant le mot "Love" comme les quatre premières lettres Base58. Les adresses personnalisées nécessitent de générer et de tester des milliards de clés privées candidates, jusqu&#8217;à ce qu&#8217;une adresse Bitcoin avec le modèle souhaité soit trouvée. Bien qu&#8217;il y ait quelques optimisations dans l&#8217;algorithme de génération de vanité, le processus consiste essentiellement à choisir une clé privée au hasard, à dériver la clé publique, à dériver l&#8217;adresse Bitcoin et à vérifier si elle correspond au modèle de vanité souhaité, en répétant des milliards de fois jusqu&#8217;à ce qu&#8217;un correspondance est trouvée.</p>
 </div>
 <div class="paragraph">
 <p>Une fois qu&#8217;une adresse personnalisée correspondant au modèle souhaité est trouvée, la clé privée dont elle est dérivée peut être utilisée par le propriétaire pour dépenser des bitcoins exactement de la même manière que n&#8217;importe quelle autre adresse. Les adresses personnalisées ne sont ni moins ni plus sécurisées que toute autre adresse. Ils dépendent de la même cryptographie à courbe elliptique (ECC) et SHA que toute autre adresse. Vous ne pouvez pas plus facilement trouver la clé privée d&#8217;une adresse commençant par un modèle de vanité que vous ne le pouvez de n&#8217;importe quelle autre adresse.</p>
@@ -1610,7 +1610,7 @@ $ bx script-encode &lt; script | bx sha256 | bx ripemd160 \
 <div class="sect4">
 <h5 id="_génération_dadresses_personnalisées">Génération d&#8217;adresses personnalisées</h5>
 <div class="paragraph">
-<p>Il est important de réaliser qu&#8217;une adresse Bitcoin est simplement un nombre représenté par des symboles dans l&#8217;alphabet Base58. La recherche d&#8217;un modèle comme "1Kids" peut être considérée comme la recherche d&#8217;une adresse comprise entre 1Kids1111111111111111111111111111 et 1Kidszzzzzzzzzzzzzzzzzzzzzzzzzz. Il y a environ 58 ^ 29 ^ (environ 1,4 * 10 ^ 51 ^) adresses dans cette plage, toutes commençant par "1Kids". <a href="#table_4-11">La plage d&#8217;adresses personnalisées (ou de vanités) commençant par "1Kids"</a> affiche la plage d&#8217;adresses qui ont le préfixe 1Kids.</p>
+<p>Il est important de réaliser qu&#8217;une adresse Bitcoin est simplement un nombre représenté par des symboles dans l&#8217;alphabet Base58. La recherche d&#8217;un modèle comme "1Kids" peut être considérée comme la recherche d&#8217;une adresse comprise entre <code>1Kids1111111111111111111111111111</code> et 1Kidszzzzzzzzzzzzzzzzzzzzzzzzzz. Il y a environ 58 ^ 29 ^ (environ 1,4 * 10 ^ 51 ^) adresses dans cette plage, toutes commençant par "1Kids". <a href="#table_4-11">La plage d&#8217;adresses personnalisées (ou de vanités) commençant par "1Kids"</a> affiche la plage d&#8217;adresses qui ont le préfixe 1Kids.</p>
 </div>
 <table id="table_4-11" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 5. La plage d&#8217;adresses personnalisées (ou de vanités) commençant par "1Kids"</caption>
@@ -1733,7 +1733,7 @@ $ bx script-encode &lt; script | bx sha256 | bx ripemd160 \
 <p>Comme vous pouvez le voir, Eugenia ne créera pas de sitôt l&#8217;adresse personnalisée "1KidsCharity", même si elle avait accès à plusieurs milliers d&#8217;ordinateurs. Chaque caractère supplémentaire augmente la difficulté d&#8217;un facteur de 58. Les modèles de plus de sept caractères sont généralement trouvés par du matériel spécialisé, tel que des ordinateurs de bureau personnalisés avec plusieurs GPU. Ce sont souvent des "plates-formes" de minage de bitcoin réutilisées qui ne sont plus rentables pour le minage de bitcoin mais peuvent être utilisées pour trouver des adresses personnalisées. Les recherches d&#8217;adresse personnalisées (ou de vanités) sur les systèmes GPU sont de plusieurs ordres de grandeur plus rapides que sur un processeur à usage général.</p>
 </div>
 <div class="paragraph">
-<p>Une autre façon de trouver une adresse de vanité consiste à sous-traiter le travail à un groupe ou bassin de mineurs de vanité, comme le groupe sur <a href="https://vanitypool.appspot.com">Vanity Pool</a>. Un groupe ou bassin de ce type est un service qui permet à ceux qui disposent de matériel GPU de gagner des bitcoins en recherchant des adresses personnalisées pour les autres. Pour un petit paiement (0,01 bitcoin ou environ 5 $ au moment d&#8217;écrire ces lignes), Eugenia peut externaliser la recherche d&#8217;une adresse personnalisée à sept caractères et obtenir des résultats en quelques heures au lieu d&#8217;avoir à exécuter une recherche de CPU pendant des mois.</p>
+<p>Une autre façon de trouver une adresse de vanité consiste à sous-traiter le travail à un groupe ou bassin de mineurs de vanité, comme le groupe sur <a href="https://vanitypool.appspot.com">Vanity Pool</a>. Un groupe ou bassin de ce type est un service qui permet à ceux qui disposent de matériel GPU de gagner des bitcoins en recherchant des adresses personnalisées pour les autres. Pour un petit paiement (0,01 bitcoin ou environ 5 $ au moment d&#8217;écrire ces lignes), Eugenia peut externaliser la recherche d&#8217;une adresse personnalisée à sept caractères et obtenir des résultats en quelques heures au lieu d&#8217;avoir à exécuter une recherche de CPU pendant des mois.</p>
 </div>
 <div class="paragraph">
 <p>Générer une adresse personnalisée est un exercice de force brute : essayez une clé aléatoire, vérifiez l&#8217;adresse résultante pour voir si elle correspond au modèle souhaité, et répétez jusqu&#8217;à ce que vous réussissiez. <a href="#vanity_miner_code">Mineur d&#8217;adresse personnalisées (ou de vanité)</a> montre un exemple de "mineur de vanité", un programme conçu pour trouver des adresses personnalisées, écrit en C++. L&#8217;exemple utilise la bibliothèque libbitcoin, que nous avons introduite dans <a href="#alt_libraries">[alt_libraries]</a>.</p>
@@ -1864,7 +1864,7 @@ sys	0m0.035s</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>L&#8217;exemple de code prendra quelques secondes pour trouver une correspondance pour le modèle à trois caractères "kid", comme nous pouvons le voir lorsque nous utilisons la commande Unix time pour mesurer le temps d&#8217;exécution. Modifiez le modèle search dans le code source et voyez combien de temps cela prend pour les modèles à quatre ou cinq caractères !</p>
+<p>L&#8217;exemple de code prendra quelques secondes pour trouver une correspondance pour le modèle à trois caractères "kid", comme nous pouvons le voir lorsque nous utilisons la commande Unix <code>time</code> pour mesurer le temps d&#8217;exécution. Modifiez le modèle <code>search</code> dans le code source et voyez combien de temps cela prend pour les modèles à quatre ou cinq caractères !</p>
 </div>
 </div>
 <div class="sect4">
@@ -1977,7 +1977,7 @@ sys	0m0.035s</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-23 18:57:04 -0400
+Last updated 2022-03-23 22:28:05 -0400
 </div>
 </div>
 <script type="text/x-mathjax-config">

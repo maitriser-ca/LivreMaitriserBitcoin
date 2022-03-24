@@ -539,14 +539,14 @@ message=Purchase%20at%20Bob%27s%20Cafe
 
 Composants de l'URL
 
-Une adresse Bitcoin : "1GdK9UzpHBzqzX2A9JFP3Di4weBwqgmoQA"
-Le montant du paiement: "0,015"
-Une étiquette pour l'adresse du destinataire : "Bob's Cafe"
+Une adresse Bitcoin : "1GdK9UzpHBzqzX2A9JFP3Di4weBwqgmoQA"
+Le montant du paiement : "0,015"
+Une étiquette pour l'adresse du destinataire : "Bob's Cafe"
 Une description du paiement : "Purchase at Bob's Cafe"</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Alice utilise son smartphone pour scanner le code-barres affiché. Son smartphone affiche un paiement de 0,0150 BTC à Bob's Cafe et elle sélectionne Envoyer pour autoriser le paiement. En quelques secondes (environ le même temps qu&#8217;une autorisation de carte de crédit), Bob voit la transaction sur le registre, complétant la transaction.</p>
+<p>Alice utilise son smartphone pour scanner le code-barres affiché. Son smartphone affiche un paiement de <code>0,0150 BTC</code> à <code>Bob&#8217;s Cafe</code> et elle sélectionne Envoyer pour autoriser le paiement. En quelques secondes (environ le même temps qu&#8217;une autorisation de carte de crédit), Bob voit la transaction sur le registre, complétant la transaction.</p>
 </div>
 <div class="paragraph">
 <p>Dans les sections suivantes, nous examinerons cette transaction plus en détail. Nous verrons comment le portefeuille d&#8217;Alice l&#8217;a construit, comment il s&#8217;est propagé sur le réseau, comment il a été vérifié et enfin, comment Bob peut dépenser ce montant lors de transactions ultérieures.</p>
@@ -725,7 +725,7 @@ Une description du paiement : "Purchase at Bob's Cafe"</pre>
 <p>Une sortie de transaction est créée sous la forme d&#8217;un script qui crée une charge sur la valeur et ne peut être rachetée que par l&#8217;introduction d&#8217;une solution au script. En termes plus simples, la sortie de transaction d&#8217;Alice contiendra un script qui dit quelque chose comme "Cette sortie est payable à quiconque peut présenter une signature à partir de la clé correspondant à l&#8217;adresse de Bob." Étant donné que seul Bob possède le portefeuille avec les clés correspondant à cette adresse, seul le portefeuille de Bob peut présenter une telle signature pour racheter cette sortie. Alice « encombrera » donc la valeur de sortie avec une demande de signature de Bob.</p>
 </div>
 <div class="paragraph">
-<p>Cette transaction comprendra également une deuxième sortie, car les fonds d&#8217;Alice se présentent sous la forme d&#8217;une sortie à 0,10 BTC, trop d&#8217;argent pour la tasse de café à 0,015 BTC. Alice aura besoin de 0,085 BTC en monnaie. Le paiement de monnaie d&#8217;Alice est créé par le portefeuille d&#8217;Alice en tant que sortie dans la même transaction que le paiement à Bob. Essentiellement, le portefeuille d&#8217;Alice divise ses fonds en deux paiements : un à Bob et un à elle-même. Elle peut ensuite utiliser (dépenser) la sortie de monnaie dans une transaction ultérieure.</p>
+<p>Cette transaction comprendra également une deuxième sortie, car les fonds d&#8217;Alice se présentent sous la forme d&#8217;une sortie à 0,10 BTC, trop d&#8217;argent pour la tasse de café à 0,015 BTC. Alice aura besoin de 0,085 BTC en monnaie. Le paiement de monnaie d&#8217;Alice est créé par le portefeuille d&#8217;Alice en tant que sortie dans la même transaction que le paiement à Bob. Essentiellement, le portefeuille d&#8217;Alice divise ses fonds en deux paiements : un à Bob et un à elle-même. Elle peut ensuite utiliser (dépenser) la sortie de monnaie dans une transaction ultérieure.</p>
 </div>
 <div class="paragraph">
 <p>Enfin, pour que la transaction soit traitée par le réseau en temps opportun, l&#8217;application de portefeuille d&#8217;Alice ajoutera une somme modique. Ce n&#8217;est pas explicite dans la transaction ; il est impliqué par la différence entre les entrées et les sorties. Si au lieu de prendre 0,085 en monnaie, Alice ne crée que 0,0845 comme deuxième sortie, il restera 0,0005 BTC (un demi-millibitcoin). Le 0,10 BTC de l&#8217;entrée n&#8217;est pas entièrement dépensé avec les deux sorties, car elles totaliseront moins de 0,10. La différence qui en résulte est le <em>frais de transaction</em> qui est perçu par le mineur en tant que frais de validation et d&#8217;inclusion de la transaction dans un bloc à enregistrer sur la chaîne de blocs.</p>
@@ -768,7 +768,7 @@ Une description du paiement : "Purchase at Bob's Cafe"</pre>
 <div class="sect4">
 <h5 id="_comment_ça_se_propage">Comment ça se propage</h5>
 <div class="paragraph">
-<p>Tout système, tel qu&#8217;un serveur, une application de bureau ou un portefeuille, qui participe au réseau Bitcoin en "parlant", le protocole Bitcoin est appelé un <em>nœud Bitcoin</em>. L&#8217;application de portefeuille d&#8217;Alice peut envoyer la nouvelle transaction à n&#8217;importe quel nœud Bitcoin auquel elle est connectée via n&#8217;importe quel type de connexion : filaire, Wi-Fi, mobile, etc. Son portefeuille Bitcoin n&#8217;a pas besoin d&#8217;être connecté directement au portefeuille Bitcoin de Bob et elle n&#8217;a pas à nécessairement utiliser la connexion Internet offerte par le café, bien que ces deux options soient également possibles. Tout nœud Bitcoin qui reçoit une transaction valide qu&#8217;il n&#8217;a pas vue auparavant la transmettra immédiatement à tous les autres nœuds auxquels il est connecté , une technique de propagation connue sous le nom d'<em>inondation</em>. Ainsi, la transaction se propage (en inondant ou distribuant) rapidement à travers le réseau pair à pair, atteignant un grand pourcentage de nœuds en quelques secondes.</p>
+<p>Tout système, tel qu&#8217;un serveur, une application de bureau ou un portefeuille, qui participe au réseau Bitcoin en "parlant", le protocole Bitcoin est appelé un <em>nœud Bitcoin</em>. L&#8217;application de portefeuille d&#8217;Alice peut envoyer la nouvelle transaction à n&#8217;importe quel nœud Bitcoin auquel elle est connectée via n&#8217;importe quel type de connexion : filaire, Wi-Fi, mobile, etc. Son portefeuille Bitcoin n&#8217;a pas besoin d&#8217;être connecté directement au portefeuille Bitcoin de Bob et elle n&#8217;a pas à nécessairement utiliser la connexion Internet offerte par le café, bien que ces deux options soient également possibles. Tout nœud Bitcoin qui reçoit une transaction valide qu&#8217;il n&#8217;a pas vue auparavant la transmettra immédiatement à tous les autres nœuds auxquels il est connecté , une technique de propagation connue sous le nom d'<em>inondation</em>. Ainsi, la transaction se propage (en inondant ou distribuant) rapidement à travers le réseau pair à pair, atteignant un grand pourcentage de nœuds en quelques secondes.</p>
 </div>
 </div>
 <div class="sect4">
@@ -815,7 +815,7 @@ Une description du paiement : "Purchase at Bob's Cafe"</pre>
 <p>L&#8217;exploitation minière atteint un bon équilibre entre le coût et la récompense. L&#8217;exploitation minière utilise l&#8217;électricité pour résoudre un problème mathématique. Un mineur qui réussit recevra une <em>récompense</em> sous la forme de nouveaux bitcoins et de frais de transaction. Cependant, la récompense ne sera perçue que si le mineur a correctement validé toutes les transactions, à la satisfaction des règles de <em>consensus</em>. Cet équilibre délicat assure la sécurité du bitcoin sans autorité centrale.</p>
 </div>
 <div class="paragraph">
-<p>Une bonne façon de décrire l&#8217;exploitation minière est comme un jeu compétitif géant de sudoku qui se réinitialise chaque fois que quelqu&#8217;un trouve une solution et dont la difficulté s&#8217;ajuste automatiquement de sorte qu&#8217;il faut environ 10 minutes pour trouver une solution. Imaginez un puzzle sudoku géant, de plusieurs milliers de lignes et de colonnes. Si je vous montre un puzzle terminé, vous pouvez le vérifier assez rapidement. Cependant, si le puzzle a quelques cases remplies et que les autres sont vides, cela demande beaucoup de travail à résoudre ! La difficulté du sudoku peut être ajustée en modifiant sa taille (plus ou moins de lignes et de colonnes), mais elle peut toujours être vérifiée assez facilement même si elle est très grande. Le "casse-tête" utilisé dans le bitcoin est basé sur un hachage cryptographique et présente des caractéristiques similaires : il est asymétriquement difficile à résoudre mais facile à vérifier, et sa difficulté peut être ajustée.</p>
+<p>Une bonne façon de décrire l&#8217;exploitation minière est comme un jeu compétitif géant de sudoku qui se réinitialise chaque fois que quelqu&#8217;un trouve une solution et dont la difficulté s&#8217;ajuste automatiquement de sorte qu&#8217;il faut environ 10 minutes pour trouver une solution. Imaginez un puzzle sudoku géant, de plusieurs milliers de lignes et de colonnes. Si je vous montre un puzzle terminé, vous pouvez le vérifier assez rapidement. Cependant, si le puzzle a quelques cases remplies et que les autres sont vides, cela demande beaucoup de travail à résoudre ! La difficulté du sudoku peut être ajustée en modifiant sa taille (plus ou moins de lignes et de colonnes), mais elle peut toujours être vérifiée assez facilement même si elle est très grande. Le "casse-tête" utilisé dans le bitcoin est basé sur un hachage cryptographique et présente des caractéristiques similaires : il est asymétriquement difficile à résoudre mais facile à vérifier, et sa difficulté peut être ajustée.</p>
 </div>
 <div class="paragraph">
 <p>In <a href="#user-stories">[user-stories]</a>, nous avons présenté Jing est un entrepreneur à Shanghai. Jing dirige une <em>ferme minière</em>, qui est une entreprise qui gère des milliers d&#8217;ordinateurs miniers spécialisés, en compétition pour la récompense. Toutes les 10 minutes environ, les ordinateurs miniers de Jing rivalisent avec des milliers de systèmes similaires dans une course mondiale pour trouver une solution à un bloc de transactions. Trouver une telle solution, la soi-disant <em>Proof-of-Work (ou Preuve de travail)</em> (PoW), nécessite des quadrillions d&#8217;opérations de hachage par seconde sur l&#8217;ensemble du réseau Bitcoin. L&#8217;algorithme de preuve de travail implique de hacher à plusieurs reprises l&#8217;en-tête du bloc et un nombre aléatoire avec l&#8217;algorithme cryptographique SHA256 jusqu&#8217;à ce qu&#8217;une solution correspondant à un modèle prédéterminé émerge. Le premier mineur à trouver une telle solution remporte la compétition et publie ce bloc dans la chaîne de blocs.</p>
@@ -891,7 +891,7 @@ Une description du paiement : "Purchase at Bob's Cafe"</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-23 18:57:04 -0400
+Last updated 2022-03-23 22:28:26 -0400
 </div>
 </div>
 </body>

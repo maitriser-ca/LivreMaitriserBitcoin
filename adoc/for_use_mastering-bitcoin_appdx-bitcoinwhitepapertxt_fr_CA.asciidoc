@@ -75,7 +75,7 @@ L'incitation peut aider à encourager les nœuds à rester honnêtes. Si un atta
 
 image::images/mbc2_abin04.png["disque"]
 
-Un en-tête de bloc sans transactions serait d'environ 80 octets. Si nous supposons que les blocs sont générés toutes les 10 minutes, +80 octets * 6 * 24 * 365 = 4,2 Mo+ par an. Avec des systèmes informatiques se vendant généralement avec 2 Go de RAM à partir de 2008 et la loi de Moore prédisant une croissance actuelle de 1,2 Go par an, le stockage ne devrait pas être un problème même si les en-têtes de bloc doivent être conservés en mémoire.
+Un en-tête de bloc sans transactions serait d'environ 80 octets. Si nous supposons que les blocs sont générés toutes les 10 minutes, `80 octets * 6 * 24 * 365 = 4,2 Mo` par an. Avec des systèmes informatiques se vendant généralement avec 2 Go de RAM à partir de 2008 et la loi de Moore prédisant une croissance actuelle de 1,2 Go par an, le stockage ne devrait pas être un problème même si les en-têtes de bloc doivent être conservés en mémoire.
 
 ==== Vérification de paiement simplifiée
 Il est possible de vérifier les paiements sans exécuter un nœud de réseau complet. Un utilisateur n'a besoin que de conserver une copie des en-têtes de bloc de la chaîne de preuve de travail la plus longue, qu'il peut obtenir en interrogeant les nœuds du réseau jusqu'à ce qu'il soit convaincu qu'il a la chaîne la plus longue, et d'obtenir la branche Merkle reliant la transaction au bloc dont il est horodaté. Il ne peut pas vérifier la transaction par lui-même, mais en la liant à un endroit de la chaîne, il peut voir qu'un nœud du réseau l'a acceptée, et les blocs ajoutés après confirment que le réseau l'a acceptée aussi.

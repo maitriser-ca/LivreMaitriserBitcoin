@@ -62,7 +62,7 @@ La clé privée bitcoin n'est qu'un nombre. Vous pouvez choisir vos clés privé
 
 La première et la plus importante étape de la génération de clés consiste à trouver une source sécurisée d'entropie ou de caractère aléatoire. La création d'une clé bitcoin est essentiellement la même que "Choisissez un nombre entre 1 et 2^256^". La méthode exacte que vous utilisez pour choisir ce nombre n'a pas d'importance tant qu'elle n'est pas prévisible ou reproductible. Le logiciel Bitcoin utilise les générateurs de nombres aléatoires du système d'exploitation sous-jacent pour produire 256 bits d'entropie (aléatoire). Habituellement, le générateur de nombres aléatoires du système d'exploitation est initialisé par une source humaine d'aléatoire, c'est pourquoi il peut vous être demandé de remuer votre souris pendant quelques secondes.
 
-Plus précisément, la clé privée peut être n'importe quel nombre compris entre +0+ et +n - 1+ inclus, où n est une constante (n = 1,1578 * 10^77^, légèrement inférieure à 2^256^) définie comme l'ordre de la courbe elliptique utilisée dans le bitcoin (voir <<elliptic_curve>>). Pour créer une telle clé, nous choisissons au hasard un nombre de 256 bits et vérifions qu'il est inférieur à +n+. En termes de programmation, cela est généralement réalisé en alimentant une plus grande chaîne de bits aléatoires, collectés à partir d'une source aléatoire sécurisée par cryptographie, dans l'algorithme de hachage SHA256, qui produira commodément un nombre de 256 bits. Si le résultat est inférieur à +n+, nous avons une clé privée appropriée. Sinon, nous réessayons simplement avec un autre nombre aléatoire.
+Plus précisément, la clé privée peut être n'importe quel nombre compris entre `0` et `n - 1` inclus, où n est une constante (n = 1,1578 * 10^77^, légèrement inférieure à 2^256^) définie comme l'ordre de la courbe elliptique utilisée dans le bitcoin (voir <<elliptic_curve>>). Pour créer une telle clé, nous choisissons au hasard un nombre de 256 bits et vérifions qu'il est inférieur à +n+. En termes de programmation, cela est généralement réalisé en alimentant une plus grande chaîne de bits aléatoires, collectés à partir d'une source aléatoire sécurisée par cryptographie, dans l'algorithme de hachage SHA256, qui produira commodément un nombre de 256 bits. Si le résultat est inférieur à +n+, nous avons une clé privée appropriée. Sinon, nous réessayons simplement avec un autre nombre aléatoire.
 
 [WARNING]
 ====
@@ -81,7 +81,7 @@ Ce qui suit est une clé privée générée aléatoirement (k) affichée au form
 La taille de l'espace de clé privée de bitcoin, (2^256^) est un nombre insondable. Il est d'environ 10^77^ en décimal. À titre de comparaison, on estime que l'univers visible contient 10^80^ atomes.
 ====
 
-((("commande dumpprivkey")))Pour générer une nouvelle clé avec le client Bitcoin Core (voir <<ch03_bitcoin_client>>), utilisez la commande +getnewaddress+. Pour des raisons de sécurité, il affiche uniquement l'adresse, pas la clé privée. Pour demander à +bitcoind+ d'exposer la clé privée, utilisez la commande +dumpprivkey+. La commande +dumpprivkey+ affiche la clé privée dans un format de somme de contrôle Base58 appelé _Wallet Import Format_ (WIF ou format d'importation de portefeuille), que nous examinerons plus en détail dans <<priv_formats>>. Voici un exemple de génération et d'affichage d'une clé privée à l'aide de ces deux commandes :
+((("commande dumpprivkey")))Pour générer une nouvelle clé avec le client Bitcoin Core (voir <<ch03_bitcoin_client>>), utilisez la commande +getnewaddress+. Pour des raisons de sécurité, il affiche uniquement l'adresse, pas la clé privée. Pour demander à `bitcoind` d'exposer la clé privée, utilisez la commande +dumpprivkey+. La commande `dumpprivkey` affiche la clé privée dans un format de somme de contrôle Base58 appelé _Wallet Import Format_ (WIF ou format d'importation de portefeuille), que nous examinerons plus en détail dans <<priv_formats>>. Voici un exemple de génération et d'affichage d'une clé privée à l'aide de ces deux commandes :
 
 ----
 $ bitcoin-cli getnewaddress
@@ -90,15 +90,15 @@ $ bitcoin-cli dumpprivkey 1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy
 KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ
 ----
 
-La commande +dumpprivkey+ ouvre le portefeuille et extrait la clé privée qui a été générée par la commande +getnewaddress+. Il n'est pas possible pour +bitcoind+ de connaître la clé privée à partir de l'adresse à moins qu'elles ne soient toutes deux stockées dans le portefeuille.
+La commande `dumpprivkey` ouvre le portefeuille et extrait la clé privée qui a été générée par la commande +getnewaddress+. Il n'est pas possible pour `bitcoind` de connaître la clé privée à partir de l'adresse à moins qu'elles ne soient toutes deux stockées dans le portefeuille.
 
 [TIP]
 =====================================================================
-La commande +dumpprivkey+ ne génère pas de clé privée à partir d'une adresse, car cela est impossible. La commande révèle simplement la clé privée qui est déjà connue du portefeuille et qui a été générée par la commande +getnewaddress+.
+La commande `dumpprivkey` ne génère pas de clé privée à partir d'une adresse, car cela est impossible. La commande révèle simplement la clé privée qui est déjà connue du portefeuille et qui a été générée par la commande +getnewaddress+.
 =====================================================================
 
 [role="pagebreak-before"]
-Vous pouvez également utiliser l'outil de ligne de commande Bitcoin Explorer (voir <<appdx_bx>>) pour générer et afficher des clés privées avec les commandes +seed+, +ec-new+ et +ec-to-wif+ :
+Vous pouvez également utiliser l'outil de ligne de commande Bitcoin Explorer (voir <<appdx_bx>>) pour générer et afficher des clés privées avec les commandes +seed+, `ec-new` et +ec-to-wif+ :
 
 ----
 $ bx seed | bx ec-new | bx ec-to-wif
@@ -127,7 +127,7 @@ La multiplication de courbe elliptique est un type de fonction que les cryptogra
 .Une courbe elliptique
 image::images/mbc2_0402.png["courbe ecc"]
 
-Bitcoin utilise une courbe elliptique spécifique et un ensemble de constantes mathématiques, telles que définies dans une norme appelée +secp256k1+, établie par le National Institute of Standards and Technology (NIST). La courbe +secp256k1+ est définie par la fonction suivante, qui produit une courbe elliptique :
+Bitcoin utilise une courbe elliptique spécifique et un ensemble de constantes mathématiques, telles que définies dans une norme appelée +secp256k1+, établie par le National Institute of Standards and Technology (NIST). La courbe `secp256k1` est définie par la fonction suivante, qui produit une courbe elliptique :
 
 [latexmath]
 ++++
@@ -147,7 +147,7 @@ ou
 
 Le _mod p_ (modulo nombre premier p) indique que cette courbe est sur un corps fini d'ordre premier _p_, également écrit comme latexmath:[\mathbb{F}_p], où p = 2^256^ – 2^32^ – 2^9^ – 2^8^ – 2^7^ – 2^6^ – 2^4^ – 1, un très grand nombre premier.
 
-Parce que cette courbe est définie sur un champ fini d'ordre premier au lieu de sur les nombres réels, elle ressemble à un motif de points dispersés en deux dimensions, ce qui la rend difficile à visualiser. Cependant, le calcul est identique à celui d'une courbe elliptique sur des nombres réels. A titre d'exemple, <<ecc-over-F17-math>> montre la même courbe elliptique sur un champ fini beaucoup plus petit d'ordre premier 17, montrant un motif de points sur une grille. La courbe elliptique du bitcoin +secp256k1+ peut être considérée comme un motif beaucoup plus complexe de points sur une grille insondable.
+Parce que cette courbe est définie sur un champ fini d'ordre premier au lieu de sur les nombres réels, elle ressemble à un motif de points dispersés en deux dimensions, ce qui la rend difficile à visualiser. Cependant, le calcul est identique à celui d'une courbe elliptique sur des nombres réels. A titre d'exemple, <<ecc-over-F17-math>> montre la même courbe elliptique sur un champ fini beaucoup plus petit d'ordre premier 17, montrant un motif de points sur une grille. La courbe elliptique du bitcoin `secp256k1` peut être considérée comme un motif beaucoup plus complexe de points sur une grille insondable.
 
 [[ecc-over-F17-math]]
 [role="smallersixty"]
@@ -190,16 +190,16 @@ Si P~1~ et P~2~ sont le même point, la ligne "entre" P~1~ et P~2~ doit s'étend
 
 Dans certains cas (par exemple, si P~1~ et P~2~ ont les mêmes valeurs x mais des valeurs y différentes), la ligne entre P~1~ et P~2~ sera exactement verticale, auquel cas P~3~ = "point à l'infini."
 
-Si P~1~ est le "point à l'infini", alors P~1~ + P~2~ = P~2~. De même, si P~2~ est le point à l'infini, alors P~1~ + P~2~ = P~1~. Cela montre comment le point à l'infini joue le rôle de zéro.
+Si P~1~ est le "point à l'infini", alors P~1~ ` P~2~ = P~2~. De même, si P~2~ est le point à l'infini, alors P~1~ ` P~2~ = P~1~. Cela montre comment le point à l'infini joue le rôle de zéro.
 
 Il s'avère que pass:[+] est associatif, ce qui signifie que (A pass:[+] B) pass:[+] C = A pass:[+] (B pass:[+] C). Cela signifie que nous pouvons écrire A pass:[+] B pass:[+] C sans parenthèses et sans ambiguïté.
 
-Maintenant que nous avons défini l'addition, nous pouvons définir la multiplication de la manière standard qui extensionne l'addition. Pour un point P sur la courbe elliptique, si k est un nombre entier, alors kP = P + P + P + ... + P (k fois). Notez que k est parfois appelé un "exposant" dans ce cas.((("", startref="eliptic04")))((("", startref="Celliptic04")))
+Maintenant que nous avons défini l'addition, nous pouvons définir la multiplication de la manière standard qui extensionne l'addition. Pour un point P sur la courbe elliptique, si k est un nombre entier, alors kP = P ` P ` P ` ... ` P (k fois). Notez que k est parfois appelé un "exposant" dans ce cas.((("", startref="eliptic04")))((("", startref="Celliptic04")))
 
 [[public_key_derivation]]
 ==== Génération d'une clé publique
 
-((("clés et adresses", "aperçu de", "génération de clé publique")))((("point générateur")))En partant d'une clé privée sous la forme d'un nombre généré aléatoirement _k_, nous la multiplions par un point prédéterminé sur la courbe appelé _point générateur_ _G_ pour produire un autre point ailleurs sur la courbe, qui est la clé publique correspondante _K_. Le point générateur est spécifié dans le cadre de la norme +secp256k1+ et est toujours le même pour toutes les clés en bitcoin :
+((("clés et adresses", "aperçu de", "génération de clé publique")))((("point générateur")))En partant d'une clé privée sous la forme d'un nombre généré aléatoirement _k_, nous la multiplions par un point prédéterminé sur la courbe appelé _point générateur_ _G_ pour produire un autre point ailleurs sur la courbe, qui est la clé publique correspondante _K_. Le point générateur est spécifié dans le cadre de la norme `secp256k1` et est toujours le même pour toutes les clés en bitcoin :
 
 [latexmath]
 ++++
@@ -362,7 +362,7 @@ En bitcoin, la plupart des données présentées à l'utilisateur sont encodées
 
 Toutes ces représentations sont des manières différentes de montrer le même numéro, la même clé privée. Ils semblent différents, mais n'importe quel format peut facilement être converti en n'importe quel autre format. Notez que le "binaire brut" n'est pas affiché dans <<table_4-3>> car tout encodage à afficher ici ne serait, par définition, pas une donnée binaire brute.
 
-Nous utilisons la commande +wif-to-ec+ de Bitcoin Explorer (voir <<appdx_bx>>) pour montrer que les deux clés WIF représentent la même clé privée :
+Nous utilisons la commande `wif-to-ec` de Bitcoin Explorer (voir <<appdx_bx>>) pour montrer que les deux clés WIF représentent la même clé privée :
 
 ----
 $ bx wif-to-ec 5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn
@@ -376,7 +376,7 @@ $ bx wif-to-ec KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ
 
 Les commandes de Bitcoin Explorer (voir <<appdx_bx>>) facilitent l'écriture de scripts interface système (ou shell) à l'aide d'"opérateurs de transfert de données" en ligne de commande (ou "command-line pipes") qui manipulent les clés, les adresses et les transactions bitcoin. Vous pouvez utiliser Bitcoin Explorer pour décoder le format Base58Check sur la ligne de commande.
 
-Nous utilisons la commande +base58check-decode+ pour décoder la clé non compressée :
+Nous utilisons la commande `base58check-decode` pour décoder la clé non compressée :
 
 ----
 $ bx base58check-decode 5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn
@@ -404,7 +404,7 @@ wrapper
 
 ===== Encoder de l'hex vers Base58Check
 
-Pour encoder en Base58Check (l'inverse de la commande précédente), nous utilisons la commande +base58check-encode+ de Bitcoin Explorer (voir <<appdx_bx>>) et indiquez la clé privée hexadécimale, suivie du préfixe de version WIF 128 :
+Pour encoder en Base58Check (l'inverse de la commande précédente), nous utilisons la commande `base58check-encode` de Bitcoin Explorer (voir <<appdx_bx>>) et indiquez la clé privée hexadécimale, suivie du préfixe de version WIF 128 :
 
 ----
 bx base58check-encode 1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd --version 128
@@ -413,7 +413,7 @@ bx base58check-encode 1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a5
 
 ===== Encoder de l'hex (clé compressée) à Base58Check
 
-Pour encoder dans Base58Check comme une clé privée "compressée" (voir <<comp_priv>>), nous ajoutons le suffixe +01+ à la clé hexadécimale puis encodons comme dans la section précédente :
+Pour encoder dans Base58Check comme une clé privée "compressée" (voir <<comp_priv>>), nous ajoutons le suffixe `01` à la clé hexadécimale puis encodons comme dans la section précédente :
 
 ----
 $ bx base58check-encode 1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd01 --version 128
@@ -426,16 +426,16 @@ Le format compressé WIF résultant commence par un "K". Cela indique que la cl�
 
 ((("clés publiques et privées", "formats de clés publiques")))Les clés publiques sont également présentées de différentes manières, généralement sous forme de clés publiques _compressées_ ou _non compressées_.
 
-Comme nous l'avons vu précédemment, la clé publique est un point de la courbe elliptique constitué d'un couple de coordonnées +(x,y)+. Il est généralement présenté avec le préfixe +04+ suivi de deux nombres de 256 bits : un pour la coordonnée _x_ du point, l'autre pour la coordonnée _y_. Le préfixe +04+ est utilisé pour distinguer les clés publiques non compressées des clés publiques compressées qui commencent par un +02+ ou un +03+.
+Comme nous l'avons vu précédemment, la clé publique est un point de la courbe elliptique constitué d'un couple de coordonnées +(x,y)+. Il est généralement présenté avec le préfixe `04` suivi de deux nombres de 256 bits : un pour la coordonnée _x_ du point, l'autre pour la coordonnée _y_. Le préfixe `04` est utilisé pour distinguer les clés publiques non compressées des clés publiques compressées qui commencent par un `02` ou un +03+.
 
-Voici la clé publique générée par la clé privée que nous avons créée précédemment, indiquée par les coordonnées +x+ et +y+ :
+Voici la clé publique générée par la clé privée que nous avons créée précédemment, indiquée par les coordonnées `x` et +y+ :
 
 ----
 x = F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A
 y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB
 ----
 
-Voici la même clé publique affichée sous la forme d'un nombre de 520 bits (130 chiffres hexadécimaux) avec le préfixe +04+ suivi de +x+ puis des coordonnées +y+, sous la forme +04 x y+ :
+Voici la même clé publique affichée sous la forme d'un nombre de 520 bits (130 chiffres hexadécimaux) avec le préfixe `04` suivi de `x` puis des coordonnées +y+, sous la forme +04 x y+ :
 
 ----
 K = 04F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A&#x21b5;
@@ -445,13 +445,13 @@ K = 04F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A&#x21b5;
 [[comp_pub]]
 ===== Clés publiques compressées
 
-((("clés publiques et privées", "clés publiques compressées")))Des clés publiques compressées ont été introduites dans le bitcoin pour réduire la taille des transactions et économiser de l'espace disque sur les nœuds qui stockent la base de données de la chaîne de blocs Bitcoin. La plupart des transactions incluent la clé publique, qui est nécessaire pour valider les informations d'identification du propriétaire et dépenser le bitcoin. Chaque clé publique nécessite 520 bits (préfixe + x + y), ce qui, multiplié par plusieurs centaines de transactions par bloc, soit des dizaines de milliers de transactions par jour, ajoute une quantité importante de données à la chaîne de blocs.
+((("clés publiques et privées", "clés publiques compressées")))Des clés publiques compressées ont été introduites dans le bitcoin pour réduire la taille des transactions et économiser de l'espace disque sur les nœuds qui stockent la base de données de la chaîne de blocs Bitcoin. La plupart des transactions incluent la clé publique, qui est nécessaire pour valider les informations d'identification du propriétaire et dépenser le bitcoin. Chaque clé publique nécessite 520 bits (préfixe ` x ` y), ce qui, multiplié par plusieurs centaines de transactions par bloc, soit des dizaines de milliers de transactions par jour, ajoute une quantité importante de données à la chaîne de blocs.
 
 Comme nous l'avons vu dans la section <<pubkey>>, une clé publique est un point (x,y) sur une courbe elliptique. Parce que la courbe exprime une fonction mathématique, un point sur la courbe représente une solution à l'équation et, par conséquent, si nous connaissons la coordonnée _x_, nous pouvons calculer la coordonnée _y_ en résolvant l'équation y^2^ mod p = (x^3^ + 7) mod p. Cela nous permet de stocker uniquement la coordonnée _x_ du point de clé publique, en omettant la coordonnée _y_ et en réduisant la taille de la clé et l'espace requis pour la stocker de 256 bits. Une réduction de près de 50 % de la taille de chaque transaction représente une grande quantité de données enregistrées au fil du temps !
 
-Alors que les clés publiques non compressées ont un préfixe de +04+, les clés publiques compressées commencent par un préfixe +02+ ou +03+. Regardons pourquoi il y a deux préfixes possibles : parce que le côté gauche de l'équation est __y__^2^, la solution pour _y_ est une racine carrée, qui peut avoir une valeur positive ou négative. Visuellement, cela signifie que la coordonnée _y_ résultante peut être au-dessus ou au-dessous de l'axe des x. Comme vous pouvez le voir sur le graphique de la courbe elliptique en <<ecc-curve>>, la courbe est symétrique, c'est-à-dire qu'elle est réfléchie comme par un miroir à l'axe des abscisses. Ainsi, bien que nous puissions omettre la coordonnée _y_, nous devons stocker le _signe_ de _y_ (positif ou négatif) ; ou en d'autres termes, nous devons nous rappeler si c'était au-dessus ou au-dessous de l'axe des x parce que chacune de ces options représente un point différent et une clé publique différente. Lors du calcul de la courbe elliptique en arithmétique binaire sur le corps fini d'ordre premier p, la coordonnée _y_ est paire ou impaire, ce qui correspond au signe positif/négatif comme expliqué précédemment. Ainsi, pour distinguer les deux valeurs possibles de _y_, on stocke une clé publique compressée avec le préfixe +02+ si le _y_ est pair, et +03+ s'il est impair, permettant au logiciel de déduire correctement la coordonnée _y_ de la coordonnée _x_ et de décompresser la clé publique aux coordonnées complètes du point. La compression de clé publique est illustrée dans <<pubkey_compression>>.
+Alors que les clés publiques non compressées ont un préfixe de +04+, les clés publiques compressées commencent par un préfixe `02` ou +03+. Regardons pourquoi il y a deux préfixes possibles : parce que le côté gauche de l'équation est __y__^2^, la solution pour _y_ est une racine carrée, qui peut avoir une valeur positive ou négative. Visuellement, cela signifie que la coordonnée _y_ résultante peut être au-dessus ou au-dessous de l'axe des x. Comme vous pouvez le voir sur le graphique de la courbe elliptique en <<ecc-curve>>, la courbe est symétrique, c'est-à-dire qu'elle est réfléchie comme par un miroir à l'axe des abscisses. Ainsi, bien que nous puissions omettre la coordonnée _y_, nous devons stocker le _signe_ de _y_ (positif ou négatif) ; ou en d'autres termes, nous devons nous rappeler si c'était au-dessus ou au-dessous de l'axe des x parce que chacune de ces options représente un point différent et une clé publique différente. Lors du calcul de la courbe elliptique en arithmétique binaire sur le corps fini d'ordre premier p, la coordonnée _y_ est paire ou impaire, ce qui correspond au signe positif/négatif comme expliqué précédemment. Ainsi, pour distinguer les deux valeurs possibles de _y_, on stocke une clé publique compressée avec le préfixe `02` si le _y_ est pair, et `03` s'il est impair, permettant au logiciel de déduire correctement la coordonnée _y_ de la coordonnée _x_ et de décompresser la clé publique aux coordonnées complètes du point. La compression de clé publique est illustrée dans <<pubkey_compression>>.
 
-Voici la même clé publique générée précédemment, présentée sous la forme d'une clé publique compressée stockée sur 264 bits (66 chiffres hexadécimaux) avec le préfixe +03+ indiquant que la coordonnée _y_ est impaire :
+Voici la même clé publique générée précédemment, présentée sous la forme d'une clé publique compressée stockée sur 264 bits (66 chiffres hexadécimaux) avec le préfixe `03` indiquant que la coordonnée _y_ est impaire :
 
 ----
 K = 03F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A
@@ -490,12 +490,12 @@ Notez que le format de clé privée compressée en hexadécimal a un octet suppl
 
 N'oubliez pas que ces formats ne sont _pas_ utilisés de manière interchangeable. Dans un portefeuille plus récent qui implémente des clés publiques compressées, les clés privées ne seront exportées qu'au format WIF compressé (avec un préfixe _K_ ou _L_). Si le portefeuille est une implémentation plus ancienne et n'utilise pas de clés publiques compressées, les clés privées ne seront exportées qu'au format WIF (avec un préfixe 5). Le but ici est de signaler au portefeuille qui importe ces clés privées s'il doit rechercher dans la chaîne de blocs des clés et des adresses publiques compressées ou non.
 
-Si un portefeuille bitcoin est capable d'implémenter des clés publiques compressées, il les utilisera dans toutes les transactions. Les clés privées du portefeuille seront utilisées pour dériver les points de clé publique sur la courbe, qui seront compressés. Les clés publiques compressées seront utilisées pour produire des adresses Bitcoin et celles-ci seront utilisées dans les transactions. Lors de l'exportation de clés privées à partir d'un nouveau portefeuille qui implémente des clés publiques compressées, le WIF est modifié, avec l'ajout d'un suffixe d'un octet +01+ à la clé privée. La clé privée encodée en Base58Check qui en résulte est appelée "WIF compressé" et commence par la lettre _K_ ou _L_, au lieu de commencer par "5" comme c'est le cas avec les clés encodées en WIF (non compressées) des portefeuilles plus anciens.
+Si un portefeuille bitcoin est capable d'implémenter des clés publiques compressées, il les utilisera dans toutes les transactions. Les clés privées du portefeuille seront utilisées pour dériver les points de clé publique sur la courbe, qui seront compressés. Les clés publiques compressées seront utilisées pour produire des adresses Bitcoin et celles-ci seront utilisées dans les transactions. Lors de l'exportation de clés privées à partir d'un nouveau portefeuille qui implémente des clés publiques compressées, le WIF est modifié, avec l'ajout d'un suffixe d'un octet `01` à la clé privée. La clé privée encodée en Base58Check qui en résulte est appelée "WIF compressé" et commence par la lettre _K_ ou _L_, au lieu de commencer par "5" comme c'est le cas avec les clés encodées en WIF (non compressées) des portefeuilles plus anciens.
 
 
 [TIP]
 ====
-"Clés privées compressées" est un terme impropre ! Ils ne sont pas compressés ; au lieu de cela, WIF-compressé signifie que les clés ne doivent être utilisées que pour dériver des clés publiques compressées et leurs adresses Bitcoin correspondantes. Ironiquement, une clé privée codée "compressée en WIF" est plus longue d'un octet car elle a le suffixe +01+ ajouté pour la distinguer d'une clé "non compressée".((("", startref="KAaddress04")))
+"Clés privées compressées" est un terme impropre ! Ils ne sont pas compressés ; au lieu de cela, WIF-compressé signifie que les clés ne doivent être utilisées que pour dériver des clés publiques compressées et leurs adresses Bitcoin correspondantes. Ironiquement, une clé privée codée "compressée en WIF" est plus longue d'un octet car elle a le suffixe `01` ajouté pour la distinguer d'une clé "non compressée".((("", startref="KAaddress04")))
 ====
 
 === Implémentation des clés et des adresses dans Cpass:[++]
@@ -594,7 +594,7 @@ include::code/ec-math.py[]
 
 [WARNING]
 ====
-<<ec_math>> ((("nombres aléatoires", "os.urandom", voir="entropie")))((("entropie", "os.urandom", see="nombres aléatoires")))((("nombres aléatoires", "génération de nombres aléatoires")))((("entropie", "génération de nombres aléatoires")))utilise +os.urandom+, qui reflète un générateur de nombres aléatoires cryptographiquement sécurisé (CSRNG) fourni par le système d'exploitation sous-jacent. Attention : Selon le système d'exploitation, +os.urandom+ peut _ne pas_ être implémenté avec une sécurité suffisante ou correctement amorcé et peut _ne pas_ être approprié pour générer des clés bitcoin de qualité production.((("", startref="KApython04")))
+<<ec_math>> ((("nombres aléatoires", "os.urandom", voir="entropie")))((("entropie", "os.urandom", see="nombres aléatoires")))((("nombres aléatoires", "génération de nombres aléatoires")))((("entropie", "génération de nombres aléatoires")))utilise +os.urandom+, qui reflète un générateur de nombres aléatoires cryptographiquement sécurisé (CSRNG) fourni par le système d'exploitation sous-jacent. Attention : Selon le système d'exploitation, `os.urandom` peut _ne pas_ être implémenté avec une sécurité suffisante ou correctement amorcé et peut _ne pas_ être approprié pour générer des clés bitcoin de qualité production.((("", startref="KApython04")))
 ====
 
 [[ec_math_run]]
@@ -630,7 +630,7 @@ Une adresse P2SH est créée à partir d'un script de transaction, qui définit 
 hachage de script = RIPEMD160(SHA256(script))
 ----
 
-Le "hachage de script" résultant est encodé avec Base58Check avec un préfixe de version de 5, ce qui donne une adresse encodée commençant par un +3+. Un exemple d'adresse P2SH est +3F6i6kwkevjR7AsAd4te2YB2zZyASEm1HM+, qui peut être dérivée à l'aide des commandes Bitcoin Explorer +script-encode+, +sha256+, +ripemd160+ et +base58check-encode+ (voir <<appdx_bx>>) comme suit :
+Le "hachage de script" résultant est encodé avec Base58Check avec un préfixe de version de 5, ce qui donne une adresse encodée commençant par un +3+. Un exemple d'adresse P2SH est +3F6i6kwkevjR7AsAd4te2YB2zZyASEm1HM+, qui peut être dérivée à l'aide des commandes Bitcoin Explorer +script-encode+, +sha256+, `ripemd160` et `base58check-encode` (voir <<appdx_bx>>) comme suit :
 
 ----
 $ echo \
@@ -653,7 +653,7 @@ Nous explorerons comment créer des transactions qui dépensent des fonds à par
 
 ==== Adresses personnalisées
 
-((("clés et adresses", "formulaires avancés", "adresses personnalisées")))((("adresses personnalisées", id="vanity04")))((("adresses", "adresses personnalisées", id ="Avanity04")))Les adresses personnalisées sont des adresses Bitcoin valides qui contiennent des messages lisibles par l'homme. Par exemple, +1LoveBPzzD72PUXLzCkYAtGFYmK5vYNR33+ est une adresse valide qui contient les lettres formant le mot "Love" comme les quatre premières lettres Base58. Les adresses personnalisées nécessitent de générer et de tester des milliards de clés privées candidates, jusqu'à ce qu'une adresse Bitcoin avec le modèle souhaité soit trouvée. Bien qu'il y ait quelques optimisations dans l'algorithme de génération de vanité, le processus consiste essentiellement à choisir une clé privée au hasard, à dériver la clé publique, à dériver l'adresse Bitcoin et à vérifier si elle correspond au modèle de vanité souhaité, en répétant des milliards de fois jusqu'à ce qu'un correspondance est trouvée.
+((("clés et adresses", "formulaires avancés", "adresses personnalisées")))((("adresses personnalisées", id="vanity04")))((("adresses", "adresses personnalisées", id ="Avanity04")))Les adresses personnalisées sont des adresses Bitcoin valides qui contiennent des messages lisibles par l'homme. Par exemple, `1LoveBPzzD72PUXLzCkYAtGFYmK5vYNR33` est une adresse valide qui contient les lettres formant le mot "Love" comme les quatre premières lettres Base58. Les adresses personnalisées nécessitent de générer et de tester des milliards de clés privées candidates, jusqu'à ce qu'une adresse Bitcoin avec le modèle souhaité soit trouvée. Bien qu'il y ait quelques optimisations dans l'algorithme de génération de vanité, le processus consiste essentiellement à choisir une clé privée au hasard, à dériver la clé publique, à dériver l'adresse Bitcoin et à vérifier si elle correspond au modèle de vanité souhaité, en répétant des milliards de fois jusqu'à ce qu'un correspondance est trouvée.
 
 Une fois qu'une adresse personnalisée correspondant au modèle souhaité est trouvée, la clé privée dont elle est dérivée peut être utilisée par le propriétaire pour dépenser des bitcoins exactement de la même manière que n'importe quelle autre adresse. Les adresses personnalisées ne sont ni moins ni plus sécurisées que toute autre adresse. Ils dépendent de la même cryptographie à courbe elliptique (ECC) et SHA que toute autre adresse. Vous ne pouvez pas plus facilement trouver la clé privée d'une adresse commençant par un modèle de vanité que vous ne le pouvez de n'importe quelle autre adresse.
 
@@ -661,7 +661,7 @@ Dans <<ch01_intro_what_is_bitcoin>>, nous avons présenté Eugenia, directrice d
 
 ===== Génération d'adresses personnalisées
 
-Il est important de réaliser qu'une adresse Bitcoin est simplement un nombre représenté par des symboles dans l'alphabet Base58. La recherche d'un modèle comme "1Kids" peut être considérée comme la recherche d'une adresse comprise entre +1Kids1111111111111111111111111111+ et +1Kidszzzzzzzzzzzzzzzzzzzzzzzzzz+. Il y a environ 58 ^ 29 ^ (environ 1,4 * 10 ^ 51 ^) adresses dans cette plage, toutes commençant par "1Kids". <<table_4-11>> affiche la plage d'adresses qui ont le préfixe 1Kids.
+Il est important de réaliser qu'une adresse Bitcoin est simplement un nombre représenté par des symboles dans l'alphabet Base58. La recherche d'un modèle comme "1Kids" peut être considérée comme la recherche d'une adresse comprise entre `1Kids1111111111111111111111111111` et +1Kidszzzzzzzzzzzzzzzzzzzzzzzzzz+. Il y a environ 58 ^ 29 ^ (environ 1,4 * 10 ^ 51 ^) adresses dans cette plage, toutes commençant par "1Kids". <<table_4-11>> affiche la plage d'adresses qui ont le préfixe 1Kids.
 
 [[table_4-11]]
 .La plage d'adresses personnalisées (ou de vanités) commençant par "1Kids"
@@ -742,7 +742,7 @@ sys	0m0.035s
 ----
 ====
 
-L'exemple de code prendra quelques secondes pour trouver une correspondance pour le modèle à trois caractères "kid", comme nous pouvons le voir lorsque nous utilisons la commande Unix +time+ pour mesurer le temps d'exécution. Modifiez le modèle +search+ dans le code source et voyez combien de temps cela prend pour les modèles à quatre ou cinq caractères !
+L'exemple de code prendra quelques secondes pour trouver une correspondance pour le modèle à trois caractères "kid", comme nous pouvons le voir lorsque nous utilisons la commande Unix `time` pour mesurer le temps d'exécution. Modifiez le modèle `search` dans le code source et voyez combien de temps cela prend pour les modèles à quatre ou cinq caractères !
 
 ===== Sécurité de l'adresse personnalisée
 

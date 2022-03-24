@@ -4,7 +4,7 @@
 Ce glossaire rapide contient de nombreux termes utilisés en relation avec le bitcoin. Ces termes sont utilisés tout au long du livre, alors mettez-les en signet pour une référence rapide.
 
 adresse::
-    Une adresse Bitcoin ressemble à +1DSrfJdB2AnWaFNgSbv3MZC2m74996JafV+. Il se compose d'une suite de lettres et de chiffres. Il s'agit en réalité d'une version codée en base58check d'un résultat de hachage à clé publique de 160 bits. Tout comme vous demandez aux autres d'envoyer un courriel à l'adresse de celle-ci, vous demanderez aux autres de vous envoyer des bitcoins à l'une de vos adresses Bitcoin.
+    Une adresse Bitcoin ressemble à `1DSrfJdB2AnWaFNgSbv3MZC2m74996JafV`. Il se compose d'une suite de lettres et de chiffres. Il s'agit en réalité d'une version codée en base58check d'un résultat de hachage à clé publique de 160 bits. Tout comme vous demandez aux autres d'envoyer un courriel à l'adresse de celle-ci, vous demanderez aux autres de vous envoyer des bitcoins à l'une de vos adresses Bitcoin.
 
 adresse P2SH::
     Les adresses P2SH sont des encodages Base58Check du résultat de hachage de 20 octets d'un script. Ils utilisent le préfixe de version "5", ce qui donne des adresses encodées en Base58Check qui commencent par un "3". Les adresses P2SH cachent toute la complexité, de sorte que la personne effectuant un paiement ne voit pas le script.
