@@ -1259,7 +1259,7 @@ y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</pre>
 
 int main()
 {
-    // Private secret key string as base16
+    // Chaîne de clé secrète privée en base16
     bc::ec_secret decoded;
     bc::decode_base16(decoded,
         "038109007313a5807b2eccc082c8c3fbb988a973cacf1a7df9ce725c31b14776");
@@ -1267,35 +1267,35 @@ int main()
     bc::wallet::ec_private secret(
         decoded, bc::wallet::ec_private::mainnet_p2kh);
 
-    // Get public key.
+    // Obtenir la clé publique.
     bc::wallet::ec_public public_key(secret);
     std::cout &lt;&lt; "Public key: " &lt;&lt; public_key.encoded() &lt;&lt; std::endl;
 
-    // Create Bitcoin address.
-    // Normally you can use:
+    // Créer une adresse Bitcoin.
+    // Normalement, vous pouvez utiliser :
     //    bc::wallet::payment_address payaddr =
     //        public_key.to_payment_address(
     //            bc::wallet::ec_public::mainnet_p2kh);
     //  const std::string address = payaddr.encoded();
 
-    // Compute hash of public key for P2PKH address.
+    // Calcule le hachage de la clé publique pour l'adresse P2PKH.
     bc::data_chunk public_key_data;
     public_key.to_data(public_key_data);
     const auto hash = bc::bitcoin_short_hash(public_key_data);
 
     bc::data_chunk unencoded_address;
-    // Reserve 25 bytes
+    // Réserver 25 octets
     //   [ version:1  ]
     //   [ hash:20    ]
     //   [ checksum:4 ]
     unencoded_address.reserve(25);
-    // Version byte, 0 is normal BTC address (P2PKH).
+    // Octet de version, 0 est l'adresse BTC normale (P2PKH).
     unencoded_address.push_back(0);
-    // Hash data
+    // Données de hachage
     bc::extend_data(unencoded_address, hash);
-    // Checksum is computed by hashing data, and adding 4 bytes from hash.
+    // La somme de contrôle est calculée en hachant les données et en ajoutant 4 octets à partir du hachage.
     bc::append_checksum(unencoded_address);
-    // Finally we must encode the result in Bitcoin's base58 encoding.
+    // Enfin, nous devons encoder le résultat dans l'encodage base58 de Bitcoin.
     assert(unencoded_address.size() == 25);
     const std::string address = bc::encode_base58(unencoded_address);
 
@@ -1351,7 +1351,7 @@ Address: 1PRTTaJesdNovgne6Ehcdu1fpEdX7913CK</code></pre>
 <div class="content">
 <pre class="highlight"><code class="language-python" data-lang="python">import bitcoin
 
-# Generate a random private key
+# Générer une clé privée aléatoire
 valid_private_key = False
 while not valid_private_key:
     private_key = bitcoin.random_key()
@@ -1361,28 +1361,28 @@ while not valid_private_key:
 print "Private Key (hex) is: ", private_key
 print "Private Key (decimal) is: ", decoded_private_key
 
-# Convert private key to WIF format
+# Convertir la clé privée au format WIF
 wif_encoded_private_key = bitcoin.encode_privkey(decoded_private_key, 'wif')
 print "Private Key (WIF) is: ", wif_encoded_private_key
 
-# Add suffix "01" to indicate a compressed private key
+# Ajouter le suffixe "01" pour indiquer une clé privée compressée
 compressed_private_key = private_key + '01'
 print "Private Key Compressed (hex) is: ", compressed_private_key
 
-# Generate a WIF format from the compressed private key (WIF-compressed)
+# Générer un format WIF à partir de la clé privée compressée (WIF-compressé)
 wif_compressed_private_key = bitcoin.encode_privkey(
     bitcoin.decode_privkey(compressed_private_key, 'hex'), 'wif')
 print "Private Key (WIF-Compressed) is: ", wif_compressed_private_key
 
-# Multiply the EC generator point G with the private key to get a public key point
+# Multipliez le point générateur EC G avec la clé privée pour obtenir un point de clé publique
 public_key = bitcoin.fast_multiply(bitcoin.G, decoded_private_key)
 print "Public Key (x,y) coordinates is:", public_key
 
-# Encode as hex, prefix 04
+# Encoder en hexadécimal, préfixe 04
 hex_encoded_public_key = bitcoin.encode_pubkey(public_key,'hex')
 print "Public Key (hex) is:", hex_encoded_public_key
 
-# Compress public key, adjust prefix depending on whether y is even or odd
+# Compressez la clé publique, ajustez le préfixe selon que y est pair ou impair
 (public_key_x, public_key_y) = public_key
 if (public_key_y % 2) == 0:
     compressed_prefix = '02'
@@ -1391,10 +1391,10 @@ else:
 hex_compressed_public_key = compressed_prefix + bitcoin.encode(public_key_x, 16)
 print "Compressed Public Key (hex) is:", hex_compressed_public_key
 
-# Generate bitcoin address from public key
+# Générer une adresse bitcoin à partir de la clé publique
 print "Bitcoin Address (b58check) is:", bitcoin.pubkey_to_address(public_key)
 
-# Generate compressed bitcoin address from compressed public key
+# Générer une adresse bitcoin compressée à partir d'une clé publique compressée
 print "Compressed Bitcoin Address (b58check) is:", \
     bitcoin.pubkey_to_address(hex_compressed_public_key)</code></pre>
 </div>
@@ -1467,7 +1467,7 @@ generator = generator_secp256k1
 def random_secret():
     convert_to_int = lambda array: int("".join(array).encode("hex"), 16)
     
-    # Collect 256 bits of random data from the OS's cryptographically secure random generator
+    # Collectez 256 bits de données aléatoires à partir du générateur aléatoire cryptographiquement sécurisé du système d'exploitation
     byte_array = os.urandom(32)
     
     return convert_to_int(byte_array)
@@ -1486,17 +1486,17 @@ def get_point_pubkey_uncompressed(point):
     return key.decode('hex')
 
 
-# Generate a new private key.
+# Générez une nouvelle clé privée.
 secret = random_secret()
 print "Secret: ", secret
 
-# Get the public key point.
+# Obtenez le point de clé publique.
 point = secret * generator
 print "EC point:", point
 
 print "BTC public key:", get_point_pubkey(point).encode("hex")
 
-# Given the point (x, y) we can create the object using:
+# Étant donné le point (x, y), nous pouvons créer l'objet en utilisant :
 point1 = ecdsa.ellipticcurve.Point(curve, point.x(), point.y(), ec_order)
 assert point1 == point</code></pre>
 </div>
@@ -1746,73 +1746,72 @@ $ bx script-encode &lt; script | bx sha256 | bx ripemd160 \
 <pre class="highlight"><code class="language-cpp" data-lang="cpp">#include &lt;random&gt;
 #include &lt;bitcoin/bitcoin.hpp&gt;
 
-// The string we are searching for
+// La chaîne que nous recherchons
 const std::string search = "1kid";
 
-// Generate a random secret key. A random 32 bytes.
+// Générer une clé secrète aléatoire. Un 32 octets aléatoires.
 bc::ec_secret random_secret(std::default_random_engine&amp; engine);
-// Extract the Bitcoin address from an EC secret.
+// Extraire l'adresse Bitcoin d'un secret EC.
 std::string bitcoin_address(const bc::ec_secret&amp; secret);
-// Case insensitive comparison with the search string.
+// Comparaison insensible à la casse avec la chaîne de recherche.
 bool match_found(const std::string&amp; address);
 
 int main()
 {
-    // random_device on Linux uses "/dev/urandom"
-    // CAUTION: Depending on implementation this RNG may not be secure enough!
-    // Do not use vanity keys generated by this example in production
+    // random_device sous Linux utilise "/dev/urandom"
+    // ATTENTION : selon la mise en œuvre, ce RNG peut ne pas être suffisamment sécurisé !
+    // Ne pas utiliser les clés personnalisées générées par cet exemple en production
     std::random_device random;
     std::default_random_engine engine(random());
     
-    // Loop continuously...
+    // Boucle en continu...
     while (true)
     {
-        // Generate a random secret.
+        // Générer un secret aléatoire.
         bc::ec_secret secret = random_secret(engine);
-        // Get the address.
+        // Obtenez l'adresse.
         std::string address = bitcoin_address(secret);
-        // Does it match our search string? (1kid)
+        // Correspond-il à votre chaîne de recherche ? (1kid)
         if (match_found(address))
         {
-            // Success!
+            // Succès!
             std::cout &lt;&lt; "Found vanity address! " &lt;&lt; address &lt;&lt; std::endl;
             std::cout &lt;&lt; "Secret: " &lt;&lt; bc::encode_base16(secret) &lt;&lt; std::endl;
             return 0;
         }
     }
-    // Should never reach here!
+    // Ne devrait jamais arriver ici !
     return 0;
 }
 
 bc::ec_secret random_secret(std::default_random_engine&amp; engine)
 {
-    // Create new secret...
+    // Créer un nouveau secret...
     bc::ec_secret secret;
-    // Iterate through every byte setting a random value...
+    // Itérer sur chaque octet en définissant une valeur aléatoire...
     for (uint8_t&amp; byte: secret)
         byte = engine() % std::numeric_limits&lt;uint8_t&gt;::max();
-    // Return result.
+    // Renvoyer le résultat.
     return secret;
 }
 
 std::string bitcoin_address(const bc::ec_secret&amp; secret)
 {
-    // Convert secret to payment address
+    // Convertir le secret en adresse de paiement
     bc::wallet::ec_private private_key(secret);
     bc::wallet::payment_address payaddr(private_key);
-    // Return encoded form.
+    // Retourner le formulaire encodé.
     return payaddr.encoded();
 }
 
 bool match_found(const std::string&amp; address)
 {
     auto addr_it = address.begin();
-    // Loop through the search string comparing it to the lower case
-    // character of the supplied address.
+    // Parcourez la chaîne de recherche en la comparant au caractère minuscule de l'adresse fournie.
     for (auto it = search.begin(); it != search.end(); ++it, ++addr_it)
         if (*it != std::tolower(*addr_it))
             return false;
-    // Reached end of search string, so address matches.
+    // Fin de la chaîne de recherche atteinte, donc l'adresse correspond.
     return true;
 }</code></pre>
 </div>

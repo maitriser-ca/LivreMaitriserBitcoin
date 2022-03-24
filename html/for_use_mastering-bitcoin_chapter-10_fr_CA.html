@@ -519,9 +519,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python"># Original block reward for miners was 50 BTC
+<pre class="highlight"><code class="language-python" data-lang="python"># La récompense de bloc originale pour les mineurs était de 50 BTC
 start_block_reward = 50
-# 210000 is around every 4 years with a 10 minute block interval
+# 210000 est d'environ tous les 4 ans avec un intervalle de bloc de 10 minutes
 reward_interval = 210000
 
 def max_money():
@@ -1021,28 +1021,28 @@ $ bitcoin-cli getblock 0000000000000001b6b9a13b095e96db41c4a928b97ef2d9\
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-cpp" data-lang="cpp">/*
-  Display the genesis block message by Satoshi.
+  Affichez le message du bloc de genèse de Satoshi.
 */
 #include &lt;iostream&gt;
 #include &lt;bitcoin/bitcoin.hpp&gt;
 
 int main()
 {
-    // Create genesis block.
+    // Créer un bloc de genèse.
     bc::chain::block block = bc::chain::block::genesis_mainnet();
-    // Genesis block contains a single coinbase transaction.
+    // Le bloc de genèse contient une seule transaction coinbase.
     assert(block.transactions().size() == 1);
-    // Get first transaction in block (coinbase).
+    // Obtenez la première transaction du bloc (coinbase).
     const bc::chain::transaction&amp; coinbase_tx = block.transactions()[0];
-    // Coinbase tx has a single input.
+    // Coinbase tx a une seule entrée.
     assert(coinbase_tx.inputs().size() == 1);
     const bc::chain::input&amp; coinbase_input = coinbase_tx.inputs()[0];
-    // Convert the input script to its raw format.
+    // Convertissez le script d'entrée dans son format brut.
     const auto prefix = false;
     const bc::data_chunk&amp; raw_message = coinbase_input.script().to_data(prefix);
-    // Convert this to a std::string.
+    // Convertissez ceci en std::string.
     std::string message(raw_message.begin(), raw_message.end());
-    // Display the genesis block message.
+    // Affichez le message du bloc de genèse.
     std::cout &lt;&lt; message &lt;&lt; std::endl;
     return 0;
 }</code></pre>
@@ -1212,22 +1212,22 @@ $ ./satoshi-words
 <div class="content">
 <div class="listingblock c_less_space">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python"># example of iterating a nonce in a hashing algorithm's input
+<pre class="highlight"><code class="language-python" data-lang="python"># exemple d'itération d'un nonce dans l'entrée d'un algorithme de hachage
 
 import hashlib
     
 text = "I am Satoshi Nakamoto"
 
-# iterate nonce from 0 to 19
+# itérer nonce de 0 à 19
 for nonce in xrange(20): 
     
-    # add the nonce to the end of the text
+    # ajouter le nonce à la fin du texte
     input = text + str(nonce) 
      
-    # calculate the SHA-256 hash of the input (text+nonce)
+    # calculer le hachage SHA-256 de l'entrée (texte + nonce)
     hash = hashlib.sha256(input).hexdigest() 
     
-    # show the input and hash result
+    # afficher l'entrée et le résultat du hachage
     print input, '=&gt;',  hash </code></pre>
 </div>
 </div>
@@ -1328,7 +1328,7 @@ I am Satoshi Nakamoto19 =&gt; cda56022ecb5b67b2bc93a2d764e75f...</pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-python" data-lang="python">#!/usr/bin/env python
-# example of proof-of-work algorithm
+# exemple d'algorithme de preuve de travail
 
 import hashlib
 import time
@@ -1337,13 +1337,13 @@ max_nonce = 2 ** 32 # 4 billion
 
 def proof_of_work(header, difficulty_bits):
     
-    # calculate the difficulty target
+    # calculer l'objectif de difficulté
     target = 2 ** (256-difficulty_bits)
     
     for nonce in xrange(max_nonce):
         hash_result = hashlib.sha256(str(header)+str(nonce)).hexdigest()
         
-        # check if this is a valid result, below the target
+        # vérifier s'il s'agit d'un résultat valide, en dessous de la cible
         if long(hash_result, 16) &lt; target:
             print "Success with nonce %d" % nonce
             print "Hash is %s" % hash_result
@@ -1358,7 +1358,7 @@ if __name__ == '__main__':
     nonce = 0
     hash_result = ''
      
-    # difficulty from 0 to 31 bits  
+    # difficulté de 0 à 31 bits
     for difficulty_bits in xrange(32):
         
         difficulty = 2 ** difficulty_bits
@@ -1366,17 +1366,16 @@ if __name__ == '__main__':
     
         print "Starting search..."
         
-        # checkpoint the current time
+        # point de contrôle de l'heure actuelle
         start_time = time.time()
         
-        # make a new block which includes the hash from the previous block
-        # we fake a block of transactions - just a string
+        # faire un nouveau bloc qui inclut le hachage du bloc précédent nous simulons un bloc de transactions - juste une chaîne
         new_block = 'test block with transactions' + hash_result 
         
-        # find a valid nonce for the new block
+        # trouver un nonce valide pour le nouveau bloc
         (hash_result, nonce) = proof_of_work(new_block, difficulty_bits) 
         
-        # checkpoint how long it took to find a result
+        # point de contrôle combien de temps il a fallu pour trouver un résultat
         end_time = time.time()
         
         elapsed_time = end_time - start_time
@@ -1384,7 +1383,7 @@ if __name__ == '__main__':
     
         if elapsed_time &gt; 0:
             
-            # estimate the hashes per second
+            # estimer les hachages par seconde
             hash_power = float(long(nonce)/elapsed_time)
             print "Hashing Power: %ld hashes per second" % hash_power</code></pre>
 </div>

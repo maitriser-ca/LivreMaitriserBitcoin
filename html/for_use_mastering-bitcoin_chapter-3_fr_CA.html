@@ -1305,13 +1305,13 @@ d50f654e788acd0ef8000000000001976a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a8&am
 <div class="content">
 <pre class="highlight"><code class="language-python" data-lang="python">from bitcoin.rpc import RawProxy
 
-# Create a connection to local Bitcoin Core node
+# Créer une connexion au nœud local Bitcoin Core
 p = RawProxy()
 
-# Run the getinfo command, store the resulting data in info
+# Exécutez la commande getinfo, stockez les données résultantes dans info
 info = p.getinfo()
 
-# Retrieve the 'blocks' element from the info
+# Récupérer l'élément 'blocks' de l'info
 print(info['blocks'])</code></pre>
 </div>
 </div>
@@ -1341,16 +1341,16 @@ print(info['blocks'])</code></pre>
 
 p = RawProxy()
 
-# Alice's transaction ID
+# ID de transaction d'Alice
 txid = "0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2"
 
-# First, retrieve the raw transaction in hex
+# Tout d'abord, récupérez la transaction brute en hexadécimal
 raw_tx = p.getrawtransaction(txid)
 
-# Decode the transaction hex into a JSON object
+# Décodez l'hex de transaction en un objet JSON
 decoded_tx = p.decoderawtransaction(raw_tx)
 
-# Retrieve each of the outputs from the transaction
+# Récupérer chacune des sorties de la transaction
 for output in decoded_tx['vout']:
     print(output['scriptPubKey']['addresses'], output['value'])</code></pre>
 </div>
@@ -1382,33 +1382,33 @@ for output in decoded_tx['vout']:
 
 p = RawProxy()
 
-# The block height where Alice's transaction was recorded
+# La hauteur du bloc où la transaction d'Alice a été enregistrée
 blockheight = 277316
 
-# Get the block hash of block with height 277316
+# Obtenez le hachage de bloc du bloc de hauteur 277316
 blockhash = p.getblockhash(blockheight)
 
-# Retrieve the block by its hash
+# Récupérer le bloc par son hachage
 block = p.getblock(blockhash)
 
-# Element tx contains the list of all transaction IDs in the block
+# L'élément tx contient la liste de tous les ID de transaction dans le bloc
 transactions = block['tx']
 
 block_value = 0
 
-# Iterate through each transaction ID in the block
+# Itérer à travers chaque ID de transaction dans le bloc
 for txid in transactions:
     tx_value = 0
-    # Retrieve the raw transaction by ID
+    # Récupérer la transaction brute par ID
     raw_tx = p.getrawtransaction(txid)
-    # Decode the transaction
+    # Décoder la transaction
     decoded_tx = p.decoderawtransaction(raw_tx)
-    # Iterate through each output in the transaction
+    # Itérer à travers chaque sortie de la transaction
     for output in decoded_tx['vout']:
-        # Add up the value of each output
+        # Additionnez la valeur de chaque sortie
         tx_value = tx_value + output['value']
         
-    # Add the value of this transaction to the total 
+    # Ajouter la valeur de cette transaction au total
     block_value = block_value + tx_value
 
 print("Total value in block: ", block_value)</code></pre>
