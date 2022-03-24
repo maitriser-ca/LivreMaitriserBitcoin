@@ -12,7 +12,7 @@
   </body>
 </html></richcontent>
 <node CREATED="1647766807453" ID="ID_1215745242" MODIFIED="1647767310259" POSITION="left" TEXT="Traduction (fr_CA)">
-<node CREATED="1648045627316" ID="ID_269739844" MODIFIED="1648047969510" TEXT="en tout temps">
+<node COLOR="#ff0066" CREATED="1648045627316" FOLDED="true" ID="ID_269739844" MODIFIED="1648077371580" STYLE="bubble" TEXT="en tout temps">
 <icon BUILTIN="yes"/>
 <node CREATED="1648045636825" ID="ID_831112442" MODIFIED="1648045646341" TEXT="erreurs de formattage">
 <node CREATED="1648048017249" ID="ID_522393768" MODIFIED="1648048114003" TEXT="retirer ****">
@@ -45,6 +45,16 @@
 <node CREATED="1648051918619" ID="ID_330255336" MODIFIED="1648051925775" TEXT="&lt;sup&gt;">
 <node CREATED="1648051928043" ID="ID_887150399" MODIFIED="1648051932046" TEXT="chapitre 8">
 <node CREATED="1648051933426" ID="ID_1883760685" MODIFIED="1648051942238" TEXT="875"/>
+</node>
+</node>
+<node CREATED="1648077106894" ID="ID_804375892" MODIFIED="1648077132163" TEXT="niveau d,en-tete">
+<node CREATED="1648077137973" ID="ID_656368880" MODIFIED="1648077142168" TEXT="chapitre 7">
+<node CREATED="1648077146521" ID="ID_207662355" MODIFIED="1648077149744" TEXT="48"/>
+</node>
+</node>
+<node CREATED="1648077330237" ID="ID_1377512544" MODIFIED="1648077344318" TEXT="id en-tete">
+<node CREATED="1648077351038" ID="ID_1634230453" MODIFIED="1648077355263" TEXT="chapitre 5">
+<node CREATED="1648077360086" ID="ID_557464279" MODIFIED="1648077367414" TEXT="495"/>
 </node>
 </node>
 </node>
@@ -303,7 +313,7 @@
         </html></richcontent>
 </node>
 </node>
-<node CREATED="1647766807454" ID="ID_1690509100" MODIFIED="1647767266856">
+<node CREATED="1647766807454" ID="ID_1690509100" MODIFIED="1648093044428">
 <richcontent TYPE="NODE"><html>
       <head>
 
@@ -314,7 +324,8 @@
         </div>
       </body>
     </html></richcontent>
-<node CREATED="1647766807454" FOLDED="true" ID="ID_23681687" MODIFIED="1648052468010">
+<icon BUILTIN="button_ok"/>
+<node CREATED="1647766807454" FOLDED="true" ID="ID_23681687" MODIFIED="1648063934303">
 <richcontent TYPE="NODE"><html>
   <head>
     
@@ -509,11 +520,23 @@
           </body>
         </html></richcontent>
 <icon BUILTIN="button_ok"/>
+<node CREATED="1647766807453" ID="ID_831400849" MODIFIED="1647767266855">
+<richcontent TYPE="NODE"><html>
+          <head>
+
+          </head>
+          <body>
+            <div style="text-align: left">
+              reviser les snippets de code ; pas de traduction
+            </div>
+          </body>
+        </html></richcontent>
+</node>
 </node>
 </node>
 </node>
 <node CREATED="1647943982159" ID="ID_1604065444" MODIFIED="1647945070063" TEXT="localement (vs code)">
-<node CREATED="1647766807453" ID="ID_1975235496" MODIFIED="1647767266854">
+<node CREATED="1647766807453" FOLDED="true" ID="ID_1975235496" MODIFIED="1648090093363">
 <richcontent TYPE="NODE"><html>
         <head>
 
@@ -535,8 +558,17 @@
             </div>
           </body>
         </html></richcontent>
+<node CREATED="1648084892912" ID="ID_1245166325" MODIFIED="1648086318581" TEXT=":">
+<icon BUILTIN="button_ok"/>
 </node>
-<node CREATED="1647766807453" ID="ID_167337101" MODIFIED="1647767266854">
+<node CREATED="1648084937236" ID="ID_371737630" MODIFIED="1648086445259" TEXT="%">
+<icon BUILTIN="button_ok"/>
+</node>
+<node CREATED="1648084968037" ID="ID_1712994689" MODIFIED="1648086687980" TEXT="$">
+<icon BUILTIN="button_ok"/>
+</node>
+</node>
+<node CREATED="1647766807453" ID="ID_167337101" MODIFIED="1648076067408">
 <richcontent TYPE="NODE"><html>
           <head>
 
@@ -547,8 +579,9 @@
             </div>
           </body>
         </html></richcontent>
+<icon BUILTIN="button_ok"/>
 </node>
-<node CREATED="1647766807453" ID="ID_953911294" MODIFIED="1647767266854">
+<node CREATED="1647766807453" ID="ID_953911294" MODIFIED="1648076054239">
 <richcontent TYPE="NODE"><html>
           <head>
 
@@ -559,8 +592,9 @@
             </div>
           </body>
         </html></richcontent>
+<icon BUILTIN="button_ok"/>
 </node>
-<node CREATED="1647766807453" ID="ID_1550216676" MODIFIED="1647767266854">
+<node CREATED="1647766807453" ID="ID_1550216676" MODIFIED="1648077557194">
 <richcontent TYPE="NODE"><html>
           <head>
 
@@ -571,23 +605,20 @@
             </div>
           </body>
         </html></richcontent>
+<icon BUILTIN="button_ok"/>
 </node>
-<node CREATED="1647872267726" ID="ID_1973746330" MODIFIED="1647872353065" TEXT="+...+ par `+...+`"/>
+<node CREATED="1647872267726" ID="ID_1973746330" MODIFIED="1648090089967" TEXT="+...+ par `+...+`">
+<icon BUILTIN="button_ok"/>
+<node CREATED="1648088083331" ID="ID_262909354" MODIFIED="1648088088707" TEXT="_Italique_:: Indique de nouveaux termes, URL, adresses e-mail, noms de fichiers et extensions de fichiers."/>
+<node CREATED="1648088113180" ID="ID_400984009" MODIFIED="1648088117094" TEXT="`Largeur constante`:: Utilis&#xe9; pour les listes de programmes, ainsi que dans les paragraphes pour faire r&#xe9;f&#xe9;rence &#xe0; des &#xe9;l&#xe9;ments de programme tels que des noms de variables ou de fonctions, des bases de donn&#xe9;es, des types de donn&#xe9;es, des variables d&apos;environnement, des instructions et des mots-cl&#xe9;s."/>
+<node CREATED="1648088140544" ID="ID_1562996270" MODIFIED="1648088143398" TEXT="`*Largeur constante en gras*`:: Affiche les commandes ou tout autre texte qui doit &#xea;tre saisi litt&#xe9;ralement par l&apos;utilisateur."/>
+<node CREATED="1648088026126" ID="ID_1723241931" MODIFIED="1648088154605" TEXT="`_Largeur constante en italique_`:: Affiche le texte qui doit &#xea;tre remplac&#xe9; par des valeurs fournies par l&apos;utilisateur ou par des valeurs d&#xe9;termin&#xe9;es par le contexte."/>
 </node>
-<node CREATED="1647875687811" ID="ID_380044869" MODIFIED="1647875725231" TEXT="mettre le glossaire rapide en ordre alphab&#xe9;tique"/>
-<node CREATED="1647766807454" ID="ID_1508149247" MODIFIED="1647767266857">
-<richcontent TYPE="NODE"><html>
-        <head>
-
-        </head>
-        <body>
-          <div style="text-align: left">
-            liens r&#233;f&#233;rences (#headings) [r&#233;f&#233;rence]
-          </div>
-        </body>
-      </html></richcontent>
 </node>
-<node CREATED="1647766807454" ID="ID_931440283" MODIFIED="1647767266857">
+<node CREATED="1647875687811" ID="ID_380044869" MODIFIED="1648071270278" TEXT="mettre le glossaire rapide en ordre alphab&#xe9;tique">
+<icon BUILTIN="button_ok"/>
+</node>
+<node CREATED="1647766807454" ID="ID_931440283" MODIFIED="1648068512622">
 <richcontent TYPE="NODE"><html>
         <head>
 
@@ -598,8 +629,9 @@
           </div>
         </body>
       </html></richcontent>
+<icon BUILTIN="button_ok"/>
 </node>
-<node CREATED="1647766807454" ID="ID_299730914" MODIFIED="1647767266857">
+<node CREATED="1647766807454" ID="ID_299730914" MODIFIED="1648093025853">
 <richcontent TYPE="NODE"><html>
         <head>
 
@@ -610,18 +642,7 @@
           </div>
         </body>
       </html></richcontent>
-<node CREATED="1647766807453" ID="ID_831400849" MODIFIED="1647767266855">
-<richcontent TYPE="NODE"><html>
-          <head>
-
-          </head>
-          <body>
-            <div style="text-align: left">
-              reviser les snippets de code ; pas de traduction
-            </div>
-          </body>
-        </html></richcontent>
-</node>
+<icon BUILTIN="button_ok"/>
 </node>
 </node>
 </node>
@@ -722,7 +743,7 @@
         </html></richcontent>
 </node>
 </node>
-<node CREATED="1647766807454" ID="ID_56370737" MODIFIED="1647767266859">
+<node CREATED="1647766807454" ID="ID_56370737" MODIFIED="1648093035050">
 <richcontent TYPE="NODE"><html>
         <head>
 
@@ -733,6 +754,7 @@
           </div>
         </body>
       </html></richcontent>
+<icon BUILTIN="button_ok"/>
 <node CREATED="1647766807454" ID="ID_388914381" MODIFIED="1647767266859">
 <richcontent TYPE="NODE"><html>
           <head>
