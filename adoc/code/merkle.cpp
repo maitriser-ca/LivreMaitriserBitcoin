@@ -2,38 +2,38 @@
 
 bc::hash_digest create_merkle(bc::hash_list& merkle)
 {
-    // Stop if hash list is empty.
+    // Arrête si la liste de hachage est vide.
     if (merkle.empty())
         return bc::null_hash;
     else if (merkle.size() == 1)
         return merkle[0];
 
-    // While there is more than 1 hash in the list, keep looping...
+    // Tant qu'il y a plus d'un hachage dans la liste, continuez à boucler...
     while (merkle.size() > 1)
     {
-        // If number of hashes is odd, duplicate last hash in the list.
+        // Si le nombre de hachages est impair, dupliquez le dernier hachage de la liste.
         if (merkle.size() % 2 != 0)
             merkle.push_back(merkle.back());
-        // List size is now even.
+        // La taille de la liste est désormais égale.
         assert(merkle.size() % 2 == 0);
 
-        // New hash list.
+        // Nouvelle liste de hachage.
         bc::hash_list new_merkle;
-        // Loop through hashes 2 at a time.
+        // Parcourez les hachages 2 à la fois.
         for (auto it = merkle.begin(); it != merkle.end(); it += 2)
         {
-            // Join both current hashes together (concatenate).
+            // Joindre les deux hachages actuels ensemble (concaténer).
             bc::data_chunk concat_data(bc::hash_size * 2);
             auto concat = bc::serializer<
                 decltype(concat_data.begin())>(concat_data.begin());
             concat.write_hash(*it);
             concat.write_hash(*(it + 1));
-            // Hash both of the hashes.
+            // Hachez les deux hachages.
             bc::hash_digest new_root = bc::bitcoin_hash(concat_data);
-            // Add this to the new list.
+            // Ajoutez ceci à la nouvelle liste.
             new_merkle.push_back(new_root);
         }
-        // This is the new list.
+        // C'est la nouvelle liste.
         merkle = new_merkle;
 
         // DEBUG output -------------------------------------
@@ -43,13 +43,13 @@ bc::hash_digest create_merkle(bc::hash_list& merkle)
         std::cout << std::endl;
         // --------------------------------------------------
     }
-    // Finally we end up with a single item.
+    // Finalement, nous nous retrouvons avec un seul élément.
     return merkle[0];
 }
 
 int main()
 {
-    // Replace these hashes with ones from a block to reproduce the same merkle root.
+    // Remplacez ces hachages par ceux d'un bloc pour reproduire la même racine merkle.
     bc::hash_list tx_hashes{{
         bc::hash_literal("0000000000000000000000000000000000000000000000000000000000000000"),
         bc::hash_literal("0000000000000000000000000000000000000000000000000000000000000011"),

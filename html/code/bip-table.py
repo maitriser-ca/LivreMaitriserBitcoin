@@ -1,6 +1,6 @@
 
-# Convert mediawiki list of BIPs to asciidoc table for book appendix
-# Gnarly hack of regex with no error checking - it worked once
+# Convertir la liste mediawiki des BIP en table asciidoc pour l'annexe du livre
+# Gnarly hack of regex sans vérification d'erreur - cela a fonctionné une fois
 
 import re
 

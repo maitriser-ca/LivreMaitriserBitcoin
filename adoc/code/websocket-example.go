@@ -11,25 +11,20 @@ import (
 	"github.com/conformal/btcwire"
 )
 
-// This example demonstrates a connection to the bitcoin network
-// by using websockets via btcd, use of notifications and an rpc
-// call to getblockcount.
+// Cet exemple illustre une connexion au réseau bitcoin en utilisant des websockets via btcd, l'utilisation de notifications et un appel rpc à getblockcount.
 //
-// Install and run btcd:
+// Installez et exécutez btcd :
 // 		$ go get github.com/conformal/btcd/...
 //		$ btcd -u rpcuser -P rpcpass
 //
-// Install btcrpcclient:
+// Installez btcrpcclient :
 // 		$ go get github.com/conformal/btcrpcclient
 //
-// Run this example:
+// Exécutez cet exemple :
 // 		$ go run websocket-example.go
 //
 func main() {
-	// Only override the handlers for notifications you care about.
-	// Also note most of these handlers will only be called if you register
-	// for notifications. See the documentation of the btcrpcclient
-	// NotificationHandlers type for more details about each handler.
+	// Ne remplacez les gestionnaires que pour les notifications qui vous intéressent. Notez également que la plupart de ces gestionnaires ne seront appelés que si vous vous inscrivez pour recevoir des notifications. Voir la documentation du type btcrpcclient NotificationHandlers pour plus de détails sur chaque gestionnaire.
 	ntfnHandlers := btcrpcclient.NotificationHandlers{
 		OnBlockConnected: func(hash *btcwire.ShaHash, height int32) {
 			log.Printf("Block connected: %v (%d)", hash, height)
@@ -39,7 +34,7 @@ func main() {
 		},
 	}
 
-	// Connect to local btcd RPC server using websockets.
+	// Connectez-vous au serveur RPC btcd local à l'aide de websockets.
 	btcdHomeDir := btcutil.AppDataDir("btcd", false)
 	certs, err := ioutil.ReadFile(filepath.Join(btcdHomeDir, "rpc.cert"))
 	if err != nil {
@@ -57,22 +52,21 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Register for block connect and disconnect notifications.
+	// Inscrivez-vous pour bloquer les notifications de connexion et de déconnexion.
 	if err := client.NotifyBlocks(); err != nil {
 		log.Fatal(err)
 	}
 	log.Println("NotifyBlocks: Registration Complete")
 
-	// Get the current block count.
+	// Obtenez le nombre de blocs actuel.
 	blockCount, err := client.GetBlockCount()
 	if err != nil {
 		log.Fatal(err)
 	}
 	log.Printf("Block count: %d", blockCount)
 
-	// For this example gracefully shutdown the client after 10 seconds.
-	// Ordinarily when to shutdown the client is highly application
-	// specific.
+	// Pour cet exemple, arrêtez correctement le client après 10 secondes.
+	// Normalement, le moment d'arrêter le client est très spécifique à l'application.
 	log.Println("Client shutdown in 10 seconds...")
 	time.AfterFunc(time.Second*10, func() {
 		log.Println("Client shutting down...")
@@ -80,7 +74,6 @@ func main() {
 		log.Println("Client shutdown complete.")
 	})
 
-	// Wait until the client either shuts down gracefully (or the user
-	// terminates the process with Ctrl+C).
+	// Attendez que le client s'arrête correctement (ou que l'utilisateur termine le processus avec Ctrl+C).
 	client.WaitForShutdown()
 }

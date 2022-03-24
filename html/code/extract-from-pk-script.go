@@ -9,10 +9,9 @@ import (
 	"github.com/conformal/btcscript"
 )
 
-// go run extract-from-pk-script.go
+// exécuter extract-from-pk-script.go
 
-// This example demonstrates extracting information from a standard public key
-// script.
+// Cet exemple illustre l'extraction d'informations à partir d'un script de clé publique standard.
 
 func main() {
 	scriptHex := "76a914128004ff2fcaf13b2b91eb654b1dc2b674f7ec6188ac"

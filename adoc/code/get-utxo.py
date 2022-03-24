@@ -3,11 +3,11 @@
 import json
 import requests
 
-# example address
+# exemple d'adresse
 address = '1Dorian4RoXcnBv9hnQ4Y2C1an6NJ4UrjX'
 
-# The API URL is https://blockchain.info/unspent?active=<address>
-# It returns a JSON object with a list "unspent_outputs", containing UTXO, like this:
+# L'URL de l'API est https://blockchain.info/unspent?active=<address>
+# Il renvoie un objet JSON avec une liste "unspent_outputs", contenant UTXO, comme ceci :
 #{	"unspent_outputs":[
 #   {
 #     "tx_hash":"ebadfaa92f1fd29e2fe296eda702c48bd11ffd52313e986e99ddad9084062167",

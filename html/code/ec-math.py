@@ -21,7 +21,7 @@ generator = generator_secp256k1
 def random_secret():
     convert_to_int = lambda array: int("".join(array).encode("hex"), 16)
     
-    # Collect 256 bits of random data from the OS's cryptographically secure random generator
+    # Collectez 256 bits de données aléatoires à partir du générateur aléatoire cryptographiquement sécurisé du système d'exploitation
     byte_array = os.urandom(32)
     
     return convert_to_int(byte_array)
@@ -40,17 +40,17 @@ def get_point_pubkey_uncompressed(point):
     return key.decode('hex')
 
 
-# Generate a new private key.
+# Générez une nouvelle clé privée.
 secret = random_secret()
 print "Secret: ", secret
 
-# Get the public key point.
+# Obtenez le point de clé publique.
 point = secret * generator
 print "EC point:", point
 
 print "BTC public key:", get_point_pubkey(point).encode("hex")
 
-# Given the point (x, y) we can create the object using:
+# Étant donné le point (x, y), nous pouvons créer l'objet en utilisant :
 point1 = ecdsa.ellipticcurve.Point(curve, point.x(), point.y(), ec_order)
 assert point1 == point
 

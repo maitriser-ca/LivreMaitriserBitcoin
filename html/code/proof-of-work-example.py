@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# example of proof-of-work algorithm
+# exemple d'algorithme de preuve de travail
 
 import hashlib
 import time
@@ -8,13 +8,13 @@ max_nonce = 2 ** 32 # 4 billion
 
 def proof_of_work(header, difficulty_bits):
     
-    # calculate the difficulty target
+    # calculer l'objectif de difficulté
     target = 2 ** (256-difficulty_bits)
     
     for nonce in xrange(max_nonce):
         hash_result = hashlib.sha256(str(header)+str(nonce)).hexdigest()
         
-        # check if this is a valid result, below the target
+        # vérifier s'il s'agit d'un résultat valide, en dessous de la cible
         if long(hash_result, 16) < target:
             print "Success with nonce %d" % nonce
             print "Hash is %s" % hash_result
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     nonce = 0
     hash_result = ''
      
-    # difficulty from 0 to 31 bits  
+    # difficulté de 0 à 31 bits
     for difficulty_bits in xrange(32):
         
         difficulty = 2 ** difficulty_bits
@@ -37,17 +37,16 @@ if __name__ == '__main__':
     
         print "Starting search..."
         
-        # checkpoint the current time
+        # point de contrôle de l'heure actuelle
         start_time = time.time()
         
-        # make a new block which includes the hash from the previous block
-        # we fake a block of transactions - just a string
+        # faire un nouveau bloc qui inclut le hachage du bloc précédent nous simulons un bloc de transactions - juste une chaîne
         new_block = 'test block with transactions' + hash_result 
         
-        # find a valid nonce for the new block
+        # trouver un nonce valide pour le nouveau bloc
         (hash_result, nonce) = proof_of_work(new_block, difficulty_bits) 
         
-        # checkpoint how long it took to find a result
+        # point de contrôle combien de temps il a fallu pour trouver un résultat
         end_time = time.time()
         
         elapsed_time = end_time - start_time
@@ -55,7 +54,7 @@ if __name__ == '__main__':
     
         if elapsed_time > 0:
             
-            # estimate the hashes per second
+            # estimer les hachages par seconde
             hash_power = float(long(nonce)/elapsed_time)
             print "Hashing Power: %ld hashes per second" % hash_power
     

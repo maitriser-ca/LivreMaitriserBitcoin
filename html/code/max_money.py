@@ -1,6 +1,6 @@
-# Original block reward for miners was 50 BTC
+# La récompense de bloc originale pour les mineurs était de 50 BTC
 start_block_reward = 50
-# 210000 is around every 4 years with a 10 minute block interval
+# 210000 est d'environ tous les 4 ans avec un intervalle de bloc de 10 minutes
 reward_interval = 210000
 
 def max_money():

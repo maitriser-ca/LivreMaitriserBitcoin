@@ -1,10 +1,10 @@
 from bitcoin.rpc import RawProxy
 
-# Create a connection to local Bitcoin Core node
+# Créer une connexion au nœud local Bitcoin Core
 p = RawProxy()
 
-# Run the getinfo command, store the resulting data in info
+# Exécutez la commande getinfo, stockez les données résultantes dans info
 info = p.getinfo()
 
-# Retrieve the 'blocks' element from the info
+# Récupérer l'élément 'blocks' de l'info
 print(info['blocks'])

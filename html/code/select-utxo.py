@@ -1,4 +1,4 @@
-# Selects outputs from a UTXO list using a greedy algorithm.
+# Sélectionne les sorties d'une liste UTXO à l'aide d'un algorithme glouton.
 
 from sys import argv
 
@@ -13,25 +13,23 @@ class OutputInfo:
         return "<%s:%s with %s Satoshis>" % (self.tx_hash, self.tx_index,
                                              self.value)
 
-# Select optimal outputs for a send from unspent outputs list.
-# Returns output list and remaining change to be sent to
-# a change address.
+# Sélectionnez les sorties optimales pour un envoi à partir de la liste des sorties non dépensées.
+# Renvoie la liste de sortie et la modification restante à envoyer à une adresse de modification.
 def select_outputs_greedy(unspent, min_value):
-    # Fail if empty.
+    # Échec si vide.
     if not unspent:
         return None
-    # Partition into 2 lists.
+    # Partition en 2 listes.
     lessers = [utxo for utxo in unspent if utxo.value < min_value]
     greaters = [utxo for utxo in unspent if utxo.value >= min_value]
     key_func = lambda utxo: utxo.value
     if greaters:
-        # Not-empty. Find the smallest greater.
+        # Pas vide. Trouvez le plus petit plus grand.
         min_greater = min(greaters, key=key_func)
         change = min_greater.value - min_value
         return [min_greater], "Change: %d Satoshis" % change
-    # Not found in greaters. Try several lessers instead.
-    # Rearrange them from biggest to smallest. We want to use the least
-    # amount of inputs as possible.
+    # Introuvable dans les grands. Essayez plutôt plusieurs moindres.
+    # Réorganisez-les du plus grand au plus petit. Nous voulons utiliser le moins d'intrants possible.
     lessers.sort(key=key_func, reverse=True)
     result = []
     accum = 0
@@ -41,7 +39,7 @@ def select_outputs_greedy(unspent, min_value):
         if accum >= min_value:
             change = accum - min_value
             return result, "Change: %d Satoshis" % change
-    # No results found.
+    # Aucun résultat trouvé.
     return None, 0
 
 def main():

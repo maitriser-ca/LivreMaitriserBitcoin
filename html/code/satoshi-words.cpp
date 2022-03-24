@@ -1,26 +1,26 @@
 /*
-  Display the genesis block message by Satoshi.
+  Affichez le message du bloc de genèse de Satoshi.
 */
 #include <iostream>
 #include <bitcoin/bitcoin.hpp>
 
 int main()
 {
-    // Create genesis block.
+    // Créer un bloc de genèse.
     bc::chain::block block = bc::chain::block::genesis_mainnet();
-    // Genesis block contains a single coinbase transaction.
+    // Le bloc de genèse contient une seule transaction coinbase.
     assert(block.transactions().size() == 1);
-    // Get first transaction in block (coinbase).
+    // Obtenez la première transaction du bloc (coinbase).
     const bc::chain::transaction& coinbase_tx = block.transactions()[0];
-    // Coinbase tx has a single input.
+    // Coinbase tx a une seule entrée.
     assert(coinbase_tx.inputs().size() == 1);
     const bc::chain::input& coinbase_input = coinbase_tx.inputs()[0];
-    // Convert the input script to its raw format.
+    // Convertissez le script d'entrée dans son format brut.
     const auto prefix = false;
     const bc::data_chunk& raw_message = coinbase_input.script().to_data(prefix);
-    // Convert this to a std::string.
+    // Convertissez ceci en std::string.
     std::string message(raw_message.begin(), raw_message.end());
-    // Display the genesis block message.
+    // Affichez le message du bloc de genèse.
     std::cout << message << std::endl;
     return 0;
 }

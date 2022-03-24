@@ -2,7 +2,7 @@
 
 int main()
 {
-    // Private secret key string as base16
+    // Chaîne de clé secrète privée en base16
     bc::ec_secret decoded;
     bc::decode_base16(decoded,
         "038109007313a5807b2eccc082c8c3fbb988a973cacf1a7df9ce725c31b14776");
@@ -10,35 +10,35 @@ int main()
     bc::wallet::ec_private secret(
         decoded, bc::wallet::ec_private::mainnet_p2kh);
 
-    // Get public key.
+    // Obtenir la clé publique.
     bc::wallet::ec_public public_key(secret);
     std::cout << "Public key: " << public_key.encoded() << std::endl;
 
-    // Create Bitcoin address.
-    // Normally you can use:
+    // Créer une adresse Bitcoin.
+    // Normalement, vous pouvez utiliser :
     //    bc::wallet::payment_address payaddr =
     //        public_key.to_payment_address(
     //            bc::wallet::ec_public::mainnet_p2kh);
     //  const std::string address = payaddr.encoded();
 
-    // Compute hash of public key for P2PKH address.
+    // Calcule le hachage de la clé publique pour l'adresse P2PKH.
     bc::data_chunk public_key_data;
     public_key.to_data(public_key_data);
     const auto hash = bc::bitcoin_short_hash(public_key_data);
 
     bc::data_chunk unencoded_address;
-    // Reserve 25 bytes
+    // Réserver 25 octets
     //   [ version:1  ]
     //   [ hash:20    ]
     //   [ checksum:4 ]
     unencoded_address.reserve(25);
-    // Version byte, 0 is normal BTC address (P2PKH).
+    // Octet de version, 0 est l'adresse BTC normale (P2PKH).
     unencoded_address.push_back(0);
-    // Hash data
+    // Données de hachage
     bc::extend_data(unencoded_address, hash);
-    // Checksum is computed by hashing data, and adding 4 bytes from hash.
+    // La somme de contrôle est calculée en hachant les données et en ajoutant 4 octets à partir du hachage.
     bc::append_checksum(unencoded_address);
-    // Finally we must encode the result in Bitcoin's base58 encoding.
+    // Enfin, nous devons encoder le résultat dans l'encodage base58 de Bitcoin.
     assert(unencoded_address.size() == 25);
     const std::string address = bc::encode_base58(unencoded_address);
 
