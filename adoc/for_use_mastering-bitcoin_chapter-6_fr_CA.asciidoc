@@ -14,7 +14,7 @@ Dans ce chapitre, nous examinerons toutes les différentes formes de transaction
 [[tx_structure]]
 === Transactions en détail
 
-((("cas d'utilisation", "acheter du café", id="alicesix")))Dans <<ch02_bitcoin_overview>>, nous avons examiné la transaction utilisée par Alice pour payer un café au comptoir à café de Bob à l'aide d'un explorateur de blocs (<<alices_transactions_to_bobs_cafe>>).
+((("cas d'utilisation", "acheter du café", id="alicesix")))Dans <<ch02_bitcoin_overview>>, nous avons examiné la transaction utilisée par Alice pour payer un café au Bob's Café à l'aide d'un explorateur de blocs (<<alices_transactions_to_bobs_cafe>>).
 
 L'application de l'explorateur de blocs montre une transaction de "l'adresse" d'Alice à "l'adresse" de Bob. Il s'agit d'une vue très simplifiée de ce qui est contenu dans une transaction. En fait, comme nous le verrons dans ce chapitre, une grande partie des informations affichées sont construites par l'explorateur de blocs et ne se trouvent pas réellement dans la transaction.
 
@@ -368,7 +368,7 @@ Par exemple, si vous consommez un UTXO de 20 bitcoins pour effectuer un paiemen
 ((("avertissements et mises en garde", "modifier les sorties"))) Si vous oubliez d'ajouter une sortie de modification dans une transaction construite manuellement, vous paierez la modification en tant que frais de transaction. Dire "Gardez la monnaie !" au mineur n'est peut-être pas ce que vous vouliez vraiment.
 ====
 
-((("cas d'utilisation", "achat de café"))) Voyons comment cela fonctionne en pratique, en examinant à nouveau l'achat de café d'Alice. Alice veut dépenser 0,015 bitcoin pour payer son café. Pour s'assurer que cette transaction est traitée rapidement, elle voudra inclure des frais de transaction, disons 0,0005. Cela signifie que le coût total de la transaction sera de 0,0155. Son portefeuille doit donc se procurer un ensemble d'UTXO qui totalise 0,0155 bitcoin ou plus et, si nécessaire, créer de la monnaie. Disons que son portefeuille dispose d'un UTXO de 0,1 bitcoin. Elle devra donc consommer cet UTXO, créer une sortie pour le comptoir à café de Bob pour 0,015, et une seconde sortie avec 0,0845 bitcoin en retour vers son propre portefeuille, laissant 0,0005 bitcoin non alloué, comme frais implicites pour la transaction.
+((("cas d'utilisation", "achat de café"))) Voyons comment cela fonctionne en pratique, en examinant à nouveau l'achat de café d'Alice. Alice veut dépenser 0,015 bitcoin pour payer son café. Pour s'assurer que cette transaction est traitée rapidement, elle voudra inclure des frais de transaction, disons 0,0005. Cela signifie que le coût total de la transaction sera de 0,0155. Son portefeuille doit donc se procurer un ensemble d'UTXO qui totalise 0,0155 bitcoin ou plus et, si nécessaire, créer de la monnaie. Disons que son portefeuille dispose d'un UTXO de 0,1 bitcoin. Elle devra donc consommer cet UTXO, créer une sortie pour le Bob's Café pour 0,015, et une seconde sortie avec 0,0845 bitcoin en retour vers son propre portefeuille, laissant 0,0005 bitcoin non alloué, comme frais implicites pour la transaction.
 
 ((("cas d'utilisation", "dons caritatifs")))((("dons caritatifs")))Regardons maintenant un scénario différent. Eugenia, directrice de notre association caritative pour enfants aux Philippines, a organisé une collecte de fonds pour acheter des manuels scolaires pour les enfants. Elle a reçu plusieurs milliers de petits dons de personnes du monde entier, totalisant 50 bitcoins, donc son portefeuille est plein de très petits paiements (UTXO). Maintenant, elle veut acheter des centaines de manuels scolaires auprès d'un éditeur local, en payant en bitcoins.
 
@@ -488,7 +488,7 @@ Tout d'abord, le script de déverrouillage est exécuté à l'aide du moteur d'e
 
 ((("Pay-to-Public-Key-Hash (P2PKH)")))La grande majorité des transactions traitées sur le réseau Bitcoin dépensent des sorties verrouillées avec un script Pay-to-Public-Key-Hash ou "P2PKH". Ces sorties contiennent un script de verrouillage qui verrouille la sortie sur un hachage de clé publique, plus communément appelé adresse Bitcoin. Une sortie verrouillée par un script P2PKH peut être déverrouillée (passée) en présentant une clé publique et une signature numérique créée par la clé privée correspondante (voir <<digital_sigs>>).
 
-((("cas d'utilisation", "acheter du café")))Par exemple, regardons à nouveau le paiement d'Alice au comptoir à café de Bob. Alice a effectué un paiement de 0,015 bitcoin à l'adresse Bitcoin du comptoir. Cette sortie de transaction aurait un script de verrouillage de la forme :
+((("cas d'utilisation", "acheter du café")))Par exemple, regardons à nouveau le paiement d'Alice au Bob's Café. Alice a effectué un paiement de 0,015 bitcoin à l'adresse Bitcoin du comptoir. Cette sortie de transaction aurait un script de verrouillage de la forme :
 
 ----
 OP_DUP OP_HASH160 <Cafe Public Key Hash> OP_EQUALVERIFY OP_CHECKSIG

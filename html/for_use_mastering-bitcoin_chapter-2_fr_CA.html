@@ -436,100 +436,100 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article">
+<body class="article data-line-1">
 <div id="header">
 </div>
 <div id="content">
-<div class="sect1">
+<div class="sect1 data-line-2">
 <h2 id="ch02_bitcoin_overview">Comment fonctionne Bitcoin</h2>
 <div class="sectionbody">
-<div class="sect2">
+<div class="sect2 data-line-4">
 <h3 id="_transactions_blocs_minage_et_la_chaîne_de_blocs">Transactions, blocs, minage et la chaîne de blocs</h3>
-<div class="paragraph">
+<div class="paragraph data-line-6">
 <p>Le système Bitcoin, contrairement aux systèmes bancaires et de paiement traditionnels, est basé sur la confiance décentralisée. Au lieu d&#8217;une autorité centrale de confiance, dans le bitcoin, la confiance est obtenue en tant que propriété émergente à partir des interactions des différents participants au système Bitcoin. Dans ce chapitre, nous examinerons le bitcoin d&#8217;un niveau élevé en suivant une seule transaction via le système Bitcoin et en observant qu&#8217;elle devient "de confiance" et acceptée par le mécanisme de consensus distribué bitcoin et est finalement enregistrée sur la chaîne de blocs, le grand livre distribué de toutes transactions. Les chapitres suivants approfondiront la technologie derrière les transactions, le réseau et l&#8217;exploitation minière.</p>
 </div>
-<div class="sect3">
+<div class="sect3 data-line-8">
 <h4 id="_présentation_de_bitcoin">Présentation de Bitcoin</h4>
-<div class="paragraph">
+<div class="paragraph data-line-10">
 <p>Dans le schéma d&#8217;ensemble présenté dans <a href="#bitcoin-overview">Présentation de Bitcoin</a>, nous voyons que le système Bitcoin se compose d&#8217;utilisateurs avec des portefeuilles contenant des clés, des transactions qui se propagent à travers le réseau et des mineurs qui produisent (par le calcul concurrentiel) le consensus de la chaîne de blocs, qui est le registre faisant autorité de toutes les transactions.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-13">
 <p>Chaque exemple de ce chapitre est basé sur une transaction réelle effectuée sur le réseau Bitcoin, simulant les interactions entre les utilisateurs (Joe, Alice, Bob et Gopesh) en envoyant des fonds à partir d&#8217;un portefeuille à un autre. Lors du suivi d&#8217;une transaction via le réseau Bitcoin jusqu&#8217;à la chaîne de blocs, nous utiliserons un site <em>explorateur de chaîne de blocs</em> pour visualiser chaque étape. Un explorateur de chaîne de blocs est une application Web qui fonctionne comme un moteur de recherche bitcoin, en ce sens qu&#8217;il vous permet de rechercher des adresses, des transactions et des blocs et de voir les relations et les flux entre eux.</p>
 </div>
-<div id="bitcoin-overview" class="imageblock">
+<div id="bitcoin-overview" class="imageblock data-line-17">
 <div class="content">
 <img src="images/mbc2_0201.png" alt="Survol de Bitcoin">
 </div>
 <div class="title">Figure 1. Présentation de Bitcoin</div>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-19">
 <p>Les explorateurs des chaînes de blocs populaires incluent :</p>
 </div>
-<div class="ulist">
+<div class="ulist data-line-21">
 <ul>
-<li>
-<p><a href="https://live.blockcypher.com">Explorateur BlockCypher</a></p>
+<li class="data-line-21">
+<p><a href="https://live.blockcypher.com" data-href="https://live.blockcypher.com">Explorateur BlockCypher</a></p>
 </li>
-<li>
-<p><a href="https://blockchain.com">Blockchain.com</a></p>
+<li class="data-line-22">
+<p><a href="https://blockchain.com" data-href="https://blockchain.com">Blockchain.com</a></p>
 </li>
-<li>
-<p><a href="https://insight.bitpay.com">BitPay Insight</a></p>
+<li class="data-line-23">
+<p><a href="https://insight.bitpay.com" data-href="https://insight.bitpay.com">BitPay Insight</a></p>
 </li>
-<li>
-<p><a href="https://blockstream.info">Blockstream Explorer</a></p>
+<li class="data-line-24">
+<p><a href="https://blockstream.info" data-href="https://blockstream.info">Blockstream Explorer</a></p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-26">
 <p>Chacun d&#8217;eux a une fonction de recherche qui peut prendre une adresse Bitcoin, un hachage de transaction, un numéro de bloc ou un hachage de bloc et récupérer les informations correspondantes du réseau Bitcoin. Avec chaque exemple de transaction ou de bloc, nous fournirons une URL afin que vous puissiez la rechercher vous-même et l&#8217;étudier en détail.</p>
 </div>
 </div>
-<div class="sect3">
+<div class="sect3 data-line-30">
 <h4 id="cup_of_coffee">Acheter une tasse de café</h4>
-<div class="paragraph">
-<p>Alice, présentée dans le chapitre précédent, est une nouvelle utilisatrice qui vient d&#8217;acquérir son premier bitcoin. Dans <a href="#getting_first_bitcoin">[getting_first_bitcoin]</a>, Alice a rencontré son ami Joe pour échanger de l&#8217;argent contre du bitcoin. La transaction créée par Joe a financé le portefeuille d&#8217;Alice avec 0,10 BTC. Alice va maintenant faire sa première transaction de vente au détail en achetant une tasse de café au café de Bob à Palo Alto, en Californie.</p>
+<div class="paragraph data-line-32">
+<p>Alice, présentée dans le chapitre précédent, est une nouvelle utilisatrice qui vient d&#8217;acquérir son premier bitcoin. Dans <a href="#getting_first_bitcoin">[getting_first_bitcoin]</a>, Alice a rencontré son ami Joe pour échanger de l&#8217;argent contre du bitcoin. La transaction créée par Joe a financé le portefeuille d&#8217;Alice avec 0,10 BTC. Alice va maintenant faire sa première transaction de vente au détail en achetant une tasse de café au Bob&#8217;s Café à Palo Alto, en Californie.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-34">
 <p>Bob&#8217;s Cafe a récemment commencé à accepter les paiements en bitcoin en ajoutant une option bitcoin à son système de point de vente. Les prix au Bob&#8217;s Cafe sont indiqués dans la devise locale (dollars américains), mais à la caisse, les clients ont la possibilité de payer en dollars ou en bitcoins. Alice passe sa commande pour une tasse de café et Bob l&#8217;inscrit dans le registre, comme il le fait pour toutes les transactions. Le système de point de vente convertit automatiquement le prix total des dollars américains en bitcoins au taux du marché en vigueur et affiche le prix dans les deux devises :</p>
 </div>
-<div class="listingblock">
+<div class="listingblock data-line-36">
 <div class="content">
 <pre>Total:
 1,50 USD
 0,015 BTC</pre>
 </div>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-43">
 <p>Bob dit : "C&#8217;est un dollar cinquante, ou quinze millibits."</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-45">
 <p>Le système de point de vente de Bob créera également automatiquement un code QR spécial contenant une <em>demande de paiement</em> (voir <a href="#payment-request-QR">Code QR de la demande de paiement</a>).</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-47">
 <p>Contrairement à un code QR qui contient simplement une adresse Bitcoin de destination, une demande de paiement est une URL encodée QR qui contient une adresse de destination, un montant de paiement et une description générique telle que "Bob&#8217;s Cafe". Cela permet à une application de portefeuille bitcoin de pré-remplir les informations utilisées pour envoyer le paiement tout en affichant une description lisible par l&#8217;utilisateur à l&#8217;utilisateur. Vous pouvez scanner le code QR avec une application de portefeuille bitcoin pour voir ce qu&#8217;Alice verrait.</p>
 </div>
-<div id="payment-request-QR" class="imageblock">
+<div id="payment-request-QR" class="imageblock data-line-52">
 <div class="content">
 <img src="images/mbc2_0202.png" alt="requête de paiement">
 </div>
 <div class="title">Figure 2. Code QR de la demande de paiement</div>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock tip data-line-55">
 <table>
 <tr>
 <td class="icon">
 <div class="title">Tip</div>
 </td>
 <td class="content">
-<div class="paragraph">
+<div class="paragraph data-line-56">
 <p>Essayez de scanner ceci avec votre portefeuille pour voir l&#8217;adresse et le montant, mais N&#8217;ENVOYEZ PAS D&#8217;ARGENT.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div id="payment-request-URL" class="listingblock">
+<div id="payment-request-URL" class="listingblock data-line-60">
 <div class="title">Le QR code de demande de paiement encode l&#8217;URL suivante, définie dans BIP-21 :</div>
 <div class="content">
 <pre>bitcoin:1GdK9UzpHBzqzX2A9JFP3Di4weBwqgmoQA?
@@ -545,33 +545,33 @@ Une étiquette pour l'adresse du destinataire : "Bob's Cafe"
 Une description du paiement : "Purchase at Bob's Cafe"</pre>
 </div>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-74">
 <p>Alice utilise son smartphone pour scanner le code-barres affiché. Son smartphone affiche un paiement de <code>0,0150 BTC</code> à <code>Bob&#8217;s Cafe</code> et elle sélectionne Envoyer pour autoriser le paiement. En quelques secondes (environ le même temps qu&#8217;une autorisation de carte de crédit), Bob voit la transaction sur le registre, complétant la transaction.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-76">
 <p>Dans les sections suivantes, nous examinerons cette transaction plus en détail. Nous verrons comment le portefeuille d&#8217;Alice l&#8217;a construit, comment il s&#8217;est propagé sur le réseau, comment il a été vérifié et enfin, comment Bob peut dépenser ce montant lors de transactions ultérieures.</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock note data-line-79">
 <table>
 <tr>
 <td class="icon">
 <div class="title">Note</div>
 </td>
 <td class="content">
-<div class="paragraph">
+<div class="paragraph data-line-80">
 <p>Le réseau Bitcoin peut effectuer des transactions en valeurs fractionnaires, par exemple à partir de millibitcoin (1/1000e de bitcoin ) jusqu&#8217;à 1/100 000 000e de bitcoin, connu sous le nom de satoshi. Tout au long de ce livre, nous utiliserons le terme "bitcoin" pour désigner toute quantité de monnaie bitcoin, de la plus petite unité (1 satoshi) au nombre total (21 000 000) de tous les bitcoins qui seront extraits.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-83">
 <p>Vous pouvez examiner la transaction d&#8217;Alice avec Bob&#8217;s Cafe sur la chaîne de blocs en utilisant un site d&#8217;exploration de blocs (<a href="#view_alice_transaction">Voir la transaction d&#8217;Alice sur blockchain.com</a>):</p>
 </div>
-<div id="view_alice_transaction" class="exampleblock">
-<div class="title">Example 1. Voir la transaction d&#8217;Alice sur <a href="https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2">blockchain.com</a></div>
+<div id="view_alice_transaction" class="exampleblock data-line-87">
+<div class="title">Example 1. Voir la transaction d&#8217;Alice sur <a href="https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2" data-href="https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2">blockchain.com</a></div>
 <div class="content">
-<div class="listingblock">
+<div class="listingblock data-line-88">
 <div class="content">
 <pre>https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2</pre>
 </div>
@@ -580,74 +580,74 @@ Une description du paiement : "Purchase at Bob's Cafe"</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
+<div class="sect2 data-line-93">
 <h3 id="_transactions_en_bitcoins">Transactions en bitcoins</h3>
-<div class="paragraph">
+<div class="paragraph data-line-95">
 <p>En termes simples, une transaction indique au réseau que le propriétaire d&#8217;une valeur bitcoin a autorisé le transfert de cette valeur à un autre propriétaire. Le nouveau propriétaire peut désormais dépenser le bitcoin en créant une autre transaction qui autorise le transfert à un autre propriétaire, et ainsi de suite, dans une chaîne de propriété.</p>
 </div>
-<div class="sect3">
+<div class="sect3 data-line-97">
 <h4 id="_entrées_et_sorties_de_transactions">Entrées et sorties de transactions</h4>
-<div class="paragraph">
+<div class="paragraph data-line-99">
 <p>Les transactions sont comme des lignes dans un livre comptable en partie double. Chaque transaction contient une ou plusieurs "entrées", qui sont comme des débits sur un compte bitcoin. De l&#8217;autre côté de la transaction, il y a une ou plusieurs "sorties", qui sont comme des crédits ajoutés à un compte bitcoin. Les entrées et les sorties (débits et crédits) ne totalisent pas nécessairement le même montant. Au lieu de cela, les sorties s&#8217;additionnent légèrement moins que les entrées et la différence représente des <em>frais de transaction</em> implicites, qui sont un petit paiement perçu par le mineur qui inclut la transaction dans le grand livre. Une transaction bitcoin s&#8217;affiche sous la forme d&#8217;une écriture comptable dans <a href="#transaction-double-entry">Transaction comptable en double parties</a>.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-101">
 <p>La transaction contient également une preuve de propriété pour chaque montant de bitcoin (entrées) dont la valeur est dépensée, sous la forme d&#8217;une signature numérique du propriétaire, qui peut être validée indépendamment par n&#8217;importe qui. En termes de bitcoin, "dépenser" consiste à signer une transaction qui transfère la valeur d&#8217;une transaction précédente à un nouveau propriétaire identifié par une adresse Bitcoin.</p>
 </div>
-<div id="transaction-double-entry" class="imageblock">
+<div id="transaction-double-entry" class="imageblock data-line-105">
 <div class="content">
 <img src="images/mbc2_0203.png" alt="Transaction en double saisie">
 </div>
 <div class="title">Figure 3. Transaction comptable en double parties</div>
 </div>
 </div>
-<div class="sect3">
+<div class="sect3 data-line-107">
 <h4 id="_chaînes_de_transaction">Chaînes de transaction</h4>
-<div class="paragraph">
+<div class="paragraph data-line-109">
 <p>Le paiement d&#8217;Alice à Bob&#8217;s Cafe utilise la sortie d&#8217;une transaction précédente comme entrée. Dans le chapitre précédent, Alice a reçu des bitcoins de son ami Joe en échange d&#8217;argent. Cette transaction a créé une valeur bitcoin verrouillée par la clé d&#8217;Alice. Sa nouvelle transaction avec Bob&#8217;s Cafe fait référence à la transaction précédente comme entrée et crée de nouvelles sorties pour payer la tasse de café et recevoir la monnaie. Les transactions forment une chaîne, où les entrées de la dernière transaction correspondent aux sorties des transactions précédentes. La clé d&#8217;Alice fournit la signature qui déverrouille ces sorties de transaction précédentes, prouvant ainsi au réseau Bitcoin qu&#8217;elle possède les fonds. Elle joint le paiement du café à l&#8217;adresse de Bob, "encombrant" ainsi cette sortie avec l&#8217;exigence que Bob produise une signature afin de dépenser ce montant. Cela représente un transfert de valeur entre Alice et Bob. Cette chaîne de transactions, de Joe à Alice à Bob, est illustrée dans <a href="#blockchain-mnemonic">Une chaîne de transactions, où la sortie d&#8217;une transaction est l&#8217;entrée de la transaction suivante</a>.</p>
 </div>
-<div id="blockchain-mnemonic" class="imageblock">
+<div id="blockchain-mnemonic" class="imageblock data-line-113">
 <div class="content">
 <img src="images/mbc2_0204.png" alt="Chaîne de transaction">
 </div>
 <div class="title">Figure 4. Une chaîne de transactions, où la sortie d&#8217;une transaction est l&#8217;entrée de la transaction suivante</div>
 </div>
 </div>
-<div class="sect3">
+<div class="sect3 data-line-115">
 <h4 id="_faire_du_change_ou_de_la_petite_monnaie">Faire du change (ou de la petite monnaie)</h4>
-<div class="paragraph">
+<div class="paragraph data-line-117">
 <p>De nombreuses transactions bitcoin incluront des sorties qui référencent à la fois une adresse du nouveau propriétaire et une adresse du propriétaire actuel, appelée <em>adresse de change</em>. En effet, les entrées de transaction, comme les billets de banque, ne peuvent pas être divisées. Si vous achetez un article de 5 dollars américains dans un magasin mais que vous utilisez un billet de 20 dollars américains pour payer l&#8217;article, vous vous attendez à recevoir 15 dollars américains en monnaie. Le même concept s&#8217;applique aux entrées de transaction bitcoin. Si vous avez acheté un article qui coûte 5 bitcoins mais que vous n&#8217;aviez qu&#8217;une entrée de 20 bitcoins à utiliser, votre portefeuille créerait une seule transaction qui enverrait deux sorties, une sortie de 5 bitcoins au propriétaire du magasin et une sortie de 15 bitcoins à vous-même comme changement (moins les frais de transaction applicables). Il est important de noter que l&#8217;adresse de change ne doit pas nécessairement être la même que celle de l&#8217;entrée et, pour des raisons de confidentialité, il s&#8217;agit souvent d&#8217;une nouvelle adresse du portefeuille du propriétaire.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-119">
 <p>Différents portefeuilles peuvent utiliser différentes stratégies lors de l&#8217;agrégation des entrées pour effectuer un paiement demandé par l&#8217;utilisateur. Ils peuvent regrouper de nombreux petits intrants ou en utiliser un égal ou supérieur au paiement souhaité. À moins que le portefeuille ne puisse agréger les entrées de manière à correspondre exactement au paiement souhaité plus les frais de transaction, le portefeuille devra générer du change. C&#8217;est très similaire à la façon dont les gens gèrent l&#8217;argent liquide. Si vous utilisez toujours le plus gros billet dans votre poche, vous vous retrouverez avec une poche pleine de monnaie. Si vous n&#8217;utilisez que la petite monnaie, vous n&#8217;aurez toujours que de gros billets. Les gens trouvent inconsciemment un équilibre entre ces deux extrêmes, et les développeurs de portefeuilles Bitcoin s&#8217;efforcent de programmer cet équilibre.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-121">
 <p>En résumé, les <em>transactions</em> déplacent des valeurs des <em>entrées de transaction</em> aux <em>sorties de transaction</em>. Une entrée est une référence à la sortie d&#8217;une transaction précédente, indiquant d&#8217;où provient la valeur. Une transaction comprend généralement une sortie qui dirige une valeur spécifique vers l&#8217;adresse Bitcoin d&#8217;un nouveau propriétaire et une sortie de modification vers le propriétaire d&#8217;origine. Les sorties d&#8217;une transaction peuvent être utilisées comme entrées dans une nouvelle transaction, créant ainsi une chaîne de propriété lorsque la valeur est déplacée d&#8217;un propriétaire à l&#8217;autre (voir <a href="#blockchain-mnemonic">Une chaîne de transactions, où la sortie d&#8217;une transaction est l&#8217;entrée de la transaction suivante</a>).</p>
 </div>
 </div>
-<div class="sect3">
+<div class="sect3 data-line-123">
 <h4 id="_formulaires_de_transaction_communs">Formulaires de transaction communs</h4>
-<div class="paragraph">
+<div class="paragraph data-line-125">
 <p>La forme de transaction la plus courante est un simple paiement d&#8217;une adresse à une autre, qui comprend souvent une « monnaie » rendue au propriétaire d&#8217;origine. Ce type de transaction a une entrée et deux sorties et est affiché dans <a href="#transaction-common">Transaction la plus courante</a>.</p>
 </div>
-<div id="transaction-common" class="imageblock">
+<div id="transaction-common" class="imageblock data-line-129">
 <div class="content">
 <img src="images/mbc2_0205.png" alt="Transaction commune">
 </div>
 <div class="title">Figure 5. Transaction la plus courante</div>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-131">
 <p>Une autre forme courante de transaction est celle qui agrège plusieurs entrées en une seule sortie (voir <a href="#transaction-aggregating">Transaction agrégeant des fonds</a>). Cela représente l&#8217;équivalent réel de l&#8217;échange d&#8217;une pile de pièces et de billets de banque contre un seul billet plus gros. Des transactions comme celles-ci sont parfois générées par des applications de portefeuille pour nettoyer de nombreux petits montants reçus en monnaie de paiement.</p>
 </div>
-<div id="transaction-aggregating" class="imageblock">
+<div id="transaction-aggregating" class="imageblock data-line-135">
 <div class="content">
 <img src="images/mbc2_0206.png" alt="Aggrégation de transaction">
 </div>
 <div class="title">Figure 6. Transaction agrégeant des fonds</div>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-137">
 <p>Enfin, une autre forme de transaction que l&#8217;on voit souvent sur le grand livre bitcoin est une transaction par lots, qui distribue une entrée à plusieurs sorties représentant plusieurs destinataires, une technique appelée "transactions par lot" (voir <a href="#transaction-distributing">Transaction distribuant des fonds</a>). Étant donné que ce type de transaction est utile pour économiser sur les frais de transaction, il est couramment utilisé par les entités commerciales pour distribuer des fonds, par exemple lorsqu&#8217;une entreprise traite les paiements de paie à plusieurs employés ou lorsqu&#8217;un échange de bitcoins traite les retraits de plusieurs clients en un seul. transaction.</p>
 </div>
-<div id="transaction-distributing" class="imageblock">
+<div id="transaction-distributing" class="imageblock data-line-141">
 <div class="content">
 <img src="images/mbc2_0207.png" alt="Distribution des transaction">
 </div>
@@ -655,30 +655,30 @@ Une description du paiement : "Purchase at Bob's Cafe"</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
+<div class="sect2 data-line-143">
 <h3 id="_construction_dune_transaction">Construction d&#8217;une transaction</h3>
-<div class="paragraph">
+<div class="paragraph data-line-145">
 <p>L&#8217;application de portefeuille d&#8217;Alice contient toute la logique pour sélectionner les entrées et les sorties appropriées pour construire une transaction à la spécification d&#8217;Alice. Alice n&#8217;a qu&#8217;à spécifier une destination et un montant, et le reste se passe dans l&#8217;application portefeuille sans qu&#8217;elle ne voie les détails. Il est important de noter qu&#8217;une application de portefeuille peut créer des transactions même si elle est complètement hors ligne. Comme écrire un chèque à la maison et l&#8217;envoyer plus tard à la banque dans une enveloppe, la transaction n&#8217;a pas besoin d&#8217;être construite et signée tout en étant connectée au réseau Bitcoin.</p>
 </div>
-<div class="sect3">
+<div class="sect3 data-line-147">
 <h4 id="_obtenir_les_bonnes_entrées">Obtenir les bonnes entrées</h4>
-<div class="paragraph">
+<div class="paragraph data-line-149">
 <p>L&#8217;application de portefeuille d&#8217;Alice devra d&#8217;abord trouver des entrées qui peuvent payer le montant qu&#8217;elle veut envoyer à Bob. La plupart des portefeuilles gardent une trace de toutes les sorties disponibles appartenant aux adresses du portefeuille. Par conséquent, le portefeuille d&#8217;Alice contiendrait une copie de la sortie de transaction de la transaction de Joe, qui a été créée en échange d&#8217;argent (voir <a href="#getting_first_bitcoin">[getting_first_bitcoin]</a>). Une application de portefeuille bitcoin qui s&#8217;exécute en tant que client à nœud complet contient en fait une copie de chaque sortie non dépensée de chaque transaction dans la chaîne de blocs. Cela permet à un portefeuille de construire des entrées de transaction ainsi que de vérifier rapidement les transactions entrantes comme ayant des entrées correctes. Cependant, comme un client à nœud complet occupe beaucoup d&#8217;espace disque, la plupart des portefeuilles d&#8217;utilisateurs exécutent des clients "légers" qui ne suivent que les sorties non dépensées de l&#8217;utilisateur.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-151">
 <p>Si l&#8217;application de portefeuille ne conserve pas une copie des sorties de transaction non dépensées, elle peut interroger le réseau Bitcoin pour récupérer ces informations à l&#8217;aide d&#8217;une variété d&#8217;API disponibles par différents fournisseurs ou en demandant à un nœud complet via l&#8217;aide d&#8217;un appel d&#8217;interface de programmation d&#8217;application (API). <a href="#example_2-2">Recherchez toutes les sorties non dépensées pour l&#8217;adresse Bitcoin d&#8217;Alice</a> montre une requête API, construite comme une commande HTTP GET vers une URL spécifique. Cette URL renverra toutes les sorties de transaction non dépensées pour une adresse, donnant à toute application les informations dont elle a besoin pour construire des entrées de transaction pour les dépenses. Nous utilisons le simple client HTTP en ligne de commande <em>cURL</em> pour récupérer la réponse.</p>
 </div>
-<div id="example_2-2" class="exampleblock">
+<div id="example_2-2" class="exampleblock data-line-155">
 <div class="title">Example 2. Recherchez toutes les sorties non dépensées pour l&#8217;adresse Bitcoin d&#8217;Alice</div>
 <div class="content">
-<div class="listingblock">
+<div class="listingblock data-line-157">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ curl https://blockchain.info/unspent?active=1Cdid9KFAaatwczBwBttQcwXYCpvK8h7FK</code></pre>
 </div>
 </div>
 </div>
 </div>
-<div class="listingblock">
+<div class="listingblock data-line-163">
 <div class="content">
 <pre class="highlight"><code class="language-json" data-lang="json">{
 
@@ -698,92 +698,92 @@ Une description du paiement : "Purchase at Bob's Cafe"</pre>
 }</code></pre>
 </div>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-183">
 <p>La réponse en <a href="#example_2-2">Recherchez toutes les sorties non dépensées pour l&#8217;adresse Bitcoin d&#8217;Alice</a> montre une sortie non dépensée (une qui n&#8217;a pas encore été échangée) sous la propriété de l&#8217;adresse d&#8217;Alice 1Cdid9KFAaatwczBwBttQcwXYCpvK8h7FK. La réponse inclut la référence à la transaction dans laquelle cette sortie non dépensée est contenue (le paiement de Joe) et sa valeur en satoshis, à 10 millions, équivalent à 0,10 bitcoin. Avec ces informations, l&#8217;application de portefeuille d&#8217;Alice peut construire une transaction pour transférer cette valeur aux nouvelles adresses de propriétaire.</p>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock tip data-line-186">
 <table>
 <tr>
 <td class="icon">
 <div class="title">Tip</div>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>Voir la <a href="https://www.blockchain.com/btc/tx/7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18">transaction de Joe à Alice</a>.</p>
+<div class="paragraph data-line-187">
+<p>Voir la <a href="https://www.blockchain.com/btc/tx/7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18" data-href="https://www.blockchain.com/btc/tx/7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18">transaction de Joe à Alice</a>.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-190">
 <p>Comme vous pouvez le voir, le portefeuille d&#8217;Alice contient suffisamment de bitcoins en une seule sortie non dépensée pour payer la tasse de café. Si cela n&#8217;avait pas été le cas, l&#8217;application de portefeuille d&#8217;Alice aurait peut-être dû "fouiller" dans une pile de petites sorties non dépensées, comme prendre des pièces dans un sac à main jusqu&#8217;à ce qu&#8217;elle puisse en trouver assez pour payer le café. Dans les deux cas, il peut être nécessaire de récupérer de la monnaie, ce que nous verrons dans la section suivante, car l&#8217;application de portefeuille crée les sorties de transaction (paiements).</p>
 </div>
 </div>
-<div class="sect3">
+<div class="sect3 data-line-193">
 <h4 id="_création_des_sorties">Création des sorties</h4>
-<div class="paragraph">
+<div class="paragraph data-line-195">
 <p>Une sortie de transaction est créée sous la forme d&#8217;un script qui crée une charge sur la valeur et ne peut être rachetée que par l&#8217;introduction d&#8217;une solution au script. En termes plus simples, la sortie de transaction d&#8217;Alice contiendra un script qui dit quelque chose comme "Cette sortie est payable à quiconque peut présenter une signature à partir de la clé correspondant à l&#8217;adresse de Bob." Étant donné que seul Bob possède le portefeuille avec les clés correspondant à cette adresse, seul le portefeuille de Bob peut présenter une telle signature pour racheter cette sortie. Alice « encombrera » donc la valeur de sortie avec une demande de signature de Bob.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-197">
 <p>Cette transaction comprendra également une deuxième sortie, car les fonds d&#8217;Alice se présentent sous la forme d&#8217;une sortie à 0,10 BTC, trop d&#8217;argent pour la tasse de café à 0,015 BTC. Alice aura besoin de 0,085 BTC en monnaie. Le paiement de monnaie d&#8217;Alice est créé par le portefeuille d&#8217;Alice en tant que sortie dans la même transaction que le paiement à Bob. Essentiellement, le portefeuille d&#8217;Alice divise ses fonds en deux paiements : un à Bob et un à elle-même. Elle peut ensuite utiliser (dépenser) la sortie de monnaie dans une transaction ultérieure.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-199">
 <p>Enfin, pour que la transaction soit traitée par le réseau en temps opportun, l&#8217;application de portefeuille d&#8217;Alice ajoutera une somme modique. Ce n&#8217;est pas explicite dans la transaction ; il est impliqué par la différence entre les entrées et les sorties. Si au lieu de prendre 0,085 en monnaie, Alice ne crée que 0,0845 comme deuxième sortie, il restera 0,0005 BTC (un demi-millibitcoin). Le 0,10 BTC de l&#8217;entrée n&#8217;est pas entièrement dépensé avec les deux sorties, car elles totaliseront moins de 0,10. La différence qui en résulte est le <em>frais de transaction</em> qui est perçu par le mineur en tant que frais de validation et d&#8217;inclusion de la transaction dans un bloc à enregistrer sur la chaîne de blocs.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-201">
 <p>La transaction résultante peut être vue à l&#8217;aide d&#8217;une application Web d&#8217;exploration de chaîne de blocs, comme indiqué dans <a href="#transaction-alice">Transaction d&#8217;Alice au Bob&#8217;s Cafe</a>.</p>
 </div>
-<div id="transaction-alice" class="imageblock">
+<div id="transaction-alice" class="imageblock data-line-206">
 <div class="content">
 <img src="images/mbc2_0208.png" alt="Transaction du café d&#8217;Alice">
 </div>
 <div class="title">Figure 8. Transaction d&#8217;Alice au Bob&#8217;s Cafe</div>
 </div>
-<div id="transaction-alice-url" class="admonitionblock tip">
+<div id="transaction-alice-url" class="admonitionblock tip data-line-210">
 <table>
 <tr>
 <td class="icon">
 <div class="title">Tip</div>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>Voir la <a href="https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2">transaction d&#8217;Alice à Bob&#8217;s Cafe</a>.</p>
+<div class="paragraph data-line-211">
+<p>Voir la <a href="https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2" data-href="https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2">transaction d&#8217;Alice à Bob&#8217;s Cafe</a>.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 </div>
-<div class="sect3">
+<div class="sect3 data-line-214">
 <h4 id="_ajout_de_la_transaction_au_grand_livre">Ajout de la transaction au grand livre</h4>
-<div class="paragraph">
+<div class="paragraph data-line-216">
 <p>La transaction créée par l&#8217;application du portefeuille d&#8217;Alice fait 258 octets et contient tout le nécessaire pour confirmer la propriété des fonds et attribuer à de nouveaux propriétaires. Désormais, la transaction doit être transmise au réseau Bitcoin où elle fera partie de la chaîne de blocs. Dans la section suivante, nous verrons comment une transaction devient partie intégrante d&#8217;un nouveau bloc et comment le bloc est « miné ». Enfin, nous verrons comment le nouveau bloc, une fois ajouté à la chaîne de blocs, est de plus en plus approuvé par le réseau au fur et à mesure que de nouveaux blocs sont ajoutés.</p>
 </div>
-<div class="sect4">
+<div class="sect4 data-line-218">
 <h5 id="_transmission_de_la_transaction">Transmission de la transaction</h5>
-<div class="paragraph">
+<div class="paragraph data-line-220">
 <p>La transaction contient toutes les informations nécessaires au traitement, et ce peu importe comment et où elle est transmise au réseau Bitcoin. Le réseau Bitcoin est un réseau pair à pair, chaque client Bitcoin participant en se connectant à plusieurs autres clients Bitcoin. Le but du réseau Bitcoin est de propager les transactions et les blocages à tous les participants.</p>
 </div>
 </div>
-<div class="sect4">
+<div class="sect4 data-line-222">
 <h5 id="_comment_ça_se_propage">Comment ça se propage</h5>
-<div class="paragraph">
+<div class="paragraph data-line-224">
 <p>Tout système, tel qu&#8217;un serveur, une application de bureau ou un portefeuille, qui participe au réseau Bitcoin en "parlant", le protocole Bitcoin est appelé un <em>nœud Bitcoin</em>. L&#8217;application de portefeuille d&#8217;Alice peut envoyer la nouvelle transaction à n&#8217;importe quel nœud Bitcoin auquel elle est connectée via n&#8217;importe quel type de connexion : filaire, Wi-Fi, mobile, etc. Son portefeuille Bitcoin n&#8217;a pas besoin d&#8217;être connecté directement au portefeuille Bitcoin de Bob et elle n&#8217;a pas à nécessairement utiliser la connexion Internet offerte par le café, bien que ces deux options soient également possibles. Tout nœud Bitcoin qui reçoit une transaction valide qu&#8217;il n&#8217;a pas vue auparavant la transmettra immédiatement à tous les autres nœuds auxquels il est connecté , une technique de propagation connue sous le nom d'<em>inondation</em>. Ainsi, la transaction se propage (en inondant ou distribuant) rapidement à travers le réseau pair à pair, atteignant un grand pourcentage de nœuds en quelques secondes.</p>
 </div>
 </div>
-<div class="sect4">
+<div class="sect4 data-line-226">
 <h5 id="_le_point_de_vue_de_bob">Le point de vue de Bob</h5>
-<div class="paragraph">
+<div class="paragraph data-line-228">
 <p>Si l&#8217;application de portefeuille bitcoin de Bob est directement connectée à l&#8217;application de portefeuille d&#8217;Alice, l&#8217;application de portefeuille de Bob peut être le premier nœud à recevoir la transaction. Cependant, même si le portefeuille d&#8217;Alice envoie la transaction via d&#8217;autres nœuds, elle atteindra le portefeuille de Bob en quelques secondes. Le portefeuille de Bob identifiera immédiatement la transaction d&#8217;Alice comme un paiement entrant car il contient des sorties remboursables par les clés de Bob. L&#8217;application de portefeuille de Bob peut également vérifier de manière indépendante que la transaction est bien formée, utilise des sorties précédemment non dépensées et contient des frais de transaction suffisants pour être inclus dans le bloc suivant. À ce stade, Bob peut supposer, avec peu de risques, que la transaction sera bientôt incluse dans un bloc et confirmée.</p>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock tip data-line-231">
 <table>
 <tr>
 <td class="icon">
 <div class="title">Tip</div>
 </td>
 <td class="content">
-<div class="paragraph">
+<div class="paragraph data-line-232">
 <p>Une idée fausse courante à propos des transactions bitcoin est qu&#8217;elles doivent être "confirmées" en attendant 10 minutes pour un nouveau bloc, ou jusqu&#8217;à 60 minutes pour six confirmations complètes. Bien que les confirmations garantissent que la transaction a été acceptée par l&#8217;ensemble du réseau, un tel délai n&#8217;est pas nécessaire pour les articles de petite valeur comme une tasse de café. Un commerçant peut accepter une transaction valide de petite valeur sans confirmation, sans plus de risque qu&#8217;un paiement par carte de crédit effectué sans pièce d&#8217;identité ni signature, comme les commerçants l&#8217;acceptent couramment aujourd&#8217;hui.("", startref="Tconstruct02" )</p>
 </div>
 </td>
@@ -793,96 +793,96 @@ Une description du paiement : "Purchase at Bob's Cafe"</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
+<div class="sect2 data-line-235">
 <h3 id="_extraction_de_bitcoins">Extraction de bitcoins</h3>
-<div class="paragraph">
+<div class="paragraph data-line-237">
 <p>La transaction d&#8217;Alice est maintenant propagé sur le réseau Bitcoin. Il ne fait pas partie de la <em>chaîne de blocs</em> tant qu&#8217;il n&#8217;est pas vérifié et inclus dans un bloc par un processus appelé <em>minage</em>. Voir <a href="#mining">[mining]</a> pour une explication détaillée.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-239">
 <p>Le système de confiance Bitcoin est basé sur le calcul. Les transactions sont regroupées en <em>blocs</em>, qui nécessitent une énorme quantité de calculs pour prouver, mais seulement une petite quantité de calculs pour vérifier comme prouvé. Le processus de minage sert à deux fins dans le bitcoin :</p>
 </div>
-<div class="ulist">
+<div class="ulist data-line-241">
 <ul>
-<li>
+<li class="data-line-241">
 <p>Les nœuds de minage valident toutes les transactions en se référant au <em>consensus des règles de bitcoin</em>. Par conséquent, le minage assure la sécurité des transactions bitcoin en rejetant les transactions invalides ou malformées.</p>
 </li>
-<li>
+<li class="data-line-242">
 <p>L&#8217;exploitation minière crée de nouveaux bitcoins dans chaque bloc, presque comme une banque centrale imprimant de la nouvelle monnaie. La quantité de bitcoin créée par bloc est limitée et diminue avec le temps, suivant un calendrier d&#8217;émission fixe.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-245">
 <p>L&#8217;exploitation minière atteint un bon équilibre entre le coût et la récompense. L&#8217;exploitation minière utilise l&#8217;électricité pour résoudre un problème mathématique. Un mineur qui réussit recevra une <em>récompense</em> sous la forme de nouveaux bitcoins et de frais de transaction. Cependant, la récompense ne sera perçue que si le mineur a correctement validé toutes les transactions, à la satisfaction des règles de <em>consensus</em>. Cet équilibre délicat assure la sécurité du bitcoin sans autorité centrale.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-247">
 <p>Une bonne façon de décrire l&#8217;exploitation minière est comme un jeu compétitif géant de sudoku qui se réinitialise chaque fois que quelqu&#8217;un trouve une solution et dont la difficulté s&#8217;ajuste automatiquement de sorte qu&#8217;il faut environ 10 minutes pour trouver une solution. Imaginez un puzzle sudoku géant, de plusieurs milliers de lignes et de colonnes. Si je vous montre un puzzle terminé, vous pouvez le vérifier assez rapidement. Cependant, si le puzzle a quelques cases remplies et que les autres sont vides, cela demande beaucoup de travail à résoudre ! La difficulté du sudoku peut être ajustée en modifiant sa taille (plus ou moins de lignes et de colonnes), mais elle peut toujours être vérifiée assez facilement même si elle est très grande. Le "casse-tête" utilisé dans le bitcoin est basé sur un hachage cryptographique et présente des caractéristiques similaires : il est asymétriquement difficile à résoudre mais facile à vérifier, et sa difficulté peut être ajustée.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-249">
 <p>In <a href="#user-stories">[user-stories]</a>, nous avons présenté Jing est un entrepreneur à Shanghai. Jing dirige une <em>ferme minière</em>, qui est une entreprise qui gère des milliers d&#8217;ordinateurs miniers spécialisés, en compétition pour la récompense. Toutes les 10 minutes environ, les ordinateurs miniers de Jing rivalisent avec des milliers de systèmes similaires dans une course mondiale pour trouver une solution à un bloc de transactions. Trouver une telle solution, la soi-disant <em>Proof-of-Work (ou Preuve de travail)</em> (PoW), nécessite des quadrillions d&#8217;opérations de hachage par seconde sur l&#8217;ensemble du réseau Bitcoin. L&#8217;algorithme de preuve de travail implique de hacher à plusieurs reprises l&#8217;en-tête du bloc et un nombre aléatoire avec l&#8217;algorithme cryptographique SHA256 jusqu&#8217;à ce qu&#8217;une solution correspondant à un modèle prédéterminé émerge. Le premier mineur à trouver une telle solution remporte la compétition et publie ce bloc dans la chaîne de blocs.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-251">
 <p>Jing a commencé l&#8217;exploitation minière en 2010 en utilisant un ordinateur de bureau très rapide pour trouver une preuve de travail appropriée pour les nouveaux blocs. Au fur et à mesure que de plus en plus de mineurs rejoignaient le réseau Bitcoin, la difficulté du problème augmentait rapidement. Bientôt, Jing et d&#8217;autres mineurs sont passés à du matériel plus spécialisé, avec des unités de traitement graphique (GPU) dédiées de haute de gamme, souvent utilisées dans les ordinateurs de bureau ou les consoles de jeu. Au moment d&#8217;écrire ces lignes, la difficulté est si élevée qu&#8217;il n&#8217;est rentable de miner qu&#8217;avec des circuits intégrés à application spécifique (ASIC), essentiellement des centaines d&#8217;algorithmes de minage imprimé en matériel, fonctionnant en parallèle sur une seule puce de silicium. La société de Jing participe également à un <em>groupe ou bassin de mineurs</em>, qui, tout comme un groupe de loterie, permet à plusieurs participants de partager leurs efforts et leurs récompenses. La société de Jing gère désormais un entrepôt contenant des milliers de mineurs ASIC pour extraire du bitcoin 24 heures sur 24. L&#8217;entreprise paie ses frais d&#8217;électricité en vendant le bitcoin qu&#8217;elle est capable de générer à partir de l&#8217;exploitation minière, créant ainsi des revenus à partir des bénéfices.</p>
 </div>
 </div>
-<div class="sect2">
+<div class="sect2 data-line-253">
 <h3 id="_transactions_minières_en_blocs">Transactions minières en blocs</h3>
-<div class="paragraph">
+<div class="paragraph data-line-255">
 <p> De nouvelles transactions affluent constamment sur le réseau à partir des portefeuilles des utilisateurs et d&#8217;autres applications. Comme ceux-ci sont vus par les nœuds du réseau Bitcoin, ils sont ajoutés à un bassin temporaire de transactions non vérifiées maintenues par chaque nœud. Lorsque les mineurs construisent un nouveau bloc, ils ajoutent des transactions non vérifiées de ce bassin au nouveau bloc, puis tentent de prouver la validité de ce nouveau bloc, avec l&#8217;algorithme de minage (la preuve de travail). Le processus d&#8217;extraction est expliqué en détail dans <a href="#mining">[mining]</a>.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-257">
 <p>Les transactions sont ajoutées au nouveau bloc, classées par ordre de priorité par les transactions les plus payantes en premier et quelques autres critères. Chaque mineur commence le processus d&#8217;extraction d&#8217;un nouveau bloc de transactions dès qu&#8217;il reçoit le bloc précédent du réseau, sachant qu&#8217;il a perdu le tour de compétition précédent. Ils créent immédiatement un nouveau bloc, le remplissent avec les transactions et l&#8217;empreinte numérique du bloc précédent, et commencent à calculer la preuve de travail pour le nouveau bloc. Chaque mineur inclut une transaction spéciale dans son bloc, une transaction qui paie à sa propre adresse Bitcoin la récompense du bloc (actuellement 6,25 bitcoins nouvellement créés) plus la somme des frais de transaction de toutes les transactions incluses dans le bloc. S&#8217;ils trouvent une solution qui rend ce bloc valide, ils "gagnent" cette récompense car leur bloc réussi est ajouté à la chaîne de blocs mondiale et la transaction de récompense qu&#8217;ils ont incluse devient dépensable. Jing, qui participe à un groupe de minage, a mis en place son logiciel pour créer de nouveaux blocs qui attribuent la récompense à une adresse de pool. À partir de là, une part de la récompense est distribuée à Jing et aux autres mineurs proportionnellement à la quantité de travail qu&#8217;ils ont apportée lors du dernier tour.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-259">
 <p>La transaction d&#8217;Alice a été récupérée par le réseau et incluse dans le groupe de transactions non vérifiées. Une fois validé par le logiciel de minage, il a été inclus dans un nouveau bloc, appelé <em>bloc candidat</em>, généré par le pool de minage de Jing. Tous les mineurs participant à ce pool de minage commencent immédiatement à calculer la preuve de travail pour le bloc candidat. Environ cinq minutes après la première transmission de la transaction par le portefeuille d&#8217;Alice, l&#8217;un des mineurs ASIC de Jing a trouvé une solution pour le bloc candidat et l&#8217;a annoncée au réseau. Une fois que les autres mineurs ont validé le bloc gagnant, ils ont commencé la course pour générer le bloc suivant.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-261">
 <p>Le bloc gagnant de Jing est devenu une partie de la chaîne de blocs en tant que bloc # 277316, contenant 419 transactions, y compris la transaction d&#8217;Alice. Le bloc contenant la transaction d&#8217;Alice est compté comme une "confirmation" de cette transaction.</p>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock tip data-line-264">
 <table>
 <tr>
 <td class="icon">
 <div class="title">Tip</div>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>Vous pouvez voir le bloc qui inclut <a href="https://www.blockchain.com/btc/block/277316">Transaction d&#8217;Alice</a>.</p>
+<div class="paragraph data-line-265">
+<p>Vous pouvez voir le bloc qui inclut <a href="https://www.blockchain.com/btc/block/277316" data-href="https://www.blockchain.com/btc/block/277316">Transaction d&#8217;Alice</a>.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-268">
 <p> Environ 20 minutes plus tard, un nouveau bloc, #277317, est miné par un autre mineur. Parce que ce nouveau bloc est construit au-dessus du bloc #277316 qui contenait la transaction d&#8217;Alice, il a ajouté encore plus de calculs à la chaîne de blocs, renforçant ainsi la confiance dans ces transactions. Chaque bloc miné en plus de celui contenant la transaction compte comme une confirmation supplémentaire pour la transaction d&#8217;Alice. Au fur et à mesure que les blocs s&#8217;empilent les uns sur les autres, il devient exponentiellement plus difficile d&#8217;inverser la transaction, ce qui la rend de plus en plus fiable par le réseau.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-270">
 <p>Dans le diagramme en <a href="#block-alice1">Transaction d&#8217;Alice incluse dans le bloc #277316</a>, nous pouvons voir le bloc #277316, qui contient la transaction d&#8217;Alice. En dessous se trouvent 277 316 blocs (y compris le bloc #0), liés les uns aux autres dans une chaîne de blocs jusqu&#8217;au bloc #0, connu sous le nom de <em>bloc d&#8217;origine</em>. Au fil du temps, à mesure que la "hauteur" des blocs augmente, la difficulté de calcul de chaque bloc et de la chaîne dans son ensemble augmente également. Les blocs extraits après celui qui contient la transaction d&#8217;Alice agissent comme une assurance supplémentaire, car ils accumulent plus de calculs dans une chaîne de plus en plus longue. Par convention, tout bloc avec plus de six confirmations est considéré comme irrévocable, car il faudrait une immense quantité de calculs pour invalider et recalculer six blocs. Nous examinerons plus en détail le processus d&#8217;exploitation minière et la manière dont il renforce la confiance dans <a href="#mining">[mining]</a>.</p>
 </div>
-<div id="block-alice1" class="imageblock">
+<div id="block-alice1" class="imageblock data-line-274">
 <div class="content">
 <img src="images/mbc2_0209.png" alt="Transaction d&#8217;Alice incluse dans un bloc">
 </div>
 <div class="title">Figure 9. Transaction d&#8217;Alice incluse dans le bloc #277316</div>
 </div>
 </div>
-<div class="sect2">
+<div class="sect2 data-line-276">
 <h3 id="_dépenser_la_transaction">Dépenser la transaction</h3>
-<div class="paragraph">
+<div class="paragraph data-line-278">
 <p> Maintenant que la transaction d&#8217;Alice a été intégrée à la chaîne de blocs dans le cadre d&#8217;un bloc, il fait partie du grand livre distribué de Bitcoin et est visible par toutes les applications Bitcoin. Chaque client Bitcoin peut indépendamment vérifier que la transaction est valide et utilisable. Les clients du nœud complet peuvent suivre la source des fonds à partir du moment où les bitcoins ont été générés pour la première fois dans un bloc, progressivement d&#8217;une transaction à l&#8217;autre, jusqu&#8217;à ce qu&#8217;ils atteignent l&#8217;adresse de Bob. Les clients légers peuvent faire ce qu&#8217;on appelle une vérification de paiement simplifiée (voir <a href="#spv_nodes">[spv_nodes]</a>) en confirmant que la transaction est dans la chaîne de blocs et qu&#8217;elle a plusieurs blocs extraits après elle, fournissant ainsi l&#8217;assurance que les mineurs l&#8217;ont acceptée comme valide.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-280">
 <p>Bob peut maintenant dépenser le résultat de cette transaction et d&#8217;autres transactions. Par exemple, Bob peut payer un entrepreneur ou un fournisseur en transférant la valeur du paiement de la tasse de café d&#8217;Alice à ces nouveaux propriétaires. Très probablement, le logiciel Bitcoin de Bob regroupera de nombreux petits paiements en un paiement plus important, concentrant peut-être tous les revenus Bitcoin de la journée en une seule transaction. Cela regrouperait les différents paiements en un seul résultat (et une seule adresse). Pour un diagramme d&#8217;une transaction d&#8217;agrégation, voir <a href="#transaction-aggregating">Transaction agrégeant des fonds</a>.</p>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-282">
 <p>Au fur et à mesure que Bob dépense les paiements reçus d&#8217;Alice et d&#8217;autres clients, il étend la chaîne des transactions. Supposons que Bob paie son concepteur Web Gopesh à Bangalore pour une nouvelle page Web. Maintenant, la chaîne de transactions ressemblera à <a href="#block-alice2">La transaction d&#8217;Alice dans le cadre d&#8217;une chaîne de transactions de Joe à Gopesh, où la sortie d&#8217;une transaction est utilisée comme entrée de la transaction suivante</a>.</p>
 </div>
-<div id="block-alice2" class="imageblock">
+<div id="block-alice2" class="imageblock data-line-286">
 <div class="content">
 <img src="images/mbc2_0210.png" alt="Transaction d&#8217;Alice comme partie d&#8217;une chaîne de transactions">
 </div>
 <div class="title">Figure 10. La transaction d&#8217;Alice dans le cadre d&#8217;une chaîne de transactions de Joe à Gopesh, où la sortie d&#8217;une transaction est utilisée comme entrée de la transaction suivante</div>
 </div>
-<div class="paragraph">
+<div class="paragraph data-line-288">
 <p>Dans ce chapitre, nous avons vu comment les transactions construisent une chaîne qui déplace la valeur d&#8217;un propriétaire à l&#8217;autre. Nous avons également suivi la transaction d&#8217;Alice, à partir du moment où elle a été créée dans son portefeuille, via le réseau Bitcoin et jusqu&#8217;aux mineurs qui l&#8217;ont enregistrée sur la chaîne de blocs. Dans le reste de ce livre, nous examinerons les technologies spécifiques derrière les portefeuilles, les adresses, les signatures, les transactions, le réseau et enfin le minage. </p>
 </div>
 </div>
@@ -891,7 +891,7 @@ Une description du paiement : "Purchase at Bob's Cafe"</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-23 22:28:26 -0400
+Last updated 2022-03-23 23:56:51 -0400
 </div>
 </div>
 </body>
