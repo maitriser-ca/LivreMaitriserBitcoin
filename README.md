@@ -40,7 +40,7 @@ La source originale de ces textes est tiré du livre à édition ouverte <strong
 * Traduction
   - [x] Phase de traduction (DONE1) : 👍
   - [x] Phase de révision (DONE2) : 👍
-  - [ ] Phase de conclusion (DONEF) : en cours...
+  - [x] Phase de conclusion (DONEF) : 👍
 * Révision
   - [ ] Phase de révision externe
 
