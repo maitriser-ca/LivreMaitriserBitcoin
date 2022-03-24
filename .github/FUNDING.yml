@@ -10,4 +10,4 @@ liberapay: # Replace with a single Liberapay username
 issuehunt: # Replace with a single IssueHunt username
 otechie: # Replace with a single Otechie username
 lfx_crowdfunding: # Replace with a single LFX Crowdfunding project-name e.g., cloud-foundry
-custom: ["https://paypal.me/serafim3rd", serafdossantos.eth, "bitcoin:bc1qgal2khvhktyqaj99etxmtd6m6xhv72ht0zvhtx"]
+custom: ["https://paypal.me/serafim3rd", serafdossantos.eth]
