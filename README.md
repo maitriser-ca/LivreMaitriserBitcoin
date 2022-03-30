@@ -1,15 +1,3 @@
-<!-- Twitter single-event website tag code -->
-<script src="//static.ads-twitter.com/oct.js" type="text/javascript"></script>
-<script type="text/javascript">
-<!--
-  twttr.conversion.trackPid('o89jm', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
--->
-<noscript>
-<img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=o89jm&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
-<img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=o89jm&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
-</noscript>
-<!-- End Twitter single-event website tag code -->
-
 # Maîtriser Bitcoin : Programmer la cha&icirc;ne de blocs publique, 2ième édition ouverte
 
 Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs publique** (_**Mastering Bitcoin: Programming the Open Blockchain**_ par O'Reilly Media) tel qu'écrit originalement en anglais par _Andreas M. Antonopoulos_, traduit en français (Canada) par _Google Translate API_ et révisé par _Serafim Dos Santos_ avec les termes du [Grand dictionnaire terminologique (GDT)](https://gdt.oqlf.gouv.qc.ca/) de l'[Office qu&eacute;b&eacute;cois de la langue fran&ccedil;aise](https://www.oqlf.gouv.qc.ca/).
