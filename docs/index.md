@@ -3,6 +3,7 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
+lang: fr
 ---
 
 # Maîtriser Bitcoin : Programmer la cha&icirc;ne de blocs publique, 2ième édition ouverte
