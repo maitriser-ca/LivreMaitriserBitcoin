@@ -27,39 +27,17 @@ La source originale de ces textes est tiré du livre à édition ouverte <strong
 </p>
 <p>Ευχαριστώ Ανδρέα!</p><br>
 </blockquote>
-<hr>
-<pre>
-! ! !
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!   CE PROJET EST EN DÉVELOPPEMENT   !!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-! ! !
-</pre>
 
-<div style="">
-<p>Pour un don ou me payer un café :</p>
-<img src="assets/bluewallet-bitcoin-sponsoring-qr-code.jpg" alt="" style="max-width:50%;">
-<p>bitcoin:bc1qgal2khvhktyqaj99etxmtd6m6xhv72ht0zvhtx</p>
-<p>ETH : serafdossantos.eth</p>
-</div>
-
-</center>
-
-## Feuille de route
-* Traduction
-  - [x] Phase de traduction (DONE1) : 👍
-  - [x] Phase de révision (DONE2) : 👍
-  - [x] Phase de conclusion (DONEF) : 👍
-* Révision
-  - [ ] Phase de révision externe
-
-<center>
 <hr />
+
 <h1>Ma&icirc;triser Bitcoin</h1>
 <h2>Programmer la cha&icirc;ne de blocs publique</h2>
 <h3>2ième édition ouverte</h3>
 <p>Auteur : <strong>Andreas M. Antonopoulos</strong><br />
-Traducteur : <strong>Serafim Dos Santos</strong></p>
+Traducteur : <strong>Serafim Dos Santos</strong><br />
+Réviseur: en attente
+</p>
+
 </center>
 
 ---
@@ -85,6 +63,20 @@ Traducteur : <strong>Serafim Dos Santos</strong></p>
 20. [Annexe F - Commandes de l'explorateur Bitcoin (bx)](html/for_use_mastering-bitcoin_appendix-bx_fr_CA.html)
 
 ---
+
+<div style="display: flex; text-align:center;">
+  <div style="width:35%;">
+  <p>Pour un don ou me payer un café :</p>
+  <img src="assets/bluewallet-bitcoin-sponsoring-qr-code.jpg" alt="" style="max-width:33.5%;">
+  </div>
+
+  <div style="width:65%;">
+  <p>bitcoin:bc1qgal2khvhktyqaj99etxmtd6m6xhv72ht0zvhtx</p>
+  <p>$ETH : serafdossantos.eth</p>
+  </div>
+</div>
+---
+
 ## Translations
 If you are interested in translating this book, please join a team of volunteers at [www.transifex.com/bitcoinbook/mastering-bitcoin/](https://www.transifex.com/bitcoinbook/mastering-bitcoin/)
 Free copies of "Mastering Bitcoin Open Edition", translated in many languages, can be downloaded from [bitcoinbook.info](https://bitcoinbook.info)
