@@ -1,4 +1,5 @@
 :stem: latextmath
+:stylesheet: default-style.css
 
 = Maîtriser Bitcoin
 
