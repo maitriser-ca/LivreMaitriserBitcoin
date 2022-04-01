@@ -32,7 +32,18 @@
       {%- include social.html -%}
     </div>
 
-    copyright &copy; {{ site.time | date: '%Y' }} {{ site.author.name | escape }}
+    <div style="text-align: center;margin-top: 3%;">
+      <p class="copyright">
+        &copy; {{ site.time | date: '%Y' }}
+        {%- if site.author %}
+          {{ site.author.name | escape }}
+        {%- endif %}
+        &mdash;
+        <a href="{{ site.url | relative_url }}">{{ site.title | escape }}</a>
+      </p>
+    </div>
+    
+
   </div>
 
 </footer>
