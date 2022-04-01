@@ -4,6 +4,7 @@
 
 layout: home
 lang: fr
+title: "Maîtriser Bitcoin: Programmer la chaîne de blocs publique"
 ---
 
 # Maîtriser Bitcoin : Programmer la cha&icirc;ne de blocs publique, 2ième édition ouverte
