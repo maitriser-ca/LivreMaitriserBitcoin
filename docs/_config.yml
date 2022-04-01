@@ -18,16 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: Maîtriser Bitcoin: Programmer la chaîne de blocs publique
+email: imfo@maitriser.ca
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Le livre Maîtriser Bitcoin: Programmer la chaîne de blocs publique, traduction française de Mastering Bitcoin: Programming the Open Blockchain, originallement publié par O'Reilly Media écrit originalement en anglais par Andreas M. Antonopoulos et maintenant une édition ouverte, traduit en français (Canada) par Google Translate API via le service transifex.com et révisé par Serafim Dos Santos avec les termes du Grand dictionnaire terminologique de l'Office québécois de la langue française
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "https://bitcoin.maitriser.ca" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: serafdossantos
+github_username:  SerafDosSantos
 
 # Build settings
 theme: minima
