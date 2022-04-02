@@ -12,7 +12,7 @@
   </body>
 </html></richcontent>
 <node CREATED="1647766807453" ID="ID_1215745242" MODIFIED="1647767310259" POSITION="left" TEXT="Traduction (fr_CA)">
-<node COLOR="#ff0066" CREATED="1648045627316" FOLDED="true" ID="ID_269739844" MODIFIED="1648077371580" STYLE="bubble" TEXT="en tout temps">
+<node COLOR="#ff0066" CREATED="1648045627316" FOLDED="true" ID="ID_269739844" MODIFIED="1648869289234" STYLE="bubble" TEXT="en tout temps">
 <icon BUILTIN="yes"/>
 <node CREATED="1648045636825" ID="ID_831112442" MODIFIED="1648045646341" TEXT="erreurs de formattage">
 <node CREATED="1648048017249" ID="ID_522393768" MODIFIED="1648048114003" TEXT="retirer ****">
@@ -96,7 +96,7 @@
       </html></richcontent>
 </node>
 </node>
-<node CREATED="1647766807453" FOLDED="true" ID="ID_1268647913" MODIFIED="1648044578624">
+<node CREATED="1647766807453" FOLDED="true" ID="ID_1268647913" MODIFIED="1648869267831">
 <richcontent TYPE="NODE"><html>
       <head>
 
@@ -313,7 +313,7 @@
         </html></richcontent>
 </node>
 </node>
-<node CREATED="1647766807454" ID="ID_1690509100" MODIFIED="1648093044428">
+<node CREATED="1647766807454" FOLDED="true" ID="ID_1690509100" MODIFIED="1648869270401">
 <richcontent TYPE="NODE"><html>
       <head>
 
