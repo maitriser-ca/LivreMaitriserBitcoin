@@ -7,8 +7,6 @@ lang: fr
 title: "Maîtriser Bitcoin: Programmer la chaîne de blocs publique"
 ---
 
-# Maîtriser Bitcoin : Programmer la cha&icirc;ne de blocs publique, 2ième édition ouverte
-
 Le livre **Maîtriser Bitcoin: Programmer la chaîne de blocs publique**, traduction française de _**Mastering Bitcoin: Programming the Open Blockchain**_, originalement publié par O'Reilly Media écrit originalement en anglais par _Andreas M. Antonopoulos_ et maintenant une édition ouverte, traduit en français (Canada) par _Google Translate API_ via le service _transifex.com_ et révisé par _Serafim Dos Santos_ avec les termes du [Grand dictionnaire terminologique (GDT)](https://gdt.oqlf.gouv.qc.ca/) de l'[Office qu&eacute;b&eacute;cois de la langue fran&ccedil;aise](https://www.oqlf.gouv.qc.ca/).
 
 ---
