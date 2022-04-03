@@ -15,7 +15,7 @@ Here's some interesting projects I'm working on lately:
 * The Mastering Bitcoin 2nd Open Edition book translation to French
   * 👉 [bitcoin.maitriser.ca](https://bitcoin.maitriser.ca/)
 * The Mastering Ethereum Open Edition book translation to French
- * 👉 [ethereum.maitriser.ca](https://ethereum.maitriser.ca/)
+  * 👉 [ethereum.maitriser.ca](https://ethereum.maitriser.ca/)
 * Some Jupyter Notebooks with references to blockchain technologies
 * A Tarot & Oracle gaming website
 
