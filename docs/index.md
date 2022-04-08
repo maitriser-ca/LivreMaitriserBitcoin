@@ -58,6 +58,7 @@ Réviseur: en attente
 18. [Annexe D - BitCore](html/for_use_mastering-bitcoin_appdx-bitcoretxt_fr_CA.html)
 19. [Annexe E - pycoin, ku et tx](html/for_use_mastering-bitcoin_appendix-pycoin_fr_CA.html)
 20. [Annexe F - Commandes de l'explorateur Bitcoin (bx)](html/for_use_mastering-bitcoin_appendix-bx_fr_CA.html)
+
 ---
 
 <center>
