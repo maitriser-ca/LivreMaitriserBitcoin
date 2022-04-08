@@ -58,14 +58,15 @@ Réviseur: en attente
 18. [Annexe D - BitCore](html/for_use_mastering-bitcoin_appdx-bitcoretxt_fr_CA.html)
 19. [Annexe E - pycoin, ku et tx](html/for_use_mastering-bitcoin_appendix-pycoin_fr_CA.html)
 20. [Annexe F - Commandes de l'explorateur Bitcoin (bx)](html/for_use_mastering-bitcoin_appendix-bx_fr_CA.html)
+
 ---
 
 <center>
-<p>Je n'ai pas référencé les liens entres les documents .adoc (les documents originaux anglais ne sont pas concu pour être disponibles par chapitre). Si vous souhaîtez avoir le livre en une seule page :</p>
+<p>Je n'ai pas référencé les liens entres les documents .adoc (les documents originaux anglais ne sont pas concu pour être disponibles par chapitre). Si vous souhaîtez le livre en une seule page :</p>
 
 <p style="color:red;">!!! ATTENTION : Processus intense !!!</p>
 
-[Livre en une seule page](https://bitcoin.maitriser.ca/html/book.html)
+<a href="https://bitcoin.maitriser.ca/html/book.html" alt="Livre Maîtriser Bitcoin en une seule page html">Livre en une seule page html</a>
 </center>
 
 ---
