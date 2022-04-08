@@ -11,7 +11,7 @@ Le livre **Maîtriser Bitcoin: Programmer la chaîne de blocs publique**, traduc
 
 ---
 
-![Maîtriser Bitcoin: Programmer la chaîne de blocs publique](assets/MB2EO-MY-BANNER_GITHUB.png)
+![Maîtriser Bitcoin: Programmer la chaîne de blocs publique](assets/MB2EO-FB_BANNER.png)
 
 ---
 <center style="font-size:1.2em;">
@@ -58,6 +58,15 @@ Réviseur: en attente
 18. [Annexe D - BitCore](html/for_use_mastering-bitcoin_appdx-bitcoretxt_fr_CA.html)
 19. [Annexe E - pycoin, ku et tx](html/for_use_mastering-bitcoin_appendix-pycoin_fr_CA.html)
 20. [Annexe F - Commandes de l'explorateur Bitcoin (bx)](html/for_use_mastering-bitcoin_appendix-bx_fr_CA.html)
+---
+
+<center>
+<p>Je n'ai pas référencé les liens entres les documents .adoc (les documents originaux anglais ne sont pas concu pour être disponibles par chapitre). Si vous souhaîtez avoir le livre en une seule page :</p>
+
+<p style="color:red;">!!! ATTENTION : Processus intense !!!</p>
+
+[Livre en une seule page](https://bitcoin.maitriser.ca/html/book.html)
+</center>
 
 ---
 
@@ -72,6 +81,11 @@ Réviseur: en attente
   <p>$ETH : serafdossantos.eth</p>
   </div>
 </div>
+
+---
+
+L'édition ouverte originale en anglais, en html : [http://www.maitriser.ca/MasteringBitcoinBook/](http://www.maitriser.ca/MasteringBitcoinBook/)
+
 ---
 
 ## Translations
