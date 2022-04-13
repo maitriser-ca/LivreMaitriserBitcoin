@@ -11,7 +11,7 @@ Le livre **Maîtriser Bitcoin: Programmer la chaîne de blocs publique**, traduc
 
 ---
 
-![Maîtriser Bitcoin: Programmer la chaîne de blocs publique](assets/MB2EO-FB_BANNER.png)
+![Maîtriser Bitcoin: Programmer la chaîne de blocs publique](assets/MB2EO-BANNER-002.png)
 
 ---
 <center style="font-size:1.2em;">
