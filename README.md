@@ -30,7 +30,7 @@ Vous pouvez toujours convertif les documents `*.asciidoc` en fichiers `.pdf`, `.
 **Veuillez noter que les documents `.asciidoc` source sont fait pour être assemblés dans le fichier principal `book.asciidoc`, donc si vous compilez les fichiers individuellement (i.e. par chapitre), les liens entre les en-têtes des grandes lignes du livre seront non-repérables: on ne peut naviguer entre les documents compilés séparément.**
 
 
-![Maîtriser Bitcoin: Programmer la chaîne de blocs publique](assets/MB2EO-BANNER-002.png)
+![Maîtriser Bitcoin: Programmer la chaîne de blocs publique](/assets/MB2EO-BANNER-002.png)
 
 ## _Mastering Bitcoin - Second Edition_
 
