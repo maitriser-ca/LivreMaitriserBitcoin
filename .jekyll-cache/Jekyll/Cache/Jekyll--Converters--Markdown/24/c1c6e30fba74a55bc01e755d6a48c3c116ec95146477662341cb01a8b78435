@@ -1,0 +1,95 @@
+I"�<h1 id="maîtriser-bitcoin--programmer-la-chaîne-de-blocs-publique-2ième-édition-ouverte">Maîtriser Bitcoin : Programmer la chaîne de blocs publique, 2ième édition ouverte</h1>
+
+<p>Le livre <strong>Maîtriser Bitcoin: Programmer la chaîne de blocs publique</strong>, traduction française de <em><strong>Mastering Bitcoin: Programming the Open Blockchain</strong></em>, originalement publié par O’Reilly Media écrit originalement en anglais par <em>Andreas M. Antonopoulos</em> et maintenant une édition ouverte, traduit en français (Canada) par <em>Google Translate API</em> via le service <em>transifex.com</em> et révisé par <em>Serafim Dos Santos</em> avec les termes du <a href="https://gdt.oqlf.gouv.qc.ca/">Grand dictionnaire terminologique (GDT)</a> de l’<a href="https://www.oqlf.gouv.qc.ca/">Office québécois de la langue française</a>.</p>
+
+<hr />
+<center>
+<img src="assets/MB2EO-MY-BANNER_GITHUB.png" alt="Maîtriser Bitcoin: Programmer la chaîne de blocs publique" width="96%" />
+</center>
+
+<hr />
+<center style="font-size:1.2em;">
+<h2><em>Mastering Bitcoin - Second Edition</em></h2>
+<blockquote><br /><p>
+La source originale de ces textes est tiré du livre à édition ouverte <strong>Mastering Bitcoin</strong> par <em>Andreas M. Antonopoulos</em> accessible sur GitHub
+</p>
+<p>
+👉 <a href="https://github.com/bitcoinbook/bitcoinbook">github.com/bitcoinbook/bitcoinbook</a> 👈
+</p>
+<p>Ευχαριστώ Ανδρέα!</p><br />
+</blockquote>
+<hr />
+<pre>
+! ! !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!   CE PROJET EST EN DÉVELOPPEMENT   !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! ! !
+</pre>
+
+<div style="">
+<p>Pour un don ou me payer un café :</p>
+<img src="assets/bluewallet-bitcoin-sponsoring-qr-code.jpg" alt="" style="max-width:50%;" />
+<p>bitcoin:bc1qgal2khvhktyqaj99etxmtd6m6xhv72ht0zvhtx</p>
+<p>ETH : serafdossantos.eth</p>
+</div>
+
+</center>
+
+<h2 id="feuille-de-route">Feuille de route</h2>
+<ul>
+  <li>Traduction
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Phase de traduction (DONE1) : 👍</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Phase de révision (DONE2) : 👍</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Phase de conclusion (DONEF) : 👍</li>
+    </ul>
+  </li>
+  <li>Révision
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Phase de révision externe</li>
+    </ul>
+  </li>
+</ul>
+
+<center>
+<hr />
+<h1>Ma&icirc;triser Bitcoin</h1>
+<h2>Programmer la cha&icirc;ne de blocs publique</h2>
+<h3>2ième édition ouverte</h3>
+<p>Auteur : <strong>Andreas M. Antonopoulos</strong><br />
+Traducteur : <strong>Serafim Dos Santos</strong></p>
+</center>
+
+<hr />
+<ol>
+  <li><a href="html/for_use_mastering-bitcoin_preface-open_fr_CA.html">Préface</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_glossary-1_fr_CA.html">Glossaire rapide</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_chapter-1_fr_CA.html">Chapitre 1 - Introduction</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_chapter-2_fr_CA.html">Chapitre 2 - Comment fonctionne Bitcoin</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_chapter-3_fr_CA.html">Chapitre 3 - Bitcoin Core: La référence d’implémentation</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_chapter-4_fr_CA.html">Chapitre 4 - Clés et adresses</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_chapter-5_fr_CA.html">Chapitre 5 - Portefeuilles</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_chapter-6_fr_CA.html">Chapitre 6 - Opérations</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_chapter-7_fr_CA.html">Chapitre 7 - Transactions et scripts avancés</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_chapter-8_fr_CA.html">Chapitre 8 - Le réseau Bitcoin</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_chapter-9_fr_CA.html">Chapitre 9 - La chaîne de blocs</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_chapter-10_fr_CA.html">Chapitre 10 - Minage et Consensus</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_chapter-11_fr_CA.html">Chapitre 11 - Sécurité de Bitcoin</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_chapter-12_fr_CA.html">Chapitre 12 - Applications pour les chaînes de blocs</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_appdx-bitcoinwhitepapertxt_fr_CA.html">Annexe A - Le livre blanc Bitcoin de Satoshi Nakamoto</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_appendix-script-ops_fr_CA.html">Annexe B - Opérateurs, constantes et symboles du langage de script de transaction</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_appendix-bips_fr_CA.html">Annexe C - Bitcoin Improvement Proposals (BIPs ou Propositions d’amélioration de Bitcoin)</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_appdx-bitcoretxt_fr_CA.html">Annexe D - BitCore</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_appendix-pycoin_fr_CA.html">Annexe E - pycoin, ku et tx</a></li>
+  <li><a href="html/for_use_mastering-bitcoin_appendix-bx_fr_CA.html">Annexe F - Commandes de l’explorateur Bitcoin (bx)</a></li>
+</ol>
+
+<hr />
+<h2 id="translations">Translations</h2>
+<p>If you are interested in translating this book, please join a team of volunteers at <a href="https://www.transifex.com/bitcoinbook/mastering-bitcoin/">www.transifex.com/bitcoinbook/mastering-bitcoin/</a>
+Free copies of “Mastering Bitcoin Open Edition”, translated in many languages, can be downloaded from <a href="https://bitcoinbook.info">bitcoinbook.info</a></p>
+
+<hr />
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Cette œuvre est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licence Creative Commons Attribution -  Partage dans les Mêmes Conditions 4.0 International</a>.</p>
+:ET

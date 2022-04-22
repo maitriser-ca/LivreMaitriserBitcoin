@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Le réseau Bitcoin</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="bitcoin_network_ch08">Le réseau Bitcoin</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_architecture_du_réseau_pair_à_pair">Architecture du réseau pair à pair</h3>
+<div class="paragraph">
+<p>Bitcoin est structuré comme une architecture de réseau pair à pair au-dessus de l&#8217;Internet. Le terme pair à pair, ou P2P, signifie que les ordinateurs qui participent au réseau sont des pairs les uns des autres, qu&#8217;ils sont tous égaux, qu&#8217;il n&#8217;y a pas de nœuds "spéciaux" et que tous les nœuds partagent la charge de fournir services réseau. Les nœuds du réseau s&#8217;interconnectent dans un réseau maillé avec une topologie "plate". Il n&#8217;y a pas de serveur, pas de service centralisé et pas de hiérarchie au sein du réseau. Les nœuds d&#8217;un réseau P2P fournissent et consomment des services en même temps, la réciprocité agissant comme une incitation à la participation. Les réseaux P2P sont intrinsèquement résilients, décentralisés et ouverts. Un exemple prééminent d&#8217;une architecture de réseau P2P était le début d&#8217;Internet lui-même, où les nœuds du réseau IP étaient égaux. L&#8217;architecture Internet d&#8217;aujourd&#8217;hui est plus hiérarchique, mais le protocole Internet conserve toujours son essence de topologie plate. Au-delà du bitcoin, l&#8217;application la plus importante et la plus réussie des technologies P2P est le partage de fichiers, avec Napster comme pionnier et BitTorrent comme l&#8217;évolution la plus récente de l&#8217;architecture.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;architecture du réseau P2P de Bitcoin est bien plus qu&#8217;un choix de topologie. Bitcoin est un système de paiement numérique P2P de par sa conception, et l&#8217;architecture du réseau est à la fois le reflet et le fondement de cette caractéristique essentielle. La décentralisation du contrôle est un principe de conception de base qui ne peut être atteint et maintenu que par un réseau consensuel P2P plat et décentralisé.</p>
+</div>
+<div class="paragraph">
+<p>Le terme "réseau Bitcoin" fait référence à l&#8217;ensemble de nœuds exécutant le protocole bitcoin P2P. En plus du protocole bitcoin P2P, il existe d&#8217;autres protocoles tels que Stratum qui sont utilisés pour le minage et les portefeuilles légers ou mobiles. Ces protocoles supplémentaires sont fournis par des serveurs de routage de passerelle qui accèdent au réseau Bitcoin à l&#8217;aide du protocole bitcoin P2P, puis étendent ce réseau aux nœuds exécutant d&#8217;autres protocoles. Par exemple, les serveurs Stratum connectent les nœuds de minage Stratum via le protocole Stratum au réseau Bitcoin principal et relient le protocole Stratum au protocole bitcoin P2P. Nous utilisons le terme « réseau Bitcoin étendu » pour désigner le réseau global qui comprend le protocole Bitcoin P2P, les protocoles de minage de groupe, le protocole Stratum et tout autre protocole connexe reliant les composants du système Bitcoin.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_types_de_nœuds_et_rôles">Types de nœuds et rôles</h3>
+<div class="paragraph">
+<p>Bien que les nœuds dans le bitcoin Les réseaux P2P sont égaux, ils peuvent jouer différents rôles en fonction de la fonctionnalité qu&#8217;ils prennent en charge. Un nœud Bitcoin est un ensemble de fonctions : le routage, la base de données chaîne de blocs, le minage et les services de portefeuille. Un nœud complet avec ces quatre fonctions est affiché dans <a href="#full_node_reference">Un nœud de réseau Bitcoin avec les quatre fonctions : portefeuille, mineur, base de données chaîne de blocs complète et routage réseau</a>.</p>
+</div>
+<div id="full_node_reference" class="imageblock smallerfifty">
+<div class="content">
+<img src="images/mbc2_0801.png" alt="Référence de nœud client complet">
+</div>
+<div class="title">Figure 1. Un nœud de réseau Bitcoin avec les quatre fonctions : portefeuille, mineur, base de données chaîne de blocs complète et routage réseau</div>
+</div>
+<div class="paragraph">
+<p>Tous les nœuds incluent la fonction de routage pour participer au réseau et peuvent inclure d&#8217;autres fonctionnalités. Tous les nœuds valident et propagent les transactions et les blocs, et découvrent et maintiennent les connexions aux pairs. Dans l&#8217;exemple de nœud complet dans <a href="#full_node_reference">Un nœud de réseau Bitcoin avec les quatre fonctions : portefeuille, mineur, base de données chaîne de blocs complète et routage réseau</a>, la fonction de routage est indiquée par un cercle nommé "Network Routing Node" ou par la lettre "N".</p>
+</div>
+<div class="paragraph">
+<p>Certains nœuds, appelés nœuds complets, conservent également une copie complète et à jour de la chaîne de blocs. Les nœuds complets peuvent vérifier de manière autonome et autoritaire toute transaction sans référence externe. Certains nœuds ne conservent qu&#8217;un sous-ensemble de la chaîne de blocs et vérifient les transactions à l&#8217;aide d&#8217;une méthode appelée <em>simplified-payment-verification</em>, ou SPV. Ces nœuds sont appelés nœuds SPV ou nœuds légers. Dans l&#8217;exemple de nœud complet de la figure, la fonction de base de données chaîne de blocs de nœud complet est indiquée par un cercle appelé "Full Blockchain" ou la lettre "B". Dans <a href="#bitcoin_network">Le réseau Bitcoin étendu montrant divers types de nœuds, passerelles et protocoles</a>, les nœuds SPV sont dessinés sans le cercle "B", montrant qu&#8217;ils n&#8217;ont pas une copie complète de la chaîne de blocs.</p>
+</div>
+<div class="paragraph">
+<p> Les nœuds de minage se font concurrence pour créer de nouveaux blocs en exécutant du matériel spécialisé pour résoudre l&#8217;algorithme de preuve de travail. Certains nœuds de minage sont également des nœuds complets, conservant une copie complète de la chaîne de blocs, tandis que d&#8217;autres sont des nœuds légers participant au minage de groupe et dépendant d&#8217;un serveur de groupe pour maintenir un nœud complet. La fonction d&#8217;exploration de données est affichée dans le nœud complet sous la forme d&#8217;un cercle appelé "Miner" ou de la lettre "M".</p>
+</div>
+<div class="paragraph">
+<p>Les portefeuilles d&#8217;utilisateurs peuvent faire partie d&#8217;un nœud complet, comme c&#8217;est généralement le cas avec les clients Bitcoin de bureau. De plus en plus, de nombreux portefeuilles d&#8217;utilisateurs, en particulier ceux fonctionnant sur des appareils à ressources limitées tels que les smartphones, sont des nœuds SPV. La fonction de portefeuille est affichée dans <a href="#full_node_reference">Un nœud de réseau Bitcoin avec les quatre fonctions : portefeuille, mineur, base de données chaîne de blocs complète et routage réseau</a> comme un cercle appelé "Wallet" ou la lettre "W."</p>
+</div>
+<div class="paragraph">
+<p>En plus des principaux types de nœuds sur le protocole bitcoin P2P, il existe des serveurs et des nœuds exécutant d&#8217;autres protocoles, tels que des protocoles de groupe de minage spécialisés et des protocoles d&#8217;accès client légers.</p>
+</div>
+<div class="paragraph">
+<p><a href="#node_type_ledgend">Différents types de nœuds sur le réseau Bitcoin étendu</a> montre les types de nœuds les plus courants sur le réseau Bitcoin étendu.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_le_réseau_bitcoin_étendu">Le réseau Bitcoin étendu</h3>
+<div class="paragraph">
+<p>Le principal réseau Bitcoin, en cours d&#8217;exécution le protocole bitcoin P2P, se compose de 5 000 à 8 000 nœuds d&#8217;écoute exécutant différentes versions du client de référence bitcoin (Bitcoin Core) et de quelques centaines de nœuds exécutant diverses autres implémentations du protocole bitcoin P2P, telles que Bitcoin Classic, Bitcoin Unlimited, BitcoinJ, Libbitcoin, btcd et bcoin. Un petit pourcentage des nœuds du réseau bitcoin P2P sont également des nœuds de minage, en concurrence dans le processus de minage, en validant les transactions et en créant de nouveaux blocs. Diverses grandes entreprises s&#8217;interfacent avec le réseau Bitcoin en exécutant des clients à nœud complet basés sur le client Bitcoin Core, avec des copies complètes de la chaîne de blocs et un nœud de réseau, mais sans fonctions de minage ou de portefeuille. Ces nœuds agissent comme des routeurs de périphérie de réseau, permettant à divers autres services (échanges, portefeuilles, explorateurs de blocs, traitement des paiements marchands) d&#8217;être construits par-dessus.</p>
+</div>
+<div class="paragraph">
+<p>Le réseau Bitcoin étendu comprend le réseau exécutant le protocole bitcoin P2P, décrit précédemment, ainsi que des nœuds exécutant des protocoles spécialisés. Un certain nombre de serveurs de groupe et de passerelles de protocole qui connectent des nœuds exécutant d&#8217;autres protocoles sont attachés au réseau principal bitcoin P2P. Ces autres nœuds de protocole sont principalement des nœuds de minage de groupe (voir <a href="#mining">[mining]</a>) et les clients de portefeuille légers, qui ne portent pas une copie complète de la chaîne de blocs.</p>
+</div>
+<div class="paragraph">
+<p><a href="#bitcoin_network">Le réseau Bitcoin étendu montrant divers types de nœuds, passerelles et protocoles</a> montre le réseau Bitcoin étendu avec les différents types de nœuds, serveurs de passerelle, routeurs de périphérie et clients de portefeuille et les différents protocoles qu&#8217;ils utilisent pour se connecter les uns aux autres.</p>
+</div>
+<div id="node_type_ledgend" class="imageblock">
+<div class="content">
+<img src="images/mbc2_0802.png" alt="Types de nœuds Bitcoin">
+</div>
+<div class="title">Figure 2. Différents types de nœuds sur le réseau Bitcoin étendu</div>
+</div>
+<div id="bitcoin_network" class="imageblock">
+<div class="content">
+<img src="images/mbc2_0803.png" alt="Réseau Bitcoin">
+</div>
+<div class="title">Figure 3. Le réseau Bitcoin étendu montrant divers types de nœuds, passerelles et protocoles</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_réseaux_relais_bitcoin">Réseaux relais Bitcoin</h3>
+<div class="paragraph">
+<p>Alors que le réseau bitcoin P2P répond aux besoins généraux d&#8217;une grande variété de types de nœuds, il présente une latence de réseau trop élevée pour les besoins spécialisés des nœuds de minage de bitcoins.</p>
+</div>
+<div class="paragraph">
+<p>Les mineurs de Bitcoin sont engagés dans une compétition urgente pour résoudre le problème de la preuve de travail et étendre la chaîne de blocs (voir <a href="#mining">[mining]</a>). Tout en participant à cette compétition, les mineurs de bitcoins doivent minimiser le temps entre la propagation d&#8217;un bloc gagnant et le début du prochain tour de compétition. Dans le secteur minier, la latence du réseau est directement liée aux marges bénéficiaires.</p>
+</div>
+<div class="paragraph">
+<p>Un <em>Bitcoin Relay Network</em> ou (réseau de relais Bitcoin) est un réseau qui tente de minimiser la latence dans la transmission des blocs entre les mineurs. Le <a href="https://www.bitcoinrelaynetwork.org" class="bare">https://www.bitcoinrelaynetwork.org</a> [Bitcoin Relay Network] original a été créé par le développeur principal Matt Corallo en 2015 pour permettre une synchronisation rapide des blocs entre les mineurs avec une latence très faible. Le réseau se composait de plusieurs nœuds spécialisés hébergés sur l&#8217;infrastructure Amazon Web Services à travers le monde et servait à connecter la majorité des mineurs et des pools de minage.</p>
+</div>
+<div class="paragraph">
+<p>Le réseau de relais Bitcoin d&#8217;origine a été remplacé en 2016 par l&#8217;introduction du <em>Fast Internet Bitcoin Relay Engine</em> ou https:/ /bitcoinfibre.org[<em>FIBRE</em>], également créé par le développeur principal Matt Corallo. FIBRE est un réseau de relais basé sur UDP qui relaie les blocs au sein d&#8217;un réseau de nœuds. FIBRE met en œuvre l&#8217;optimisation <em>bloc compact</em> pour réduire davantage la quantité de données transmises et la latence du réseau.</p>
+</div>
+<div class="paragraph">
+<p>Les réseaux de relais ne remplacent pas le réseau P2P de Bitcoin. Au lieu de cela, ce sont des réseaux superposés qui fournissent une connectivité supplémentaire entre les nœuds ayant des besoins spécialisés. Comme les autoroutes ne remplacent pas les routes rurales, mais plutôt des raccourcis entre deux points à fort trafic, vous avez toujours besoin de petites routes pour vous connecter aux autoroutes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_découverte_du_réseau">Découverte du réseau</h3>
+<div class="paragraph">
+<p>Lorsqu&#8217;un nouveau nœud démarre, il doit découvrir d&#8217;autres nœuds Bitcoin sur le réseau afin de participer. Pour démarrer ce processus, un nouveau nœud doit découvrir au moins un nœud existant sur le réseau et s&#8217;y connecter. L&#8217;emplacement géographique des autres nœuds n&#8217;est pas pertinent ; la topologie du réseau Bitcoin n&#8217;est pas définie géographiquement. Par conséquent, tous les nœuds Bitcoin existants peuvent être sélectionnés au hasard.</p>
+</div>
+<div class="paragraph">
+<p>Pour se connecter à un pair connu, les nœuds établissent une connexion TCP, généralement au port 8333 (le port généralement connu comme celui utilisé par bitcoin), ou un autre port s&#8217;il en existe un. Lors de l&#8217;établissement d&#8217;une connexion, le nœud commencera une "prise de contact" (voir <a href="#network_handshake">La poignée de main initiale entre pairs</a>) en transmettant un message <code>version</code>, qui contient des informations d&#8217;identification de base, notamment :</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>nVersion</code></dt>
+<dd>
+<p>La version du protocole bitcoin P2P que le client "parle" (par exemple, 70002)</p>
+</dd>
+<dt class="hdlist1"><code>nLocalServices</code></dt>
+<dd>
+<p>Une liste des services locaux pris en charge par le nœud, actuellement uniquement <code>NODE_NETWORK</code></p>
+</dd>
+<dt class="hdlist1"><code>nTime</code></dt>
+<dd>
+<p>L&#8217;heure actuelle</p>
+</dd>
+<dt class="hdlist1"><code>addrYou</code></dt>
+<dd>
+<p>L&#8217;adresse IP du nœud distant vue depuis ce nœud</p>
+</dd>
+<dt class="hdlist1"><code>addrMe</code></dt>
+<dd>
+<p>L&#8217;adresse IP du nœud local, telle que découverte par le nœud local</p>
+</dd>
+<dt class="hdlist1"><code>subver</code></dt>
+<dd>
+<p>Une sous-version indiquant le type de logiciel exécuté sur ce nœud (par exemple, <span class="keep-together"><code>/Satoshi:0.9.2.1/</code></span>)</p>
+</dd>
+<dt class="hdlist1"><code>BestHeight</code></dt>
+<dd>
+<p>La hauteur de bloc de la chaîne de blocs de ce nœud</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>(Voir <a href="https://bit.ly/1qlsC7w">GitHub</a> pour un exemple du message de <code>version</code> du réseau.)</p>
+</div>
+<div class="paragraph">
+<p>Le message <code>version</code> est toujours le premier message envoyé par un pair à un autre pair. L&#8217;homologue local recevant un message <code>version</code> examinera la <code>nVersion</code> signalée par l&#8217;homologue distant et décidera si l&#8217;homologue distant est compatible. Si le pair distant est compatible, le pair local accusera réception du message <code>version</code> et établira une connexion en envoyant un message <code>verack</code>.</p>
+</div>
+<div class="paragraph">
+<p>Comment un nouveau nœud trouve-t-il des pairs ? La première méthode consiste à interroger les DNS à l&#8217;aide d&#8217;un certain nombre de d'"indexes DNS", qui sont des serveurs DNS fournissant une liste d&#8217;adresses IP de nœuds Bitcoin. Certaines de ces indexes DNS fournissent une liste statique d&#8217;adresses IP de nœuds d&#8217;écoute bitcoin stables. Certaines des indexes DNS sont des implémentations personnalisées de BIND (Berkeley Internet Name Daemon) qui renvoient un sous-ensemble aléatoire à partir d&#8217;une liste d&#8217;adresses de nœuds Bitcoin collectées par un robot ou un nœud Bitcoin de longue durée. Le client Bitcoin Core contient les noms de neuf sources DNS différentes. La diversité de propriété et la diversité de mise en œuvre des différentes sources DNS offrent un haut niveau de fiabilité pour le processus d&#8217;amorçage initial. Dans le client Bitcoin Core, l&#8217;option d&#8217;utilisation des indexes DNS est contrôlée par le commutateur d&#8217;option <code>-dnsseed</code> (réglé sur 1 par défaut, pour utiliser la source DNS).</p>
+</div>
+<div class="paragraph">
+<p>Alternativement, un nœud d&#8217;amorçage qui ne sait rien du réseau doit recevoir l&#8217;adresse IP d&#8217;au moins un nœud Bitcoin, après quoi il peut établir des connexions via d&#8217;autres introductions. L&#8217;argument de ligne de commande <code>-seednode</code> peut être utilisé pour se connecter à un nœud uniquement pour les introductions en l&#8217;utilisant comme source. Une fois que le nœud de départ initial a été utilisé pour former des présentations, le client s&#8217;en déconnecte et utilise les pairs nouvellement découverts.</p>
+</div>
+<div id="network_handshake" class="imageblock">
+<div class="content">
+<img src="images/mbc2_0804.png" alt="Prise de contact réseau">
+</div>
+<div class="title">Figure 4. La poignée de main initiale entre pairs</div>
+</div>
+<div class="paragraph">
+<p>Une fois qu&#8217;une ou plusieurs connexions sont établies, le nouveau nœud enverra un message <code>addr</code> contenant sa propre adresse IP à ses voisins. Les voisins transmettront à leur tour le message <code>addr</code> à leurs voisins, garantissant que le nœud nouvellement connecté devient bien connu et mieux connecté. De plus, le nœud nouvellement connecté peut envoyer <code>getaddr</code> aux voisins, leur demandant de renvoyer une liste d&#8217;adresses IP d&#8217;autres pairs. De cette façon, un nœud peut trouver des pairs auxquels se connecter et annoncer son existence sur le réseau pour que d&#8217;autres nœuds le trouvent. <a href="#address_propagation">Propagation et découverte d&#8217;adresses</a>  montre le protocole de découverte d&#8217;adresse.</p>
+</div>
+<div id="address_propagation" class="imageblock">
+<div class="content">
+<img src="images/mbc2_0805.png" alt="Propagation d&#8217;adresse">
+</div>
+<div class="title">Figure 5. Propagation et découverte d&#8217;adresses</div>
+</div>
+<div class="paragraph">
+<p>Un nœud doit se connecter à quelques pairs différents afin d&#8217;établir divers chemins dans le réseau Bitcoin. Les chemins ne sont pas persistants, les nœuds vont et viennent, et le nœud doit donc continuer à découvrir de nouveaux nœuds à mesure qu&#8217;il perd d&#8217;anciennes connexions et à aider les autres nœuds lors de leur démarrage. Une seule connexion est nécessaire pour démarrer, car le premier nœud peut proposer des introductions à ses nœuds pairs et ces pairs peuvent proposer d&#8217;autres introductions. Il est également inutile et gaspilleur de se connecter à plus d&#8217;une poignée de nœuds. Après le démarrage, un nœud se souviendra de ses dernières connexions homologues réussies, de sorte que s&#8217;il est redémarré, il peut rapidement rétablir les connexions avec son ancien réseau homologue. Si aucun des anciens pairs ne répond à sa demande de connexion, le nœud peut utiliser les nœuds de départ pour redémarrer.</p>
+</div>
+<div class="paragraph">
+<p>Sur un nœud exécutant le client Bitcoin Core, vous pouvez lister les connexions homologues avec la commande <code>getpeerinfo</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ bitcoin-cli getpeerinfo</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">[
+    {
+        "addr" : "85.213.199.39:8333",
+        "services" : "00000001",
+        "lastsend" : 1405634126,
+        "lastrecv" : 1405634127,
+        "bytessent" : 23487651,
+        "bytesrecv" : 138679099,
+        "conntime" : 1405021768,
+        "pingtime" : 0.00000000,
+        "version" : 70002,
+        "subver" : "/Satoshi:0.9.2.1/",
+        "inbound" : false,
+        "startingheight" : 310131,
+        "banscore" : 0,
+        "syncnode" : true
+    },
+    {
+        "addr" : "58.23.244.20:8333",
+        "services" : "00000001",
+        "lastsend" : 1405634127,
+        "lastrecv" : 1405634124,
+        "bytessent" : 4460918,
+        "bytesrecv" : 8903575,
+        "conntime" : 1405559628,
+        "pingtime" : 0.00000000,
+        "version" : 70001,
+        "subver" : "/Satoshi:0.8.6/",
+        "inbound" : false,
+        "startingheight" : 311074,
+        "banscore" : 0,
+        "syncnode" : false
+    }
+]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour outrepasser la gestion automatique des pairs et spécifier une liste d&#8217;adresses IP, les utilisateurs peuvent fournir l&#8217;option <code>-connect=&lt;IPAddress&gt;</code> et spécifiez une ou plusieurs adresses IP. Si cette option est utilisée, le nœud se connectera uniquement aux adresses IP sélectionnées, au lieu de découvrir et de maintenir automatiquement les connexions homologues.</p>
+</div>
+<div class="paragraph">
+<p>S&#8217;il n&#8217;y a pas de trafic sur une connexion, les nœuds enverront périodiquement un message pour maintenir la connexion. Si un nœud n&#8217;a pas communiqué sur une connexion pendant plus de 90 minutes, il est supposé être déconnecté et un nouveau pair sera recherché. Ainsi, le réseau s&#8217;adapte dynamiquement aux nœuds transitoires et aux problèmes de réseau, et peut croître et rétrécir de manière organique selon les besoins sans aucun contrôle central.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nœuds_complets">Nœuds complets</h3>
+<div class="paragraph">
+<p>Les nœuds complets sont des nœuds qui maintiennent une chaîne de blocs complète avec toutes les transactions. Plus précisément, ils devraient probablement être appelés "nœuds de chaîne de blocs complets". Dans les premières années de bitcoin, tous les nœuds étaient des nœuds complets et actuellement, le client Bitcoin Core est un nœud de chaîne de blocs complet. Au cours des deux dernières années, cependant, de nouvelles formes de clients Bitcoin ont été introduites qui ne maintiennent pas une chaîne de blocs complète mais fonctionnent comme des clients légers. Nous les examinerons plus en détail dans la section suivante.</p>
+</div>
+<div class="paragraph">
+<p>Les nœuds de chaîne de blocs complets maintiennent un copie à jour de la chaîne de blocs Bitcoin avec toutes les transactions, qu&#8217;ils construisent et vérifient indépendamment, en commençant par le tout premier bloc (bloc de genèse) et en remontant jusqu&#8217;au dernier bloc connu du réseau. Un nœud de chaîne de blocs complet peut vérifier de manière indépendante et autoritaire toute transaction sans recours à aucun autre nœud ou source d&#8217;informations. Le nœud de la chaîne de blocs complète s&#8217;appuie sur le réseau pour recevoir des mises à jour sur les nouveaux blocs de transactions, qu&#8217;il vérifie ensuite et intègre dans sa copie locale de la chaîne de blocs.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;exécution d&#8217;un nœud de chaîne de blocs complet vous offre l&#8217;expérience bitcoin pure : une vérification indépendante de toutes les transactions sans avoir besoin de s&#8217;appuyer sur, ou de faire confiance, à d&#8217;autres systèmes. Il est facile de savoir si vous exécutez un nœud complet car il nécessite plus de cent gigaoctets de stockage persistant (espace disque) pour stocker la chaîne de blocs complète. Si vous avez besoin de beaucoup de disque et que la synchronisation avec le réseau prend deux à trois jours, vous exécutez un nœud complet. C&#8217;est le prix d&#8217;une indépendance totale et de la liberté vis-à-vis de l&#8217;autorité centrale.</p>
+</div>
+<div class="paragraph">
+<p>Il existe quelques implémentations alternatives de clients Bitcoin à chaîne complète, construites à l&#8217;aide de différents langages de programmation et architectures logicielles. Cependant, l&#8217;implémentation la plus courante est le client de référence Bitcoin Core, également connu sous le nom de client Satoshi. Plus de 75 % des nœuds du réseau Bitcoin exécutent différentes versions de Bitcoin Core. Il est identifié comme « Satoshi » dans la chaîne de sous-version envoyée dans le message <code>version</code> et affiché par la commande <code>getpeerinfo</code> comme nous l&#8217;avons vu précédemment ; par exemple, <code>/Satoshi:0.8.6/</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_échanger_linventaire">Échanger "l&#8217;inventaire"</h3>
+<div class="paragraph">
+<p>La première chose qu&#8217;un nœud complet fera une fois qu&#8217;il se connecte à des pairs est d&#8217;essayer de construire une chaîne de blocs complète. S&#8217;il s&#8217;agit d&#8217;un tout nouveau nœud et qu&#8217;il n&#8217;a aucune chaîne de blocs, il ne connaît qu&#8217;un seul bloc, le bloc de genèse, qui est intégré de manière statique dans le logiciel client. En commençant par le bloc #0 (le bloc de genèse), le nouveau nœud devra télécharger des centaines de milliers de blocs pour se synchroniser avec le réseau et rétablir la chaîne de blocs complète.</p>
+</div>
+<div class="paragraph">
+<p>Le processus de synchronisation de la chaîne de blocs commence par le message <code>version</code>, car il contient <code>BestHeight</code>, l&#8217;hauteur actuelle d&#8217;un nœud (nombre de blocs) de la chaîne de blocs. Un nœud verra les messages <code>version</code> de ses pairs, saura combien de blocs ils ont chacun et pourra comparer avec le nombre de blocs qu&#8217;il a dans sa propre chaîne de blocs. Les nœuds appairés échangeront un message <code>getblocks</code> contenant le hachage (empreinte digitale) du bloc supérieur sur leur chaîne de blocs locale. L&#8217;un des pairs pourra identifier le résultat d&#8217;hachage reçu comme appartenant à un bloc qui n&#8217;est pas au sommet, mais appartient plutôt à un bloc plus ancien, en déduisant ainsi que sa propre chaîne de blocs locale est plus longue que celle de son pair.</p>
+</div>
+<div class="paragraph">
+<p>Le pair qui a la chaîne de blocs la plus longue a plus de blocs que l&#8217;autre nœud et peut identifier les blocs dont l&#8217;autre nœud a besoin pour "rattraper son retard". Il identifiera les 500 premiers blocs à partager et transmettra leurs hachages à l&#8217;aide d&#8217;un message <code>inv</code> (inventaire). Le nœud manquant ces blocs les récupérera ensuite, en émettant une série de messages <code>getdata</code> demandant les données complètes du bloc et en identifiant les blocs demandés à l&#8217;aide des hachages du message <code>inv</code>.</p>
+</div>
+<div class="paragraph">
+<p>Supposons, par exemple, qu&#8217;un nœud n&#8217;ait que le bloc de genèse. Il recevra alors un message <code>inv</code> de ses pairs contenant les hachages des 500 prochains blocs de la chaîne. Il commencera à demander des blocs à tous ses pairs connectés, répartissant la charge et s&#8217;assurant qu&#8217;il ne submerge aucun pair de demandes. Le nœud garde une trace du nombre de blocs "en transit" par connexion homologue, c&#8217;est-à-dire des blocs qu&#8217;il a demandés mais non reçus, en vérifiant qu&#8217;il ne dépasse pas une limite (<code>MAX_BLOCKS_IN_TRANSIT_PER_PEER</code>). De cette façon, s&#8217;il a besoin de beaucoup de blocs, il n&#8217;en demandera de nouveaux que lorsque les demandes précédentes seront satisfaites, permettant aux pairs de contrôler le rythme des mises à jour et de ne pas submerger le réseau. Au fur et à mesure que chaque bloc est reçu, il est ajouté à la chaîne de blocs, comme nous le verrons dans <a href="#blockchain">[blockchain]</a>. Au fur et à mesure que la chaîne de blocs locale se construit, davantage de blocs sont demandés et reçus, et le processus se poursuit jusqu&#8217;à ce que le nœud rattrape le reste du réseau.</p>
+</div>
+<div class="paragraph">
+<p>Ce processus de comparaison de la chaîne de blocs locale avec les pairs et de récupération des blocs manquants se produit chaque fois qu&#8217;un nœud se déconnecte pendant une période donnée. Qu&#8217;un nœud soit hors ligne depuis quelques minutes et qu&#8217;il manque quelques blocs, ou un mois et qu&#8217;il manque quelques milliers de blocs, il commence par envoyer <code>getblocks</code>, reçoit une réponse <code>inv</code> et commence à télécharger les blocs manquants. <a href="#inventory_synchronization">Nœud synchronisant la chaîne de blocs en récupérant les blocs d&#8217;un pair</a> affiche l&#8217;inventaire et le protocole de propagation des blocs.</p>
+</div>
+<div id="inventory_synchronization" class="imageblock smallerfifty">
+<div class="content">
+<img src="images/mbc2_0806.png" alt="Synchronisation de l&#8217;inventaire">
+</div>
+<div class="title">Figure 6. Nœud synchronisant la chaîne de blocs en récupérant les blocs d&#8217;un pair</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="spv_nodes">Nœuds de vérification simplifiée des paiements, ou Simplified Payment Verification (SPV)</h3>
+<div class="paragraph">
+<p>Tous les nœuds n&#8217;ont pas la capacité de stocker la chaîne de blocs complète. De nombreux clients Bitcoin sont conçus pour fonctionner sur des appareils à espace et puissance limités, tels que les smartphones, les tablettes ou les systèmes embarqués. Pour ces appareils, une méthode de <em>vérification de paiement simplifiée</em> (SPV) est utilisée pour leur permettre de fonctionner sans stocker la chaîne de blocs complète. Ces types de clients sont appelés clients SPV ou clients légers. À mesure que l&#8217;adoption du bitcoin augmente, le nœud SPV devient la forme la plus courante de nœud Bitcoin, en particulier pour les portefeuilles bitcoin.</p>
+</div>
+<div class="paragraph">
+<p>Les nœuds SPV téléchargent uniquement les en-têtes de bloc et ne téléchargent pas les transactions incluses dans chaque bloc. La chaîne de blocs qui en résulte, sans transactions, est 1 000 fois plus petite que la chaîne de blocs complète. Les nœuds SPV ne peuvent pas construire une image complète de tous les UTXO disponibles pour les dépenses car ils ne connaissent pas toutes les transactions sur le réseau. Les nœuds SPV vérifient les transactions en utilisant une méthode légèrement différente qui s&#8217;appuie sur des pairs pour fournir des vues partielles des parties pertinentes de la chaîne de blocs à la demande.</p>
+</div>
+<div class="paragraph">
+<p>Par analogie, un nœud complet est comme un touriste dans une ville étrange, équipé d&#8217;une carte détaillée de chaque rue et de chaque adresse. En comparaison, un nœud SPV est comme un touriste dans une ville étrange demandant à des inconnus au hasard des indications détaillées tout en ne connaissant qu&#8217;une seule avenue principale. Bien que les deux touristes puissent vérifier l&#8217;existence d&#8217;une rue en la visitant, le touriste sans carte ne sait pas ce qui se trouve dans les rues latérales et ne sait pas quelles autres rues existent. Positionné en face du 23 Church Street, le touriste sans carte ne peut pas savoir s&#8217;il existe une dizaine d&#8217;autres adresses « 23 Church Street » dans la ville et si celle-ci est la bonne. La meilleure chance pour le touriste sans carte est de demander à suffisamment de gens et d&#8217;espérer que certains d&#8217;entre eux n&#8217;essaient pas de l&#8217;agresser.</p>
+</div>
+<div class="paragraph">
+<p>SPV vérifie les transactions en se référant à leur <em>profondeur</em> dans la chaîne de blocs au lieu de leur <em>hauteur</em>. Alors qu&#8217;un nœud de chaîne de blocs complet construira une chaîne entièrement vérifiée de milliers de blocs et de transactions descendant dans la chaîne de blocs (remontant dans le temps) jusqu&#8217;au bloc de genèse, un nœud SPV vérifiera la chaîne de tous les blocs (mais pas toutes les transactions) et lier cette chaîne à la transaction d&#8217;intérêt.</p>
+</div>
+<div class="paragraph">
+<p>Par exemple, lors de l&#8217;examen d&#8217;une transaction dans le bloc 300 000, un nœud complet relie les 300 000 blocs au bloc de genèse et crée une base de données complète d&#8217;UTXO, établissant la validité de la transaction en confirmant que l&#8217;UTXO reste non dépensé. Un nœud SPV ne peut pas valider si l&#8217;UTXO n&#8217;est pas dépensé. Au lieu de cela, le nœud SPV établira un lien entre la transaction et le bloc qui la contient, en utilisant un <em>chemin de Merkle</em> (voir <a href="#merkle_trees">[merkle_trees]</a>). Ensuite, le nœud SPV attend de voir les six blocs 300 001 à 300 006 empilés au-dessus du bloc contenant la transaction et le vérifie en établissant sa profondeur sous les blocs 300 006 à 300 001. Le fait que d&#8217;autres nœuds du réseau aient accepté le bloc 300 000 et aient ensuite effectué le travail nécessaire pour produire six autres blocs en plus est la preuve, par procuration, que la transaction n&#8217;était pas une double dépense.</p>
+</div>
+<div class="paragraph">
+<p>Un nœud SPV ne peut pas être persuadé qu&#8217;une transaction existe dans un bloc alors que la transaction n&#8217;existe pas en fait. Le nœud SPV établit l&#8217;existence d&#8217;une transaction dans un bloc en demandant une preuve de chemin Merkle et en validant la preuve de travail dans la chaîne de blocs. Cependant, l&#8217;existence d&#8217;une transaction peut être "masquée" à un nœud SPV. Un nœud SPV peut certainement prouver qu&#8217;une transaction existe mais ne peut pas vérifier qu&#8217;une transaction, telle qu&#8217;une double dépense du même UTXO, n&#8217;existe pas car il n&#8217;a pas d&#8217;enregistrement de toutes les transactions. Cette vulnérabilité peut être utilisée dans une attaque par déni de service ou pour une attaque à double dépense contre les nœuds SPV. Pour se défendre contre cela, un nœud SPV doit se connecter de manière aléatoire à plusieurs nœuds, pour augmenter la probabilité qu&#8217;il soit en contact avec au moins un nœud honnête. Ce besoin de se connecter de manière aléatoire signifie que les nœuds SPV sont également vulnérables aux attaques de partitionnement de réseau ou aux attaques Sybil, où ils sont connectés à de faux nœuds ou à de faux réseaux et n&#8217;ont pas accès à des nœuds honnêtes ou au vrai réseau Bitcoin.</p>
+</div>
+<div class="paragraph">
+<p>Dans la plupart des cas pratiques, les nœuds SPV bien connectés sont suffisamment sécurisés, trouvant un équilibre entre les besoins en ressources, l&#8217;aspect pratique et la sécurité. Pour une sécurité infaillible, cependant, rien ne vaut l&#8217;exécution d&#8217;un nœud de chaîne de blocs complet.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Un nœud de chaîne de blocs complet vérifie une transaction en vérifiant toute la chaîne de milliers de blocs en dessous afin de garantir que l&#8217;UTXO n&#8217;est pas dépensé, tandis qu&#8217;un nœud SPV vérifie à quelle profondeur le bloc est enterré par une poignée de blocs au-dessus.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Pour obtenir les en-têtes de bloc, les nœuds SPV utilisent un message <code>getheaders</code> au lieu de <code>getblocks</code>. L&#8217;homologue qui répond enverra jusqu&#8217;à 2 000 en-têtes de bloc à l&#8217;aide d&#8217;un seul message <code>headers</code>. Le processus est par ailleurs le même que celui utilisé par un nœud complet pour récupérer des blocs complets. Les nœuds SPV définissent également un filtre sur la connexion aux pairs, pour filtrer le flux des futurs blocs et transactions envoyés par les pairs. Toutes les transactions intéressantes sont récupérées à l&#8217;aide d&#8217;une requête <code>getdata</code>. Le pair génère un message <code>tx</code> contenant les transactions, en réponse. <a href="#spv_synchronization">Nœud SPV synchronisant les en-têtes de bloc</a> montre la synchronisation des en-têtes de bloc.</p>
+</div>
+<div class="paragraph">
+<p>Étant donné que les nœuds SPV doivent récupérer des transactions spécifiques afin de les vérifier de manière sélective, ils créent également un risque pour la confidentialité. Contrairement aux nœuds de chaîne de blocs complets, qui collectent toutes les transactions au sein de chaque bloc, les demandes de données spécifiques du nœud SPV peuvent révéler par inadvertance les adresses de leur portefeuille. Par exemple, un tiers surveillant un réseau pourrait suivre toutes les transactions demandées par un portefeuille sur un nœud SPV et les utiliser pour associer des adresses Bitcoin à l&#8217;utilisateur de ce portefeuille, détruisant ainsi la vie privée de l&#8217;utilisateur.</p>
+</div>
+<div id="spv_synchronization" class="imageblock">
+<div class="content">
+<img src="images/mbc2_0807.png" alt="Synchronisation SPV">
+</div>
+<div class="title">Figure 7. Nœud SPV synchronisant les en-têtes de bloc</div>
+</div>
+<div class="paragraph">
+<p>Peu de temps après l&#8217;introduction des nœuds SPV/légers, les développeurs de bitcoins ont ajouté une fonctionnalité appelée <em>filtres de Bloom</em> pour faire face aux risques de confidentialité des nœuds SPV. Les filtres de Bloom permettent aux nœuds SPV de recevoir un sous-ensemble des transactions sans révéler précisément les adresses qui les intéressent, grâce à un mécanisme de filtrage qui utilise des probabilités plutôt que des modèles fixes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="bloom_filters">Filtres de Bloom</h3>
+<div class="paragraph">
+<p>Un filtre de Bloom est un filtre de recherche probabiliste qui offre un moyen efficace d&#8217;exprimer un modèle de recherche tout en protégeant la confidentialité. Ils sont utilisés par les nœuds SPV pour demander à leurs pairs des transactions correspondant à un modèle spécifique, sans révéler exactement quelles adresses, clés ou transactions ils recherchent.</p>
+</div>
+<div class="paragraph">
+<p>Dans notre analogie précédente, un touriste sans carte demande son chemin vers une adresse spécifique, "23 Church St." Si elle demande à des inconnus son chemin vers cette rue, elle révèle par inadvertance sa destination. Un filtre de Bloom revient à demander : "Y a-t-il des rues dans ce quartier dont le nom se termine par RCH ?" Une question comme celle-là en dit un peu moins sur la destination souhaitée que de demander "23 Church St." En utilisant cette technique, un touriste pourrait spécifier l&#8217;adresse souhaitée plus en détail comme "se terminant par URCH" ou moins en détail comme "se terminant par H". En faisant varier la précision de la recherche, le touriste révèle plus ou moins d&#8217;informations, au détriment d&#8217;obtenir des résultats plus ou moins précis. Si elle demande un modèle moins spécifique, elle obtient beaucoup plus d&#8217;adresses possibles et une meilleure confidentialité, mais de nombreux résultats ne sont pas pertinents. Si elle demande un modèle très spécifique, elle obtient moins de résultats mais perd sa confidentialité.</p>
+</div>
+<div class="paragraph">
+<p>Les filtres de Bloom remplissent cette fonction en permettant à un nœud SPV de spécifier un modèle de recherche pour les transactions qui peuvent être réglés vers la précision ou la confidentialité. Un filtre de Bloom plus spécifique produira des résultats précis, mais au détriment de la révélation des modèles qui intéressent le nœud SPV, révélant ainsi les adresses détenues par le portefeuille de l&#8217;utilisateur. Un filtre bloom moins spécifique produira plus de données sur plus de transactions, dont beaucoup ne sont pas pertinentes pour le nœud, mais permettra au nœud de maintenir une meilleure confidentialité.</p>
+</div>
+<div class="sect3">
+<h4 id="_comment_fonctionnent_les_filtres_de_bloom">Comment fonctionnent les filtres de Bloom</h4>
+<div class="paragraph">
+<p>Les filtres de Bloom sont implémentés sous la forme d&#8217;un tableau de taille variable de N chiffres binaires (un champ de bits) et d&#8217;un nombre variable de M fonctions de hachage. Les fonctions de hachage sont conçues pour produire toujours une sortie comprise entre 1 et N, correspondant au tableau de chiffres binaires. Les fonctions de hachage sont générées de manière déterministe, de sorte que tout nœud implémentant un filtre de Bloom utilisera toujours les mêmes fonctions de hachage et obtiendra les mêmes résultats pour une entrée spécifique. En choisissant des filtres de Bloom de différentes longueurs (N) et un nombre différent (M) de fonctions de hachage, le filtres de Bloom peut être réglé, en faisant varier le niveau de précision et donc de confidentialité.</p>
+</div>
+<div class="paragraph">
+<p>Dans <a href="#bloom1">Un exemple de filtre de Bloom simpliste, avec un champ 16 bits et trois fonctions de hachage</a>, nous utilisons un très petit tableau de 16 bits et un ensemble de trois fonctions de hachage pour démontrer le fonctionnement des filtres de Bloom.</p>
+</div>
+<div id="bloom1" class="imageblock">
+<div class="content">
+<img src="images/mbc2_0808.png" alt="Bloom 1">
+</div>
+<div class="title">Figure 8. Un exemple de filtre de Bloom simpliste, avec un champ 16 bits et trois fonctions de hachage</div>
+</div>
+<div class="paragraph">
+<p>Le filtre de Bloom est initialisé de sorte que le tableau de bits ne soit que des zéros. Pour ajouter un motif au filtre de Bloom, le motif est haché tour à tour par chaque fonction de hachage. L&#8217;application de la première fonction de hachage à l&#8217;entrée donne un nombre compris entre 1 et N. Le bit correspondant dans le tableau (indexé de 1 à N) est trouvé et défini sur <code>1</code>, enregistrant ainsi la sortie de la fonction de hachage. Ensuite, la fonction de hachage suivante est utilisée pour définir un autre bit et ainsi de suite. Une fois que toutes les fonctions de hachage M ont été appliquées, le modèle de recherche sera "enregistré" dans le filtre de Bloom sous forme de M bits qui ont été modifiés de <code>0</code> à <code>1</code>.</p>
+</div>
+<div class="paragraph">
+<p><a href="#bloom2">Ajout d&#8217;un motif "A" à notre filtre de Bloom simple</a> est un exemple d&#8217;ajout d&#8217;un motif "A" au filtre de Bloom simple illustré dans <a href="#bloom1">Un exemple de filtre de Bloom simpliste, avec un champ 16 bits et trois fonctions de hachage</a>.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;ajout d&#8217;un deuxième motif est aussi simple que de répéter ce processus. Le motif est haché par chaque fonction de hachage tour à tour et le résultat est enregistré en réglant les bits sur <code>1</code>. Notez qu&#8217;à mesure qu&#8217;un filtre bloom est rempli de plusieurs modèles, le résultat d&#8217;une fonction de hachage peut coïncider avec un bit déjà défini sur <code>1</code>, auquel cas le bit n&#8217;est pas modifié. Essentiellement, à mesure que davantage de motifs sont enregistrés sur des bits qui se chevauchent, le filtre de bloom commence à être saturé avec davantage de bits réglés sur <code>1</code> et la précision du filtre diminue. C&#8217;est pourquoi le filtre est une structure de données probabiliste - il devient moins précis à mesure que d&#8217;autres modèles sont ajoutés. La précision dépend du nombre de motifs ajoutés par rapport à la taille du tableau de bits (N) et du nombre de fonctions de hachage (M). Un tableau de bits plus grand et plus de fonctions de hachage peuvent enregistrer plus de modèles avec une plus grande précision. Un tableau de bits plus petit ou moins de fonctions de hachage enregistrera moins de modèles et produira moins de précision.</p>
+</div>
+<div id="bloom2" class="imageblock">
+<div class="content">
+<img src="images/mbc2_0809.png" alt="Bloom 2">
+</div>
+<div class="title">Figure 9. Ajout d&#8217;un motif "A" à notre filtre de Bloom simple</div>
+</div>
+<div class="paragraph">
+<p><a href="#bloom3">Ajout d&#8217;un deuxième motif "B" à notre filtre de Bloom simple</a> est un exemple d&#8217;ajout d&#8217;un deuxième motif "B" au filtre de Bloom simple.</p>
+</div>
+<div id="bloom3" class="imageblock smallereighty">
+<div class="content">
+<img src="images/mbc2_0810.png" alt="Bloom 3">
+</div>
+<div class="title">Figure 10. Ajout d&#8217;un deuxième motif "B" à notre filtre de Bloom simple</div>
+</div>
+<div class="paragraph">
+<p>Pour tester si un motif fait partie d&#8217;un filtre de Bloom, le motif est haché par chaque fonction de hachage et le motif de bits résultant est testé par rapport au tableau de bits. Si tous les bits indexés par les fonctions de hachage sont mis à <code>1</code>, alors le motif est <em>probablement</em> enregistré dans le filtre de Bloom. Étant donné que les bits peuvent être définis en raison du chevauchement de plusieurs modèles, la réponse n&#8217;est pas certaine, mais plutôt probabiliste. En termes simples, une correspondance positive du filtre de Bloom est un "Peut-être, Oui".</p>
+</div>
+<div class="paragraph">
+<p><a href="#bloom4">Tester l&#8217;existence du motif "X" dans le filtre de Bloom. Le résultat est une correspondance positive probabiliste, ce qui signifie "Peut-être".</a> est un exemple de test de l&#8217;existence du motif "X" dans le filtre de Bloom simple. Les bits correspondants sont définis sur <code>1</code>, donc le motif est probablement une correspondance.</p>
+</div>
+<div id="bloom4" class="imageblock smallereighty">
+<div class="content">
+<img src="images/mbc2_0811.png" alt="Bloom 4">
+</div>
+<div class="title">Figure 11. Tester l&#8217;existence du motif "X" dans le filtre de Bloom. Le résultat est une correspondance positive probabiliste, ce qui signifie "Peut-être".</div>
+</div>
+<div class="paragraph">
+<p>Au contraire, si un motif est testé par rapport au filtre bloom et que l&#8217;un des bits est mis à <code>0</code>, cela prouve que le motif n&#8217;a pas été enregistré dans le filtre de Bloom. Un résultat négatif n&#8217;est pas une probabilité, c&#8217;est une certitude. En termes simples, une correspondance négative sur un filtre de Bloom est un "Définitivement pas!"</p>
+</div>
+<div class="paragraph">
+<p><a href="#bloom5">Tester l&#8217;existence du motif "Y" dans le filtre de Bloom. Le résultat est une correspondance négative définitive, ce qui signifie "Définitivement pas !"</a> est un exemple de test de l&#8217;existence du motif "Y" dans le filtre de Bloom simple. L&#8217;un des bits correspondants est défini sur <code>0</code>, donc le motif n&#8217;est certainement pas une correspondance.</p>
+</div>
+<div id="bloom5" class="imageblock">
+<div class="content">
+<img src="images/mbc2_0812.png" alt="mbc2 0812">
+</div>
+<div class="title">Figure 12. Tester l&#8217;existence du motif "Y" dans le filtre de Bloom. Le résultat est une correspondance négative définitive, ce qui signifie "Définitivement pas !"</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comment_les_nœuds_spv_utilisent_les_filtres_de_bloom">Comment les nœuds SPV utilisent les filtres de Bloom</h3>
+<div class="paragraph">
+<p>Les filtres de Bloom sont utilisés pour filtrer les transactions (et les blocs les contenant) qu&#8217;un nœud SPV reçoit de ses pairs, en sélectionnant uniquement les transactions qui intéressent le nœud SPV sans révéler les adresses ou les clés qui l&#8217;intéressent.</p>
+</div>
+<div class="paragraph">
+<p>Un nœud SPV initialisera un filtre de Bloom comme "vide" ; dans cet état, le filtre de Bloom ne correspondra à aucun motif. Le nœud SPV établira ensuite une liste de toutes les adresses, clés et hachages qui l&#8217;intéressent. Il le fera en extrayant le hachage de clé publique et le hachage de script et les ID de transaction de tout UTXO contrôlé par son portefeuille. Le nœud SPV ajoute ensuite chacun d&#8217;entre eux au filtre de Bloom, de sorte que le filtre de Bloom "correspondra" si ces modèles sont présents dans une transaction, sans révéler les modèles eux-mêmes.</p>
+</div>
+<div class="paragraph">
+<p>Le nœud SPV enverra alors un message <code>filterload</code> au pair, contenant le filtres de Bloom à utiliser sur la connexion. Sur le pair, les filtres de Bloom sont vérifiés par rapport à chaque transaction entrante. Le nœud complet vérifie plusieurs parties de la transaction par rapport au filtre de Bloom, à la recherche d&#8217;une correspondance, notamment :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;identifiant de la transaction</p>
+</li>
+<li>
+<p>Les composants de données des scripts de verrouillage de chacune des sorties de transaction (chaque clé et hachage du script)</p>
+</li>
+<li>
+<p>Chacune des entrées de transaction</p>
+</li>
+<li>
+<p>Chacun des composants de données de signature d&#8217;entrée (ou scripts témoins)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>En comparant tous ces composants, les filtres Bloom peuvent être utilisés pour faire correspondre les hachages de clés publiques, les scripts, les valeurs <code>OP_RETURN</code>, les clés publiques dans les signatures ou tout futur composant d&#8217;un contrat intelligent ou d&#8217;un script complexe.</p>
+</div>
+<div class="paragraph">
+<p>Une fois qu&#8217;un filtre est établi, le pair teste ensuite la sortie de chaque transaction par rapport au filtre Bloom. Seules les transactions qui correspondent au filtre sont envoyées au nœud.</p>
+</div>
+<div class="paragraph">
+<p>En réponse à un message <code>getdata</code> du nœud, les pairs enverront un message <code>merkleblock</code> qui ne contient que des en-têtes de bloc pour les blocs correspondant au filtre et un chemin Merkle (voir <a href="#merkle_trees">[merkle_trees]</a>) pour chaque transaction correspondante. Le pair enverra alors également des messages <code>tx</code> contenant les transactions mises en correspondance par le filtre.</p>
+</div>
+<div class="paragraph">
+<p>Lorsque le nœud complet envoie des transactions au nœud SPV, le nœud SPV rejette tous les faux positifs et utilise les transactions correctement appariées pour mettre à jour son ensemble UTXO et le solde de son portefeuille. Au fur et à mesure qu&#8217;il met à jour sa propre vue de l&#8217;ensemble UTXO, il modifie également le filtre de Bloom pour correspondre à toutes les transactions futures faisant référence à l&#8217;UTXO qu&#8217;il vient de trouver. Le nœud complet utilise ensuite le nouveau filtre de Bloom pour faire correspondre les nouvelles transactions et l&#8217;ensemble du processus se répète.</p>
+</div>
+<div class="paragraph">
+<p>Le nœud définissant le filtre de Bloom peut ajouter de manière interactive des motifs au filtre en envoyant un message <code>filteradd</code>. Pour effacer le filtre de Bloom, le nœud peut envoyer un message <code>filterclear</code>. Puisqu&#8217;il n&#8217;est pas possible de supprimer un modèle d&#8217;un filtre de Bloom, un nœud doit effacer et renvoyer un nouveau filtre de Bloom si un modèle n&#8217;est plus souhaité.</p>
+</div>
+<div class="paragraph">
+<p>Le protocole réseau et le mécanisme de filtre de Bloom pour les nœuds SPV sont définis dans <a href="https://bit.ly/1x6qCiO">BIP-37 (Peer Services)</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nœuds_spv_et_confidentialité">Nœuds SPV et confidentialité</h3>
+<div class="paragraph">
+<p>Les nœuds qui implémentent SPV ont une confidentialité plus faible qu&#8217;un nœud complet. Un nœud complet reçoit toutes les transactions et ne révèle donc aucune information indiquant s&#8217;il utilise une adresse dans son portefeuille. Un nœud SPV reçoit une liste filtrée des transactions liées aux adresses qui se trouvent dans son portefeuille. En conséquence, cela réduit la vie privée du propriétaire.</p>
+</div>
+<div class="paragraph">
+<p>Les filtres de Bloom sont un moyen de réduire la perte de confidentialité. Sans eux, un nœud SPV devrait répertorier explicitement les adresses qui l&#8217;intéressent, créant ainsi une grave violation de la vie privée. Cependant, même avec des filtres de Bloom, un adversaire surveillant le trafic d&#8217;un client SPV ou s&#8217;y connectant directement en tant que nœud du réseau P2P peut collecter suffisamment d&#8217;informations au fil du temps pour apprendre les adresses dans le portefeuille du client SPV.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_connexions_cryptées_et_authentifiées">Connexions cryptées et authentifiées</h3>
+<div class="paragraph">
+<p>La plupart des nouveaux utilisateurs de bitcoin supposent que les communications réseau d&#8217;un nœud Bitcoin sont cryptées. En fait, la mise en œuvre originale du bitcoin communique entièrement en clair. Bien que ce ne soit pas un problème majeur de confidentialité pour les nœuds complets, c&#8217;est un gros problème pour les nœuds SPV.</p>
+</div>
+<div class="paragraph">
+<p>Afin d&#8217;augmenter la confidentialité et la sécurité du réseau bitcoin P2P, il existe deux solutions qui fournissent le cryptage des communications : <em>Tor Transport</em> et <em>P2P Authentication and Encryption</em> avec BIP-150/151.</p>
+</div>
+<div class="sect3">
+<h4 id="_transport_tor">Transport Tor</h4>
+<div class="paragraph">
+<p>Tor, qui signifie <em>The Onion Routing network</em>, est un projet logiciel et un réseau qui offre le cryptage et l&#8217;encapsulation des données via des chemins de réseau qui offrent l&#8217;anonymat, l&#8217;intraçabilité et la confidentialité.</p>
+</div>
+<div class="paragraph">
+<p>Bitcoin Core offre plusieurs options de configuration qui vous permettent d&#8217;exécuter un nœud Bitcoin avec son trafic transporté sur le réseau Tor. De plus, Bitcoin Core peut également offrir un service caché Tor permettant à d&#8217;autres nœuds Tor de se connecter à votre nœud directement via Tor.</p>
+</div>
+<div class="paragraph">
+<p>À partir de la version 0.12 de Bitcoin Core, un nœud proposera automatiquement un service Tor caché s&#8217;il est capable de se connecter à un service Tor local. Si vous avez installé Tor et que le processus Bitcoin Core s&#8217;exécute en tant qu&#8217;utilisateur disposant des autorisations adéquates pour accéder au cookie d&#8217;authentification Tor, il devrait fonctionner automatiquement. Utilisez le drapeau <code>debug</code> pour activer le débogage de Bitcoin Core pour le service Tor comme ceci :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ bitcoind --daemon --debug=tor</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vous devriez voir "tor: ADD_ONION successful" dans les journaux, indiquant que Bitcoin Core a ajouté un service caché au réseau Tor.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez trouver plus d&#8217;instructions sur l&#8217;exécution de Bitcoin Core en tant que service caché de Tor dans la documentation de Bitcoin Core (<em>docs/tor.md</em>) et divers didacticiels en ligne.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_authentification_et_cryptage_pair_à_pair">Authentification et cryptage pair à pair</h4>
+<div class="paragraph">
+<p>Deux propositions d&#8217;amélioration Bitcoin, BIP-150 et BIP-151, ajoutent la prise en charge de l&#8217;authentification et du cryptage P2P dans le réseau bitcoin P2P. Ces deux BIP définissent des services optionnels pouvant être proposés par des nœuds Bitcoin compatibles. BIP-151 active le chiffrement négocié pour toutes les communications entre deux nœuds qui prennent en charge BIP-151. BIP-150 offre une authentification par les pairs en option qui permet aux nœuds de s&#8217;authentifier mutuellement à l&#8217;aide d&#8217;ECDSA et des clés privées. BIP-150 exige qu&#8217;avant l&#8217;authentification, les deux nœuds aient établi des communications cryptées conformément à BIP-151.</p>
+</div>
+<div class="paragraph">
+<p>Depuis février 2021, BIP-150 et BIP-151 ne sont pas implémentés dans Bitcoin Core. Cependant, les deux propositions ont été mises en œuvre par au moins un client Bitcoin alternatif nommé bcoin.</p>
+</div>
+<div class="paragraph">
+<p>BIP-150 et BIP-151 permettent aux utilisateurs d&#8217;exécuter des clients SPV qui se connectent à un nœud complet de confiance, en utilisant le chiffrement et l&#8217;authentification pour protéger la confidentialité du client SPV.</p>
+</div>
+<div class="paragraph">
+<p>De plus, l&#8217;authentification peut être utilisée pour créer des réseaux de nœuds Bitcoin de confiance et empêcher les attaques Man-in-the-Middle (entre-deux). Enfin, le cryptage P2P, s&#8217;il est déployé à grande échelle, renforcerait la résistance du bitcoin à l&#8217;analyse du trafic et à la surveillance portant atteinte à la vie privée, en particulier dans les pays totalitaires où l&#8217;utilisation d&#8217;Internet est fortement contrôlée et surveillée.</p>
+</div>
+<div class="paragraph">
+<p>La norme est définie dans https:/ /github.com/bitcoin/bips/blob/master/bip-0150.mediawiki[BIP-150 (authentification par les pairs)] et <a href="https://github.com/bitcoin/bips/blob/master/bip-0151.mediawiki"> BIP-151 (chiffrement des communications poste à poste)</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_groupes_de_transactions">Groupes de transactions</h3>
+<div class="paragraph">
+<p>Presque tous les nœuds du réseau Bitcoin maintiennent une liste temporaire de transactions non confirmées appelées <em>bassin de mémoire</em>, <em>mempool</em> ou <em>bassin de transaction</em>. Les nœuds utilisent ce bassin pour suivre les transactions connues du réseau mais qui ne sont pas encore incluses dans la chaîne de blocs. Par exemple, un nœud de portefeuille utilisera le bassin de transactions pour suivre les paiements entrants dans le portefeuille de l&#8217;utilisateur qui ont été reçus sur le réseau mais qui n&#8217;ont pas encore été confirmés.</p>
+</div>
+<div class="paragraph">
+<p>Au fur et à mesure que les transactions sont reçues et vérifiées, elles sont ajoutées au bassin de transactions et relayées aux nœuds voisins pour se propager sur le réseau.</p>
+</div>
+<div class="paragraph">
+<p>Certaines implémentations de nœuds maintiennent également un bassin séparé de transactions orphelines. Si les entrées d&#8217;une transaction font référence à une transaction qui n&#8217;est pas encore connue, comme un parent manquant, la transaction orpheline sera stockée temporairement dans le bassin orphelin jusqu&#8217;à ce que la transaction parent arrive.</p>
+</div>
+<div class="paragraph">
+<p>Lorsqu&#8217;une transaction est ajoutée au bassin de transactions, le bassin orphelin est vérifié pour tous les orphelins qui référencent les sorties de cette transaction (ses enfants). Tous les orphelins correspondants sont ensuite validés. S&#8217;ils sont valides, ils sont supprimés du bassin orphelin et ajoutés au bassin de transactions, complétant ainsi la chaîne qui a commencé avec la transaction parent. À la lumière de la transaction nouvellement ajoutée, qui n&#8217;est plus orpheline, le processus est répété de manière récursive à la recherche de tout autre descendant, jusqu&#8217;à ce qu&#8217;aucun autre descendant ne soit trouvé. Grâce à ce processus, l&#8217;arrivée d&#8217;une transaction parente déclenche une reconstruction en cascade de toute une chaîne de transactions interdépendantes en réunissant les orphelins avec leurs parents tout au long de la chaîne.</p>
+</div>
+<div class="paragraph">
+<p>Le bassin de transactions et le bassin orphelin (le cas échéant) sont stockés dans la mémoire locale et ne sont pas enregistrés sur le stockage persistant ; ils sont plutôt renseignés dynamiquement à partir des messages réseau entrants. Lorsqu&#8217;un nœud démarre, les deux bassins sont vides et se remplissent progressivement avec les nouvelles transactions reçues sur le réseau.</p>
+</div>
+<div class="paragraph">
+<p>Certaines implémentations du client Bitcoin maintiennent également une base de données ou un bassin UTXO, qui est l&#8217;ensemble de toutes les sorties non dépensées sur la chaîne de blocs. Les utilisateurs de Bitcoin Core le trouveront dans le dossier <code>chainstate/</code> du répertoire de données de leur client. Bien que le nom "bassin UTXO" ressemble au bassin de transactions, il représente un ensemble de données différent. Contrairement aux bassins de transactions et orphelins, le bassin UTXO n&#8217;est pas initialisé vide mais contient à la place des millions d&#8217;entrées de sorties de transactions non dépensées, tout ce qui n&#8217;est pas dépensé depuis le bloc de genèse. Le bassin UTXO peut être hébergé dans la mémoire locale ou sous la forme d&#8217;une table de base de données indexée sur un stockage persistant.</p>
+</div>
+<div class="paragraph">
+<p>Alors que les bassins de transactions et orphelins représentent la perspective locale d&#8217;un seul nœud et peuvent varier considérablement d&#8217;un nœud à l&#8217;autre en fonction du moment où le nœud a été démarré ou redémarré, le bassin UTXO représente le consensus émergent du réseau et variera donc peu entre les nœuds. De plus, les bassins de transactions et orphelins ne contiennent que des transactions non confirmées, tandis que le pool UTXO ne contient que des sorties confirmées.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2022-03-23 22:25:24 -0400
+</div>
+</div>
+</body>
+</html>

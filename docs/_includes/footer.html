@@ -1,0 +1,60 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="{{ 'feed.xml' | relative_url }}">
+            <svg class="svg-icon orange">
+              <use xlink:href="{{ 'assets/minima-social-icons.svg#rss' | relative_url }}"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      {%- if site.author %}
+        <ul class="contact-list">
+          {% if site.author.name -%}
+            <li class="p-name">{{ site.author.name | escape }}</li>
+          {% endif -%}
+          {% if site.author.email -%}
+            <li><a class="u-email" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
+          {%- endif %}
+        </ul>
+      {%- endif %}
+      </div>
+      <div class="footer-col">
+        <p>{{ site.description | escape }}</p>
+      </div>
+    </div>
+
+    <div class="social-links">
+      {%- include social.html -%}
+    </div>
+
+    <div style="text-align: center;margin-top: 3%;">
+      <p class="copyright">
+        &copy; {{ site.time | date: '%Y' }}
+        {%- if site.author %}
+          {{ site.author.name | escape }}
+        {%- endif %}
+        &mdash;
+        <a href="{{ site.url | relative_url }}">{{ site.title | escape }}</a>
+      </p>
+    </div>
+    
+
+  </div>
+
+</footer>
+
+<!-- Twitter single-event website tag code -->
+<script src="//static.ads-twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid('o8hil', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=o8hil&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+<img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=o8hil&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+</noscript>
+<!-- End Twitter single-event website tag code -->
+
+<script src="https://cdn.websitepolicies.io/lib/cookieconsent/1.0.3/cookieconsent.min.js" defer></script><script>window.addEventListener("load",function(){window.wpcc.init({"border":"thin","corners":"small","colors":{"popup":{"background":"#5c4812","text":"#ffffff","border":"#fde296"},"button":{"background":"#fde296","text":"#000000"}},"content":{"href":"https://app.websitepolicies.com/policies/view/qj7e3dt8","link":"https://app.websitepolicies.com/policies/view/qj7e3dt8"}})});</script>
