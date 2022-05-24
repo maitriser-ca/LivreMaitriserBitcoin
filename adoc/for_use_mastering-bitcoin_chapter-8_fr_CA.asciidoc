@@ -11,18 +11,18 @@ L'architecture du réseau P2P de Bitcoin est bien plus qu'un choix de topologie.
 
 === Types de nœuds et rôles
 
-(((&quot;réseau Bitcoin&quot;, &quot;types de nœuds et rôles&quot;, id=&quot;BNnode08&quot;)))(((&quot;nœuds Bitcoin&quot;, &quot;types et rôles&quot;, id=&quot;BNtype08&quot;)))Bien que les nœuds dans le bitcoin Les réseaux P2P sont égaux, ils peuvent jouer différents rôles en fonction de la fonctionnalité qu'ils prennent en charge. Un nœud Bitcoin est un ensemble de fonctions : le routage, la base de données blockchain, le minage et les services de portefeuille. Un nœud complet avec ces quatre fonctions est affiché dans &lt;<full_node_reference>&gt;.
+(((&quot;réseau Bitcoin&quot;, &quot;types de nœuds et rôles&quot;, id=&quot;BNnode08&quot;)))(((&quot;nœuds Bitcoin&quot;, &quot;types et rôles&quot;, id=&quot;BNtype08&quot;)))Bien que les nœuds dans le bitcoin Les réseaux P2P sont égaux, ils peuvent jouer différents rôles en fonction de la fonctionnalité qu'ils prennent en charge. Un nœud Bitcoin est un ensemble de fonctions : le routage, la base de données chaîne de blocs, le minage et les services de portefeuille. Un nœud complet avec ces quatre fonctions est affiché dans &lt;<full_node_reference>&gt;.
 
 [[full_node_reference]]
 [role="smallerfifty"]
-.Un nœud de réseau Bitcoin avec les quatre fonctions : portefeuille, mineur, base de données blockchain complète et routage réseau
+.Un nœud de réseau Bitcoin avec les quatre fonctions : portefeuille, mineur, base de données chaîne de blocs complète et routage réseau
 image::images/mbc2_0801.png["Référence de nœud client complet"]
 
 Tous les nœuds incluent la fonction de routage pour participer au réseau et peuvent inclure d'autres fonctionnalités. Tous les nœuds valident et propagent les transactions et les blocs, et découvrent et maintiennent les connexions aux pairs. Dans l'exemple de nœud complet dans &lt;<full_node_reference>&gt;, la fonction de routage est indiquée par un cercle nommé &quot;Network Routing Node&quot; ou par la lettre &quot;N&quot;.
 
-(((&quot;clients à nœud complet&quot;)))Certains nœuds, appelés nœuds complets, conservent également une copie complète et à jour de la chaîne de blocs. Les nœuds complets peuvent vérifier de manière autonome et autoritaire toute transaction sans référence externe. (((&quot;simplified-payment-verification (SPV)&quot;)))Certains nœuds ne conservent qu'un sous-ensemble de la chaîne de blocs et vérifient les transactions à l'aide d'une méthode appelée _simplified-payment-verification_, ou SPV. (((&quot;clients légers&quot;)))Ces nœuds sont appelés nœuds SPV ou nœuds légers. Dans l'exemple de nœud complet de la figure, la fonction de base de données chaîne de blocs de nœud complet est indiquée par un cercle appelé &quot;Full Blockchain&quot; ou la lettre &quot;B&quot;. Dans &lt;<bitcoin_network>&gt;, les nœuds SPV sont dessinés sans le cercle &quot;B&quot;, montrant qu'ils n'ont pas une copie complète de la chaîne de blocs.
+(((&quot;clients à nœud complet&quot;)))Certains nœuds, appelés nœuds complets, conservent également une copie complète et à jour de la chaîne de blocs. Les nœuds complets peuvent vérifier de manière autonome et autoritaire toute transaction sans référence externe. (((&quot;simplified-payment-verification (SPV)&quot;)))Certains nœuds ne conservent qu'un sous-ensemble de la chaîne de blocs et vérifient les transactions à l'aide d'une méthode appelée _simplified-payment-verification_, ou SPV. (((&quot;clients légers&quot;)))Ces nœuds sont appelés nœuds SPV ou nœuds légers. Dans l'exemple de nœud complet de la figure, la fonction de base de données chaîne de blocs de nœud complet est indiquée par un cercle appelé &quot;Full chaîne de blocs&quot; ou la lettre &quot;B&quot;. Dans &lt;<bitcoin_network>&gt;, les nœuds SPV sont dessinés sans le cercle &quot;B&quot;, montrant qu'ils n'ont pas une copie complète de la chaîne de blocs.
 
-(((&quot;Nœuds Bitcoin&quot;, &quot;nœuds de minage&quot;)))(((&quot;minage et consensus&quot;, &quot;nœuds de minage&quot;)))(((&quot;Algorithme de preuve de travail&quot;)))(((&quot;minage et consensus&quot;, &quot;Algorithme de preuve de travail&quot;))) Les nœuds de minage se font concurrence pour créer de nouveaux blocs en exécutant du matériel spécialisé pour résoudre l'algorithme de preuve de travail. Certains nœuds de minage sont également des nœuds complets, conservant une copie complète de la blockchain, tandis que d'autres sont des nœuds légers participant au minage de groupe et dépendant d'un serveur de groupe pour maintenir un nœud complet. La fonction d'exploration de données est affichée dans le nœud complet sous la forme d'un cercle appelé &quot;Miner&quot; ou de la lettre &quot;M&quot;.
+(((&quot;Nœuds Bitcoin&quot;, &quot;nœuds de minage&quot;)))(((&quot;minage et consensus&quot;, &quot;nœuds de minage&quot;)))(((&quot;Algorithme de preuve de travail&quot;)))(((&quot;minage et consensus&quot;, &quot;Algorithme de preuve de travail&quot;))) Les nœuds de minage se font concurrence pour créer de nouveaux blocs en exécutant du matériel spécialisé pour résoudre l'algorithme de preuve de travail. Certains nœuds de minage sont également des nœuds complets, conservant une copie complète de la chaîne de blocs, tandis que d'autres sont des nœuds légers participant au minage de groupe et dépendant d'un serveur de groupe pour maintenir un nœud complet. La fonction d'exploration de données est affichée dans le nœud complet sous la forme d'un cercle appelé &quot;Miner&quot; ou de la lettre &quot;M&quot;.
 
 Les portefeuilles d'utilisateurs peuvent faire partie d'un nœud complet, comme c'est généralement le cas avec les clients Bitcoin de bureau. De plus en plus, de nombreux portefeuilles d'utilisateurs, en particulier ceux fonctionnant sur des appareils à ressources limitées tels que les smartphones, sont des nœuds SPV. La fonction de portefeuille est affichée dans &lt;<full_node_reference>&gt; comme un cercle appelé &quot;Wallet&quot; ou la lettre &quot;W.&quot;
 
@@ -70,7 +70,7 @@ Pour se connecter à un pair connu, les nœuds établissent une connexion TCP, g
 +addrYou+:: L'adresse IP du nœud distant vue depuis ce nœud
 +addrMe+:: L'adresse IP du nœud local, telle que découverte par le nœud local
 +subver+:: Une sous-version indiquant le type de logiciel exécuté sur ce nœud (par exemple, pass:[<span class="keep-together"><code>/Satoshi:0.9.2.1/</code></span>])
-+BestHeight+:: La hauteur de bloc de la blockchain de ce nœud
++BestHeight+:: La hauteur de bloc de la chaîne de blocs de ce nœud
 
 (Voir https://bit.ly/1qlsC7w[GitHub] pour un exemple du message de +version+ du réseau.)
 
@@ -143,7 +143,7 @@ S'il n'y a pas de trafic sur une connexion, les nœuds enverront périodiquement
 
 === Nœuds complets
 
-(((&quot;réseau Bitcoin&quot;, &quot;nœuds complets&quot;)))(((&quot;nœuds complets clients&quot;)))(((&quot;chaîne de blocs (la)&quot;, &quot;nœuds de chaîne de blocs complets&quot;)))Les nœuds complets sont des nœuds qui maintiennent une chaîne de blocs complète avec toutes les transactions. Plus précisément, ils devraient probablement être appelés &quot;nœuds de chaîne de blocs complets&quot;. Dans les premières années de bitcoin, tous les nœuds étaient des nœuds complets et actuellement, le client Bitcoin Core est un nœud de chaîne de blocs complet. Au cours des deux dernières années, cependant, de nouvelles formes de clients Bitcoin ont été introduites qui ne maintiennent pas une blockchain complète mais fonctionnent comme des clients légers. Nous les examinerons plus en détail dans la section suivante.
+(((&quot;réseau Bitcoin&quot;, &quot;nœuds complets&quot;)))(((&quot;nœuds complets clients&quot;)))(((&quot;chaîne de blocs (la)&quot;, &quot;nœuds de chaîne de blocs complets&quot;)))Les nœuds complets sont des nœuds qui maintiennent une chaîne de blocs complète avec toutes les transactions. Plus précisément, ils devraient probablement être appelés &quot;nœuds de chaîne de blocs complets&quot;. Dans les premières années de bitcoin, tous les nœuds étaient des nœuds complets et actuellement, le client Bitcoin Core est un nœud de chaîne de blocs complet. Au cours des deux dernières années, cependant, de nouvelles formes de clients Bitcoin ont été introduites qui ne maintiennent pas une chaîne de blocs complète mais fonctionnent comme des clients légers. Nous les examinerons plus en détail dans la section suivante.
 
 (((&quot;blocs&quot;, &quot;bloc de genèse&quot;)))(((&quot;bloc de genèse&quot;)))(((&quot;chaîne de blocs (la)&quot;, &quot;bloc de genèse&quot;)))Les nœuds de chaîne de blocs complets maintiennent un copie à jour de la chaîne de blocs Bitcoin avec toutes les transactions, qu'ils construisent et vérifient indépendamment, en commençant par le tout premier bloc (bloc de genèse) et en remontant jusqu'au dernier bloc connu du réseau. Un nœud de chaîne de blocs complet peut vérifier de manière indépendante et autoritaire toute transaction sans recours à aucun autre nœud ou source d'informations. Le nœud de la chaîne de blocs complète s'appuie sur le réseau pour recevoir des mises à jour sur les nouveaux blocs de transactions, qu'il vérifie ensuite et intègre dans sa copie locale de la chaîne de blocs.
 
@@ -165,7 +165,7 @@ Ce processus de comparaison de la chaîne de blocs locale avec les pairs et de r
 
 [[inventory_synchronization]]
 [role="smallerfifty"]
-.nœud synchronisant la blockchain en récupérant les blocs d'un pair
+.nœud synchronisant la chaîne de blocs en récupérant les blocs d'un pair
 image::images/mbc2_0806.png[&quot;Synchronisation de l'inventaire&quot;]
 
 [[spv_nodes]]
@@ -183,7 +183,7 @@ Par exemple, lors de l'examen d'une transaction dans le bloc 300 000, un nœud c
 
 Un nœud SPV ne peut pas être persuadé qu'une transaction existe dans un bloc alors que la transaction n'existe pas en fait. Le nœud SPV établit l'existence d'une transaction dans un bloc en demandant une preuve de chemin Merkle et en validant la preuve de travail dans la chaîne de blocs. Cependant, l'existence d'une transaction peut être &quot;masquée&quot; à un nœud SPV. Un nœud SPV peut certainement prouver qu'une transaction existe mais ne peut pas vérifier qu'une transaction, telle qu'une double dépense du même UTXO, n'existe pas car il n'a pas d'enregistrement de toutes les transactions. Cette vulnérabilité peut être utilisée dans une attaque par déni de service ou pour une attaque à double dépense contre les nœuds SPV. Pour se défendre contre cela, un nœud SPV doit se connecter de manière aléatoire à plusieurs nœuds, pour augmenter la probabilité qu'il soit en contact avec au moins un nœud honnête. Ce besoin de se connecter de manière aléatoire signifie que les nœuds SPV sont également vulnérables aux attaques de partitionnement de réseau ou aux attaques Sybil, où ils sont connectés à de faux nœuds ou à de faux réseaux et n'ont pas accès à des nœuds honnêtes ou au vrai réseau Bitcoin.
 
-Dans la plupart des cas pratiques, les nœuds SPV bien connectés sont suffisamment sécurisés, trouvant un équilibre entre les besoins en ressources, l'aspect pratique et la sécurité. Pour une sécurité infaillible, cependant, rien ne vaut l'exécution d'un nœud de blockchain complet.
+Dans la plupart des cas pratiques, les nœuds SPV bien connectés sont suffisamment sécurisés, trouvant un équilibre entre les besoins en ressources, l'aspect pratique et la sécurité. Pour une sécurité infaillible, cependant, rien ne vaut l'exécution d'un nœud de chaîne de blocs complet.
 
 [INDICE]
 ====

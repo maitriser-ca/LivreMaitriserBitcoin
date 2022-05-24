@@ -115,7 +115,7 @@ Le bloc de genèse contient un message caché en son sein. L'entrée de transact
 
 === Relier les blocs dans la chaîne de blocs
 
-(((&quot;blocs&quot;, &quot;blocs de liaison dans la chaîne de blocs&quot;)))(((&quot;chaîne de blocs (la)&quot;, &quot;blocs de liaison dans la chaîne de blocs&quot;)))Les nœuds complets Bitcoin conservent une copie locale de la chaîne de blocs, à partir du bloc de genèse. La copie locale de la chaîne de blocs est constamment mise à jour au fur et à mesure que de nouveaux blocs sont trouvés et utilisés pour étendre la chaîne. Lorsqu'un nœud reçoit des blocs entrants du réseau, il validera ces blocs, puis les reliera à la blockchain existante. Pour établir un lien, un nœud examinera l'en-tête de bloc entrant et recherchera le &quot;hachage de bloc précédent&quot;.
+(((&quot;blocs&quot;, &quot;blocs de liaison dans la chaîne de blocs&quot;)))(((&quot;chaîne de blocs (la)&quot;, &quot;blocs de liaison dans la chaîne de blocs&quot;)))Les nœuds complets Bitcoin conservent une copie locale de la chaîne de blocs, à partir du bloc de genèse. La copie locale de la chaîne de blocs est constamment mise à jour au fur et à mesure que de nouveaux blocs sont trouvés et utilisés pour étendre la chaîne. Lorsqu'un nœud reçoit des blocs entrants du réseau, il validera ces blocs, puis les reliera à la chaîne de blocs existante. Pour établir un lien, un nœud examinera l'en-tête de bloc entrant et recherchera le &quot;hachage de bloc précédent&quot;.
 
 Supposons, par exemple, qu'un nœud ait 277 314 blocs dans la copie locale de la chaîne de blocs. Le dernier bloc dont le nœud a connaissance est le bloc 277 314, avec un hachage d'en-tête de bloc :
 
@@ -147,7 +147,7 @@ Le nœud Bitcoin reçoit alors un nouveau bloc du réseau, qu'il analyse comme s
 }
 ----
 
-En regardant ce nouveau bloc, le nœud trouve le champ +previousblockhash+, qui contient le hachage de son bloc parent. Il s'agit d'un hachage connu du nœud, celui du dernier bloc de la chaîne à la hauteur 277,314. Par conséquent, ce nouveau bloc est un enfant du dernier bloc de la chaîne et étend la blockchain existante. Le nœud ajoute ce nouveau bloc à la fin de la chaîne, rendant la blockchain plus longue avec une nouvelle hauteur de 277 315. &lt;<chain_of_blocks>&gt; montre la chaîne de trois blocs, liés par des références dans le champ +previousblockhash+.
+En regardant ce nouveau bloc, le nœud trouve le champ +previousblockhash+, qui contient le hachage de son bloc parent. Il s'agit d'un hachage connu du nœud, celui du dernier bloc de la chaîne à la hauteur 277,314. Par conséquent, ce nouveau bloc est un enfant du dernier bloc de la chaîne et étend la chaîne de blocs existante. Le nœud ajoute ce nouveau bloc à la fin de la chaîne, rendant la chaîne de blocs plus longue avec une nouvelle hauteur de 277 315. &lt;<chain_of_blocks>&gt; montre la chaîne de trois blocs, liés par des références dans le champ +previousblockhash+.
 
 
 [[merkle_trees]]
@@ -257,7 +257,7 @@ L'efficacité des arbres de Merkle devient évidente à mesure que l'échelle au
 | 65 535 opérations | 16 mégaoctets | 16 hachages | 512 octets
 |=======
 
-Comme vous pouvez le voir dans le tableau, alors que la taille de bloc augmente rapidement, de 4 Ko avec 16 transactions à une taille de bloc de 16 Mo pour 65 535 transactions, le chemin de Merkle requis pour prouver l'inclusion d'une transaction augmente beaucoup plus lentement, de 128 octets à seulement 512 octets. Avec les arbres de Merkle, un nœud peut télécharger uniquement les en-têtes de bloc (80 octets par bloc) et être toujours en mesure d'identifier l'inclusion d'une transaction dans un bloc en récupérant un petit chemin Merkle à partir d'un nœud complet, sans stocker ni transmettre la grande majorité des blockchain, qui peut avoir une taille de plusieurs gigaoctets. Les nœuds qui ne maintiennent pas une chaîne de blocs complète, appelés nœuds de vérification simplifiée des paiements (SPV), utilisent des chemins de Merkle pour vérifier les transactions sans télécharger des blocs complets.
+Comme vous pouvez le voir dans le tableau, alors que la taille de bloc augmente rapidement, de 4 Ko avec 16 transactions à une taille de bloc de 16 Mo pour 65 535 transactions, le chemin de Merkle requis pour prouver l'inclusion d'une transaction augmente beaucoup plus lentement, de 128 octets à seulement 512 octets. Avec les arbres de Merkle, un nœud peut télécharger uniquement les en-têtes de bloc (80 octets par bloc) et être toujours en mesure d'identifier l'inclusion d'une transaction dans un bloc en récupérant un petit chemin Merkle à partir d'un nœud complet, sans stocker ni transmettre la grande majorité des chaîne de blocs, qui peut avoir une taille de plusieurs gigaoctets. Les nœuds qui ne maintiennent pas une chaîne de blocs complète, appelés nœuds de vérification simplifiée des paiements (SPV), utilisent des chemins de Merkle pour vérifier les transactions sans télécharger des blocs complets.
 
 === Arbres de Merkle et vérification simplifiée des paiements (SPV)
 
@@ -272,7 +272,7 @@ Considérons, par exemple, un nœud SPV qui est intéressé par les paiements en
 
 ==== Testnet : Le terrain de test de Bitcoin
 
-Testnet est le nom de la blockchain, du réseau et de la devise de test utilisés à des fins de test. Le testnet est un réseau P2P en direct complet, avec des portefeuilles, des bitcoins de test (pièces de testnet), l'exploitation minière et toutes les autres fonctionnalités du réseau principal. Il n'y a vraiment que deux différences : les pièces testnet sont censées être sans valeur et la difficulté d'extraction doit être suffisamment faible pour que n'importe qui puisse extraire des pièces testnet relativement facilement (en les gardant sans valeur).
+Testnet est le nom de la chaîne de blocs, du réseau et de la devise de test utilisés à des fins de test. Le testnet est un réseau P2P en direct complet, avec des portefeuilles, des bitcoins de test (pièces de testnet), l'exploitation minière et toutes les autres fonctionnalités du réseau principal. Il n'y a vraiment que deux différences : les pièces testnet sont censées être sans valeur et la difficulté d'extraction doit être suffisamment faible pour que n'importe qui puisse extraire des pièces testnet relativement facilement (en les gardant sans valeur).
 
 Tout développement logiciel destiné à une utilisation en production sur le réseau principal de Bitcoin doit d'abord être testé sur testnet avec des pièces de test. Cela protège à la fois les développeurs des pertes financières dues aux bogues et le réseau des comportements involontaires dus aux bogues.
 
@@ -280,7 +280,7 @@ Garder les pièces sans valeur et l'exploitation minière facile, cependant, n'e
 
 Le testnet actuel s'appelle _testnet3_, la troisième itération de testnet, redémarré en février 2011 pour réinitialiser la difficulté du testnet précédent.
 
-Gardez à l'esprit que testnet3 est une grande blockchain, dépassant 25 Go en 2021. Il faudra environ un jour pour se synchroniser complètement et utiliser les ressources de votre ordinateur. Pas autant que le réseau principal, mais pas exactement &quot;léger&quot; non plus. Une bonne façon d'exécuter un nœud testnet est d'utiliser une image de machine virtuelle (par exemple, VirtualBox, Docker, Cloud Server, etc.) dédiée à cet effet.
+Gardez à l'esprit que testnet3 est une grande chaîne de blocs, dépassant 25 Go en 2021. Il faudra environ un jour pour se synchroniser complètement et utiliser les ressources de votre ordinateur. Pas autant que le réseau principal, mais pas exactement &quot;léger&quot; non plus. Une bonne façon d'exécuter un nœud testnet est d'utiliser une image de machine virtuelle (par exemple, VirtualBox, Docker, Cloud Server, etc.) dédiée à cet effet.
 
 ===== Utiliser testnet
 
@@ -292,7 +292,7 @@ Pour démarrer Bitcoin Core sur testnet au lieu du réseau principal, vous utili
 $ bitcoind -testnet
 ----
 
-Dans les journaux, vous devriez voir que bitcoind construit une nouvelle blockchain dans le sous-répertoire +testnet3+ du répertoire bitcoind par défaut :
+Dans les journaux, vous devriez voir que bitcoind construit une nouvelle chaîne de blocs dans le sous-répertoire +testnet3+ du répertoire bitcoind par défaut :
 
 ----
 bitcoind : Utilisation du répertoire de données /home/username/.bitcoin/testnet3
@@ -332,7 +332,7 @@ En 2021, testnet3 prend en charge toutes les fonctionnalités du réseau princip
 
 ==== Regtest : La chaîne de blocs locale
 
-(((&quot;regtest (Regression Testing ou tests de régression)&quot;)))Regtest, qui signifie &quot;Regression Testing&quot;, (ou tests de régressions) est une fonctionnalité de Bitcoin Core qui vous permet de créer une chaîne de blocs locale à des fins de test. Contrairement à testnet3, qui est une blockchain de test publique et partagée, les chaînes de blocs regtest sont destinées à être exécutées comme des systèmes fermés pour les tests locaux. Vous lancez une chaîne de blocs regtest à partir de zéro, en créant un bloc de genèse local. Vous pouvez ajouter d'autres nœuds au réseau ou l'exécuter avec un seul nœud uniquement pour tester le logiciel Bitcoin Core.
+(((&quot;regtest (Regression Testing ou tests de régression)&quot;)))Regtest, qui signifie &quot;Regression Testing&quot;, (ou tests de régressions) est une fonctionnalité de Bitcoin Core qui vous permet de créer une chaîne de blocs locale à des fins de test. Contrairement à testnet3, qui est une chaîne de blocs de test publique et partagée, les chaînes de blocs regtest sont destinées à être exécutées comme des systèmes fermés pour les tests locaux. Vous lancez une chaîne de blocs regtest à partir de zéro, en créant un bloc de genèse local. Vous pouvez ajouter d'autres nœuds au réseau ou l'exécuter avec un seul nœud uniquement pour tester le logiciel Bitcoin Core.
 
 Pour démarrer Bitcoin Core en mode regtest, vous utilisez le drapeau +regtest+ :
 
@@ -340,13 +340,13 @@ Pour démarrer Bitcoin Core en mode regtest, vous utilisez le drapeau +regtest+�
 $ bitcoind -regtest
 ----
 
-Tout comme avec testnet, Bitcoin Core initialisera une nouvelle blockchain sous le sous-répertoire _regtest_ de votre répertoire par défaut bitcoind :
+Tout comme avec testnet, Bitcoin Core initialisera une nouvelle chaîne de blocs sous le sous-répertoire _regtest_ de votre répertoire par défaut bitcoind :
 
 ----
 bitcoind: Using data directory /home/username/.bitcoin/regtest
 ----
 
-Pour utiliser l'outil de ligne de commande, vous devez également spécifier l'indicateur +regtest+. Essayons la commande +getblockchaininfo+ pour inspecter la blockchain regtest :
+Pour utiliser l'outil de ligne de commande, vous devez également spécifier l'indicateur +regtest+. Essayons la commande +getblockchaininfo+ pour inspecter la chaîne de blocs regtest :
 
 ----
 $ bitcoin-cli -regtest getblockchaininfo

@@ -233,7 +233,7 @@ Malgré ces besoins en ressources, des milliers de bénévoles gèrent des nœud
 
 Pourquoi voudriez-vous exécuter un nœud ? Voici quelques-unes des raisons les plus courantes :
 
-* Si vous développez un logiciel bitcoin et que vous devez vous fier à un nœud Bitcoin pour un accès programmable (API) au réseau et à la blockchain.
+* Si vous développez un logiciel bitcoin et que vous devez vous fier à un nœud Bitcoin pour un accès programmable (API) au réseau et à la chaîne de blocs.
 
 * Si vous créez des applications qui doivent valider les transactions selon les règles de consensus de bitcoin. En règle générale, les éditeurs de logiciels Bitcoin exécutent plusieurs nœuds.
 
@@ -407,7 +407,7 @@ $ bitcoin-cli getblockchaininfo
 }
 ----
 
-Cela montre un nœud avec une hauteur de blockchain de 0 blocs et 83999 en-têtes. Le nœud récupère actuellement les en-têtes de bloc de la meilleure chaîne et continue ensuite à télécharger les blocs complets.
+Cela montre un nœud avec une hauteur de chaîne de blocs de 0 blocs et 83999 en-têtes. Le nœud récupère actuellement les en-têtes de bloc de la meilleure chaîne et continue ensuite à télécharger les blocs complets.
 
 Une fois que vous êtes satisfait des options de configuration que vous avez sélectionnées, vous devez ajouter _bitcoin_ aux scripts de démarrage de votre système d'exploitation, afin qu'il s'exécute en continu et au redémarrage du système d'exploitation. Vous trouverez un certain nombre d'exemples de scripts de démarrage pour différents systèmes d'exploitation dans le répertoire source de bitcoin sous _contrib/init_ et un fichier _README.md_ indiquant quel système utilise quel script.(((&quot;&quot;, startref=&quot;BCnode03&quot;)))(((&quot;&quot;, startref=&quot;BNcore03&quot;)))
 
@@ -510,7 +510,7 @@ Il faudra un certain temps, peut-être plus d'une journée, pour que le client +
 
 
 
-Dans &lt;<cup_of_coffee>&gt;, (((&quot;cas d'utilisation&quot;, &quot;acheter du café&quot;, id=&quot;alicethree&quot;)))Alice a acheté une tasse de café au Bob's Cafe. Sa transaction a été enregistrée sur la blockchain avec l'identifiant de transaction (+txid+) +0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2+. Utilisons l'API pour récupérer et examiner cette transaction en transmettant l'identifiant de transaction en tant que paramètre :
+Dans &lt;<cup_of_coffee>&gt;, (((&quot;cas d'utilisation&quot;, &quot;acheter du café&quot;, id=&quot;alicethree&quot;)))Alice a acheté une tasse de café au Bob's Cafe. Sa transaction a été enregistrée sur la chaîne de blocs avec l'identifiant de transaction (+txid+) +0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2+. Utilisons l'API pour récupérer et examiner cette transaction en transmettant l'identifiant de transaction en tant que paramètre :
 
 ++++
 <pre data-type="programlisting">
@@ -530,7 +530,7 @@ ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813014&#x
 
 [INDICE]
 ====
-(((&quot;identifiant de transaction (txd)&quot;)))(((&quot;malléabilité&quot;)))Un identifiant de transaction ne fait pas autorité tant qu'une transaction n'a pas été confirmée. L'absence d'un hachage de transaction dans la blockchain ne signifie pas que la transaction n'a pas été traitée. C'est ce qu'on appelle la &quot;malléabilité des transactions&quot;, car les hachages de transaction peuvent être modifiés avant la confirmation dans un bloc. Après confirmation, le +txid+ est immuable et fait autorité.
+(((&quot;identifiant de transaction (txd)&quot;)))(((&quot;malléabilité&quot;)))Un identifiant de transaction ne fait pas autorité tant qu'une transaction n'a pas été confirmée. L'absence d'un hachage de transaction dans la chaîne de blocs ne signifie pas que la transaction n'a pas été traitée. C'est ce qu'on appelle la &quot;malléabilité des transactions&quot;, car les hachages de transaction peuvent être modifiés avant la confirmation dans un bloc. Après confirmation, le +txid+ est immuable et fait autorité.
 ====
 
 La commande +getrawtransaction+ renvoie une transaction sérialisée en notation hexadécimale. Pour décoder cela, nous utilisons la commande +decoderawtransaction+, en passant les données hexadécimales en paramètre. Vous pouvez copier l'hex renvoyé par +getrawtransaction+ et le coller en tant que paramètre dans +decoderawtransaction+ :
@@ -668,7 +668,7 @@ $ bitcoin-cli getblock 0000000000000001b6b9a13b095e96db41c4a928b97ef2d944a9b3&#x
 </pre>
 ++++
 
-Le bloc contient 419 transactions et la 64ème transaction répertoriée (+0627052b...+) est le paiement du café d'Alice. L'entrée + hauteur + nous indique qu'il s'agit du 277316e bloc de la blockchain.
+Le bloc contient 419 transactions et la 64ème transaction répertoriée (+0627052b...+) est le paiement du café d'Alice. L'entrée + hauteur + nous indique qu'il s'agit du 277316e bloc de la chaîne de blocs.
 
 ==== Utilisation de l'interface de programmation de Bitcoin Core
 

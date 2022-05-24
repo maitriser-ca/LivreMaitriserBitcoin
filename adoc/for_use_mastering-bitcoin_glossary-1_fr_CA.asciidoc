@@ -201,7 +201,7 @@ RIPEMD-160::
     RIPEMD-160 est une fonction de hachage cryptographique 160 bits. RIPEMD-160 est une version renforcée de RIPEMD avec un résultat de hachage de 160 bits, et devrait être sécurisé pour les dix prochaines années ou plus.
 
 satoshi::
-    Un satoshi est la plus petite dénomination de bitcoin pouvant être enregistrée sur la blockchain. Il équivaut à 0,00000001 bitcoin et porte le nom du créateur du bitcoin, Satoshi Nakamoto. (((&quot;satoshi&quot;)))
+    Un satoshi est la plus petite dénomination de bitcoin pouvant être enregistrée sur la chaîne de blocs. Il équivaut à 0,00000001 bitcoin et porte le nom du créateur du bitcoin, Satoshi Nakamoto. (((&quot;satoshi&quot;)))
 
 Satoshi Nakamoto::
     Satoshi Nakamoto est le nom utilisé par la ou les personnes qui ont conçu le bitcoin et créé son implémentation de référence originale, Bitcoin Core. Dans le cadre de la mise en œuvre, ils ont également conçu la première base de données chaîne de blocs. Dans le processus, ils ont été les premiers à résoudre le problème de la double dépense pour la monnaie numérique. Leur véritable identité reste inconnue.

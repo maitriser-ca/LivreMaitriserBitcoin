@@ -17,7 +17,7 @@ Dans cette section, nous résumons les différentes technologies utilisées pour
 
 [INDICE]
 ====
-Les portefeuilles Bitcoin contiennent des clés, pas des pièces (ou coins). Chaque utilisateur dispose d'un portefeuille contenant des clés. Les portefeuilles sont en réalité des porte-clés contenant des paires de clés privées/publiques (voir &lt;<private_public_keys>&gt;). Les utilisateurs signent des transactions avec les clés, prouvant ainsi qu'ils sont propriétaires des sorties de transaction (leurs pièces ou monnaies). Les pièces sont stockées sur la blockchain sous la forme de sorties de transaction (souvent notées vout ou txout).
+Les portefeuilles Bitcoin contiennent des clés, pas des pièces (ou coins). Chaque utilisateur dispose d'un portefeuille contenant des clés. Les portefeuilles sont en réalité des porte-clés contenant des paires de clés privées/publiques (voir &lt;<private_public_keys>&gt;). Les utilisateurs signent des transactions avec les clés, prouvant ainsi qu'ils sont propriétaires des sorties de transaction (leurs pièces ou monnaies). Les pièces sont stockées sur la chaîne de blocs sous la forme de sorties de transaction (souvent notées vout ou txout).
 ====
 
 (((&quot;portefeuilles&quot;, &quot;types de&quot;, &quot;distinctions primaires&quot;)))Il existe deux principaux types de portefeuilles, qui se distinguent par le fait que les clés qu'ils contiennent sont liées les unes aux autres ou non.

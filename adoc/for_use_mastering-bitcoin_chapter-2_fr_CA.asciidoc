@@ -16,7 +16,7 @@ Dans le schéma d'ensemble présenté dans &lt;<bitcoin-overview>&gt;, nous voyo
 .Présentation de Bitcoin
 image::images/mbc2_0201.png["Survol de Bitcoin"]
 
-(((&quot;exporateur de block bitcoin&quot;)))(((&quot;BlockCypher Explorer&quot;)))(((&quot;Blockchain.com&quot;)))(((&quot;BitPay Insight&quot;)))Les explorateurs de blockchain populaires incluent :
+(((&quot;exporateur de block bitcoin&quot;)))(((&quot;BlockCypher Explorer&quot;)))(((&quot;Blockchain.com&quot;)))(((&quot;BitPay Insight&quot;)))Les explorateurs de chaîne de blocs populaires incluent :
 
 * https://live.blockcypher.com[Explorateur BlockCypher]
 * https://blockchain.com[Blockchain.com]
@@ -80,7 +80,7 @@ Dans les sections suivantes, nous examinerons cette transaction plus en détail.
 (((&quot;valeurs fractionnaires&quot;)))(((&quot;milli-bitcoin&quot;)))(((&quot;satoshis&quot;)))Le réseau Bitcoin peut effectuer des transactions en valeurs fractionnaires, par exemple à partir de millibitcoin (1/1000e de bitcoin ) jusqu'à 1/100 000 000e de bitcoin, connu sous le nom de satoshi. Tout au long de ce livre, nous utiliserons le terme &quot;bitcoin&quot; pour désigner toute quantité de monnaie bitcoin, de la plus petite unité (1 satoshi) au nombre total (21 000 000) de tous les bitcoins qui seront extraits.
 ====
 
-Vous pouvez examiner la transaction d'Alice avec Bob's Cafe sur la blockchain en utilisant un site d'exploration de blocs (&lt;<view_alice_transaction>&gt;):
+Vous pouvez examiner la transaction d'Alice avec Bob's Cafe sur la chaîne de blocs en utilisant un site d'exploration de blocs (&lt;<view_alice_transaction>&gt;):
 
 [[view_alice_transaction]]
 .Voir la transaction d'Alice sur https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2[blockchain.com]
@@ -258,7 +258,7 @@ Les transactions sont ajoutées au nouveau bloc, classées par ordre de priorit�
 
 (((&quot;blocs candidats&quot;)))(((&quot;blocs&quot;, &quot;blocs candidats&quot;)))La transaction d'Alice a été récupérée par le réseau et incluse dans le groupe de transactions non vérifiées. Une fois validé par le logiciel de minage, il a été inclus dans un nouveau bloc, appelé _bloc candidat_, généré par le pool de minage de Jing. Tous les mineurs participant à ce pool de minage commencent immédiatement à calculer la preuve de travail pour le bloc candidat. Environ cinq minutes après la première transmission de la transaction par le portefeuille d'Alice, l'un des mineurs ASIC de Jing a trouvé une solution pour le bloc candidat et l'a annoncée au réseau. Une fois que les autres mineurs ont validé le bloc gagnant, ils ont commencé la course pour générer le bloc suivant.
 
-Le bloc gagnant de Jing est devenu une partie de la blockchain en tant que bloc # 277316, contenant 419 transactions, y compris la transaction d'Alice. Le bloc contenant la transaction d'Alice est compté comme une &quot;confirmation&quot; de cette transaction.
+Le bloc gagnant de Jing est devenu une partie de la chaîne de blocs en tant que bloc # 277316, contenant 419 transactions, y compris la transaction d'Alice. Le bloc contenant la transaction d'Alice est compté comme une &quot;confirmation&quot; de cette transaction.
 
 [INDICE]
 ====
