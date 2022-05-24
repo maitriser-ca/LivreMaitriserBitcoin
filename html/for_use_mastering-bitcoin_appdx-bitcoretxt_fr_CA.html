@@ -574,10 +574,10 @@ satoshis: satoshis // montant envoyé à l'adresse
 <p>Copiez le code ci-dessous dans un fichier appelé <em>broadcast.js</em>.</p>
 </li>
 <li>
-<p>Les variables <code>tx</code> et <code>rbfTx</code> sont la sortie de <code>tx.serialize()</code> et rbfTx.serialize(), respectivement.</p>
+<p>Les variables tx et rbfTx sont la sortie de tx.serialize() et rbfTx.serialize(), respectivement.</p>
 </li>
 <li>
-<p>Afin de remplacer par des frais, l&#8217;homologue doit prendre en charge l&#8217;option bitcoind <code>mempoolreplace</code> et la définir sur 1.</p>
+<p>Afin de remplacer par des frais, l&#8217;homologue doit prendre en charge l&#8217;option bitcoind mempoolreplace et la définir sur 1.</p>
 </li>
 <li>
 <p>Exécutez le nœud de fichier <em>broadcast.js</em> :</p>
@@ -598,7 +598,7 @@ peer.on('ready', function() {
   var index = 0;
   var interval = setInterval(function() {
     peer.sendMessage(txs[index++]);
-    console.log('tx: ' ` index ` ' sent');
+    console.log('tx: ' + index + ' sent');
     if (index === txs.length) {
       clearInterval(interval);
       console.log('disconnecting from peer: ' + host);
@@ -616,7 +616,7 @@ peer.connect();</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-23 22:28:41 -0400
+Last updated 2022-05-23 23:39:13 -0400
 </div>
 </div>
 </body>

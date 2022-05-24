@@ -444,7 +444,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="ch12">Applications pour les chaînes de blocs</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Appuyons-nous maintenant sur notre compréhension du bitcoin en le considérant comme une <em>plate-forme d&#8217;application</em>. De nos jours, de nombreuses personnes utilisent le terme "chaîne de blocs" ou "chaîne de blocs" pour désigner toute plate-forme d&#8217;application qui partage les principes de conception du bitcoin. Le terme est souvent mal utilisé et appliqué à de nombreuses choses qui ne fournissent pas les principales fonctionnalités fournies par la chaîne de blocs de Bitcoin.</p>
+<p>Appuyons-nous maintenant sur notre compréhension du bitcoin en le considérant comme une <em>plate-forme d&#8217;application</em>. De nos jours, de nombreuses personnes utilisent le terme "blockchain" ou "chaîne de blocs" pour désigner toute plate-forme d&#8217;application qui partage les principes de conception du bitcoin. Le terme est souvent mal utilisé et appliqué à de nombreuses choses qui ne fournissent pas les principales fonctionnalités fournies par la chaîne de blocs de Bitcoin.</p>
 </div>
 <div class="paragraph">
 <p>Dans ce chapitre, nous examinerons les fonctionnalités offertes par la chaîne de blocs Bitcoin, en tant que plate-forme d&#8217;application. Nous considérerons les <em>primitives</em> de construction d&#8217;applications, qui forment les blocs de construction de toute application chaîne de blocs. Nous examinerons plusieurs applications importantes qui utilisent ces primitives, telles que les canaux de paiement (état) et les canaux de paiement routés (Lightning Network).</p>
@@ -496,7 +496,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </dd>
 <dt class="hdlist1">Intégrité</dt>
 <dd>
-<p>Une transaction bitcoin signée avec <code>SIGHASH_ALL</code> ou des parties d&#8217;une transaction signée par un autre type <code>SIGHASH</code> ne peuvent pas être modifiées sans invalider la signature, invalidant ainsi la transaction elle-même.</p>
+<p>Une transaction bitcoin signée avec SIGHASH_ALL ou des parties d&#8217;une transaction signée par un autre type SIGHASH ne peuvent pas être modifiées sans invalider la signature, invalidant ainsi la transaction elle-même.</p>
 </dd>
 <dt class="hdlist1">Atomicité des transactions</dt>
 <dd>
@@ -528,7 +528,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </dd>
 <dt class="hdlist1">Enregistrement de l&#8217;état externe</dt>
 <dd>
-<p>Une transaction peut valider une valeur de données, via <code>OP_RETURN</code>, représentant une transition d&#8217;état dans une machine à états externe.</p>
+<p>Une transaction peut valider une valeur de données, via OP_RETURN, représentant une transition d&#8217;état dans une machine à états externe.</p>
 </dd>
 <dt class="hdlist1">Émission prévisible</dt>
 <dd>
@@ -549,15 +549,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dl>
 <dt class="hdlist1">Preuve d&#8217;existence (notaire numérique)</dt>
 <dd>
-<p>Immuabilité ` Horodatage ` Durabilité. Une empreinte numérique peut être validée avec une transaction dans la chaîne de blocs, prouvant qu&#8217;un document existait (horodatage) au moment où il a été enregistré. L&#8217;empreinte digitale ne pourra pas être modifiée ex-post-facto (Immutabilité) et la preuve sera conservée de façon permanente (Durabilité).</p>
+<p>Immuabilité + Horodatage + Durabilité. Une empreinte numérique peut être validée avec une transaction dans la chaîne de blocs, prouvant qu&#8217;un document existait (horodatage) au moment où il a été enregistré. L&#8217;empreinte digitale ne pourra pas être modifiée ex-post-facto (Immutabilité) et la preuve sera conservée de façon permanente (Durabilité).</p>
 </dd>
 <dt class="hdlist1">Kickstarter (Lighthouse)</dt>
 <dd>
-<p>Cohérence ` Atomicité ` Intégrité. Si vous signez une entrée et la sortie (intégrité) d&#8217;une transaction de collecte de fonds, d&#8217;autres peuvent contribuer à la collecte de fonds mais elle ne peut pas être dépensée (atomicité) tant que l&#8217;objectif (valeur de sortie) n&#8217;est pas financé (cohérence).</p>
+<p>Cohérence + Atomicité + Intégrité. Si vous signez une entrée et la sortie (intégrité) d&#8217;une transaction de collecte de fonds, d&#8217;autres peuvent contribuer à la collecte de fonds mais elle ne peut pas être dépensée (atomicité) tant que l&#8217;objectif (valeur de sortie) n&#8217;est pas financé (cohérence).</p>
 </dd>
 <dt class="hdlist1">Canaux de paiement</dt>
 <dd>
-<p>Quorum de contrôle ` Verrou temporel ` Pas de double dépense ` Non-expiration ` Résistance à la censure + Autorisation. Un multisig 2-of-2 (Quorum) avec un verrou temporel (Verrou temporel) utilisé comme transaction de "règlement" d&#8217;un canal de paiement peut être détenu (Non-expiration) et dépensé à tout moment (Résistance à la censure) par l&#8217;une ou l&#8217;autre des parties (Autorisation). Les deux parties peuvent alors créer des transactions d&#8217;engagement qui doublent (Pas de double dépense) le règlement sur un verrou temporel plus court (Verrou temporel).</p>
+<p>Quorum de contrôle + Verrou temporel + Pas de double dépense + Non-expiration + Résistance à la censure + Autorisation. Un multisig 2-of-2 (Quorum) avec un verrou temporel (Verrou temporel) utilisé comme transaction de "règlement" d&#8217;un canal de paiement peut être détenu (Non-expiration) et dépensé à tout moment (Résistance à la censure) par l&#8217;une ou l&#8217;autre des parties (Autorisation). Les deux parties peuvent alors créer des transactions d&#8217;engagement qui doublent (Pas de double dépense) le règlement sur un verrou temporel plus court (Verrou temporel).</p>
 </dd>
 </dl>
 </div>
@@ -568,7 +568,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Conterparty est une couche de protocole construite au-dessus de bitcoin. Le protocole Counterparty offre la possibilité de créer et d&#8217;échanger des actifs virtuels et des jetons. De plus, Counterparty propose un échange décentralisé d&#8217;actifs. Conterparty met également en œuvre des contrats intelligents, basés sur la machine virtuelle Ethereum (EVM).</p>
 </div>
 <div class="paragraph">
-<p>Conterparty intègre des métadonnées dans les transactions bitcoin, en utilisant l&#8217;opcode <code>OP_RETURN</code> ou des adresses multisignatures 1 sur N qui encodent les métadonnées à la place des clés publiques. En utilisant ces mécanismes, Counterparty implémente une couche de protocole encodée dans les transactions bitcoin. La couche de protocole supplémentaire peut être interprétée par des applications compatibles avec Conterparty, telles que les portefeuilles et les explorateurs de chaînes de blocs, ou toute application construite à l&#8217;aide des bibliothèques de Conterparty.</p>
+<p>Conterparty intègre des métadonnées dans les transactions bitcoin, en utilisant l&#8217;opcode OP_RETURN ou des adresses multisignatures 1 sur N qui encodent les métadonnées à la place des clés publiques. En utilisant ces mécanismes, Counterparty implémente une couche de protocole encodée dans les transactions bitcoin. La couche de protocole supplémentaire peut être interprétée par des applications compatibles avec Conterparty, telles que les portefeuilles et les explorateurs de chaînes de blocs, ou toute application construite à l&#8217;aide des bibliothèques de Conterparty.</p>
 </div>
 <div class="paragraph">
 <p>Conterparty peut être utilisée comme plate-forme pour d&#8217;autres applications et services, à leur tour. Par exemple, Tokenly est une plate-forme construite sur Counterparty qui permet aux créateurs de contenu, aux artistes et aux entreprises d&#8217;émettre des jetons qui expriment la propriété numérique et peuvent être utilisés pour louer, accéder, échanger ou acheter du contenu, des produits et des services. D&#8217;autres applications tirant parti de Counterparty incluent des jeux (Spells of Genesis) et des projets de grille informatique (Folding Coin).</p>
@@ -609,7 +609,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Enfin, le canal peut être fermé soit de manière coopérative, en soumettant une <em>transaction de règlement</em> finale à la chaîne de blocs, soit unilatéralement, par l&#8217;une ou l&#8217;autre des parties soumettant la dernière transaction d&#8217;engagement à la chaîne de blocs. Une option de fermeture unilatérale est nécessaire au cas où l&#8217;une des parties se déconnecte de manière inattendue. La transaction de règlement représente l&#8217;état final du canal et est réglée sur la chaîne de blocs.</p>
 </div>
 <div class="paragraph">
-<p>Pendant toute la durée de vie de la chaîne, seules deux transactions doivent être soumises pour minage sur la chaîne de blocs : les transactions de financement et de règlement. Entre ces deux états, les deux parties peuvent échanger un nombre illimité de transactions d&#8217;engagement qui ne sont jamais vues par personne d&#8217;autre, ni soumises à la chaîne de blocs.</p>
+<p>Pendant toute la durée de vie de la chaîne, seules deux transactions doivent être soumises pour minage sur la chaîne de blocs: les transactions de financement et de règlement. Entre ces deux états, les deux parties peuvent échanger un nombre illimité de transactions d&#8217;engagement qui ne sont jamais vues par personne d&#8217;autre, ni soumises à la chaîne de blocs.</p>
 </div>
 <div class="paragraph">
 <p><a href="#payment_channel">Un canal de paiement entre Bob et Alice, montrant les transactions de financement, d&#8217;engagement et de règlement</a> illustre un canal de paiement entre Bob et Alice, montrant les transactions de financement, d&#8217;engagement et de règlement.</p>
@@ -648,7 +648,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>La transaction de financement consomme une ou plusieurs entrées du portefeuille d&#8217;Emma, approvisionnant les fonds. Il crée une sortie d&#8217;une valeur de 36 millibits payée à l&#8217;adresse multisignature 2 sur 2 contrôlée conjointement entre Emma et Fabian. Il peut avoir des sorties supplémentaires pour revenir au portefeuille d&#8217;Emma.</p>
 </div>
 <div class="paragraph">
-<p>Une fois la transaction de financement confirmée, Emma peut commencer à diffuser la vidéo. Le logiciel d&#8217;Emma crée et signe une transaction d&#8217;engagement qui modifie le solde du canal pour créditer 0,01 millibit à l&#8217;adresse de Fabian et rembourser 35,99 millibits à Emma. La transaction signée par Emma consomme la sortie de 36 millibits créée par la transaction de financement et crée deux sorties : une pour son remboursement, l&#8217;autre pour le paiement de Fabian. La transaction n&#8217;est que partiellement signée - elle nécessite deux signatures (2 sur 2), mais n&#8217;a que la signature d&#8217;Emma. Lorsque le serveur de Fabian reçoit cette transaction, il ajoute la deuxième signature (pour l&#8217;entrée 2 sur 2) et la renvoie à Emma avec 1 seconde de vidéo. Désormais, les deux parties ont une transaction d&#8217;engagement entièrement signée que l&#8217;une ou l&#8217;autre peut racheter, représentant le solde à jour correct du canal. Aucune des parties ne diffuse cette transaction sur le réseau.</p>
+<p>Une fois la transaction de financement confirmée, Emma peut commencer à diffuser la vidéo. Le logiciel d&#8217;Emma crée et signe une transaction d&#8217;engagement qui modifie le solde du canal pour créditer 0,01 millibit à l&#8217;adresse de Fabian et rembourser 35,99 millibits à Emma. La transaction signée par Emma consomme la sortie de 36 millibits créée par la transaction de financement et crée deux sorties : une pour son remboursement, l&#8217;autre pour le paiement de Fabian. La transaction n&#8217;est que partiellement signée - elle nécessite deux signatures (2 sur 2), mais n&#8217;a que la signature d&#8217;Emma. Lorsque le serveur de Fabian reçoit cette transaction, il ajoute la deuxième signature (pour l&#8217;entrée 2 sur 2) et la renvoie à Emma avec 1 seconde de vidéo. Désormais, les deux parties ont une transaction d&#8217;engagement entièrement signée que l&#8217;une ou l&#8217;autre peut racheter, représentant le solde à jour correct du canal. Aucune des parties ne diffuse cette transaction sur le réseau.</p>
 </div>
 <div class="paragraph">
 <p>Au tour suivant, le logiciel d&#8217;Emma crée et signe une autre transaction d&#8217;engagement (engagement #2) qui consomme la <em>même</em> sortie 2 sur 2 de la transaction de financement. La seconde transaction d&#8217;engagement alloue une sortie de 0,02 millibits à l&#8217;adresse de Fabian et une sortie de 35,98 millibits à l&#8217;adresse d&#8217;Emma. Cette nouvelle transaction est le paiement de deux secondes cumulées de vidéo. Le logiciel de Fabian signe et renvoie la deuxième transaction d&#8217;engagement, ainsi qu&#8217;une autre seconde de vidéo.</p>
@@ -663,7 +663,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a href="#video_payment_channel">Le canal de paiement d&#8217;Emma avec Fabian, montrant les transactions d&#8217;engagement qui mettent à jour le solde du canal</a> montre le canal entre Emma et Fabian et les transactions d&#8217;engagement qui mettent à jour le solde du canal.</p>
 </div>
 <div class="paragraph">
-<p>Au final, seules deux transactions sont enregistrées sur la chaîne de bocs : la transaction de financement qui établit le canal et une transaction de règlement qui répartit correctement le solde final entre les deux participants.</p>
+<p>Au final, seules deux transactions sont enregistrées sur la chaîne de bocs: la transaction de financement qui établit le canal et une transaction de règlement qui répartit correctement le solde final entre les deux participants.</p>
 </div>
 <div id="video_payment_channel" class="imageblock">
 <div class="content">
@@ -688,13 +688,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p>Ces deux problèmes peuvent être résolus avec des verrous temporels. Voyons comment nous pourrions utiliser des verrous temporels au niveau des transactions (<code>nLocktime</code>).</p>
+<p>Ces deux problèmes peuvent être résolus avec des verrous temporels. Voyons comment nous pourrions utiliser des verrous temporels au niveau des transactions (nLocktime).</p>
 </div>
 <div class="paragraph">
 <p>Emma ne peut pas risquer de financer un multisig 2 sur 2 à moins qu&#8217;elle n&#8217;ait un remboursement garanti. Pour résoudre ce problème, Emma construit les transactions de financement et de remboursement en même temps. Elle signe la transaction de financement mais ne la transmet à personne. Emma transmet uniquement la transaction de remboursement à Fabian et obtient sa signature.</p>
 </div>
 <div class="paragraph">
-<p>La transaction de remboursement agit comme la première transaction d&#8217;engagement et son verrou temporel établit la limite supérieure pour la durée de vie du canal. Dans ce cas, Emma pourrait définir le <code>nLocktime</code> sur 30 jours ou 4320 blocs dans le futur. Toutes les transactions d&#8217;engagement ultérieures doivent avoir un verrou temporel plus court, afin qu&#8217;elles puissent être remboursées avant la transaction de remboursement.</p>
+<p>La transaction de remboursement agit comme la première transaction d&#8217;engagement et son verrou temporel établit la limite supérieure pour la durée de vie du canal. Dans ce cas, Emma pourrait définir le nLocktime sur 30 jours ou 4320 blocs dans le futur. Toutes les transactions d&#8217;engagement ultérieures doivent avoir un verrou temporel plus court, afin qu&#8217;elles puissent être remboursées avant la transaction de remboursement.</p>
 </div>
 <div class="paragraph">
 <p>Maintenant qu&#8217;Emma a une transaction de remboursement entièrement signée, elle peut transmettre en toute confiance la transaction de financement signée en sachant qu&#8217;elle pourra éventuellement, après l&#8217;expiration du délai, racheter la transaction de remboursement même si Fabian disparaît.</p>
@@ -718,7 +718,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Chaque transaction d&#8217;engagement ultérieure doit avoir un verrou temporel plus court afin qu&#8217;elle puisse être diffusée avant ses prédécesseurs et avant la transaction de remboursement. La possibilité de diffuser un engagement plus tôt garantit qu&#8217;il sera en mesure de dépenser la sortie de financement et d&#8217;empêcher toute autre transaction d&#8217;engagement d&#8217;être remboursée en dépensant la sortie. Les garanties offertes par la chaîne de blocs Bitcoin, empêchant les doubles dépenses et appliquant des verrous temporels, permettent effectivement à chaque transaction d&#8217;engagement d&#8217;invalider ses prédécesseurs.</p>
 </div>
 <div class="paragraph">
-<p>Les canaux d&#8217;état utilisent des verrous temporels pour appliquer des contrats intelligents dans une dimension temporelle. Dans cet exemple, nous avons vu comment la dimension temporelle garantit que la transaction d&#8217;engagement la plus récente devient valide avant tout engagement antérieur. Ainsi, la transaction d&#8217;engagement la plus récente peut être transmise, dépensant les entrées et invalidant les transactions d&#8217;engagement précédentes. L&#8217;application de contrats intelligents avec des délais absolus protège contre la tricherie par l&#8217;une des parties. Cette implémentation n&#8217;a besoin de rien de plus que des verrous temporels absolus au niveau de la transaction (<code>nLocktime</code>). Ensuite, nous verrons comment les verrous temporels au niveau du script, <code>CHECKLOCKTIMEVERIFY</code> et <code>CHECKSEQUENCEVERIFY</code>, peuvent être utilisés pour construire des canaux d&#8217;état plus flexibles, utiles et sophistiqués.</p>
+<p>Les canaux d&#8217;état utilisent des verrous temporels pour appliquer des contrats intelligents dans une dimension temporelle. Dans cet exemple, nous avons vu comment la dimension temporelle garantit que la transaction d&#8217;engagement la plus récente devient valide avant tout engagement antérieur. Ainsi, la transaction d&#8217;engagement la plus récente peut être transmise, dépensant les entrées et invalidant les transactions d&#8217;engagement précédentes. L&#8217;application de contrats intelligents avec des délais absolus protège contre la tricherie par l&#8217;une des parties. Cette implémentation n&#8217;a besoin de rien de plus que des verrous temporels absolus au niveau de la transaction (nLocktime). Ensuite, nous verrons comment les verrous temporels au niveau du script, CHECKLOCKTIMEVERIFY et CHECKSEQUENCEVERIFY, peuvent être utilisés pour construire des canaux d&#8217;état plus flexibles, utiles et sophistiqués.</p>
 </div>
 <div class="paragraph">
 <p>La première forme de canal de paiement unidirectionnel a été présentée sous la forme d&#8217;un prototype d&#8217;application de streaming vidéo en 2015 par une équipe de développeurs argentins.</p>
@@ -855,7 +855,7 @@ CHECKSIG</pre>
 <p>Il est important de noter que la révocation ne se produit pas automatiquement. Alors que Hitesh a la capacité de punir Irene pour avoir triché, il doit surveiller la chaîne de blocs avec diligence pour détecter des signes de tricherie. S&#8217;il voit une diffusion d&#8217;une transaction d&#8217;engagement préalable, il dispose de 1000 blocs pour agir et utiliser la clé de révocation pour contrecarrer la tricherie d&#8217;Irène et la punir en prenant la totalité du solde, les 10 bitcoins.</p>
 </div>
 <div class="paragraph">
-<p>Les engagements révocables asymétriques avec blocages temporels relatifs (<code>CSV</code>) sont une bien meilleure façon de mettre en œuvre les canaux de paiement et une innovation très importante dans cette technologie. Avec cette construction, le canal peut rester ouvert indéfiniment et peut avoir des milliards de transactions d&#8217;engagement intermédiaires. Dans les implémentations prototypes de Lightning Network, l&#8217;état d&#8217;engagement est identifié par un index de 48 bits, permettant plus de 281 000 milliards (2,8 x 10<sup>14</sup>) de transitions d&#8217;état dans n&#8217;importe quel canal !</p>
+<p>Les engagements révocables asymétriques avec blocages temporels relatifs (CSV) sont une bien meilleure façon de mettre en œuvre les canaux de paiement et une innovation très importante dans cette technologie. Avec cette construction, le canal peut rester ouvert indéfiniment et peut avoir des milliards de transactions d&#8217;engagement intermédiaires. Dans les implémentations prototypes de Lightning Network, l&#8217;état d&#8217;engagement est identifié par un index de 48 bits, permettant plus de 281 000 milliards (2,8 x 10<sup>14</sup>) de transitions d&#8217;état dans n&#8217;importe quel canal !</p>
 </div>
 </div>
 <div class="sect3">
@@ -864,7 +864,7 @@ CHECKSIG</pre>
 <p>Les canaux de paiement peuvent être encore étendus avec un type spécial de contrat intelligent qui permet aux participants d&#8217;engager des fonds dans un secret remboursable, avec un délai d&#8217;expiration. Cette fonctionnalité est appelée <em>contrats de verrouillage du temps de hachage</em> (<em>Hash Time Lock Contract</em>), ou <em>HTLC</em>, et est utilisée à la fois dans les canaux de paiement bidirectionnels et routés.</p>
 </div>
 <div class="paragraph">
-<p>Expliquons d&#8217;abord la partie "hachage" du HTLC. Pour créer un HTLC, le destinataire prévu du paiement créera d&#8217;abord un <code>R</code> secret. Ils calculent ensuite le hash de ce secret <code>H</code> :</p>
+<p>Expliquons d&#8217;abord la partie "hachage" du HTLC. Pour créer un HTLC, le destinataire prévu du paiement créera d&#8217;abord un R secret. Ils calculent ensuite le hash de ce secret H :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -872,10 +872,10 @@ CHECKSIG</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Cela produit un hachage <code>H</code> qui peut être inclus dans le script de verrouillage d&#8217;une sortie. Celui qui connaît le secret peut l&#8217;utiliser pour racheter la sortie. Le secret <code>R</code> est également appelé <em>préimage</em> pour la fonction de hachage. La préimage est simplement la donnée utilisée comme entrée dans une fonction de hachage.</p>
+<p>Cela produit un hachage H qui peut être inclus dans le script de verrouillage d&#8217;une sortie. Celui qui connaît le secret peut l&#8217;utiliser pour racheter la sortie. Le secret R est également appelé <em>préimage</em> pour la fonction de hachage. La préimage est simplement la donnée utilisée comme entrée dans une fonction de hachage.</p>
 </div>
 <div class="paragraph">
-<p>La deuxième partie d&#8217;un HTLC est le composant "verrou temporel". Si le secret n&#8217;est pas révélé, le payeur du HTLC peut obtenir un "remboursement" après un certain temps. Ceci est réalisé avec un verrouillage temporel absolu à l&#8217;aide de <code>CHECKLOCKTIMEVERIFY</code>.</p>
+<p>La deuxième partie d&#8217;un HTLC est le composant "verrou temporel". Si le secret n&#8217;est pas révélé, le payeur du HTLC peut obtenir un "remboursement" après un certain temps. Ceci est réalisé avec un verrouillage temporel absolu à l&#8217;aide de CHECKLOCKTIMEVERIFY.</p>
 </div>
 <div class="paragraph">
 <p>Le script implémentant un HTLC pourrait ressembler à ceci :</p>
@@ -893,13 +893,13 @@ ENDIF</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Toute personne connaissant le secret <code>R</code>, qui, lorsqu&#8217;il est haché, est égal à <code>H</code>, peut racheter cette sortie en exerçant la première clause du flux <code>IF</code>.</p>
+<p>Toute personne connaissant le secret R, qui, lorsqu&#8217;il est haché, est égal à H, peut racheter cette sortie en exerçant la première clause du flux IF.</p>
 </div>
 <div class="paragraph">
-<p>Si le secret n&#8217;est pas révélé et que le HTLC est réclamé, après un certain nombre de blocages, le payeur peut demander un remboursement en utilisant la deuxième clause du flux <code>IF</code>.</p>
+<p>Si le secret n&#8217;est pas révélé et que le HTLC est réclamé, après un certain nombre de blocages, le payeur peut demander un remboursement en utilisant la deuxième clause du flux IF.</p>
 </div>
 <div class="paragraph">
-<p>Il s&#8217;agit d&#8217;une implémentation de base d&#8217;un HTLC. Ce type de HTLC peut être échangé par <em>toute personne</em> qui a le secret <code>R</code>. Un HTLC peut prendre de nombreuses formes différentes avec de légères variations dans le script. Par exemple, l&#8217;ajout d&#8217;un opérateur <code>CHECKSIG</code> et d&#8217;une clé publique dans la première clause limite le rachat du hachage à un destinataire nommé, qui doit également connaître le secret <code>R</code>.</p>
+<p>Il s&#8217;agit d&#8217;une implémentation de base d&#8217;un HTLC. Ce type de HTLC peut être échangé par <em>toute personne</em> qui a le secret R. Un HTLC peut prendre de nombreuses formes différentes avec de légères variations dans le script. Par exemple, l&#8217;ajout d&#8217;un opérateur CHECKSIG et d&#8217;une clé publique dans la première clause limite le rachat du hachage à un destinataire nommé, qui doit également connaître le secret R.</p>
 </div>
 </div>
 </div>
@@ -947,31 +947,31 @@ ENDIF</pre>
 <div class="title">Figure 7. Acheminement des paiements étape par étape via un réseau Lightning</div>
 </div>
 <div class="paragraph">
-<p>Alice exécute un nœud Lightning Network (LN) qui assure le suivi de son canal de paiement vers Bob et a la capacité de découvrir des itinéraires entre les canaux de paiement. Le nœud LN d&#8217;Alice a également la capacité de se connecter via Internet au nœud LN d&#8217;Eric. Le nœud LN d&#8217;Eric crée un <code>R</code> secret à l&#8217;aide d&#8217;un générateur de nombres aléatoires. Le nœud d&#8217;Eric ne révèle ce secret à personne. Au lieu de cela, le nœud d&#8217;Eric calcule un hachage <code>H</code> du secret <code>R</code> et transmet ce hachage au nœud d&#8217;Alice (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 1).</p>
+<p>Alice exécute un nœud Lightning Network (LN) qui assure le suivi de son canal de paiement vers Bob et a la capacité de découvrir des itinéraires entre les canaux de paiement. Le nœud LN d&#8217;Alice a également la capacité de se connecter via Internet au nœud LN d&#8217;Eric. Le nœud LN d&#8217;Eric crée un R secret à l&#8217;aide d&#8217;un générateur de nombres aléatoires. Le nœud d&#8217;Eric ne révèle ce secret à personne. Au lieu de cela, le nœud d&#8217;Eric calcule un hachage H du secret R et transmet ce hachage au nœud d&#8217;Alice (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 1).</p>
 </div>
 <div class="paragraph">
 <p>Maintenant, le nœud LN d&#8217;Alice construit une route entre le nœud LN d&#8217;Alice et le nœud LN d&#8217;Eric. L&#8217;algorithme de routage utilisé sera examiné plus en détail plus tard, mais pour l&#8217;instant supposons que le nœud d&#8217;Alice puisse trouver une route efficace.</p>
 </div>
 <div class="paragraph">
-<p>Le nœud d&#8217;Alice construit alors un HTLC, payable au hash <code>H</code>, avec un délai de remboursement de 10 blocs (bloc actuel + 10), pour un montant de 1,003 bitcoin (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 2). Le supplément de 0,003 sera utilisé pour compenser les nœuds intermédiaires pour leur participation à cette voie de paiement. Alice offre ce HTLC à Bob, déduisant 1,003 bitcoin de son solde de canal avec Bob et l&#8217;engageant sur le HTLC. Le HTLC a la signification suivante : <em>"Alice engage 1,003 de son solde de canal à payer à Bob si Bob connaît le secret, ou remboursé sur le solde d&#8217;Alice si 10 blocs s&#8217;écoulent."</em> Le solde de canal entre Alice et Bob est maintenant exprimé par des transactions d&#8217;engagement avec trois sorties : solde de 2 bitcoins à Bob, solde de 0,997 bitcoin à Alice, 1,003 bitcoin engagé dans le HTLC d&#8217;Alice. Le solde d&#8217;Alice est réduit du montant engagé dans le HTLC.</p>
+<p>Le nœud d&#8217;Alice construit alors un HTLC, payable au hash H, avec un délai de remboursement de 10 blocs (bloc actuel + 10), pour un montant de 1,003 bitcoin (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 2). Le supplément de 0,003 sera utilisé pour compenser les nœuds intermédiaires pour leur participation à cette voie de paiement. Alice offre ce HTLC à Bob, déduisant 1,003 bitcoin de son solde de canal avec Bob et l&#8217;engageant sur le HTLC. Le HTLC a la signification suivante : <em>"Alice engage 1,003 de son solde de canal à payer à Bob si Bob connaît le secret, ou remboursé sur le solde d&#8217;Alice si 10 blocs s&#8217;écoulent."</em> Le solde de canal entre Alice et Bob est maintenant exprimé par des transactions d&#8217;engagement avec trois sorties : solde de 2 bitcoins à Bob, solde de 0,997 bitcoin à Alice, 1,003 bitcoin engagé dans le HTLC d&#8217;Alice. Le solde d&#8217;Alice est réduit du montant engagé dans le HTLC.</p>
 </div>
 <div class="paragraph">
-<p>Bob s&#8217;est maintenant engagé à ce que s&#8217;il parvient à obtenir le secret ` R ` dans les 10 prochains blocs, il puisse réclamer les 1,003 verrouillés par Alice. Avec cet engagement en main, le nœud de Bob construit un HTLC sur son canal de paiement avec Carol. Le HTLC de Bob engage 1,002 bitcoin dans le hachage <code>H</code> pendant 9 blocs, que Carol peut échanger si elle a le secret <code>R</code> (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 3). Bob sait que si Carol peut réclamer son HTLC, elle doit produire <code>R</code>. Si Bob a ` R ` dans neuf blocs, il peut l&#8217;utiliser pour lui réclamer le HTLC d&#8217;Alice. Il gagne également 0,001 bitcoin pour avoir engagé le solde de son canal pendant neuf blocs. Si Carol n&#8217;est pas en mesure de réclamer son HTLC et qu&#8217;il ne peut pas réclamer le HTLC d&#8217;Alice, tout revient aux soldes de canal précédents et personne n&#8217;est à perte. L&#8217;équilibre des canaux entre Bob et Carol est maintenant : 2 pour Carol, 0,998 pour Bob, 1,002 commis par Bob pour le HTLC.</p>
+<p>Bob s&#8217;est maintenant engagé à ce que s&#8217;il parvient à obtenir le secret + R + dans les 10 prochains blocs, il puisse réclamer les 1,003 verrouillés par Alice. Avec cet engagement en main, le nœud de Bob construit un HTLC sur son canal de paiement avec Carol. Le HTLC de Bob engage 1,002 bitcoin dans le hachage H pendant 9 blocs, que Carol peut échanger si elle a le secret R (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 3). Bob sait que si Carol peut réclamer son HTLC, elle doit produire R. Si Bob a + R + dans neuf blocs, il peut l&#8217;utiliser pour lui réclamer le HTLC d&#8217;Alice. Il gagne également 0,001 bitcoin pour avoir engagé le solde de son canal pendant neuf blocs. Si Carol n&#8217;est pas en mesure de réclamer son HTLC et qu&#8217;il ne peut pas réclamer le HTLC d&#8217;Alice, tout revient aux soldes de canal précédents et personne n&#8217;est à perte. L&#8217;équilibre des canaux entre Bob et Carol est maintenant : 2 pour Carol, 0,998 pour Bob, 1,002 commis par Bob pour le HTLC.</p>
 </div>
 <div class="paragraph">
-<p>Carol s&#8217;est maintenant engagée à ce que si elle obtient <code>R</code> dans les neuf prochains blocs, elle puisse réclamer 1,002 bitcoin verrouillé par Bob. Elle peut désormais s&#8217;engager sur HTLC sur sa chaîne avec Diana. Elle engage un HTLC de 1.001 bitcoin au hachage <code>H</code>, pour huit blocs, que Diana peut racheter si elle a le secret <code>R</code> (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 4). Du point de vue de Carol, si cela fonctionne, elle est plus riche de 0,001 bitcoin et si ce n&#8217;est pas le cas, elle ne perd rien. Son HTLC à Diana n&#8217;est viable que si <code>R</code> est révélé, auquel cas elle peut réclamer le HTLC à Bob. L&#8217;équilibre des canaux entre Carol et Diana est désormais : 2 pour Diana, 0,999 pour Carol, 1,001 commis par Carol pour le HTLC.</p>
+<p>Carol s&#8217;est maintenant engagée à ce que si elle obtient R dans les neuf prochains blocs, elle puisse réclamer 1,002 bitcoin verrouillé par Bob. Elle peut désormais s&#8217;engager sur HTLC sur sa chaîne avec Diana. Elle engage un HTLC de 1.001 bitcoin au hachage H, pour huit blocs, que Diana peut racheter si elle a le secret R (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 4). Du point de vue de Carol, si cela fonctionne, elle est plus riche de 0,001 bitcoin et si ce n&#8217;est pas le cas, elle ne perd rien. Son HTLC à Diana n&#8217;est viable que si R est révélé, auquel cas elle peut réclamer le HTLC à Bob. L&#8217;équilibre des canaux entre Carol et Diana est désormais : 2 pour Diana, 0,999 pour Carol, 1,001 commis par Carol pour le HTLC.</p>
 </div>
 <div class="paragraph">
-<p>Enfin, Diana peut proposer un HTLC à Eric, engageant 1 bitcoin pour sept blocs à hacher <code>H</code> (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 5). L&#8217;équilibre des canaux entre Diana et Eric est maintenant : 2 à Eric, 1 à Diana, 1 commis par Diana au HTLC.</p>
+<p>Enfin, Diana peut proposer un HTLC à Eric, engageant 1 bitcoin pour sept blocs à hacher H (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 5). L&#8217;équilibre des canaux entre Diana et Eric est maintenant : 2 à Eric, 1 à Diana, 1 commis par Diana au HTLC.</p>
 </div>
 <div class="paragraph">
-<p>Cependant, à ce saut dans la route, Eric <em>a</em> le secret <code>R</code>. Il peut donc prétendre au HTLC proposé par Diana. Il envoie <code>R</code> à Diana et réclame le 1 bitcoin, l&#8217;ajoutant au solde de son canal (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 6). L&#8217;équilibre des canaux est maintenant : 1 pour Diana, 3 pour Eric.</p>
+<p>Cependant, à ce saut dans la route, Eric <em>a</em> le secret R. Il peut donc prétendre au HTLC proposé par Diana. Il envoie R à Diana et réclame le 1 bitcoin, l&#8217;ajoutant au solde de son canal (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 6). L&#8217;équilibre des canaux est maintenant : 1 pour Diana, 3 pour Eric.</p>
 </div>
 <div class="paragraph">
-<p>Maintenant, Diana a un <code>R</code> secret. Par conséquent, elle peut désormais réclamer le HTLC à Carol. Diana transmet <code>R</code> à Carol et ajoute le bitcoin 1.001 au solde de son canal (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 7). Maintenant, l&#8217;équilibre des canaux entre Carol et Diana est : 0,999 pour Carol, 3,001 pour Diana. Diana a "gagné" 0,001 pour sa participation à cette voie de paiement.</p>
+<p>Maintenant, Diana a un R secret. Par conséquent, elle peut désormais réclamer le HTLC à Carol. Diana transmet R à Carol et ajoute le bitcoin 1.001 au solde de son canal (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 7). Maintenant, l&#8217;équilibre des canaux entre Carol et Diana est : 0,999 pour Carol, 3,001 pour Diana. Diana a "gagné" 0,001 pour sa participation à cette voie de paiement.</p>
 </div>
 <div class="paragraph">
-<p>En revenant sur le parcours, le secret <code>R</code> permet à chaque participant de réclamer les HTLC restants. Carol réclame 1,002 à Bob, fixant le solde sur leur chaîne à : 0,998 à Bob, 3,002 à Carol (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 8). Enfin, Bob revendique le HTLC d&#8217;Alice (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 9). Leur solde de canaux est mis à jour comme suit : 0,997 pour Alice, 3,003 pour Bob.</p>
+<p>En revenant sur le parcours, le secret R permet à chaque participant de réclamer les HTLC restants. Carol réclame 1,002 à Bob, fixant le solde sur leur chaîne à : 0,998 à Bob, 3,002 à Carol (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 8). Enfin, Bob revendique le HTLC d&#8217;Alice (voir <a href="#ln_payment_process">Acheminement des paiements étape par étape via un réseau Lightning</a> étape 9). Leur solde de canaux est mis à jour comme suit : 0,997 pour Alice, 3,003 pour Bob.</p>
 </div>
 <div class="paragraph">
 <p>Alice a payé Eric 1 bitcoin sans ouvrir de chaîne à Eric. Aucune des parties intermédiaires de la voie de paiement n&#8217;avait à se faire confiance. Pour l&#8217;engagement à court terme de leurs fonds dans le canal, ils peuvent gagner une petite commission, le seul risque étant un léger retard de remboursement si le canal était fermé ou si le paiement acheminé échouait.</p>
@@ -1078,7 +1078,7 @@ ENDIF</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-23 22:21:31 -0400
+Last updated 2022-05-23 23:39:13 -0400
 </div>
 </div>
 </body>

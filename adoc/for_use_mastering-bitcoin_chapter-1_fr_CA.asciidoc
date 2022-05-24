@@ -148,7 +148,8 @@ Une fois qu'Alice a enregistré la phrase mnémotechnique, elle doit prévoir de
 ====
 N'essayez jamais un système de sécurité "bricolage" qui s'écarte de quelque manière que ce soit de la recommandation des meilleures pratiques dans &lt;<mnemonic-storage>&gt;. Ne coupez pas votre mnémonique en deux, ne faites pas de captures d'écran, ne stockez pas sur des clés USB, des e-mails ou des lecteurs cloud, ne le cryptez pas ou n'essayez aucune autre méthode non standard. Vous ferez pencher la balance de manière à risquer une perte permanente ou un vol. De nombreuses personnes ont perdu de l'argent, non pas à cause d'un vol, mais parce qu'elles ont essayé une solution non standard sans avoir l'expertise pour équilibrer les risques encourus. La recommandation des meilleures pratiques est soigneusement équilibrée par des experts et adaptée à la grande majorité des utilisateurs.
 ====
-****
+
+
 [[bluewallet-welcome]]
 .Alice utilise l'écran de réception sur son portefeuille Bitcoin mobile Bluewallet et affiche son adresse à Bob au format de code QR
 image::images/mbc2_0101.png["Écran de bienvenue Bluewallet"]

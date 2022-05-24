@@ -447,12 +447,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>La bibliothèque Python <a href="https://github.com/richardkiss/pycoin">pycoin</a>, initialement écrite et maintenue par Richard Kiss, est une bibliothèque basée sur Python qui prend en charge la manipulation des clés bitcoin et les transactions, même en prenant en charge suffisamment le langage de script pour traiter correctement les transactions non standard.</p>
 </div>
 <div class="paragraph">
-<p>La bibliothèque pycoin prend en charge Python 2 (2.7.x) et Python 3 (3.3 et versions ultérieures) et est livrée avec des utilitaires de ligne de commande pratiques, <code>ku</code> et tx.</p>
+<p>La bibliothèque pycoin prend en charge Python 2 (2.7.x) et Python 3 (3.3 et versions ultérieures) et est livrée avec des utilitaires de ligne de commande pratiques, ku et tx.</p>
 </div>
 <div class="sect2">
 <h3 id="_utilitaire_de_clé_ku">Utilitaire de clé (KU)</h3>
 <div class="paragraph">
-<p>L&#8217;utilitaire de ligne de commande <code>ku</code> ("utilitaire de clé") est un utilitaire multi-usage pour manipuler les clés. Il prend en charge les clés BIP-32, le WIF et les adresses (bitcoin et alt coins). Voici quelques exemples.</p>
+<p>L&#8217;utilitaire de ligne de commande ku ("utilitaire de clé") est un utilitaire multi-usage pour manipuler les clés. Il prend en charge les clés BIP-32, le WIF et les adresses (bitcoin et alt coins). Voici quelques exemples.</p>
 </div>
 <div class="paragraph">
 <p>Créez une clé BIP-32 en utilisant les sources d&#8217;entropie par défaut de GPG et <em>/dev/random</em> :</p>
@@ -494,19 +494,12 @@ Bitcoin address : 1FNNRQ5fSv1wBi5gyfVBs2rkNheMGt86sp
 <div class="paragraph">
 <p>Créez une clé BIP-32 à partir d&#8217;une phrase secrète :</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>La phrase secrète dans cet exemple est beaucoup trop facile à deviner.</p>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -794,7 +787,7 @@ Dogecoin address : DFpN6QqFfUm3gKNaxN6tNcab1FArL9cZLE</pre>
 <h4 id="_utilitaire_de_transaction_tx">Utilitaire de transaction (TX)</h4>
 <div class="paragraph">
 <p>
-L&#8217;utilitaire de ligne de commande <code>tx</code> affichera les transactions sous une forme lisible par l&#8217;homme, récupérera les transactions de base du cache de transactions de pycoin ou des services Web (blockchain.info, blockcypher.com, blockr.io et chain.so sont actuellement pris en charge), fusionnera les transactions , ajoutera ou supprimera des entrées ou des sorties et signera des transactions.</p>
+L&#8217;utilitaire de ligne de commande tx affichera les transactions sous une forme lisible par l&#8217;homme, récupérera les transactions de base du cache de transactions de pycoin ou des services Web (blockchain.info, blockcypher.com, blockr.io et chain.so sont actuellement pris en charge), fusionnera les transactions , ajoutera ou supprimera des entrées ou des sorties et signera des transactions.</p>
 </div>
 <div class="paragraph">
 <p>Voici quelques exemples.</p>
@@ -805,8 +798,8 @@ L&#8217;utilitaire de ligne de commande <code>tx</code> affichera les transactio
 <div class="listingblock">
 <div class="content">
 <pre>$ tx 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a
-warning: consider setting environment variable PYCOIN_CACHE_DIR=~/.pycoin_cache to cache transactions fetched via web services
-warning: no service providers found for get_tx; consider setting environment variable PYCOIN_BTC_PROVIDERS
+ATTENTION: consider setting environment variable PYCOIN_CACHE_DIR=~/.pycoin_cache to cache transactions fetched via web services
+ATTENTION: no service providers found for get_tx; consider setting environment variable PYCOIN_BTC_PROVIDERS
 usage: tx [-h] [-t TRANSACTION_VERSION] [-l LOCK_TIME] [-n NETWORK] [-a]
           [-i address] [-f path-to-private-keys] [-g GPG_ARGUMENT]
           [--remove-tx-in tx_in_index_to_delete]
@@ -850,13 +843,13 @@ including unspents in hex dump since transaction not fully signed
 </div>
 </div>
 <div class="paragraph">
-<p>La dernière ligne apparaît car pour valider les signatures des transactions, vous avez techniquement besoin des transactions sources. Ajoutons donc <code>-a</code> pour augmenter les transactions avec des informations sources :</p>
+<p>La dernière ligne apparaît car pour valider les signatures des transactions, vous avez techniquement besoin des transactions sources. Ajoutons donc -a pour augmenter les transactions avec des informations sources :</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ tx -a 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a
-warning: transaction fees recommendations casually calculated and estimates may be incorrect
-warning: transaction fee lower than (casually calculated) expected value of 0.1 mBTC, transaction might not propagate
+ATTENTION: transaction fees recommendations casually calculated and estimates may be incorrect
+ATTENTION: transaction fee lower than (casually calculated) expected value of 0.1 mBTC, transaction might not propagate
 Version:  1  tx hash 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a  159 bytes
 TxIn count: 1; TxOut count: 1
 Lock time: 0 (valid anytime)
@@ -874,7 +867,7 @@ all incoming transaction values validated</pre>
 </div>
 </div>
 <div class="paragraph">
-<p> Maintenant, regardons les sorties non dépensées pour une adresse spécifique (UTXO). Dans le bloc #1, nous voyons une transaction coinbase vers 12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX. Utilisons <code>fetch_unspent</code> pour trouver toutes les pièces à cette adresse :</p>
+<p> Maintenant, regardons les sorties non dépensées pour une adresse spécifique (UTXO). Dans le bloc #1, nous voyons une transaction coinbase vers 12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX. Utilisons fetch_unspent pour trouver toutes les pièces à cette adresse :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -900,7 +893,7 @@ d6be34ccf6edddc3cf69842dce99fe503bf632ba2c2adb0f95c63f6706ae0c52/1/76a914119b098
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-23 22:28:33 -0400
+Last updated 2022-05-23 23:39:13 -0400
 </div>
 </div>
 </body>
