@@ -1,3 +1,5 @@
+:stem: latexmath
+
 = Maîtriser Bitcoin
 
 include::for_use_mastering-bitcoin_preface-open_fr_CA.asciidoc[]

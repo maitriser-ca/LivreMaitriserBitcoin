@@ -1,18 +1,18 @@
-Rejoignez la révolution technologique qui prend d'assaut le monde financier. Maîtriser Bitcoin est votre guide à travers le monde apparemment complexe du bitcoin, fournissant les connaissances dont vous avez besoin pour participer à l'internet de l'argent. Que vous construisiez la prochaine application populaire, que vous investissiez dans une entreprise en démarrage (start-up) ou que vous soyez simplement curieux de connaître la technologie, cette deuxième édition révisée et étendue fournit des détails essentiels pour vous aider à démarrer.
+Rejoignez la révolution technologique qui prend d&#39;assaut le monde financier. Maîtriser Bitcoin est votre guide à travers le monde apparemment complexe du bitcoin, fournissant les connaissances dont vous avez besoin pour participer à l&#39;internet de l&#39;argent. Que vous construisiez la prochaine application populaire, que vous investissiez dans une entreprise en démarrage (start-up) ou que vous soyez simplement curieux de connaître la technologie, cette deuxième édition révisée et étendue fournit des détails essentiels pour vous aider à démarrer.
 
 Bitcoin, la première monnaie numérique décentralisée à succès, en est encore à ses débuts et pourtant, il a déjà engendré une économie mondiale de plusieurs milliards de dollars ouverte à toute personne ayant les connaissances et la passion nécessaires pour y participer. Maîtriser Bitcoin fournit les connaissances. Vous fournissez simplement la passion.
 
 La deuxième édition comprend :
 
-* Une large introduction de bitcoin et de sa chaîne de blocs sous-jacente, idéale pour les utilisateurs non techniques, les investisseurs et les dirigeants d'entreprise
+* Une large introduction de bitcoin et de sa chaîne de blocs sous-jacente, idéale pour les utilisateurs non techniques, les investisseurs et les dirigeants d&#39;entreprise
 * Une explication des fondements techniques du bitcoin et des monnaies cryptographiques pour les développeurs, les ingénieurs et les architectes de logiciels et de systèmes
-* Détails du réseau décentralisé Bitcoin, de l'architecture pair à pair, du cycle de vie des transactions et des principes de sécurité
+* Détails du réseau décentralisé Bitcoin, de l&#39;architecture pair à pair, du cycle de vie des transactions et des principes de sécurité
 * Nouveaux développements tels que les Témoins Séparés, les Canaux de  Paiements et le Lightning Network
 * Une plongée approfondie dans les applications chaîne de blocs, y compris comment combiner les diverses composantes offertes par cette plate-forme dans des applications de niveau supérieur
-* Témoignages d'utilisateurs, analogies, exemples et extraits de code illustrant les concepts techniques clés
+* Témoignages d&#39;utilisateurs, analogies, exemples et extraits de code illustrant les concepts techniques clés
 
 ====
-Le livre le plus vendu, le mieux noté et le plus cité sur le fonctionnement de Bitcoin. Utilisé pour enseigner le Bitcoin et les technologies chaînes de blocs dans les meilleures universités, les start-ups Bitcoin et au sein d'institutions financières terrifiées.
+Le livre le plus vendu, le mieux noté et le plus cité sur le fonctionnement de Bitcoin. Utilisé pour enseigner le Bitcoin et les technologies chaînes de blocs dans les meilleures universités, les start-ups Bitcoin et au sein d&#39;institutions financières terrifiées.
 
 "De loin la meilleure introduction technique au Bitcoin et aux crypto-monnaies"
 ====
