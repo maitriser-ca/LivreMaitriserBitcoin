@@ -36,7 +36,7 @@ transaction coinbase::
 	À ne pas confondre avec coinbase (données coinbase) ou "récompense coinbase".
 
 stockage à froid::
-	Fait référence à la conservation d&#39;une réserve de bitcoins hors ligne. Le stockage à froid est réalisé lorsque les clés privées bitcoin sont créées et stockées dans un environnement hors ligne sécurisé. Le stockage à froid est important pour quiconque possède des avoirs en bitcoins. Les ordinateurs en ligne sont vulnérables aux pirates et ne doivent pas être utilisés pour stocker une quantité importante de bitcoins. (note du traducteur: l'auteur est un peu paranoïde; les noeuds sont en ligne. Si les noeuds sont insécures, c'est la fin de ce système et de ce livre.) ;)
+	Fait référence à la conservation d&#39;une réserve de bitcoins hors ligne. Le stockage à froid est réalisé lorsque les clés privées bitcoin sont créées et stockées dans un environnement hors ligne sécurisé. Le stockage à froid est important pour quiconque possède des avoirs en bitcoins. Les ordinateurs en ligne sont vulnérables aux pirates et ne doivent pas être utilisés pour stocker une quantité importante de bitcoins. (note du traducteur: l'auteur est un peu paranoïde; les nœuds sont en ligne. Si les nœuds sont insécures, c'est la fin de ce système et de ce livre.) ;)
 
 confirmations::
 	Une fois qu&#39;une transaction est incluse dans un bloc, elle a une confirmation. Dès qu&#39;un autre bloc est miné sur la même chaîne de blocs, la transaction a deux confirmations, et ainsi de suite. Six confirmations ou plus sont considérées comme une preuve suffisante qu&#39;une transaction ne peut pas être annulée.

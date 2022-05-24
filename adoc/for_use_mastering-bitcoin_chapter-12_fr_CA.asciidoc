@@ -334,7 +334,7 @@ Alice veut payer Eric 1 bitcoin. Cependant, Alice n'est pas connectée à Eric p
 .Acheminement des paiements étape par étape via un réseau Lightning
 image::images/mbc2_1207.png[&quot;Acheminement des paiements étape par étape via un réseau Lightning&quot;]
 
-Alice exécute un nœud Lightning Network (LN) qui assure le suivi de son canal de paiement vers Bob et a la capacité de découvrir des itinéraires entre les canaux de paiement. Le nœud LN d'Alice a également la capacité de se connecter via Internet au nœud LN d'Eric. Le nœud LN d'Eric crée un +R+ secret à l'aide d'un générateur de nombres aléatoires. Le noeud d'Eric ne révèle ce secret à personne. Au lieu de cela, le nœud d'Eric calcule un hachage +H+ du secret +R+ et transmet ce hachage au nœud d'Alice (voir &lt;<ln_payment_process>&gt; étape 1).
+Alice exécute un nœud Lightning Network (LN) qui assure le suivi de son canal de paiement vers Bob et a la capacité de découvrir des itinéraires entre les canaux de paiement. Le nœud LN d'Alice a également la capacité de se connecter via Internet au nœud LN d'Eric. Le nœud LN d'Eric crée un +R+ secret à l'aide d'un générateur de nombres aléatoires. Le nœud d'Eric ne révèle ce secret à personne. Au lieu de cela, le nœud d'Eric calcule un hachage +H+ du secret +R+ et transmet ce hachage au nœud d'Alice (voir &lt;<ln_payment_process>&gt; étape 1).
 
 Maintenant, le nœud LN d'Alice construit une route entre le nœud LN d'Alice et le nœud LN d'Eric. L'algorithme de routage utilisé sera examiné plus en détail plus tard, mais pour l'instant supposons que le nœud d'Alice puisse trouver une route efficace.
 
