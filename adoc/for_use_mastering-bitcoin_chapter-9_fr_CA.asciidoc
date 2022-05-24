@@ -171,6 +171,7 @@ L'arbre de Merkle est construit de bas en haut. Dans l'exemple suivant, nous com
 ++++
 <pre data-type="codelisting">
 H<sub>A</sub> = SHA256(SHA256(Transaction A))
+
 </pre>
 ++++
 
@@ -179,6 +180,7 @@ Des paires consécutives de nœuds feuilles sont ensuite résumées dans un nœu
 ++++
 <pre data-type="codelisting">
 H<sub>AB</sub> = SHA256(SHA256(H<sub>A</sub> + H<sub>B</sub>))
+
 </pre>
 ++++
 

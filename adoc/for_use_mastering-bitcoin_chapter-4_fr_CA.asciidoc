@@ -439,6 +439,7 @@ Voici la même clé publique affichée sous la forme d'un nombre de 520 bits (1
 <pre data-type="programlisting">
 K = 04F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A&#x21b5;
 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB
+
 </pre>
 ++++
 
@@ -576,6 +577,7 @@ Bitcoin Address (b58check) is:
  1thMirt546nngXqyPEz532S8fLwbozud8
 Compressed Bitcoin Address (b58check) is:
  14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
+ 
 </pre>
 ++++
 ====
