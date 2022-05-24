@@ -34,7 +34,7 @@ _Italique_:: Indique de nouveaux termes, URL, adresses e-mail, noms de fichiers 
 _++Largeur constante en italique++_:: Affiche le texte qui doit être remplacé par des valeurs fournies par l'utilisateur ou par des valeurs déterminées par le contexte.
 
 
-[TIP]
+[INDICE]
 ====
 Cette icône signifie un conseil ou une suggestion.
 ====
@@ -44,7 +44,7 @@ Cette icône signifie un conseil ou une suggestion.
 Cette icône signifie une note générale.
 ====
 
-[WARNING]
+[ATTENTION]
 ====
 Cette icône indique un avertissement ou une mise en garde.
 ====
@@ -75,7 +75,7 @@ Si vous pensez que votre utilisation d'exemples de code ne respecte pas l'utilis
 
 Cependant, notez que les clés privées utilisées pour construire les adresses sont soit imprimées dans ce livre, soit ont été &quot;radiées&quot;. Cela signifie que si vous envoyez de l'argent à l'une de ces adresses, l'argent sera perdu pour toujours ou, dans certains cas, tous ceux qui peuvent lire ce livre peuvent le prendre en utilisant les clés privées imprimées dans celui-ci.
 
-[WARNING]
+[ATTENTION]
 ====
 N'ENVOYEZ PAS D'ARGENT AUX ADRESSES DANS CE LIVRE. Votre argent sera pris par un autre lecteur, ou perdu à jamais.(((&quot;&quot;, startref=&quot;codeuse00&quot;)))
 ====

@@ -6,7 +6,7 @@
 
 (((&quot;livre blanc bitcoin&quot;)))(((&quot;client Satoshi&quot;)))(((&quot;implémentation de référence&quot;, see=&quot;Bitcoin Core&quot;)))(((&quot;Bitcoin Core&quot;, &quot;implémentation de référence&quot;)))Lorsque bitcoin a été créé par Satoshi Nakamoto, le logiciel était en fait terminé avant le livre blanc reproduit dans &lt;<satoshi_whitepaper>&gt;. Satoshi voulait s'assurer que cela fonctionnait avant d'écrire à ce sujet. Cette première implémentation, alors simplement connue sous le nom de &quot;Bitcoin&quot; ou &quot;client Satoshi&quot;, a été fortement modifiée et améliorée. Il a évolué vers ce qu'on appelle _Bitcoin Core_, pour le différencier des autres implémentations compatibles. Bitcoin Core est la _mise en œuvre de référence_ du système Bitcoin, ce qui signifie qu'il s'agit de la référence faisant autorité sur la manière dont chaque partie de la technologie doit être mise en œuvre. Bitcoin Core implémente tous les aspects du bitcoin, y compris les portefeuilles, un moteur de validation des transactions et des blocs et un nœud de réseau complet dans le réseau Bitcoin pair à pair.
 
-[WARNING]
+[ATTENTION]
 ====
 (((&quot;portefeuilles&quot;, &quot;meilleures pratiques pour&quot;)))(((&quot;propositions d'amélioration du bitcoin&quot;, &quot;mots de code mnémonique (BIP-39)&quot;)))(((&quot;propositions d'amélioration du bitcoin&quot;, &quot;portefeuilles déterministes hiérarchiques (BIP-32/BIP-44)&quot;)))Même si Bitcoin Core inclut une implémentation de référence d'un portefeuille, celui-ci n'est pas destiné à être utilisé comme portefeuille de production pour les utilisateurs ou pour les applications. Il est conseillé aux développeurs d'applications de créer des portefeuilles en utilisant des normes modernes telles que BIP-39 et BIP-32 (voir &lt;<mnemonic_code_words>&gt; et &lt;<hd_wallets>&gt;). BIP signifie _Bitcoin Improvement Proposal_.
 ====
@@ -27,7 +27,7 @@ image::images/mbc2_0301.png[&quot;Architecture de base Bitcoin&quot;]
 
 (((&quot;Bitcoin Core&quot;, &quot;compilation à partir du code source&quot;, id=&quot;BCsource03&quot;)))(((&quot;Bitcoin Core&quot;, &quot;compilation à partir du code source&quot;, &quot;téléchargement&quot;)))(((&quot;exemples de code , obtenir et utiliser&quot;)))Le code source de Bitcoin Core peut être téléchargé sous forme d'archive ou en clonant le référentiel source faisant autorité à partir de GitHub. (((&quot;téléchargement de Bitcoin Core&quot;)))Sur la https://bitcoincore.org/bin/[page de téléchargement de Bitcoin Core], sélectionnez la version la plus récente et téléchargez l'archive compressée du code source, par exemple, +bitcoin-0.15.0.2.tar.gz+. (((&quot;page GitHub bitcoin&quot;)))Vous pouvez également utiliser la ligne de commande git pour créer une copie locale du code source à partir de la https://github.com/bitcoin/bitcoin[page GitHub de bitcoin].
 
-[TIP]
+[INDICE]
 ====
 (((&quot;symbole $&quot;)))(((&quot;commandes interface système&quot;)))(((&quot;applications de terminal&quot;)))Dans de nombreux exemples de ce chapitre, nous utiliserons l'interface de de commande du système d'exploitation ( également appelé &quot;shell&quot; ou &quot;interface système&quot; ou &quot;coque logicielle&quot;), accessible via une application &quot;terminal&quot;. L'interface système affichera une invite; vous tapez une commande; et l'interface système répond avec du texte et une nouvelle invite pour votre prochaine commande. L'invite peut sembler différente sur votre système, mais dans les exemples suivants, elle est indiquée par un symbole +$+. Dans les exemples, lorsque vous voyez du texte après un symbole +$+, ne tapez pas le symbole +$+ mais tapez la commande qui le suit immédiatement, puis appuyez sur Entrée pour exécuter la commande. Dans les exemples, les lignes sous chaque commande sont les réponses du système d'exploitation à cette commande. Lorsque vous verrez le prochain préfixe +$+, vous saurez qu'il s'agit d'une nouvelle commande et vous devrez répéter le processus.
 ====
@@ -46,7 +46,7 @@ Checking connectivity... done.
 $
 ----
 
-[TIP]
+[INDICE]
 ====
 (((&quot;systèmes de contrôle de version distribués&quot;)))Git est le système de contrôle de version distribué le plus largement utilisé et un élément essentiel de la boîte à outils de tout développeur de logiciels. Vous devrez peut-être installer la commande +git+, ou une interface utilisateur graphique pour git, sur votre système d'exploitation si vous ne l'avez pas déjà.
 ====
@@ -224,7 +224,7 @@ $ which bitcoin-cli
 
 Cependant, l'exécution d'un nœud nécessite un système connecté en permanence avec suffisamment de ressources pour traiter toutes les transactions bitcoin. Selon que vous choisissez d'indexer toutes les transactions et de conserver une copie complète de la chaîne de blocs, vous pouvez également avoir besoin de beaucoup d'espace disque et de mémoire RAM. Au début de 2021, un nœud à index complet a besoin de 2 Go de RAM et d'un minimum de 360 Go d'espace disque (voir https://www.blockchain.com/charts/blocks-size[]). Les nœuds Bitcoin transmettent et reçoivent également des transactions et des blocs Bitcoin, consommant de la bande passante Internet. Si votre connexion Internet est limitée, a un faible plafond de données ou est mesurée (facturée au gigabit), vous ne devriez probablement pas exécuter un nœud Bitcoin, ou l'exécuter d'une manière qui limite sa bande passante (voir &lt;<constrained_resources>&gt;).
 
-[TIP]
+[INDICE]
 ====
 (((&quot;avertissements et mises en garde&quot;, &quot;besoins en ressources du nœud principal&quot;)))(((&quot;besoins en ressources&quot;)))Bitcoin Core conserve une copie complète de la chaîne de blocs par défaut, avec chaque transaction qui s'est déjà produite sur le Bitcoin réseau depuis sa création en 2009. Cet ensemble de données a une taille de dizaines de gigaoctets et est téléchargé de manière incrémentielle sur plusieurs jours ou semaines, en fonction de la vitesse de votre CPU et de votre connexion Internet. Bitcoin Core ne pourra pas traiter les transactions ou mettre à jour les soldes des comptes tant que l'ensemble de données complet de la chaîne de blocs n'aura pas été téléchargé. Assurez-vous que vous disposez de suffisamment d'espace disque, de bande passante et de temps pour effectuer la synchronisation initiale. Vous pouvez configurer Bitcoin Core pour réduire la taille de la chaîne de blocs en supprimant les anciens blocs (voir &lt;<constrained_resources>&gt;), mais il téléchargera tout de même l'intégralité de l'ensemble de données avant de les supprimer.
 ====
@@ -498,7 +498,7 @@ $ bitcoin-cli getnetworkinfo
 
 Les données sont renvoyées en JavaScript Object Notation (JSON), un format qui peut facilement être &quot;consommé&quot; par tous les langages de programmation mais qui est également assez lisible par l'homme. Parmi ces données, nous voyons les numéros de version du client logiciel bitcoin (150000) et du protocole Bitcoin (70015). On y voit le nombre actuel de connexions (8) et diverses informations sur le réseau Bitcoin et les paramètres liés à ce client.
 
-[TIP]
+[INDICE]
 ====
 Il faudra un certain temps, peut-être plus d'une journée, pour que le client +bitcoind+ &quot;rattrape&quot; la hauteur actuelle de la chaîne de blocs lorsqu'il télécharge des blocs d'autres clients Bitcoin. Vous pouvez vérifier sa progression en utilisant +getblockchaininfo+ pour voir le nombre de blocs connus.
 ====
@@ -528,7 +528,7 @@ ae24cb02204b9f039ff08df09cbe9f6addac960298cad530a863ea8f53982c09db8f6e3813014&#x
 ++++
 
 
-[TIP]
+[INDICE]
 ====
 (((&quot;identifiant de transaction (txd)&quot;)))(((&quot;malléabilité&quot;)))Un identifiant de transaction ne fait pas autorité tant qu'une transaction n'a pas été confirmée. L'absence d'un hachage de transaction dans la blockchain ne signifie pas que la transaction n'a pas été traitée. C'est ce qu'on appelle la &quot;malléabilité des transactions&quot;, car les hachages de transaction peuvent être modifiés avant la confirmation dans un bloc. Après confirmation, le +txid+ est immuable et fait autorité.
 ====

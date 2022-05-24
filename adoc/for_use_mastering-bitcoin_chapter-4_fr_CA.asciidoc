@@ -27,7 +27,7 @@ Il existe une relation mathématique entre la clé publique et la clé privée q
 
 Lorsqu'il dépense des bitcoins, le propriétaire actuel de bitcoins présente sa clé publique et une signature (différente à chaque fois, mais créée à partir de la même clé privée) dans une transaction pour dépenser ces bitcoins. Grâce à la présentation de la clé publique et de la signature, tous les membres du réseau Bitcoin peuvent vérifier et accepter la transaction comme valide, confirmant que la personne transférant le bitcoin en était propriétaire au moment du transfert.
 
-[TIP]
+[INDICE]
 ====
 (((&quot;clés et adresses&quot;, &quot;aperçu de&quot;, &quot;paires de clés&quot;))) Dans la plupart des implémentations de portefeuille, les clés privées et publiques sont stockées ensemble sous la forme d'une _paire de clés_ pour plus de commodité. Cependant, la clé publique peut être calculée à partir de la clé privée, de sorte qu'il est également possible de ne stocker que la clé privée.
 ====
@@ -51,7 +51,7 @@ image::images/mbc2_0401.png["privk à pubK à adresse A"]
 
 (((&quot;clés et adresses&quot;, &quot;aperçu de&quot;, &quot;génération de clé privée&quot;)))(((&quot;avertissements et mises en garde&quot;, &quot;protection de clé privée&quot;)))Une clé privée est simplement un nombre, choisi au hasard . La propriété et le contrôle de la clé privée sont à la base du contrôle de l'utilisateur sur tous les fonds associés à l'adresse Bitcoin correspondante. La clé privée est utilisée pour créer des signatures nécessaires pour dépenser des bitcoins en prouvant la propriété des fonds utilisés dans une transaction. La clé privée doit rester secrète à tout moment, car la révéler à des tiers équivaut à leur donner le contrôle sur le bitcoin sécurisé par cette clé. La clé privée doit également être sauvegardée et protégée contre toute perte accidentelle, car si elle est perdue, elle ne peut pas être récupérée et les fonds qu'elle garantit sont également perdus à jamais.
 
-[TIP]
+[INDICE]
 ====
 La clé privée bitcoin n'est qu'un nombre. Vous pouvez choisir vos clés privées au hasard en utilisant simplement une pièce de monnaie, un crayon et du papier : lancez une pièce 256 fois et vous avez les chiffres binaires d'une clé privée aléatoire que vous pouvez utiliser dans un portefeuille bitcoin. La clé publique peut alors être générée à partir de la clé privée.
 ====
@@ -62,7 +62,7 @@ La première et la plus importante étape de la génération de clés consiste �
 
 Plus précisément, la clé privée peut être n'importe quel nombre compris entre +0+ et +n - 1+ inclus, où n est une constante (n = 1,1578 * 10^77^, légèrement inférieure à 2^256^) définie comme l'ordre de la courbe elliptique utilisée dans le bitcoin (voir &lt;<elliptic_curve>&gt;). Pour créer une telle clé, nous choisissons au hasard un nombre de 256 bits et vérifions qu'il est inférieur à +n+. En termes de programmation, cela est généralement réalisé en alimentant une plus grande chaîne de bits aléatoires, collectés à partir d'une source aléatoire sécurisée par cryptographie, dans l'algorithme de hachage SHA256, qui produira commodément un nombre de 256 bits. Si le résultat est inférieur à +n+, nous avons une clé privée appropriée. Sinon, nous réessayons simplement avec un autre nombre aléatoire.
 
-[WARNING]
+[ATTENTION]
 ====
 (((&quot;nombres aléatoires&quot;, &quot;génération de nombres aléatoires&quot;)))(((&quot;entropie&quot;, &quot;génération de nombres aléatoires&quot;)))N'écrivez pas votre propre code pour créer un nombre aléatoire ou n'utilisez pas un nombre aléatoire &quot;simple&quot; généré par votre langage de programmation. Utilisez un générateur de nombres pseudo-aléatoires cryptographiquement sécurisé (CSPRNG) avec une valeur d'amorçage provenant d'une source d'entropie suffisante. Étudiez la documentation de la bibliothèque de générateurs de nombres aléatoires que vous choisissez pour vous assurer qu'elle est cryptographiquement sécurisée. La mise en œuvre correcte du CSPRNG est essentielle à la sécurité des clés.
 ====
@@ -74,7 +74,7 @@ Ce qui suit est une clé privée générée aléatoirement (k) affichée au form
 ----
 
 
-[TIP]
+[INDICE]
 ====
 La taille de l'espace de clé privée de bitcoin, (2^256^) est un nombre insondable. Il est d'environ 10^77^ en décimal. À titre de comparaison, on estime que l'univers visible contient 10^80^ atomes.
 ====
@@ -90,7 +90,7 @@ KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ
 
 La commande +dumpprivkey+ ouvre le portefeuille et extrait la clé privée qui a été générée par la commande +getnewaddress+. Il n'est pas possible pour +bitcoind+ de connaître la clé privée à partir de l'adresse à moins qu'elles ne soient toutes deux stockées dans le portefeuille.
 
-[TIP]
+[INDICE]
 =====================================================================
 La commande +dumpprivkey+ ne génère pas de clé privée à partir d'une adresse, car cela est impossible. La commande révèle simplement la clé privée qui est déjà connue du portefeuille et qui a été générée par la commande +getnewaddress+.
 =====================================================================
@@ -108,7 +108,7 @@ $ bx seed | bx ec-new | bx ec-to-wif
 
 (((&quot;clés et adresses&quot;, &quot;aperçu de&quot;, &quot;calcul de la clé publique&quot;)))(((&quot;point générateur&quot;)))La clé publique est calculée à partir de la clé privée en utilisant la multiplication par courbe elliptique, qui est irréversible : _K_ = _k_ * _G_, où _k_ est la clé privée, _G_ est un point constant appelé _point générateur_ et _K_ est la clé publique résultante. L'opération inverse, connue sous le nom de &quot;trouver le logarithme discret&quot; - calculer _k_ si vous connaissez __K__ - est aussi difficile que d'essayer toutes les valeurs possibles de _k_, c'est-à-dire par une recherche par force brute. Avant de montrer comment générer une clé publique à partir d'une clé privée, examinons un peu plus en détail la cryptographie à courbe elliptique.
 
-[TIP]
+[INDICE]
 ====
 La multiplication de courbe elliptique est un type de fonction que les cryptographes appellent une fonction « à sens unique » : elle est facile à faire dans un sens (multiplication) et impossible à faire dans le sens inverse (« division », ou trouver le logarithme discret). Le propriétaire de la clé privée peut facilement créer la clé publique, puis la partager avec le monde entier, sachant que personne ne peut inverser la fonction et calculer la clé privée à partir de la clé publique. Cette astuce mathématique devient la base de signatures numériques infalsifiables et sécurisées qui prouvent la propriété des fonds bitcoin.
 ====
@@ -208,7 +208,7 @@ Maintenant que nous avons défini l'addition, nous pouvons définir la multiplic
 
 où _k_ est la clé privée, _G_ est le point générateur et _K_ est la clé publique résultante, un point sur la courbe. Comme le point générateur est toujours le même pour tous les utilisateurs de bitcoins, une clé privée _k_ multipliée par _G_ donnera toujours la même clé publique _K_. La relation entre _k_ et _K_ est fixe, mais ne peut être calculée que dans un sens, de _k_ vers _K_. C'est pourquoi une adresse Bitcoin (dérivée de _K_) peut être partagée avec n'importe qui et ne révèle pas la clé privée de l'utilisateur (_k_).
 
-[TIP]
+[INDICE]
 ====
 Une clé privée peut être convertie en clé publique, mais une clé publique ne peut pas être reconvertie en clé privée car le calcul ne fonctionne que dans un sens.
 ====
@@ -234,7 +234,7 @@ Pour visualiser la multiplication d'un point avec un nombre entier, nous utilise
 
 &lt;<ecc_illustrated>&gt; montre le processus de dérivation de _G_, _2G_, _4G_ et _8G_ en tant qu'opération géométrique sur la courbe.
 
-[TIP]
+[INDICE]
 ====
 (((&quot;bibliothèque C optimisée secp256k1&quot;)))Bitcoin utilise la https://github.com/bitcoin-core/secp256k1[bibliothèque C optimisée secp256k1] pour effectuer les calculs de la courbe elliptique.(((&quot;&quot;, startref=&quot;KAover04&quot;)))
 ====
@@ -268,7 +268,7 @@ En commençant par la clé publique _K_, nous calculons le hachage SHA256, puis 
 où _K_ est la clé publique et _A_ est l'adresse Bitcoin résultante.
 
 
-[TIP]
+[INDICE]
 ====
 Une adresse Bitcoin n'est _pas_ la même chose qu'une clé publique. Les adresses Bitcoin sont dérivées d'une clé publique à l'aide d'une fonction unidirectionnelle.
 ====
@@ -493,7 +493,7 @@ N'oubliez pas que ces formats ne sont _pas_ utilisés de manière interchangeabl
 Si un portefeuille bitcoin est capable d'implémenter des clés publiques compressées, il les utilisera dans toutes les transactions. Les clés privées du portefeuille seront utilisées pour dériver les points de clé publique sur la courbe, qui seront compressés. Les clés publiques compressées seront utilisées pour produire des adresses Bitcoin et celles-ci seront utilisées dans les transactions. Lors de l'exportation de clés privées à partir d'un nouveau portefeuille qui implémente des clés publiques compressées, le WIF est modifié, avec l'ajout d'un suffixe d'un octet +01+ à la clé privée. La clé privée encodée en Base58Check qui en résulte est appelée &quot;WIF compressé&quot; et commence par la lettre _K_ ou _L_, au lieu de commencer par &quot;5&quot; comme c'est le cas avec les clés encodées en WIF (non compressées) des portefeuilles plus anciens.
 
 
-[TIP]
+[INDICE]
 ====
 &quot;Clés privées compressées&quot; est un terme impropre ! Ils ne sont pas compressés ; au lieu de cela, WIF-compressé signifie que les clés ne doivent être utilisées que pour dériver des clés publiques compressées et leurs adresses Bitcoin correspondantes. Ironiquement, une clé privée codée &quot;compressée en WIF&quot; est plus longue d'un octet car elle a le suffixe +01+ ajouté pour la distinguer d'une clé &quot;non compressée&quot;.(((&quot;&quot;, startref=&quot;KAaddress04&quot;)))
 ====
@@ -528,7 +528,7 @@ Address: 1PRTTaJesdNovgne6Ehcdu1fpEdX7913CK
 ----
 ====
 
-[TIP]
+[INDICE]
 ====
 Le code dans &lt;<addr_example_run>&gt; produit une adresse Bitcoin (+1PRTT...+) à partir d'une clé publique _compressée_ (voir &lt;<comp_pub>&gt;). Si vous utilisiez la clé publique non compressée à la place, cela produirait une adresse Bitcoin différente (+14K1y...+).
 ====
@@ -594,7 +594,7 @@ include::code/ec-math.py[]
 
 &lt;<ec_math_run>&gt; affiche la sortie produite en exécutant ce script.
 
-[WARNING]
+[ATTENTION]
 ====
 &lt;<ec_math>&gt; (((&quot;nombres aléatoires&quot;, &quot;os.urandom&quot;, see=&quot;entropie&quot;)))(((&quot;entropie&quot;, &quot;os.urandom&quot;, see=&quot;nombres aléatoires&quot;)))(((&quot;nombres aléatoires&quot;, &quot;génération de nombres aléatoires&quot;)))(((&quot;entropie&quot;, &quot;génération de nombres aléatoires&quot;)))utilise +os.urandom+, qui reflète un générateur de nombres aléatoires cryptographiquement sécurisé (CSRNG) fourni par le système d'exploitation sous-jacent. Attention : Selon le système d'exploitation, +os.urandom+ peut _ne pas_ être implémenté avec une sécurité suffisante ou correctement amorcé et peut _ne pas_ être approprié pour générer des clés bitcoin de qualité production.(((&quot;&quot;, startref=&quot;KApython04&quot;)))
 ====
@@ -642,7 +642,7 @@ $ bx script-encode < script | bx sha256 | bx ripemd160 \
 3F6i6kwkevjR7AsAd4te2YB2zZyASEm1HM
 ----
 
-[TIP]
+[INDICE]
 ====
 P2SH n'est pas nécessairement la même chose qu'une transaction standard multisignature. Une adresse P2SH représente _le plus souvent_ un script multi-signatures, mais elle peut également représenter un script codant d'autres types de transactions.
 ====
@@ -770,7 +770,7 @@ Alors, une adresse personnalisée augmente-t-elle la sécurité ? Si Eugenia g�
 
 (((&quot;clés et adresses&quot;, &quot;formulaires avancés&quot;, &quot;portefeuilles papier&quot;)))(((&quot;portefeuilles papier&quot;, id=&quot;paperw04&quot;)))(((&quot;portefeuilles&quot;, &quot;types de&quot;, &quot; paper wallets&quot;, id=&quot;Wpaper04&quot;))) Les paper wallets, ou les portefeuilles en papier, sont des clés privées bitcoin imprimées sur papier. Souvent, le portefeuille papier comprend également l'adresse Bitcoin correspondante pour plus de commodité, mais ce n'est pas nécessaire car elle peut être dérivée de la clé privée.
 
-[WARNING]
+[ATTENTION]
 ====
 Les portefeuilles en papier sont une technologie OBSOLÈTE et sont dangereux pour la plupart des utilisateurs. Il existe de nombreux pièges subtils impliqués dans leur génération, notamment la possibilité que le code de génération soit compromis par une &quot;porte dérobée&quot;. Des centaines de bitcoins ont été volés de cette façon. Les portefeuilles en papier sont présentés ici à titre informatif uniquement et ne doivent pas être utilisés pour stocker des bitcoins. Utilisez une phrase mnémonique BIP-39 pour sauvegarder vos clés. Utilisez un portefeuille matériel pour stocker des clés et signer des transactions. N'UTILISEZ PAS DE PORTEFEUILLES EN PAPIER.
 ====

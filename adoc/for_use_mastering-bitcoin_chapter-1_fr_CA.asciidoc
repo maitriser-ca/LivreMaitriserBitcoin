@@ -6,7 +6,7 @@
 
 (((&quot;bitcoin&quot;, &quot;défini&quot;, id=&quot;GSdefine01&quot;)))Bitcoin est un ensemble de concepts et de technologies qui constituent la base d'un écosystème de monnaie numérique. Les unités monétaires appelées bitcoin sont utilisées pour stocker et transmettre de la valeur entre les participants au réseau Bitcoin. Les utilisateurs de Bitcoin communiquent entre eux en utilisant le protocole Bitcoin principalement via Internet, bien que d'autres réseaux de transport puissent également être utilisés. La pile de protocole Bitcoin, disponible en tant que logiciel à source libre, peut être exécutée sur une large gamme d'appareils informatiques, y compris les ordinateurs portables et les smartphones, ce qui rend la technologie facilement accessible.
 
-[TIP]
+[INDICE]
 ====
 Remarquez comment l'unité monétaire s'appelle &quot;bitcoin&quot; avec un petit _b_, et le système s'appelle &quot;Bitcoin&quot;, avec un _B_ majuscule.
 ====
@@ -132,7 +132,7 @@ Quand Alice exécute son application de portefeuille pour la première fois, ell
 
 Un portefeuille Bitcoin moderne fournira une _phrase mnémonique_ (aussi parfois appelée &quot;valeur d'amorçage&quot; ou &quot;phrase de récupération&quot;) qu'Alice pourra sauvegarder. La phrase mnémonique se compose de 12 à 24 mots anglais, sélectionnés au hasard par le logiciel, et utilisés comme base pour les clés générées par le portefeuille. La phrase mnémotechnique peut être utilisée par Alice pour restaurer toutes les transactions et tous les fonds de son portefeuille en cas d'événement tel qu'un appareil mobile perdu, un bogue logiciel ou une corruption de la mémoire.
 
-[TIP]
+[INDICE]
 ====
 Le terme correct pour ces mots de sauvegarde est &quot;phrase mnémonique&quot;. Nous évitons d'utiliser le terme &quot;valeur d'amorçage&quot; pour désigner une phrase mnémotechnique, car même si son utilisation est la même, son usage initial est différent.
 ====
@@ -144,7 +144,7 @@ Alice doit faire attention à stocker la phrase mnémonique d'une manière qui �
 
 Une fois qu'Alice a enregistré la phrase mnémotechnique, elle doit prévoir de stocker chaque copie dans un endroit sécurisé séparé, tel qu'un tiroir de bureau verrouillé ou un coffre-fort ignifuge.
 
-[WARNING]
+[ATTENTION]
 ====
 N'essayez jamais un système de sécurité &quot;bricolage&quot; qui s'écarte de quelque manière que ce soit de la recommandation des meilleures pratiques dans &lt;<mnemonic-storage>&gt;. Ne coupez pas votre mnémonique en deux, ne faites pas de captures d'écran, ne stockez pas sur des clés USB, des e-mails ou des lecteurs cloud, ne le cryptez pas ou n'essayez aucune autre méthode non standard. Vous ferez pencher la balance de manière à risquer une perte permanente ou un vol. De nombreuses personnes ont perdu de l'argent, non pas à cause d'un vol, mais parce qu'elles ont essayé une solution non standard sans avoir l'expertise pour équilibrer les risques encourus. La recommandation des meilleures pratiques est soigneusement équilibrée par des experts et adaptée à la grande majorité des utilisateurs.
 ====
@@ -159,7 +159,7 @@ Alice est maintenant prête à commencer à utiliser son nouveau portefeuille Bi
 
 Alice utilise le bouton _Receive_, qui affiche un code QR avec une adresse Bitcoin. Le code QR est le carré avec un motif de points noirs et blancs, servant de forme de code-barres contenant les mêmes informations dans un format pouvant être scanné par l'appareil photo du smartphone de Joe. À côté du code QR du portefeuille se trouve l'adresse Bitcoin qu'il encode, et Alice peut choisir d'envoyer manuellement son adresse à Joe en la copiant dans son presse-papiers d'un simple toucher. Il convient de noter que lorsque vous recevez des fonds sur un nouveau portefeuille mobile pour la première fois, de nombreux portefeuilles revérifieront souvent que vous avez bien sécurisé votre phrase mnémonique. Cela peut aller d'une simple invitation à demander à l'utilisateur de ressaisir manuellement la phrase.
 
-[TIP]
+[INDICE]
 ====
 (((&quot;adresses&quot;, &quot;sécurité de&quot;)))(((&quot;sécurité&quot;, &quot;adresses Bitcoin&quot;)))Les adresses Bitcoin commencent par 1, 3 ou bc1. Comme les adresses e-mail, elles peuvent être partagées avec d'autres utilisateurs de bitcoins qui peuvent les utiliser pour envoyer des bitcoins directement dans votre portefeuille. Il n'y a rien de sensible, du point de vue de la sécurité, à propos de l'adresse Bitcoin. Il peut être affiché n'importe où sans risquer la sécurité du compte. Contrairement aux adresses e-mail, vous pouvez créer de nouvelles adresses aussi souvent que vous le souhaitez, qui dirigeront toutes les fonds vers votre portefeuille. En fait, de nombreux portefeuilles modernes créent automatiquement une nouvelle adresse pour chaque transaction afin de maximiser la confidentialité. Un portefeuille est simplement une collection d'adresses et les clés qui débloquent les fonds à l'intérieur.
 ====
@@ -178,7 +178,7 @@ Il existe plusieurs façons pour Alice d'acquérir des bitcoins :
 
 Toutes ces méthodes présentent des degrés de difficulté variables et nombre d'entre elles impliquent le paiement de frais. Certaines institutions financières exigeront également qu'Alice fournisse des documents d'identification pour se conformer aux réglementations bancaires locales/aux pratiques de lutte contre le blanchiment d'argent (AML), un processus connu sous le nom de Know Your Customer (KYC). Cependant, avec toutes ces méthodes, Alice pourra recevoir des bitcoins.
 
-[TIP]
+[INDICE]
 ====
 (((&quot;confidentialité, maintien&quot;)))(((&quot;sécurité&quot;, &quot;maintien de la vie privée&quot;)))(((&quot;monnaies numériques&quot;, &quot;échanges de devises&quot;)))(((&quot;échanges de devises&quot;)))(((&quot;monnaies numériques&quot;, &quot;avantages du bitcoin&quot;)))(((&quot;bitcoin&quot;, &quot;avantages de&quot;)))L'un des avantages du bitcoin par rapport aux autres systèmes de paiement est que, lorsqu'il est utilisé correctement, il offre aux utilisateurs beaucoup plus d'intimité. Acquérir, détenir et dépenser des bitcoins ne vous oblige pas à divulguer des informations sensibles et personnellement identifiables à des tiers. Cependant, lorsque le bitcoin touche les systèmes traditionnels, tels que les échanges de devises, les réglementations nationales et internationales s'appliquent souvent. Afin d'échanger des bitcoins contre votre monnaie nationale, il vous sera souvent demandé de fournir une preuve d'identité et des informations bancaires. Les utilisateurs doivent savoir qu'une fois qu'une adresse Bitcoin est associée à une identité, toutes les transactions Bitcoin associées sont également faciles à identifier et à suivre. C'est l'une des raisons pour lesquelles de nombreux utilisateurs choisissent de maintenir des comptes d'échange dédiés non liés à leurs portefeuilles.
 ====
@@ -220,7 +220,7 @@ Dans la saisie de la note/description de la transaction, Joe saisit « Alice �
 
 Il sélectionne également des frais de transaction pour sa transaction. Plus les frais de transaction sont élevés, plus vite sa transaction sera confirmée (incluse dans un bloc par un mineur). Il sélectionne les frais de transaction minimum possibles à ce moment-là (0 satoshis/octet).
 
-[TIP]
+[INDICE]
 ====
 Le prix du bitcoin a beaucoup changé au fil du temps, et une quantité incroyable depuis la rédaction de la première édition de ce livre. En mars 2021, une personne aurait besoin d'environ 54 000 USD pour acheter un bitcoin entier. De nombreux exemples dans ce livre font référence à des transactions passées réelles, lorsque le prix du bitcoin était beaucoup plus bas et que des transactions sans frais étaient encore possibles. Pensez à quel point Joe aurait été un ami généreux s'il avait conclu le même accord avec Alice aujourd'hui !
 ====
@@ -234,7 +234,7 @@ image::images/mbc2_0102.png["Écran d'envoi Bluewallet"]
 
 Pendant ce temps, le portefeuille d'Alice &quot;écoute&quot; constamment les transactions publiées sur le réseau Bitcoin, à la recherche de celles qui correspondent aux adresses qu'il contient. Quelques secondes après que le portefeuille de Joe ait transmis la transaction, le portefeuille d'Alice indiquera qu'il reçoit 0,10 BTC.
 
-[TIP]
+[INDICE]
 ====
 Chaque bitcoin peut être subdivisé en 100 millions d'unités, chacune appelée &quot;satoshi&quot; (singulier) ou &quot;satoshis&quot; (pluriel). Nommé en l'honneur du créateur du bitcoin, le Satoshi est la plus petite unité de bitcoin, équivalente à 0,00000001 BTC.
 ====

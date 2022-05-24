@@ -15,7 +15,7 @@ Dans cette section, nous résumons les différentes technologies utilisées pour
 
 (((&quot;portefeuilles&quot;, &quot;contenu de&quot;))) Une idée faussement courante à propos du bitcoin est que les portefeuilles bitcoin contiennent du bitcoin. En fait, le portefeuille ne contient que des clés. Les &quot;monnaies ou coins&quot; sont enregistrés dans la chaîne de blocs sur le réseau Bitcoin. Les utilisateurs contrôlent les pièces sur le réseau en signant des transactions avec les clés de leur portefeuille. (((&quot;porte-clés&quot;)))Dans un sens, un portefeuille bitcoin est un _porte-clés_.
 
-[TIP]
+[INDICE]
 ====
 Les portefeuilles Bitcoin contiennent des clés, pas des pièces (ou coins). Chaque utilisateur dispose d'un portefeuille contenant des clés. Les portefeuilles sont en réalité des porte-clés contenant des paires de clés privées/publiques (voir &lt;<private_public_keys>&gt;). Les utilisateurs signent des transactions avec les clés, prouvant ainsi qu'ils sont propriétaires des sorties de transaction (leurs pièces ou monnaies). Les pièces sont stockées sur la blockchain sous la forme de sorties de transaction (souvent notées vout ou txout).
 ====
@@ -35,7 +35,7 @@ Les prochaines sections présentent chacune de ces technologies à un niveau él
 
 (((&quot;portefeuilles&quot;, &quot;types de&quot;, &quot;portefeuilles non déterministes (aléatoires)&quot;)))Dans le premier portefeuille bitcoin (maintenant appelé Bitcoin Core), les portefeuilles étaient des collections de clés privées générées aléatoirement. Par exemple, le client Bitcoin Core d'origine prégénère 100 clés privées aléatoires lors du premier démarrage et génère plus de clés si nécessaire, en utilisant chaque clé une seule fois. Ces portefeuilles sont remplacés par des portefeuilles déterministes car ils sont lourds à gérer, à sauvegarder et à importer. L'inconvénient des clés aléatoires est que si vous en générez beaucoup, vous devez conserver des copies de toutes, ce qui signifie que le portefeuille doit être sauvegardé fréquemment. Chaque clé doit être sauvegardée, sinon les fonds qu'elle contrôle sont irrévocablement perdus si le portefeuille devient inaccessible. Cela entre directement en conflit avec le principe d'éviter la réutilisation des adresses, en utilisant chaque adresse Bitcoin pour une seule transaction. La réutilisation des adresses réduit la confidentialité en associant plusieurs transactions et adresses les unes aux autres. Un portefeuille non déterministe de type-0 est un mauvais choix de portefeuille, surtout si vous voulez éviter la réutilisation des adresses car cela implique de gérer de nombreuses clés, ce qui crée le besoin de sauvegardes fréquentes. Bien que le client Bitcoin Core inclue un portefeuille de type 0, l'utilisation de ce portefeuille est déconseillée par les développeurs de Bitcoin Core. &lt;<Type0_wallet>&gt; montre un portefeuille non déterministe, contenant une collection lâche de clés aléatoires.
 
-[TIP]
+[INDICE]
 ====
 L'utilisation de portefeuilles non déterministes est déconseillée pour autre chose que de simples tests. Ils sont tout simplement trop lourds à sauvegarder et à utiliser. À la place, utilisez un _portefeuille HD_ standard de l'industrie avec une séquence aléatoire _mnémonique_ (entropie, ou &quot;valeur d'amorçage&quot;) pour la sauvegarde.
 ====
@@ -101,7 +101,7 @@ Les normes ont été adoptées par une large gamme de portefeuilles bitcoin logi
 
 Les sections suivantes examinent chacune de ces technologies en détail.
 
-[TIP]
+[INDICE]
 ====
 Si vous implémentez un portefeuille bitcoin, il doit être construit comme un portefeuille HD, avec une valeur d'amorçage dérivée et codée comme un code mnémonique pour la sauvegarde, suivant les normes BIP-32, BIP-39, BIP-43 et BIP-44, comme décrit dans les sections suivantes.
 ====
@@ -152,7 +152,7 @@ Examinons maintenant en détail chacune des normes importantes de l'industrie ut
 
 (((&quot;portefeuilles&quot;, &quot;technologie de&quot;, &quot;mots de code mnémoniques&quot;)))(((&quot;mots de code mnémoniques&quot;, id=&quot;mnemonic05&quot;)))(((&quot;propositions d'amélioration du bitcoin&quot;, &quot;Mots de code mnémoniques (BIP-39)&quot;, id=&quot;BIP3905&quot;)))Les mots de code mnémonique sont des séquences de mots qui représentent (encodent) un nombre aléatoire utilisé comme valeur d'amorçage pour dériver un portefeuille déterministe. La séquence de mots est suffisante pour recréer la valeur d'amorçage et à partir de là recréer le portefeuille et toutes les clés dérivées. Une application de portefeuille qui implémente des portefeuilles déterministes avec des mots mnémoniques montrera à l'utilisateur une séquence de 12 à 24 mots lors de la première création d'un portefeuille. Cette séquence de mots est à sauvegarder et est la valeur d'amorçage du portefeuille. Elle peut être utilisée pour récupérer et recréer toutes les clés dans la même application de portefeuille ou dans n'importe quelle application de portefeuille compatible. Les mots mnémotechniques facilitent la sauvegarde des portefeuilles par les utilisateurs, car ils sont faciles à lire et à transcrire correctement, par rapport à une séquence aléatoire de chiffres.
 
-[TIP]
+[INDICE]
 ====
 (((&quot;brainwallets&quot;)))Les mots mnémoniques sont souvent confondus avec les &quot;brainwallets&quot;. Ils ne sont pas les mêmes. La principale différence est qu'un brainwallet se compose de mots choisis par l'utilisateur, tandis que les mots mnémoniques sont créés de manière aléatoire par le portefeuille et présentés à l'utilisateur. Cette différence importante rend les mots mnémoniques beaucoup plus sûrs, car les humains sont de très mauvaises sources d'aléatoire.
 ====
@@ -217,7 +217,7 @@ Le processus décrit aux étapes 7 à 9 continue à partir du processus décrit 
 .Du mnémonique à la valeur d'amorçage
 image::images/mbc2_0507.png[&quot;Du mnémonique à la valeur d'amorçage&quot;]
 
-[TIP]
+[INDICE]
 ====
 La fonction d'étirement de clé, avec ses 2048 tours de hachage, est une protection très efficace contre les attaques par force brute contre le mnémonique ou la phrase secrète. Cela rend extrêmement coûteux (en calcul) d'essayer plus de quelques milliers de combinaisons de mots de passe et de mnémoniques, alors que le nombre de graines dérivées possibles est vaste (2 ^ 512 ^).
 ====
@@ -259,7 +259,7 @@ luggage oxygen faint major edit measure invite love trap field dilemma oblige+
 +5f1e0deaa082df8d487381379df848a6ad7e98798404+
 |=======
 
-[TIP]
+[INDICE]
 ====
 De nombreux portefeuilles ne permettent pas la création de portefeuilles avec plus d'une phrase mnémonique de 12 mots. Vous remarquerez dans les tableaux ci-dessus que malgré les longueurs uniques d'entrée d'entropie, la taille de la valeur d'amorçage reste la même (512 bits). Du point de vue de la sécurité, la quantité d'entropie réellement utilisée pour la production de portefeuilles HD est d'environ 128 bits, ce qui équivaut à 12 mots. Fournir plus de 12 mots produit une entropie supplémentaire qui n'est pas nécessaire, et cette entropie est _inutilisée_  pour la dérivation de la valeur d'amorçage de la manière que l'on pourrait initialement soupçonner. Du point de vue de la convivialité, 12 mots sont également plus faciles à écrire, à sauvegarder et à stocker.
 ====
@@ -269,7 +269,7 @@ De nombreux portefeuilles ne permettent pas la création de portefeuilles avec p
 
 (((&quot;phrases secrètes&quot;)))La norme BIP-39 permet l'utilisation d'une phrase secrète facultative dans la dérivation de la valeur d'amorçage. Si aucune phrase secrète n'est utilisée, le mnémonique est étiré avec un sel constitué de la chaîne constante +&quot;mnémonique&quot;+, produisant une graine spécifique de 512 bits à partir de n'importe quel mnémonique donné. Si une phrase secrète est utilisée, la fonction d'étirement produit une valeur d'amorçage _différente_ à partir de ce même mnémonique. En fait, étant donné un seul mnémonique, chaque phrases secrètes possible conduit à une valeurs d'amorçage différente. Essentiellement, il n'y a pas de &quot;mauvaise&quot; phrase secrète. Toutes les phrases secrètes sont valides et mènent toutes à des valeurs d'amorçage différentes, formant un vaste ensemble de portefeuilles non initialisés possibles. L'ensemble des portefeuilles possibles est si grand (2 ^512^) qu'il n'y a aucune possibilité pratique de forcer brutalement ou de deviner accidentellement celui qui est utilisé.
 
-[TIP]
+[INDICE]
 ====
 Il n'y a pas de &quot;mauvaises&quot; phrases secrètes dans BIP-39. Chaque phrase de passe mène à un portefeuille qui, à moins qu'il n'ait été utilisé auparavant, sera vide.
 ====
@@ -346,7 +346,7 @@ Les clés privées enfants ne peuvent pas être distinguées des clés non déte
 
 Alors, à quoi peut servir la clé privée enfant seule ? Il peut être utilisé pour créer une clé publique et une adresse Bitcoin. Ensuite, il peut être utilisé pour signer des transactions afin de dépenser tout ce qui est payé à cette adresse.
 
-[TIP]
+[INDICE]
 ====
 Une clé privée enfant, la clé publique correspondante et l'adresse Bitcoin sont toutes indiscernables des clés et des adresses créées au hasard. Le fait qu'ils fassent partie d'une séquence n'est pas visible en dehors de la fonction de portefeuille HD qui les a créés. Une fois créées, elles fonctionnent exactement comme des clés &quot;normales&quot;.
 ====
@@ -359,7 +359,7 @@ Les clés étendues sont stockées et représentées simplement comme la concat�
 
 Considérez une clé étendue comme la racine d'une branche dans l'arborescence du portefeuille HD. Avec la racine de la branche, vous pouvez dériver le reste de la branche. La clé privée étendue peut créer une branche complète, tandis que la clé publique étendue peut créer _uniquement_ une branche de clés publiques.
 
-[TIP]
+[INDICE]
 ====
 Une clé étendue se compose d'une clé privée ou publique et d'un code de chaîne. Une clé étendue peut créer des enfants, générant sa propre branche dans l'arborescence. Le partage d'une clé étendue donne accès à l'ensemble de la branche.
 ====
@@ -494,7 +494,7 @@ L'entreprise de Gabriel est florissante. Il a fourni sa clé publique étendue (
 
 Disons que Gabriel est intéressé à voir son montant total de bitcoin gagné sur un portefeuille de surveillance uniquement (celui qui vous permet de voir l'historique des transactions, mais pas de dépenser des fonds) qui est distinct du serveur BTCPay mais également conforme à la norme BIP-44 . Comment ce portefeuille séparé devrait-il rechercher des fonds dans ce vaste arbre hiérarchique, et quand devrait-il cesser de chercher ? La plupart des portefeuilles suivent généralement un processus itératif qui utilise une limite prédéfinie, connue sous le nom de _gap limit_. Si, lors de la recherche d'adresses utilisées, le portefeuille ne trouve pas d'adresses utilisées d'affilée au-delà de ce nombre limite, il arrête de rechercher la chaîne d'adresses. La limite d'écart par défaut est généralement fixée à 20. Ceci est détaillé dans [[bip-44]]https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki[BIP-44]. 
 
-[TIP]
+[INDICE]
 ====
 Les limites d'écart expliquent le phénomène selon lequel l'importation d'un portefeuille peut afficher un solde incorrect ou nul. Les fonds ne sont pas perdus, mais plutôt, la fonction d'importation de portefeuille n'a pas traversé suffisamment de feuilles pour détecter pleinement les fonds. De nombreux portefeuilles permettent de modifier cette limite d'écart par défaut, et Gabriel peut avoir besoin d'augmenter cette limite pour permettre à son portefeuille d'importer entièrement son historique de transactions. 
 ====

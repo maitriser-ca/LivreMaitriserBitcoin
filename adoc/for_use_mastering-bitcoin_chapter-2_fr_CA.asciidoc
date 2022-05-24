@@ -51,7 +51,7 @@ Contrairement à un code QR qui contient simplement une adresse Bitcoin de desti
 .Code QR de la demande de paiement
 image::images/mbc2_0202.png["requête de paiement"]
 
-[TIP]
+[INDICE]
 ====
 (((&quot;Codes QR&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;transactions&quot;, &quot;avertissements et mises en garde&quot;)))(((&quot;avertissements et mises en garde&quot;, &quot;éviter d'envoyer de l'argent aux adresses figurant dans le livre&quot;)))Essayez de scanner ceci avec votre portefeuille pour voir l'adresse et le montant, mais N'ENVOYEZ PAS D'ARGENT.
 ====
@@ -182,7 +182,7 @@ $ curl https://blockchain.info/unspent?active=1Cdid9KFAaatwczBwBttQcwXYCpvK8h7FK
 
 La réponse en &lt;<example_2-2>&gt; montre une sortie non dépensée (une qui n'a pas encore été échangée) sous la propriété de l'adresse d'Alice +1Cdid9KFAaatwczBwBttQcwXYCpvK8h7FK+. La réponse inclut la référence à la transaction dans laquelle cette sortie non dépensée est contenue (le paiement de Joe) et sa valeur en satoshis, à 10 millions, équivalent à 0,10 bitcoin. Avec ces informations, l'application de portefeuille d'Alice peut construire une transaction pour transférer cette valeur aux nouvelles adresses de propriétaire.
 
-[TIP]
+[INDICE]
 ====
 Voir la https://www.blockchain.com/btc/tx/7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18[transaction de Joe à Alice].
 ====
@@ -206,7 +206,7 @@ La transaction résultante peut être vue à l'aide d'une application Web d'expl
 image::images/mbc2_0208.png["Transaction du café d'Alice"]
 
 [[transaction-alice-url]]
-[TIP]
+[INDICE]
 ====
 Voir la https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2[transaction d'Alice à Bob's Cafe].
 ====
@@ -227,7 +227,7 @@ La transaction créée par l'application du portefeuille d'Alice fait 258 octets
 
 Si l'application de portefeuille bitcoin de Bob est directement connectée à l'application de portefeuille d'Alice, l'application de portefeuille de Bob peut être le premier nœud à recevoir la transaction. Cependant, même si le portefeuille d'Alice envoie la transaction via d'autres nœuds, elle atteindra le portefeuille de Bob en quelques secondes. Le portefeuille de Bob identifiera immédiatement la transaction d'Alice comme un paiement entrant car il contient des sorties remboursables par les clés de Bob. L'application de portefeuille de Bob peut également vérifier de manière indépendante que la transaction est bien formée, utilise des sorties précédemment non dépensées et contient des frais de transaction suffisants pour être inclus dans le bloc suivant. À ce stade, Bob peut supposer, avec peu de risques, que la transaction sera bientôt incluse dans un bloc et confirmée.
 
-[TIP]
+[INDICE]
 ====
 (((&quot;confirmations&quot;, &quot;des transactions de petite valeur&quot;,secondary-sortas=&quot;transactions de petite valeur&quot;)))Une idée fausse courante à propos des transactions bitcoin est qu'elles doivent être &quot;confirmées&quot; en attendant 10 minutes pour un nouveau bloc, ou jusqu'à 60 minutes pour six confirmations complètes. Bien que les confirmations garantissent que la transaction a été acceptée par l'ensemble du réseau, un tel délai n'est pas nécessaire pour les articles de petite valeur comme une tasse de café. Un commerçant peut accepter une transaction valide de petite valeur sans confirmation, sans plus de risque qu'un paiement par carte de crédit effectué sans pièce d'identité ni signature, comme les commerçants l'acceptent couramment aujourd'hui.(((&quot;&quot;, startref=&quot;Tconstruct02&quot;)))
 ====
@@ -260,7 +260,7 @@ Les transactions sont ajoutées au nouveau bloc, classées par ordre de priorit�
 
 Le bloc gagnant de Jing est devenu une partie de la blockchain en tant que bloc # 277316, contenant 419 transactions, y compris la transaction d'Alice. Le bloc contenant la transaction d'Alice est compté comme une &quot;confirmation&quot; de cette transaction.
 
-[TIP]
+[INDICE]
 ====
 Vous pouvez voir le bloc qui inclut https://www.blockchain.com/btc/block/277316[Transaction d'Alice].
 ====

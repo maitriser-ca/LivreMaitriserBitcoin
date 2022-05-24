@@ -49,7 +49,7 @@ Bitcoin address : 1FNNRQ5fSv1wBi5gyfVBs2rkNheMGt86sp
 
 Créez une clé BIP-32 à partir d'une phrase secrète :
 
-[WARNING]
+[ATTENTION]
 ====
 La phrase de passe dans cet exemple est beaucoup trop facile à deviner.
 ====
@@ -340,8 +340,8 @@ Voir la fameuse transaction de &quot;pizza&quot;:
 
 ----
 $ tx 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a
-warning: consider setting environment variable PYCOIN_CACHE_DIR=~/.pycoin_cache to cache transactions fetched via web services
-warning: no service providers found for get_tx; consider setting environment variable PYCOIN_BTC_PROVIDERS
+ATTENTION: consider setting environment variable PYCOIN_CACHE_DIR=~/.pycoin_cache to cache transactions fetched via web services
+ATTENTION: no service providers found for get_tx; consider setting environment variable PYCOIN_BTC_PROVIDERS
 usage: tx [-h] [-t TRANSACTION_VERSION] [-l LOCK_TIME] [-n NETWORK] [-a]
           [-i address] [-f path-to-private-keys] [-g GPG_ARGUMENT]
           [--remove-tx-in tx_in_index_to_delete]
@@ -387,8 +387,8 @@ La dernière ligne apparaît car pour valider les signatures des transactions, v
 
 ----
 $ tx -a 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a
-warning: transaction fees recommendations casually calculated and estimates may be incorrect
-warning: transaction fee lower than (casually calculated) expected value of 0.1 mBTC, transaction might not propagate
+ATTENTION: transaction fees recommendations casually calculated and estimates may be incorrect
+ATTENTION: transaction fee lower than (casually calculated) expected value of 0.1 mBTC, transaction might not propagate
 Version:  1  tx hash 49d2adb6e476fa46d8357babf78b1b501fd39e177ac7833124b3f67b17c40c2a  159 bytes
 TxIn count: 1; TxOut count: 1
 Lock time: 0 (valid anytime)

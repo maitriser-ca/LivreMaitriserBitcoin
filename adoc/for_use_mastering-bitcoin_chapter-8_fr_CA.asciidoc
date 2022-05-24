@@ -185,7 +185,7 @@ Un nœud SPV ne peut pas être persuadé qu'une transaction existe dans un bloc 
 
 Dans la plupart des cas pratiques, les nœuds SPV bien connectés sont suffisamment sécurisés, trouvant un équilibre entre les besoins en ressources, l'aspect pratique et la sécurité. Pour une sécurité infaillible, cependant, rien ne vaut l'exécution d'un nœud de blockchain complet.
 
-[TIP]
+[INDICE]
 ====
 Un nœud de chaîne de blocs complet vérifie une transaction en vérifiant toute la chaîne de milliers de blocs en dessous afin de garantir que l'UTXO n'est pas dépensé, tandis qu'un nœud SPV vérifie à quelle profondeur le bloc est enterré par une poignée de blocs au-dessus.
 ====

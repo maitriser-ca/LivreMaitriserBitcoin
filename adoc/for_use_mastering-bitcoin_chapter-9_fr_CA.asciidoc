@@ -63,7 +63,7 @@ De plus, le terme _hauteur de bloc actuelle_ indique la taille de la chaîne de 
 
 Contrairement au hachage de bloc, la hauteur de bloc n'est pas un identifiant unique. Bien qu'un seul bloc ait toujours une hauteur de bloc spécifique et invariante, l'inverse n'est pas vrai : la hauteur de bloc n'identifie pas toujours un seul bloc. Deux ou plusieurs blocs peuvent avoir la même hauteur de bloc, en concurrence pour la même position dans la chaîne de blocs. Ce scénario est décrit en détail dans la section &lt;<forks>&gt;. La hauteur de bloc ne fait pas non plus partie de la structure de données du bloc ; il n'est pas stocké dans le bloc. Chaque nœud identifie dynamiquement la position (hauteur) d'un bloc dans la chaîne de blocs lorsqu'il est reçu du réseau Bitcoin. La hauteur de bloc peut également être stockée sous forme de métadonnées dans une table de base de données indexée pour une récupération plus rapide.
 
-[TIP]
+[INDICE]
 ====
 Le _hachage de bloc_ d'un bloc identifie toujours un seul bloc de manière unique. Un bloc a également toujours une _hauteur de bloc_ spécifique. Cependant, il n'est pas toujours vrai qu'une hauteur de bloc spécifique puisse identifier un seul bloc. Au contraire, deux blocs ou plus pourraient se disputer une seule position dans la chaîne de blocs.
 ====

@@ -86,7 +86,7 @@ Une transaction consomme des sorties de transaction non dépensées précédemme
 
 (((&quot;transactions&quot;, &quot;transactions coinbase&quot;)))(((&quot;transactions coinbase&quot;)))(((&quot;minage et consensus&quot;, &quot;transactions coinbase&quot;)))L'exception à la chaîne de sortie et d'entrée est une type spécial de transaction appelé transaction _coinbase_, qui est la première transaction de chaque bloc. Cette transaction y est placée par le mineur &quot;gagnant&quot; et crée un tout nouveau bitcoin payable à ce mineur en récompense de l'exploitation minière. Cette transaction coinbase spéciale ne consomme pas d'UTXO ; à la place, il a un type spécial d'entrée appelé &quot;coinbase&quot;. C'est ainsi que la masse monétaire du bitcoin est créée pendant le processus de minage, comme nous le verrons dans &lt;<mining>&gt;.
 
-[TIP]
+[INDICE]
 ====
 Qu'est-ce qui vient en premier ? Entrées ou sorties, la poule ou l'œuf ? Strictement parlant, les sorties viennent en premier parce que les transactions coinbase, qui génèrent de nouveaux bitcoins, n'ont pas d'entrées et créent des sorties à partir de rien.
 ====
@@ -232,7 +232,7 @@ Nous pouvons utiliser la même séquence de commandes avec Bitcoin Core que cell
 
 On voit que cet UTXO a une valeur de 0.1 BTC et qu'il a un script de verrouillage (+scriptPubKey+) qui contient &quot;OP_DUP OP_HASH160...&quot;.
 
-[TIP]
+[INDICE]
 ====
 Pour bien comprendre la transaction d'Alice, nous avons dû récupérer la transaction précédente référencée en entrée. Une fonction qui récupère les transactions précédentes et les sorties de transaction non dépensées est très courante et existe dans presque toutes les bibliothèques et API Bitcoin.
 ====
@@ -325,7 +325,7 @@ Les algorithmes d'estimation des frais calculent les frais appropriés, en fonct
 
 (((&quot;bitcoinfees (service tiers)&quot;)))De nombreuses applications de portefeuille utilisent des services tiers pour le calcul des frais. Un service populaire est https://bitcoinfees.earn.com/[_https://bitcoinfees.earn.com/_], qui fournit une API et un graphique visuel montrant les frais en satoshi/octet pour différentes priorités.
 
-[TIP]
+[INDICE]
 ====
 (((&quot;frais statiques&quot;)))(((&quot;frais&quot;, &quot;frais statiques&quot;)))Les frais statiques ne sont plus viables sur le réseau Bitcoin. Les portefeuilles qui fixent des frais statiques produiront une mauvaise expérience utilisateur car les transactions seront souvent &quot;bloquées&quot; et resteront non confirmées. Les utilisateurs qui ne comprennent pas les transactions et les frais en bitcoins sont consternés par les transactions &quot;bloquées&quot; car ils pensent avoir perdu leur argent.
 ====
@@ -361,7 +361,7 @@ Il s'agit d'un élément quelque peu déroutant des transactions et d'un point i
 
 Par exemple, si vous consommez un UTXO de 20 bitcoins pour effectuer un paiement de 1 bitcoin, vous devez inclure une sortie de modification de 19 bitcoins dans votre portefeuille. Sinon, le &quot;reste&quot; de 19 bitcoins sera compté comme des frais de transaction et sera collecté par le mineur qui exploite votre transaction dans un bloc. Bien que vous receviez un traitement prioritaire et rendiez un mineur très heureux, ce n'est probablement pas ce que vous vouliez.
 
-[WARNING]
+[ATTENTION]
 ====
 (((&quot;avertissements et mises en garde&quot;, &quot;modifier les sorties&quot;))) Si vous oubliez d'ajouter une sortie de modification dans une transaction construite manuellement, vous paierez la modification en tant que frais de transaction. Dire &quot;Gardez la monnaie !&quot; au mineur n'est peut-être pas ce que vous vouliez vraiment.
 ====
@@ -386,7 +386,7 @@ Script est un langage très simple qui a été conçu pour être limité dans sa
 
 Dans cette section, nous démontrerons les composants de base du langage de script de transaction bitcoin et montrerons comment il peut être utilisé pour exprimer des conditions simples de dépenses et comment ces conditions peuvent être satisfaites en déverrouillant des scripts.
 
-[TIP]
+[INDICE]
 ====
 (((&quot;argent programmable&quot;)))La validation des transactions Bitcoin n'est pas basée sur un modèle statique, mais est plutôt obtenue grâce à l'exécution d'un langage de script. Ce langage permet d'exprimer une variété presque infinie de conditions. C'est ainsi que le bitcoin obtient le pouvoir de &quot;l'argent programmable&quot;.
 ====
@@ -455,7 +455,7 @@ Le logiciel de validation combine les scripts de verrouillage et de déverrouill
 
 Comme nous l'avons vu dans l'exemple étape par étape dans &lt;<simplemath_script>&gt;, lorsque ce script est exécuté, le résultat est +OP_TRUE+, rendant la transaction valide. Non seulement il s'agit d'un script de verrouillage de sortie de transaction valide, mais l'UTXO résultant pourrait être dépensé par toute personne ayant les compétences en arithmétique pour savoir que le nombre 2 satisfait le script.
 
-[TIP]
+[INDICE]
 ====
 (((&quot;transactions&quot;, &quot;valide et invalide&quot;)))Les transactions sont valides si le premier résultat de la pile est +TRUE+ (noté ++{0x01}++), toute autre valeur différente de zéro, autre que +OP_0+, ou si la pile est vide après l'exécution du script. Les transactions ne sont pas valides si la valeur supérieure de la pile est +FALSE+ (une valeur vide de longueur nulle, notée ++{}++) ou si l'exécution du script est arrêtée explicitement par un opérateur, tel que +OP_VERIFY+, +OP_RETURN+ ou un terminateur conditionnel tel que +OP_ENDIF+. Voir &lt;<tx_script_ops>&gt; pour plus de détails.
 ====
@@ -700,7 +700,7 @@ Si la coordonnée x du point calculé _P_ est égale à _R_, alors le vérificat
 
 Notez qu'en vérifiant la signature, la clé privée n'est ni connue ni révélée.
 
-[TIP]
+[INDICE]
 ====
 ECDSA est nécessairement un calcul assez compliqué; une explication complète est au-delà de la portée de ce livre. Un certain nombre d'excellents guides en ligne vous guident étape par étape : recherchez &quot;ECDSA expliqué&quot; ou essayez celui-ci : https://bit.ly/2r0HhGB[].
 ====
@@ -709,7 +709,7 @@ ECDSA est nécessairement un calcul assez compliqué; une explication complète 
 
 (((&quot;signatures numériques&quot;, &quot;caractère aléatoire&quot;)))Comme nous l'avons vu dans &lt;<ecdsa_math>&gt;, l'algorithme de génération de signature utilise une clé aléatoire _k_, comme base d'un couple clé privée/publique éphémère. La valeur de _k_ n'est pas importante, _tant qu'elle est aléatoire_. Si la même valeur _k_ est utilisée pour produire deux signatures sur différents messages (transactions), alors la signature _clé privée_ peut être calculée par n'importe qui. La réutilisation de la même valeur pour _k_ dans un algorithme de signature conduit à l'exposition de la clé privée !
 
-[WARNING]
+[ATTENTION]
 ====
 (((&quot;avertissements et mises en garde&quot;, &quot;signatures numériques&quot;)))Si la même valeur _k_ est utilisée dans l'algorithme de signature sur deux transactions différentes, la clé privée peut être calculée et exposée au monde !
 ====

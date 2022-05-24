@@ -8,7 +8,7 @@
 
 (((&quot;exploitation minière et consensus&quot;, &quot;consensus décentralisé&quot;)))(((&quot;autorité centrale de confiance&quot;)))L'exploitation minière _sécurise le système Bitcoin_ et permet l'émergence d'un _consensus à l'échelle du réseau sans autorité centrale_. (((&quot;frais&quot;, &quot;frais de transaction&quot;)))La récompense des pièces nouvellement frappées et des frais de transaction est un système d'incitation qui aligne les actions des mineurs sur la sécurité du réseau, tout en mettant en œuvre simultanément l'offre monétaire.
 
-[TIP]
+[INDICE]
 ====
 (((&quot;systèmes décentralisés&quot;, &quot;minage de bitcoins et&quot;)))Le but du minage n'est pas la création de nouveaux bitcoins. C'est le système d'incitation. Le minage est le mécanisme par lequel la _sécurité_ du bitcoin est _décentralisée_.
 ====
@@ -287,7 +287,7 @@ Ensuite, la fonction utilise l'opérateur binaire de décalage vers la droite po
 
 Enfin, la récompense coinbase (+nSubsidy+) est ajoutée aux frais de transaction (+nFees+), et la somme est restituée.
 
-[TIP]
+[INDICE]
 ====
 Si le nœud minier de Jing écrit la transaction coinbase, qu'est-ce qui empêche Jing de se &quot;récompenser&quot; lui-même 100 ou 1000 bitcoins ? La réponse est qu'une récompense incorrecte aurait pour conséquence que le bloc serait considéré comme invalide par tout le monde, gaspillant l'électricité de Jing utilisée pour la preuve de travail. Jing ne peut dépenser la récompense que si le bloc est accepté par tout le monde.
 ====
@@ -391,7 +391,7 @@ Au moment où le bloc 277 316 a été miné, le numéro de version décrivant la
 0000000000000002a7bbd25a417c0374cc55261021e8a9ca74442b01284f0569
 ----
 
-[TIP]
+[INDICE]
 ====
 En sélectionnant le bloc _parent_ spécifique, indiqué par le champ Hash du bloc précédent dans l'en-tête du bloc candidat, Jing engage sa puissance minière à étendre la chaîne qui se termine dans ce bloc spécifique. En substance, c'est ainsi que Jing &quot;vote&quot; avec son pouvoir minier pour la chaîne valide la plus longue.
 ====
@@ -496,14 +496,14 @@ Pour donner une analogie simple, imaginez un jeu où les joueurs lancent une pai
 
 Du point de vue d'un observateur qui sait que la cible du jeu de dés est 2, si quelqu'un a réussi à lancer un lancer gagnant, on peut supposer qu'il a tenté, en moyenne, 36 lancers. En d'autres termes, on peut estimer la quantité de travail nécessaire pour réussir à partir de la difficulté imposée par la cible. Lorsque l'algorithme est basé sur une fonction déterministe telle que SHA256, l'entrée elle-même constitue la _preuve_ qu'une certaine quantité de _travail_ a été effectuée pour produire un résultat égal ou inférieur à la cible. Par conséquent, la _Preuve de travail_.
 
-[TIP]
+[INDICE]
 ====
 Même si chaque tentative produit un résultat aléatoire, la probabilité de tout résultat possible peut être calculée à l'avance. Par conséquent, un résultat d'une difficulté spécifiée constitue la preuve d'une quantité de travail spécifique.
 ====
 
 Dans &lt;<sha256_example_generator_output>&gt;, le &quot;nonce&quot; gagnant est 13 et ce résultat peut être confirmé par n'importe qui indépendamment. N'importe qui peut ajouter le nombre 13 comme suffixe à la phrase &quot;Je suis Satoshi Nakamoto&quot; et calculer le hachage, en vérifiant qu'il est inférieur à la cible. Le résultat réussi est également une preuve de travail, car cela prouve que nous avons fait le travail pour trouver ce nonce. Alors qu'il ne faut qu'un seul calcul de hachage pour vérifier, il nous a fallu 13 calculs de hachage pour trouver un nonce qui a fonctionné. Si nous avions une cible inférieure (difficulté plus élevée), il faudrait beaucoup plus de calculs de hachage pour trouver un nonce approprié, mais un seul calcul de hachage pour que quiconque puisse le vérifier. De plus, en connaissant la cible, n'importe qui peut estimer la difficulté à l'aide de statistiques et donc savoir combien de travail a été nécessaire pour trouver un tel nonce.
 
-[TIP]
+[INDICE]
 ====
 La preuve de travail doit produire un hachage qui est _égal ou inférieur à_ la cible. Une cible plus élevée signifie qu'il est moins difficile de trouver un hachage égal ou inférieur à la cible. Une cible inférieure signifie qu'il est plus difficile de trouver un hachage égal ou inférieur à la cible. La cible et la difficulté sont inversement liées.
 ====
@@ -696,7 +696,7 @@ Les paramètres +Interval+ (2 016 blocs) et +TargetTimespan+ (deux semaines en 1
 
 Pour éviter une volatilité extrême de la difficulté, l'ajustement de reciblage doit être inférieur à un facteur quatre (4) par cycle. Si l'ajustement cible requis est supérieur à un facteur de quatre, il sera ajusté d'un facteur de 4 et pas plus. Tout autre ajustement sera effectué au cours de la prochaine période de reciblage, car le déséquilibre persistera au cours des 2 016 prochains blocs. Par conséquent, des écarts importants entre la puissance de hachage et la difficulté peuvent nécessiter plusieurs cycles de blocs de 2 016 pour s'équilibrer.
 
-[TIP]
+[INDICE]
 ====
 La difficulté d'extraction d'un bloc de bitcoins est d'environ &#39;10 minutes de traitement&#39; pour l'ensemble du réseau, sur la base du temps qu'il a fallu pour extraire les 2 016 blocs précédents, ajusté tous les 2 016 blocs. Ceci est réalisé en abaissant ou en élevant la cible.
 ====
@@ -765,7 +765,7 @@ Dans la section suivante, nous verrons comment les divergences entre les chaîne
 
 (((&quot;extraction et consensus&quot;, &quot;assemblage et sélection de chaînes de blocs&quot;, &quot;fourhes de chaîne de blocs&quot;)))(((&quot;chaîne de blocs (la)&quot;, &quot;fourches de chaîne de blocs&quot;, id=&quot;BCTfork10&quot;)))(((&quot;fourche&quot;, &quot;évènements de fourche de chaîne de blocs&quot;, id=&quot;forks10&quot;)))Parce que la chaîne de blocs est une structure de données décentralisée, différentes copies de celle-ci ne sont pas toujours cohérentes. Les blocs peuvent arriver à différents nœuds à des moments différents, ce qui amène les nœuds à avoir différentes perspectives de la chaîne de blocs. Pour résoudre ce problème, chaque nœud sélectionne et tente toujours d'étendre la chaîne de blocs qui représente le plus de preuve de travail, également connue sous le nom de chaîne la plus longue ou de chaîne de travail cumulative la plus importante. En additionnant le travail enregistré dans chaque bloc d'une chaîne, un nœud peut calculer la quantité totale de travail qui a été dépensée pour créer cette chaîne. Tant que tous les nœuds sélectionnent la plus grande chaîne de travail cumulatif, le réseau mondial Bitcoin finit par converger vers un état cohérent. Les fourches se produisent sous forme d'incohérences temporaires entre les versions de la chaîne de blocs, qui sont résolues par une éventuelle reconvergence à mesure que d'autres blocs sont ajoutés à l'une des fourches.
 
-[TIP]
+[INDICE]
 ====
 Les fourches de chaîne de blocs décrites dans cette section se produisent naturellement (accidentellement) en raison de retards de transmission dans le réseau mondial. Plus loin dans ce chapitre, nous verrons également les fourches délibérément induites (embranchements divergents et embranchements convergents), qui sont utilisés pour modifier les règles de consensus.
 ====

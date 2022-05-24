@@ -178,7 +178,7 @@ Si le hachage du script de rachat correspond, le script de déverrouillage est e
 
 Presque tous les scripts décrits dans ce chapitre ne peuvent être implémentés qu'en tant que scripts P2SH. Par exemple, un script de verrouillage multisignature standard 2 sur 5 ne peut pas être utilisé directement dans le script de verrouillage d'un UTXO, car +IsStandard()+ invaliderait la transaction. Pour se conformer, un script de verrouillage P2SH peut être utilisé à la place, comme vu ci-dessus. Une transaction qui comprend alors un script de déverrouillage P2SH peut être utilisée pour racheter cet UTXO et sera valide tant qu'elle ne contient pas plus de 15 clés publiques. (((&quot;&quot;, startref=&quot;mohamseven&quot;)))
 
-[TIP]
+[INDICE]
 ====
 N'oubliez pas qu'en raison de la politique définie par la fonction +IsStandard()+ au moment de la rédaction de cet article, les scripts multisignatures standard sont limités à 3 clés publiques répertoriées au maximum, tandis que les scripts P2SH sont limités à 15 clés publiques répertoriées au maximum. Les scripts multisignatures standard peuvent invalider les transactions au moyen de leur script de verrouillage _ou_ de déverrouillage, tandis que les scripts P2SH peuvent invalider les transactions au moyen de leur script de déverrouillage _uniquement_. En effet, +IsStandard()+ n'a aucun moyen de savoir si un hachage d'un script de rachat dans un script de verrouillage inclut plus de signatures que la limite de taille actuellement imposée, il ne peut donc observer que les scripts de déverrouillage dans les entrées de transaction. 
 ====
@@ -222,7 +222,7 @@ Vous ne pouvez pas mettre un P2SH dans un script de rachat P2SH, car la spécifi
 
 Notez que, comme le script de rachat n'est pas présenté au réseau tant que vous n'essayez pas de dépenser une sortie P2SH, si vous verrouillez une sortie avec le hachage d'un script de rachat invalide, elle sera traitée malgré tout. L'UTXO sera verrouillé avec succès. Cependant, vous ne pourrez pas le dépenser car la transaction de dépense, qui inclut le script d'échange, ne sera pas acceptée car il s'agit d'un script invalide. Cela crée un risque, car vous pouvez verrouiller des bitcoins dans un P2SH qui ne pourra pas être dépensé plus tard. Le réseau acceptera le script de verrouillage P2SH même s'il correspond à un script de rachat invalide, car le hachage du script ne donne aucune indication sur le script qu'il représente.(((&quot;&quot;, startref=&quot;Spay07&quot;)))
 
-[WARNING]
+[ATTENTION]
 ====
 (((&quot;avertissements et mises en garde&quot;, &quot;verrouillage accidentel de bitcoin&quot;)))Les scripts de verrouillage P2SH contiennent le hachage d'un script de rachat, qui ne donne aucun indice quant au contenu du script de rachat lui-même. La transaction P2SH sera considérée comme valide et acceptée même si le script de rachat est invalide. Vous pourriez accidentellement verrouiller le bitcoin de telle sorte qu'il ne puisse plus être dépensé.
 ====
@@ -291,7 +291,7 @@ Il est important de comprendre les limites de la transaction +nLocktime+. La seu
 
 En termes simples, en ajoutant l'opcode +CLTV+ dans le script de rachat d'une sortie, cela restreint la sortie, de sorte qu'elle ne peut être dépensée qu'une fois le temps spécifié écoulé.
 
-[TIP]
+[INDICE]
 ====
 Alors que +nLocktime+ est un timelock au niveau de la transaction, +CLTV+ est un timelock basé sur la sortie.
 ====
@@ -506,7 +506,7 @@ Le script avec +IF+ fait la même chose que d'utiliser un opcode avec un suffixe
 
 Alors, quand utilisons-nous +VERIFY+ et quand utilisons-nous +IF+ ? Si tout ce que nous essayons de faire est d'attacher une condition préalable (clause de garde), alors +VERIFY+ est préférable. Si, toutefois, nous voulons avoir plus d'un chemin d'exécution (contrôle de flux), nous avons besoin d'une clause de contrôle de flux +IF...ELSE+.
 
-[TIP]
+[INDICE]
 ====
 (((&quot;OPCODE EQUAL&quot;)))(((&quot;opcodes&quot;, &quot;EQUAL&quot;)))(((&quot;OPCODE EQUALVERIFY&quot;)))(((&quot;opcodes&quot;, &quot;EQUALVERIFY&quot;)))Un opcode tel que +EQUAL+ poussera le résultat (+TRUE+/+FALSE+) sur la pile, le laissant là pour évaluation par les opcodes suivants. En revanche, le suffixe de l'opcode +EQUALVERIFY+ ne laisse rien sur la pile. Les opcodes qui se terminent par +VERIFY+ ne laissent pas le résultat sur la pile.
 ====
@@ -599,7 +599,7 @@ Dans le premier chemin d'exécution, ce script fonctionne comme un simple multis
 ----
 
 
-[TIP]
+[INDICE]
 ====
 Le +0+ au début de ce script de déverrouillage est dû à un bogue dans +CHECKMULTISIG+ qui extrait une valeur supplémentaire de la pile. La valeur supplémentaire est ignorée par le +CHECKMULTISIG+, mais elle doit être présente ou le script échoue. Pousser +0+ (habituellement) est une solution de contournement au bogue, comme décrit dans &lt;<multisig_bug>&gt;.
 ====
@@ -611,7 +611,7 @@ Le deuxième chemin d'exécution ne peut être utilisé qu'après 30 jours à co
 0 <Abdul the Lawyer's Sig> <Saeed's Sig> FALSE TRUE
 ----
 
-[TIP]
+[INDICE]
 ====
 Pourquoi +FAUX VRAI+ ? N'est-ce pas à l'envers ? Parce que les deux valeurs sont poussées sur la pile, avec +FALSE+ poussé en premier, puis +TRUE+ poussé en second. +TRUE+ est donc dépilé _premier_ par le premier opcode +IF+.
 ====
@@ -750,7 +750,7 @@ Il est extrêmement important de noter que P2WPKH ne doit être créé que par l
 
 De plus, les sorties P2WPKH doivent être construites à partir du hachage d'une clé publique _compressée_. Les clés publiques non compressées ne sont pas standard dans segwit et peuvent être explicitement désactivées par un futur embranchement convergent. Si le hachage utilisé dans le P2WPKH provient d'une clé publique non compressée, il peut être inutilisable et vous risquez de perdre des fonds. Les sorties P2WPKH doivent être créées par le portefeuille du bénéficiaire en dérivant une clé publique compressée à partir de sa clé privée.
 
-[WARNING]
+[ATTENTION]
 ====
 P2WPKH doit être construit par le bénéficiaire (destinataire) en convertissant une clé publique compressée en un hachage P2WPKH. Vous ne devez jamais transformer un script P2PKH, une adresse Bitcoin ou une clé publique non compressée en un script témoin P2WPKH.
 ====
@@ -801,7 +801,7 @@ La société de Mohammed peut dépenser la sortie P2WSH en présentant le bon sc
 [...]
 ----
 
-[TIP]
+[INDICE]
 ====
 Alors que P2SH utilise le hachage +RIPEMD160(SHA256(script))+ de 20 octets, le programme témoin P2WSH utilise un hachage +SHA256(script)+ de 32 octets. Cette différence dans le choix de l'algorithme de hachage est délibérée et offre une sécurité renforcée à P2WSH (128 bits de sécurité dans P2WSH contre 80 bits de sécurité dans P2SH). Il est également utilisé pour différencier les deux types de programmes témoins (P2WPKH et P2WSH) en utilisant la longueur du hachage (voir ci-dessous).
 
@@ -820,7 +820,7 @@ C'est la seule différence qui permet à un portefeuille de différencier les de
 
 Comme nous pouvons le voir dans les exemples précédents, la mise à niveau vers les témoins séparés est un processus en deux étapes. Tout d'abord, les portefeuilles doivent créer des sorties spéciales de type segwit. Ensuite, ces sorties peuvent être dépensées par des portefeuilles qui savent comment construire des transactions de témoin séparé. Dans les exemples, le portefeuille d'Alice était sensible au segwit et capable de créer des sorties spéciales avec des scripts de témoignage séparés. Le portefeuille de Bob est également sensible au segwit et capable de dépenser ces sorties. Ce qui n'est peut-être pas évident à partir de l'exemple, c'est qu'en pratique, le portefeuille d'Alice doit _savoir_ que Bob utilise un portefeuille sensible au segwit et peut dépenser ces sorties. Sinon, si le portefeuille de Bob n'est pas mis à niveau et qu'Alice essaie d'effectuer des paiements en segwit à Bob, le portefeuille de Bob ne pourra pas détecter ces paiements.
 
-[TIP]
+[INDICE]
 ====
 Pour les types de paiement P2WPKH et P2WSH, les portefeuilles de l'expéditeur et du destinataire doivent être mis à niveau pour pouvoir utiliser segwit. De plus, le portefeuille de l'expéditeur doit savoir que le portefeuille du destinataire est sensible au segwit.
 ====
@@ -1006,7 +1006,7 @@ Le +txid+ traditionnel est calculé exactement de la même manière qu'avec une 
 
 Le +wtxid+ est comme un identifiant &quot;étendu&quot;, en ce que le hachage incorpore également les données du témoin. Si une transaction est transmise sans données témoins, alors le +wtxid+ et le +txid+ sont identiques. Notez que puisque le +wtxid+ inclut des données témoins (signatures) et que les données témoins peuvent être malléables, le +wtxid+ doit être considéré comme malléable jusqu'à ce que la transaction soit confirmée. Seul le +txid+ d'une pure transaction segwit peut être considéré comme immuable par des tiers.
 
-[TIP]
+[INDICE]
 ====
 Les transactions de témoin séparé ont deux identifiants : +txid+ et +wtxid+. Le +txid+ est le hachage de la transaction sans les données témoins et le +wtxid+ est le hachage incluant les données témoins. Seules les transactions segwit pures (transactions qui ne contiennent que des entrées segwit) ont un +txid+ qui n'est pas sensible à la malléabilité des transactions tierces.
 ====
