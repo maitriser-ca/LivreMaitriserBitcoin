@@ -596,7 +596,7 @@ include::code/ec-math.py[]
 
 [WARNING]
 ====
-&lt;<ec_math>&gt; (((&quot;nombres aléatoires&quot;, &quot;os.urandom&quot;, voir=&quot;entropie&quot;)))(((&quot;entropie&quot;, &quot;os.urandom&quot;, see=&quot;nombres aléatoires&quot;)))(((&quot;nombres aléatoires&quot;, &quot;génération de nombres aléatoires&quot;)))(((&quot;entropie&quot;, &quot;génération de nombres aléatoires&quot;)))utilise +os.urandom+, qui reflète un générateur de nombres aléatoires cryptographiquement sécurisé (CSRNG) fourni par le système d'exploitation sous-jacent. Attention : Selon le système d'exploitation, +os.urandom+ peut _ne pas_ être implémenté avec une sécurité suffisante ou correctement amorcé et peut _ne pas_ être approprié pour générer des clés bitcoin de qualité production.(((&quot;&quot;, startref=&quot;KApython04&quot;)))
+&lt;<ec_math>&gt; (((&quot;nombres aléatoires&quot;, &quot;os.urandom&quot;, see=&quot;entropie&quot;)))(((&quot;entropie&quot;, &quot;os.urandom&quot;, see=&quot;nombres aléatoires&quot;)))(((&quot;nombres aléatoires&quot;, &quot;génération de nombres aléatoires&quot;)))(((&quot;entropie&quot;, &quot;génération de nombres aléatoires&quot;)))utilise +os.urandom+, qui reflète un générateur de nombres aléatoires cryptographiquement sécurisé (CSRNG) fourni par le système d'exploitation sous-jacent. Attention : Selon le système d'exploitation, +os.urandom+ peut _ne pas_ être implémenté avec une sécurité suffisante ou correctement amorcé et peut _ne pas_ être approprié pour générer des clés bitcoin de qualité production.(((&quot;&quot;, startref=&quot;KApython04&quot;)))
 ====
 
 [[ec_math_run]]
