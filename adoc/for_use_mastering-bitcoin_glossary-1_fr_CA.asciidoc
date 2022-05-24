@@ -182,8 +182,8 @@ P2WSH::
 portefeuille papier::
     Dans le sens le plus spécifique, un portefeuille papier est un document contenant toutes les données nécessaires pour générer un nombre quelconque de clés privées bitcoin, formant un portefeuille de clés. Cependant, les gens utilisent souvent le terme pour désigner tout moyen de stocker des bitcoins hors ligne en tant que document physique. Cette deuxième définition comprend également les clés papier et les codes échangeables.
 
-phrase de passe::
-    Une phrase de passe est une chaîne de caractères facultative créée par l&#39;utilisateur qui sert de facteur de sécurité supplémentaire protégeant la valeur d'amorçage, même lorsque la valeur d'amorçage est compromise par un voleur. Il peut également être utilisé comme une forme de pot de miel, où une phrase de passe choisie (une adresse bitcoin, un URL ou autre) mène à un portefeuille avec une petite quantité de fonds utilisée pour distraire un attaquant du &quot;vrai&quot; portefeuille qui contient la majorité des fonds.
+phrase secrète::
+    Une phrase secrète est une chaîne de caractères facultative créée par l&#39;utilisateur qui sert de facteur de sécurité supplémentaire protégeant la valeur d'amorçage, même lorsque la valeur d'amorçage est compromise par un voleur. Il peut également être utilisé comme une forme de pot de miel, où une phrase secrète choisie (une adresse bitcoin, un URL ou autre) mène à un portefeuille avec une petite quantité de fonds utilisée pour distraire un attaquant du &quot;vrai&quot; portefeuille qui contient la majorité des fonds.
     
 canaux de paiement::
     Un canal de micropaiement ou canal de paiement est une classe de techniques conçues pour permettre aux utilisateurs d&#39;effectuer plusieurs transactions bitcoin sans engager toutes les transactions dans la chaîne de blocs Bitcoin. Dans un canal de paiement typique, seules deux transactions sont ajoutées à la chaîne de blocs, mais un nombre illimité ou presque illimité de paiements peut être effectué entre les participants.

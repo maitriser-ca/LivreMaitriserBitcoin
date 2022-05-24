@@ -51,7 +51,7 @@ Créez une clé BIP-32 à partir d'une phrase secrète :
 
 [ATTENTION]
 ====
-La phrase de passe dans cet exemple est beaucoup trop facile à deviner.
+La phrase secrète dans cet exemple est beaucoup trop facile à deviner.
 ====
 
 ----

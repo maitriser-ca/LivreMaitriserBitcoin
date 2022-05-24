@@ -206,7 +206,7 @@ Le processus décrit aux étapes 7 à 9 continue à partir du processus décrit 
 ++++
 <ol start="7">
 	<li>Le premier paramètre de la fonction d'étirement de clé PBKDF2 est le <em>mnémonique</em> produit à partir de l'étape 6.</li>
-	<li>Le deuxième paramètre de la fonction d'étirement de clé PBKDF2 est un <em>sel</em> . Le sel est composé de la constante de chaîne &quot;<code>mnemonique</code>&quot; concaténée avec une phrase de passe facultative fournie par l'utilisateur.</li>
+	<li>Le deuxième paramètre de la fonction d'étirement de clé PBKDF2 est un <em>sel</em> . Le sel est composé de la constante de chaîne &quot;<code>mnemonique</code>&quot; concaténée avec une phrase secrète facultative fournie par l'utilisateur.</li>
 	<li>PBKDF2 étend les paramètres mnémoniques et le sel en utilisant 2048 cycles de hachage avec l'algorithme HMAC-SHA512, produisant une valeur de 512 bits comme sortie finale. Cette valeur de 512 bits est la valeur d'amorçage.</li>
 </ol>
 ++++
@@ -271,7 +271,7 @@ De nombreux portefeuilles ne permettent pas la création de portefeuilles avec p
 
 [INDICE]
 ====
-Il n'y a pas de &quot;mauvaises&quot; phrases secrètes dans BIP-39. Chaque phrase de passe mène à un portefeuille qui, à moins qu'il n'ait été utilisé auparavant, sera vide.
+Il n'y a pas de &quot;mauvaises&quot; phrases secrètes dans BIP-39. Chaque phrase secrète mène à un portefeuille qui, à moins qu'il n'ait été utilisé auparavant, sera vide.
 ====
 
 La phrase secrète facultative crée deux fonctionnalités importantes :
