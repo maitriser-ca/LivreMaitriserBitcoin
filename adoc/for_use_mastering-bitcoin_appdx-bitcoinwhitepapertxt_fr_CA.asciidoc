@@ -4,7 +4,7 @@
 
 [NOTE]
 ====
-(((&quot;livre blanc&quot;, id=&quot;whitethirteen&quot;)))(((&quot;livre blanc bitcoin&quot;, id=&quot;BCwhitethirteen&quot;)))(((&quot;Nakamoto, Satoshi&quot;, id=&quot;nakamatothirteen&quot;)))Ceci est le livre blanc original, reproduit dans son intégralité exactement tel qu'il a été publié par Satoshi Nakamoto en octobre 2008 et traduit (par assistance informatique) par Serafim Dos Santos en 2022 pour l'édition ouverte de _Maîtriser Bitcoin_ (voir version originale _Mastering Bitcoin_).
+((("livre blanc", id="whitethirteen")))((("livre blanc bitcoin", id="BCwhitethirteen")))((("Nakamoto, Satoshi", id="nakamatothirteen")))Ceci est le livre blanc original, reproduit dans son intégralité exactement tel qu'il a été publié par Satoshi Nakamoto en octobre 2008 et traduit (par assistance informatique) par Serafim Dos Santos en 2022 pour l'édition ouverte de _Maîtriser Bitcoin_ (voir version originale _Mastering Bitcoin_).
 ====
 
 === Bitcoin - Un système de paiement électronique pair à pair
@@ -80,21 +80,21 @@ Un en-tête de bloc sans transactions serait d'environ 80 octets. Si nous suppos
 ==== Vérification de paiement simplifiée
 Il est possible de vérifier les paiements sans exécuter un nœud de réseau complet. Un utilisateur n'a besoin que de conserver une copie des en-têtes de bloc de la chaîne de preuve de travail la plus longue, qu'il peut obtenir en interrogeant les nœuds du réseau jusqu'à ce qu'il soit convaincu qu'il a la chaîne la plus longue, et d'obtenir la branche Merkle reliant la transaction au bloc dont il est horodaté. Il ne peut pas vérifier la transaction par lui-même, mais en la liant à un endroit de la chaîne, il peut voir qu'un nœud du réseau l'a acceptée, et les blocs ajoutés après confirment que le réseau l'a acceptée aussi.
 
-image::images/mbc2_abin05.png[&quot;spv&quot;]
+image::images/mbc2_abin05.png["spv"]
 
 Ainsi, la vérification est fiable tant que des nœuds honnêtes contrôlent le réseau, mais est plus vulnérable si le réseau est maîtrisé par un attaquant. Alors que les nœuds du réseau peuvent vérifier les transactions par eux-mêmes, la méthode simplifiée peut être trompée par les transactions fabriquées par un attaquant, tant que l'attaquant peut continuer à maîtriser le réseau. Une stratégie de protection contre cela consisterait à accepter les alertes des nœuds du réseau lorsqu'ils détectent un bloc invalide, incitant le logiciel de l'utilisateur à télécharger le bloc complet et les transactions alertées pour confirmer l'incohérence. Les entreprises qui reçoivent des paiements fréquents voudront probablement toujours exécuter leurs propres nœuds pour une sécurité plus indépendante et une vérification plus rapide.
 
 ==== Combiner et diviser la valeur
 Bien qu'il soit possible de gérer les pièces individuellement, il serait difficile d'effectuer une transaction distincte pour chaque centime d'un transfert. Pour permettre à la valeur d'être fractionnée et combinée, les transactions contiennent plusieurs entrées et sorties. Normalement, il y aura soit une seule entrée provenant d'une transaction précédente plus importante, soit plusieurs entrées combinant des montants plus petits, et au plus deux sorties : une pour le paiement et une renvoyant la monnaie, le cas échéant, à l'expéditeur.
 
-image::images/mbc2_abin06.png[&quot;séparateur de combinaison&quot;]
+image::images/mbc2_abin06.png["séparateur de combinaison"]
 
 Il convient de noter que la diffusion, où une transaction dépend de plusieurs transactions, et ces transactions dépendent de beaucoup d'autres, n'est pas un problème ici. Il n'est jamais nécessaire d'extraire une copie autonome complète de l'historique d'une transaction.
 
 ==== Confidentialité
-Le modèle bancaire traditionnel atteint un niveau de confidentialité en limitant l'accès aux informations des parties concernées et au tierce partie de confiance. La nécessité d'annoncer publiquement toutes les transactions exclut cette méthode, mais la confidentialité peut toujours être préservée en interrompant le flux d'informations à un autre endroit : en gardant les clés publiques anonymes. Le public peut voir que quelqu'un envoie un montant à quelqu'un d'autre, mais sans information liant la transaction à qui que ce soit. Ceci est similaire au niveau d'information publié par les bourses, où l'heure et la taille des transactions individuelles, la &quot;bande&quot;, sont rendues publiques, mais sans dire qui étaient les parties.
+Le modèle bancaire traditionnel atteint un niveau de confidentialité en limitant l'accès aux informations des parties concernées et au tierce partie de confiance. La nécessité d'annoncer publiquement toutes les transactions exclut cette méthode, mais la confidentialité peut toujours être préservée en interrompant le flux d'informations à un autre endroit : en gardant les clés publiques anonymes. Le public peut voir que quelqu'un envoie un montant à quelqu'un d'autre, mais sans information liant la transaction à qui que ce soit. Ceci est similaire au niveau d'information publié par les bourses, où l'heure et la taille des transactions individuelles, la "bande", sont rendues publiques, mais sans dire qui étaient les parties.
 
-image::images/mbc2_abin07.png[&quot;vie privée&quot;]
+image::images/mbc2_abin07.png["vie privée"]
 
 En tant que pare-feu supplémentaire, une nouvelle paire de clés doit être utilisée pour chaque transaction afin d'éviter qu'elles ne soient liées à un propriétaire commun. Certains liens sont encore inévitables avec les transactions multi-entrées, qui révèlent nécessairement que leurs entrées appartenaient au même propriétaire. Le risque est que si le propriétaire d'une clé est révélé, la liaison pourrait révéler d'autres transactions ayant appartenu au même propriétaire.
 
@@ -113,7 +113,7 @@ q = probabilité que l'attaquant trouve le bloc suivant
 
 q~z~ = probabilité que l'attaquant rattrape jamais z blocs derrière
 
-image::images/mbc2_abin08.png[&quot;eq1&quot;]
+image::images/mbc2_abin08.png["eq1"]
 
 Étant donné notre hypothèse que p &gt; q, la probabilité chute de façon exponentielle à mesure que le nombre de blocs que l'attaquant doit rattraper augmente. Avec les chances contre lui, s'il n'a pas un coup de chance deavant dès le début, ses chances deviennent infiniment petites à mesure qu'il prend du retard.
 
@@ -123,15 +123,15 @@ Le récepteur génère une nouvelle paire de clés et donne la clé publique à 
 
 Le destinataire attend que la transaction ait été ajoutée à un bloc et que z blocs aient été liés après celle-ci. Il ne connaît pas la progression exacte de l'attaquant, mais en supposant que les blocs honnêtes ont pris le temps moyen attendu par bloc, la progression potentielle de l'attaquant sera une distribution de Poisson avec une valeur attendue :
 
-image::images/mbc2_abin09.png[&quot;eq2&quot;]
+image::images/mbc2_abin09.png["eq2"]
 
 Pour obtenir la probabilité que l'attaquant puisse encore rattraper maintenant, nous multiplions la densité de Poisson pour chaque quantité de progrès qu'il aurait pu faire par la probabilité qu'il puisse rattraper à partir de ce point :
 
-image::images/mbc2_abin10.png[&quot;eq3&quot;]
+image::images/mbc2_abin10.png["eq3"]
 
 Réorganiser pour éviter de faire la somme de la queue infinie de la distribution...
 
-image::images/mbc2_abin11.png[&quot;eq4&quot;]
+image::images/mbc2_abin11.png["eq4"]
 
 Conversion en code C...
 
@@ -235,7 +235,7 @@ Nous avons proposé un système de transactions électroniques sans reposer sur 
 
 === Licence
 
-(((&quot;licences source libre&quot;)))Ce livre blanc a été publié en octobre 2008 par Satoshi Nakamoto. Il a ensuite été (2009) ajouté comme documentation de support au logiciel bitcoin, qui porte la même licence MIT. Il a été reproduit dans ce livre, sans modification autre que la mise en forme, selon les termes de la licence MIT :
+((("licences source libre")))Ce livre blanc a été publié en octobre 2008 par Satoshi Nakamoto. Il a ensuite été (2009) ajouté comme documentation de support au logiciel bitcoin, qui porte la même licence MIT. Il a été reproduit dans ce livre, sans modification autre que la mise en forme, selon les termes de la licence MIT :
 
 The MIT License (MIT)
 Copyright (c) 2008 Satoshi Nakamoto

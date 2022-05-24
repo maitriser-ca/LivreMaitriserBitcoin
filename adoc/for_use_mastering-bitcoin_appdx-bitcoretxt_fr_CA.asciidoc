@@ -4,7 +4,7 @@
 == Bitcore
 
 
-(((&quot;Bitcore&quot;, id=&quot;bitcore16&quot;)))Bitcore est une suite d'outils fournis par BitPay. Son objectif est de fournir des outils faciles à utiliser pour les développeurs Bitcoin. Presque tout le code de Bitcore est écrit en JavaScript. Il existe des modules écrits spécifiquement pour NodeJS. Enfin, le module &quot;node&quot; de Bitcore inclut le code C++ de Bitcoin Core. Veuillez consulter https://bitcore.io pour plus d'informations.
+((("Bitcore", id="bitcore16")))Bitcore est une suite d'outils fournis par BitPay. Son objectif est de fournir des outils faciles à utiliser pour les développeurs Bitcoin. Presque tout le code de Bitcore est écrit en JavaScript. Il existe des modules écrits spécifiquement pour NodeJS. Enfin, le module "node" de Bitcore inclut le code C++ de Bitcoin Core. Veuillez consulter https://bitcore.io pour plus d'informations.
 
 === Liste des fonctionnalités de Bitcore
 
@@ -89,7 +89,7 @@ Diffuser une transaction sur le réseau Bitcoin
 1. Copiez le code ci-dessous dans un fichier appelé _broadcast.js_.
 2. Les variables +tx+ et +rbfTx+ sont la sortie de +tx.serialize()+ et +rbfTx.serialize()+, respectivement.
 3. Afin de remplacer par des frais, l'homologue doit prendre en charge l'option bitcoind +mempoolreplace+ et la définir sur +1+.
-4. Exécutez le nœud de fichier _broadcast.js_(((&quot;&quot;, startref=&quot;bitcore16&quot;))) :
+4. Exécutez le nœud de fichier _broadcast.js_((("", startref="bitcore16"))) :
 
 ----
 var p2p = require('bitcore-p2p');

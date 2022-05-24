@@ -7,7 +7,7 @@ adresse::
     Une adresse Bitcoin ressemble à +1DSrfJdB2AnWaFNgSbv3MZC2m74996JafV+. Il se compose d&#39;une suite de lettres et de chiffres. Il s&#39;agit en réalité d&#39;une version codée en base58check d&#39;un résultat de hachage à clé publique de 160 bits. Tout comme vous demandez aux autres d&#39;envoyer un courriel à l'adresse de celle-ci, vous demanderez aux autres de vous envoyer des bitcoins à l&#39;une de vos adresses Bitcoin.
 
 bip::
-    Bitcoin Improvement Proposals (ou Propositions d'amélioration de Bitcoin). Un ensemble de propositions que les membres de la communauté Bitcoin ont soumises pour améliorer Bitcoin. Par exemple, BIP-21 est une proposition visant à améliorer le schéma d&#39;identificateur de ressource uniforme (URI) bitcoin.
+    Bitcoin Improvement Proposals (ou Propositions d'améliorations de Bitcoin). Un ensemble de propositions que les membres de la communauté Bitcoin ont soumises pour améliorer Bitcoin. Par exemple, BIP-21 est une proposition visant à améliorer le schéma d&#39;identificateur de ressource uniforme (URI) bitcoin.
 
 bitcoin::
     Le nom de l&#39;unité monétaire (unité de cryptomonnaie), du réseau et du logiciel.
@@ -138,7 +138,7 @@ réseau::
     Un réseau pair à pair qui propage les transactions et les bloques à chaque nœud Bitcoin du réseau.
 
 nombre aléatoire explicite (ou nonce)::
-    Le &quot;nombre aléatoire explicite&quot; (ou nonce) dans un bloc bitcoin est un champ de 32 bits (4 octets) dont la valeur est définie de manière à ce que le résultat de hachage du bloc contienne une série de zéros non significatifs. Les autres champs ne peuvent pas être modifiés, car ils ont une signification définie.
+    Le "nombre aléatoire explicite" (ou nonce) dans un bloc bitcoin est un champ de 32 bits (4 octets) dont la valeur est définie de manière à ce que le résultat de hachage du bloc contienne une série de zéros non significatifs. Les autres champs ne peuvent pas être modifiés, car ils ont une signification définie.
 
 transactions hors chaîne ::
     Une transaction hors chaîne est le mouvement de valeur en dehors de la chaîne de blocs, alors qu&#39;une transaction en chaîne&#x2014 est  simplement appelée __une transaction__&#x2014. La transaction hors chaîne modifie la chaîne de blocs et dépend de cette dernière pour déterminer sa validité. Une transaction hors chaîne de blocs s&#39;appuie sur d&#39;autres méthodes pour enregistrer et valider la transaction.
@@ -171,7 +171,7 @@ P2SH::
     P2SH ou Pay-to-Script-Hash est un nouveau type de transaction puissant qui simplifie grandement l&#39;utilisation de scripts de transaction complexes. Avec P2SH le script complexe qui détaille les conditions de dépense de la sortie (redeem script) n&#39;est pas présenté dans le script de verrouillage. Au lieu de cela, seul un résultat de hachage de celui-ci se trouve dans le script de verrouillage.
 
 Adresse P2SH::
-    Les adresses P2SH sont des encodages Base58Check du résultat de hachage de 20 octets d&#39;un script. Ils utilisent le préfixe de version &quot;5&quot;, ce qui donne des adresses encodées en Base58Check qui commencent par un &quot;3&quot;. Les adresses P2SH cachent toute la complexité, de sorte que la personne effectuant un paiement ne voit pas le script.
+    Les adresses P2SH sont des encodages Base58Check du résultat de hachage de 20 octets d&#39;un script. Ils utilisent le préfixe de version "5", ce qui donne des adresses encodées en Base58Check qui commencent par un "3". Les adresses P2SH cachent toute la complexité, de sorte que la personne effectuant un paiement ne voit pas le script.
 
 P2WPKH::
     La signature d&#39;un P2WPKH (Pay-to-Witness-Public-Key-Hash) contient les mêmes informations qu&#39;une dépense P2PKH, mais se trouve dans le champ témoin au lieu du champ scriptSig. Le scriptPubKey est également modifié.
@@ -183,7 +183,7 @@ portefeuille papier::
     Dans le sens le plus spécifique, un portefeuille papier est un document contenant toutes les données nécessaires pour générer un nombre quelconque de clés privées bitcoin, formant un portefeuille de clés. Cependant, les gens utilisent souvent le terme pour désigner tout moyen de stocker des bitcoins hors ligne en tant que document physique. Cette deuxième définition comprend également les clés papier et les codes échangeables.
 
 phrase secrète::
-    Une phrase secrète est une chaîne de caractères facultative créée par l&#39;utilisateur qui sert de facteur de sécurité supplémentaire protégeant la valeur d'amorçage, même lorsque la valeur d'amorçage est compromise par un voleur. Il peut également être utilisé comme une forme de pot de miel, où une phrase secrète choisie (une adresse bitcoin, un URL ou autre) mène à un portefeuille avec une petite quantité de fonds utilisée pour distraire un attaquant du &quot;vrai&quot; portefeuille qui contient la majorité des fonds.
+    Une phrase secrète est une chaîne de caractères facultative créée par l&#39;utilisateur qui sert de facteur de sécurité supplémentaire protégeant la valeur d'amorçage, même lorsque la valeur d'amorçage est compromise par un voleur. Il peut également être utilisé comme une forme de pot de miel, où une phrase secrète choisie (une adresse bitcoin, un URL ou autre) mène à un portefeuille avec une petite quantité de fonds utilisée pour distraire un attaquant du "vrai" portefeuille qui contient la majorité des fonds.
     
 canaux de paiement::
     Un canal de micropaiement ou canal de paiement est une classe de techniques conçues pour permettre aux utilisateurs d&#39;effectuer plusieurs transactions bitcoin sans engager toutes les transactions dans la chaîne de blocs Bitcoin. Dans un canal de paiement typique, seules deux transactions sont ajoutées à la chaîne de blocs, mais un nombre illimité ou presque illimité de paiements peut être effectué entre les participants.
@@ -201,7 +201,7 @@ RIPEMD-160::
     RIPEMD-160 est une fonction de hachage cryptographique 160 bits. RIPEMD-160 est une version renforcée de RIPEMD avec un résultat de hachage de 160 bits, et devrait être sécurisé pour les dix prochaines années ou plus.
 
 satoshi::
-    Un satoshi est la plus petite dénomination de bitcoin pouvant être enregistrée sur la chaîne de blocs. Il équivaut à 0,00000001 bitcoin et porte le nom du créateur du bitcoin, Satoshi Nakamoto. (((&quot;satoshi&quot;)))
+    Un satoshi est la plus petite dénomination de bitcoin pouvant être enregistrée sur la chaîne de blocs. Il équivaut à 0,00000001 bitcoin et porte le nom du créateur du bitcoin, Satoshi Nakamoto. ((("satoshi")))
 
 Satoshi Nakamoto::
     Satoshi Nakamoto est le nom utilisé par la ou les personnes qui ont conçu le bitcoin et créé son implémentation de référence originale, Bitcoin Core. Dans le cadre de la mise en œuvre, ils ont également conçu la première base de données chaîne de blocs. Dans le processus, ils ont été les premiers à résoudre le problème de la double dépense pour la monnaie numérique. Leur véritable identité reste inconnue.
@@ -223,7 +223,7 @@ clé secrète (ou clé privée)::
 ----
 
 Témoin Séparé::
-    Le témoin séparé est une mise à niveau du protocole Bitcoin dans laquelle les données de signature (&quot;témoin&quot;) sont séparées des données de l&#39;expéditeur/destinataire pour optimiser davantage la structure des transactions. Le témoin Séparé a été implémenté comme un embranchement convergent ; un changement qui rend techniquement les règles du protocole de bitcoin plus restrictives.
+    Le témoin séparé est une mise à niveau du protocole Bitcoin dans laquelle les données de signature ("témoin") sont séparées des données de l&#39;expéditeur/destinataire pour optimiser davantage la structure des transactions. Le témoin Séparé a été implémenté comme un embranchement convergent ; un changement qui rend techniquement les règles du protocole de bitcoin plus restrictives.
 
 SHA::
     Le Secure Hash Algorithm ou SHA est une famille de fonctions de hachage cryptographiques publiées par le National Institute of Standards and Technology (NIST).
@@ -249,7 +249,7 @@ bassin de transactions::
     Une collection non ordonnée de transactions qui ne sont pas en blocs dans la chaîne principale, mais pour lesquelles nous avons des transactions d&#39;entrée.
 
 complétude de Turing::
-    Un langage de programmation est appelé &quot;Turing complet&quot; s&#39;il peut exécuter n&#39;importe quel programme qu&#39;une machine de Turing peut exécuter, avec suffisamment de temps et de mémoire.
+    Un langage de programmation est appelé "Turing complet" s&#39;il peut exécuter n&#39;importe quel programme qu&#39;une machine de Turing peut exécuter, avec suffisamment de temps et de mémoire.
 
 unspent transaction output (UTXO ou sortie de transaction non dépensée)::
     UTXO est une sortie de transaction non dépensée qui peut être dépensée comme entrée dans une nouvelle transaction.

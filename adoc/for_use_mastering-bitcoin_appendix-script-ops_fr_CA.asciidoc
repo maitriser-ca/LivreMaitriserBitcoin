@@ -7,7 +7,7 @@
 Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 ====
 
-&lt;<tx_script_ops_table_pushdata>&gt; affiche les opérateurs pour pousser les valeurs sur la pile.(((&quot;transactions&quot;, &quot;scripts et langage de script&quot;, id=&quot;TRlang14&quot;)))(((&quot;scriptage&quot;, &quot;Opérateurs de langage de script, constantes et symboles&quot;, id=&quot;SCRlang14&quot;)))
+&lt;<tx_script_ops_table_pushdata>&gt; affiche les opérateurs pour pousser les valeurs sur la pile.((("transactions", "scripts et langage de script", id="TRlang14")))((("scriptage", "Opérateurs de langage de script, constantes et symboles", id="SCRlang14")))
 
 [[tx_script_ops_table_pushdata]]
 .Pousser la valeur sur la pile
@@ -19,10 +19,10 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 | OP_PUSHDATA1 | 0x4c | L'octet de script suivant contient N, poussez les N octets suivants sur la pile
 | OP_PUSHDATA2 | 0x4d | Les deux octets de script suivants contiennent N, poussez les N octets suivants sur la pile
 | OP_PUSHDATA4 | 0x4e | Les quatre octets de script suivants contiennent N, poussez les N octets suivants sur la pile
-| OP_1NEGATE | 0x4f | Poussez la valeur &quot;–1&quot; sur la pile
+| OP_1NEGATE | 0x4f | Poussez la valeur "–1" sur la pile
 | OP_RESERVED | 0x50 | Interruption - Transaction non valide à moins qu'elle ne se trouve dans une clause OP_IF non exécutée
-| OP_1 ou OP_TRUE | 0x51 | Poussez la valeur &quot;1&quot; sur la pile
-| OP_2 à OP_16 | 0x52 à 0x60 | Pour OP_N, poussez la valeur &quot;N&quot; sur la pile, par exemple, OP_2 pousse &quot;2&quot;
+| OP_1 ou OP_TRUE | 0x51 | Poussez la valeur "1" sur la pile
+| OP_2 à OP_16 | 0x52 à 0x60 | Pour OP_N, poussez la valeur "N" sur la pile, par exemple, OP_2 pousse "2"
 |=======
 
 [role="pagebreak-before"]
@@ -183,7 +183,7 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 |=======
 
 
-&lt;<tx_script_ops_table_internal>&gt; affiche les codes opérateur réservés à l'analyseur de script interne.(((&quot;&quot;, startref=&quot;TRlang14&quot;)))(((&quot;&quot;, startref=&quot;SCRlang14&quot;)))
+&lt;<tx_script_ops_table_internal>&gt; affiche les codes opérateur réservés à l'analyseur de script interne.((("", startref="TRlang14")))((("", startref="SCRlang14")))
 
 [[tx_script_ops_table_internal]]
 .Codes OP réservés à un usage interne par l'analyseur
