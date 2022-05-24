@@ -245,7 +245,7 @@ Si vous lisez ce livre et êtes intéressé par le développement d'un logiciel 
 
 ==== Configuration du nœud Bitcoin Core
 
-(((&quot;Bitcoin Core&quot;, &quot;exécution des nœuds principaux&quot;, &quot;configuration&quot;)))(((&quot;avertissements et mises en garde&quot;, &quot;création de mot de passe&quot;)))(((&quot;mots de passe&quot;, &quot;création&quot;)))( ((&quot;sécurité&quot;, &quot;mots de passe&quot;)))Bitcoin Core recherchera un fichier de configuration dans son répertoire de données à chaque démarrage. Dans cette section, nous examinerons les différentes options de configuration et créerons un fichier de configuration. Pour localiser le fichier de configuration, exécutez +bitcoind -printtoconsole+ dans votre terminal et recherchez les deux premières lignes.
+(((&quot;Bitcoin Core&quot;, &quot;exécution des nœuds principaux&quot;, &quot;configuration&quot;)))(((&quot;avertissements et mises en garde&quot;, &quot;création de mot de passe&quot;)))(((&quot;mots de passe&quot;, &quot;création&quot;)))(((&quot;sécurité&quot;, &quot;mots de passe&quot;)))Bitcoin Core recherchera un fichier de configuration dans son répertoire de données à chaque démarrage. Dans cette section, nous examinerons les différentes options de configuration et créerons un fichier de configuration. Pour localiser le fichier de configuration, exécutez +bitcoind -printtoconsole+ dans votre terminal et recherchez les deux premières lignes.
 
 ----
 $ bitcoind -printtoconsole
@@ -409,7 +409,7 @@ $ bitcoin-cli getblockchaininfo
 
 Cela montre un nœud avec une hauteur de blockchain de 0 blocs et 83999 en-têtes. Le nœud récupère actuellement les en-têtes de bloc de la meilleure chaîne et continue ensuite à télécharger les blocs complets.
 
-Une fois que vous êtes satisfait des options de configuration que vous avez sélectionnées, vous devez ajouter _bitcoin_ aux scripts de démarrage de votre système d'exploitation, afin qu'il s'exécute en continu et au redémarrage du système d'exploitation. Vous trouverez un certain nombre d'exemples de scripts de démarrage pour différents systèmes d'exploitation dans le répertoire source de bitcoin sous _contrib/init_ et un fichier _README.md_ indiquant quel système utilise quel script.(((&quot;&quot;, startref=&quot;BCnode03&quot;)))(( (&quot;&quot;, startref=&quot;BNcore03&quot;)))
+Une fois que vous êtes satisfait des options de configuration que vous avez sélectionnées, vous devez ajouter _bitcoin_ aux scripts de démarrage de votre système d'exploitation, afin qu'il s'exécute en continu et au redémarrage du système d'exploitation. Vous trouverez un certain nombre d'exemples de scripts de démarrage pour différents systèmes d'exploitation dans le répertoire source de bitcoin sous _contrib/init_ et un fichier _README.md_ indiquant quel système utilise quel script.(((&quot;&quot;, startref=&quot;BCnode03&quot;)))(((&quot;&quot;, startref=&quot;BNcore03&quot;)))
 
 === Interface de programmation d'application (API) de base Bitcoin
 
