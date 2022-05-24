@@ -91,7 +91,7 @@ Pour plus d'informations, consultez la https://github.com/libbitcoin/libbitcoin-
 
 Regardons quelques exemples d'utilisation des commandes Bitcoin Explorer pour expérimenter avec des clés et des adresses.
 
-Générez une "valeur d'amorçage" aléatoire à l'aide de la commande +seed+, qui utilise le générateur de nombres aléatoires du système d'exploitation. Transmettez la valeur à la commande `ec-new` pour générer une nouvelle clé privée. Nous sauvegardons la sortie standard dans le fichier _private_key_ :
+Générez une "valeur d'amorçage" aléatoire à l'aide de la commande +seed+, qui utilise le générateur de nombres aléatoires du système d'exploitation. Transmettez la valeur à la commande +ec-new+ pour générer une nouvelle clé privée. Nous sauvegardons la sortie standard dans le fichier _private_key_ :
 
 ----
 $ bx seed | bx ec-new > private_key
@@ -107,7 +107,7 @@ $ cat public_key
 02fca46a6006a62dfdd2dbb2149359d0d97a04f430f12a7626dd409256c12be500
 ----
 
-Nous pouvons reformater la `public_key` en tant qu'adresse à l'aide de la commande +ec-to-address+. Nous passons le fichier _public_key_ dans l'entrée standard :
+Nous pouvons reformater la +public_key+ en tant qu'adresse à l'aide de la commande +ec-to-address+. Nous passons le fichier _public_key_ dans l'entrée standard :
 
 ----
 $ bx ec-to-address < public_key
@@ -116,7 +116,7 @@ $ bx ec-to-address < public_key
 
 Les clés générées de cette manière produisent un portefeuille non déterministe de type 0. Cela signifie que chaque clé est générée à partir d'une valeur d'amorçage indépendante. Les commandes de Bitcoin Explorer peuvent également générer des clés de manière déterministe, conformément au BIP-32. Dans ce cas, une clé "maître" est créée à partir d'une valeur d'amorçage, puis étendue de manière déterministe pour produire un arbre de sous-clés, résultant en un portefeuille déterministe de type 2.
 
-Tout d'abord, nous utilisons les commandes `seed` et `hd-new` pour générer une clé principale qui servira de base pour dériver une hiérarchie de clés :
+Tout d'abord, nous utilisons les commandes +seed+ et +hd-new+ pour générer une clé principale qui servira de base pour dériver une hiérarchie de clés :
 
 ----
 $ bx seed > seed
@@ -128,7 +128,7 @@ $ cat master
 xprv9s21ZrQH143K2BEhMYpNQoUvAgiEjArAVaZaCTgsaGe6LsAnwubeiTcDzd23mAoyizm9cApe51gNfLMkBqkYoWWMCRwzfuJk8RwF1SVEpAQ
 ----
 
-Nous utilisons maintenant la commande `hd-private` pour générer une clé de "compte" renforcée et une séquence de deux clés privées au sein du compte :
+Nous utilisons maintenant la commande +hd-private+ pour générer une clé de "compte" renforcée et une séquence de deux clés privées au sein du compte :
 
 ----
 $ bx hd-private --hard < master > account
@@ -142,7 +142,7 @@ $ bx hd-private --index 1 < account
 xprv9xHfb6w1vX9xjc8XbN4GN86jzNAZ6xHEqYxzbLB4fzHFd6VqCLPGRZFsdjsuMVERadbgDbziCRJru9n6tzEWrASVpEdrZrFidt1RDfn4yA3
 ----
 
-Ensuite, nous utilisons la commande `hd-public` pour générer la séquence correspondante de deux clés publiques :
+Ensuite, nous utilisons la commande +hd-public+ pour générer la séquence correspondante de deux clés publiques :
 
 ----
 $ bx hd-public --index 0 < account

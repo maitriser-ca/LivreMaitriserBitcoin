@@ -7,7 +7,7 @@
 Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 ====
 
-<<tx_script_ops_table_pushdata>> affiche les opérateurs pour pousser les valeurs sur la pile.((("transactions", "scripts et langage de script", id="TRlang14")))((("scriptage", "Opérateurs de langage de script, constantes et symboles", id="SCRlang14")))
+&lt;<tx_script_ops_table_pushdata>&gt; affiche les opérateurs pour pousser les valeurs sur la pile.((("transactions", "scripts et langage de script", id="TRlang14")))((("scriptage", "Opérateurs de langage de script, constantes et symboles", id="SCRlang14")))
 
 [[tx_script_ops_table_pushdata]]
 .Pousser la valeur sur la pile
@@ -26,7 +26,7 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 |=======
 
 [role="pagebreak-before"]
-<<tx_script_ops_table_control>> affiche les opérateurs de contrôle de flux conditionnel.
+&lt;<tx_script_ops_table_control>&gt; affiche les opérateurs de contrôle de flux conditionnel.
 
 [[tx_script_ops_table_control]]
 .Contrôle de flux conditionnel
@@ -45,7 +45,7 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 | OP_RETURN | 0x6a | Arrête et invalide la transaction
 |=======
 
-<<tx_script_ops_table_timelock>> affiche les opérateurs utilisés pour les verrous temporels.
+&lt;<tx_script_ops_table_timelock>&gt; affiche les opérateurs utilisés pour les verrous temporels.
 
 [[tx_script_ops_table_timelock]]
 .Opérations de verrou temporel
@@ -56,7 +56,7 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 | OP_CHECKSEQUENCEVERIFY (précédemment OP_NOP3) | 0xb2 | Marque la transaction comme non valide si le temps de verrouillage relatif de l'entrée (appliqué par BIP 0068 avec nSequence) n'est pas égal ou supérieur à la valeur de l'élément de la pile supérieure. La sémantique précise est décrite dans BIP-112|
 |=======
 
-<<tx_script_ops_table_stack>> montre les opérateurs utilisés pour manipuler la pile.
+&lt;<tx_script_ops_table_stack>&gt; montre les opérateurs utilisés pour manipuler la pile.
 
 [[tx_script_ops_table_stack]]
 .Opérations de pile
@@ -84,7 +84,7 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 | OP_TUCK | 0x7d | Copie l'élément supérieur et l'insère entre l'élément supérieur et le deuxième élément
 |=======
 
-<<tx_script_ops_table_splice>> affiche les opérateurs de chaîne.
+&lt;<tx_script_ops_table_splice>&gt; affiche les opérateurs de chaîne.
 
 [[tx_script_ops_table_splice]]
 .Opérations d'épissure de chaînes de caractère
@@ -98,7 +98,7 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 | OP_SIZE | 0x82 | Calculer la longueur de la chaîne de l'élément supérieur et pousser le résultat 
 |=======
 
-<<tx_script_ops_table_binmath>> affiche les opérateurs logiques arithmétiques et booléens binaires.
+&lt;<tx_script_ops_table_binmath>&gt; affiche les opérateurs logiques arithmétiques et booléens binaires.
 
 [[tx_script_ops_table_binmath]]
 .Arithmétique binaire et conditionnelles
@@ -116,7 +116,7 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 |=======
 
 [role="pagebreak-before"]
-<<tx_script_ops_table_numbers>> affiche les opérateurs numériques (arithmétiques).
+&lt;<tx_script_ops_table_numbers>&gt; affiche les opérateurs numériques (arithmétiques).
 
 [[tx_script_ops_table_numbers]]
 .Opérateurs numériques
@@ -153,7 +153,7 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 |=======
 
 [role="pagebreak-before"]
-<<tx_script_ops_table_crypto>> affiche les opérateurs de fonction cryptographique.
+&lt;<tx_script_ops_table_crypto>&gt; affiche les opérateurs de fonction cryptographique.
 
 [[tx_script_ops_table_crypto]]
 .Opérations cryptographiques et de hachage
@@ -172,7 +172,7 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 | OP_CHECKMULTISIGVERIFY | 0xaf | Identique à CHECKMULTISIG, puis OP_VERIFY pour arrêter si ce n'est pas TRUE
 |=======
 
-<<tx_script_ops_table_nop>> affiche les symboles non opérateur.
+&lt;<tx_script_ops_table_nop>&gt; affiche les symboles non opérateur.
 
 [[tx_script_ops_table_nop]]
 .Non opérateurs
@@ -183,7 +183,7 @@ Tableaux et descriptions provenant de https://en.bitcoin.it/wiki/Script[].
 |=======
 
 
-<<tx_script_ops_table_internal>> affiche les codes opérateur réservés à l'analyseur de script interne.((("", startref="TRlang14")))((("", startref="SCRlang14")))
+&lt;<tx_script_ops_table_internal>&gt; affiche les codes opérateur réservés à l'analyseur de script interne.((("", startref="TRlang14")))((("", startref="SCRlang14")))
 
 [[tx_script_ops_table_internal]]
 .Codes OP réservés à un usage interne par l'analyseur

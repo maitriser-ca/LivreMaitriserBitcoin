@@ -1,5 +1,3 @@
-:stem: latextmath
-
 = Maîtriser Bitcoin
 
 include::for_use_mastering-bitcoin_preface-open_fr_CA.asciidoc[]
@@ -41,5 +39,3 @@ include::for_use_mastering-bitcoin_appdx-bitcoretxt_fr_CA.asciidoc[]
 include::for_use_mastering-bitcoin_appendix-pycoin_fr_CA.asciidoc[]
 
 include::for_use_mastering-bitcoin_appendix-bx_fr_CA.asciidoc[]
-
-include::ix.html[]

@@ -17,14 +17,14 @@ Deux ans plus tard, après avoir créé un certain nombre de petites start-ups p
 
 _Italique_:: Indique de nouveaux termes, URL, adresses e-mail, noms de fichiers et extensions de fichiers.
 
-`Largeur constante`:: Utilisé pour les listes de programmes, ainsi que dans les paragraphes pour faire référence à des éléments de programme tels que des noms de variables ou de fonctions, des bases de données, des types de données, des variables d'environnement, des instructions et des mots-clés.
++Largeur constante+:: Utilisé pour les listes de programmes, ainsi que dans les paragraphes pour faire référence à des éléments de programme tels que des noms de variables ou de fonctions, des bases de données, des types de données, des variables d'environnement, des instructions et des mots-clés.
 
-`*Largeur constante en gras*`:: Affiche les commandes ou tout autre texte qui doit être saisi littéralement par l'utilisateur.
+**`Largeur constante en gras`**:: Affiche les commandes ou tout autre texte qui doit être saisi littéralement par l'utilisateur.
 
-`_Largeur constante en italique_`:: Affiche le texte qui doit être remplacé par des valeurs fournies par l'utilisateur ou par des valeurs déterminées par le contexte.
+_++Largeur constante en italique++_:: Affiche le texte qui doit être remplacé par des valeurs fournies par l'utilisateur ou par des valeurs déterminées par le contexte.
 
 
-[TIP]
+[INDICE]
 ====
 Cette icône signifie un conseil ou une suggestion.
 ====
@@ -34,7 +34,7 @@ Cette icône signifie un conseil ou une suggestion.
 Cette icône signifie une note générale.
 ====
 
-[WARNING]
+[ATTENTION]
 ====
 Cette icône indique un avertissement ou une mise en garde.
 ====
@@ -55,7 +55,7 @@ Tous les extraits de code utilisent des valeurs réelles et des calculs dans la 
 
 Cependant, notez que les clés privées utilisées pour construire les adresses sont soit imprimées dans ce livre, soit ont été "radiées". Cela signifie que si vous envoyez de l'argent à l'une de ces adresses, l'argent sera perdu pour toujours ou, dans certains cas, tous ceux qui peuvent lire ce livre peuvent le prendre en utilisant les clés privées imprimées dans celui-ci.
 
-[WARNING]
+[ATTENTION]
 ====
 N'ENVOYEZ PAS D'ARGENT AUX ADRESSES DANS CE LIVRE. Votre argent sera pris par un autre lecteur, ou perdu à jamais.((("", startref="codeuse00")))
 ====
@@ -114,7 +114,7 @@ Merci à Cricket Liu, auteur du titre O'Reilly _DNS et BIND_, qui m'a présenté
 
 Les premières ébauches des premiers chapitres ont été les plus difficiles, car le bitcoin est un sujet difficile à démêler. Chaque fois que je tirais sur un fil de la technologie bitcoin, je devais tirer sur le tout. Je me suis retrouvé coincé à plusieurs reprises et un peu découragé alors que je luttais pour rendre le sujet facile à comprendre et créer un récit autour d'un sujet technique aussi dense. Finalement, j'ai décidé de raconter l'histoire du bitcoin à travers les histoires des personnes utilisant le bitcoin et tout le livre est devenu beaucoup plus facile à écrire. Je dois remercier mon ami et mentor, Richard Kagan, qui m'a aidé à démêler l'histoire et à surmonter les moments de blocage de l'écrivain. Je remercie Pamela Morgan, qui a révisé les premières ébauches de chaque chapitre de la première et de la deuxième édition du livre, et a posé les questions difficiles pour les améliorer. Merci également aux développeurs du groupe San Francisco Bitcoin Developers Meetup ainsi qu'à Taariq Lewis et Denise Terry pour avoir aidé à tester le premier matériel. Merci également à Andrew Naugler pour la conception infographique.
 
-Pendant le développement du livre, j'ai rendu les premières ébauches disponibles sur GitHub et j'ai invité les commentaires du public. Plus d'une centaine de commentaires, suggestions, corrections et contributions ont été soumis en réponse. Ces contributions sont explicitement reconnues, avec mes remerciements, dans <<github_contrib>>. Surtout, mes sincères remerciements à mes éditeurs bénévoles de GitHub, Ming T. Nguyen (1ère édition) et Will Binns (2e édition), qui ont travaillé sans relâche pour organiser, gérer et résoudre les demandes d'extraction, publier des rapports et effectuer des corrections de bogues sur GitHub.
+Pendant le développement du livre, j'ai rendu les premières ébauches disponibles sur GitHub et j'ai invité les commentaires du public. Plus d'une centaine de commentaires, suggestions, corrections et contributions ont été soumis en réponse. Ces contributions sont explicitement reconnues, avec mes remerciements, dans &lt;<github_contrib> &gt;. Surtout, mes sincères remerciements à mes éditeurs bénévoles de GitHub, Ming T. Nguyen (1ère édition) et Will Binns (2e édition), qui ont travaillé sans relâche pour organiser, gérer et résoudre les demandes d'extraction, publier des rapports et effectuer des corrections de bogues sur GitHub.
 
 Une fois le livre rédigé, il est passé par plusieurs séries d'examens techniques. Merci à Cricket Liu et Lorne Lantz pour leur examen approfondi, leurs commentaires et leur soutien.
 
