@@ -115,7 +115,7 @@ Amazon FR
 
 ---
 
-L'édition ouverte originale en anglais, en html : [http://www.maitriser.ca/MasteringBitcoinBook/](http://www.maitriser.ca/MasteringBitcoinBook/)
+L'édition ouverte originale en anglais, en html : [http://bitcoin.dabook.org/](http://bitcoin.dabook.org/)
 
 ---
 
