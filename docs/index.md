@@ -79,9 +79,6 @@ Réviseur: en attente
 
 <table style="border-width: 0px;text-align:center;">
 <tr>
-<th style="width:225px;">
-Amazon CA
-</th>
 <th>
 Amazon CA
 </th>
@@ -89,11 +86,7 @@ Amazon CA
 Amazon FR
 </th>
 </tr>
-
 <tr>
-<td>
-<iframe type="text/html" sandbox="allow-scripts allow-same-origin allow-popups" width="212" height="362" frameborder="0" allowfullscreen style="max-width:100%" src="https://read.amazon.ca/kp/card?asin=B09XLJ32TK&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_YZ7K7QJT16F1X4SD3YPC" ></iframe>
-</td>
 <td>
 <a href="https://www.amazon.ca/dp/B09XLJ32TK">amazon.ca: B09XLJ32TK</a>
 </td>
