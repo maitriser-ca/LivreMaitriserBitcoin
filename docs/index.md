@@ -71,7 +71,11 @@ Réviseur: en attente
 
 ---
 
-Si vous préférez une copie papier ou un format ebook Kindle vous pouvez suivre le lien ci-contre.
+<div style="margin:5% auto;">
+    <a href="https://www.amazon.ca/dp/B09XRS3F2N" target="_newtab">
+        <img src="../assets/MB2EO-SITE_AMAZON_BANNER-001.jpg" width="100%" alt="Bannière Amazon du livre Maîtriser Ethereum" style="border-radius:10px;" />
+    </a>    
+</div>
 
 <table style="border-width: 0px;text-align:center;">
 <tr>
