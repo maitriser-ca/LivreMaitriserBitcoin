@@ -11,7 +11,7 @@ Le livre **Maîtriser Bitcoin: Programmer la chaîne de blocs publique**, traduc
 
 ---
 
-![Maîtriser Bitcoin: Programmer la chaîne de blocs publique](assets/MB2EO-GITHUB_BANNER-003.jpg)
+![Maîtriser Bitcoin: Programmer la chaîne de blocs publique](assets/MB2EO-GITHUB_BANNER-004.jpg)
 
 ---
 <center style="font-size:1.2em;">
@@ -73,8 +73,8 @@ Réviseur: en attente
 
 <div style="margin:5% auto;">
     <a href="https://www.amazon.ca/dp/B09XRS3F2N" target="_newtab">
-        <img src="../assets/MB2EO-SITE_AMAZON_BANNER-001.jpg" width="100%" alt="Bannière Amazon du livre Maîtriser Ethereum" style="border-radius:10px;" />
-    </a>    
+        <img src="../assets/MB2EO-SITE_AMAZON_BANNER-002.jpg" width="100%" alt="Bannière Amazon du livre Maîtriser Ethereum" style="border-radius:10px;" />
+    </a>
 </div>
 
 <table style="border-width: 0px;text-align:center;">
