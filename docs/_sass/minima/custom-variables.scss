@@ -1,1 +1,47 @@
-// Placeholder to allow overriding predefined variables smoothly.
+// Grey-Sand Pastel Theme - Custom Variables
+
+// Color Palette - Calming grey-sand pastel tones
+$background-color: #faf9f7 !default;          // Warm off-white sand
+$text-color: #4a4a4a !default;                // Soft charcoal grey
+$brand-color: #8b8680 !default;               // Muted grey-brown
+$brand-color-light: #c4bcb7 !default;          // Calculated lighten($brand-color, 40%)
+$brand-color-dark: #5e5651 !default;            // Calculated darken($brand-color, 25%)
+
+// Accent colors
+$accent-color: #a69c94 !default;              // Warm grey-beige
+$accent-light: #d4cfc8 !default;              // Light sand
+$accent-lighter: #e8e4de !default;            // Very light sand
+$accent-dark: #6b6258 !default;               // Dark sand-brown
+
+// Content area colors
+$content-bg: #ffffff !default;                // Pure white for content
+$sidebar-bg: #f5f3f0 !default;                // Light warm grey
+$border-color: #ddd8d2 !default;              // Soft border color
+$table-border-color: #e6e1db !default;        // Table borders
+
+// Typography
+$base-font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$base-font-size: 16px !default;
+$base-font-weight: 400 !default;
+$small-font-size: $base-font-size * 0.875 !default;
+$base-line-height: 1.6 !default;
+
+// Code and syntax highlighting
+$code-bg: #f8f6f3 !default;                   // Light sand for code blocks
+$code-border: #e0dbd5 !default;               // Code block borders
+
+// Links
+$link-base-color: #7a6f66 !default;           // Muted brown for links
+$link-visited-color: $link-base-color !default;
+$link-hover-color: #665d56 !default;           // Calculated darken($link-base-color, 15%)
+
+// Header and navigation
+$header-bg: $accent-lighter !default;          // Light sand header
+$nav-link-color: $text-color !default;
+$nav-link-hover: $accent-color !default;
+
+// Spacing
+$spacing-unit: 30px !default;
+$content-width: 800px !default;
+$on-palm: 600px !default;
+$on-laptop: 800px !default;

@@ -1,2 +1,254 @@
-// Placeholder to allow defining custom styles that override everything else.
-// (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+// Grey-Sand Pastel Theme - Custom Styles
+
+// Base styles
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: $base-font-family;
+  line-height: $base-line-height;
+}
+
+// Header styling
+.site-header {
+  background-color: $header-bg;
+  border-bottom: 2px solid $border-color;
+  box-shadow: 0 2px 8px rgba(139, 134, 128, 0.1);
+  
+  .site-title {
+    color: $text-color;
+    font-weight: 500;
+    
+    &:hover {
+      color: $accent-color;
+      text-decoration: none;
+    }
+  }
+  
+  .site-nav {
+    .page-link {
+      color: $nav-link-color;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: $nav-link-hover;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Main content area
+.page-content {
+  background-color: $content-bg;
+  padding: $spacing-unit 0;
+}
+
+.wrapper {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
+  background-color: $content-bg;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(139, 134, 128, 0.08);
+}
+
+// Typography enhancements
+h1, h2, h3, h4, h5, h6 {
+  color: $accent-dark;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  border-bottom: 3px solid $accent-light;
+  padding-bottom: 0.5rem;
+}
+
+h2 {
+  border-bottom: 2px solid $accent-lighter;
+  padding-bottom: 0.3rem;
+}
+
+// Links
+a {
+  color: $link-base-color;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: underline;
+  }
+  
+  &:visited {
+    color: $link-visited-color;
+  }
+}
+
+// Code styling
+code {
+  background-color: $code-bg;
+  border: 1px solid $code-border;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: $accent-dark;
+}
+
+pre {
+  background-color: $code-bg;
+  border: 1px solid $code-border;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  
+  code {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+}
+
+// Tables
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+  
+  th, td {
+    border: 1px solid $table-border-color;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  th {
+    background-color: $accent-lighter;
+    font-weight: 500;
+    color: $accent-dark;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: rgba(232, 228, 222, 0.3);
+  }
+}
+
+// Blockquotes
+blockquote {
+  border-left: 4px solid $accent-color;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  background-color: rgba(232, 228, 222, 0.2);
+  padding: 1rem 1rem 1rem 2rem;
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  color: $accent-dark;
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(139, 134, 128, 0.15);
+  margin: 1rem 0;
+}
+
+// Footer
+.site-footer {
+  background-color: $accent-lighter;
+  border-top: 2px solid $border-color;
+  color: $accent-dark;
+  padding: $spacing-unit 0;
+  
+  .footer-heading {
+    color: $accent-dark;
+    font-weight: 500;
+  }
+  
+  a {
+    color: $accent-dark;
+    
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+}
+
+// Posts and pages
+.post-title, .page-heading {
+  color: $accent-dark;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.post-content {
+  margin-bottom: 2rem;
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.post-meta {
+  color: $accent-color;
+  font-size: $small-font-size;
+  margin-bottom: 1rem;
+}
+
+// Navigation improvements
+.post-nav {
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: $sidebar-bg;
+  border-radius: 6px;
+  border: 1px solid $border-color;
+}
+
+// Responsive adjustments
+@media screen and (max-width: $on-palm) {
+  .wrapper {
+    padding: 0 1rem;
+    border-radius: 0;
+  }
+  
+  .site-header {
+    padding: 0.5rem 0;
+  }
+}
+
+// Button styling (if needed)
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: $accent-color;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: $accent-dark;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+// Highlight boxes for important content
+.highlight-box {
+  background-color: rgba(232, 228, 222, 0.3);
+  border: 1px solid $accent-light;
+  padding: 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  
+  &.info {
+    border-left: 4px solid $accent-color;
+  }
+  
+  &.warning {
+    border-left: 4px solid #d4a574;
+    background-color: rgba(212, 165, 116, 0.1);
+  }
+}
