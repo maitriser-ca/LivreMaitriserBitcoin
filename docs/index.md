@@ -1,46 +1,3 @@
-<<<<<<< HEAD:README.md
-# Ma&icirc;triser Bitcoin: Programmer la cha&icirc;ne de blocs publique, 2ième édition ouverte
-
-Auteur : **Andreas M. Antonopoulos**
-
-Traducteur : **Google Translate API** via **[transifex.com](https://www.transifex.com)**
-
-Pré-réviseur : **Serafim Dos Santos**
-
-Réviseur : **En attente...**
-
-Le livre **Maîtriser Bitcoin : Programmer la chaîne de blocs publique** (_**Mastering Bitcoin: Programming the Open Blockchain**_ par O'Reilly Media) tel qu'écrit originalement en anglais par _Andreas M. Antonopoulos_, traduit en français (Canada) par _Google Translate API_ et révisé par _Serafim Dos Santos_ avec les termes du [Grand dictionnaire terminologique (GDT)](https://gdt.oqlf.gouv.qc.ca/) de l'[Office qu&eacute;b&eacute;cois de la langue fran&ccedil;aise](https://www.oqlf.gouv.qc.ca/).
-
-## Feuille de route
-* Traduction
-  - [x] Phase de traduction (DONE1) : 👍
-  - [x] Phase de révision (DONE2) : 👍
-  - [x] Phase de conclusion (DONEF) : 👍
-* Révision
-  - [ ] Phase de révision externe
-
-## Préambule - 22 avril 2022
-
-Ce référentiel contient les documents du livre traduit en français sous la bannière nord-américaine du Québec, dans les formats suivants:
-
-* asciidoc - /adoc
-* html - /html
-
-Vous pouvez toujours convertif les documents `*.asciidoc` en fichiers `.pdf`, `.docx` ou autres formats via l'outil [AsciiDoctor](https://asciidoctor.org/).
-
-**Veuillez noter que les documents `.asciidoc` source sont fait pour être assemblés dans le fichier principal `book.asciidoc`, donc si vous compilez les fichiers individuellement (i.e. par chapitre), les liens entre les en-têtes des grandes lignes du livre seront non-repérables: on ne peut naviguer entre les documents compilés séparément.**
-
-
-![Maîtriser Bitcoin: Programmer la chaîne de blocs publique](assets/MB2EO-BANNER-002.png)
-
-## _Mastering Bitcoin - Second Edition_
-
-La source originale de ces textes est tiré du livre à édition ouverte <strong>Mastering Bitcoin</strong> par __Andreas M. Antonopoulos__ accessible sur GitHub
-
-👉👉👉 <a href="https://github.com/bitcoinbook/bitcoinbook">github.com/bitcoinbook/bitcoinbook</a> 👈👈👈
-
-Ευχαριστώ Ανδρέα!
-=======
 ---
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
@@ -161,7 +118,6 @@ Amazon FR
 L'édition ouverte originale en anglais, en html : [http://www.maitriser.ca/MasteringBitcoinBook/](http://www.maitriser.ca/MasteringBitcoinBook/)
 
 ---
->>>>>>> 149ce9a368d3c2b62290ef5e49c911a562237bd5:docs/index.md
 
 ## Translations
 If you are interested in translating this book, please join a team of volunteers at [www.transifex.com/bitcoinbook/mastering-bitcoin/](https://www.transifex.com/bitcoinbook/mastering-bitcoin/)
