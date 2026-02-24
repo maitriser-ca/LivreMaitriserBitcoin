@@ -101,20 +101,6 @@ Amazon FR
 
 ---
 
-<div style="display: flex; text-align:center;">
-  <div style="width:35%;">
-  <p>Pour un don ou me payer un café :</p>
-  <img src="assets/bluewallet-bitcoin-sponsoring-qr-code.jpg" alt="" style="max-width:33.5%;">
-  </div>
-
-  <div style="width:65%;">
-  <p>bitcoin:bc1qgal2khvhktyqaj99etxmtd6m6xhv72ht0zvhtx</p>
-  <p>$ETH : serafdossantos.eth</p>
-  </div>
-</div>
-
----
-
 L'édition ouverte originale en anglais, en html : [http://www.maitriser.ca/MasteringBitcoinBook/](http://www.maitriser.ca/MasteringBitcoinBook/)
 
 ---
